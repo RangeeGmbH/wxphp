@@ -13,6 +13,11 @@ wxPHPObjectReferences::wxPHPObjectReferences()
 {
     m_userInitialized = 0x000000;
 }
+wxPHPObjectReferences::wxPHPObjectReferences(std::string className) : className(className)
+{
+    m_userInitialized = 0x000000;
+}
+
 
 wxPHPObjectReferences::~wxPHPObjectReferences()
 {
@@ -61,14 +66,18 @@ void wxPHPObjectReferences::RemoveReferences()
 
         for(unsigned int i=0; i<m_references.size(); i++)
         {
-            if (Z_REFCOUNTED_P((m_references[i])) && Z_TYPE_P(m_references[i]) > IS_UNDEF && Z_TYPE_P(m_references[i]) <= _IS_ERROR) {
+            if (Z_REFCOUNTED_P((m_references[i])) && Z_TYPE_P(m_references[i]) > IS_UNDEF && Z_TYPE_P(m_references[i]) <= _IS_ERROR && m_references[i]->value.counted->gc.refcount > 0) {
                 #ifdef USE_WXPHP_DEBUG
                 php_printf("Removing reference: %i\n", i);
                 #endif
-
                 Z_TRY_DELREF_P(m_references[i]);
             }
         }
+
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Finished Removing References\n");
+        #endif
+
     }
     #endif
 }

@@ -8493,6 +8493,7 @@ PHP_METHOD(php_wxColourData, FromString)
 BEGIN_EXTERN_C()
 void php_wxDialog_free(void *object)
 {
+    php_printf("wxDialog_free called!\n");
     zo_wxDialog* custom_object = (zo_wxDialog*) object;
 
     /*zend_error(

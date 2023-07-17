@@ -23,6 +23,7 @@ class wxPHPObjectReferences
     public:
 
     wxPHPObjectReferences();
+    wxPHPObjectReferences(std::string className);
 
     ~wxPHPObjectReferences();
 
@@ -78,6 +79,8 @@ class wxPHPObjectReferences
     // Vector that keeps a registry of all zvals* which
     // refcount was incremented
     std::vector<zval*> m_references;
+
+    std::string className;
 };
 
 #endif //WXPHP_REFERENCES_H_GUARD

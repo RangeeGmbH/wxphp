@@ -2091,8 +2091,8 @@ void php_wxDialog_destruction_handler(zend_resource*);
 class wxDialog_php: public wxDialog{
     public:
 
-    wxDialog_php(wxWindow* parent, wxWindowID id, const wxString& title, const wxPoint& pos=wxDefaultPosition, const wxSize& size=wxDefaultSize, long style=wxDEFAULT_DIALOG_STYLE, const wxString& name=wxDialogNameStr):wxDialog(parent, id, title, pos, size, style, name){}
-    wxDialog_php():wxDialog(){}
+    wxDialog_php(wxWindow* parent, wxWindowID id, const wxString& title, const wxPoint& pos=wxDefaultPosition, const wxSize& size=wxDefaultSize, long style=wxDEFAULT_DIALOG_STYLE, const wxString& name=wxDialogNameStr):wxDialog(parent, id, title, pos, size, style, name), references("wxDialog_php") {}
+    wxDialog_php():wxDialog(), references("wxDialog_php") {}
     
     
 
