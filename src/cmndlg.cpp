@@ -8491,18 +8491,18 @@ PHP_METHOD(php_wxColourData, FromString)
 /* }}} */
 
 BEGIN_EXTERN_C()
-void php_wxDialog_free(void *object)
+void php_wxDialog_free(zend_object *object)
 {
-    zo_wxDialog* custom_object = (zo_wxDialog*) object;
-
+    //zo_wxDialog* custom_object = (zo_wxDialog*) object;
+    php_printf("php_wxDialog_free got called!\n");
     /*zend_error(
         E_WARNING,
         "Object of class wxDialog went out of scope. "
         "Remember to always call Destroy() to prevent memory leaks."
     );*/
 
-    zend_object_std_dtor(&custom_object->zo);
-    efree(custom_object);
+    zend_object_std_dtor(object);
+    //efree(custom_object);
 }
 
 zend_object* php_wxDialog_new(zend_class_entry *class_type)
@@ -8526,6 +8526,9 @@ zend_object* php_wxDialog_new(zend_class_entry *class_type)
 
     zend_object_std_init(&custom_object->zo, class_type);
     object_properties_init(&custom_object->zo, class_type);
+
+    wxphp_wxDialog_object_handlers.offset = XtOffsetOf(zo_wxDialog, zo);
+    wxphp_wxDialog_object_handlers.free_obj = php_wxDialog_free;
 
     custom_object->zo.handlers = &wxphp_wxDialog_object_handlers;
 

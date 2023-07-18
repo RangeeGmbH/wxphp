@@ -2108,7 +2108,7 @@ typedef struct _zo_wxDialog{
     zend_object zo;
 } zo_wxDialog;
 
-void php_wxDialog_free(void *object);
+void php_wxDialog_free(zend_object *object);
 zend_object* php_wxDialog_new(zend_class_entry *class_type);
 END_EXTERN_C()
 

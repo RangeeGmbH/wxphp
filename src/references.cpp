@@ -61,7 +61,11 @@ void wxPHPObjectReferences::RemoveReferences()
 
         for(unsigned int i=0; i<m_references.size(); i++)
         {
-            if (Z_REFCOUNTED_P((m_references[i])) && Z_TYPE_P(m_references[i]) > IS_UNDEF && Z_TYPE_P(m_references[i]) <= _IS_ERROR) {
+            #ifdef USE_WXPHP_DEBUG
+            if (Z_REFCOUNTED_P(m_references[i]))
+                php_printf("How many refcounts does %i have?: %i\n", i, Z_REFCOUNT_P(m_references[i]));
+            #endif
+            if (Z_REFCOUNTED_P((m_references[i])) && Z_REFCOUNT_P(m_references[i]) > 0 && Z_TYPE_P(m_references[i]) > IS_UNDEF && Z_TYPE_P(m_references[i]) <= _IS_ERROR) {
                 #ifdef USE_WXPHP_DEBUG
                 php_printf("Removing reference: %i\n", i);
                 #endif
