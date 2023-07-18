@@ -91,10 +91,8 @@ void php_<?=$class_name?>_destruction_handler(zend_resource *rsrc)
 */
 ?>
 BEGIN_EXTERN_C()
-void php_<?=$class_name?>_free(void *object)
+void php_<?=$class_name?>_free(zend_object *object)
 {
-    zo_<?=$class_name?>* custom_object = (zo_<?=$class_name?>*) object;
-
 <?if(!inherits_from_class("wxSizer", $class_name) && !inherits_from_class("wxTopLevelWindow", $class_name) && !inherits_from_class("wxPanel", $class_name) && !inherits_from_class("wxControl", $class_name) && $class_name != "wxMenu" && $class_name != "wxMenuItem" && $class_name != "wxMenuBar" && $class_name != "wxPanel" && $class_name != "wxSplitterWindow" && $class_name != "wxScrolledWindow" && $class_name != "wxScrolledWindow" && $class_name != "wxAuiManager" && $class_name != "wxThread"){?>
     #ifdef USE_WXPHP_DEBUG
     php_printf(
@@ -166,8 +164,7 @@ void php_<?=$class_name?>_free(void *object)
     #endif
 <?}?>
 
-    zend_object_std_dtor(&custom_object->zo);
-    efree(custom_object);
+    zend_object_std_dtor(object);
 }
 
 zend_object* php_<?=$class_name?>_new(zend_class_entry *class_type)
@@ -191,6 +188,9 @@ zend_object* php_<?=$class_name?>_new(zend_class_entry *class_type)
 
     zend_object_std_init(&custom_object->zo, class_type);
     object_properties_init(&custom_object->zo, class_type);
+
+    &wxphp_<?=$class_name?>_object_handlers.offset = XtOffsetOf(zo_<?=$class_name?>);
+    &wxphp_<?=$class_name?>_object_handlers.free_obj = php_<?=$class_name?>_free;
 
     custom_object->zo.handlers = &wxphp_<?=$class_name?>_object_handlers;
 
