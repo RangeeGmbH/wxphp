@@ -44,7 +44,7 @@ typedef struct _zo_wxFFile{
     zend_object zo;
 } zo_wxFFile;
 
-void php_wxFFile_free(void *object);
+void php_wxFFile_free(zend_object *object);
 zend_object* php_wxFFile_new(zend_class_entry *class_type);
 END_EXTERN_C()
 
@@ -142,7 +142,7 @@ typedef struct _zo_wxFile{
     zend_object zo;
 } zo_wxFile;
 
-void php_wxFile_free(void *object);
+void php_wxFile_free(zend_object *object);
 zend_object* php_wxFile_new(zend_class_entry *class_type);
 END_EXTERN_C()
 
@@ -263,7 +263,7 @@ typedef struct _zo_wxPathList{
     zend_object zo;
 } zo_wxPathList;
 
-void php_wxPathList_free(void *object);
+void php_wxPathList_free(zend_object *object);
 zend_object* php_wxPathList_new(zend_class_entry *class_type);
 END_EXTERN_C()
 
@@ -335,7 +335,7 @@ typedef struct _zo_wxFileName{
     zend_object zo;
 } zo_wxFileName;
 
-void php_wxFileName_free(void *object);
+void php_wxFileName_free(zend_object *object);
 zend_object* php_wxFileName_new(zend_class_entry *class_type);
 END_EXTERN_C()
 
@@ -689,7 +689,7 @@ typedef struct _zo_wxFSFile{
     zend_object zo;
 } zo_wxFSFile;
 
-void php_wxFSFile_free(void *object);
+void php_wxFSFile_free(zend_object *object);
 zend_object* php_wxFSFile_new(zend_class_entry *class_type);
 END_EXTERN_C()
 
@@ -773,7 +773,7 @@ typedef struct _zo_wxFileSystemWatcher{
     zend_object zo;
 } zo_wxFileSystemWatcher;
 
-void php_wxFileSystemWatcher_free(void *object);
+void php_wxFileSystemWatcher_free(zend_object *object);
 zend_object* php_wxFileSystemWatcher_new(zend_class_entry *class_type);
 END_EXTERN_C()
 
@@ -920,7 +920,7 @@ typedef struct _zo_wxStandardPaths{
     zend_object zo;
 } zo_wxStandardPaths;
 
-void php_wxStandardPaths_free(void *object);
+void php_wxStandardPaths_free(zend_object *object);
 zend_object* php_wxStandardPaths_new(zend_class_entry *class_type);
 END_EXTERN_C()
 

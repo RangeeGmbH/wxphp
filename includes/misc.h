@@ -42,7 +42,7 @@ typedef struct _zo_wxArtProvider{
     zend_object zo;
 } zo_wxArtProvider;
 
-void php_wxArtProvider_free(void *object);
+void php_wxArtProvider_free(zend_object *object);
 zend_object* php_wxArtProvider_new(zend_class_entry *class_type);
 END_EXTERN_C()
 
@@ -152,7 +152,7 @@ typedef struct _zo_wxCaret{
     zend_object zo;
 } zo_wxCaret;
 
-void php_wxCaret_free(void *object);
+void php_wxCaret_free(zend_object *object);
 zend_object* php_wxCaret_new(zend_class_entry *class_type);
 END_EXTERN_C()
 
@@ -245,7 +245,7 @@ typedef struct _zo_wxNotificationMessage{
     zend_object zo;
 } zo_wxNotificationMessage;
 
-void php_wxNotificationMessage_free(void *object);
+void php_wxNotificationMessage_free(zend_object *object);
 zend_object* php_wxNotificationMessage_new(zend_class_entry *class_type);
 END_EXTERN_C()
 
@@ -390,7 +390,7 @@ typedef struct _zo_wxStopWatch{
     zend_object zo;
 } zo_wxStopWatch;
 
-void php_wxStopWatch_free(void *object);
+void php_wxStopWatch_free(zend_object *object);
 zend_object* php_wxStopWatch_new(zend_class_entry *class_type);
 END_EXTERN_C()
 
@@ -450,7 +450,7 @@ typedef struct _zo_wxTaskBarIcon{
     zend_object zo;
 } zo_wxTaskBarIcon;
 
-void php_wxTaskBarIcon_free(void *object);
+void php_wxTaskBarIcon_free(zend_object *object);
 zend_object* php_wxTaskBarIcon_new(zend_class_entry *class_type);
 END_EXTERN_C()
 
@@ -594,7 +594,7 @@ typedef struct _zo_wxTimer{
     zend_object zo;
 } zo_wxTimer;
 
-void php_wxTimer_free(void *object);
+void php_wxTimer_free(zend_object *object);
 zend_object* php_wxTimer_new(zend_class_entry *class_type);
 END_EXTERN_C()
 
@@ -746,7 +746,7 @@ typedef struct _zo_wxWindowDisabler{
     zend_object zo;
 } zo_wxWindowDisabler;
 
-void php_wxWindowDisabler_free(void *object);
+void php_wxWindowDisabler_free(zend_object *object);
 zend_object* php_wxWindowDisabler_new(zend_class_entry *class_type);
 END_EXTERN_C()
 
@@ -793,7 +793,7 @@ typedef struct _zo_wxBusyCursor{
     zend_object zo;
 } zo_wxBusyCursor;
 
-void php_wxBusyCursor_free(void *object);
+void php_wxBusyCursor_free(zend_object *object);
 zend_object* php_wxBusyCursor_new(zend_class_entry *class_type);
 END_EXTERN_C()
 

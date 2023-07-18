@@ -54,7 +54,7 @@
 
 
 BEGIN_EXTERN_C()
-void php_wxFrame_free(void *object)
+void php_wxFrame_free(zend_object *object)
 {
     zo_wxFrame* custom_object = (zo_wxFrame*) object;
 
@@ -64,8 +64,7 @@ void php_wxFrame_free(void *object)
         "Remember to always call Destroy() to prevent memory leaks."
     );*/
 
-    zend_object_std_dtor(&custom_object->zo);
-    efree(custom_object);
+    zend_object_std_dtor(object);
 }
 
 zend_object* php_wxFrame_new(zend_class_entry *class_type)
@@ -89,6 +88,9 @@ zend_object* php_wxFrame_new(zend_class_entry *class_type)
 
     zend_object_std_init(&custom_object->zo, class_type);
     object_properties_init(&custom_object->zo, class_type);
+
+    wxphp_wxFrame_object_handlers.offset = XtOffsetOf(zo_wxFrame, zo);
+    wxphp_wxFrame_object_handlers.free_obj = php_wxFrame_free;
 
     custom_object->zo.handlers = &wxphp_wxFrame_object_handlers;
 
@@ -4069,7 +4071,7 @@ PHP_METHOD(php_wxFrame, CreateToolBar)
 /* }}} */
 
 BEGIN_EXTERN_C()
-void php_wxMDIClientWindow_free(void *object)
+void php_wxMDIClientWindow_free(zend_object *object)
 {
     zo_wxMDIClientWindow* custom_object = (zo_wxMDIClientWindow*) object;
 
@@ -4114,8 +4116,7 @@ void php_wxMDIClientWindow_free(void *object)
         #endif
     }
 
-    zend_object_std_dtor(&custom_object->zo);
-    efree(custom_object);
+    zend_object_std_dtor(object);
 }
 
 zend_object* php_wxMDIClientWindow_new(zend_class_entry *class_type)
@@ -4139,6 +4140,9 @@ zend_object* php_wxMDIClientWindow_new(zend_class_entry *class_type)
 
     zend_object_std_init(&custom_object->zo, class_type);
     object_properties_init(&custom_object->zo, class_type);
+
+    wxphp_wxMDIClientWindow_object_handlers.offset = XtOffsetOf(zo_wxMDIClientWindow, zo);
+    wxphp_wxMDIClientWindow_object_handlers.free_obj = php_wxMDIClientWindow_free;
 
     custom_object->zo.handlers = &wxphp_wxMDIClientWindow_object_handlers;
 
@@ -4379,7 +4383,7 @@ PHP_METHOD(php_wxMDIClientWindow, CreateClient)
 /* }}} */
 
 BEGIN_EXTERN_C()
-void php_wxMDIParentFrame_free(void *object)
+void php_wxMDIParentFrame_free(zend_object *object)
 {
     zo_wxMDIParentFrame* custom_object = (zo_wxMDIParentFrame*) object;
 
@@ -4389,8 +4393,7 @@ void php_wxMDIParentFrame_free(void *object)
         "Remember to always call Destroy() to prevent memory leaks."
     );*/
 
-    zend_object_std_dtor(&custom_object->zo);
-    efree(custom_object);
+    zend_object_std_dtor(object);
 }
 
 zend_object* php_wxMDIParentFrame_new(zend_class_entry *class_type)
@@ -4414,6 +4417,9 @@ zend_object* php_wxMDIParentFrame_new(zend_class_entry *class_type)
 
     zend_object_std_init(&custom_object->zo, class_type);
     object_properties_init(&custom_object->zo, class_type);
+
+    wxphp_wxMDIParentFrame_object_handlers.offset = XtOffsetOf(zo_wxMDIParentFrame, zo);
+    wxphp_wxMDIParentFrame_object_handlers.free_obj = php_wxMDIParentFrame_free;
 
     custom_object->zo.handlers = &wxphp_wxMDIParentFrame_object_handlers;
 
@@ -6045,7 +6051,7 @@ PHP_METHOD(php_wxMDIParentFrame, __construct)
 /* }}} */
 
 BEGIN_EXTERN_C()
-void php_wxMDIChildFrame_free(void *object)
+void php_wxMDIChildFrame_free(zend_object *object)
 {
     zo_wxMDIChildFrame* custom_object = (zo_wxMDIChildFrame*) object;
 
@@ -6055,8 +6061,7 @@ void php_wxMDIChildFrame_free(void *object)
         "Remember to always call Destroy() to prevent memory leaks."
     );*/
 
-    zend_object_std_dtor(&custom_object->zo);
-    efree(custom_object);
+    zend_object_std_dtor(object);
 }
 
 zend_object* php_wxMDIChildFrame_new(zend_class_entry *class_type)
@@ -6080,6 +6085,9 @@ zend_object* php_wxMDIChildFrame_new(zend_class_entry *class_type)
 
     zend_object_std_init(&custom_object->zo, class_type);
     object_properties_init(&custom_object->zo, class_type);
+
+    wxphp_wxMDIChildFrame_object_handlers.offset = XtOffsetOf(zo_wxMDIChildFrame, zo);
+    wxphp_wxMDIChildFrame_object_handlers.free_obj = php_wxMDIChildFrame_free;
 
     custom_object->zo.handlers = &wxphp_wxMDIChildFrame_object_handlers;
 
@@ -7141,7 +7149,7 @@ PHP_METHOD(php_wxMDIChildFrame, Activate)
 /* }}} */
 
 BEGIN_EXTERN_C()
-void php_wxMiniFrame_free(void *object)
+void php_wxMiniFrame_free(zend_object *object)
 {
     zo_wxMiniFrame* custom_object = (zo_wxMiniFrame*) object;
 
@@ -7151,8 +7159,7 @@ void php_wxMiniFrame_free(void *object)
         "Remember to always call Destroy() to prevent memory leaks."
     );*/
 
-    zend_object_std_dtor(&custom_object->zo);
-    efree(custom_object);
+    zend_object_std_dtor(object);
 }
 
 zend_object* php_wxMiniFrame_new(zend_class_entry *class_type)
@@ -7176,6 +7183,9 @@ zend_object* php_wxMiniFrame_new(zend_class_entry *class_type)
 
     zend_object_std_init(&custom_object->zo, class_type);
     object_properties_init(&custom_object->zo, class_type);
+
+    wxphp_wxMiniFrame_object_handlers.offset = XtOffsetOf(zo_wxMiniFrame, zo);
+    wxphp_wxMiniFrame_object_handlers.free_obj = php_wxMiniFrame_free;
 
     custom_object->zo.handlers = &wxphp_wxMiniFrame_object_handlers;
 
@@ -7662,7 +7672,7 @@ PHP_METHOD(php_wxMiniFrame, __construct)
 /* }}} */
 
 BEGIN_EXTERN_C()
-void php_wxPopupWindow_free(void *object)
+void php_wxPopupWindow_free(zend_object *object)
 {
     zo_wxPopupWindow* custom_object = (zo_wxPopupWindow*) object;
 
@@ -7707,8 +7717,7 @@ void php_wxPopupWindow_free(void *object)
         #endif
     }
 
-    zend_object_std_dtor(&custom_object->zo);
-    efree(custom_object);
+    zend_object_std_dtor(object);
 }
 
 zend_object* php_wxPopupWindow_new(zend_class_entry *class_type)
@@ -7732,6 +7741,9 @@ zend_object* php_wxPopupWindow_new(zend_class_entry *class_type)
 
     zend_object_std_init(&custom_object->zo, class_type);
     object_properties_init(&custom_object->zo, class_type);
+
+    wxphp_wxPopupWindow_object_handlers.offset = XtOffsetOf(zo_wxPopupWindow, zo);
+    wxphp_wxPopupWindow_object_handlers.free_obj = php_wxPopupWindow_free;
 
     custom_object->zo.handlers = &wxphp_wxPopupWindow_object_handlers;
 
@@ -8168,7 +8180,7 @@ PHP_METHOD(php_wxPopupWindow, __construct)
 /* }}} */
 
 BEGIN_EXTERN_C()
-void php_wxPopupTransientWindow_free(void *object)
+void php_wxPopupTransientWindow_free(zend_object *object)
 {
     zo_wxPopupTransientWindow* custom_object = (zo_wxPopupTransientWindow*) object;
 
@@ -8213,8 +8225,7 @@ void php_wxPopupTransientWindow_free(void *object)
         #endif
     }
 
-    zend_object_std_dtor(&custom_object->zo);
-    efree(custom_object);
+    zend_object_std_dtor(object);
 }
 
 zend_object* php_wxPopupTransientWindow_new(zend_class_entry *class_type)
@@ -8238,6 +8249,9 @@ zend_object* php_wxPopupTransientWindow_new(zend_class_entry *class_type)
 
     zend_object_std_init(&custom_object->zo, class_type);
     object_properties_init(&custom_object->zo, class_type);
+
+    wxphp_wxPopupTransientWindow_object_handlers.offset = XtOffsetOf(zo_wxPopupTransientWindow, zo);
+    wxphp_wxPopupTransientWindow_object_handlers.free_obj = php_wxPopupTransientWindow_free;
 
     custom_object->zo.handlers = &wxphp_wxPopupTransientWindow_object_handlers;
 
@@ -8751,7 +8765,7 @@ PHP_METHOD(php_wxPopupTransientWindow, __construct)
 /* }}} */
 
 BEGIN_EXTERN_C()
-void php_wxPropertySheetDialog_free(void *object)
+void php_wxPropertySheetDialog_free(zend_object *object)
 {
     zo_wxPropertySheetDialog* custom_object = (zo_wxPropertySheetDialog*) object;
 
@@ -8761,8 +8775,7 @@ void php_wxPropertySheetDialog_free(void *object)
         "Remember to always call Destroy() to prevent memory leaks."
     );*/
 
-    zend_object_std_dtor(&custom_object->zo);
-    efree(custom_object);
+    zend_object_std_dtor(object);
 }
 
 zend_object* php_wxPropertySheetDialog_new(zend_class_entry *class_type)
@@ -8786,6 +8799,9 @@ zend_object* php_wxPropertySheetDialog_new(zend_class_entry *class_type)
 
     zend_object_std_init(&custom_object->zo, class_type);
     object_properties_init(&custom_object->zo, class_type);
+
+    wxphp_wxPropertySheetDialog_object_handlers.offset = XtOffsetOf(zo_wxPropertySheetDialog, zo);
+    wxphp_wxPropertySheetDialog_object_handlers.free_obj = php_wxPropertySheetDialog_free;
 
     custom_object->zo.handlers = &wxphp_wxPropertySheetDialog_object_handlers;
 
@@ -10357,7 +10373,7 @@ PHP_METHOD(php_wxPropertySheetDialog, __construct)
 /* }}} */
 
 BEGIN_EXTERN_C()
-void php_wxSplashScreen_free(void *object)
+void php_wxSplashScreen_free(zend_object *object)
 {
     zo_wxSplashScreen* custom_object = (zo_wxSplashScreen*) object;
 
@@ -10367,8 +10383,7 @@ void php_wxSplashScreen_free(void *object)
         "Remember to always call Destroy() to prevent memory leaks."
     );*/
 
-    zend_object_std_dtor(&custom_object->zo);
-    efree(custom_object);
+    zend_object_std_dtor(object);
 }
 
 zend_object* php_wxSplashScreen_new(zend_class_entry *class_type)
@@ -10392,6 +10407,9 @@ zend_object* php_wxSplashScreen_new(zend_class_entry *class_type)
 
     zend_object_std_init(&custom_object->zo, class_type);
     object_properties_init(&custom_object->zo, class_type);
+
+    wxphp_wxSplashScreen_object_handlers.offset = XtOffsetOf(zo_wxSplashScreen, zo);
+    wxphp_wxSplashScreen_object_handlers.free_obj = php_wxSplashScreen_free;
 
     custom_object->zo.handlers = &wxphp_wxSplashScreen_object_handlers;
 
@@ -10831,7 +10849,7 @@ PHP_METHOD(php_wxSplashScreen, __construct)
 /* }}} */
 
 BEGIN_EXTERN_C()
-void php_wxTopLevelWindow_free(void *object)
+void php_wxTopLevelWindow_free(zend_object *object)
 {
     zo_wxTopLevelWindow* custom_object = (zo_wxTopLevelWindow*) object;
 
@@ -10876,8 +10894,7 @@ void php_wxTopLevelWindow_free(void *object)
         #endif
     }
 
-    zend_object_std_dtor(&custom_object->zo);
-    efree(custom_object);
+    zend_object_std_dtor(object);
 }
 
 zend_object* php_wxTopLevelWindow_new(zend_class_entry *class_type)
@@ -10901,6 +10918,9 @@ zend_object* php_wxTopLevelWindow_new(zend_class_entry *class_type)
 
     zend_object_std_init(&custom_object->zo, class_type);
     object_properties_init(&custom_object->zo, class_type);
+
+    wxphp_wxTopLevelWindow_object_handlers.offset = XtOffsetOf(zo_wxTopLevelWindow, zo);
+    wxphp_wxTopLevelWindow_object_handlers.free_obj = php_wxTopLevelWindow_free;
 
     custom_object->zo.handlers = &wxphp_wxTopLevelWindow_object_handlers;
 

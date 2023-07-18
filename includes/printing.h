@@ -43,7 +43,7 @@ typedef struct _zo_wxPrinterDC{
     zend_object zo;
 } zo_wxPrinterDC;
 
-void php_wxPrinterDC_free(void *object);
+void php_wxPrinterDC_free(zend_object *object);
 zend_object* php_wxPrinterDC_new(zend_class_entry *class_type);
 END_EXTERN_C()
 
@@ -450,7 +450,7 @@ typedef struct _zo_wxPreviewControlBar{
     zend_object zo;
 } zo_wxPreviewControlBar;
 
-void php_wxPreviewControlBar_free(void *object);
+void php_wxPreviewControlBar_free(zend_object *object);
 zend_object* php_wxPreviewControlBar_new(zend_class_entry *class_type);
 END_EXTERN_C()
 
@@ -1151,7 +1151,7 @@ typedef struct _zo_wxPreviewCanvas{
     zend_object zo;
 } zo_wxPreviewCanvas;
 
-void php_wxPreviewCanvas_free(void *object);
+void php_wxPreviewCanvas_free(zend_object *object);
 zend_object* php_wxPreviewCanvas_new(zend_class_entry *class_type);
 END_EXTERN_C()
 
@@ -1932,7 +1932,7 @@ typedef struct _zo_wxPreviewFrame{
     zend_object zo;
 } zo_wxPreviewFrame;
 
-void php_wxPreviewFrame_free(void *object);
+void php_wxPreviewFrame_free(zend_object *object);
 zend_object* php_wxPreviewFrame_new(zend_class_entry *class_type);
 END_EXTERN_C()
 
@@ -2744,7 +2744,7 @@ typedef struct _zo_wxPrintPreview{
     zend_object zo;
 } zo_wxPrintPreview;
 
-void php_wxPrintPreview_free(void *object);
+void php_wxPrintPreview_free(zend_object *object);
 zend_object* php_wxPrintPreview_new(zend_class_entry *class_type);
 END_EXTERN_C()
 
@@ -2865,7 +2865,7 @@ typedef struct _zo_wxPrinter{
     zend_object zo;
 } zo_wxPrinter;
 
-void php_wxPrinter_free(void *object);
+void php_wxPrinter_free(zend_object *object);
 zend_object* php_wxPrinter_new(zend_class_entry *class_type);
 END_EXTERN_C()
 
@@ -2962,7 +2962,7 @@ typedef struct _zo_wxPrintout{
     zend_object zo;
 } zo_wxPrintout;
 
-void php_wxPrintout_free(void *object);
+void php_wxPrintout_free(zend_object *object);
 zend_object* php_wxPrintout_new(zend_class_entry *class_type);
 END_EXTERN_C()
 
@@ -3117,7 +3117,7 @@ typedef struct _zo_wxPrintDialog{
     zend_object zo;
 } zo_wxPrintDialog;
 
-void php_wxPrintDialog_free(void *object);
+void php_wxPrintDialog_free(zend_object *object);
 zend_object* php_wxPrintDialog_new(zend_class_entry *class_type);
 END_EXTERN_C()
 
@@ -3192,7 +3192,7 @@ typedef struct _zo_wxPageSetupDialog{
     zend_object zo;
 } zo_wxPageSetupDialog;
 
-void php_wxPageSetupDialog_free(void *object);
+void php_wxPageSetupDialog_free(zend_object *object);
 zend_object* php_wxPageSetupDialog_new(zend_class_entry *class_type);
 END_EXTERN_C()
 

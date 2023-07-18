@@ -45,7 +45,7 @@ typedef struct _zo_wxHtmlHelpController{
     zend_object zo;
 } zo_wxHtmlHelpController;
 
-void php_wxHtmlHelpController_free(void *object);
+void php_wxHtmlHelpController_free(zend_object *object);
 zend_object* php_wxHtmlHelpController_new(zend_class_entry *class_type);
 END_EXTERN_C()
 
@@ -140,7 +140,7 @@ typedef struct _zo_wxHtmlModalHelp{
     zend_object zo;
 } zo_wxHtmlModalHelp;
 
-void php_wxHtmlModalHelp_free(void *object);
+void php_wxHtmlModalHelp_free(zend_object *object);
 zend_object* php_wxHtmlModalHelp_new(zend_class_entry *class_type);
 END_EXTERN_C()
 
@@ -190,7 +190,7 @@ typedef struct _zo_wxHtmlHelpData{
     zend_object zo;
 } zo_wxHtmlHelpData;
 
-void php_wxHtmlHelpData_free(void *object);
+void php_wxHtmlHelpData_free(zend_object *object);
 zend_object* php_wxHtmlHelpData_new(zend_class_entry *class_type);
 END_EXTERN_C()
 
@@ -269,7 +269,7 @@ typedef struct _zo_wxHtmlHelpDialog{
     zend_object zo;
 } zo_wxHtmlHelpDialog;
 
-void php_wxHtmlHelpDialog_free(void *object);
+void php_wxHtmlHelpDialog_free(zend_object *object);
 zend_object* php_wxHtmlHelpDialog_new(zend_class_entry *class_type);
 END_EXTERN_C()
 
@@ -1087,7 +1087,7 @@ typedef struct _zo_wxHtmlHelpFrame{
     zend_object zo;
 } zo_wxHtmlHelpFrame;
 
-void php_wxHtmlHelpFrame_free(void *object);
+void php_wxHtmlHelpFrame_free(zend_object *object);
 zend_object* php_wxHtmlHelpFrame_new(zend_class_entry *class_type);
 END_EXTERN_C()
 
@@ -1906,7 +1906,7 @@ typedef struct _zo_wxHtmlHelpWindow{
     zend_object zo;
 } zo_wxHtmlHelpWindow;
 
-void php_wxHtmlHelpWindow_free(void *object);
+void php_wxHtmlHelpWindow_free(zend_object *object);
 zend_object* php_wxHtmlHelpWindow_new(zend_class_entry *class_type);
 END_EXTERN_C()
 
@@ -2632,7 +2632,7 @@ typedef struct _zo_wxToolTip{
     zend_object zo;
 } zo_wxToolTip;
 
-void php_wxToolTip_free(void *object);
+void php_wxToolTip_free(zend_object *object);
 zend_object* php_wxToolTip_new(zend_class_entry *class_type);
 END_EXTERN_C()
 

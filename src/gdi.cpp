@@ -54,7 +54,7 @@
 
 
 BEGIN_EXTERN_C()
-void php_wxGraphicsGradientStop_free(void *object)
+void php_wxGraphicsGradientStop_free(zend_object *object)
 {
     zo_wxGraphicsGradientStop* custom_object = (zo_wxGraphicsGradientStop*) object;
 
@@ -96,8 +96,7 @@ void php_wxGraphicsGradientStop_free(void *object)
         #endif
     }
 
-    zend_object_std_dtor(&custom_object->zo);
-    efree(custom_object);
+    zend_object_std_dtor(object);
 }
 
 zend_object* php_wxGraphicsGradientStop_new(zend_class_entry *class_type)
@@ -121,6 +120,9 @@ zend_object* php_wxGraphicsGradientStop_new(zend_class_entry *class_type)
 
     zend_object_std_init(&custom_object->zo, class_type);
     object_properties_init(&custom_object->zo, class_type);
+
+    wxphp_wxGraphicsGradientStop_object_handlers.offset = XtOffsetOf(zo_wxGraphicsGradientStop, zo);
+    wxphp_wxGraphicsGradientStop_object_handlers.free_obj = php_wxGraphicsGradientStop_free;
 
     custom_object->zo.handlers = &wxphp_wxGraphicsGradientStop_object_handlers;
 
@@ -739,7 +741,7 @@ PHP_METHOD(php_wxGraphicsGradientStop, __construct)
 /* }}} */
 
 BEGIN_EXTERN_C()
-void php_wxGraphicsGradientStops_free(void *object)
+void php_wxGraphicsGradientStops_free(zend_object *object)
 {
     zo_wxGraphicsGradientStops* custom_object = (zo_wxGraphicsGradientStops*) object;
 
@@ -781,8 +783,7 @@ void php_wxGraphicsGradientStops_free(void *object)
         #endif
     }
 
-    zend_object_std_dtor(&custom_object->zo);
-    efree(custom_object);
+    zend_object_std_dtor(object);
 }
 
 zend_object* php_wxGraphicsGradientStops_new(zend_class_entry *class_type)
@@ -806,6 +807,9 @@ zend_object* php_wxGraphicsGradientStops_new(zend_class_entry *class_type)
 
     zend_object_std_init(&custom_object->zo, class_type);
     object_properties_init(&custom_object->zo, class_type);
+
+    wxphp_wxGraphicsGradientStops_object_handlers.offset = XtOffsetOf(zo_wxGraphicsGradientStops, zo);
+    wxphp_wxGraphicsGradientStops_object_handlers.free_obj = php_wxGraphicsGradientStops_free;
 
     custom_object->zo.handlers = &wxphp_wxGraphicsGradientStops_object_handlers;
 
@@ -1871,7 +1875,7 @@ PHP_METHOD(php_wxGraphicsGradientStops, __construct)
 /* }}} */
 
 BEGIN_EXTERN_C()
-void php_wxAnimation_free(void *object)
+void php_wxAnimation_free(zend_object *object)
 {
     zo_wxAnimation* custom_object = (zo_wxAnimation*) object;
 
@@ -1913,8 +1917,7 @@ void php_wxAnimation_free(void *object)
         #endif
     }
 
-    zend_object_std_dtor(&custom_object->zo);
-    efree(custom_object);
+    zend_object_std_dtor(object);
 }
 
 zend_object* php_wxAnimation_new(zend_class_entry *class_type)
@@ -1938,6 +1941,9 @@ zend_object* php_wxAnimation_new(zend_class_entry *class_type)
 
     zend_object_std_init(&custom_object->zo, class_type);
     object_properties_init(&custom_object->zo, class_type);
+
+    wxphp_wxAnimation_object_handlers.offset = XtOffsetOf(zo_wxAnimation, zo);
+    wxphp_wxAnimation_object_handlers.free_obj = php_wxAnimation_free;
 
     custom_object->zo.handlers = &wxphp_wxAnimation_object_handlers;
 
@@ -2940,7 +2946,7 @@ PHP_METHOD(php_wxAnimation, Load)
 /* }}} */
 
 BEGIN_EXTERN_C()
-void php_wxBitmapHandler_free(void *object)
+void php_wxBitmapHandler_free(zend_object *object)
 {
     zo_wxBitmapHandler* custom_object = (zo_wxBitmapHandler*) object;
 
@@ -2982,8 +2988,7 @@ void php_wxBitmapHandler_free(void *object)
         #endif
     }
 
-    zend_object_std_dtor(&custom_object->zo);
-    efree(custom_object);
+    zend_object_std_dtor(object);
 }
 
 zend_object* php_wxBitmapHandler_new(zend_class_entry *class_type)
@@ -3007,6 +3012,9 @@ zend_object* php_wxBitmapHandler_new(zend_class_entry *class_type)
 
     zend_object_std_init(&custom_object->zo, class_type);
     object_properties_init(&custom_object->zo, class_type);
+
+    wxphp_wxBitmapHandler_object_handlers.offset = XtOffsetOf(zo_wxBitmapHandler, zo);
+    wxphp_wxBitmapHandler_object_handlers.free_obj = php_wxBitmapHandler_free;
 
     custom_object->zo.handlers = &wxphp_wxBitmapHandler_object_handlers;
 
@@ -4218,7 +4226,7 @@ PHP_METHOD(php_wxBitmapHandler, Create)
 /* }}} */
 
 BEGIN_EXTERN_C()
-void php_wxBitmap_free(void *object)
+void php_wxBitmap_free(zend_object *object)
 {
     zo_wxBitmap* custom_object = (zo_wxBitmap*) object;
 
@@ -4260,8 +4268,7 @@ void php_wxBitmap_free(void *object)
         #endif
     }
 
-    zend_object_std_dtor(&custom_object->zo);
-    efree(custom_object);
+    zend_object_std_dtor(object);
 }
 
 zend_object* php_wxBitmap_new(zend_class_entry *class_type)
@@ -4285,6 +4292,9 @@ zend_object* php_wxBitmap_new(zend_class_entry *class_type)
 
     zend_object_std_init(&custom_object->zo, class_type);
     object_properties_init(&custom_object->zo, class_type);
+
+    wxphp_wxBitmap_object_handlers.offset = XtOffsetOf(zo_wxBitmap, zo);
+    wxphp_wxBitmap_object_handlers.free_obj = php_wxBitmap_free;
 
     custom_object->zo.handlers = &wxphp_wxBitmap_object_handlers;
 
@@ -7927,7 +7937,7 @@ PHP_METHOD(php_wxBitmap, SetPalette)
 /* }}} */
 
 BEGIN_EXTERN_C()
-void php_wxMask_free(void *object)
+void php_wxMask_free(zend_object *object)
 {
     zo_wxMask* custom_object = (zo_wxMask*) object;
 
@@ -7969,8 +7979,7 @@ void php_wxMask_free(void *object)
         #endif
     }
 
-    zend_object_std_dtor(&custom_object->zo);
-    efree(custom_object);
+    zend_object_std_dtor(object);
 }
 
 zend_object* php_wxMask_new(zend_class_entry *class_type)
@@ -7994,6 +8003,9 @@ zend_object* php_wxMask_new(zend_class_entry *class_type)
 
     zend_object_std_init(&custom_object->zo, class_type);
     object_properties_init(&custom_object->zo, class_type);
+
+    wxphp_wxMask_object_handlers.offset = XtOffsetOf(zo_wxMask, zo);
+    wxphp_wxMask_object_handlers.free_obj = php_wxMask_free;
 
     custom_object->zo.handlers = &wxphp_wxMask_object_handlers;
 
@@ -8554,7 +8566,7 @@ PHP_METHOD(php_wxMask, __construct)
 /* }}} */
 
 BEGIN_EXTERN_C()
-void php_wxBrush_free(void *object)
+void php_wxBrush_free(zend_object *object)
 {
     zo_wxBrush* custom_object = (zo_wxBrush*) object;
 
@@ -8596,8 +8608,7 @@ void php_wxBrush_free(void *object)
         #endif
     }
 
-    zend_object_std_dtor(&custom_object->zo);
-    efree(custom_object);
+    zend_object_std_dtor(object);
 }
 
 zend_object* php_wxBrush_new(zend_class_entry *class_type)
@@ -8621,6 +8632,9 @@ zend_object* php_wxBrush_new(zend_class_entry *class_type)
 
     zend_object_std_init(&custom_object->zo, class_type);
     object_properties_init(&custom_object->zo, class_type);
+
+    wxphp_wxBrush_object_handlers.offset = XtOffsetOf(zo_wxBrush, zo);
+    wxphp_wxBrush_object_handlers.free_obj = php_wxBrush_free;
 
     custom_object->zo.handlers = &wxphp_wxBrush_object_handlers;
 
@@ -10041,7 +10055,7 @@ PHP_METHOD(php_wxBrush, __construct)
 /* }}} */
 
 BEGIN_EXTERN_C()
-void php_wxColour_free(void *object)
+void php_wxColour_free(zend_object *object)
 {
     zo_wxColour* custom_object = (zo_wxColour*) object;
 
@@ -10083,8 +10097,7 @@ void php_wxColour_free(void *object)
         #endif
     }
 
-    zend_object_std_dtor(&custom_object->zo);
-    efree(custom_object);
+    zend_object_std_dtor(object);
 }
 
 zend_object* php_wxColour_new(zend_class_entry *class_type)
@@ -10108,6 +10121,9 @@ zend_object* php_wxColour_new(zend_class_entry *class_type)
 
     zend_object_std_init(&custom_object->zo, class_type);
     object_properties_init(&custom_object->zo, class_type);
+
+    wxphp_wxColour_object_handlers.offset = XtOffsetOf(zo_wxColour, zo);
+    wxphp_wxColour_object_handlers.free_obj = php_wxColour_free;
 
     custom_object->zo.handlers = &wxphp_wxColour_object_handlers;
 
@@ -11466,7 +11482,7 @@ PHP_METHOD(php_wxColour, Alpha)
 /* }}} */
 
 BEGIN_EXTERN_C()
-void php_wxCursor_free(void *object)
+void php_wxCursor_free(zend_object *object)
 {
     zo_wxCursor* custom_object = (zo_wxCursor*) object;
 
@@ -11508,8 +11524,7 @@ void php_wxCursor_free(void *object)
         #endif
     }
 
-    zend_object_std_dtor(&custom_object->zo);
-    efree(custom_object);
+    zend_object_std_dtor(object);
 }
 
 zend_object* php_wxCursor_new(zend_class_entry *class_type)
@@ -11533,6 +11548,9 @@ zend_object* php_wxCursor_new(zend_class_entry *class_type)
 
     zend_object_std_init(&custom_object->zo, class_type);
     object_properties_init(&custom_object->zo, class_type);
+
+    wxphp_wxCursor_object_handlers.offset = XtOffsetOf(zo_wxCursor, zo);
+    wxphp_wxCursor_object_handlers.free_obj = php_wxCursor_free;
 
     custom_object->zo.handlers = &wxphp_wxCursor_object_handlers;
 
@@ -11927,7 +11945,7 @@ PHP_METHOD(php_wxCursor, __construct)
 /* }}} */
 
 BEGIN_EXTERN_C()
-void php_wxDCClipper_free(void *object)
+void php_wxDCClipper_free(zend_object *object)
 {
     zo_wxDCClipper* custom_object = (zo_wxDCClipper*) object;
 
@@ -11969,8 +11987,7 @@ void php_wxDCClipper_free(void *object)
         #endif
     }
 
-    zend_object_std_dtor(&custom_object->zo);
-    efree(custom_object);
+    zend_object_std_dtor(object);
 }
 
 zend_object* php_wxDCClipper_new(zend_class_entry *class_type)
@@ -11994,6 +12011,9 @@ zend_object* php_wxDCClipper_new(zend_class_entry *class_type)
 
     zend_object_std_init(&custom_object->zo, class_type);
     object_properties_init(&custom_object->zo, class_type);
+
+    wxphp_wxDCClipper_object_handlers.offset = XtOffsetOf(zo_wxDCClipper, zo);
+    wxphp_wxDCClipper_object_handlers.free_obj = php_wxDCClipper_free;
 
     custom_object->zo.handlers = &wxphp_wxDCClipper_object_handlers;
 
@@ -12273,7 +12293,7 @@ PHP_METHOD(php_wxDCClipper, __construct)
 /* }}} */
 
 BEGIN_EXTERN_C()
-void php_wxFont_free(void *object)
+void php_wxFont_free(zend_object *object)
 {
     zo_wxFont* custom_object = (zo_wxFont*) object;
 
@@ -12315,8 +12335,7 @@ void php_wxFont_free(void *object)
         #endif
     }
 
-    zend_object_std_dtor(&custom_object->zo);
-    efree(custom_object);
+    zend_object_std_dtor(object);
 }
 
 zend_object* php_wxFont_new(zend_class_entry *class_type)
@@ -12340,6 +12359,9 @@ zend_object* php_wxFont_new(zend_class_entry *class_type)
 
     zend_object_std_init(&custom_object->zo, class_type);
     object_properties_init(&custom_object->zo, class_type);
+
+    wxphp_wxFont_object_handlers.offset = XtOffsetOf(zo_wxFont, zo);
+    wxphp_wxFont_object_handlers.free_obj = php_wxFont_free;
 
     custom_object->zo.handlers = &wxphp_wxFont_object_handlers;
 
@@ -18202,7 +18224,7 @@ PHP_METHOD(php_wxFont, GetNativeFontInfo)
 /* }}} */
 
 BEGIN_EXTERN_C()
-void php_wxFontList_free(void *object)
+void php_wxFontList_free(zend_object *object)
 {
     zo_wxFontList* custom_object = (zo_wxFontList*) object;
 
@@ -18244,8 +18266,7 @@ void php_wxFontList_free(void *object)
         #endif
     }
 
-    zend_object_std_dtor(&custom_object->zo);
-    efree(custom_object);
+    zend_object_std_dtor(object);
 }
 
 zend_object* php_wxFontList_new(zend_class_entry *class_type)
@@ -18269,6 +18290,9 @@ zend_object* php_wxFontList_new(zend_class_entry *class_type)
 
     zend_object_std_init(&custom_object->zo, class_type);
     object_properties_init(&custom_object->zo, class_type);
+
+    wxphp_wxFontList_object_handlers.offset = XtOffsetOf(zo_wxFontList, zo);
+    wxphp_wxFontList_object_handlers.free_obj = php_wxFontList_free;
 
     custom_object->zo.handlers = &wxphp_wxFontList_object_handlers;
 
@@ -18611,7 +18635,7 @@ PHP_METHOD(php_wxFontList, FindOrCreateFont)
 /* }}} */
 
 BEGIN_EXTERN_C()
-void php_wxFontEnumerator_free(void *object)
+void php_wxFontEnumerator_free(zend_object *object)
 {
     zo_wxFontEnumerator* custom_object = (zo_wxFontEnumerator*) object;
 
@@ -18653,8 +18677,7 @@ void php_wxFontEnumerator_free(void *object)
         #endif
     }
 
-    zend_object_std_dtor(&custom_object->zo);
-    efree(custom_object);
+    zend_object_std_dtor(object);
 }
 
 zend_object* php_wxFontEnumerator_new(zend_class_entry *class_type)
@@ -18678,6 +18701,9 @@ zend_object* php_wxFontEnumerator_new(zend_class_entry *class_type)
 
     zend_object_std_init(&custom_object->zo, class_type);
     object_properties_init(&custom_object->zo, class_type);
+
+    wxphp_wxFontEnumerator_object_handlers.offset = XtOffsetOf(zo_wxFontEnumerator, zo);
+    wxphp_wxFontEnumerator_object_handlers.free_obj = php_wxFontEnumerator_free;
 
     custom_object->zo.handlers = &wxphp_wxFontEnumerator_object_handlers;
 
@@ -19567,7 +19593,7 @@ PHP_METHOD(php_wxFontEnumerator, EnumerateEncodings)
 /* }}} */
 
 BEGIN_EXTERN_C()
-void php_wxNativeFontInfo_free(void *object)
+void php_wxNativeFontInfo_free(zend_object *object)
 {
     zo_wxNativeFontInfo* custom_object = (zo_wxNativeFontInfo*) object;
 
@@ -19609,8 +19635,7 @@ void php_wxNativeFontInfo_free(void *object)
         #endif
     }
 
-    zend_object_std_dtor(&custom_object->zo);
-    efree(custom_object);
+    zend_object_std_dtor(object);
 }
 
 zend_object* php_wxNativeFontInfo_new(zend_class_entry *class_type)
@@ -19634,6 +19659,9 @@ zend_object* php_wxNativeFontInfo_new(zend_class_entry *class_type)
 
     zend_object_std_init(&custom_object->zo, class_type);
     object_properties_init(&custom_object->zo, class_type);
+
+    wxphp_wxNativeFontInfo_object_handlers.offset = XtOffsetOf(zo_wxNativeFontInfo, zo);
+    wxphp_wxNativeFontInfo_object_handlers.free_obj = php_wxNativeFontInfo_free;
 
     custom_object->zo.handlers = &wxphp_wxNativeFontInfo_object_handlers;
 
@@ -22042,7 +22070,7 @@ PHP_METHOD(php_wxNativeFontInfo, ToUserString)
 /* }}} */
 
 BEGIN_EXTERN_C()
-void php_wxColourDatabase_free(void *object)
+void php_wxColourDatabase_free(zend_object *object)
 {
     zo_wxColourDatabase* custom_object = (zo_wxColourDatabase*) object;
 
@@ -22084,8 +22112,7 @@ void php_wxColourDatabase_free(void *object)
         #endif
     }
 
-    zend_object_std_dtor(&custom_object->zo);
-    efree(custom_object);
+    zend_object_std_dtor(object);
 }
 
 zend_object* php_wxColourDatabase_new(zend_class_entry *class_type)
@@ -22109,6 +22136,9 @@ zend_object* php_wxColourDatabase_new(zend_class_entry *class_type)
 
     zend_object_std_init(&custom_object->zo, class_type);
     object_properties_init(&custom_object->zo, class_type);
+
+    wxphp_wxColourDatabase_object_handlers.offset = XtOffsetOf(zo_wxColourDatabase, zo);
+    wxphp_wxColourDatabase_object_handlers.free_obj = php_wxColourDatabase_free;
 
     custom_object->zo.handlers = &wxphp_wxColourDatabase_object_handlers;
 
@@ -22591,7 +22621,7 @@ PHP_METHOD(php_wxColourDatabase, __construct)
 /* }}} */
 
 BEGIN_EXTERN_C()
-void php_wxGDIObject_free(void *object)
+void php_wxGDIObject_free(zend_object *object)
 {
     zo_wxGDIObject* custom_object = (zo_wxGDIObject*) object;
 
@@ -22633,8 +22663,7 @@ void php_wxGDIObject_free(void *object)
         #endif
     }
 
-    zend_object_std_dtor(&custom_object->zo);
-    efree(custom_object);
+    zend_object_std_dtor(object);
 }
 
 zend_object* php_wxGDIObject_new(zend_class_entry *class_type)
@@ -22659,6 +22688,9 @@ zend_object* php_wxGDIObject_new(zend_class_entry *class_type)
     zend_object_std_init(&custom_object->zo, class_type);
     object_properties_init(&custom_object->zo, class_type);
 
+    wxphp_wxGDIObject_object_handlers.offset = XtOffsetOf(zo_wxGDIObject, zo);
+    wxphp_wxGDIObject_object_handlers.free_obj = php_wxGDIObject_free;
+
     custom_object->zo.handlers = &wxphp_wxGDIObject_object_handlers;
 
     custom_object->native_object = NULL;
@@ -22670,7 +22702,7 @@ zend_object* php_wxGDIObject_new(zend_class_entry *class_type)
 END_EXTERN_C()
 
 BEGIN_EXTERN_C()
-void php_wxGraphicsRenderer_free(void *object)
+void php_wxGraphicsRenderer_free(zend_object *object)
 {
     zo_wxGraphicsRenderer* custom_object = (zo_wxGraphicsRenderer*) object;
 
@@ -22712,8 +22744,7 @@ void php_wxGraphicsRenderer_free(void *object)
         #endif
     }
 
-    zend_object_std_dtor(&custom_object->zo);
-    efree(custom_object);
+    zend_object_std_dtor(object);
 }
 
 zend_object* php_wxGraphicsRenderer_new(zend_class_entry *class_type)
@@ -22738,6 +22769,9 @@ zend_object* php_wxGraphicsRenderer_new(zend_class_entry *class_type)
     zend_object_std_init(&custom_object->zo, class_type);
     object_properties_init(&custom_object->zo, class_type);
 
+    wxphp_wxGraphicsRenderer_object_handlers.offset = XtOffsetOf(zo_wxGraphicsRenderer, zo);
+    wxphp_wxGraphicsRenderer_object_handlers.free_obj = php_wxGraphicsRenderer_free;
+
     custom_object->zo.handlers = &wxphp_wxGraphicsRenderer_object_handlers;
 
     custom_object->native_object = NULL;
@@ -22749,7 +22783,7 @@ zend_object* php_wxGraphicsRenderer_new(zend_class_entry *class_type)
 END_EXTERN_C()
 
 BEGIN_EXTERN_C()
-void php_wxGraphicsMatrix_free(void *object)
+void php_wxGraphicsMatrix_free(zend_object *object)
 {
     zo_wxGraphicsMatrix* custom_object = (zo_wxGraphicsMatrix*) object;
 
@@ -22791,8 +22825,7 @@ void php_wxGraphicsMatrix_free(void *object)
         #endif
     }
 
-    zend_object_std_dtor(&custom_object->zo);
-    efree(custom_object);
+    zend_object_std_dtor(object);
 }
 
 zend_object* php_wxGraphicsMatrix_new(zend_class_entry *class_type)
@@ -22817,6 +22850,9 @@ zend_object* php_wxGraphicsMatrix_new(zend_class_entry *class_type)
     zend_object_std_init(&custom_object->zo, class_type);
     object_properties_init(&custom_object->zo, class_type);
 
+    wxphp_wxGraphicsMatrix_object_handlers.offset = XtOffsetOf(zo_wxGraphicsMatrix, zo);
+    wxphp_wxGraphicsMatrix_object_handlers.free_obj = php_wxGraphicsMatrix_free;
+
     custom_object->zo.handlers = &wxphp_wxGraphicsMatrix_object_handlers;
 
     custom_object->native_object = NULL;
@@ -22828,7 +22864,7 @@ zend_object* php_wxGraphicsMatrix_new(zend_class_entry *class_type)
 END_EXTERN_C()
 
 BEGIN_EXTERN_C()
-void php_wxIcon_free(void *object)
+void php_wxIcon_free(zend_object *object)
 {
     zo_wxIcon* custom_object = (zo_wxIcon*) object;
 
@@ -22870,8 +22906,7 @@ void php_wxIcon_free(void *object)
         #endif
     }
 
-    zend_object_std_dtor(&custom_object->zo);
-    efree(custom_object);
+    zend_object_std_dtor(object);
 }
 
 zend_object* php_wxIcon_new(zend_class_entry *class_type)
@@ -22895,6 +22930,9 @@ zend_object* php_wxIcon_new(zend_class_entry *class_type)
 
     zend_object_std_init(&custom_object->zo, class_type);
     object_properties_init(&custom_object->zo, class_type);
+
+    wxphp_wxIcon_object_handlers.offset = XtOffsetOf(zo_wxIcon, zo);
+    wxphp_wxIcon_object_handlers.free_obj = php_wxIcon_free;
 
     custom_object->zo.handlers = &wxphp_wxIcon_object_handlers;
 
@@ -24189,7 +24227,7 @@ PHP_METHOD(php_wxIcon, CopyFromBitmap)
 /* }}} */
 
 BEGIN_EXTERN_C()
-void php_wxIconBundle_free(void *object)
+void php_wxIconBundle_free(zend_object *object)
 {
     zo_wxIconBundle* custom_object = (zo_wxIconBundle*) object;
 
@@ -24231,8 +24269,7 @@ void php_wxIconBundle_free(void *object)
         #endif
     }
 
-    zend_object_std_dtor(&custom_object->zo);
-    efree(custom_object);
+    zend_object_std_dtor(object);
 }
 
 zend_object* php_wxIconBundle_new(zend_class_entry *class_type)
@@ -24256,6 +24293,9 @@ zend_object* php_wxIconBundle_new(zend_class_entry *class_type)
 
     zend_object_std_init(&custom_object->zo, class_type);
     object_properties_init(&custom_object->zo, class_type);
+
+    wxphp_wxIconBundle_object_handlers.offset = XtOffsetOf(zo_wxIconBundle, zo);
+    wxphp_wxIconBundle_object_handlers.free_obj = php_wxIconBundle_free;
 
     custom_object->zo.handlers = &wxphp_wxIconBundle_object_handlers;
 
@@ -25571,7 +25611,7 @@ PHP_METHOD(php_wxIconBundle, GetIcon)
 /* }}} */
 
 BEGIN_EXTERN_C()
-void php_wxImageHandler_free(void *object)
+void php_wxImageHandler_free(zend_object *object)
 {
     zo_wxImageHandler* custom_object = (zo_wxImageHandler*) object;
 
@@ -25613,8 +25653,7 @@ void php_wxImageHandler_free(void *object)
         #endif
     }
 
-    zend_object_std_dtor(&custom_object->zo);
-    efree(custom_object);
+    zend_object_std_dtor(object);
 }
 
 zend_object* php_wxImageHandler_new(zend_class_entry *class_type)
@@ -25638,6 +25677,9 @@ zend_object* php_wxImageHandler_new(zend_class_entry *class_type)
 
     zend_object_std_init(&custom_object->zo, class_type);
     object_properties_init(&custom_object->zo, class_type);
+
+    wxphp_wxImageHandler_object_handlers.offset = XtOffsetOf(zo_wxImageHandler, zo);
+    wxphp_wxImageHandler_object_handlers.free_obj = php_wxImageHandler_free;
 
     custom_object->zo.handlers = &wxphp_wxImageHandler_object_handlers;
 
@@ -27367,7 +27409,7 @@ PHP_METHOD(php_wxImageHandler, SetName)
 /* }}} */
 
 BEGIN_EXTERN_C()
-void php_wxImage_free(void *object)
+void php_wxImage_free(zend_object *object)
 {
     zo_wxImage* custom_object = (zo_wxImage*) object;
 
@@ -27409,8 +27451,7 @@ void php_wxImage_free(void *object)
         #endif
     }
 
-    zend_object_std_dtor(&custom_object->zo);
-    efree(custom_object);
+    zend_object_std_dtor(object);
 }
 
 zend_object* php_wxImage_new(zend_class_entry *class_type)
@@ -27434,6 +27475,9 @@ zend_object* php_wxImage_new(zend_class_entry *class_type)
 
     zend_object_std_init(&custom_object->zo, class_type);
     object_properties_init(&custom_object->zo, class_type);
+
+    wxphp_wxImage_object_handlers.offset = XtOffsetOf(zo_wxImage, zo);
+    wxphp_wxImage_object_handlers.free_obj = php_wxImage_free;
 
     custom_object->zo.handlers = &wxphp_wxImage_object_handlers;
 
@@ -38314,7 +38358,7 @@ PHP_METHOD(php_wxImage, Size)
 /* }}} */
 
 BEGIN_EXTERN_C()
-void php_wxImageList_free(void *object)
+void php_wxImageList_free(zend_object *object)
 {
     zo_wxImageList* custom_object = (zo_wxImageList*) object;
 
@@ -38356,8 +38400,7 @@ void php_wxImageList_free(void *object)
         #endif
     }
 
-    zend_object_std_dtor(&custom_object->zo);
-    efree(custom_object);
+    zend_object_std_dtor(object);
 }
 
 zend_object* php_wxImageList_new(zend_class_entry *class_type)
@@ -38381,6 +38424,9 @@ zend_object* php_wxImageList_new(zend_class_entry *class_type)
 
     zend_object_std_init(&custom_object->zo, class_type);
     object_properties_init(&custom_object->zo, class_type);
+
+    wxphp_wxImageList_object_handlers.offset = XtOffsetOf(zo_wxImageList, zo);
+    wxphp_wxImageList_object_handlers.free_obj = php_wxImageList_free;
 
     custom_object->zo.handlers = &wxphp_wxImageList_object_handlers;
 
@@ -39936,7 +39982,7 @@ PHP_METHOD(php_wxImageList, Draw)
 /* }}} */
 
 BEGIN_EXTERN_C()
-void php_wxPalette_free(void *object)
+void php_wxPalette_free(zend_object *object)
 {
     zo_wxPalette* custom_object = (zo_wxPalette*) object;
 
@@ -39978,8 +40024,7 @@ void php_wxPalette_free(void *object)
         #endif
     }
 
-    zend_object_std_dtor(&custom_object->zo);
-    efree(custom_object);
+    zend_object_std_dtor(object);
 }
 
 zend_object* php_wxPalette_new(zend_class_entry *class_type)
@@ -40003,6 +40048,9 @@ zend_object* php_wxPalette_new(zend_class_entry *class_type)
 
     zend_object_std_init(&custom_object->zo, class_type);
     object_properties_init(&custom_object->zo, class_type);
+
+    wxphp_wxPalette_object_handlers.offset = XtOffsetOf(zo_wxPalette, zo);
+    wxphp_wxPalette_object_handlers.free_obj = php_wxPalette_free;
 
     custom_object->zo.handlers = &wxphp_wxPalette_object_handlers;
 
@@ -40933,7 +40981,7 @@ PHP_METHOD(php_wxPalette, GetRGB)
 /* }}} */
 
 BEGIN_EXTERN_C()
-void php_wxPen_free(void *object)
+void php_wxPen_free(zend_object *object)
 {
     zo_wxPen* custom_object = (zo_wxPen*) object;
 
@@ -40975,8 +41023,7 @@ void php_wxPen_free(void *object)
         #endif
     }
 
-    zend_object_std_dtor(&custom_object->zo);
-    efree(custom_object);
+    zend_object_std_dtor(object);
 }
 
 zend_object* php_wxPen_new(zend_class_entry *class_type)
@@ -41000,6 +41047,9 @@ zend_object* php_wxPen_new(zend_class_entry *class_type)
 
     zend_object_std_init(&custom_object->zo, class_type);
     object_properties_init(&custom_object->zo, class_type);
+
+    wxphp_wxPen_object_handlers.offset = XtOffsetOf(zo_wxPen, zo);
+    wxphp_wxPen_object_handlers.free_obj = php_wxPen_free;
 
     custom_object->zo.handlers = &wxphp_wxPen_object_handlers;
 
@@ -42925,7 +42975,7 @@ PHP_METHOD(php_wxPen, SetCap)
 /* }}} */
 
 BEGIN_EXTERN_C()
-void php_wxPenList_free(void *object)
+void php_wxPenList_free(zend_object *object)
 {
     zo_wxPenList* custom_object = (zo_wxPenList*) object;
 
@@ -42967,8 +43017,7 @@ void php_wxPenList_free(void *object)
         #endif
     }
 
-    zend_object_std_dtor(&custom_object->zo);
-    efree(custom_object);
+    zend_object_std_dtor(object);
 }
 
 zend_object* php_wxPenList_new(zend_class_entry *class_type)
@@ -42992,6 +43041,9 @@ zend_object* php_wxPenList_new(zend_class_entry *class_type)
 
     zend_object_std_init(&custom_object->zo, class_type);
     object_properties_init(&custom_object->zo, class_type);
+
+    wxphp_wxPenList_object_handlers.offset = XtOffsetOf(zo_wxPenList, zo);
+    wxphp_wxPenList_object_handlers.free_obj = php_wxPenList_free;
 
     custom_object->zo.handlers = &wxphp_wxPenList_object_handlers;
 
@@ -43315,7 +43367,7 @@ PHP_METHOD(php_wxPenList, __construct)
 /* }}} */
 
 BEGIN_EXTERN_C()
-void php_wxRendererNative_free(void *object)
+void php_wxRendererNative_free(zend_object *object)
 {
     zo_wxRendererNative* custom_object = (zo_wxRendererNative*) object;
 
@@ -43357,8 +43409,7 @@ void php_wxRendererNative_free(void *object)
         #endif
     }
 
-    zend_object_std_dtor(&custom_object->zo);
-    efree(custom_object);
+    zend_object_std_dtor(object);
 }
 
 zend_object* php_wxRendererNative_new(zend_class_entry *class_type)
@@ -43382,6 +43433,9 @@ zend_object* php_wxRendererNative_new(zend_class_entry *class_type)
 
     zend_object_std_init(&custom_object->zo, class_type);
     object_properties_init(&custom_object->zo, class_type);
+
+    wxphp_wxRendererNative_object_handlers.offset = XtOffsetOf(zo_wxRendererNative, zo);
+    wxphp_wxRendererNative_object_handlers.free_obj = php_wxRendererNative_free;
 
     custom_object->zo.handlers = &wxphp_wxRendererNative_object_handlers;
 

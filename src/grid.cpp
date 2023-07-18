@@ -54,7 +54,7 @@
 
 
 BEGIN_EXTERN_C()
-void php_wxGridCellRenderer_free(void *object)
+void php_wxGridCellRenderer_free(zend_object *object)
 {
     zo_wxGridCellRenderer* custom_object = (zo_wxGridCellRenderer*) object;
 
@@ -68,8 +68,7 @@ void php_wxGridCellRenderer_free(void *object)
     #endif
 
 
-    zend_object_std_dtor(&custom_object->zo);
-    efree(custom_object);
+    zend_object_std_dtor(object);
 }
 
 zend_object* php_wxGridCellRenderer_new(zend_class_entry *class_type)
@@ -93,6 +92,9 @@ zend_object* php_wxGridCellRenderer_new(zend_class_entry *class_type)
 
     zend_object_std_init(&custom_object->zo, class_type);
     object_properties_init(&custom_object->zo, class_type);
+
+    wxphp_wxGridCellRenderer_object_handlers.offset = XtOffsetOf(zo_wxGridCellRenderer, zo);
+    wxphp_wxGridCellRenderer_object_handlers.free_obj = php_wxGridCellRenderer_free;
 
     custom_object->zo.handlers = &wxphp_wxGridCellRenderer_object_handlers;
 
@@ -408,7 +410,7 @@ wxGridCellRenderer* wxGridCellRenderer_php::Clone()const
 /* }}} */
 
 BEGIN_EXTERN_C()
-void php_wxGridCellAutoWrapStringRenderer_free(void *object)
+void php_wxGridCellAutoWrapStringRenderer_free(zend_object *object)
 {
     zo_wxGridCellAutoWrapStringRenderer* custom_object = (zo_wxGridCellAutoWrapStringRenderer*) object;
 
@@ -450,8 +452,7 @@ void php_wxGridCellAutoWrapStringRenderer_free(void *object)
         #endif
     }
 
-    zend_object_std_dtor(&custom_object->zo);
-    efree(custom_object);
+    zend_object_std_dtor(object);
 }
 
 zend_object* php_wxGridCellAutoWrapStringRenderer_new(zend_class_entry *class_type)
@@ -475,6 +476,9 @@ zend_object* php_wxGridCellAutoWrapStringRenderer_new(zend_class_entry *class_ty
 
     zend_object_std_init(&custom_object->zo, class_type);
     object_properties_init(&custom_object->zo, class_type);
+
+    wxphp_wxGridCellAutoWrapStringRenderer_object_handlers.offset = XtOffsetOf(zo_wxGridCellAutoWrapStringRenderer, zo);
+    wxphp_wxGridCellAutoWrapStringRenderer_object_handlers.free_obj = php_wxGridCellAutoWrapStringRenderer_free;
 
     custom_object->zo.handlers = &wxphp_wxGridCellAutoWrapStringRenderer_object_handlers;
 
@@ -570,7 +574,7 @@ PHP_METHOD(php_wxGridCellAutoWrapStringRenderer, __construct)
 /* }}} */
 
 BEGIN_EXTERN_C()
-void php_wxGridCellBoolRenderer_free(void *object)
+void php_wxGridCellBoolRenderer_free(zend_object *object)
 {
     zo_wxGridCellBoolRenderer* custom_object = (zo_wxGridCellBoolRenderer*) object;
 
@@ -612,8 +616,7 @@ void php_wxGridCellBoolRenderer_free(void *object)
         #endif
     }
 
-    zend_object_std_dtor(&custom_object->zo);
-    efree(custom_object);
+    zend_object_std_dtor(object);
 }
 
 zend_object* php_wxGridCellBoolRenderer_new(zend_class_entry *class_type)
@@ -637,6 +640,9 @@ zend_object* php_wxGridCellBoolRenderer_new(zend_class_entry *class_type)
 
     zend_object_std_init(&custom_object->zo, class_type);
     object_properties_init(&custom_object->zo, class_type);
+
+    wxphp_wxGridCellBoolRenderer_object_handlers.offset = XtOffsetOf(zo_wxGridCellBoolRenderer, zo);
+    wxphp_wxGridCellBoolRenderer_object_handlers.free_obj = php_wxGridCellBoolRenderer_free;
 
     custom_object->zo.handlers = &wxphp_wxGridCellBoolRenderer_object_handlers;
 
@@ -732,7 +738,7 @@ PHP_METHOD(php_wxGridCellBoolRenderer, __construct)
 /* }}} */
 
 BEGIN_EXTERN_C()
-void php_wxGridCellDateTimeRenderer_free(void *object)
+void php_wxGridCellDateTimeRenderer_free(zend_object *object)
 {
     zo_wxGridCellDateTimeRenderer* custom_object = (zo_wxGridCellDateTimeRenderer*) object;
 
@@ -774,8 +780,7 @@ void php_wxGridCellDateTimeRenderer_free(void *object)
         #endif
     }
 
-    zend_object_std_dtor(&custom_object->zo);
-    efree(custom_object);
+    zend_object_std_dtor(object);
 }
 
 zend_object* php_wxGridCellDateTimeRenderer_new(zend_class_entry *class_type)
@@ -799,6 +804,9 @@ zend_object* php_wxGridCellDateTimeRenderer_new(zend_class_entry *class_type)
 
     zend_object_std_init(&custom_object->zo, class_type);
     object_properties_init(&custom_object->zo, class_type);
+
+    wxphp_wxGridCellDateTimeRenderer_object_handlers.offset = XtOffsetOf(zo_wxGridCellDateTimeRenderer, zo);
+    wxphp_wxGridCellDateTimeRenderer_object_handlers.free_obj = php_wxGridCellDateTimeRenderer_free;
 
     custom_object->zo.handlers = &wxphp_wxGridCellDateTimeRenderer_object_handlers;
 
@@ -1037,7 +1045,7 @@ PHP_METHOD(php_wxGridCellDateTimeRenderer, __construct)
 /* }}} */
 
 BEGIN_EXTERN_C()
-void php_wxGridCellEnumRenderer_free(void *object)
+void php_wxGridCellEnumRenderer_free(zend_object *object)
 {
     zo_wxGridCellEnumRenderer* custom_object = (zo_wxGridCellEnumRenderer*) object;
 
@@ -1079,8 +1087,7 @@ void php_wxGridCellEnumRenderer_free(void *object)
         #endif
     }
 
-    zend_object_std_dtor(&custom_object->zo);
-    efree(custom_object);
+    zend_object_std_dtor(object);
 }
 
 zend_object* php_wxGridCellEnumRenderer_new(zend_class_entry *class_type)
@@ -1104,6 +1111,9 @@ zend_object* php_wxGridCellEnumRenderer_new(zend_class_entry *class_type)
 
     zend_object_std_init(&custom_object->zo, class_type);
     object_properties_init(&custom_object->zo, class_type);
+
+    wxphp_wxGridCellEnumRenderer_object_handlers.offset = XtOffsetOf(zo_wxGridCellEnumRenderer, zo);
+    wxphp_wxGridCellEnumRenderer_object_handlers.free_obj = php_wxGridCellEnumRenderer_free;
 
     custom_object->zo.handlers = &wxphp_wxGridCellEnumRenderer_object_handlers;
 
@@ -1329,7 +1339,7 @@ PHP_METHOD(php_wxGridCellEnumRenderer, __construct)
 /* }}} */
 
 BEGIN_EXTERN_C()
-void php_wxGridCellFloatRenderer_free(void *object)
+void php_wxGridCellFloatRenderer_free(zend_object *object)
 {
     zo_wxGridCellFloatRenderer* custom_object = (zo_wxGridCellFloatRenderer*) object;
 
@@ -1371,8 +1381,7 @@ void php_wxGridCellFloatRenderer_free(void *object)
         #endif
     }
 
-    zend_object_std_dtor(&custom_object->zo);
-    efree(custom_object);
+    zend_object_std_dtor(object);
 }
 
 zend_object* php_wxGridCellFloatRenderer_new(zend_class_entry *class_type)
@@ -1396,6 +1405,9 @@ zend_object* php_wxGridCellFloatRenderer_new(zend_class_entry *class_type)
 
     zend_object_std_init(&custom_object->zo, class_type);
     object_properties_init(&custom_object->zo, class_type);
+
+    wxphp_wxGridCellFloatRenderer_object_handlers.offset = XtOffsetOf(zo_wxGridCellFloatRenderer, zo);
+    wxphp_wxGridCellFloatRenderer_object_handlers.free_obj = php_wxGridCellFloatRenderer_free;
 
     custom_object->zo.handlers = &wxphp_wxGridCellFloatRenderer_object_handlers;
 
@@ -2301,7 +2313,7 @@ PHP_METHOD(php_wxGridCellFloatRenderer, __construct)
 /* }}} */
 
 BEGIN_EXTERN_C()
-void php_wxGridCellNumberRenderer_free(void *object)
+void php_wxGridCellNumberRenderer_free(zend_object *object)
 {
     zo_wxGridCellNumberRenderer* custom_object = (zo_wxGridCellNumberRenderer*) object;
 
@@ -2343,8 +2355,7 @@ void php_wxGridCellNumberRenderer_free(void *object)
         #endif
     }
 
-    zend_object_std_dtor(&custom_object->zo);
-    efree(custom_object);
+    zend_object_std_dtor(object);
 }
 
 zend_object* php_wxGridCellNumberRenderer_new(zend_class_entry *class_type)
@@ -2368,6 +2379,9 @@ zend_object* php_wxGridCellNumberRenderer_new(zend_class_entry *class_type)
 
     zend_object_std_init(&custom_object->zo, class_type);
     object_properties_init(&custom_object->zo, class_type);
+
+    wxphp_wxGridCellNumberRenderer_object_handlers.offset = XtOffsetOf(zo_wxGridCellNumberRenderer, zo);
+    wxphp_wxGridCellNumberRenderer_object_handlers.free_obj = php_wxGridCellNumberRenderer_free;
 
     custom_object->zo.handlers = &wxphp_wxGridCellNumberRenderer_object_handlers;
 
@@ -2463,7 +2477,7 @@ PHP_METHOD(php_wxGridCellNumberRenderer, __construct)
 /* }}} */
 
 BEGIN_EXTERN_C()
-void php_wxGridCellStringRenderer_free(void *object)
+void php_wxGridCellStringRenderer_free(zend_object *object)
 {
     zo_wxGridCellStringRenderer* custom_object = (zo_wxGridCellStringRenderer*) object;
 
@@ -2505,8 +2519,7 @@ void php_wxGridCellStringRenderer_free(void *object)
         #endif
     }
 
-    zend_object_std_dtor(&custom_object->zo);
-    efree(custom_object);
+    zend_object_std_dtor(object);
 }
 
 zend_object* php_wxGridCellStringRenderer_new(zend_class_entry *class_type)
@@ -2530,6 +2543,9 @@ zend_object* php_wxGridCellStringRenderer_new(zend_class_entry *class_type)
 
     zend_object_std_init(&custom_object->zo, class_type);
     object_properties_init(&custom_object->zo, class_type);
+
+    wxphp_wxGridCellStringRenderer_object_handlers.offset = XtOffsetOf(zo_wxGridCellStringRenderer, zo);
+    wxphp_wxGridCellStringRenderer_object_handlers.free_obj = php_wxGridCellStringRenderer_free;
 
     custom_object->zo.handlers = &wxphp_wxGridCellStringRenderer_object_handlers;
 
@@ -2625,7 +2641,7 @@ PHP_METHOD(php_wxGridCellStringRenderer, __construct)
 /* }}} */
 
 BEGIN_EXTERN_C()
-void php_wxGridCellEditor_free(void *object)
+void php_wxGridCellEditor_free(zend_object *object)
 {
     zo_wxGridCellEditor* custom_object = (zo_wxGridCellEditor*) object;
 
@@ -2639,8 +2655,7 @@ void php_wxGridCellEditor_free(void *object)
     #endif
 
 
-    zend_object_std_dtor(&custom_object->zo);
-    efree(custom_object);
+    zend_object_std_dtor(object);
 }
 
 zend_object* php_wxGridCellEditor_new(zend_class_entry *class_type)
@@ -2664,6 +2679,9 @@ zend_object* php_wxGridCellEditor_new(zend_class_entry *class_type)
 
     zend_object_std_init(&custom_object->zo, class_type);
     object_properties_init(&custom_object->zo, class_type);
+
+    wxphp_wxGridCellEditor_object_handlers.offset = XtOffsetOf(zo_wxGridCellEditor, zo);
+    wxphp_wxGridCellEditor_object_handlers.free_obj = php_wxGridCellEditor_free;
 
     custom_object->zo.handlers = &wxphp_wxGridCellEditor_object_handlers;
 
@@ -4753,7 +4771,7 @@ PHP_METHOD(php_wxGridCellEditor, StartingKey)
 /* }}} */
 
 BEGIN_EXTERN_C()
-void php_wxGridCellAutoWrapStringEditor_free(void *object)
+void php_wxGridCellAutoWrapStringEditor_free(zend_object *object)
 {
     zo_wxGridCellAutoWrapStringEditor* custom_object = (zo_wxGridCellAutoWrapStringEditor*) object;
 
@@ -4767,8 +4785,7 @@ void php_wxGridCellAutoWrapStringEditor_free(void *object)
     #endif
 
 
-    zend_object_std_dtor(&custom_object->zo);
-    efree(custom_object);
+    zend_object_std_dtor(object);
 }
 
 zend_object* php_wxGridCellAutoWrapStringEditor_new(zend_class_entry *class_type)
@@ -4792,6 +4809,9 @@ zend_object* php_wxGridCellAutoWrapStringEditor_new(zend_class_entry *class_type
 
     zend_object_std_init(&custom_object->zo, class_type);
     object_properties_init(&custom_object->zo, class_type);
+
+    wxphp_wxGridCellAutoWrapStringEditor_object_handlers.offset = XtOffsetOf(zo_wxGridCellAutoWrapStringEditor, zo);
+    wxphp_wxGridCellAutoWrapStringEditor_object_handlers.free_obj = php_wxGridCellAutoWrapStringEditor_free;
 
     custom_object->zo.handlers = &wxphp_wxGridCellAutoWrapStringEditor_object_handlers;
 
@@ -4886,7 +4906,7 @@ PHP_METHOD(php_wxGridCellAutoWrapStringEditor, __construct)
 /* }}} */
 
 BEGIN_EXTERN_C()
-void php_wxGridCellBoolEditor_free(void *object)
+void php_wxGridCellBoolEditor_free(zend_object *object)
 {
     zo_wxGridCellBoolEditor* custom_object = (zo_wxGridCellBoolEditor*) object;
 
@@ -4900,8 +4920,7 @@ void php_wxGridCellBoolEditor_free(void *object)
     #endif
 
 
-    zend_object_std_dtor(&custom_object->zo);
-    efree(custom_object);
+    zend_object_std_dtor(object);
 }
 
 zend_object* php_wxGridCellBoolEditor_new(zend_class_entry *class_type)
@@ -4925,6 +4944,9 @@ zend_object* php_wxGridCellBoolEditor_new(zend_class_entry *class_type)
 
     zend_object_std_init(&custom_object->zo, class_type);
     object_properties_init(&custom_object->zo, class_type);
+
+    wxphp_wxGridCellBoolEditor_object_handlers.offset = XtOffsetOf(zo_wxGridCellBoolEditor, zo);
+    wxphp_wxGridCellBoolEditor_object_handlers.free_obj = php_wxGridCellBoolEditor_free;
 
     custom_object->zo.handlers = &wxphp_wxGridCellBoolEditor_object_handlers;
 
@@ -5276,7 +5298,7 @@ PHP_METHOD(php_wxGridCellBoolEditor, __construct)
 /* }}} */
 
 BEGIN_EXTERN_C()
-void php_wxGridCellChoiceEditor_free(void *object)
+void php_wxGridCellChoiceEditor_free(zend_object *object)
 {
     zo_wxGridCellChoiceEditor* custom_object = (zo_wxGridCellChoiceEditor*) object;
 
@@ -5290,8 +5312,7 @@ void php_wxGridCellChoiceEditor_free(void *object)
     #endif
 
 
-    zend_object_std_dtor(&custom_object->zo);
-    efree(custom_object);
+    zend_object_std_dtor(object);
 }
 
 zend_object* php_wxGridCellChoiceEditor_new(zend_class_entry *class_type)
@@ -5315,6 +5336,9 @@ zend_object* php_wxGridCellChoiceEditor_new(zend_class_entry *class_type)
 
     zend_object_std_init(&custom_object->zo, class_type);
     object_properties_init(&custom_object->zo, class_type);
+
+    wxphp_wxGridCellChoiceEditor_object_handlers.offset = XtOffsetOf(zo_wxGridCellChoiceEditor, zo);
+    wxphp_wxGridCellChoiceEditor_object_handlers.free_obj = php_wxGridCellChoiceEditor_free;
 
     custom_object->zo.handlers = &wxphp_wxGridCellChoiceEditor_object_handlers;
 
@@ -5577,7 +5601,7 @@ PHP_METHOD(php_wxGridCellChoiceEditor, __construct)
 /* }}} */
 
 BEGIN_EXTERN_C()
-void php_wxGridCellEnumEditor_free(void *object)
+void php_wxGridCellEnumEditor_free(zend_object *object)
 {
     zo_wxGridCellEnumEditor* custom_object = (zo_wxGridCellEnumEditor*) object;
 
@@ -5591,8 +5615,7 @@ void php_wxGridCellEnumEditor_free(void *object)
     #endif
 
 
-    zend_object_std_dtor(&custom_object->zo);
-    efree(custom_object);
+    zend_object_std_dtor(object);
 }
 
 zend_object* php_wxGridCellEnumEditor_new(zend_class_entry *class_type)
@@ -5616,6 +5639,9 @@ zend_object* php_wxGridCellEnumEditor_new(zend_class_entry *class_type)
 
     zend_object_std_init(&custom_object->zo, class_type);
     object_properties_init(&custom_object->zo, class_type);
+
+    wxphp_wxGridCellEnumEditor_object_handlers.offset = XtOffsetOf(zo_wxGridCellEnumEditor, zo);
+    wxphp_wxGridCellEnumEditor_object_handlers.free_obj = php_wxGridCellEnumEditor_free;
 
     custom_object->zo.handlers = &wxphp_wxGridCellEnumEditor_object_handlers;
 
@@ -5728,7 +5754,7 @@ PHP_METHOD(php_wxGridCellEnumEditor, __construct)
 /* }}} */
 
 BEGIN_EXTERN_C()
-void php_wxGridCellTextEditor_free(void *object)
+void php_wxGridCellTextEditor_free(zend_object *object)
 {
     zo_wxGridCellTextEditor* custom_object = (zo_wxGridCellTextEditor*) object;
 
@@ -5742,8 +5768,7 @@ void php_wxGridCellTextEditor_free(void *object)
     #endif
 
 
-    zend_object_std_dtor(&custom_object->zo);
-    efree(custom_object);
+    zend_object_std_dtor(object);
 }
 
 zend_object* php_wxGridCellTextEditor_new(zend_class_entry *class_type)
@@ -5767,6 +5792,9 @@ zend_object* php_wxGridCellTextEditor_new(zend_class_entry *class_type)
 
     zend_object_std_init(&custom_object->zo, class_type);
     object_properties_init(&custom_object->zo, class_type);
+
+    wxphp_wxGridCellTextEditor_object_handlers.offset = XtOffsetOf(zo_wxGridCellTextEditor, zo);
+    wxphp_wxGridCellTextEditor_object_handlers.free_obj = php_wxGridCellTextEditor_free;
 
     custom_object->zo.handlers = &wxphp_wxGridCellTextEditor_object_handlers;
 
@@ -6003,7 +6031,7 @@ PHP_METHOD(php_wxGridCellTextEditor, SetParameters)
 /* }}} */
 
 BEGIN_EXTERN_C()
-void php_wxGridCellFloatEditor_free(void *object)
+void php_wxGridCellFloatEditor_free(zend_object *object)
 {
     zo_wxGridCellFloatEditor* custom_object = (zo_wxGridCellFloatEditor*) object;
 
@@ -6017,8 +6045,7 @@ void php_wxGridCellFloatEditor_free(void *object)
     #endif
 
 
-    zend_object_std_dtor(&custom_object->zo);
-    efree(custom_object);
+    zend_object_std_dtor(object);
 }
 
 zend_object* php_wxGridCellFloatEditor_new(zend_class_entry *class_type)
@@ -6042,6 +6069,9 @@ zend_object* php_wxGridCellFloatEditor_new(zend_class_entry *class_type)
 
     zend_object_std_init(&custom_object->zo, class_type);
     object_properties_init(&custom_object->zo, class_type);
+
+    wxphp_wxGridCellFloatEditor_object_handlers.offset = XtOffsetOf(zo_wxGridCellFloatEditor, zo);
+    wxphp_wxGridCellFloatEditor_object_handlers.free_obj = php_wxGridCellFloatEditor_free;
 
     custom_object->zo.handlers = &wxphp_wxGridCellFloatEditor_object_handlers;
 
@@ -6290,7 +6320,7 @@ PHP_METHOD(php_wxGridCellFloatEditor, SetParameters)
 /* }}} */
 
 BEGIN_EXTERN_C()
-void php_wxGridCellNumberEditor_free(void *object)
+void php_wxGridCellNumberEditor_free(zend_object *object)
 {
     zo_wxGridCellNumberEditor* custom_object = (zo_wxGridCellNumberEditor*) object;
 
@@ -6304,8 +6334,7 @@ void php_wxGridCellNumberEditor_free(void *object)
     #endif
 
 
-    zend_object_std_dtor(&custom_object->zo);
-    efree(custom_object);
+    zend_object_std_dtor(object);
 }
 
 zend_object* php_wxGridCellNumberEditor_new(zend_class_entry *class_type)
@@ -6329,6 +6358,9 @@ zend_object* php_wxGridCellNumberEditor_new(zend_class_entry *class_type)
 
     zend_object_std_init(&custom_object->zo, class_type);
     object_properties_init(&custom_object->zo, class_type);
+
+    wxphp_wxGridCellNumberEditor_object_handlers.offset = XtOffsetOf(zo_wxGridCellNumberEditor, zo);
+    wxphp_wxGridCellNumberEditor_object_handlers.free_obj = php_wxGridCellNumberEditor_free;
 
     custom_object->zo.handlers = &wxphp_wxGridCellNumberEditor_object_handlers;
 
@@ -6565,7 +6597,7 @@ PHP_METHOD(php_wxGridCellNumberEditor, SetParameters)
 /* }}} */
 
 BEGIN_EXTERN_C()
-void php_wxGridCellAttr_free(void *object)
+void php_wxGridCellAttr_free(zend_object *object)
 {
     zo_wxGridCellAttr* custom_object = (zo_wxGridCellAttr*) object;
 
@@ -6579,8 +6611,7 @@ void php_wxGridCellAttr_free(void *object)
     #endif
 
 
-    zend_object_std_dtor(&custom_object->zo);
-    efree(custom_object);
+    zend_object_std_dtor(object);
 }
 
 zend_object* php_wxGridCellAttr_new(zend_class_entry *class_type)
@@ -6604,6 +6635,9 @@ zend_object* php_wxGridCellAttr_new(zend_class_entry *class_type)
 
     zend_object_std_init(&custom_object->zo, class_type);
     object_properties_init(&custom_object->zo, class_type);
+
+    wxphp_wxGridCellAttr_object_handlers.offset = XtOffsetOf(zo_wxGridCellAttr, zo);
+    wxphp_wxGridCellAttr_object_handlers.free_obj = php_wxGridCellAttr_free;
 
     custom_object->zo.handlers = &wxphp_wxGridCellAttr_object_handlers;
 
@@ -9902,7 +9936,7 @@ PHP_METHOD(php_wxGridCellAttr, __construct)
 /* }}} */
 
 BEGIN_EXTERN_C()
-void php_wxGridTableBase_free(void *object)
+void php_wxGridTableBase_free(zend_object *object)
 {
     zo_wxGridTableBase* custom_object = (zo_wxGridTableBase*) object;
 
@@ -9944,8 +9978,7 @@ void php_wxGridTableBase_free(void *object)
         #endif
     }
 
-    zend_object_std_dtor(&custom_object->zo);
-    efree(custom_object);
+    zend_object_std_dtor(object);
 }
 
 zend_object* php_wxGridTableBase_new(zend_class_entry *class_type)
@@ -9969,6 +10002,9 @@ zend_object* php_wxGridTableBase_new(zend_class_entry *class_type)
 
     zend_object_std_init(&custom_object->zo, class_type);
     object_properties_init(&custom_object->zo, class_type);
+
+    wxphp_wxGridTableBase_object_handlers.offset = XtOffsetOf(zo_wxGridTableBase, zo);
+    wxphp_wxGridTableBase_object_handlers.free_obj = php_wxGridTableBase_free;
 
     custom_object->zo.handlers = &wxphp_wxGridTableBase_object_handlers;
 
@@ -14650,7 +14686,7 @@ PHP_METHOD(php_wxGridTableBase, __construct)
 /* }}} */
 
 BEGIN_EXTERN_C()
-void php_wxGridSizesInfo_free(void *object)
+void php_wxGridSizesInfo_free(zend_object *object)
 {
     zo_wxGridSizesInfo* custom_object = (zo_wxGridSizesInfo*) object;
 
@@ -14693,8 +14729,7 @@ void php_wxGridSizesInfo_free(void *object)
         #endif
     }
 
-    zend_object_std_dtor(&custom_object->zo);
-    efree(custom_object);
+    zend_object_std_dtor(object);
 }
 
 zend_object* php_wxGridSizesInfo_new(zend_class_entry *class_type)
@@ -14718,6 +14753,9 @@ zend_object* php_wxGridSizesInfo_new(zend_class_entry *class_type)
 
     zend_object_std_init(&custom_object->zo, class_type);
     object_properties_init(&custom_object->zo, class_type);
+
+    wxphp_wxGridSizesInfo_object_handlers.offset = XtOffsetOf(zo_wxGridSizesInfo, zo);
+    wxphp_wxGridSizesInfo_object_handlers.free_obj = php_wxGridSizesInfo_free;
 
     custom_object->zo.handlers = &wxphp_wxGridSizesInfo_object_handlers;
 
@@ -14998,7 +15036,7 @@ PHP_METHOD(php_wxGridSizesInfo, GetSize)
 /* }}} */
 
 BEGIN_EXTERN_C()
-void php_wxGrid_free(void *object)
+void php_wxGrid_free(zend_object *object)
 {
     zo_wxGrid* custom_object = (zo_wxGrid*) object;
 
@@ -15011,8 +15049,7 @@ void php_wxGrid_free(void *object)
     php_printf("===========================================\n\n");
     #endif
 
-    zend_object_std_dtor(&custom_object->zo);
-    efree(custom_object);
+    zend_object_std_dtor(object);
 }
 
 zend_object* php_wxGrid_new(zend_class_entry *class_type)
@@ -15036,6 +15073,9 @@ zend_object* php_wxGrid_new(zend_class_entry *class_type)
 
     zend_object_std_init(&custom_object->zo, class_type);
     object_properties_init(&custom_object->zo, class_type);
+
+    wxphp_wxGrid_object_handlers.offset = XtOffsetOf(zo_wxGrid, zo);
+    wxphp_wxGrid_object_handlers.free_obj = php_wxGrid_free;
 
     custom_object->zo.handlers = &wxphp_wxGrid_object_handlers;
 
@@ -41171,7 +41211,7 @@ PHP_METHOD(php_wxGrid, __construct)
 /* }}} */
 
 BEGIN_EXTERN_C()
-void php_wxGridUpdateLocker_free(void *object)
+void php_wxGridUpdateLocker_free(zend_object *object)
 {
     zo_wxGridUpdateLocker* custom_object = (zo_wxGridUpdateLocker*) object;
 
@@ -41213,8 +41253,7 @@ void php_wxGridUpdateLocker_free(void *object)
         #endif
     }
 
-    zend_object_std_dtor(&custom_object->zo);
-    efree(custom_object);
+    zend_object_std_dtor(object);
 }
 
 zend_object* php_wxGridUpdateLocker_new(zend_class_entry *class_type)
@@ -41238,6 +41277,9 @@ zend_object* php_wxGridUpdateLocker_new(zend_class_entry *class_type)
 
     zend_object_std_init(&custom_object->zo, class_type);
     object_properties_init(&custom_object->zo, class_type);
+
+    wxphp_wxGridUpdateLocker_object_handlers.offset = XtOffsetOf(zo_wxGridUpdateLocker, zo);
+    wxphp_wxGridUpdateLocker_object_handlers.free_obj = php_wxGridUpdateLocker_free;
 
     custom_object->zo.handlers = &wxphp_wxGridUpdateLocker_object_handlers;
 

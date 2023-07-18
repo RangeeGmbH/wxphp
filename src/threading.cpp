@@ -54,7 +54,7 @@
 
 
 BEGIN_EXTERN_C()
-void php_wxCondition_free(void *object)
+void php_wxCondition_free(zend_object *object)
 {
     zo_wxCondition* custom_object = (zo_wxCondition*) object;
 
@@ -96,8 +96,7 @@ void php_wxCondition_free(void *object)
         #endif
     }
 
-    zend_object_std_dtor(&custom_object->zo);
-    efree(custom_object);
+    zend_object_std_dtor(object);
 }
 
 zend_object* php_wxCondition_new(zend_class_entry *class_type)
@@ -121,6 +120,9 @@ zend_object* php_wxCondition_new(zend_class_entry *class_type)
 
     zend_object_std_init(&custom_object->zo, class_type);
     object_properties_init(&custom_object->zo, class_type);
+
+    wxphp_wxCondition_object_handlers.offset = XtOffsetOf(zo_wxCondition, zo);
+    wxphp_wxCondition_object_handlers.free_obj = php_wxCondition_free;
 
     custom_object->zo.handlers = &wxphp_wxCondition_object_handlers;
 
@@ -780,7 +782,7 @@ PHP_METHOD(php_wxCondition, __construct)
 /* }}} */
 
 BEGIN_EXTERN_C()
-void php_wxCriticalSectionLocker_free(void *object)
+void php_wxCriticalSectionLocker_free(zend_object *object)
 {
     zo_wxCriticalSectionLocker* custom_object = (zo_wxCriticalSectionLocker*) object;
 
@@ -822,8 +824,7 @@ void php_wxCriticalSectionLocker_free(void *object)
         #endif
     }
 
-    zend_object_std_dtor(&custom_object->zo);
-    efree(custom_object);
+    zend_object_std_dtor(object);
 }
 
 zend_object* php_wxCriticalSectionLocker_new(zend_class_entry *class_type)
@@ -847,6 +848,9 @@ zend_object* php_wxCriticalSectionLocker_new(zend_class_entry *class_type)
 
     zend_object_std_init(&custom_object->zo, class_type);
     object_properties_init(&custom_object->zo, class_type);
+
+    wxphp_wxCriticalSectionLocker_object_handlers.offset = XtOffsetOf(zo_wxCriticalSectionLocker, zo);
+    wxphp_wxCriticalSectionLocker_object_handlers.free_obj = php_wxCriticalSectionLocker_free;
 
     custom_object->zo.handlers = &wxphp_wxCriticalSectionLocker_object_handlers;
 
@@ -966,7 +970,7 @@ PHP_METHOD(php_wxCriticalSectionLocker, __construct)
 /* }}} */
 
 BEGIN_EXTERN_C()
-void php_wxThreadHelper_free(void *object)
+void php_wxThreadHelper_free(zend_object *object)
 {
     zo_wxThreadHelper* custom_object = (zo_wxThreadHelper*) object;
 
@@ -1008,8 +1012,7 @@ void php_wxThreadHelper_free(void *object)
         #endif
     }
 
-    zend_object_std_dtor(&custom_object->zo);
-    efree(custom_object);
+    zend_object_std_dtor(object);
 }
 
 zend_object* php_wxThreadHelper_new(zend_class_entry *class_type)
@@ -1033,6 +1036,9 @@ zend_object* php_wxThreadHelper_new(zend_class_entry *class_type)
 
     zend_object_std_init(&custom_object->zo, class_type);
     object_properties_init(&custom_object->zo, class_type);
+
+    wxphp_wxThreadHelper_object_handlers.offset = XtOffsetOf(zo_wxThreadHelper, zo);
+    wxphp_wxThreadHelper_object_handlers.free_obj = php_wxThreadHelper_free;
 
     custom_object->zo.handlers = &wxphp_wxThreadHelper_object_handlers;
 
@@ -1324,7 +1330,7 @@ PHP_METHOD(php_wxThreadHelper, CreateThread)
 /* }}} */
 
 BEGIN_EXTERN_C()
-void php_wxCriticalSection_free(void *object)
+void php_wxCriticalSection_free(zend_object *object)
 {
     zo_wxCriticalSection* custom_object = (zo_wxCriticalSection*) object;
 
@@ -1366,8 +1372,7 @@ void php_wxCriticalSection_free(void *object)
         #endif
     }
 
-    zend_object_std_dtor(&custom_object->zo);
-    efree(custom_object);
+    zend_object_std_dtor(object);
 }
 
 zend_object* php_wxCriticalSection_new(zend_class_entry *class_type)
@@ -1391,6 +1396,9 @@ zend_object* php_wxCriticalSection_new(zend_class_entry *class_type)
 
     zend_object_std_init(&custom_object->zo, class_type);
     object_properties_init(&custom_object->zo, class_type);
+
+    wxphp_wxCriticalSection_object_handlers.offset = XtOffsetOf(zo_wxCriticalSection, zo);
+    wxphp_wxCriticalSection_object_handlers.free_obj = php_wxCriticalSection_free;
 
     custom_object->zo.handlers = &wxphp_wxCriticalSection_object_handlers;
 
@@ -1823,7 +1831,7 @@ PHP_METHOD(php_wxCriticalSection, __construct)
 /* }}} */
 
 BEGIN_EXTERN_C()
-void php_wxThread_free(void *object)
+void php_wxThread_free(zend_object *object)
 {
     zo_wxThread* custom_object = (zo_wxThread*) object;
 
@@ -1836,8 +1844,7 @@ void php_wxThread_free(void *object)
     php_printf("===========================================\n\n");
     #endif
 
-    zend_object_std_dtor(&custom_object->zo);
-    efree(custom_object);
+    zend_object_std_dtor(object);
 }
 
 zend_object* php_wxThread_new(zend_class_entry *class_type)
@@ -1861,6 +1868,9 @@ zend_object* php_wxThread_new(zend_class_entry *class_type)
 
     zend_object_std_init(&custom_object->zo, class_type);
     object_properties_init(&custom_object->zo, class_type);
+
+    wxphp_wxThread_object_handlers.offset = XtOffsetOf(zo_wxThread, zo);
+    wxphp_wxThread_object_handlers.free_obj = php_wxThread_free;
 
     custom_object->zo.handlers = &wxphp_wxThread_object_handlers;
 
@@ -4731,7 +4741,7 @@ PHP_METHOD(php_wxThread, Wait)
 /* }}} */
 
 BEGIN_EXTERN_C()
-void php_wxSemaphore_free(void *object)
+void php_wxSemaphore_free(zend_object *object)
 {
     zo_wxSemaphore* custom_object = (zo_wxSemaphore*) object;
 
@@ -4773,8 +4783,7 @@ void php_wxSemaphore_free(void *object)
         #endif
     }
 
-    zend_object_std_dtor(&custom_object->zo);
-    efree(custom_object);
+    zend_object_std_dtor(object);
 }
 
 zend_object* php_wxSemaphore_new(zend_class_entry *class_type)
@@ -4798,6 +4807,9 @@ zend_object* php_wxSemaphore_new(zend_class_entry *class_type)
 
     zend_object_std_init(&custom_object->zo, class_type);
     object_properties_init(&custom_object->zo, class_type);
+
+    wxphp_wxSemaphore_object_handlers.offset = XtOffsetOf(zo_wxSemaphore, zo);
+    wxphp_wxSemaphore_object_handlers.free_obj = php_wxSemaphore_free;
 
     custom_object->zo.handlers = &wxphp_wxSemaphore_object_handlers;
 
@@ -5354,7 +5366,7 @@ PHP_METHOD(php_wxSemaphore, __construct)
 /* }}} */
 
 BEGIN_EXTERN_C()
-void php_wxMutexLocker_free(void *object)
+void php_wxMutexLocker_free(zend_object *object)
 {
     zo_wxMutexLocker* custom_object = (zo_wxMutexLocker*) object;
 
@@ -5396,8 +5408,7 @@ void php_wxMutexLocker_free(void *object)
         #endif
     }
 
-    zend_object_std_dtor(&custom_object->zo);
-    efree(custom_object);
+    zend_object_std_dtor(object);
 }
 
 zend_object* php_wxMutexLocker_new(zend_class_entry *class_type)
@@ -5421,6 +5432,9 @@ zend_object* php_wxMutexLocker_new(zend_class_entry *class_type)
 
     zend_object_std_init(&custom_object->zo, class_type);
     object_properties_init(&custom_object->zo, class_type);
+
+    wxphp_wxMutexLocker_object_handlers.offset = XtOffsetOf(zo_wxMutexLocker, zo);
+    wxphp_wxMutexLocker_object_handlers.free_obj = php_wxMutexLocker_free;
 
     custom_object->zo.handlers = &wxphp_wxMutexLocker_object_handlers;
 
@@ -5647,7 +5661,7 @@ PHP_METHOD(php_wxMutexLocker, __construct)
 /* }}} */
 
 BEGIN_EXTERN_C()
-void php_wxMutex_free(void *object)
+void php_wxMutex_free(zend_object *object)
 {
     zo_wxMutex* custom_object = (zo_wxMutex*) object;
 
@@ -5689,8 +5703,7 @@ void php_wxMutex_free(void *object)
         #endif
     }
 
-    zend_object_std_dtor(&custom_object->zo);
-    efree(custom_object);
+    zend_object_std_dtor(object);
 }
 
 zend_object* php_wxMutex_new(zend_class_entry *class_type)
@@ -5714,6 +5727,9 @@ zend_object* php_wxMutex_new(zend_class_entry *class_type)
 
     zend_object_std_init(&custom_object->zo, class_type);
     object_properties_init(&custom_object->zo, class_type);
+
+    wxphp_wxMutex_object_handlers.offset = XtOffsetOf(zo_wxMutex, zo);
+    wxphp_wxMutex_object_handlers.free_obj = php_wxMutex_free;
 
     custom_object->zo.handlers = &wxphp_wxMutex_object_handlers;
 

@@ -42,7 +42,7 @@ typedef struct _zo_wxDC{
     zend_object zo;
 } zo_wxDC;
 
-void php_wxDC_free(void *object);
+void php_wxDC_free(zend_object *object);
 zend_object* php_wxDC_new(zend_class_entry *class_type);
 END_EXTERN_C()
 
@@ -534,7 +534,7 @@ typedef struct _zo_wxBufferedDC{
     zend_object zo;
 } zo_wxBufferedDC;
 
-void php_wxBufferedDC_free(void *object);
+void php_wxBufferedDC_free(zend_object *object);
 zend_object* php_wxBufferedDC_new(zend_class_entry *class_type);
 END_EXTERN_C()
 
@@ -952,7 +952,7 @@ typedef struct _zo_wxAutoBufferedPaintDC{
     zend_object zo;
 } zo_wxAutoBufferedPaintDC;
 
-void php_wxAutoBufferedPaintDC_free(void *object);
+void php_wxAutoBufferedPaintDC_free(zend_object *object);
 zend_object* php_wxAutoBufferedPaintDC_new(zend_class_entry *class_type);
 END_EXTERN_C()
 
@@ -1370,7 +1370,7 @@ typedef struct _zo_wxBufferedPaintDC{
     zend_object zo;
 } zo_wxBufferedPaintDC;
 
-void php_wxBufferedPaintDC_free(void *object);
+void php_wxBufferedPaintDC_free(zend_object *object);
 zend_object* php_wxBufferedPaintDC_new(zend_class_entry *class_type);
 END_EXTERN_C()
 
@@ -1787,7 +1787,7 @@ typedef struct _zo_wxPaintDC{
     zend_object zo;
 } zo_wxPaintDC;
 
-void php_wxPaintDC_free(void *object);
+void php_wxPaintDC_free(zend_object *object);
 zend_object* php_wxPaintDC_new(zend_class_entry *class_type);
 END_EXTERN_C()
 
@@ -2191,7 +2191,7 @@ typedef struct _zo_wxClientDC{
     zend_object zo;
 } zo_wxClientDC;
 
-void php_wxClientDC_free(void *object);
+void php_wxClientDC_free(zend_object *object);
 zend_object* php_wxClientDC_new(zend_class_entry *class_type);
 END_EXTERN_C()
 
@@ -2595,7 +2595,7 @@ typedef struct _zo_wxWindowDC{
     zend_object zo;
 } zo_wxWindowDC;
 
-void php_wxWindowDC_free(void *object);
+void php_wxWindowDC_free(zend_object *object);
 zend_object* php_wxWindowDC_new(zend_class_entry *class_type);
 END_EXTERN_C()
 
@@ -3001,7 +3001,7 @@ typedef struct _zo_wxMemoryDC{
     zend_object zo;
 } zo_wxMemoryDC;
 
-void php_wxMemoryDC_free(void *object);
+void php_wxMemoryDC_free(zend_object *object);
 zend_object* php_wxMemoryDC_new(zend_class_entry *class_type);
 END_EXTERN_C()
 
@@ -3413,7 +3413,7 @@ typedef struct _zo_wxMirrorDC{
     zend_object zo;
 } zo_wxMirrorDC;
 
-void php_wxMirrorDC_free(void *object);
+void php_wxMirrorDC_free(zend_object *object);
 zend_object* php_wxMirrorDC_new(zend_class_entry *class_type);
 END_EXTERN_C()
 
@@ -3819,7 +3819,7 @@ typedef struct _zo_wxPostScriptDC{
     zend_object zo;
 } zo_wxPostScriptDC;
 
-void php_wxPostScriptDC_free(void *object);
+void php_wxPostScriptDC_free(zend_object *object);
 zend_object* php_wxPostScriptDC_new(zend_class_entry *class_type);
 END_EXTERN_C()
 
@@ -4223,7 +4223,7 @@ typedef struct _zo_wxScreenDC{
     zend_object zo;
 } zo_wxScreenDC;
 
-void php_wxScreenDC_free(void *object);
+void php_wxScreenDC_free(zend_object *object);
 zend_object* php_wxScreenDC_new(zend_class_entry *class_type);
 END_EXTERN_C()
 

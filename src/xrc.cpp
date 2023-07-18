@@ -54,7 +54,7 @@
 
 
 BEGIN_EXTERN_C()
-void php_wxXmlResourceHandler_free(void *object)
+void php_wxXmlResourceHandler_free(zend_object *object)
 {
     zo_wxXmlResourceHandler* custom_object = (zo_wxXmlResourceHandler*) object;
 
@@ -96,8 +96,7 @@ void php_wxXmlResourceHandler_free(void *object)
         #endif
     }
 
-    zend_object_std_dtor(&custom_object->zo);
-    efree(custom_object);
+    zend_object_std_dtor(object);
 }
 
 zend_object* php_wxXmlResourceHandler_new(zend_class_entry *class_type)
@@ -121,6 +120,9 @@ zend_object* php_wxXmlResourceHandler_new(zend_class_entry *class_type)
 
     zend_object_std_init(&custom_object->zo, class_type);
     object_properties_init(&custom_object->zo, class_type);
+
+    wxphp_wxXmlResourceHandler_object_handlers.offset = XtOffsetOf(zo_wxXmlResourceHandler, zo);
+    wxphp_wxXmlResourceHandler_object_handlers.free_obj = php_wxXmlResourceHandler_free;
 
     custom_object->zo.handlers = &wxphp_wxXmlResourceHandler_object_handlers;
 
@@ -722,7 +724,7 @@ PHP_METHOD(php_wxXmlResourceHandler, __construct)
 /* }}} */
 
 BEGIN_EXTERN_C()
-void php_wxXmlResource_free(void *object)
+void php_wxXmlResource_free(zend_object *object)
 {
     zo_wxXmlResource* custom_object = (zo_wxXmlResource*) object;
 
@@ -764,8 +766,7 @@ void php_wxXmlResource_free(void *object)
         #endif
     }
 
-    zend_object_std_dtor(&custom_object->zo);
-    efree(custom_object);
+    zend_object_std_dtor(object);
 }
 
 zend_object* php_wxXmlResource_new(zend_class_entry *class_type)
@@ -789,6 +790,9 @@ zend_object* php_wxXmlResource_new(zend_class_entry *class_type)
 
     zend_object_std_init(&custom_object->zo, class_type);
     object_properties_init(&custom_object->zo, class_type);
+
+    wxphp_wxXmlResource_object_handlers.offset = XtOffsetOf(zo_wxXmlResource, zo);
+    wxphp_wxXmlResource_object_handlers.free_obj = php_wxXmlResource_free;
 
     custom_object->zo.handlers = &wxphp_wxXmlResource_object_handlers;
 

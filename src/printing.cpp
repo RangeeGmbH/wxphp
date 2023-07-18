@@ -54,7 +54,7 @@
 
 
 BEGIN_EXTERN_C()
-void php_wxPrinterDC_free(void *object)
+void php_wxPrinterDC_free(zend_object *object)
 {
     zo_wxPrinterDC* custom_object = (zo_wxPrinterDC*) object;
 
@@ -96,8 +96,7 @@ void php_wxPrinterDC_free(void *object)
         #endif
     }
 
-    zend_object_std_dtor(&custom_object->zo);
-    efree(custom_object);
+    zend_object_std_dtor(object);
 }
 
 zend_object* php_wxPrinterDC_new(zend_class_entry *class_type)
@@ -121,6 +120,9 @@ zend_object* php_wxPrinterDC_new(zend_class_entry *class_type)
 
     zend_object_std_init(&custom_object->zo, class_type);
     object_properties_init(&custom_object->zo, class_type);
+
+    wxphp_wxPrinterDC_object_handlers.offset = XtOffsetOf(zo_wxPrinterDC, zo);
+    wxphp_wxPrinterDC_object_handlers.free_obj = php_wxPrinterDC_free;
 
     custom_object->zo.handlers = &wxphp_wxPrinterDC_object_handlers;
 
@@ -355,7 +357,7 @@ PHP_METHOD(php_wxPrinterDC, __construct)
 /* }}} */
 
 BEGIN_EXTERN_C()
-void php_wxPreviewControlBar_free(void *object)
+void php_wxPreviewControlBar_free(zend_object *object)
 {
     zo_wxPreviewControlBar* custom_object = (zo_wxPreviewControlBar*) object;
 
@@ -368,8 +370,7 @@ void php_wxPreviewControlBar_free(void *object)
     php_printf("===========================================\n\n");
     #endif
 
-    zend_object_std_dtor(&custom_object->zo);
-    efree(custom_object);
+    zend_object_std_dtor(object);
 }
 
 zend_object* php_wxPreviewControlBar_new(zend_class_entry *class_type)
@@ -393,6 +394,9 @@ zend_object* php_wxPreviewControlBar_new(zend_class_entry *class_type)
 
     zend_object_std_init(&custom_object->zo, class_type);
     object_properties_init(&custom_object->zo, class_type);
+
+    wxphp_wxPreviewControlBar_object_handlers.offset = XtOffsetOf(zo_wxPreviewControlBar, zo);
+    wxphp_wxPreviewControlBar_object_handlers.free_obj = php_wxPreviewControlBar_free;
 
     custom_object->zo.handlers = &wxphp_wxPreviewControlBar_object_handlers;
 
@@ -959,7 +963,7 @@ PHP_METHOD(php_wxPreviewControlBar, __construct)
 /* }}} */
 
 BEGIN_EXTERN_C()
-void php_wxPreviewCanvas_free(void *object)
+void php_wxPreviewCanvas_free(zend_object *object)
 {
     zo_wxPreviewCanvas* custom_object = (zo_wxPreviewCanvas*) object;
 
@@ -972,8 +976,7 @@ void php_wxPreviewCanvas_free(void *object)
     php_printf("===========================================\n\n");
     #endif
 
-    zend_object_std_dtor(&custom_object->zo);
-    efree(custom_object);
+    zend_object_std_dtor(object);
 }
 
 zend_object* php_wxPreviewCanvas_new(zend_class_entry *class_type)
@@ -997,6 +1000,9 @@ zend_object* php_wxPreviewCanvas_new(zend_class_entry *class_type)
 
     zend_object_std_init(&custom_object->zo, class_type);
     object_properties_init(&custom_object->zo, class_type);
+
+    wxphp_wxPreviewCanvas_object_handlers.offset = XtOffsetOf(zo_wxPreviewCanvas, zo);
+    wxphp_wxPreviewCanvas_object_handlers.free_obj = php_wxPreviewCanvas_free;
 
     custom_object->zo.handlers = &wxphp_wxPreviewCanvas_object_handlers;
 
@@ -1236,7 +1242,7 @@ PHP_METHOD(php_wxPreviewCanvas, __construct)
 /* }}} */
 
 BEGIN_EXTERN_C()
-void php_wxPreviewFrame_free(void *object)
+void php_wxPreviewFrame_free(zend_object *object)
 {
     zo_wxPreviewFrame* custom_object = (zo_wxPreviewFrame*) object;
 
@@ -1246,8 +1252,7 @@ void php_wxPreviewFrame_free(void *object)
         "Remember to always call Destroy() to prevent memory leaks."
     );*/
 
-    zend_object_std_dtor(&custom_object->zo);
-    efree(custom_object);
+    zend_object_std_dtor(object);
 }
 
 zend_object* php_wxPreviewFrame_new(zend_class_entry *class_type)
@@ -1271,6 +1276,9 @@ zend_object* php_wxPreviewFrame_new(zend_class_entry *class_type)
 
     zend_object_std_init(&custom_object->zo, class_type);
     object_properties_init(&custom_object->zo, class_type);
+
+    wxphp_wxPreviewFrame_object_handlers.offset = XtOffsetOf(zo_wxPreviewFrame, zo);
+    wxphp_wxPreviewFrame_object_handlers.free_obj = php_wxPreviewFrame_free;
 
     custom_object->zo.handlers = &wxphp_wxPreviewFrame_object_handlers;
 
@@ -1728,7 +1736,7 @@ PHP_METHOD(php_wxPreviewFrame, InitializeWithModality)
 /* }}} */
 
 BEGIN_EXTERN_C()
-void php_wxPrintPreview_free(void *object)
+void php_wxPrintPreview_free(zend_object *object)
 {
     zo_wxPrintPreview* custom_object = (zo_wxPrintPreview*) object;
 
@@ -1770,8 +1778,7 @@ void php_wxPrintPreview_free(void *object)
         #endif
     }
 
-    zend_object_std_dtor(&custom_object->zo);
-    efree(custom_object);
+    zend_object_std_dtor(object);
 }
 
 zend_object* php_wxPrintPreview_new(zend_class_entry *class_type)
@@ -1795,6 +1802,9 @@ zend_object* php_wxPrintPreview_new(zend_class_entry *class_type)
 
     zend_object_std_init(&custom_object->zo, class_type);
     object_properties_init(&custom_object->zo, class_type);
+
+    wxphp_wxPrintPreview_object_handlers.offset = XtOffsetOf(zo_wxPrintPreview, zo);
+    wxphp_wxPrintPreview_object_handlers.free_obj = php_wxPrintPreview_free;
 
     custom_object->zo.handlers = &wxphp_wxPrintPreview_object_handlers;
 
@@ -3919,7 +3929,7 @@ PHP_METHOD(php_wxPrintPreview, __construct)
 /* }}} */
 
 BEGIN_EXTERN_C()
-void php_wxPrinter_free(void *object)
+void php_wxPrinter_free(zend_object *object)
 {
     zo_wxPrinter* custom_object = (zo_wxPrinter*) object;
 
@@ -3961,8 +3971,7 @@ void php_wxPrinter_free(void *object)
         #endif
     }
 
-    zend_object_std_dtor(&custom_object->zo);
-    efree(custom_object);
+    zend_object_std_dtor(object);
 }
 
 zend_object* php_wxPrinter_new(zend_class_entry *class_type)
@@ -3986,6 +3995,9 @@ zend_object* php_wxPrinter_new(zend_class_entry *class_type)
 
     zend_object_std_init(&custom_object->zo, class_type);
     object_properties_init(&custom_object->zo, class_type);
+
+    wxphp_wxPrinter_object_handlers.offset = XtOffsetOf(zo_wxPrinter, zo);
+    wxphp_wxPrinter_object_handlers.free_obj = php_wxPrinter_free;
 
     custom_object->zo.handlers = &wxphp_wxPrinter_object_handlers;
 
@@ -5062,7 +5074,7 @@ PHP_METHOD(php_wxPrinter, __construct)
 /* }}} */
 
 BEGIN_EXTERN_C()
-void php_wxPrintout_free(void *object)
+void php_wxPrintout_free(zend_object *object)
 {
     zo_wxPrintout* custom_object = (zo_wxPrintout*) object;
 
@@ -5104,8 +5116,7 @@ void php_wxPrintout_free(void *object)
         #endif
     }
 
-    zend_object_std_dtor(&custom_object->zo);
-    efree(custom_object);
+    zend_object_std_dtor(object);
 }
 
 zend_object* php_wxPrintout_new(zend_class_entry *class_type)
@@ -5129,6 +5140,9 @@ zend_object* php_wxPrintout_new(zend_class_entry *class_type)
 
     zend_object_std_init(&custom_object->zo, class_type);
     object_properties_init(&custom_object->zo, class_type);
+
+    wxphp_wxPrintout_object_handlers.offset = XtOffsetOf(zo_wxPrintout, zo);
+    wxphp_wxPrintout_object_handlers.free_obj = php_wxPrintout_free;
 
     custom_object->zo.handlers = &wxphp_wxPrintout_object_handlers;
 
@@ -8683,7 +8697,7 @@ PHP_METHOD(php_wxPrintout, __construct)
 /* }}} */
 
 BEGIN_EXTERN_C()
-void php_wxPrintDialog_free(void *object)
+void php_wxPrintDialog_free(zend_object *object)
 {
     zo_wxPrintDialog* custom_object = (zo_wxPrintDialog*) object;
 
@@ -8725,8 +8739,7 @@ void php_wxPrintDialog_free(void *object)
         #endif
     }
 
-    zend_object_std_dtor(&custom_object->zo);
-    efree(custom_object);
+    zend_object_std_dtor(object);
 }
 
 zend_object* php_wxPrintDialog_new(zend_class_entry *class_type)
@@ -8750,6 +8763,9 @@ zend_object* php_wxPrintDialog_new(zend_class_entry *class_type)
 
     zend_object_std_init(&custom_object->zo, class_type);
     object_properties_init(&custom_object->zo, class_type);
+
+    wxphp_wxPrintDialog_object_handlers.offset = XtOffsetOf(zo_wxPrintDialog, zo);
+    wxphp_wxPrintDialog_object_handlers.free_obj = php_wxPrintDialog_free;
 
     custom_object->zo.handlers = &wxphp_wxPrintDialog_object_handlers;
 
@@ -9470,7 +9486,7 @@ PHP_METHOD(php_wxPrintDialog, GetPrintData)
 /* }}} */
 
 BEGIN_EXTERN_C()
-void php_wxPageSetupDialog_free(void *object)
+void php_wxPageSetupDialog_free(zend_object *object)
 {
     zo_wxPageSetupDialog* custom_object = (zo_wxPageSetupDialog*) object;
 
@@ -9512,8 +9528,7 @@ void php_wxPageSetupDialog_free(void *object)
         #endif
     }
 
-    zend_object_std_dtor(&custom_object->zo);
-    efree(custom_object);
+    zend_object_std_dtor(object);
 }
 
 zend_object* php_wxPageSetupDialog_new(zend_class_entry *class_type)
@@ -9537,6 +9552,9 @@ zend_object* php_wxPageSetupDialog_new(zend_class_entry *class_type)
 
     zend_object_std_init(&custom_object->zo, class_type);
     object_properties_init(&custom_object->zo, class_type);
+
+    wxphp_wxPageSetupDialog_object_handlers.offset = XtOffsetOf(zo_wxPageSetupDialog, zo);
+    wxphp_wxPageSetupDialog_object_handlers.free_obj = php_wxPageSetupDialog_free;
 
     custom_object->zo.handlers = &wxphp_wxPageSetupDialog_object_handlers;
 

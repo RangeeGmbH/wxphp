@@ -54,7 +54,7 @@
 
 
 BEGIN_EXTERN_C()
-void php_wxRibbonArtProvider_free(void *object)
+void php_wxRibbonArtProvider_free(zend_object *object)
 {
     zo_wxRibbonArtProvider* custom_object = (zo_wxRibbonArtProvider*) object;
 
@@ -96,8 +96,7 @@ void php_wxRibbonArtProvider_free(void *object)
         #endif
     }
 
-    zend_object_std_dtor(&custom_object->zo);
-    efree(custom_object);
+    zend_object_std_dtor(object);
 }
 
 zend_object* php_wxRibbonArtProvider_new(zend_class_entry *class_type)
@@ -121,6 +120,9 @@ zend_object* php_wxRibbonArtProvider_new(zend_class_entry *class_type)
 
     zend_object_std_init(&custom_object->zo, class_type);
     object_properties_init(&custom_object->zo, class_type);
+
+    wxphp_wxRibbonArtProvider_object_handlers.offset = XtOffsetOf(zo_wxRibbonArtProvider, zo);
+    wxphp_wxRibbonArtProvider_object_handlers.free_obj = php_wxRibbonArtProvider_free;
 
     custom_object->zo.handlers = &wxphp_wxRibbonArtProvider_object_handlers;
 
@@ -3629,7 +3631,7 @@ bool wxRibbonArtProvider_php::GetButtonBarButtonSize(wxDC& dc, wxWindow* wnd, wx
 /* }}} */
 
 BEGIN_EXTERN_C()
-void php_wxRibbonBar_free(void *object)
+void php_wxRibbonBar_free(zend_object *object)
 {
     zo_wxRibbonBar* custom_object = (zo_wxRibbonBar*) object;
 
@@ -3642,8 +3644,7 @@ void php_wxRibbonBar_free(void *object)
     php_printf("===========================================\n\n");
     #endif
 
-    zend_object_std_dtor(&custom_object->zo);
-    efree(custom_object);
+    zend_object_std_dtor(object);
 }
 
 zend_object* php_wxRibbonBar_new(zend_class_entry *class_type)
@@ -3667,6 +3668,9 @@ zend_object* php_wxRibbonBar_new(zend_class_entry *class_type)
 
     zend_object_std_init(&custom_object->zo, class_type);
     object_properties_init(&custom_object->zo, class_type);
+
+    wxphp_wxRibbonBar_object_handlers.offset = XtOffsetOf(zo_wxRibbonBar, zo);
+    wxphp_wxRibbonBar_object_handlers.free_obj = php_wxRibbonBar_free;
 
     custom_object->zo.handlers = &wxphp_wxRibbonBar_object_handlers;
 
@@ -5350,7 +5354,7 @@ PHP_METHOD(php_wxRibbonBar, __construct)
 /* }}} */
 
 BEGIN_EXTERN_C()
-void php_wxRibbonButtonBar_free(void *object)
+void php_wxRibbonButtonBar_free(zend_object *object)
 {
     zo_wxRibbonButtonBar* custom_object = (zo_wxRibbonButtonBar*) object;
 
@@ -5363,8 +5367,7 @@ void php_wxRibbonButtonBar_free(void *object)
     php_printf("===========================================\n\n");
     #endif
 
-    zend_object_std_dtor(&custom_object->zo);
-    efree(custom_object);
+    zend_object_std_dtor(object);
 }
 
 zend_object* php_wxRibbonButtonBar_new(zend_class_entry *class_type)
@@ -5388,6 +5391,9 @@ zend_object* php_wxRibbonButtonBar_new(zend_class_entry *class_type)
 
     zend_object_std_init(&custom_object->zo, class_type);
     object_properties_init(&custom_object->zo, class_type);
+
+    wxphp_wxRibbonButtonBar_object_handlers.offset = XtOffsetOf(zo_wxRibbonButtonBar, zo);
+    wxphp_wxRibbonButtonBar_object_handlers.free_obj = php_wxRibbonButtonBar_free;
 
     custom_object->zo.handlers = &wxphp_wxRibbonButtonBar_object_handlers;
 
@@ -7544,7 +7550,7 @@ PHP_METHOD(php_wxRibbonButtonBar, AddButton)
 /* }}} */
 
 BEGIN_EXTERN_C()
-void php_wxRibbonControl_free(void *object)
+void php_wxRibbonControl_free(zend_object *object)
 {
     zo_wxRibbonControl* custom_object = (zo_wxRibbonControl*) object;
 
@@ -7557,8 +7563,7 @@ void php_wxRibbonControl_free(void *object)
     php_printf("===========================================\n\n");
     #endif
 
-    zend_object_std_dtor(&custom_object->zo);
-    efree(custom_object);
+    zend_object_std_dtor(object);
 }
 
 zend_object* php_wxRibbonControl_new(zend_class_entry *class_type)
@@ -7582,6 +7587,9 @@ zend_object* php_wxRibbonControl_new(zend_class_entry *class_type)
 
     zend_object_std_init(&custom_object->zo, class_type);
     object_properties_init(&custom_object->zo, class_type);
+
+    wxphp_wxRibbonControl_object_handlers.offset = XtOffsetOf(zo_wxRibbonControl, zo);
+    wxphp_wxRibbonControl_object_handlers.free_obj = php_wxRibbonControl_free;
 
     custom_object->zo.handlers = &wxphp_wxRibbonControl_object_handlers;
 
@@ -9198,7 +9206,7 @@ PHP_METHOD(php_wxRibbonControl, __construct)
 /* }}} */
 
 BEGIN_EXTERN_C()
-void php_wxRibbonGallery_free(void *object)
+void php_wxRibbonGallery_free(zend_object *object)
 {
     zo_wxRibbonGallery* custom_object = (zo_wxRibbonGallery*) object;
 
@@ -9211,8 +9219,7 @@ void php_wxRibbonGallery_free(void *object)
     php_printf("===========================================\n\n");
     #endif
 
-    zend_object_std_dtor(&custom_object->zo);
-    efree(custom_object);
+    zend_object_std_dtor(object);
 }
 
 zend_object* php_wxRibbonGallery_new(zend_class_entry *class_type)
@@ -9236,6 +9243,9 @@ zend_object* php_wxRibbonGallery_new(zend_class_entry *class_type)
 
     zend_object_std_init(&custom_object->zo, class_type);
     object_properties_init(&custom_object->zo, class_type);
+
+    wxphp_wxRibbonGallery_object_handlers.offset = XtOffsetOf(zo_wxRibbonGallery, zo);
+    wxphp_wxRibbonGallery_object_handlers.free_obj = php_wxRibbonGallery_free;
 
     custom_object->zo.handlers = &wxphp_wxRibbonGallery_object_handlers;
 
@@ -12392,7 +12402,7 @@ PHP_METHOD(php_wxRibbonGallery, __construct)
 /* }}} */
 
 BEGIN_EXTERN_C()
-void php_wxRibbonPage_free(void *object)
+void php_wxRibbonPage_free(zend_object *object)
 {
     zo_wxRibbonPage* custom_object = (zo_wxRibbonPage*) object;
 
@@ -12405,8 +12415,7 @@ void php_wxRibbonPage_free(void *object)
     php_printf("===========================================\n\n");
     #endif
 
-    zend_object_std_dtor(&custom_object->zo);
-    efree(custom_object);
+    zend_object_std_dtor(object);
 }
 
 zend_object* php_wxRibbonPage_new(zend_class_entry *class_type)
@@ -12430,6 +12439,9 @@ zend_object* php_wxRibbonPage_new(zend_class_entry *class_type)
 
     zend_object_std_init(&custom_object->zo, class_type);
     object_properties_init(&custom_object->zo, class_type);
+
+    wxphp_wxRibbonPage_object_handlers.offset = XtOffsetOf(zo_wxRibbonPage, zo);
+    wxphp_wxRibbonPage_object_handlers.free_obj = php_wxRibbonPage_free;
 
     custom_object->zo.handlers = &wxphp_wxRibbonPage_object_handlers;
 
@@ -13913,7 +13925,7 @@ PHP_METHOD(php_wxRibbonPage, __construct)
 /* }}} */
 
 BEGIN_EXTERN_C()
-void php_wxRibbonPanel_free(void *object)
+void php_wxRibbonPanel_free(zend_object *object)
 {
     zo_wxRibbonPanel* custom_object = (zo_wxRibbonPanel*) object;
 
@@ -13926,8 +13938,7 @@ void php_wxRibbonPanel_free(void *object)
     php_printf("===========================================\n\n");
     #endif
 
-    zend_object_std_dtor(&custom_object->zo);
-    efree(custom_object);
+    zend_object_std_dtor(object);
 }
 
 zend_object* php_wxRibbonPanel_new(zend_class_entry *class_type)
@@ -13951,6 +13962,9 @@ zend_object* php_wxRibbonPanel_new(zend_class_entry *class_type)
 
     zend_object_std_init(&custom_object->zo, class_type);
     object_properties_init(&custom_object->zo, class_type);
+
+    wxphp_wxRibbonPanel_object_handlers.offset = XtOffsetOf(zo_wxRibbonPanel, zo);
+    wxphp_wxRibbonPanel_object_handlers.free_obj = php_wxRibbonPanel_free;
 
     custom_object->zo.handlers = &wxphp_wxRibbonPanel_object_handlers;
 
@@ -15798,7 +15812,7 @@ PHP_METHOD(php_wxRibbonPanel, __construct)
 /* }}} */
 
 BEGIN_EXTERN_C()
-void php_wxRibbonToolBar_free(void *object)
+void php_wxRibbonToolBar_free(zend_object *object)
 {
     zo_wxRibbonToolBar* custom_object = (zo_wxRibbonToolBar*) object;
 
@@ -15811,8 +15825,7 @@ void php_wxRibbonToolBar_free(void *object)
     php_printf("===========================================\n\n");
     #endif
 
-    zend_object_std_dtor(&custom_object->zo);
-    efree(custom_object);
+    zend_object_std_dtor(object);
 }
 
 zend_object* php_wxRibbonToolBar_new(zend_class_entry *class_type)
@@ -15836,6 +15849,9 @@ zend_object* php_wxRibbonToolBar_new(zend_class_entry *class_type)
 
     zend_object_std_init(&custom_object->zo, class_type);
     object_properties_init(&custom_object->zo, class_type);
+
+    wxphp_wxRibbonToolBar_object_handlers.offset = XtOffsetOf(zo_wxRibbonToolBar, zo);
+    wxphp_wxRibbonToolBar_object_handlers.free_obj = php_wxRibbonToolBar_free;
 
     custom_object->zo.handlers = &wxphp_wxRibbonToolBar_object_handlers;
 

@@ -42,7 +42,7 @@ typedef struct _zo_wxAuiToolBarEvent{
     zend_object zo;
 } zo_wxAuiToolBarEvent;
 
-void php_wxAuiToolBarEvent_free(void *object);
+void php_wxAuiToolBarEvent_free(zend_object *object);
 zend_object* php_wxAuiToolBarEvent_new(zend_class_entry *class_type);
 END_EXTERN_C()
 
@@ -180,7 +180,7 @@ typedef struct _zo_wxAuiToolBarItem{
     zend_object zo;
 } zo_wxAuiToolBarItem;
 
-void php_wxAuiToolBarItem_free(void *object);
+void php_wxAuiToolBarItem_free(zend_object *object);
 zend_object* php_wxAuiToolBarItem_new(zend_class_entry *class_type);
 END_EXTERN_C()
 
@@ -382,7 +382,7 @@ typedef struct _zo_wxAuiToolBarArt{
     zend_object zo;
 } zo_wxAuiToolBarArt;
 
-void php_wxAuiToolBarArt_free(void *object);
+void php_wxAuiToolBarArt_free(zend_object *object);
 zend_object* php_wxAuiToolBarArt_new(zend_class_entry *class_type);
 END_EXTERN_C()
 
@@ -425,7 +425,7 @@ typedef struct _zo_wxAuiDefaultToolBarArt{
     zend_object zo;
 } zo_wxAuiDefaultToolBarArt;
 
-void php_wxAuiDefaultToolBarArt_free(void *object);
+void php_wxAuiDefaultToolBarArt_free(zend_object *object);
 zend_object* php_wxAuiDefaultToolBarArt_new(zend_class_entry *class_type);
 END_EXTERN_C()
 
@@ -570,7 +570,7 @@ typedef struct _zo_wxAuiToolBar{
     zend_object zo;
 } zo_wxAuiToolBar;
 
-void php_wxAuiToolBar_free(void *object);
+void php_wxAuiToolBar_free(zend_object *object);
 zend_object* php_wxAuiToolBar_new(zend_class_entry *class_type);
 END_EXTERN_C()
 
@@ -1523,7 +1523,7 @@ typedef struct _zo_wxAuiNotebook{
     zend_object zo;
 } zo_wxAuiNotebook;
 
-void php_wxAuiNotebook_free(void *object);
+void php_wxAuiNotebook_free(zend_object *object);
 zend_object* php_wxAuiNotebook_new(zend_class_entry *class_type);
 END_EXTERN_C()
 
@@ -2367,7 +2367,7 @@ typedef struct _zo_wxAuiTabArt{
     zend_object zo;
 } zo_wxAuiTabArt;
 
-void php_wxAuiTabArt_free(void *object);
+void php_wxAuiTabArt_free(zend_object *object);
 zend_object* php_wxAuiTabArt_new(zend_class_entry *class_type);
 END_EXTERN_C()
 
@@ -2422,7 +2422,7 @@ typedef struct _zo_wxAuiDockArt{
     zend_object zo;
 } zo_wxAuiDockArt;
 
-void php_wxAuiDockArt_free(void *object);
+void php_wxAuiDockArt_free(zend_object *object);
 zend_object* php_wxAuiDockArt_new(zend_class_entry *class_type);
 END_EXTERN_C()
 
@@ -2469,7 +2469,7 @@ typedef struct _zo_wxAuiManager{
     zend_object zo;
 } zo_wxAuiManager;
 
-void php_wxAuiManager_free(void *object);
+void php_wxAuiManager_free(zend_object *object);
 zend_object* php_wxAuiManager_new(zend_class_entry *class_type);
 END_EXTERN_C()
 
@@ -2688,7 +2688,7 @@ typedef struct _zo_wxAuiPaneInfo{
     zend_object zo;
 } zo_wxAuiPaneInfo;
 
-void php_wxAuiPaneInfo_free(void *object);
+void php_wxAuiPaneInfo_free(zend_object *object);
 zend_object* php_wxAuiPaneInfo_new(zend_class_entry *class_type);
 END_EXTERN_C()
 
@@ -2990,7 +2990,7 @@ typedef struct _zo_wxAuiManagerEvent{
     zend_object zo;
 } zo_wxAuiManagerEvent;
 
-void php_wxAuiManagerEvent_free(void *object);
+void php_wxAuiManagerEvent_free(zend_object *object);
 zend_object* php_wxAuiManagerEvent_new(zend_class_entry *class_type);
 END_EXTERN_C()
 

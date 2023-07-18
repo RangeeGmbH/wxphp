@@ -58,7 +58,7 @@ typedef struct _zo_wxConfigBase{
     zend_object zo;
 } zo_wxConfigBase;
 
-void php_wxConfigBase_free(void *object);
+void php_wxConfigBase_free(zend_object *object);
 zend_object* php_wxConfigBase_new(zend_class_entry *class_type);
 END_EXTERN_C()
 
@@ -187,7 +187,7 @@ typedef struct _zo_wxDisplay{
     zend_object zo;
 } zo_wxDisplay;
 
-void php_wxDisplay_free(void *object);
+void php_wxDisplay_free(zend_object *object);
 zend_object* php_wxDisplay_new(zend_class_entry *class_type);
 END_EXTERN_C()
 
@@ -263,7 +263,7 @@ typedef struct _zo_wxFileConfig{
     zend_object zo;
 } zo_wxFileConfig;
 
-void php_wxFileConfig_free(void *object);
+void php_wxFileConfig_free(zend_object *object);
 zend_object* php_wxFileConfig_new(zend_class_entry *class_type);
 END_EXTERN_C()
 
@@ -466,7 +466,7 @@ typedef struct _zo_wxFontMapper{
     zend_object zo;
 } zo_wxFontMapper;
 
-void php_wxFontMapper_free(void *object);
+void php_wxFontMapper_free(zend_object *object);
 zend_object* php_wxFontMapper_new(zend_class_entry *class_type);
 END_EXTERN_C()
 
@@ -568,7 +568,7 @@ typedef struct _zo_wxPlatformInfo{
     zend_object zo;
 } zo_wxPlatformInfo;
 
-void php_wxPlatformInfo_free(void *object);
+void php_wxPlatformInfo_free(zend_object *object);
 zend_object* php_wxPlatformInfo_new(zend_class_entry *class_type);
 END_EXTERN_C()
 
@@ -740,7 +740,7 @@ typedef struct _zo_wxSystemSettings{
     zend_object zo;
 } zo_wxSystemSettings;
 
-void php_wxSystemSettings_free(void *object);
+void php_wxSystemSettings_free(zend_object *object);
 zend_object* php_wxSystemSettings_new(zend_class_entry *class_type);
 END_EXTERN_C()
 
@@ -802,7 +802,7 @@ typedef struct _zo_wxSystemOptions{
     zend_object zo;
 } zo_wxSystemOptions;
 
-void php_wxSystemOptions_free(void *object);
+void php_wxSystemOptions_free(zend_object *object);
 zend_object* php_wxSystemOptions_new(zend_class_entry *class_type);
 END_EXTERN_C()
 
@@ -881,7 +881,7 @@ typedef struct _zo_wxVideoMode{
     zend_object zo;
 } zo_wxVideoMode;
 
-void php_wxVideoMode_free(void *object);
+void php_wxVideoMode_free(zend_object *object);
 zend_object* php_wxVideoMode_new(zend_class_entry *class_type);
 END_EXTERN_C()
 

@@ -54,7 +54,7 @@
 
 
 BEGIN_EXTERN_C()
-void php_wxStyledTextCtrl_free(void *object)
+void php_wxStyledTextCtrl_free(zend_object *object)
 {
     zo_wxStyledTextCtrl* custom_object = (zo_wxStyledTextCtrl*) object;
 
@@ -67,8 +67,7 @@ void php_wxStyledTextCtrl_free(void *object)
     php_printf("===========================================\n\n");
     #endif
 
-    zend_object_std_dtor(&custom_object->zo);
-    efree(custom_object);
+    zend_object_std_dtor(object);
 }
 
 zend_object* php_wxStyledTextCtrl_new(zend_class_entry *class_type)
@@ -92,6 +91,9 @@ zend_object* php_wxStyledTextCtrl_new(zend_class_entry *class_type)
 
     zend_object_std_init(&custom_object->zo, class_type);
     object_properties_init(&custom_object->zo, class_type);
+
+    wxphp_wxStyledTextCtrl_object_handlers.offset = XtOffsetOf(zo_wxStyledTextCtrl, zo);
+    wxphp_wxStyledTextCtrl_object_handlers.free_obj = php_wxStyledTextCtrl_free;
 
     custom_object->zo.handlers = &wxphp_wxStyledTextCtrl_object_handlers;
 

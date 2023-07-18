@@ -54,7 +54,7 @@
 
 
 BEGIN_EXTERN_C()
-void php_wxURI_free(void *object)
+void php_wxURI_free(zend_object *object)
 {
     zo_wxURI* custom_object = (zo_wxURI*) object;
 
@@ -96,8 +96,7 @@ void php_wxURI_free(void *object)
         #endif
     }
 
-    zend_object_std_dtor(&custom_object->zo);
-    efree(custom_object);
+    zend_object_std_dtor(object);
 }
 
 zend_object* php_wxURI_new(zend_class_entry *class_type)
@@ -121,6 +120,9 @@ zend_object* php_wxURI_new(zend_class_entry *class_type)
 
     zend_object_std_init(&custom_object->zo, class_type);
     object_properties_init(&custom_object->zo, class_type);
+
+    wxphp_wxURI_object_handlers.offset = XtOffsetOf(zo_wxURI, zo);
+    wxphp_wxURI_object_handlers.free_obj = php_wxURI_free;
 
     custom_object->zo.handlers = &wxphp_wxURI_object_handlers;
 

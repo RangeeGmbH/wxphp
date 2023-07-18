@@ -54,7 +54,7 @@
 
 
 BEGIN_EXTERN_C()
-void php_wxMediaCtrl_free(void *object)
+void php_wxMediaCtrl_free(zend_object *object)
 {
     zo_wxMediaCtrl* custom_object = (zo_wxMediaCtrl*) object;
 
@@ -67,8 +67,7 @@ void php_wxMediaCtrl_free(void *object)
     php_printf("===========================================\n\n");
     #endif
 
-    zend_object_std_dtor(&custom_object->zo);
-    efree(custom_object);
+    zend_object_std_dtor(object);
 }
 
 zend_object* php_wxMediaCtrl_new(zend_class_entry *class_type)
@@ -92,6 +91,9 @@ zend_object* php_wxMediaCtrl_new(zend_class_entry *class_type)
 
     zend_object_std_init(&custom_object->zo, class_type);
     object_properties_init(&custom_object->zo, class_type);
+
+    wxphp_wxMediaCtrl_object_handlers.offset = XtOffsetOf(zo_wxMediaCtrl, zo);
+    wxphp_wxMediaCtrl_object_handlers.free_obj = php_wxMediaCtrl_free;
 
     custom_object->zo.handlers = &wxphp_wxMediaCtrl_object_handlers;
 
@@ -2629,7 +2631,7 @@ PHP_METHOD(php_wxMediaCtrl, Tell)
 /* }}} */
 
 BEGIN_EXTERN_C()
-void php_wxSound_free(void *object)
+void php_wxSound_free(zend_object *object)
 {
     zo_wxSound* custom_object = (zo_wxSound*) object;
 
@@ -2671,8 +2673,7 @@ void php_wxSound_free(void *object)
         #endif
     }
 
-    zend_object_std_dtor(&custom_object->zo);
-    efree(custom_object);
+    zend_object_std_dtor(object);
 }
 
 zend_object* php_wxSound_new(zend_class_entry *class_type)
@@ -2696,6 +2697,9 @@ zend_object* php_wxSound_new(zend_class_entry *class_type)
 
     zend_object_std_init(&custom_object->zo, class_type);
     object_properties_init(&custom_object->zo, class_type);
+
+    wxphp_wxSound_object_handlers.offset = XtOffsetOf(zo_wxSound, zo);
+    wxphp_wxSound_object_handlers.free_obj = php_wxSound_free;
 
     custom_object->zo.handlers = &wxphp_wxSound_object_handlers;
 

@@ -43,7 +43,7 @@ typedef struct _zo_wxWebViewHistoryItem{
     zend_object zo;
 } zo_wxWebViewHistoryItem;
 
-void php_wxWebViewHistoryItem_free(void *object);
+void php_wxWebViewHistoryItem_free(zend_object *object);
 zend_object* php_wxWebViewHistoryItem_new(zend_class_entry *class_type);
 END_EXTERN_C()
 
@@ -98,7 +98,7 @@ typedef struct _zo_wxWebViewHandler{
     zend_object zo;
 } zo_wxWebViewHandler;
 
-void php_wxWebViewHandler_free(void *object);
+void php_wxWebViewHandler_free(zend_object *object);
 zend_object* php_wxWebViewHandler_new(zend_class_entry *class_type);
 END_EXTERN_C()
 
@@ -148,7 +148,7 @@ typedef struct _zo_wxWebViewArchiveHandler{
     zend_object zo;
 } zo_wxWebViewArchiveHandler;
 
-void php_wxWebViewArchiveHandler_free(void *object);
+void php_wxWebViewArchiveHandler_free(zend_object *object);
 zend_object* php_wxWebViewArchiveHandler_new(zend_class_entry *class_type);
 END_EXTERN_C()
 

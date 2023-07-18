@@ -43,7 +43,7 @@ typedef struct _zo_wxCondition{
     zend_object zo;
 } zo_wxCondition;
 
-void php_wxCondition_free(void *object);
+void php_wxCondition_free(zend_object *object);
 zend_object* php_wxCondition_new(zend_class_entry *class_type);
 END_EXTERN_C()
 
@@ -106,7 +106,7 @@ typedef struct _zo_wxCriticalSectionLocker{
     zend_object zo;
 } zo_wxCriticalSectionLocker;
 
-void php_wxCriticalSectionLocker_free(void *object);
+void php_wxCriticalSectionLocker_free(zend_object *object);
 zend_object* php_wxCriticalSectionLocker_new(zend_class_entry *class_type);
 END_EXTERN_C()
 
@@ -152,7 +152,7 @@ typedef struct _zo_wxThreadHelper{
     zend_object zo;
 } zo_wxThreadHelper;
 
-void php_wxThreadHelper_free(void *object);
+void php_wxThreadHelper_free(zend_object *object);
 zend_object* php_wxThreadHelper_new(zend_class_entry *class_type);
 END_EXTERN_C()
 
@@ -203,7 +203,7 @@ typedef struct _zo_wxCriticalSection{
     zend_object zo;
 } zo_wxCriticalSection;
 
-void php_wxCriticalSection_free(void *object);
+void php_wxCriticalSection_free(zend_object *object);
 zend_object* php_wxCriticalSection_new(zend_class_entry *class_type);
 END_EXTERN_C()
 
@@ -260,7 +260,7 @@ typedef struct _zo_wxThread{
     zend_object zo;
 } zo_wxThread;
 
-void php_wxThread_free(void *object);
+void php_wxThread_free(zend_object *object);
 zend_object* php_wxThread_new(zend_class_entry *class_type);
 END_EXTERN_C()
 
@@ -386,7 +386,7 @@ typedef struct _zo_wxSemaphore{
     zend_object zo;
 } zo_wxSemaphore;
 
-void php_wxSemaphore_free(void *object);
+void php_wxSemaphore_free(zend_object *object);
 zend_object* php_wxSemaphore_new(zend_class_entry *class_type);
 END_EXTERN_C()
 
@@ -447,7 +447,7 @@ typedef struct _zo_wxMutexLocker{
     zend_object zo;
 } zo_wxMutexLocker;
 
-void php_wxMutexLocker_free(void *object);
+void php_wxMutexLocker_free(zend_object *object);
 zend_object* php_wxMutexLocker_new(zend_class_entry *class_type);
 END_EXTERN_C()
 
@@ -497,7 +497,7 @@ typedef struct _zo_wxMutex{
     zend_object zo;
 } zo_wxMutex;
 
-void php_wxMutex_free(void *object);
+void php_wxMutex_free(zend_object *object);
 zend_object* php_wxMutex_new(zend_class_entry *class_type);
 END_EXTERN_C()
 

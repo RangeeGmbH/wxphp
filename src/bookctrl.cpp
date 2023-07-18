@@ -54,7 +54,7 @@
 
 
 BEGIN_EXTERN_C()
-void php_wxAuiNotebookEvent_free(void *object)
+void php_wxAuiNotebookEvent_free(zend_object *object)
 {
     zo_wxAuiNotebookEvent* custom_object = (zo_wxAuiNotebookEvent*) object;
 
@@ -96,8 +96,7 @@ void php_wxAuiNotebookEvent_free(void *object)
         #endif
     }
 
-    zend_object_std_dtor(&custom_object->zo);
-    efree(custom_object);
+    zend_object_std_dtor(object);
 }
 
 zend_object* php_wxAuiNotebookEvent_new(zend_class_entry *class_type)
@@ -121,6 +120,9 @@ zend_object* php_wxAuiNotebookEvent_new(zend_class_entry *class_type)
 
     zend_object_std_init(&custom_object->zo, class_type);
     object_properties_init(&custom_object->zo, class_type);
+
+    wxphp_wxAuiNotebookEvent_object_handlers.offset = XtOffsetOf(zo_wxAuiNotebookEvent, zo);
+    wxphp_wxAuiNotebookEvent_object_handlers.free_obj = php_wxAuiNotebookEvent_free;
 
     custom_object->zo.handlers = &wxphp_wxAuiNotebookEvent_object_handlers;
 
@@ -373,7 +375,7 @@ PHP_METHOD(php_wxAuiNotebookEvent, __construct)
 /* }}} */
 
 BEGIN_EXTERN_C()
-void php_wxBookCtrlBase_free(void *object)
+void php_wxBookCtrlBase_free(zend_object *object)
 {
     zo_wxBookCtrlBase* custom_object = (zo_wxBookCtrlBase*) object;
 
@@ -386,8 +388,7 @@ void php_wxBookCtrlBase_free(void *object)
     php_printf("===========================================\n\n");
     #endif
 
-    zend_object_std_dtor(&custom_object->zo);
-    efree(custom_object);
+    zend_object_std_dtor(object);
 }
 
 zend_object* php_wxBookCtrlBase_new(zend_class_entry *class_type)
@@ -411,6 +412,9 @@ zend_object* php_wxBookCtrlBase_new(zend_class_entry *class_type)
 
     zend_object_std_init(&custom_object->zo, class_type);
     object_properties_init(&custom_object->zo, class_type);
+
+    wxphp_wxBookCtrlBase_object_handlers.offset = XtOffsetOf(zo_wxBookCtrlBase, zo);
+    wxphp_wxBookCtrlBase_object_handlers.free_obj = php_wxBookCtrlBase_free;
 
     custom_object->zo.handlers = &wxphp_wxBookCtrlBase_object_handlers;
 
@@ -3577,7 +3581,7 @@ int wxBookCtrlBase_php::ChangeSelection(size_t page)
 /* }}} */
 
 BEGIN_EXTERN_C()
-void php_wxBookCtrlEvent_free(void *object)
+void php_wxBookCtrlEvent_free(zend_object *object)
 {
     zo_wxBookCtrlEvent* custom_object = (zo_wxBookCtrlEvent*) object;
 
@@ -3619,8 +3623,7 @@ void php_wxBookCtrlEvent_free(void *object)
         #endif
     }
 
-    zend_object_std_dtor(&custom_object->zo);
-    efree(custom_object);
+    zend_object_std_dtor(object);
 }
 
 zend_object* php_wxBookCtrlEvent_new(zend_class_entry *class_type)
@@ -3644,6 +3647,9 @@ zend_object* php_wxBookCtrlEvent_new(zend_class_entry *class_type)
 
     zend_object_std_init(&custom_object->zo, class_type);
     object_properties_init(&custom_object->zo, class_type);
+
+    wxphp_wxBookCtrlEvent_object_handlers.offset = XtOffsetOf(zo_wxBookCtrlEvent, zo);
+    wxphp_wxBookCtrlEvent_object_handlers.free_obj = php_wxBookCtrlEvent_free;
 
     custom_object->zo.handlers = &wxphp_wxBookCtrlEvent_object_handlers;
 
@@ -4245,7 +4251,7 @@ PHP_METHOD(php_wxBookCtrlEvent, __construct)
 /* }}} */
 
 BEGIN_EXTERN_C()
-void php_wxChoicebook_free(void *object)
+void php_wxChoicebook_free(zend_object *object)
 {
     zo_wxChoicebook* custom_object = (zo_wxChoicebook*) object;
 
@@ -4258,8 +4264,7 @@ void php_wxChoicebook_free(void *object)
     php_printf("===========================================\n\n");
     #endif
 
-    zend_object_std_dtor(&custom_object->zo);
-    efree(custom_object);
+    zend_object_std_dtor(object);
 }
 
 zend_object* php_wxChoicebook_new(zend_class_entry *class_type)
@@ -4283,6 +4288,9 @@ zend_object* php_wxChoicebook_new(zend_class_entry *class_type)
 
     zend_object_std_init(&custom_object->zo, class_type);
     object_properties_init(&custom_object->zo, class_type);
+
+    wxphp_wxChoicebook_object_handlers.offset = XtOffsetOf(zo_wxChoicebook, zo);
+    wxphp_wxChoicebook_object_handlers.free_obj = php_wxChoicebook_free;
 
     custom_object->zo.handlers = &wxphp_wxChoicebook_object_handlers;
 
@@ -4663,7 +4671,7 @@ PHP_METHOD(php_wxChoicebook, __construct)
 /* }}} */
 
 BEGIN_EXTERN_C()
-void php_wxListbook_free(void *object)
+void php_wxListbook_free(zend_object *object)
 {
     zo_wxListbook* custom_object = (zo_wxListbook*) object;
 
@@ -4676,8 +4684,7 @@ void php_wxListbook_free(void *object)
     php_printf("===========================================\n\n");
     #endif
 
-    zend_object_std_dtor(&custom_object->zo);
-    efree(custom_object);
+    zend_object_std_dtor(object);
 }
 
 zend_object* php_wxListbook_new(zend_class_entry *class_type)
@@ -4701,6 +4708,9 @@ zend_object* php_wxListbook_new(zend_class_entry *class_type)
 
     zend_object_std_init(&custom_object->zo, class_type);
     object_properties_init(&custom_object->zo, class_type);
+
+    wxphp_wxListbook_object_handlers.offset = XtOffsetOf(zo_wxListbook, zo);
+    wxphp_wxListbook_object_handlers.free_obj = php_wxListbook_free;
 
     custom_object->zo.handlers = &wxphp_wxListbook_object_handlers;
 
@@ -5081,7 +5091,7 @@ PHP_METHOD(php_wxListbook, GetListView)
 /* }}} */
 
 BEGIN_EXTERN_C()
-void php_wxNotebook_free(void *object)
+void php_wxNotebook_free(zend_object *object)
 {
     zo_wxNotebook* custom_object = (zo_wxNotebook*) object;
 
@@ -5094,8 +5104,7 @@ void php_wxNotebook_free(void *object)
     php_printf("===========================================\n\n");
     #endif
 
-    zend_object_std_dtor(&custom_object->zo);
-    efree(custom_object);
+    zend_object_std_dtor(object);
 }
 
 zend_object* php_wxNotebook_new(zend_class_entry *class_type)
@@ -5119,6 +5128,9 @@ zend_object* php_wxNotebook_new(zend_class_entry *class_type)
 
     zend_object_std_init(&custom_object->zo, class_type);
     object_properties_init(&custom_object->zo, class_type);
+
+    wxphp_wxNotebook_object_handlers.offset = XtOffsetOf(zo_wxNotebook, zo);
+    wxphp_wxNotebook_object_handlers.free_obj = php_wxNotebook_free;
 
     custom_object->zo.handlers = &wxphp_wxNotebook_object_handlers;
 
@@ -6900,7 +6912,7 @@ PHP_METHOD(php_wxNotebook, __construct)
 /* }}} */
 
 BEGIN_EXTERN_C()
-void php_wxToolbook_free(void *object)
+void php_wxToolbook_free(zend_object *object)
 {
     zo_wxToolbook* custom_object = (zo_wxToolbook*) object;
 
@@ -6913,8 +6925,7 @@ void php_wxToolbook_free(void *object)
     php_printf("===========================================\n\n");
     #endif
 
-    zend_object_std_dtor(&custom_object->zo);
-    efree(custom_object);
+    zend_object_std_dtor(object);
 }
 
 zend_object* php_wxToolbook_new(zend_class_entry *class_type)
@@ -6938,6 +6949,9 @@ zend_object* php_wxToolbook_new(zend_class_entry *class_type)
 
     zend_object_std_init(&custom_object->zo, class_type);
     object_properties_init(&custom_object->zo, class_type);
+
+    wxphp_wxToolbook_object_handlers.offset = XtOffsetOf(zo_wxToolbook, zo);
+    wxphp_wxToolbook_object_handlers.free_obj = php_wxToolbook_free;
 
     custom_object->zo.handlers = &wxphp_wxToolbook_object_handlers;
 
@@ -7318,7 +7332,7 @@ PHP_METHOD(php_wxToolbook, GetToolBar)
 /* }}} */
 
 BEGIN_EXTERN_C()
-void php_wxTreebook_free(void *object)
+void php_wxTreebook_free(zend_object *object)
 {
     zo_wxTreebook* custom_object = (zo_wxTreebook*) object;
 
@@ -7331,8 +7345,7 @@ void php_wxTreebook_free(void *object)
     php_printf("===========================================\n\n");
     #endif
 
-    zend_object_std_dtor(&custom_object->zo);
-    efree(custom_object);
+    zend_object_std_dtor(object);
 }
 
 zend_object* php_wxTreebook_new(zend_class_entry *class_type)
@@ -7356,6 +7369,9 @@ zend_object* php_wxTreebook_new(zend_class_entry *class_type)
 
     zend_object_std_init(&custom_object->zo, class_type);
     object_properties_init(&custom_object->zo, class_type);
+
+    wxphp_wxTreebook_object_handlers.offset = XtOffsetOf(zo_wxTreebook, zo);
+    wxphp_wxTreebook_object_handlers.free_obj = php_wxTreebook_free;
 
     custom_object->zo.handlers = &wxphp_wxTreebook_object_handlers;
 

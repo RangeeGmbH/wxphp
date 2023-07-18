@@ -54,7 +54,7 @@
 
 
 BEGIN_EXTERN_C()
-void php_wxFileHistory_free(void *object)
+void php_wxFileHistory_free(zend_object *object)
 {
     zo_wxFileHistory* custom_object = (zo_wxFileHistory*) object;
 
@@ -96,8 +96,7 @@ void php_wxFileHistory_free(void *object)
         #endif
     }
 
-    zend_object_std_dtor(&custom_object->zo);
-    efree(custom_object);
+    zend_object_std_dtor(object);
 }
 
 zend_object* php_wxFileHistory_new(zend_class_entry *class_type)
@@ -121,6 +120,9 @@ zend_object* php_wxFileHistory_new(zend_class_entry *class_type)
 
     zend_object_std_init(&custom_object->zo, class_type);
     object_properties_init(&custom_object->zo, class_type);
+
+    wxphp_wxFileHistory_object_handlers.offset = XtOffsetOf(zo_wxFileHistory, zo);
+    wxphp_wxFileHistory_object_handlers.free_obj = php_wxFileHistory_free;
 
     custom_object->zo.handlers = &wxphp_wxFileHistory_object_handlers;
 

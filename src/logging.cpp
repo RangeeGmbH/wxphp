@@ -54,7 +54,7 @@
 
 
 BEGIN_EXTERN_C()
-void php_wxLog_free(void *object)
+void php_wxLog_free(zend_object *object)
 {
     zo_wxLog* custom_object = (zo_wxLog*) object;
 
@@ -96,8 +96,7 @@ void php_wxLog_free(void *object)
         #endif
     }
 
-    zend_object_std_dtor(&custom_object->zo);
-    efree(custom_object);
+    zend_object_std_dtor(object);
 }
 
 zend_object* php_wxLog_new(zend_class_entry *class_type)
@@ -121,6 +120,9 @@ zend_object* php_wxLog_new(zend_class_entry *class_type)
 
     zend_object_std_init(&custom_object->zo, class_type);
     object_properties_init(&custom_object->zo, class_type);
+
+    wxphp_wxLog_object_handlers.offset = XtOffsetOf(zo_wxLog, zo);
+    wxphp_wxLog_object_handlers.free_obj = php_wxLog_free;
 
     custom_object->zo.handlers = &wxphp_wxLog_object_handlers;
 
@@ -3980,7 +3982,7 @@ PHP_METHOD(php_wxLog, Suspend)
 /* }}} */
 
 BEGIN_EXTERN_C()
-void php_wxLogChain_free(void *object)
+void php_wxLogChain_free(zend_object *object)
 {
     zo_wxLogChain* custom_object = (zo_wxLogChain*) object;
 
@@ -4022,8 +4024,7 @@ void php_wxLogChain_free(void *object)
         #endif
     }
 
-    zend_object_std_dtor(&custom_object->zo);
-    efree(custom_object);
+    zend_object_std_dtor(object);
 }
 
 zend_object* php_wxLogChain_new(zend_class_entry *class_type)
@@ -4047,6 +4048,9 @@ zend_object* php_wxLogChain_new(zend_class_entry *class_type)
 
     zend_object_std_init(&custom_object->zo, class_type);
     object_properties_init(&custom_object->zo, class_type);
+
+    wxphp_wxLogChain_object_handlers.offset = XtOffsetOf(zo_wxLogChain, zo);
+    wxphp_wxLogChain_object_handlers.free_obj = php_wxLogChain_free;
 
     custom_object->zo.handlers = &wxphp_wxLogChain_object_handlers;
 
@@ -4793,7 +4797,7 @@ PHP_METHOD(php_wxLogChain, __construct)
 /* }}} */
 
 BEGIN_EXTERN_C()
-void php_wxLogInterposer_free(void *object)
+void php_wxLogInterposer_free(zend_object *object)
 {
     zo_wxLogInterposer* custom_object = (zo_wxLogInterposer*) object;
 
@@ -4835,8 +4839,7 @@ void php_wxLogInterposer_free(void *object)
         #endif
     }
 
-    zend_object_std_dtor(&custom_object->zo);
-    efree(custom_object);
+    zend_object_std_dtor(object);
 }
 
 zend_object* php_wxLogInterposer_new(zend_class_entry *class_type)
@@ -4860,6 +4863,9 @@ zend_object* php_wxLogInterposer_new(zend_class_entry *class_type)
 
     zend_object_std_init(&custom_object->zo, class_type);
     object_properties_init(&custom_object->zo, class_type);
+
+    wxphp_wxLogInterposer_object_handlers.offset = XtOffsetOf(zo_wxLogInterposer, zo);
+    wxphp_wxLogInterposer_object_handlers.free_obj = php_wxLogInterposer_free;
 
     custom_object->zo.handlers = &wxphp_wxLogInterposer_object_handlers;
 
@@ -4955,7 +4961,7 @@ PHP_METHOD(php_wxLogInterposer, __construct)
 /* }}} */
 
 BEGIN_EXTERN_C()
-void php_wxLogBuffer_free(void *object)
+void php_wxLogBuffer_free(zend_object *object)
 {
     zo_wxLogBuffer* custom_object = (zo_wxLogBuffer*) object;
 
@@ -4997,8 +5003,7 @@ void php_wxLogBuffer_free(void *object)
         #endif
     }
 
-    zend_object_std_dtor(&custom_object->zo);
-    efree(custom_object);
+    zend_object_std_dtor(object);
 }
 
 zend_object* php_wxLogBuffer_new(zend_class_entry *class_type)
@@ -5022,6 +5027,9 @@ zend_object* php_wxLogBuffer_new(zend_class_entry *class_type)
 
     zend_object_std_init(&custom_object->zo, class_type);
     object_properties_init(&custom_object->zo, class_type);
+
+    wxphp_wxLogBuffer_object_handlers.offset = XtOffsetOf(zo_wxLogBuffer, zo);
+    wxphp_wxLogBuffer_object_handlers.free_obj = php_wxLogBuffer_free;
 
     custom_object->zo.handlers = &wxphp_wxLogBuffer_object_handlers;
 
@@ -5333,7 +5341,7 @@ PHP_METHOD(php_wxLogBuffer, __construct)
 /* }}} */
 
 BEGIN_EXTERN_C()
-void php_wxLogWindow_free(void *object)
+void php_wxLogWindow_free(zend_object *object)
 {
     zo_wxLogWindow* custom_object = (zo_wxLogWindow*) object;
 
@@ -5375,8 +5383,7 @@ void php_wxLogWindow_free(void *object)
         #endif
     }
 
-    zend_object_std_dtor(&custom_object->zo);
-    efree(custom_object);
+    zend_object_std_dtor(object);
 }
 
 zend_object* php_wxLogWindow_new(zend_class_entry *class_type)
@@ -5400,6 +5407,9 @@ zend_object* php_wxLogWindow_new(zend_class_entry *class_type)
 
     zend_object_std_init(&custom_object->zo, class_type);
     object_properties_init(&custom_object->zo, class_type);
+
+    wxphp_wxLogWindow_object_handlers.offset = XtOffsetOf(zo_wxLogWindow, zo);
+    wxphp_wxLogWindow_object_handlers.free_obj = php_wxLogWindow_free;
 
     custom_object->zo.handlers = &wxphp_wxLogWindow_object_handlers;
 
@@ -5991,7 +6001,7 @@ PHP_METHOD(php_wxLogWindow, __construct)
 /* }}} */
 
 BEGIN_EXTERN_C()
-void php_wxLogGui_free(void *object)
+void php_wxLogGui_free(zend_object *object)
 {
     zo_wxLogGui* custom_object = (zo_wxLogGui*) object;
 
@@ -6034,8 +6044,7 @@ void php_wxLogGui_free(void *object)
         #endif
     }
 
-    zend_object_std_dtor(&custom_object->zo);
-    efree(custom_object);
+    zend_object_std_dtor(object);
 }
 
 zend_object* php_wxLogGui_new(zend_class_entry *class_type)
@@ -6059,6 +6068,9 @@ zend_object* php_wxLogGui_new(zend_class_entry *class_type)
 
     zend_object_std_init(&custom_object->zo, class_type);
     object_properties_init(&custom_object->zo, class_type);
+
+    wxphp_wxLogGui_object_handlers.offset = XtOffsetOf(zo_wxLogGui, zo);
+    wxphp_wxLogGui_object_handlers.free_obj = php_wxLogGui_free;
 
     custom_object->zo.handlers = &wxphp_wxLogGui_object_handlers;
 
@@ -6348,7 +6360,7 @@ PHP_METHOD(php_wxLogGui, __get)
     }
 }
 BEGIN_EXTERN_C()
-void php_wxLogTextCtrl_free(void *object)
+void php_wxLogTextCtrl_free(zend_object *object)
 {
     zo_wxLogTextCtrl* custom_object = (zo_wxLogTextCtrl*) object;
 
@@ -6390,8 +6402,7 @@ void php_wxLogTextCtrl_free(void *object)
         #endif
     }
 
-    zend_object_std_dtor(&custom_object->zo);
-    efree(custom_object);
+    zend_object_std_dtor(object);
 }
 
 zend_object* php_wxLogTextCtrl_new(zend_class_entry *class_type)
@@ -6415,6 +6426,9 @@ zend_object* php_wxLogTextCtrl_new(zend_class_entry *class_type)
 
     zend_object_std_init(&custom_object->zo, class_type);
     object_properties_init(&custom_object->zo, class_type);
+
+    wxphp_wxLogTextCtrl_object_handlers.offset = XtOffsetOf(zo_wxLogTextCtrl, zo);
+    wxphp_wxLogTextCtrl_object_handlers.free_obj = php_wxLogTextCtrl_free;
 
     custom_object->zo.handlers = &wxphp_wxLogTextCtrl_object_handlers;
 

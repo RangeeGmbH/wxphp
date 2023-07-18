@@ -54,7 +54,7 @@
 
 
 BEGIN_EXTERN_C()
-void php_wxDataViewChoiceRenderer_free(void *object)
+void php_wxDataViewChoiceRenderer_free(zend_object *object)
 {
     zo_wxDataViewChoiceRenderer* custom_object = (zo_wxDataViewChoiceRenderer*) object;
 
@@ -96,8 +96,7 @@ void php_wxDataViewChoiceRenderer_free(void *object)
         #endif
     }
 
-    zend_object_std_dtor(&custom_object->zo);
-    efree(custom_object);
+    zend_object_std_dtor(object);
 }
 
 zend_object* php_wxDataViewChoiceRenderer_new(zend_class_entry *class_type)
@@ -121,6 +120,9 @@ zend_object* php_wxDataViewChoiceRenderer_new(zend_class_entry *class_type)
 
     zend_object_std_init(&custom_object->zo, class_type);
     object_properties_init(&custom_object->zo, class_type);
+
+    wxphp_wxDataViewChoiceRenderer_object_handlers.offset = XtOffsetOf(zo_wxDataViewChoiceRenderer, zo);
+    wxphp_wxDataViewChoiceRenderer_object_handlers.free_obj = php_wxDataViewChoiceRenderer_free;
 
     custom_object->zo.handlers = &wxphp_wxDataViewChoiceRenderer_object_handlers;
 
@@ -520,7 +522,7 @@ PHP_METHOD(php_wxDataViewChoiceRenderer, __construct)
 /* }}} */
 
 BEGIN_EXTERN_C()
-void php_wxDataViewModel_free(void *object)
+void php_wxDataViewModel_free(zend_object *object)
 {
     zo_wxDataViewModel* custom_object = (zo_wxDataViewModel*) object;
 
@@ -534,8 +536,7 @@ void php_wxDataViewModel_free(void *object)
     #endif
 
 
-    zend_object_std_dtor(&custom_object->zo);
-    efree(custom_object);
+    zend_object_std_dtor(object);
 }
 
 zend_object* php_wxDataViewModel_new(zend_class_entry *class_type)
@@ -559,6 +560,9 @@ zend_object* php_wxDataViewModel_new(zend_class_entry *class_type)
 
     zend_object_std_init(&custom_object->zo, class_type);
     object_properties_init(&custom_object->zo, class_type);
+
+    wxphp_wxDataViewModel_object_handlers.offset = XtOffsetOf(zo_wxDataViewModel, zo);
+    wxphp_wxDataViewModel_object_handlers.free_obj = php_wxDataViewModel_free;
 
     custom_object->zo.handlers = &wxphp_wxDataViewModel_object_handlers;
 
@@ -3766,7 +3770,7 @@ PHP_METHOD(php_wxDataViewModel, ValueChanged)
 /* }}} */
 
 BEGIN_EXTERN_C()
-void php_wxDataViewListModel_free(void *object)
+void php_wxDataViewListModel_free(zend_object *object)
 {
     zo_wxDataViewListModel* custom_object = (zo_wxDataViewListModel*) object;
 
@@ -3808,8 +3812,7 @@ void php_wxDataViewListModel_free(void *object)
         #endif
     }
 
-    zend_object_std_dtor(&custom_object->zo);
-    efree(custom_object);
+    zend_object_std_dtor(object);
 }
 
 zend_object* php_wxDataViewListModel_new(zend_class_entry *class_type)
@@ -3833,6 +3836,9 @@ zend_object* php_wxDataViewListModel_new(zend_class_entry *class_type)
 
     zend_object_std_init(&custom_object->zo, class_type);
     object_properties_init(&custom_object->zo, class_type);
+
+    wxphp_wxDataViewListModel_object_handlers.offset = XtOffsetOf(zo_wxDataViewListModel, zo);
+    wxphp_wxDataViewListModel_object_handlers.free_obj = php_wxDataViewListModel_free;
 
     custom_object->zo.handlers = &wxphp_wxDataViewListModel_object_handlers;
 
@@ -4502,7 +4508,7 @@ bool wxDataViewListModel_php::SetValueByRow(const wxVariant& variant, unsigned i
 /* }}} */
 
 BEGIN_EXTERN_C()
-void php_wxDataViewIndexListModel_free(void *object)
+void php_wxDataViewIndexListModel_free(zend_object *object)
 {
     zo_wxDataViewIndexListModel* custom_object = (zo_wxDataViewIndexListModel*) object;
 
@@ -4544,8 +4550,7 @@ void php_wxDataViewIndexListModel_free(void *object)
         #endif
     }
 
-    zend_object_std_dtor(&custom_object->zo);
-    efree(custom_object);
+    zend_object_std_dtor(object);
 }
 
 zend_object* php_wxDataViewIndexListModel_new(zend_class_entry *class_type)
@@ -4570,6 +4575,9 @@ zend_object* php_wxDataViewIndexListModel_new(zend_class_entry *class_type)
     zend_object_std_init(&custom_object->zo, class_type);
     object_properties_init(&custom_object->zo, class_type);
 
+    wxphp_wxDataViewIndexListModel_object_handlers.offset = XtOffsetOf(zo_wxDataViewIndexListModel, zo);
+    wxphp_wxDataViewIndexListModel_object_handlers.free_obj = php_wxDataViewIndexListModel_free;
+
     custom_object->zo.handlers = &wxphp_wxDataViewIndexListModel_object_handlers;
 
     custom_object->native_object = NULL;
@@ -4581,7 +4589,7 @@ zend_object* php_wxDataViewIndexListModel_new(zend_class_entry *class_type)
 END_EXTERN_C()
 
 BEGIN_EXTERN_C()
-void php_wxDataViewVirtualListModel_free(void *object)
+void php_wxDataViewVirtualListModel_free(zend_object *object)
 {
     zo_wxDataViewVirtualListModel* custom_object = (zo_wxDataViewVirtualListModel*) object;
 
@@ -4623,8 +4631,7 @@ void php_wxDataViewVirtualListModel_free(void *object)
         #endif
     }
 
-    zend_object_std_dtor(&custom_object->zo);
-    efree(custom_object);
+    zend_object_std_dtor(object);
 }
 
 zend_object* php_wxDataViewVirtualListModel_new(zend_class_entry *class_type)
@@ -4649,6 +4656,9 @@ zend_object* php_wxDataViewVirtualListModel_new(zend_class_entry *class_type)
     zend_object_std_init(&custom_object->zo, class_type);
     object_properties_init(&custom_object->zo, class_type);
 
+    wxphp_wxDataViewVirtualListModel_object_handlers.offset = XtOffsetOf(zo_wxDataViewVirtualListModel, zo);
+    wxphp_wxDataViewVirtualListModel_object_handlers.free_obj = php_wxDataViewVirtualListModel_free;
+
     custom_object->zo.handlers = &wxphp_wxDataViewVirtualListModel_object_handlers;
 
     custom_object->native_object = NULL;
@@ -4660,7 +4670,7 @@ zend_object* php_wxDataViewVirtualListModel_new(zend_class_entry *class_type)
 END_EXTERN_C()
 
 BEGIN_EXTERN_C()
-void php_wxDataViewItemAttr_free(void *object)
+void php_wxDataViewItemAttr_free(zend_object *object)
 {
     zo_wxDataViewItemAttr* custom_object = (zo_wxDataViewItemAttr*) object;
 
@@ -4702,8 +4712,7 @@ void php_wxDataViewItemAttr_free(void *object)
         #endif
     }
 
-    zend_object_std_dtor(&custom_object->zo);
-    efree(custom_object);
+    zend_object_std_dtor(object);
 }
 
 zend_object* php_wxDataViewItemAttr_new(zend_class_entry *class_type)
@@ -4727,6 +4736,9 @@ zend_object* php_wxDataViewItemAttr_new(zend_class_entry *class_type)
 
     zend_object_std_init(&custom_object->zo, class_type);
     object_properties_init(&custom_object->zo, class_type);
+
+    wxphp_wxDataViewItemAttr_object_handlers.offset = XtOffsetOf(zo_wxDataViewItemAttr, zo);
+    wxphp_wxDataViewItemAttr_object_handlers.free_obj = php_wxDataViewItemAttr_free;
 
     custom_object->zo.handlers = &wxphp_wxDataViewItemAttr_object_handlers;
 
@@ -5177,7 +5189,7 @@ PHP_METHOD(php_wxDataViewItemAttr, __construct)
 /* }}} */
 
 BEGIN_EXTERN_C()
-void php_wxDataViewItem_free(void *object)
+void php_wxDataViewItem_free(zend_object *object)
 {
     zo_wxDataViewItem* custom_object = (zo_wxDataViewItem*) object;
 
@@ -5219,8 +5231,7 @@ void php_wxDataViewItem_free(void *object)
         #endif
     }
 
-    zend_object_std_dtor(&custom_object->zo);
-    efree(custom_object);
+    zend_object_std_dtor(object);
 }
 
 zend_object* php_wxDataViewItem_new(zend_class_entry *class_type)
@@ -5244,6 +5255,9 @@ zend_object* php_wxDataViewItem_new(zend_class_entry *class_type)
 
     zend_object_std_init(&custom_object->zo, class_type);
     object_properties_init(&custom_object->zo, class_type);
+
+    wxphp_wxDataViewItem_object_handlers.offset = XtOffsetOf(zo_wxDataViewItem, zo);
+    wxphp_wxDataViewItem_object_handlers.free_obj = php_wxDataViewItem_free;
 
     custom_object->zo.handlers = &wxphp_wxDataViewItem_object_handlers;
 
@@ -5655,7 +5669,7 @@ PHP_METHOD(php_wxDataViewItem, __construct)
 /* }}} */
 
 BEGIN_EXTERN_C()
-void php_wxDataViewModelNotifier_free(void *object)
+void php_wxDataViewModelNotifier_free(zend_object *object)
 {
     zo_wxDataViewModelNotifier* custom_object = (zo_wxDataViewModelNotifier*) object;
 
@@ -5697,8 +5711,7 @@ void php_wxDataViewModelNotifier_free(void *object)
         #endif
     }
 
-    zend_object_std_dtor(&custom_object->zo);
-    efree(custom_object);
+    zend_object_std_dtor(object);
 }
 
 zend_object* php_wxDataViewModelNotifier_new(zend_class_entry *class_type)
@@ -5722,6 +5735,9 @@ zend_object* php_wxDataViewModelNotifier_new(zend_class_entry *class_type)
 
     zend_object_std_init(&custom_object->zo, class_type);
     object_properties_init(&custom_object->zo, class_type);
+
+    wxphp_wxDataViewModelNotifier_object_handlers.offset = XtOffsetOf(zo_wxDataViewModelNotifier, zo);
+    wxphp_wxDataViewModelNotifier_object_handlers.free_obj = php_wxDataViewModelNotifier_free;
 
     custom_object->zo.handlers = &wxphp_wxDataViewModelNotifier_object_handlers;
 
@@ -6607,7 +6623,7 @@ PHP_METHOD(php_wxDataViewModelNotifier, __construct)
 /* }}} */
 
 BEGIN_EXTERN_C()
-void php_wxDataViewRenderer_free(void *object)
+void php_wxDataViewRenderer_free(zend_object *object)
 {
     zo_wxDataViewRenderer* custom_object = (zo_wxDataViewRenderer*) object;
 
@@ -6649,8 +6665,7 @@ void php_wxDataViewRenderer_free(void *object)
         #endif
     }
 
-    zend_object_std_dtor(&custom_object->zo);
-    efree(custom_object);
+    zend_object_std_dtor(object);
 }
 
 zend_object* php_wxDataViewRenderer_new(zend_class_entry *class_type)
@@ -6674,6 +6689,9 @@ zend_object* php_wxDataViewRenderer_new(zend_class_entry *class_type)
 
     zend_object_std_init(&custom_object->zo, class_type);
     object_properties_init(&custom_object->zo, class_type);
+
+    wxphp_wxDataViewRenderer_object_handlers.offset = XtOffsetOf(zo_wxDataViewRenderer, zo);
+    wxphp_wxDataViewRenderer_object_handlers.free_obj = php_wxDataViewRenderer_free;
 
     custom_object->zo.handlers = &wxphp_wxDataViewRenderer_object_handlers;
 
@@ -8831,7 +8849,7 @@ PHP_METHOD(php_wxDataViewRenderer, Validate)
 /* }}} */
 
 BEGIN_EXTERN_C()
-void php_wxDataViewTextRenderer_free(void *object)
+void php_wxDataViewTextRenderer_free(zend_object *object)
 {
     zo_wxDataViewTextRenderer* custom_object = (zo_wxDataViewTextRenderer*) object;
 
@@ -8873,8 +8891,7 @@ void php_wxDataViewTextRenderer_free(void *object)
         #endif
     }
 
-    zend_object_std_dtor(&custom_object->zo);
-    efree(custom_object);
+    zend_object_std_dtor(object);
 }
 
 zend_object* php_wxDataViewTextRenderer_new(zend_class_entry *class_type)
@@ -8898,6 +8915,9 @@ zend_object* php_wxDataViewTextRenderer_new(zend_class_entry *class_type)
 
     zend_object_std_init(&custom_object->zo, class_type);
     object_properties_init(&custom_object->zo, class_type);
+
+    wxphp_wxDataViewTextRenderer_object_handlers.offset = XtOffsetOf(zo_wxDataViewTextRenderer, zo);
+    wxphp_wxDataViewTextRenderer_object_handlers.free_obj = php_wxDataViewTextRenderer_free;
 
     custom_object->zo.handlers = &wxphp_wxDataViewTextRenderer_object_handlers;
 
@@ -9034,7 +9054,7 @@ PHP_METHOD(php_wxDataViewTextRenderer, __construct)
 /* }}} */
 
 BEGIN_EXTERN_C()
-void php_wxDataViewIconTextRenderer_free(void *object)
+void php_wxDataViewIconTextRenderer_free(zend_object *object)
 {
     zo_wxDataViewIconTextRenderer* custom_object = (zo_wxDataViewIconTextRenderer*) object;
 
@@ -9076,8 +9096,7 @@ void php_wxDataViewIconTextRenderer_free(void *object)
         #endif
     }
 
-    zend_object_std_dtor(&custom_object->zo);
-    efree(custom_object);
+    zend_object_std_dtor(object);
 }
 
 zend_object* php_wxDataViewIconTextRenderer_new(zend_class_entry *class_type)
@@ -9101,6 +9120,9 @@ zend_object* php_wxDataViewIconTextRenderer_new(zend_class_entry *class_type)
 
     zend_object_std_init(&custom_object->zo, class_type);
     object_properties_init(&custom_object->zo, class_type);
+
+    wxphp_wxDataViewIconTextRenderer_object_handlers.offset = XtOffsetOf(zo_wxDataViewIconTextRenderer, zo);
+    wxphp_wxDataViewIconTextRenderer_object_handlers.free_obj = php_wxDataViewIconTextRenderer_free;
 
     custom_object->zo.handlers = &wxphp_wxDataViewIconTextRenderer_object_handlers;
 
@@ -9237,7 +9259,7 @@ PHP_METHOD(php_wxDataViewIconTextRenderer, __construct)
 /* }}} */
 
 BEGIN_EXTERN_C()
-void php_wxDataViewProgressRenderer_free(void *object)
+void php_wxDataViewProgressRenderer_free(zend_object *object)
 {
     zo_wxDataViewProgressRenderer* custom_object = (zo_wxDataViewProgressRenderer*) object;
 
@@ -9279,8 +9301,7 @@ void php_wxDataViewProgressRenderer_free(void *object)
         #endif
     }
 
-    zend_object_std_dtor(&custom_object->zo);
-    efree(custom_object);
+    zend_object_std_dtor(object);
 }
 
 zend_object* php_wxDataViewProgressRenderer_new(zend_class_entry *class_type)
@@ -9304,6 +9325,9 @@ zend_object* php_wxDataViewProgressRenderer_new(zend_class_entry *class_type)
 
     zend_object_std_init(&custom_object->zo, class_type);
     object_properties_init(&custom_object->zo, class_type);
+
+    wxphp_wxDataViewProgressRenderer_object_handlers.offset = XtOffsetOf(zo_wxDataViewProgressRenderer, zo);
+    wxphp_wxDataViewProgressRenderer_object_handlers.free_obj = php_wxDataViewProgressRenderer_free;
 
     custom_object->zo.handlers = &wxphp_wxDataViewProgressRenderer_object_handlers;
 
@@ -9453,7 +9477,7 @@ PHP_METHOD(php_wxDataViewProgressRenderer, __construct)
 /* }}} */
 
 BEGIN_EXTERN_C()
-void php_wxDataViewSpinRenderer_free(void *object)
+void php_wxDataViewSpinRenderer_free(zend_object *object)
 {
     zo_wxDataViewSpinRenderer* custom_object = (zo_wxDataViewSpinRenderer*) object;
 
@@ -9495,8 +9519,7 @@ void php_wxDataViewSpinRenderer_free(void *object)
         #endif
     }
 
-    zend_object_std_dtor(&custom_object->zo);
-    efree(custom_object);
+    zend_object_std_dtor(object);
 }
 
 zend_object* php_wxDataViewSpinRenderer_new(zend_class_entry *class_type)
@@ -9520,6 +9543,9 @@ zend_object* php_wxDataViewSpinRenderer_new(zend_class_entry *class_type)
 
     zend_object_std_init(&custom_object->zo, class_type);
     object_properties_init(&custom_object->zo, class_type);
+
+    wxphp_wxDataViewSpinRenderer_object_handlers.offset = XtOffsetOf(zo_wxDataViewSpinRenderer, zo);
+    wxphp_wxDataViewSpinRenderer_object_handlers.free_obj = php_wxDataViewSpinRenderer_free;
 
     custom_object->zo.handlers = &wxphp_wxDataViewSpinRenderer_object_handlers;
 
@@ -9645,7 +9671,7 @@ PHP_METHOD(php_wxDataViewSpinRenderer, __construct)
 /* }}} */
 
 BEGIN_EXTERN_C()
-void php_wxDataViewToggleRenderer_free(void *object)
+void php_wxDataViewToggleRenderer_free(zend_object *object)
 {
     zo_wxDataViewToggleRenderer* custom_object = (zo_wxDataViewToggleRenderer*) object;
 
@@ -9687,8 +9713,7 @@ void php_wxDataViewToggleRenderer_free(void *object)
         #endif
     }
 
-    zend_object_std_dtor(&custom_object->zo);
-    efree(custom_object);
+    zend_object_std_dtor(object);
 }
 
 zend_object* php_wxDataViewToggleRenderer_new(zend_class_entry *class_type)
@@ -9712,6 +9737,9 @@ zend_object* php_wxDataViewToggleRenderer_new(zend_class_entry *class_type)
 
     zend_object_std_init(&custom_object->zo, class_type);
     object_properties_init(&custom_object->zo, class_type);
+
+    wxphp_wxDataViewToggleRenderer_object_handlers.offset = XtOffsetOf(zo_wxDataViewToggleRenderer, zo);
+    wxphp_wxDataViewToggleRenderer_object_handlers.free_obj = php_wxDataViewToggleRenderer_free;
 
     custom_object->zo.handlers = &wxphp_wxDataViewToggleRenderer_object_handlers;
 
@@ -9848,7 +9876,7 @@ PHP_METHOD(php_wxDataViewToggleRenderer, __construct)
 /* }}} */
 
 BEGIN_EXTERN_C()
-void php_wxDataViewDateRenderer_free(void *object)
+void php_wxDataViewDateRenderer_free(zend_object *object)
 {
     zo_wxDataViewDateRenderer* custom_object = (zo_wxDataViewDateRenderer*) object;
 
@@ -9890,8 +9918,7 @@ void php_wxDataViewDateRenderer_free(void *object)
         #endif
     }
 
-    zend_object_std_dtor(&custom_object->zo);
-    efree(custom_object);
+    zend_object_std_dtor(object);
 }
 
 zend_object* php_wxDataViewDateRenderer_new(zend_class_entry *class_type)
@@ -9915,6 +9942,9 @@ zend_object* php_wxDataViewDateRenderer_new(zend_class_entry *class_type)
 
     zend_object_std_init(&custom_object->zo, class_type);
     object_properties_init(&custom_object->zo, class_type);
+
+    wxphp_wxDataViewDateRenderer_object_handlers.offset = XtOffsetOf(zo_wxDataViewDateRenderer, zo);
+    wxphp_wxDataViewDateRenderer_object_handlers.free_obj = php_wxDataViewDateRenderer_free;
 
     custom_object->zo.handlers = &wxphp_wxDataViewDateRenderer_object_handlers;
 
@@ -10051,7 +10081,7 @@ PHP_METHOD(php_wxDataViewDateRenderer, __construct)
 /* }}} */
 
 BEGIN_EXTERN_C()
-void php_wxDataViewCustomRenderer_free(void *object)
+void php_wxDataViewCustomRenderer_free(zend_object *object)
 {
     zo_wxDataViewCustomRenderer* custom_object = (zo_wxDataViewCustomRenderer*) object;
 
@@ -10093,8 +10123,7 @@ void php_wxDataViewCustomRenderer_free(void *object)
         #endif
     }
 
-    zend_object_std_dtor(&custom_object->zo);
-    efree(custom_object);
+    zend_object_std_dtor(object);
 }
 
 zend_object* php_wxDataViewCustomRenderer_new(zend_class_entry *class_type)
@@ -10118,6 +10147,9 @@ zend_object* php_wxDataViewCustomRenderer_new(zend_class_entry *class_type)
 
     zend_object_std_init(&custom_object->zo, class_type);
     object_properties_init(&custom_object->zo, class_type);
+
+    wxphp_wxDataViewCustomRenderer_object_handlers.offset = XtOffsetOf(zo_wxDataViewCustomRenderer, zo);
+    wxphp_wxDataViewCustomRenderer_object_handlers.free_obj = php_wxDataViewCustomRenderer_free;
 
     custom_object->zo.handlers = &wxphp_wxDataViewCustomRenderer_object_handlers;
 
@@ -11509,7 +11541,7 @@ PHP_METHOD(php_wxDataViewCustomRenderer, StartDrag)
 /* }}} */
 
 BEGIN_EXTERN_C()
-void php_wxDataViewBitmapRenderer_free(void *object)
+void php_wxDataViewBitmapRenderer_free(zend_object *object)
 {
     zo_wxDataViewBitmapRenderer* custom_object = (zo_wxDataViewBitmapRenderer*) object;
 
@@ -11551,8 +11583,7 @@ void php_wxDataViewBitmapRenderer_free(void *object)
         #endif
     }
 
-    zend_object_std_dtor(&custom_object->zo);
-    efree(custom_object);
+    zend_object_std_dtor(object);
 }
 
 zend_object* php_wxDataViewBitmapRenderer_new(zend_class_entry *class_type)
@@ -11576,6 +11607,9 @@ zend_object* php_wxDataViewBitmapRenderer_new(zend_class_entry *class_type)
 
     zend_object_std_init(&custom_object->zo, class_type);
     object_properties_init(&custom_object->zo, class_type);
+
+    wxphp_wxDataViewBitmapRenderer_object_handlers.offset = XtOffsetOf(zo_wxDataViewBitmapRenderer, zo);
+    wxphp_wxDataViewBitmapRenderer_object_handlers.free_obj = php_wxDataViewBitmapRenderer_free;
 
     custom_object->zo.handlers = &wxphp_wxDataViewBitmapRenderer_object_handlers;
 
@@ -11712,7 +11746,7 @@ PHP_METHOD(php_wxDataViewBitmapRenderer, __construct)
 /* }}} */
 
 BEGIN_EXTERN_C()
-void php_wxDataViewColumn_free(void *object)
+void php_wxDataViewColumn_free(zend_object *object)
 {
     zo_wxDataViewColumn* custom_object = (zo_wxDataViewColumn*) object;
 
@@ -11754,8 +11788,7 @@ void php_wxDataViewColumn_free(void *object)
         #endif
     }
 
-    zend_object_std_dtor(&custom_object->zo);
-    efree(custom_object);
+    zend_object_std_dtor(object);
 }
 
 zend_object* php_wxDataViewColumn_new(zend_class_entry *class_type)
@@ -11779,6 +11812,9 @@ zend_object* php_wxDataViewColumn_new(zend_class_entry *class_type)
 
     zend_object_std_init(&custom_object->zo, class_type);
     object_properties_init(&custom_object->zo, class_type);
+
+    wxphp_wxDataViewColumn_object_handlers.offset = XtOffsetOf(zo_wxDataViewColumn, zo);
+    wxphp_wxDataViewColumn_object_handlers.free_obj = php_wxDataViewColumn_free;
 
     custom_object->zo.handlers = &wxphp_wxDataViewColumn_object_handlers;
 
@@ -12428,7 +12464,7 @@ PHP_METHOD(php_wxDataViewColumn, GetRenderer)
 /* }}} */
 
 BEGIN_EXTERN_C()
-void php_wxDataViewListStore_free(void *object)
+void php_wxDataViewListStore_free(zend_object *object)
 {
     zo_wxDataViewListStore* custom_object = (zo_wxDataViewListStore*) object;
 
@@ -12470,8 +12506,7 @@ void php_wxDataViewListStore_free(void *object)
         #endif
     }
 
-    zend_object_std_dtor(&custom_object->zo);
-    efree(custom_object);
+    zend_object_std_dtor(object);
 }
 
 zend_object* php_wxDataViewListStore_new(zend_class_entry *class_type)
@@ -12495,6 +12530,9 @@ zend_object* php_wxDataViewListStore_new(zend_class_entry *class_type)
 
     zend_object_std_init(&custom_object->zo, class_type);
     object_properties_init(&custom_object->zo, class_type);
+
+    wxphp_wxDataViewListStore_object_handlers.offset = XtOffsetOf(zo_wxDataViewListStore, zo);
+    wxphp_wxDataViewListStore_object_handlers.free_obj = php_wxDataViewListStore_free;
 
     custom_object->zo.handlers = &wxphp_wxDataViewListStore_object_handlers;
 
@@ -13636,7 +13674,7 @@ PHP_METHOD(php_wxDataViewListStore, __construct)
 /* }}} */
 
 BEGIN_EXTERN_C()
-void php_wxDataViewTreeStore_free(void *object)
+void php_wxDataViewTreeStore_free(zend_object *object)
 {
     zo_wxDataViewTreeStore* custom_object = (zo_wxDataViewTreeStore*) object;
 
@@ -13678,8 +13716,7 @@ void php_wxDataViewTreeStore_free(void *object)
         #endif
     }
 
-    zend_object_std_dtor(&custom_object->zo);
-    efree(custom_object);
+    zend_object_std_dtor(object);
 }
 
 zend_object* php_wxDataViewTreeStore_new(zend_class_entry *class_type)
@@ -13703,6 +13740,9 @@ zend_object* php_wxDataViewTreeStore_new(zend_class_entry *class_type)
 
     zend_object_std_init(&custom_object->zo, class_type);
     object_properties_init(&custom_object->zo, class_type);
+
+    wxphp_wxDataViewTreeStore_object_handlers.offset = XtOffsetOf(zo_wxDataViewTreeStore, zo);
+    wxphp_wxDataViewTreeStore_object_handlers.free_obj = php_wxDataViewTreeStore_free;
 
     custom_object->zo.handlers = &wxphp_wxDataViewTreeStore_object_handlers;
 
@@ -16976,7 +17016,7 @@ PHP_METHOD(php_wxDataViewTreeStore, __construct)
 /* }}} */
 
 BEGIN_EXTERN_C()
-void php_wxDataViewIconText_free(void *object)
+void php_wxDataViewIconText_free(zend_object *object)
 {
     zo_wxDataViewIconText* custom_object = (zo_wxDataViewIconText*) object;
 
@@ -17018,8 +17058,7 @@ void php_wxDataViewIconText_free(void *object)
         #endif
     }
 
-    zend_object_std_dtor(&custom_object->zo);
-    efree(custom_object);
+    zend_object_std_dtor(object);
 }
 
 zend_object* php_wxDataViewIconText_new(zend_class_entry *class_type)
@@ -17043,6 +17082,9 @@ zend_object* php_wxDataViewIconText_new(zend_class_entry *class_type)
 
     zend_object_std_init(&custom_object->zo, class_type);
     object_properties_init(&custom_object->zo, class_type);
+
+    wxphp_wxDataViewIconText_object_handlers.offset = XtOffsetOf(zo_wxDataViewIconText, zo);
+    wxphp_wxDataViewIconText_object_handlers.free_obj = php_wxDataViewIconText_free;
 
     custom_object->zo.handlers = &wxphp_wxDataViewIconText_object_handlers;
 
@@ -17724,7 +17766,7 @@ PHP_METHOD(php_wxDataViewIconText, __construct)
 /* }}} */
 
 BEGIN_EXTERN_C()
-void php_wxDataViewEvent_free(void *object)
+void php_wxDataViewEvent_free(zend_object *object)
 {
     zo_wxDataViewEvent* custom_object = (zo_wxDataViewEvent*) object;
 
@@ -17766,8 +17808,7 @@ void php_wxDataViewEvent_free(void *object)
         #endif
     }
 
-    zend_object_std_dtor(&custom_object->zo);
-    efree(custom_object);
+    zend_object_std_dtor(object);
 }
 
 zend_object* php_wxDataViewEvent_new(zend_class_entry *class_type)
@@ -17791,6 +17832,9 @@ zend_object* php_wxDataViewEvent_new(zend_class_entry *class_type)
 
     zend_object_std_init(&custom_object->zo, class_type);
     object_properties_init(&custom_object->zo, class_type);
+
+    wxphp_wxDataViewEvent_object_handlers.offset = XtOffsetOf(zo_wxDataViewEvent, zo);
+    wxphp_wxDataViewEvent_object_handlers.free_obj = php_wxDataViewEvent_free;
 
     custom_object->zo.handlers = &wxphp_wxDataViewEvent_object_handlers;
 

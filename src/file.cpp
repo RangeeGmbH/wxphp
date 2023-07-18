@@ -54,7 +54,7 @@
 
 
 BEGIN_EXTERN_C()
-void php_wxFFile_free(void *object)
+void php_wxFFile_free(zend_object *object)
 {
     zo_wxFFile* custom_object = (zo_wxFFile*) object;
 
@@ -96,8 +96,7 @@ void php_wxFFile_free(void *object)
         #endif
     }
 
-    zend_object_std_dtor(&custom_object->zo);
-    efree(custom_object);
+    zend_object_std_dtor(object);
 }
 
 zend_object* php_wxFFile_new(zend_class_entry *class_type)
@@ -121,6 +120,9 @@ zend_object* php_wxFFile_new(zend_class_entry *class_type)
 
     zend_object_std_init(&custom_object->zo, class_type);
     object_properties_init(&custom_object->zo, class_type);
+
+    wxphp_wxFFile_object_handlers.offset = XtOffsetOf(zo_wxFFile, zo);
+    wxphp_wxFFile_object_handlers.free_obj = php_wxFFile_free;
 
     custom_object->zo.handlers = &wxphp_wxFFile_object_handlers;
 
@@ -1734,7 +1736,7 @@ PHP_METHOD(php_wxFFile, Close)
 /* }}} */
 
 BEGIN_EXTERN_C()
-void php_wxFile_free(void *object)
+void php_wxFile_free(zend_object *object)
 {
     zo_wxFile* custom_object = (zo_wxFile*) object;
 
@@ -1776,8 +1778,7 @@ void php_wxFile_free(void *object)
         #endif
     }
 
-    zend_object_std_dtor(&custom_object->zo);
-    efree(custom_object);
+    zend_object_std_dtor(object);
 }
 
 zend_object* php_wxFile_new(zend_class_entry *class_type)
@@ -1801,6 +1802,9 @@ zend_object* php_wxFile_new(zend_class_entry *class_type)
 
     zend_object_std_init(&custom_object->zo, class_type);
     object_properties_init(&custom_object->zo, class_type);
+
+    wxphp_wxFile_object_handlers.offset = XtOffsetOf(zo_wxFile, zo);
+    wxphp_wxFile_object_handlers.free_obj = php_wxFile_free;
 
     custom_object->zo.handlers = &wxphp_wxFile_object_handlers;
 
@@ -4146,7 +4150,7 @@ PHP_METHOD(php_wxFile, Access)
 /* }}} */
 
 BEGIN_EXTERN_C()
-void php_wxPathList_free(void *object)
+void php_wxPathList_free(zend_object *object)
 {
     zo_wxPathList* custom_object = (zo_wxPathList*) object;
 
@@ -4188,8 +4192,7 @@ void php_wxPathList_free(void *object)
         #endif
     }
 
-    zend_object_std_dtor(&custom_object->zo);
-    efree(custom_object);
+    zend_object_std_dtor(object);
 }
 
 zend_object* php_wxPathList_new(zend_class_entry *class_type)
@@ -4213,6 +4216,9 @@ zend_object* php_wxPathList_new(zend_class_entry *class_type)
 
     zend_object_std_init(&custom_object->zo, class_type);
     object_properties_init(&custom_object->zo, class_type);
+
+    wxphp_wxPathList_object_handlers.offset = XtOffsetOf(zo_wxPathList, zo);
+    wxphp_wxPathList_object_handlers.free_obj = php_wxPathList_free;
 
     custom_object->zo.handlers = &wxphp_wxPathList_object_handlers;
 
@@ -4992,7 +4998,7 @@ PHP_METHOD(php_wxPathList, __construct)
 /* }}} */
 
 BEGIN_EXTERN_C()
-void php_wxFileName_free(void *object)
+void php_wxFileName_free(zend_object *object)
 {
     zo_wxFileName* custom_object = (zo_wxFileName*) object;
 
@@ -5034,8 +5040,7 @@ void php_wxFileName_free(void *object)
         #endif
     }
 
-    zend_object_std_dtor(&custom_object->zo);
-    efree(custom_object);
+    zend_object_std_dtor(object);
 }
 
 zend_object* php_wxFileName_new(zend_class_entry *class_type)
@@ -5059,6 +5064,9 @@ zend_object* php_wxFileName_new(zend_class_entry *class_type)
 
     zend_object_std_init(&custom_object->zo, class_type);
     object_properties_init(&custom_object->zo, class_type);
+
+    wxphp_wxFileName_object_handlers.offset = XtOffsetOf(zo_wxFileName, zo);
+    wxphp_wxFileName_object_handlers.free_obj = php_wxFileName_free;
 
     custom_object->zo.handlers = &wxphp_wxFileName_object_handlers;
 
@@ -15305,7 +15313,7 @@ PHP_METHOD(php_wxFileName, Normalize)
 /* }}} */
 
 BEGIN_EXTERN_C()
-void php_wxFSFile_free(void *object)
+void php_wxFSFile_free(zend_object *object)
 {
     zo_wxFSFile* custom_object = (zo_wxFSFile*) object;
 
@@ -15347,8 +15355,7 @@ void php_wxFSFile_free(void *object)
         #endif
     }
 
-    zend_object_std_dtor(&custom_object->zo);
-    efree(custom_object);
+    zend_object_std_dtor(object);
 }
 
 zend_object* php_wxFSFile_new(zend_class_entry *class_type)
@@ -15372,6 +15379,9 @@ zend_object* php_wxFSFile_new(zend_class_entry *class_type)
 
     zend_object_std_init(&custom_object->zo, class_type);
     object_properties_init(&custom_object->zo, class_type);
+
+    wxphp_wxFSFile_object_handlers.offset = XtOffsetOf(zo_wxFSFile, zo);
+    wxphp_wxFSFile_object_handlers.free_obj = php_wxFSFile_free;
 
     custom_object->zo.handlers = &wxphp_wxFSFile_object_handlers;
 
@@ -16194,7 +16204,7 @@ PHP_METHOD(php_wxFSFile, DetachStream)
 /* }}} */
 
 BEGIN_EXTERN_C()
-void php_wxFileSystemWatcher_free(void *object)
+void php_wxFileSystemWatcher_free(zend_object *object)
 {
     zo_wxFileSystemWatcher* custom_object = (zo_wxFileSystemWatcher*) object;
 
@@ -16236,8 +16246,7 @@ void php_wxFileSystemWatcher_free(void *object)
         #endif
     }
 
-    zend_object_std_dtor(&custom_object->zo);
-    efree(custom_object);
+    zend_object_std_dtor(object);
 }
 
 zend_object* php_wxFileSystemWatcher_new(zend_class_entry *class_type)
@@ -16261,6 +16270,9 @@ zend_object* php_wxFileSystemWatcher_new(zend_class_entry *class_type)
 
     zend_object_std_init(&custom_object->zo, class_type);
     object_properties_init(&custom_object->zo, class_type);
+
+    wxphp_wxFileSystemWatcher_object_handlers.offset = XtOffsetOf(zo_wxFileSystemWatcher, zo);
+    wxphp_wxFileSystemWatcher_object_handlers.free_obj = php_wxFileSystemWatcher_free;
 
     custom_object->zo.handlers = &wxphp_wxFileSystemWatcher_object_handlers;
 
@@ -17268,7 +17280,7 @@ PHP_METHOD(php_wxFileSystemWatcher, __construct)
 /* }}} */
 
 BEGIN_EXTERN_C()
-void php_wxStandardPaths_free(void *object)
+void php_wxStandardPaths_free(zend_object *object)
 {
     zo_wxStandardPaths* custom_object = (zo_wxStandardPaths*) object;
 
@@ -17310,8 +17322,7 @@ void php_wxStandardPaths_free(void *object)
         #endif
     }
 
-    zend_object_std_dtor(&custom_object->zo);
-    efree(custom_object);
+    zend_object_std_dtor(object);
 }
 
 zend_object* php_wxStandardPaths_new(zend_class_entry *class_type)
@@ -17335,6 +17346,9 @@ zend_object* php_wxStandardPaths_new(zend_class_entry *class_type)
 
     zend_object_std_init(&custom_object->zo, class_type);
     object_properties_init(&custom_object->zo, class_type);
+
+    wxphp_wxStandardPaths_object_handlers.offset = XtOffsetOf(zo_wxStandardPaths, zo);
+    wxphp_wxStandardPaths_object_handlers.free_obj = php_wxStandardPaths_free;
 
     custom_object->zo.handlers = &wxphp_wxStandardPaths_object_handlers;
 

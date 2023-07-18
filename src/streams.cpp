@@ -54,7 +54,7 @@
 
 
 BEGIN_EXTERN_C()
-void php_wxDataOutputStream_free(void *object)
+void php_wxDataOutputStream_free(zend_object *object)
 {
     zo_wxDataOutputStream* custom_object = (zo_wxDataOutputStream*) object;
 
@@ -96,8 +96,7 @@ void php_wxDataOutputStream_free(void *object)
         #endif
     }
 
-    zend_object_std_dtor(&custom_object->zo);
-    efree(custom_object);
+    zend_object_std_dtor(object);
 }
 
 zend_object* php_wxDataOutputStream_new(zend_class_entry *class_type)
@@ -121,6 +120,9 @@ zend_object* php_wxDataOutputStream_new(zend_class_entry *class_type)
 
     zend_object_std_init(&custom_object->zo, class_type);
     object_properties_init(&custom_object->zo, class_type);
+
+    wxphp_wxDataOutputStream_object_handlers.offset = XtOffsetOf(zo_wxDataOutputStream, zo);
+    wxphp_wxDataOutputStream_object_handlers.free_obj = php_wxDataOutputStream_free;
 
     custom_object->zo.handlers = &wxphp_wxDataOutputStream_object_handlers;
 
@@ -1026,7 +1028,7 @@ PHP_METHOD(php_wxDataOutputStream, WriteString)
 /* }}} */
 
 BEGIN_EXTERN_C()
-void php_wxDataInputStream_free(void *object)
+void php_wxDataInputStream_free(zend_object *object)
 {
     zo_wxDataInputStream* custom_object = (zo_wxDataInputStream*) object;
 
@@ -1068,8 +1070,7 @@ void php_wxDataInputStream_free(void *object)
         #endif
     }
 
-    zend_object_std_dtor(&custom_object->zo);
-    efree(custom_object);
+    zend_object_std_dtor(object);
 }
 
 zend_object* php_wxDataInputStream_new(zend_class_entry *class_type)
@@ -1093,6 +1094,9 @@ zend_object* php_wxDataInputStream_new(zend_class_entry *class_type)
 
     zend_object_std_init(&custom_object->zo, class_type);
     object_properties_init(&custom_object->zo, class_type);
+
+    wxphp_wxDataInputStream_object_handlers.offset = XtOffsetOf(zo_wxDataInputStream, zo);
+    wxphp_wxDataInputStream_object_handlers.free_obj = php_wxDataInputStream_free;
 
     custom_object->zo.handlers = &wxphp_wxDataInputStream_object_handlers;
 
@@ -1958,7 +1962,7 @@ PHP_METHOD(php_wxDataInputStream, BigEndianOrdered)
 /* }}} */
 
 BEGIN_EXTERN_C()
-void php_wxStreamBase_free(void *object)
+void php_wxStreamBase_free(zend_object *object)
 {
     zo_wxStreamBase* custom_object = (zo_wxStreamBase*) object;
 
@@ -2000,8 +2004,7 @@ void php_wxStreamBase_free(void *object)
         #endif
     }
 
-    zend_object_std_dtor(&custom_object->zo);
-    efree(custom_object);
+    zend_object_std_dtor(object);
 }
 
 zend_object* php_wxStreamBase_new(zend_class_entry *class_type)
@@ -2025,6 +2028,9 @@ zend_object* php_wxStreamBase_new(zend_class_entry *class_type)
 
     zend_object_std_init(&custom_object->zo, class_type);
     object_properties_init(&custom_object->zo, class_type);
+
+    wxphp_wxStreamBase_object_handlers.offset = XtOffsetOf(zo_wxStreamBase, zo);
+    wxphp_wxStreamBase_object_handlers.free_obj = php_wxStreamBase_free;
 
     custom_object->zo.handlers = &wxphp_wxStreamBase_object_handlers;
 
@@ -3150,7 +3156,7 @@ wxFileOffset wxStreamBase_php::OnSysTell()const
 /* }}} */
 
 BEGIN_EXTERN_C()
-void php_wxOutputStream_free(void *object)
+void php_wxOutputStream_free(zend_object *object)
 {
     zo_wxOutputStream* custom_object = (zo_wxOutputStream*) object;
 
@@ -3192,8 +3198,7 @@ void php_wxOutputStream_free(void *object)
         #endif
     }
 
-    zend_object_std_dtor(&custom_object->zo);
-    efree(custom_object);
+    zend_object_std_dtor(object);
 }
 
 zend_object* php_wxOutputStream_new(zend_class_entry *class_type)
@@ -3217,6 +3222,9 @@ zend_object* php_wxOutputStream_new(zend_class_entry *class_type)
 
     zend_object_std_init(&custom_object->zo, class_type);
     object_properties_init(&custom_object->zo, class_type);
+
+    wxphp_wxOutputStream_object_handlers.offset = XtOffsetOf(zo_wxOutputStream, zo);
+    wxphp_wxOutputStream_object_handlers.free_obj = php_wxOutputStream_free;
 
     custom_object->zo.handlers = &wxphp_wxOutputStream_object_handlers;
 
@@ -4179,7 +4187,7 @@ PHP_METHOD(php_wxOutputStream, LastWrite)
 /* }}} */
 
 BEGIN_EXTERN_C()
-void php_wxInputStream_free(void *object)
+void php_wxInputStream_free(zend_object *object)
 {
     zo_wxInputStream* custom_object = (zo_wxInputStream*) object;
 
@@ -4221,8 +4229,7 @@ void php_wxInputStream_free(void *object)
         #endif
     }
 
-    zend_object_std_dtor(&custom_object->zo);
-    efree(custom_object);
+    zend_object_std_dtor(object);
 }
 
 zend_object* php_wxInputStream_new(zend_class_entry *class_type)
@@ -4246,6 +4253,9 @@ zend_object* php_wxInputStream_new(zend_class_entry *class_type)
 
     zend_object_std_init(&custom_object->zo, class_type);
     object_properties_init(&custom_object->zo, class_type);
+
+    wxphp_wxInputStream_object_handlers.offset = XtOffsetOf(zo_wxInputStream, zo);
+    wxphp_wxInputStream_object_handlers.free_obj = php_wxInputStream_free;
 
     custom_object->zo.handlers = &wxphp_wxInputStream_object_handlers;
 
@@ -5721,7 +5731,7 @@ PHP_METHOD(php_wxInputStream, CanRead)
 /* }}} */
 
 BEGIN_EXTERN_C()
-void php_wxFFileOutputStream_free(void *object)
+void php_wxFFileOutputStream_free(zend_object *object)
 {
     zo_wxFFileOutputStream* custom_object = (zo_wxFFileOutputStream*) object;
 
@@ -5763,8 +5773,7 @@ void php_wxFFileOutputStream_free(void *object)
         #endif
     }
 
-    zend_object_std_dtor(&custom_object->zo);
-    efree(custom_object);
+    zend_object_std_dtor(object);
 }
 
 zend_object* php_wxFFileOutputStream_new(zend_class_entry *class_type)
@@ -5788,6 +5797,9 @@ zend_object* php_wxFFileOutputStream_new(zend_class_entry *class_type)
 
     zend_object_std_init(&custom_object->zo, class_type);
     object_properties_init(&custom_object->zo, class_type);
+
+    wxphp_wxFFileOutputStream_object_handlers.offset = XtOffsetOf(zo_wxFFileOutputStream, zo);
+    wxphp_wxFFileOutputStream_object_handlers.free_obj = php_wxFFileOutputStream_free;
 
     custom_object->zo.handlers = &wxphp_wxFFileOutputStream_object_handlers;
 
@@ -6071,7 +6083,7 @@ PHP_METHOD(php_wxFFileOutputStream, __construct)
 /* }}} */
 
 BEGIN_EXTERN_C()
-void php_wxFileOutputStream_free(void *object)
+void php_wxFileOutputStream_free(zend_object *object)
 {
     zo_wxFileOutputStream* custom_object = (zo_wxFileOutputStream*) object;
 
@@ -6113,8 +6125,7 @@ void php_wxFileOutputStream_free(void *object)
         #endif
     }
 
-    zend_object_std_dtor(&custom_object->zo);
-    efree(custom_object);
+    zend_object_std_dtor(object);
 }
 
 zend_object* php_wxFileOutputStream_new(zend_class_entry *class_type)
@@ -6138,6 +6149,9 @@ zend_object* php_wxFileOutputStream_new(zend_class_entry *class_type)
 
     zend_object_std_init(&custom_object->zo, class_type);
     object_properties_init(&custom_object->zo, class_type);
+
+    wxphp_wxFileOutputStream_object_handlers.offset = XtOffsetOf(zo_wxFileOutputStream, zo);
+    wxphp_wxFileOutputStream_object_handlers.free_obj = php_wxFileOutputStream_free;
 
     custom_object->zo.handlers = &wxphp_wxFileOutputStream_object_handlers;
 
@@ -6447,7 +6461,7 @@ PHP_METHOD(php_wxFileOutputStream, __construct)
 /* }}} */
 
 BEGIN_EXTERN_C()
-void php_wxFileInputStream_free(void *object)
+void php_wxFileInputStream_free(zend_object *object)
 {
     zo_wxFileInputStream* custom_object = (zo_wxFileInputStream*) object;
 
@@ -6489,8 +6503,7 @@ void php_wxFileInputStream_free(void *object)
         #endif
     }
 
-    zend_object_std_dtor(&custom_object->zo);
-    efree(custom_object);
+    zend_object_std_dtor(object);
 }
 
 zend_object* php_wxFileInputStream_new(zend_class_entry *class_type)
@@ -6514,6 +6527,9 @@ zend_object* php_wxFileInputStream_new(zend_class_entry *class_type)
 
     zend_object_std_init(&custom_object->zo, class_type);
     object_properties_init(&custom_object->zo, class_type);
+
+    wxphp_wxFileInputStream_object_handlers.offset = XtOffsetOf(zo_wxFileInputStream, zo);
+    wxphp_wxFileInputStream_object_handlers.free_obj = php_wxFileInputStream_free;
 
     custom_object->zo.handlers = &wxphp_wxFileInputStream_object_handlers;
 
@@ -6823,7 +6839,7 @@ PHP_METHOD(php_wxFileInputStream, __construct)
 /* }}} */
 
 BEGIN_EXTERN_C()
-void php_wxFFileInputStream_free(void *object)
+void php_wxFFileInputStream_free(zend_object *object)
 {
     zo_wxFFileInputStream* custom_object = (zo_wxFFileInputStream*) object;
 
@@ -6865,8 +6881,7 @@ void php_wxFFileInputStream_free(void *object)
         #endif
     }
 
-    zend_object_std_dtor(&custom_object->zo);
-    efree(custom_object);
+    zend_object_std_dtor(object);
 }
 
 zend_object* php_wxFFileInputStream_new(zend_class_entry *class_type)
@@ -6890,6 +6905,9 @@ zend_object* php_wxFFileInputStream_new(zend_class_entry *class_type)
 
     zend_object_std_init(&custom_object->zo, class_type);
     object_properties_init(&custom_object->zo, class_type);
+
+    wxphp_wxFFileInputStream_object_handlers.offset = XtOffsetOf(zo_wxFFileInputStream, zo);
+    wxphp_wxFFileInputStream_object_handlers.free_obj = php_wxFFileInputStream_free;
 
     custom_object->zo.handlers = &wxphp_wxFFileInputStream_object_handlers;
 
@@ -7173,7 +7191,7 @@ PHP_METHOD(php_wxFFileInputStream, IsOk)
 /* }}} */
 
 BEGIN_EXTERN_C()
-void php_wxFFileStream_free(void *object)
+void php_wxFFileStream_free(zend_object *object)
 {
     zo_wxFFileStream* custom_object = (zo_wxFFileStream*) object;
 
@@ -7215,8 +7233,7 @@ void php_wxFFileStream_free(void *object)
         #endif
     }
 
-    zend_object_std_dtor(&custom_object->zo);
-    efree(custom_object);
+    zend_object_std_dtor(object);
 }
 
 zend_object* php_wxFFileStream_new(zend_class_entry *class_type)
@@ -7240,6 +7257,9 @@ zend_object* php_wxFFileStream_new(zend_class_entry *class_type)
 
     zend_object_std_init(&custom_object->zo, class_type);
     object_properties_init(&custom_object->zo, class_type);
+
+    wxphp_wxFFileStream_object_handlers.offset = XtOffsetOf(zo_wxFFileStream, zo);
+    wxphp_wxFFileStream_object_handlers.free_obj = php_wxFFileStream_free;
 
     custom_object->zo.handlers = &wxphp_wxFFileStream_object_handlers;
 
@@ -7461,7 +7481,7 @@ PHP_METHOD(php_wxFFileStream, __construct)
 /* }}} */
 
 BEGIN_EXTERN_C()
-void php_wxFileStream_free(void *object)
+void php_wxFileStream_free(zend_object *object)
 {
     zo_wxFileStream* custom_object = (zo_wxFileStream*) object;
 
@@ -7503,8 +7523,7 @@ void php_wxFileStream_free(void *object)
         #endif
     }
 
-    zend_object_std_dtor(&custom_object->zo);
-    efree(custom_object);
+    zend_object_std_dtor(object);
 }
 
 zend_object* php_wxFileStream_new(zend_class_entry *class_type)
@@ -7528,6 +7547,9 @@ zend_object* php_wxFileStream_new(zend_class_entry *class_type)
 
     zend_object_std_init(&custom_object->zo, class_type);
     object_properties_init(&custom_object->zo, class_type);
+
+    wxphp_wxFileStream_object_handlers.offset = XtOffsetOf(zo_wxFileStream, zo);
+    wxphp_wxFileStream_object_handlers.free_obj = php_wxFileStream_free;
 
     custom_object->zo.handlers = &wxphp_wxFileStream_object_handlers;
 

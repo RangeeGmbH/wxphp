@@ -54,7 +54,7 @@
 
 
 BEGIN_EXTERN_C()
-void php_wxHtmlHelpController_free(void *object)
+void php_wxHtmlHelpController_free(zend_object *object)
 {
     zo_wxHtmlHelpController* custom_object = (zo_wxHtmlHelpController*) object;
 
@@ -96,8 +96,7 @@ void php_wxHtmlHelpController_free(void *object)
         #endif
     }
 
-    zend_object_std_dtor(&custom_object->zo);
-    efree(custom_object);
+    zend_object_std_dtor(object);
 }
 
 zend_object* php_wxHtmlHelpController_new(zend_class_entry *class_type)
@@ -121,6 +120,9 @@ zend_object* php_wxHtmlHelpController_new(zend_class_entry *class_type)
 
     zend_object_std_init(&custom_object->zo, class_type);
     object_properties_init(&custom_object->zo, class_type);
+
+    wxphp_wxHtmlHelpController_object_handlers.offset = XtOffsetOf(zo_wxHtmlHelpController, zo);
+    wxphp_wxHtmlHelpController_object_handlers.free_obj = php_wxHtmlHelpController_free;
 
     custom_object->zo.handlers = &wxphp_wxHtmlHelpController_object_handlers;
 
@@ -1941,7 +1943,7 @@ PHP_METHOD(php_wxHtmlHelpController, __construct)
 /* }}} */
 
 BEGIN_EXTERN_C()
-void php_wxHtmlModalHelp_free(void *object)
+void php_wxHtmlModalHelp_free(zend_object *object)
 {
     zo_wxHtmlModalHelp* custom_object = (zo_wxHtmlModalHelp*) object;
 
@@ -1983,8 +1985,7 @@ void php_wxHtmlModalHelp_free(void *object)
         #endif
     }
 
-    zend_object_std_dtor(&custom_object->zo);
-    efree(custom_object);
+    zend_object_std_dtor(object);
 }
 
 zend_object* php_wxHtmlModalHelp_new(zend_class_entry *class_type)
@@ -2008,6 +2009,9 @@ zend_object* php_wxHtmlModalHelp_new(zend_class_entry *class_type)
 
     zend_object_std_init(&custom_object->zo, class_type);
     object_properties_init(&custom_object->zo, class_type);
+
+    wxphp_wxHtmlModalHelp_object_handlers.offset = XtOffsetOf(zo_wxHtmlModalHelp, zo);
+    wxphp_wxHtmlModalHelp_object_handlers.free_obj = php_wxHtmlModalHelp_free;
 
     custom_object->zo.handlers = &wxphp_wxHtmlModalHelp_object_handlers;
 
@@ -2156,7 +2160,7 @@ PHP_METHOD(php_wxHtmlModalHelp, __construct)
 /* }}} */
 
 BEGIN_EXTERN_C()
-void php_wxHtmlHelpData_free(void *object)
+void php_wxHtmlHelpData_free(zend_object *object)
 {
     zo_wxHtmlHelpData* custom_object = (zo_wxHtmlHelpData*) object;
 
@@ -2198,8 +2202,7 @@ void php_wxHtmlHelpData_free(void *object)
         #endif
     }
 
-    zend_object_std_dtor(&custom_object->zo);
-    efree(custom_object);
+    zend_object_std_dtor(object);
 }
 
 zend_object* php_wxHtmlHelpData_new(zend_class_entry *class_type)
@@ -2223,6 +2226,9 @@ zend_object* php_wxHtmlHelpData_new(zend_class_entry *class_type)
 
     zend_object_std_init(&custom_object->zo, class_type);
     object_properties_init(&custom_object->zo, class_type);
+
+    wxphp_wxHtmlHelpData_object_handlers.offset = XtOffsetOf(zo_wxHtmlHelpData, zo);
+    wxphp_wxHtmlHelpData_object_handlers.free_obj = php_wxHtmlHelpData_free;
 
     custom_object->zo.handlers = &wxphp_wxHtmlHelpData_object_handlers;
 
@@ -2773,7 +2779,7 @@ PHP_METHOD(php_wxHtmlHelpData, __construct)
 /* }}} */
 
 BEGIN_EXTERN_C()
-void php_wxHtmlHelpDialog_free(void *object)
+void php_wxHtmlHelpDialog_free(zend_object *object)
 {
     zo_wxHtmlHelpDialog* custom_object = (zo_wxHtmlHelpDialog*) object;
 
@@ -2783,8 +2789,7 @@ void php_wxHtmlHelpDialog_free(void *object)
         "Remember to always call Destroy() to prevent memory leaks."
     );*/
 
-    zend_object_std_dtor(&custom_object->zo);
-    efree(custom_object);
+    zend_object_std_dtor(object);
 }
 
 zend_object* php_wxHtmlHelpDialog_new(zend_class_entry *class_type)
@@ -2808,6 +2813,9 @@ zend_object* php_wxHtmlHelpDialog_new(zend_class_entry *class_type)
 
     zend_object_std_init(&custom_object->zo, class_type);
     object_properties_init(&custom_object->zo, class_type);
+
+    wxphp_wxHtmlHelpDialog_object_handlers.offset = XtOffsetOf(zo_wxHtmlHelpDialog, zo);
+    wxphp_wxHtmlHelpDialog_object_handlers.free_obj = php_wxHtmlHelpDialog_free;
 
     custom_object->zo.handlers = &wxphp_wxHtmlHelpDialog_object_handlers;
 
@@ -3722,7 +3730,7 @@ PHP_METHOD(php_wxHtmlHelpDialog, __construct)
 /* }}} */
 
 BEGIN_EXTERN_C()
-void php_wxHtmlHelpFrame_free(void *object)
+void php_wxHtmlHelpFrame_free(zend_object *object)
 {
     zo_wxHtmlHelpFrame* custom_object = (zo_wxHtmlHelpFrame*) object;
 
@@ -3732,8 +3740,7 @@ void php_wxHtmlHelpFrame_free(void *object)
         "Remember to always call Destroy() to prevent memory leaks."
     );*/
 
-    zend_object_std_dtor(&custom_object->zo);
-    efree(custom_object);
+    zend_object_std_dtor(object);
 }
 
 zend_object* php_wxHtmlHelpFrame_new(zend_class_entry *class_type)
@@ -3757,6 +3764,9 @@ zend_object* php_wxHtmlHelpFrame_new(zend_class_entry *class_type)
 
     zend_object_std_init(&custom_object->zo, class_type);
     object_properties_init(&custom_object->zo, class_type);
+
+    wxphp_wxHtmlHelpFrame_object_handlers.offset = XtOffsetOf(zo_wxHtmlHelpFrame, zo);
+    wxphp_wxHtmlHelpFrame_object_handlers.free_obj = php_wxHtmlHelpFrame_free;
 
     custom_object->zo.handlers = &wxphp_wxHtmlHelpFrame_object_handlers;
 
@@ -4769,7 +4779,7 @@ PHP_METHOD(php_wxHtmlHelpFrame, __construct)
 /* }}} */
 
 BEGIN_EXTERN_C()
-void php_wxHtmlHelpWindow_free(void *object)
+void php_wxHtmlHelpWindow_free(zend_object *object)
 {
     zo_wxHtmlHelpWindow* custom_object = (zo_wxHtmlHelpWindow*) object;
 
@@ -4814,8 +4824,7 @@ void php_wxHtmlHelpWindow_free(void *object)
         #endif
     }
 
-    zend_object_std_dtor(&custom_object->zo);
-    efree(custom_object);
+    zend_object_std_dtor(object);
 }
 
 zend_object* php_wxHtmlHelpWindow_new(zend_class_entry *class_type)
@@ -4839,6 +4848,9 @@ zend_object* php_wxHtmlHelpWindow_new(zend_class_entry *class_type)
 
     zend_object_std_init(&custom_object->zo, class_type);
     object_properties_init(&custom_object->zo, class_type);
+
+    wxphp_wxHtmlHelpWindow_object_handlers.offset = XtOffsetOf(zo_wxHtmlHelpWindow, zo);
+    wxphp_wxHtmlHelpWindow_object_handlers.free_obj = php_wxHtmlHelpWindow_free;
 
     custom_object->zo.handlers = &wxphp_wxHtmlHelpWindow_object_handlers;
 
@@ -6651,7 +6663,7 @@ PHP_METHOD(php_wxHtmlHelpWindow, __construct)
 /* }}} */
 
 BEGIN_EXTERN_C()
-void php_wxToolTip_free(void *object)
+void php_wxToolTip_free(zend_object *object)
 {
     zo_wxToolTip* custom_object = (zo_wxToolTip*) object;
 
@@ -6693,8 +6705,7 @@ void php_wxToolTip_free(void *object)
         #endif
     }
 
-    zend_object_std_dtor(&custom_object->zo);
-    efree(custom_object);
+    zend_object_std_dtor(object);
 }
 
 zend_object* php_wxToolTip_new(zend_class_entry *class_type)
@@ -6718,6 +6729,9 @@ zend_object* php_wxToolTip_new(zend_class_entry *class_type)
 
     zend_object_std_init(&custom_object->zo, class_type);
     object_properties_init(&custom_object->zo, class_type);
+
+    wxphp_wxToolTip_object_handlers.offset = XtOffsetOf(zo_wxToolTip, zo);
+    wxphp_wxToolTip_object_handlers.free_obj = php_wxToolTip_free;
 
     custom_object->zo.handlers = &wxphp_wxToolTip_object_handlers;
 

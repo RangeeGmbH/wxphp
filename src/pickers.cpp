@@ -54,7 +54,7 @@
 
 
 BEGIN_EXTERN_C()
-void php_wxColourPickerCtrl_free(void *object)
+void php_wxColourPickerCtrl_free(zend_object *object)
 {
     zo_wxColourPickerCtrl* custom_object = (zo_wxColourPickerCtrl*) object;
 
@@ -67,8 +67,7 @@ void php_wxColourPickerCtrl_free(void *object)
     php_printf("===========================================\n\n");
     #endif
 
-    zend_object_std_dtor(&custom_object->zo);
-    efree(custom_object);
+    zend_object_std_dtor(object);
 }
 
 zend_object* php_wxColourPickerCtrl_new(zend_class_entry *class_type)
@@ -92,6 +91,9 @@ zend_object* php_wxColourPickerCtrl_new(zend_class_entry *class_type)
 
     zend_object_std_init(&custom_object->zo, class_type);
     object_properties_init(&custom_object->zo, class_type);
+
+    wxphp_wxColourPickerCtrl_object_handlers.offset = XtOffsetOf(zo_wxColourPickerCtrl, zo);
+    wxphp_wxColourPickerCtrl_object_handlers.free_obj = php_wxColourPickerCtrl_free;
 
     custom_object->zo.handlers = &wxphp_wxColourPickerCtrl_object_handlers;
 
@@ -973,7 +975,7 @@ PHP_METHOD(php_wxColourPickerCtrl, __construct)
 /* }}} */
 
 BEGIN_EXTERN_C()
-void php_wxDatePickerCtrl_free(void *object)
+void php_wxDatePickerCtrl_free(zend_object *object)
 {
     zo_wxDatePickerCtrl* custom_object = (zo_wxDatePickerCtrl*) object;
 
@@ -986,8 +988,7 @@ void php_wxDatePickerCtrl_free(void *object)
     php_printf("===========================================\n\n");
     #endif
 
-    zend_object_std_dtor(&custom_object->zo);
-    efree(custom_object);
+    zend_object_std_dtor(object);
 }
 
 zend_object* php_wxDatePickerCtrl_new(zend_class_entry *class_type)
@@ -1011,6 +1012,9 @@ zend_object* php_wxDatePickerCtrl_new(zend_class_entry *class_type)
 
     zend_object_std_init(&custom_object->zo, class_type);
     object_properties_init(&custom_object->zo, class_type);
+
+    wxphp_wxDatePickerCtrl_object_handlers.offset = XtOffsetOf(zo_wxDatePickerCtrl, zo);
+    wxphp_wxDatePickerCtrl_object_handlers.free_obj = php_wxDatePickerCtrl_free;
 
     custom_object->zo.handlers = &wxphp_wxDatePickerCtrl_object_handlers;
 
@@ -2013,7 +2017,7 @@ PHP_METHOD(php_wxDatePickerCtrl, GetRange)
 /* }}} */
 
 BEGIN_EXTERN_C()
-void php_wxFilePickerCtrl_free(void *object)
+void php_wxFilePickerCtrl_free(zend_object *object)
 {
     zo_wxFilePickerCtrl* custom_object = (zo_wxFilePickerCtrl*) object;
 
@@ -2026,8 +2030,7 @@ void php_wxFilePickerCtrl_free(void *object)
     php_printf("===========================================\n\n");
     #endif
 
-    zend_object_std_dtor(&custom_object->zo);
-    efree(custom_object);
+    zend_object_std_dtor(object);
 }
 
 zend_object* php_wxFilePickerCtrl_new(zend_class_entry *class_type)
@@ -2051,6 +2054,9 @@ zend_object* php_wxFilePickerCtrl_new(zend_class_entry *class_type)
 
     zend_object_std_init(&custom_object->zo, class_type);
     object_properties_init(&custom_object->zo, class_type);
+
+    wxphp_wxFilePickerCtrl_object_handlers.offset = XtOffsetOf(zo_wxFilePickerCtrl, zo);
+    wxphp_wxFilePickerCtrl_object_handlers.free_obj = php_wxFilePickerCtrl_free;
 
     custom_object->zo.handlers = &wxphp_wxFilePickerCtrl_object_handlers;
 
@@ -3124,7 +3130,7 @@ PHP_METHOD(php_wxFilePickerCtrl, GetFileName)
 /* }}} */
 
 BEGIN_EXTERN_C()
-void php_wxDirPickerCtrl_free(void *object)
+void php_wxDirPickerCtrl_free(zend_object *object)
 {
     zo_wxDirPickerCtrl* custom_object = (zo_wxDirPickerCtrl*) object;
 
@@ -3137,8 +3143,7 @@ void php_wxDirPickerCtrl_free(void *object)
     php_printf("===========================================\n\n");
     #endif
 
-    zend_object_std_dtor(&custom_object->zo);
-    efree(custom_object);
+    zend_object_std_dtor(object);
 }
 
 zend_object* php_wxDirPickerCtrl_new(zend_class_entry *class_type)
@@ -3162,6 +3167,9 @@ zend_object* php_wxDirPickerCtrl_new(zend_class_entry *class_type)
 
     zend_object_std_init(&custom_object->zo, class_type);
     object_properties_init(&custom_object->zo, class_type);
+
+    wxphp_wxDirPickerCtrl_object_handlers.offset = XtOffsetOf(zo_wxDirPickerCtrl, zo);
+    wxphp_wxDirPickerCtrl_object_handlers.free_obj = php_wxDirPickerCtrl_free;
 
     custom_object->zo.handlers = &wxphp_wxDirPickerCtrl_object_handlers;
 
@@ -4206,7 +4214,7 @@ PHP_METHOD(php_wxDirPickerCtrl, __construct)
 /* }}} */
 
 BEGIN_EXTERN_C()
-void php_wxFontPickerCtrl_free(void *object)
+void php_wxFontPickerCtrl_free(zend_object *object)
 {
     zo_wxFontPickerCtrl* custom_object = (zo_wxFontPickerCtrl*) object;
 
@@ -4219,8 +4227,7 @@ void php_wxFontPickerCtrl_free(void *object)
     php_printf("===========================================\n\n");
     #endif
 
-    zend_object_std_dtor(&custom_object->zo);
-    efree(custom_object);
+    zend_object_std_dtor(object);
 }
 
 zend_object* php_wxFontPickerCtrl_new(zend_class_entry *class_type)
@@ -4244,6 +4251,9 @@ zend_object* php_wxFontPickerCtrl_new(zend_class_entry *class_type)
 
     zend_object_std_init(&custom_object->zo, class_type);
     object_properties_init(&custom_object->zo, class_type);
+
+    wxphp_wxFontPickerCtrl_object_handlers.offset = XtOffsetOf(zo_wxFontPickerCtrl, zo);
+    wxphp_wxFontPickerCtrl_object_handlers.free_obj = php_wxFontPickerCtrl_free;
 
     custom_object->zo.handlers = &wxphp_wxFontPickerCtrl_object_handlers;
 
@@ -5303,7 +5313,7 @@ PHP_METHOD(php_wxFontPickerCtrl, __construct)
 /* }}} */
 
 BEGIN_EXTERN_C()
-void php_wxPickerBase_free(void *object)
+void php_wxPickerBase_free(zend_object *object)
 {
     zo_wxPickerBase* custom_object = (zo_wxPickerBase*) object;
 
@@ -5316,8 +5326,7 @@ void php_wxPickerBase_free(void *object)
     php_printf("===========================================\n\n");
     #endif
 
-    zend_object_std_dtor(&custom_object->zo);
-    efree(custom_object);
+    zend_object_std_dtor(object);
 }
 
 zend_object* php_wxPickerBase_new(zend_class_entry *class_type)
@@ -5341,6 +5350,9 @@ zend_object* php_wxPickerBase_new(zend_class_entry *class_type)
 
     zend_object_std_init(&custom_object->zo, class_type);
     object_properties_init(&custom_object->zo, class_type);
+
+    wxphp_wxPickerBase_object_handlers.offset = XtOffsetOf(zo_wxPickerBase, zo);
+    wxphp_wxPickerBase_object_handlers.free_obj = php_wxPickerBase_free;
 
     custom_object->zo.handlers = &wxphp_wxPickerBase_object_handlers;
 
@@ -7340,7 +7352,7 @@ PHP_METHOD(php_wxPickerBase, SetTextCtrlProportion)
 /* }}} */
 
 BEGIN_EXTERN_C()
-void php_wxTimePickerCtrl_free(void *object)
+void php_wxTimePickerCtrl_free(zend_object *object)
 {
     zo_wxTimePickerCtrl* custom_object = (zo_wxTimePickerCtrl*) object;
 
@@ -7353,8 +7365,7 @@ void php_wxTimePickerCtrl_free(void *object)
     php_printf("===========================================\n\n");
     #endif
 
-    zend_object_std_dtor(&custom_object->zo);
-    efree(custom_object);
+    zend_object_std_dtor(object);
 }
 
 zend_object* php_wxTimePickerCtrl_new(zend_class_entry *class_type)
@@ -7378,6 +7389,9 @@ zend_object* php_wxTimePickerCtrl_new(zend_class_entry *class_type)
 
     zend_object_std_init(&custom_object->zo, class_type);
     object_properties_init(&custom_object->zo, class_type);
+
+    wxphp_wxTimePickerCtrl_object_handlers.offset = XtOffsetOf(zo_wxTimePickerCtrl, zo);
+    wxphp_wxTimePickerCtrl_object_handlers.free_obj = php_wxTimePickerCtrl_free;
 
     custom_object->zo.handlers = &wxphp_wxTimePickerCtrl_object_handlers;
 

@@ -54,7 +54,7 @@
 
 
 BEGIN_EXTERN_C()
-void php_wxAboutDialogInfo_free(void *object)
+void php_wxAboutDialogInfo_free(zend_object *object)
 {
     zo_wxAboutDialogInfo* custom_object = (zo_wxAboutDialogInfo*) object;
 
@@ -96,8 +96,7 @@ void php_wxAboutDialogInfo_free(void *object)
         #endif
     }
 
-    zend_object_std_dtor(&custom_object->zo);
-    efree(custom_object);
+    zend_object_std_dtor(object);
 }
 
 zend_object* php_wxAboutDialogInfo_new(zend_class_entry *class_type)
@@ -121,6 +120,9 @@ zend_object* php_wxAboutDialogInfo_new(zend_class_entry *class_type)
 
     zend_object_std_init(&custom_object->zo, class_type);
     object_properties_init(&custom_object->zo, class_type);
+
+    wxphp_wxAboutDialogInfo_object_handlers.offset = XtOffsetOf(zo_wxAboutDialogInfo, zo);
+    wxphp_wxAboutDialogInfo_object_handlers.free_obj = php_wxAboutDialogInfo_free;
 
     custom_object->zo.handlers = &wxphp_wxAboutDialogInfo_object_handlers;
 
@@ -2679,7 +2681,7 @@ PHP_METHOD(php_wxAboutDialogInfo, GetName)
 /* }}} */
 
 BEGIN_EXTERN_C()
-void php_wxBusyInfo_free(void *object)
+void php_wxBusyInfo_free(zend_object *object)
 {
     zo_wxBusyInfo* custom_object = (zo_wxBusyInfo*) object;
 
@@ -2721,8 +2723,7 @@ void php_wxBusyInfo_free(void *object)
         #endif
     }
 
-    zend_object_std_dtor(&custom_object->zo);
-    efree(custom_object);
+    zend_object_std_dtor(object);
 }
 
 zend_object* php_wxBusyInfo_new(zend_class_entry *class_type)
@@ -2746,6 +2747,9 @@ zend_object* php_wxBusyInfo_new(zend_class_entry *class_type)
 
     zend_object_std_init(&custom_object->zo, class_type);
     object_properties_init(&custom_object->zo, class_type);
+
+    wxphp_wxBusyInfo_object_handlers.offset = XtOffsetOf(zo_wxBusyInfo, zo);
+    wxphp_wxBusyInfo_object_handlers.free_obj = php_wxBusyInfo_free;
 
     custom_object->zo.handlers = &wxphp_wxBusyInfo_object_handlers;
 
@@ -2878,7 +2882,7 @@ PHP_METHOD(php_wxBusyInfo, __construct)
 /* }}} */
 
 BEGIN_EXTERN_C()
-void php_wxSingleChoiceDialog_free(void *object)
+void php_wxSingleChoiceDialog_free(zend_object *object)
 {
     zo_wxSingleChoiceDialog* custom_object = (zo_wxSingleChoiceDialog*) object;
 
@@ -2888,8 +2892,7 @@ void php_wxSingleChoiceDialog_free(void *object)
         "Remember to always call Destroy() to prevent memory leaks."
     );*/
 
-    zend_object_std_dtor(&custom_object->zo);
-    efree(custom_object);
+    zend_object_std_dtor(object);
 }
 
 zend_object* php_wxSingleChoiceDialog_new(zend_class_entry *class_type)
@@ -2913,6 +2916,9 @@ zend_object* php_wxSingleChoiceDialog_new(zend_class_entry *class_type)
 
     zend_object_std_init(&custom_object->zo, class_type);
     object_properties_init(&custom_object->zo, class_type);
+
+    wxphp_wxSingleChoiceDialog_object_handlers.offset = XtOffsetOf(zo_wxSingleChoiceDialog, zo);
+    wxphp_wxSingleChoiceDialog_object_handlers.free_obj = php_wxSingleChoiceDialog_free;
 
     custom_object->zo.handlers = &wxphp_wxSingleChoiceDialog_object_handlers;
 
@@ -3902,7 +3908,7 @@ PHP_METHOD(php_wxSingleChoiceDialog, GetSelectionData)
 /* }}} */
 
 BEGIN_EXTERN_C()
-void php_wxPrintDialogData_free(void *object)
+void php_wxPrintDialogData_free(zend_object *object)
 {
     zo_wxPrintDialogData* custom_object = (zo_wxPrintDialogData*) object;
 
@@ -3944,8 +3950,7 @@ void php_wxPrintDialogData_free(void *object)
         #endif
     }
 
-    zend_object_std_dtor(&custom_object->zo);
-    efree(custom_object);
+    zend_object_std_dtor(object);
 }
 
 zend_object* php_wxPrintDialogData_new(zend_class_entry *class_type)
@@ -3969,6 +3974,9 @@ zend_object* php_wxPrintDialogData_new(zend_class_entry *class_type)
 
     zend_object_std_init(&custom_object->zo, class_type);
     object_properties_init(&custom_object->zo, class_type);
+
+    wxphp_wxPrintDialogData_object_handlers.offset = XtOffsetOf(zo_wxPrintDialogData, zo);
+    wxphp_wxPrintDialogData_object_handlers.free_obj = php_wxPrintDialogData_free;
 
     custom_object->zo.handlers = &wxphp_wxPrintDialogData_object_handlers;
 
@@ -6794,7 +6802,7 @@ PHP_METHOD(php_wxPrintDialogData, __construct)
 /* }}} */
 
 BEGIN_EXTERN_C()
-void php_wxColourDialog_free(void *object)
+void php_wxColourDialog_free(zend_object *object)
 {
     zo_wxColourDialog* custom_object = (zo_wxColourDialog*) object;
 
@@ -6804,8 +6812,7 @@ void php_wxColourDialog_free(void *object)
         "Remember to always call Destroy() to prevent memory leaks."
     );*/
 
-    zend_object_std_dtor(&custom_object->zo);
-    efree(custom_object);
+    zend_object_std_dtor(object);
 }
 
 zend_object* php_wxColourDialog_new(zend_class_entry *class_type)
@@ -6829,6 +6836,9 @@ zend_object* php_wxColourDialog_new(zend_class_entry *class_type)
 
     zend_object_std_init(&custom_object->zo, class_type);
     object_properties_init(&custom_object->zo, class_type);
+
+    wxphp_wxColourDialog_object_handlers.offset = XtOffsetOf(zo_wxColourDialog, zo);
+    wxphp_wxColourDialog_object_handlers.free_obj = php_wxColourDialog_free;
 
     custom_object->zo.handlers = &wxphp_wxColourDialog_object_handlers;
 
@@ -7378,7 +7388,7 @@ PHP_METHOD(php_wxColourDialog, Create)
 /* }}} */
 
 BEGIN_EXTERN_C()
-void php_wxColourData_free(void *object)
+void php_wxColourData_free(zend_object *object)
 {
     zo_wxColourData* custom_object = (zo_wxColourData*) object;
 
@@ -7420,8 +7430,7 @@ void php_wxColourData_free(void *object)
         #endif
     }
 
-    zend_object_std_dtor(&custom_object->zo);
-    efree(custom_object);
+    zend_object_std_dtor(object);
 }
 
 zend_object* php_wxColourData_new(zend_class_entry *class_type)
@@ -7445,6 +7454,9 @@ zend_object* php_wxColourData_new(zend_class_entry *class_type)
 
     zend_object_std_init(&custom_object->zo, class_type);
     object_properties_init(&custom_object->zo, class_type);
+
+    wxphp_wxColourData_object_handlers.offset = XtOffsetOf(zo_wxColourData, zo);
+    wxphp_wxColourData_object_handlers.free_obj = php_wxColourData_free;
 
     custom_object->zo.handlers = &wxphp_wxColourData_object_handlers;
 
@@ -8493,8 +8505,8 @@ PHP_METHOD(php_wxColourData, FromString)
 BEGIN_EXTERN_C()
 void php_wxDialog_free(zend_object *object)
 {
-    //zo_wxDialog* custom_object = (zo_wxDialog*) object;
-    php_printf("php_wxDialog_free got called!\n");
+    zo_wxDialog* custom_object = (zo_wxDialog*) object;
+
     /*zend_error(
         E_WARNING,
         "Object of class wxDialog went out of scope. "
@@ -8502,7 +8514,6 @@ void php_wxDialog_free(zend_object *object)
     );*/
 
     zend_object_std_dtor(object);
-    //efree(custom_object);
 }
 
 zend_object* php_wxDialog_new(zend_class_entry *class_type)
@@ -15098,7 +15109,7 @@ PHP_METHOD(php_wxDialog, IsLayoutAdaptationEnabled)
 /* }}} */
 
 BEGIN_EXTERN_C()
-void php_wxDirDialog_free(void *object)
+void php_wxDirDialog_free(zend_object *object)
 {
     zo_wxDirDialog* custom_object = (zo_wxDirDialog*) object;
 
@@ -15108,8 +15119,7 @@ void php_wxDirDialog_free(void *object)
         "Remember to always call Destroy() to prevent memory leaks."
     );*/
 
-    zend_object_std_dtor(&custom_object->zo);
-    efree(custom_object);
+    zend_object_std_dtor(object);
 }
 
 zend_object* php_wxDirDialog_new(zend_class_entry *class_type)
@@ -15133,6 +15143,9 @@ zend_object* php_wxDirDialog_new(zend_class_entry *class_type)
 
     zend_object_std_init(&custom_object->zo, class_type);
     object_properties_init(&custom_object->zo, class_type);
+
+    wxphp_wxDirDialog_object_handlers.offset = XtOffsetOf(zo_wxDirDialog, zo);
+    wxphp_wxDirDialog_object_handlers.free_obj = php_wxDirDialog_free;
 
     custom_object->zo.handlers = &wxphp_wxDirDialog_object_handlers;
 
@@ -15925,7 +15938,7 @@ PHP_METHOD(php_wxDirDialog, __construct)
 /* }}} */
 
 BEGIN_EXTERN_C()
-void php_wxFindReplaceData_free(void *object)
+void php_wxFindReplaceData_free(zend_object *object)
 {
     zo_wxFindReplaceData* custom_object = (zo_wxFindReplaceData*) object;
 
@@ -15967,8 +15980,7 @@ void php_wxFindReplaceData_free(void *object)
         #endif
     }
 
-    zend_object_std_dtor(&custom_object->zo);
-    efree(custom_object);
+    zend_object_std_dtor(object);
 }
 
 zend_object* php_wxFindReplaceData_new(zend_class_entry *class_type)
@@ -15992,6 +16004,9 @@ zend_object* php_wxFindReplaceData_new(zend_class_entry *class_type)
 
     zend_object_std_init(&custom_object->zo, class_type);
     object_properties_init(&custom_object->zo, class_type);
+
+    wxphp_wxFindReplaceData_object_handlers.offset = XtOffsetOf(zo_wxFindReplaceData, zo);
+    wxphp_wxFindReplaceData_object_handlers.free_obj = php_wxFindReplaceData_free;
 
     custom_object->zo.handlers = &wxphp_wxFindReplaceData_object_handlers;
 
@@ -16766,7 +16781,7 @@ PHP_METHOD(php_wxFindReplaceData, __construct)
 /* }}} */
 
 BEGIN_EXTERN_C()
-void php_wxFindReplaceDialog_free(void *object)
+void php_wxFindReplaceDialog_free(zend_object *object)
 {
     zo_wxFindReplaceDialog* custom_object = (zo_wxFindReplaceDialog*) object;
 
@@ -16776,8 +16791,7 @@ void php_wxFindReplaceDialog_free(void *object)
         "Remember to always call Destroy() to prevent memory leaks."
     );*/
 
-    zend_object_std_dtor(&custom_object->zo);
-    efree(custom_object);
+    zend_object_std_dtor(object);
 }
 
 zend_object* php_wxFindReplaceDialog_new(zend_class_entry *class_type)
@@ -16801,6 +16815,9 @@ zend_object* php_wxFindReplaceDialog_new(zend_class_entry *class_type)
 
     zend_object_std_init(&custom_object->zo, class_type);
     object_properties_init(&custom_object->zo, class_type);
+
+    wxphp_wxFindReplaceDialog_object_handlers.offset = XtOffsetOf(zo_wxFindReplaceDialog, zo);
+    wxphp_wxFindReplaceDialog_object_handlers.free_obj = php_wxFindReplaceDialog_free;
 
     custom_object->zo.handlers = &wxphp_wxFindReplaceDialog_object_handlers;
 
@@ -17288,7 +17305,7 @@ PHP_METHOD(php_wxFindReplaceDialog, __construct)
 /* }}} */
 
 BEGIN_EXTERN_C()
-void php_wxFileDialog_free(void *object)
+void php_wxFileDialog_free(zend_object *object)
 {
     zo_wxFileDialog* custom_object = (zo_wxFileDialog*) object;
 
@@ -17298,8 +17315,7 @@ void php_wxFileDialog_free(void *object)
         "Remember to always call Destroy() to prevent memory leaks."
     );*/
 
-    zend_object_std_dtor(&custom_object->zo);
-    efree(custom_object);
+    zend_object_std_dtor(object);
 }
 
 zend_object* php_wxFileDialog_new(zend_class_entry *class_type)
@@ -17323,6 +17339,9 @@ zend_object* php_wxFileDialog_new(zend_class_entry *class_type)
 
     zend_object_std_init(&custom_object->zo, class_type);
     object_properties_init(&custom_object->zo, class_type);
+
+    wxphp_wxFileDialog_object_handlers.offset = XtOffsetOf(zo_wxFileDialog, zo);
+    wxphp_wxFileDialog_object_handlers.free_obj = php_wxFileDialog_free;
 
     custom_object->zo.handlers = &wxphp_wxFileDialog_object_handlers;
 
@@ -19430,7 +19449,7 @@ PHP_METHOD(php_wxFileDialog, GetDirectory)
 /* }}} */
 
 BEGIN_EXTERN_C()
-void php_wxFontData_free(void *object)
+void php_wxFontData_free(zend_object *object)
 {
     zo_wxFontData* custom_object = (zo_wxFontData*) object;
 
@@ -19472,8 +19491,7 @@ void php_wxFontData_free(void *object)
         #endif
     }
 
-    zend_object_std_dtor(&custom_object->zo);
-    efree(custom_object);
+    zend_object_std_dtor(object);
 }
 
 zend_object* php_wxFontData_new(zend_class_entry *class_type)
@@ -19497,6 +19515,9 @@ zend_object* php_wxFontData_new(zend_class_entry *class_type)
 
     zend_object_std_init(&custom_object->zo, class_type);
     object_properties_init(&custom_object->zo, class_type);
+
+    wxphp_wxFontData_object_handlers.offset = XtOffsetOf(zo_wxFontData, zo);
+    wxphp_wxFontData_object_handlers.free_obj = php_wxFontData_free;
 
     custom_object->zo.handlers = &wxphp_wxFontData_object_handlers;
 
@@ -21112,7 +21133,7 @@ PHP_METHOD(php_wxFontData, EnableEffects)
 /* }}} */
 
 BEGIN_EXTERN_C()
-void php_wxFontDialog_free(void *object)
+void php_wxFontDialog_free(zend_object *object)
 {
     zo_wxFontDialog* custom_object = (zo_wxFontDialog*) object;
 
@@ -21122,8 +21143,7 @@ void php_wxFontDialog_free(void *object)
         "Remember to always call Destroy() to prevent memory leaks."
     );*/
 
-    zend_object_std_dtor(&custom_object->zo);
-    efree(custom_object);
+    zend_object_std_dtor(object);
 }
 
 zend_object* php_wxFontDialog_new(zend_class_entry *class_type)
@@ -21147,6 +21167,9 @@ zend_object* php_wxFontDialog_new(zend_class_entry *class_type)
 
     zend_object_std_init(&custom_object->zo, class_type);
     object_properties_init(&custom_object->zo, class_type);
+
+    wxphp_wxFontDialog_object_handlers.offset = XtOffsetOf(zo_wxFontDialog, zo);
+    wxphp_wxFontDialog_object_handlers.free_obj = php_wxFontDialog_free;
 
     custom_object->zo.handlers = &wxphp_wxFontDialog_object_handlers;
 
@@ -21877,7 +21900,7 @@ PHP_METHOD(php_wxFontDialog, __construct)
 /* }}} */
 
 BEGIN_EXTERN_C()
-void php_wxMessageDialog_free(void *object)
+void php_wxMessageDialog_free(zend_object *object)
 {
     zo_wxMessageDialog* custom_object = (zo_wxMessageDialog*) object;
 
@@ -21887,8 +21910,7 @@ void php_wxMessageDialog_free(void *object)
         "Remember to always call Destroy() to prevent memory leaks."
     );*/
 
-    zend_object_std_dtor(&custom_object->zo);
-    efree(custom_object);
+    zend_object_std_dtor(object);
 }
 
 zend_object* php_wxMessageDialog_new(zend_class_entry *class_type)
@@ -21912,6 +21934,9 @@ zend_object* php_wxMessageDialog_new(zend_class_entry *class_type)
 
     zend_object_std_init(&custom_object->zo, class_type);
     object_properties_init(&custom_object->zo, class_type);
+
+    wxphp_wxMessageDialog_object_handlers.offset = XtOffsetOf(zo_wxMessageDialog, zo);
+    wxphp_wxMessageDialog_object_handlers.free_obj = php_wxMessageDialog_free;
 
     custom_object->zo.handlers = &wxphp_wxMessageDialog_object_handlers;
 
@@ -24180,7 +24205,7 @@ PHP_METHOD(php_wxMessageDialog, SetHelpLabel)
 /* }}} */
 
 BEGIN_EXTERN_C()
-void php_wxGenericProgressDialog_free(void *object)
+void php_wxGenericProgressDialog_free(zend_object *object)
 {
     zo_wxGenericProgressDialog* custom_object = (zo_wxGenericProgressDialog*) object;
 
@@ -24190,8 +24215,7 @@ void php_wxGenericProgressDialog_free(void *object)
         "Remember to always call Destroy() to prevent memory leaks."
     );*/
 
-    zend_object_std_dtor(&custom_object->zo);
-    efree(custom_object);
+    zend_object_std_dtor(object);
 }
 
 zend_object* php_wxGenericProgressDialog_new(zend_class_entry *class_type)
@@ -24215,6 +24239,9 @@ zend_object* php_wxGenericProgressDialog_new(zend_class_entry *class_type)
 
     zend_object_std_init(&custom_object->zo, class_type);
     object_properties_init(&custom_object->zo, class_type);
+
+    wxphp_wxGenericProgressDialog_object_handlers.offset = XtOffsetOf(zo_wxGenericProgressDialog, zo);
+    wxphp_wxGenericProgressDialog_object_handlers.free_obj = php_wxGenericProgressDialog_free;
 
     custom_object->zo.handlers = &wxphp_wxGenericProgressDialog_object_handlers;
 
@@ -25463,7 +25490,7 @@ PHP_METHOD(php_wxGenericProgressDialog, __construct)
 /* }}} */
 
 BEGIN_EXTERN_C()
-void php_wxRearrangeDialog_free(void *object)
+void php_wxRearrangeDialog_free(zend_object *object)
 {
     zo_wxRearrangeDialog* custom_object = (zo_wxRearrangeDialog*) object;
 
@@ -25505,8 +25532,7 @@ void php_wxRearrangeDialog_free(void *object)
         #endif
     }
 
-    zend_object_std_dtor(&custom_object->zo);
-    efree(custom_object);
+    zend_object_std_dtor(object);
 }
 
 zend_object* php_wxRearrangeDialog_new(zend_class_entry *class_type)
@@ -25530,6 +25556,9 @@ zend_object* php_wxRearrangeDialog_new(zend_class_entry *class_type)
 
     zend_object_std_init(&custom_object->zo, class_type);
     object_properties_init(&custom_object->zo, class_type);
+
+    wxphp_wxRearrangeDialog_object_handlers.offset = XtOffsetOf(zo_wxRearrangeDialog, zo);
+    wxphp_wxRearrangeDialog_object_handlers.free_obj = php_wxRearrangeDialog_free;
 
     custom_object->zo.handlers = &wxphp_wxRearrangeDialog_object_handlers;
 
@@ -25886,7 +25915,7 @@ PHP_METHOD(php_wxRearrangeDialog, __construct)
 /* }}} */
 
 BEGIN_EXTERN_C()
-void php_wxSymbolPickerDialog_free(void *object)
+void php_wxSymbolPickerDialog_free(zend_object *object)
 {
     zo_wxSymbolPickerDialog* custom_object = (zo_wxSymbolPickerDialog*) object;
 
@@ -25896,8 +25925,7 @@ void php_wxSymbolPickerDialog_free(void *object)
         "Remember to always call Destroy() to prevent memory leaks."
     );*/
 
-    zend_object_std_dtor(&custom_object->zo);
-    efree(custom_object);
+    zend_object_std_dtor(object);
 }
 
 zend_object* php_wxSymbolPickerDialog_new(zend_class_entry *class_type)
@@ -25921,6 +25949,9 @@ zend_object* php_wxSymbolPickerDialog_new(zend_class_entry *class_type)
 
     zend_object_std_init(&custom_object->zo, class_type);
     object_properties_init(&custom_object->zo, class_type);
+
+    wxphp_wxSymbolPickerDialog_object_handlers.offset = XtOffsetOf(zo_wxSymbolPickerDialog, zo);
+    wxphp_wxSymbolPickerDialog_object_handlers.free_obj = php_wxSymbolPickerDialog_free;
 
     custom_object->zo.handlers = &wxphp_wxSymbolPickerDialog_object_handlers;
 
@@ -27754,7 +27785,7 @@ PHP_METHOD(php_wxSymbolPickerDialog, __construct)
 /* }}} */
 
 BEGIN_EXTERN_C()
-void php_wxPasswordEntryDialog_free(void *object)
+void php_wxPasswordEntryDialog_free(zend_object *object)
 {
     zo_wxPasswordEntryDialog* custom_object = (zo_wxPasswordEntryDialog*) object;
 
@@ -27764,8 +27795,7 @@ void php_wxPasswordEntryDialog_free(void *object)
         "Remember to always call Destroy() to prevent memory leaks."
     );*/
 
-    zend_object_std_dtor(&custom_object->zo);
-    efree(custom_object);
+    zend_object_std_dtor(object);
 }
 
 zend_object* php_wxPasswordEntryDialog_new(zend_class_entry *class_type)
@@ -27789,6 +27819,9 @@ zend_object* php_wxPasswordEntryDialog_new(zend_class_entry *class_type)
 
     zend_object_std_init(&custom_object->zo, class_type);
     object_properties_init(&custom_object->zo, class_type);
+
+    wxphp_wxPasswordEntryDialog_object_handlers.offset = XtOffsetOf(zo_wxPasswordEntryDialog, zo);
+    wxphp_wxPasswordEntryDialog_object_handlers.free_obj = php_wxPasswordEntryDialog_free;
 
     custom_object->zo.handlers = &wxphp_wxPasswordEntryDialog_object_handlers;
 
@@ -27983,7 +28016,7 @@ PHP_METHOD(php_wxPasswordEntryDialog, __construct)
 /* }}} */
 
 BEGIN_EXTERN_C()
-void php_wxTextEntryDialog_free(void *object)
+void php_wxTextEntryDialog_free(zend_object *object)
 {
     zo_wxTextEntryDialog* custom_object = (zo_wxTextEntryDialog*) object;
 
@@ -27993,8 +28026,7 @@ void php_wxTextEntryDialog_free(void *object)
         "Remember to always call Destroy() to prevent memory leaks."
     );*/
 
-    zend_object_std_dtor(&custom_object->zo);
-    efree(custom_object);
+    zend_object_std_dtor(object);
 }
 
 zend_object* php_wxTextEntryDialog_new(zend_class_entry *class_type)
@@ -28018,6 +28050,9 @@ zend_object* php_wxTextEntryDialog_new(zend_class_entry *class_type)
 
     zend_object_std_init(&custom_object->zo, class_type);
     object_properties_init(&custom_object->zo, class_type);
+
+    wxphp_wxTextEntryDialog_object_handlers.offset = XtOffsetOf(zo_wxTextEntryDialog, zo);
+    wxphp_wxTextEntryDialog_object_handlers.free_obj = php_wxTextEntryDialog_free;
 
     custom_object->zo.handlers = &wxphp_wxTextEntryDialog_object_handlers;
 
@@ -28553,7 +28588,7 @@ PHP_METHOD(php_wxTextEntryDialog, __construct)
 /* }}} */
 
 BEGIN_EXTERN_C()
-void php_wxWizard_free(void *object)
+void php_wxWizard_free(zend_object *object)
 {
     zo_wxWizard* custom_object = (zo_wxWizard*) object;
 
@@ -28563,8 +28598,7 @@ void php_wxWizard_free(void *object)
         "Remember to always call Destroy() to prevent memory leaks."
     );*/
 
-    zend_object_std_dtor(&custom_object->zo);
-    efree(custom_object);
+    zend_object_std_dtor(object);
 }
 
 zend_object* php_wxWizard_new(zend_class_entry *class_type)
@@ -28588,6 +28622,9 @@ zend_object* php_wxWizard_new(zend_class_entry *class_type)
 
     zend_object_std_init(&custom_object->zo, class_type);
     object_properties_init(&custom_object->zo, class_type);
+
+    wxphp_wxWizard_object_handlers.offset = XtOffsetOf(zo_wxWizard, zo);
+    wxphp_wxWizard_object_handlers.free_obj = php_wxWizard_free;
 
     custom_object->zo.handlers = &wxphp_wxWizard_object_handlers;
 

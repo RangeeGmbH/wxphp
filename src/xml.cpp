@@ -54,7 +54,7 @@
 
 
 BEGIN_EXTERN_C()
-void php_wxXmlNode_free(void *object)
+void php_wxXmlNode_free(zend_object *object)
 {
     zo_wxXmlNode* custom_object = (zo_wxXmlNode*) object;
 
@@ -96,8 +96,7 @@ void php_wxXmlNode_free(void *object)
         #endif
     }
 
-    zend_object_std_dtor(&custom_object->zo);
-    efree(custom_object);
+    zend_object_std_dtor(object);
 }
 
 zend_object* php_wxXmlNode_new(zend_class_entry *class_type)
@@ -121,6 +120,9 @@ zend_object* php_wxXmlNode_new(zend_class_entry *class_type)
 
     zend_object_std_init(&custom_object->zo, class_type);
     object_properties_init(&custom_object->zo, class_type);
+
+    wxphp_wxXmlNode_object_handlers.offset = XtOffsetOf(zo_wxXmlNode, zo);
+    wxphp_wxXmlNode_object_handlers.free_obj = php_wxXmlNode_free;
 
     custom_object->zo.handlers = &wxphp_wxXmlNode_object_handlers;
 
@@ -3997,7 +3999,7 @@ PHP_METHOD(php_wxXmlNode, __construct)
 /* }}} */
 
 BEGIN_EXTERN_C()
-void php_wxXmlAttribute_free(void *object)
+void php_wxXmlAttribute_free(zend_object *object)
 {
     zo_wxXmlAttribute* custom_object = (zo_wxXmlAttribute*) object;
 
@@ -4039,8 +4041,7 @@ void php_wxXmlAttribute_free(void *object)
         #endif
     }
 
-    zend_object_std_dtor(&custom_object->zo);
-    efree(custom_object);
+    zend_object_std_dtor(object);
 }
 
 zend_object* php_wxXmlAttribute_new(zend_class_entry *class_type)
@@ -4064,6 +4065,9 @@ zend_object* php_wxXmlAttribute_new(zend_class_entry *class_type)
 
     zend_object_std_init(&custom_object->zo, class_type);
     object_properties_init(&custom_object->zo, class_type);
+
+    wxphp_wxXmlAttribute_object_handlers.offset = XtOffsetOf(zo_wxXmlAttribute, zo);
+    wxphp_wxXmlAttribute_object_handlers.free_obj = php_wxXmlAttribute_free;
 
     custom_object->zo.handlers = &wxphp_wxXmlAttribute_object_handlers;
 
@@ -4937,7 +4941,7 @@ PHP_METHOD(php_wxXmlAttribute, __construct)
 /* }}} */
 
 BEGIN_EXTERN_C()
-void php_wxXmlDocument_free(void *object)
+void php_wxXmlDocument_free(zend_object *object)
 {
     zo_wxXmlDocument* custom_object = (zo_wxXmlDocument*) object;
 
@@ -4979,8 +4983,7 @@ void php_wxXmlDocument_free(void *object)
         #endif
     }
 
-    zend_object_std_dtor(&custom_object->zo);
-    efree(custom_object);
+    zend_object_std_dtor(object);
 }
 
 zend_object* php_wxXmlDocument_new(zend_class_entry *class_type)
@@ -5004,6 +5007,9 @@ zend_object* php_wxXmlDocument_new(zend_class_entry *class_type)
 
     zend_object_std_init(&custom_object->zo, class_type);
     object_properties_init(&custom_object->zo, class_type);
+
+    wxphp_wxXmlDocument_object_handlers.offset = XtOffsetOf(zo_wxXmlDocument, zo);
+    wxphp_wxXmlDocument_object_handlers.free_obj = php_wxXmlDocument_free;
 
     custom_object->zo.handlers = &wxphp_wxXmlDocument_object_handlers;
 

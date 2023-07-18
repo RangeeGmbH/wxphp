@@ -43,7 +43,7 @@ typedef struct _zo_wxAuiNotebookEvent{
     zend_object zo;
 } zo_wxAuiNotebookEvent;
 
-void php_wxAuiNotebookEvent_free(void *object);
+void php_wxAuiNotebookEvent_free(zend_object *object);
 zend_object* php_wxAuiNotebookEvent_new(zend_class_entry *class_type);
 END_EXTERN_C()
 
@@ -189,7 +189,7 @@ typedef struct _zo_wxBookCtrlBase{
     zend_object zo;
 } zo_wxBookCtrlBase;
 
-void php_wxBookCtrlBase_free(void *object);
+void php_wxBookCtrlBase_free(zend_object *object);
 zend_object* php_wxBookCtrlBase_new(zend_class_entry *class_type);
 END_EXTERN_C()
 
@@ -1181,7 +1181,7 @@ typedef struct _zo_wxBookCtrlEvent{
     zend_object zo;
 } zo_wxBookCtrlEvent;
 
-void php_wxBookCtrlEvent_free(void *object);
+void php_wxBookCtrlEvent_free(zend_object *object);
 zend_object* php_wxBookCtrlEvent_new(zend_class_entry *class_type);
 END_EXTERN_C()
 
@@ -1322,7 +1322,7 @@ typedef struct _zo_wxChoicebook{
     zend_object zo;
 } zo_wxChoicebook;
 
-void php_wxChoicebook_free(void *object);
+void php_wxChoicebook_free(zend_object *object);
 zend_object* php_wxChoicebook_new(zend_class_entry *class_type);
 END_EXTERN_C()
 
@@ -2069,7 +2069,7 @@ typedef struct _zo_wxListbook{
     zend_object zo;
 } zo_wxListbook;
 
-void php_wxListbook_free(void *object);
+void php_wxListbook_free(zend_object *object);
 zend_object* php_wxListbook_new(zend_class_entry *class_type);
 END_EXTERN_C()
 
@@ -2816,7 +2816,7 @@ typedef struct _zo_wxNotebook{
     zend_object zo;
 } zo_wxNotebook;
 
-void php_wxNotebook_free(void *object);
+void php_wxNotebook_free(zend_object *object);
 zend_object* php_wxNotebook_new(zend_class_entry *class_type);
 END_EXTERN_C()
 
@@ -3608,7 +3608,7 @@ typedef struct _zo_wxToolbook{
     zend_object zo;
 } zo_wxToolbook;
 
-void php_wxToolbook_free(void *object);
+void php_wxToolbook_free(zend_object *object);
 zend_object* php_wxToolbook_new(zend_class_entry *class_type);
 END_EXTERN_C()
 
@@ -4355,7 +4355,7 @@ typedef struct _zo_wxTreebook{
     zend_object zo;
 } zo_wxTreebook;
 
-void php_wxTreebook_free(void *object);
+void php_wxTreebook_free(zend_object *object);
 zend_object* php_wxTreebook_new(zend_class_entry *class_type);
 END_EXTERN_C()
 

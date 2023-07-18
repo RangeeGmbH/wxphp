@@ -54,7 +54,7 @@
 
 
 BEGIN_EXTERN_C()
-void php_wxWebViewHistoryItem_free(void *object)
+void php_wxWebViewHistoryItem_free(zend_object *object)
 {
     zo_wxWebViewHistoryItem* custom_object = (zo_wxWebViewHistoryItem*) object;
 
@@ -96,8 +96,7 @@ void php_wxWebViewHistoryItem_free(void *object)
         #endif
     }
 
-    zend_object_std_dtor(&custom_object->zo);
-    efree(custom_object);
+    zend_object_std_dtor(object);
 }
 
 zend_object* php_wxWebViewHistoryItem_new(zend_class_entry *class_type)
@@ -121,6 +120,9 @@ zend_object* php_wxWebViewHistoryItem_new(zend_class_entry *class_type)
 
     zend_object_std_init(&custom_object->zo, class_type);
     object_properties_init(&custom_object->zo, class_type);
+
+    wxphp_wxWebViewHistoryItem_object_handlers.offset = XtOffsetOf(zo_wxWebViewHistoryItem, zo);
+    wxphp_wxWebViewHistoryItem_object_handlers.free_obj = php_wxWebViewHistoryItem_free;
 
     custom_object->zo.handlers = &wxphp_wxWebViewHistoryItem_object_handlers;
 
@@ -440,7 +442,7 @@ PHP_METHOD(php_wxWebViewHistoryItem, GetTitle)
 /* }}} */
 
 BEGIN_EXTERN_C()
-void php_wxWebViewHandler_free(void *object)
+void php_wxWebViewHandler_free(zend_object *object)
 {
     zo_wxWebViewHandler* custom_object = (zo_wxWebViewHandler*) object;
 
@@ -482,8 +484,7 @@ void php_wxWebViewHandler_free(void *object)
         #endif
     }
 
-    zend_object_std_dtor(&custom_object->zo);
-    efree(custom_object);
+    zend_object_std_dtor(object);
 }
 
 zend_object* php_wxWebViewHandler_new(zend_class_entry *class_type)
@@ -507,6 +508,9 @@ zend_object* php_wxWebViewHandler_new(zend_class_entry *class_type)
 
     zend_object_std_init(&custom_object->zo, class_type);
     object_properties_init(&custom_object->zo, class_type);
+
+    wxphp_wxWebViewHandler_object_handlers.offset = XtOffsetOf(zo_wxWebViewHandler, zo);
+    wxphp_wxWebViewHandler_object_handlers.free_obj = php_wxWebViewHandler_free;
 
     custom_object->zo.handlers = &wxphp_wxWebViewHandler_object_handlers;
 
@@ -819,7 +823,7 @@ wxFSFile* wxWebViewHandler_php::GetFile(const wxString& uri)
 /* }}} */
 
 BEGIN_EXTERN_C()
-void php_wxWebViewArchiveHandler_free(void *object)
+void php_wxWebViewArchiveHandler_free(zend_object *object)
 {
     zo_wxWebViewArchiveHandler* custom_object = (zo_wxWebViewArchiveHandler*) object;
 
@@ -861,8 +865,7 @@ void php_wxWebViewArchiveHandler_free(void *object)
         #endif
     }
 
-    zend_object_std_dtor(&custom_object->zo);
-    efree(custom_object);
+    zend_object_std_dtor(object);
 }
 
 zend_object* php_wxWebViewArchiveHandler_new(zend_class_entry *class_type)
@@ -886,6 +889,9 @@ zend_object* php_wxWebViewArchiveHandler_new(zend_class_entry *class_type)
 
     zend_object_std_init(&custom_object->zo, class_type);
     object_properties_init(&custom_object->zo, class_type);
+
+    wxphp_wxWebViewArchiveHandler_object_handlers.offset = XtOffsetOf(zo_wxWebViewArchiveHandler, zo);
+    wxphp_wxWebViewArchiveHandler_object_handlers.free_obj = php_wxWebViewArchiveHandler_free;
 
     custom_object->zo.handlers = &wxphp_wxWebViewArchiveHandler_object_handlers;
 

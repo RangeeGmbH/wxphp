@@ -54,7 +54,7 @@
 
 
 BEGIN_EXTERN_C()
-void php_wxGenericValidator_free(void *object)
+void php_wxGenericValidator_free(zend_object *object)
 {
     zo_wxGenericValidator* custom_object = (zo_wxGenericValidator*) object;
 
@@ -96,8 +96,7 @@ void php_wxGenericValidator_free(void *object)
         #endif
     }
 
-    zend_object_std_dtor(&custom_object->zo);
-    efree(custom_object);
+    zend_object_std_dtor(object);
 }
 
 zend_object* php_wxGenericValidator_new(zend_class_entry *class_type)
@@ -121,6 +120,9 @@ zend_object* php_wxGenericValidator_new(zend_class_entry *class_type)
 
     zend_object_std_init(&custom_object->zo, class_type);
     object_properties_init(&custom_object->zo, class_type);
+
+    wxphp_wxGenericValidator_object_handlers.offset = XtOffsetOf(zo_wxGenericValidator, zo);
+    wxphp_wxGenericValidator_object_handlers.free_obj = php_wxGenericValidator_free;
 
     custom_object->zo.handlers = &wxphp_wxGenericValidator_object_handlers;
 
@@ -845,7 +847,7 @@ PHP_METHOD(php_wxGenericValidator, __construct)
 /* }}} */
 
 BEGIN_EXTERN_C()
-void php_wxValidator_free(void *object)
+void php_wxValidator_free(zend_object *object)
 {
     zo_wxValidator* custom_object = (zo_wxValidator*) object;
 
@@ -887,8 +889,7 @@ void php_wxValidator_free(void *object)
         #endif
     }
 
-    zend_object_std_dtor(&custom_object->zo);
-    efree(custom_object);
+    zend_object_std_dtor(object);
 }
 
 zend_object* php_wxValidator_new(zend_class_entry *class_type)
@@ -912,6 +913,9 @@ zend_object* php_wxValidator_new(zend_class_entry *class_type)
 
     zend_object_std_init(&custom_object->zo, class_type);
     object_properties_init(&custom_object->zo, class_type);
+
+    wxphp_wxValidator_object_handlers.offset = XtOffsetOf(zo_wxValidator, zo);
+    wxphp_wxValidator_object_handlers.free_obj = php_wxValidator_free;
 
     custom_object->zo.handlers = &wxphp_wxValidator_object_handlers;
 
@@ -1925,7 +1929,7 @@ PHP_METHOD(php_wxValidator, CloneMethod)
 /* }}} */
 
 BEGIN_EXTERN_C()
-void php_wxTextValidator_free(void *object)
+void php_wxTextValidator_free(zend_object *object)
 {
     zo_wxTextValidator* custom_object = (zo_wxTextValidator*) object;
 
@@ -1967,8 +1971,7 @@ void php_wxTextValidator_free(void *object)
         #endif
     }
 
-    zend_object_std_dtor(&custom_object->zo);
-    efree(custom_object);
+    zend_object_std_dtor(object);
 }
 
 zend_object* php_wxTextValidator_new(zend_class_entry *class_type)
@@ -1992,6 +1995,9 @@ zend_object* php_wxTextValidator_new(zend_class_entry *class_type)
 
     zend_object_std_init(&custom_object->zo, class_type);
     object_properties_init(&custom_object->zo, class_type);
+
+    wxphp_wxTextValidator_object_handlers.offset = XtOffsetOf(zo_wxTextValidator, zo);
+    wxphp_wxTextValidator_object_handlers.free_obj = php_wxTextValidator_free;
 
     custom_object->zo.handlers = &wxphp_wxTextValidator_object_handlers;
 

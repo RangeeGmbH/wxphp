@@ -44,7 +44,7 @@ typedef struct _zo_wxScrolledWindow{
     zend_object zo;
 } zo_wxScrolledWindow;
 
-void php_wxScrolledWindow_free(void *object);
+void php_wxScrolledWindow_free(zend_object *object);
 zend_object* php_wxScrolledWindow_new(zend_class_entry *class_type);
 END_EXTERN_C()
 
@@ -1084,7 +1084,7 @@ typedef struct _zo_wxRibbonButtonBarButtonBase{
     zend_object zo;
 } zo_wxRibbonButtonBarButtonBase;
 
-void php_wxRibbonButtonBarButtonBase_free(void *object);
+void php_wxRibbonButtonBarButtonBase_free(zend_object *object);
 zend_object* php_wxRibbonButtonBarButtonBase_new(zend_class_entry *class_type);
 END_EXTERN_C()
 
@@ -1126,7 +1126,7 @@ typedef struct _zo_wxRibbonGalleryItem{
     zend_object zo;
 } zo_wxRibbonGalleryItem;
 
-void php_wxRibbonGalleryItem_free(void *object);
+void php_wxRibbonGalleryItem_free(zend_object *object);
 zend_object* php_wxRibbonGalleryItem_new(zend_class_entry *class_type);
 END_EXTERN_C()
 
@@ -1168,7 +1168,7 @@ typedef struct _zo_wxRibbonToolBarToolBase{
     zend_object zo;
 } zo_wxRibbonToolBarToolBase;
 
-void php_wxRibbonToolBarToolBase_free(void *object);
+void php_wxRibbonToolBarToolBase_free(zend_object *object);
 zend_object* php_wxRibbonToolBarToolBase_new(zend_class_entry *class_type);
 END_EXTERN_C()
 
@@ -1212,7 +1212,7 @@ typedef struct _zo_wxGridCellCoords{
     zend_object zo;
 } zo_wxGridCellCoords;
 
-void php_wxGridCellCoords_free(void *object);
+void php_wxGridCellCoords_free(zend_object *object);
 zend_object* php_wxGridCellCoords_new(zend_class_entry *class_type);
 END_EXTERN_C()
 
@@ -1278,7 +1278,7 @@ typedef struct _zo_wxNonOwnedWindow{
     zend_object zo;
 } zo_wxNonOwnedWindow;
 
-void php_wxNonOwnedWindow_free(void *object);
+void php_wxNonOwnedWindow_free(zend_object *object);
 zend_object* php_wxNonOwnedWindow_new(zend_class_entry *class_type);
 END_EXTERN_C()
 
@@ -1969,7 +1969,7 @@ typedef struct _zo_wxAnyButton{
     zend_object zo;
 } zo_wxAnyButton;
 
-void php_wxAnyButton_free(void *object);
+void php_wxAnyButton_free(zend_object *object);
 zend_object* php_wxAnyButton_new(zend_class_entry *class_type);
 END_EXTERN_C()
 
@@ -2732,7 +2732,7 @@ typedef struct _zo_wxWithImages{
     zend_object zo;
 } zo_wxWithImages;
 
-void php_wxWithImages_free(void *object);
+void php_wxWithImages_free(zend_object *object);
 zend_object* php_wxWithImages_new(zend_class_entry *class_type);
 END_EXTERN_C()
 
@@ -2790,7 +2790,7 @@ typedef struct _zo_wxTextCompleter{
     zend_object zo;
 } zo_wxTextCompleter;
 
-void php_wxTextCompleter_free(void *object);
+void php_wxTextCompleter_free(zend_object *object);
 zend_object* php_wxTextCompleter_new(zend_class_entry *class_type);
 END_EXTERN_C()
 
@@ -2833,7 +2833,7 @@ typedef struct _zo_wxWindowModalDialogEvent{
     zend_object zo;
 } zo_wxWindowModalDialogEvent;
 
-void php_wxWindowModalDialogEvent_free(void *object);
+void php_wxWindowModalDialogEvent_free(zend_object *object);
 zend_object* php_wxWindowModalDialogEvent_new(zend_class_entry *class_type);
 END_EXTERN_C()
 
@@ -2979,7 +2979,7 @@ typedef struct _zo_wxPoint2DDouble{
     zend_object zo;
 } zo_wxPoint2DDouble;
 
-void php_wxPoint2DDouble_free(void *object);
+void php_wxPoint2DDouble_free(zend_object *object);
 zend_object* php_wxPoint2DDouble_new(zend_class_entry *class_type);
 END_EXTERN_C()
 
@@ -3087,7 +3087,7 @@ typedef struct _zo_wxPoint2DInt{
     zend_object zo;
 } zo_wxPoint2DInt;
 
-void php_wxPoint2DInt_free(void *object);
+void php_wxPoint2DInt_free(zend_object *object);
 zend_object* php_wxPoint2DInt_new(zend_class_entry *class_type);
 END_EXTERN_C()
 
@@ -3179,7 +3179,7 @@ typedef struct _zo_wxProgressDialog{
     zend_object zo;
 } zo_wxProgressDialog;
 
-void php_wxProgressDialog_free(void *object);
+void php_wxProgressDialog_free(zend_object *object);
 zend_object* php_wxProgressDialog_new(zend_class_entry *class_type);
 END_EXTERN_C()
 
@@ -4323,7 +4323,7 @@ typedef struct _zo_wxLayoutConstraints{
     zend_object zo;
 } zo_wxLayoutConstraints;
 
-void php_wxLayoutConstraints_free(void *object);
+void php_wxLayoutConstraints_free(zend_object *object);
 zend_object* php_wxLayoutConstraints_new(zend_class_entry *class_type);
 END_EXTERN_C()
 
@@ -4394,7 +4394,7 @@ typedef struct _zo_wxGridCellAttrProvider{
     zend_object zo;
 } zo_wxGridCellAttrProvider;
 
-void php_wxGridCellAttrProvider_free(void *object);
+void php_wxGridCellAttrProvider_free(zend_object *object);
 zend_object* php_wxGridCellAttrProvider_new(zend_class_entry *class_type);
 END_EXTERN_C()
 
@@ -4472,7 +4472,7 @@ typedef struct _zo_wxGridColumnHeaderRenderer{
     zend_object zo;
 } zo_wxGridColumnHeaderRenderer;
 
-void php_wxGridColumnHeaderRenderer_free(void *object);
+void php_wxGridColumnHeaderRenderer_free(zend_object *object);
 zend_object* php_wxGridColumnHeaderRenderer_new(zend_class_entry *class_type);
 END_EXTERN_C()
 
@@ -4523,7 +4523,7 @@ typedef struct _zo_wxGridColumnHeaderRendererDefault{
     zend_object zo;
 } zo_wxGridColumnHeaderRendererDefault;
 
-void php_wxGridColumnHeaderRendererDefault_free(void *object);
+void php_wxGridColumnHeaderRendererDefault_free(zend_object *object);
 zend_object* php_wxGridColumnHeaderRendererDefault_new(zend_class_entry *class_type);
 END_EXTERN_C()
 
@@ -4581,7 +4581,7 @@ typedef struct _zo_wxGridCornerHeaderRenderer{
     zend_object zo;
 } zo_wxGridCornerHeaderRenderer;
 
-void php_wxGridCornerHeaderRenderer_free(void *object);
+void php_wxGridCornerHeaderRenderer_free(zend_object *object);
 zend_object* php_wxGridCornerHeaderRenderer_new(zend_class_entry *class_type);
 END_EXTERN_C()
 
@@ -4623,7 +4623,7 @@ typedef struct _zo_wxGridCornerHeaderRendererDefault{
     zend_object zo;
 } zo_wxGridCornerHeaderRendererDefault;
 
-void php_wxGridCornerHeaderRendererDefault_free(void *object);
+void php_wxGridCornerHeaderRendererDefault_free(zend_object *object);
 zend_object* php_wxGridCornerHeaderRendererDefault_new(zend_class_entry *class_type);
 END_EXTERN_C()
 
@@ -4671,7 +4671,7 @@ typedef struct _zo_wxGridHeaderLabelsRenderer{
     zend_object zo;
 } zo_wxGridHeaderLabelsRenderer;
 
-void php_wxGridHeaderLabelsRenderer_free(void *object);
+void php_wxGridHeaderLabelsRenderer_free(zend_object *object);
 zend_object* php_wxGridHeaderLabelsRenderer_new(zend_class_entry *class_type);
 END_EXTERN_C()
 
@@ -4723,7 +4723,7 @@ typedef struct _zo_wxGridRowHeaderRenderer{
     zend_object zo;
 } zo_wxGridRowHeaderRenderer;
 
-void php_wxGridRowHeaderRenderer_free(void *object);
+void php_wxGridRowHeaderRenderer_free(zend_object *object);
 zend_object* php_wxGridRowHeaderRenderer_new(zend_class_entry *class_type);
 END_EXTERN_C()
 
@@ -4774,7 +4774,7 @@ typedef struct _zo_wxGridRowHeaderRendererDefault{
     zend_object zo;
 } zo_wxGridRowHeaderRendererDefault;
 
-void php_wxGridRowHeaderRendererDefault_free(void *object);
+void php_wxGridRowHeaderRendererDefault_free(zend_object *object);
 zend_object* php_wxGridRowHeaderRendererDefault_new(zend_class_entry *class_type);
 END_EXTERN_C()
 
@@ -4832,7 +4832,7 @@ typedef struct _zo_wxPaletteChangedEvent{
     zend_object zo;
 } zo_wxPaletteChangedEvent;
 
-void php_wxPaletteChangedEvent_free(void *object);
+void php_wxPaletteChangedEvent_free(zend_object *object);
 zend_object* php_wxPaletteChangedEvent_new(zend_class_entry *class_type);
 END_EXTERN_C()
 
@@ -4939,7 +4939,7 @@ typedef struct _zo_wxFileTypeInfo{
     zend_object zo;
 } zo_wxFileTypeInfo;
 
-void php_wxFileTypeInfo_free(void *object);
+void php_wxFileTypeInfo_free(zend_object *object);
 zend_object* php_wxFileTypeInfo_new(zend_class_entry *class_type);
 END_EXTERN_C()
 
@@ -5006,7 +5006,7 @@ typedef struct _zo_wxDisplayChangedEvent{
     zend_object zo;
 } zo_wxDisplayChangedEvent;
 
-void php_wxDisplayChangedEvent_free(void *object);
+void php_wxDisplayChangedEvent_free(zend_object *object);
 zend_object* php_wxDisplayChangedEvent_new(zend_class_entry *class_type);
 END_EXTERN_C()
 
@@ -5106,7 +5106,7 @@ typedef struct _zo_wxTimerRunner{
     zend_object zo;
 } zo_wxTimerRunner;
 
-void php_wxTimerRunner_free(void *object);
+void php_wxTimerRunner_free(zend_object *object);
 zend_object* php_wxTimerRunner_new(zend_class_entry *class_type);
 END_EXTERN_C()
 
@@ -5159,7 +5159,7 @@ typedef struct _zo_wxToolBarToolBase{
     zend_object zo;
 } zo_wxToolBarToolBase;
 
-void php_wxToolBarToolBase_free(void *object);
+void php_wxToolBarToolBase_free(zend_object *object);
 zend_object* php_wxToolBarToolBase_new(zend_class_entry *class_type);
 END_EXTERN_C()
 
@@ -5325,7 +5325,7 @@ typedef struct _zo_wxTextCompleterSimple{
     zend_object zo;
 } zo_wxTextCompleterSimple;
 
-void php_wxTextCompleterSimple_free(void *object);
+void php_wxTextCompleterSimple_free(zend_object *object);
 zend_object* php_wxTextCompleterSimple_new(zend_class_entry *class_type);
 END_EXTERN_C()
 

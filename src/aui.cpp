@@ -54,7 +54,7 @@
 
 
 BEGIN_EXTERN_C()
-void php_wxAuiToolBarEvent_free(void *object)
+void php_wxAuiToolBarEvent_free(zend_object *object)
 {
     zo_wxAuiToolBarEvent* custom_object = (zo_wxAuiToolBarEvent*) object;
 
@@ -96,8 +96,7 @@ void php_wxAuiToolBarEvent_free(void *object)
         #endif
     }
 
-    zend_object_std_dtor(&custom_object->zo);
-    efree(custom_object);
+    zend_object_std_dtor(object);
 }
 
 zend_object* php_wxAuiToolBarEvent_new(zend_class_entry *class_type)
@@ -121,6 +120,9 @@ zend_object* php_wxAuiToolBarEvent_new(zend_class_entry *class_type)
 
     zend_object_std_init(&custom_object->zo, class_type);
     object_properties_init(&custom_object->zo, class_type);
+
+    wxphp_wxAuiToolBarEvent_object_handlers.offset = XtOffsetOf(zo_wxAuiToolBarEvent, zo);
+    wxphp_wxAuiToolBarEvent_object_handlers.free_obj = php_wxAuiToolBarEvent_free;
 
     custom_object->zo.handlers = &wxphp_wxAuiToolBarEvent_object_handlers;
 
@@ -589,7 +591,7 @@ PHP_METHOD(php_wxAuiToolBarEvent, IsDropDownClicked)
 /* }}} */
 
 BEGIN_EXTERN_C()
-void php_wxAuiToolBarItem_free(void *object)
+void php_wxAuiToolBarItem_free(zend_object *object)
 {
     zo_wxAuiToolBarItem* custom_object = (zo_wxAuiToolBarItem*) object;
 
@@ -631,8 +633,7 @@ void php_wxAuiToolBarItem_free(void *object)
         #endif
     }
 
-    zend_object_std_dtor(&custom_object->zo);
-    efree(custom_object);
+    zend_object_std_dtor(object);
 }
 
 zend_object* php_wxAuiToolBarItem_new(zend_class_entry *class_type)
@@ -656,6 +657,9 @@ zend_object* php_wxAuiToolBarItem_new(zend_class_entry *class_type)
 
     zend_object_std_init(&custom_object->zo, class_type);
     object_properties_init(&custom_object->zo, class_type);
+
+    wxphp_wxAuiToolBarItem_object_handlers.offset = XtOffsetOf(zo_wxAuiToolBarItem, zo);
+    wxphp_wxAuiToolBarItem_object_handlers.free_obj = php_wxAuiToolBarItem_free;
 
     custom_object->zo.handlers = &wxphp_wxAuiToolBarItem_object_handlers;
 
@@ -5320,7 +5324,7 @@ PHP_METHOD(php_wxAuiToolBarItem, Assign)
 /* }}} */
 
 BEGIN_EXTERN_C()
-void php_wxAuiToolBarArt_free(void *object)
+void php_wxAuiToolBarArt_free(zend_object *object)
 {
     zo_wxAuiToolBarArt* custom_object = (zo_wxAuiToolBarArt*) object;
 
@@ -5362,8 +5366,7 @@ void php_wxAuiToolBarArt_free(void *object)
         #endif
     }
 
-    zend_object_std_dtor(&custom_object->zo);
-    efree(custom_object);
+    zend_object_std_dtor(object);
 }
 
 zend_object* php_wxAuiToolBarArt_new(zend_class_entry *class_type)
@@ -5387,6 +5390,9 @@ zend_object* php_wxAuiToolBarArt_new(zend_class_entry *class_type)
 
     zend_object_std_init(&custom_object->zo, class_type);
     object_properties_init(&custom_object->zo, class_type);
+
+    wxphp_wxAuiToolBarArt_object_handlers.offset = XtOffsetOf(zo_wxAuiToolBarArt, zo);
+    wxphp_wxAuiToolBarArt_object_handlers.free_obj = php_wxAuiToolBarArt_free;
 
     custom_object->zo.handlers = &wxphp_wxAuiToolBarArt_object_handlers;
 
@@ -7151,7 +7157,7 @@ void wxAuiToolBarArt_php::SetTextOrientation(int orientation)
 /* }}} */
 
 BEGIN_EXTERN_C()
-void php_wxAuiDefaultToolBarArt_free(void *object)
+void php_wxAuiDefaultToolBarArt_free(zend_object *object)
 {
     zo_wxAuiDefaultToolBarArt* custom_object = (zo_wxAuiDefaultToolBarArt*) object;
 
@@ -7193,8 +7199,7 @@ void php_wxAuiDefaultToolBarArt_free(void *object)
         #endif
     }
 
-    zend_object_std_dtor(&custom_object->zo);
-    efree(custom_object);
+    zend_object_std_dtor(object);
 }
 
 zend_object* php_wxAuiDefaultToolBarArt_new(zend_class_entry *class_type)
@@ -7218,6 +7223,9 @@ zend_object* php_wxAuiDefaultToolBarArt_new(zend_class_entry *class_type)
 
     zend_object_std_init(&custom_object->zo, class_type);
     object_properties_init(&custom_object->zo, class_type);
+
+    wxphp_wxAuiDefaultToolBarArt_object_handlers.offset = XtOffsetOf(zo_wxAuiDefaultToolBarArt, zo);
+    wxphp_wxAuiDefaultToolBarArt_object_handlers.free_obj = php_wxAuiDefaultToolBarArt_free;
 
     custom_object->zo.handlers = &wxphp_wxAuiDefaultToolBarArt_object_handlers;
 
@@ -10137,7 +10145,7 @@ PHP_METHOD(php_wxAuiDefaultToolBarArt, __construct)
 /* }}} */
 
 BEGIN_EXTERN_C()
-void php_wxAuiToolBar_free(void *object)
+void php_wxAuiToolBar_free(zend_object *object)
 {
     zo_wxAuiToolBar* custom_object = (zo_wxAuiToolBar*) object;
 
@@ -10150,8 +10158,7 @@ void php_wxAuiToolBar_free(void *object)
     php_printf("===========================================\n\n");
     #endif
 
-    zend_object_std_dtor(&custom_object->zo);
-    efree(custom_object);
+    zend_object_std_dtor(object);
 }
 
 zend_object* php_wxAuiToolBar_new(zend_class_entry *class_type)
@@ -10175,6 +10182,9 @@ zend_object* php_wxAuiToolBar_new(zend_class_entry *class_type)
 
     zend_object_std_init(&custom_object->zo, class_type);
     object_properties_init(&custom_object->zo, class_type);
+
+    wxphp_wxAuiToolBar_object_handlers.offset = XtOffsetOf(zo_wxAuiToolBar, zo);
+    wxphp_wxAuiToolBar_object_handlers.free_obj = php_wxAuiToolBar_free;
 
     custom_object->zo.handlers = &wxphp_wxAuiToolBar_object_handlers;
 
@@ -18274,7 +18284,7 @@ PHP_METHOD(php_wxAuiToolBar, AddTool)
 /* }}} */
 
 BEGIN_EXTERN_C()
-void php_wxAuiNotebook_free(void *object)
+void php_wxAuiNotebook_free(zend_object *object)
 {
     zo_wxAuiNotebook* custom_object = (zo_wxAuiNotebook*) object;
 
@@ -18287,8 +18297,7 @@ void php_wxAuiNotebook_free(void *object)
     php_printf("===========================================\n\n");
     #endif
 
-    zend_object_std_dtor(&custom_object->zo);
-    efree(custom_object);
+    zend_object_std_dtor(object);
 }
 
 zend_object* php_wxAuiNotebook_new(zend_class_entry *class_type)
@@ -18312,6 +18321,9 @@ zend_object* php_wxAuiNotebook_new(zend_class_entry *class_type)
 
     zend_object_std_init(&custom_object->zo, class_type);
     object_properties_init(&custom_object->zo, class_type);
+
+    wxphp_wxAuiNotebook_object_handlers.offset = XtOffsetOf(zo_wxAuiNotebook, zo);
+    wxphp_wxAuiNotebook_object_handlers.free_obj = php_wxAuiNotebook_free;
 
     custom_object->zo.handlers = &wxphp_wxAuiNotebook_object_handlers;
 
@@ -22315,7 +22327,7 @@ PHP_METHOD(php_wxAuiNotebook, SetSelection)
 /* }}} */
 
 BEGIN_EXTERN_C()
-void php_wxAuiTabArt_free(void *object)
+void php_wxAuiTabArt_free(zend_object *object)
 {
     zo_wxAuiTabArt* custom_object = (zo_wxAuiTabArt*) object;
 
@@ -22357,8 +22369,7 @@ void php_wxAuiTabArt_free(void *object)
         #endif
     }
 
-    zend_object_std_dtor(&custom_object->zo);
-    efree(custom_object);
+    zend_object_std_dtor(object);
 }
 
 zend_object* php_wxAuiTabArt_new(zend_class_entry *class_type)
@@ -22382,6 +22393,9 @@ zend_object* php_wxAuiTabArt_new(zend_class_entry *class_type)
 
     zend_object_std_init(&custom_object->zo, class_type);
     object_properties_init(&custom_object->zo, class_type);
+
+    wxphp_wxAuiTabArt_object_handlers.offset = XtOffsetOf(zo_wxAuiTabArt, zo);
+    wxphp_wxAuiTabArt_object_handlers.free_obj = php_wxAuiTabArt_free;
 
     custom_object->zo.handlers = &wxphp_wxAuiTabArt_object_handlers;
 
@@ -23505,7 +23519,7 @@ wxAuiTabArt* wxAuiTabArt_php::Clone()
 /* }}} */
 
 BEGIN_EXTERN_C()
-void php_wxAuiDockArt_free(void *object)
+void php_wxAuiDockArt_free(zend_object *object)
 {
     zo_wxAuiDockArt* custom_object = (zo_wxAuiDockArt*) object;
 
@@ -23547,8 +23561,7 @@ void php_wxAuiDockArt_free(void *object)
         #endif
     }
 
-    zend_object_std_dtor(&custom_object->zo);
-    efree(custom_object);
+    zend_object_std_dtor(object);
 }
 
 zend_object* php_wxAuiDockArt_new(zend_class_entry *class_type)
@@ -23572,6 +23585,9 @@ zend_object* php_wxAuiDockArt_new(zend_class_entry *class_type)
 
     zend_object_std_init(&custom_object->zo, class_type);
     object_properties_init(&custom_object->zo, class_type);
+
+    wxphp_wxAuiDockArt_object_handlers.offset = XtOffsetOf(zo_wxAuiDockArt, zo);
+    wxphp_wxAuiDockArt_object_handlers.free_obj = php_wxAuiDockArt_free;
 
     custom_object->zo.handlers = &wxphp_wxAuiDockArt_object_handlers;
 
@@ -24815,7 +24831,7 @@ void wxAuiDockArt_php::DrawBackground(wxDC& dc, wxWindow* window, int orientatio
 /* }}} */
 
 BEGIN_EXTERN_C()
-void php_wxAuiManager_free(void *object)
+void php_wxAuiManager_free(zend_object *object)
 {
     zo_wxAuiManager* custom_object = (zo_wxAuiManager*) object;
 
@@ -24828,8 +24844,7 @@ void php_wxAuiManager_free(void *object)
     php_printf("===========================================\n\n");
     #endif
 
-    zend_object_std_dtor(&custom_object->zo);
-    efree(custom_object);
+    zend_object_std_dtor(object);
 }
 
 zend_object* php_wxAuiManager_new(zend_class_entry *class_type)
@@ -24853,6 +24868,9 @@ zend_object* php_wxAuiManager_new(zend_class_entry *class_type)
 
     zend_object_std_init(&custom_object->zo, class_type);
     object_properties_init(&custom_object->zo, class_type);
+
+    wxphp_wxAuiManager_object_handlers.offset = XtOffsetOf(zo_wxAuiManager, zo);
+    wxphp_wxAuiManager_object_handlers.free_obj = php_wxAuiManager_free;
 
     custom_object->zo.handlers = &wxphp_wxAuiManager_object_handlers;
 
@@ -28027,7 +28045,7 @@ PHP_METHOD(php_wxAuiManager, AddPane)
 /* }}} */
 
 BEGIN_EXTERN_C()
-void php_wxAuiPaneInfo_free(void *object)
+void php_wxAuiPaneInfo_free(zend_object *object)
 {
     zo_wxAuiPaneInfo* custom_object = (zo_wxAuiPaneInfo*) object;
 
@@ -28070,8 +28088,7 @@ void php_wxAuiPaneInfo_free(void *object)
         #endif
     }
 
-    zend_object_std_dtor(&custom_object->zo);
-    efree(custom_object);
+    zend_object_std_dtor(object);
 }
 
 zend_object* php_wxAuiPaneInfo_new(zend_class_entry *class_type)
@@ -28095,6 +28112,9 @@ zend_object* php_wxAuiPaneInfo_new(zend_class_entry *class_type)
 
     zend_object_std_init(&custom_object->zo, class_type);
     object_properties_init(&custom_object->zo, class_type);
+
+    wxphp_wxAuiPaneInfo_object_handlers.offset = XtOffsetOf(zo_wxAuiPaneInfo, zo);
+    wxphp_wxAuiPaneInfo_object_handlers.free_obj = php_wxAuiPaneInfo_free;
 
     custom_object->zo.handlers = &wxphp_wxAuiPaneInfo_object_handlers;
 
@@ -38101,7 +38121,7 @@ PHP_METHOD(php_wxAuiPaneInfo, BestSize)
 /* }}} */
 
 BEGIN_EXTERN_C()
-void php_wxAuiManagerEvent_free(void *object)
+void php_wxAuiManagerEvent_free(zend_object *object)
 {
     zo_wxAuiManagerEvent* custom_object = (zo_wxAuiManagerEvent*) object;
 
@@ -38143,8 +38163,7 @@ void php_wxAuiManagerEvent_free(void *object)
         #endif
     }
 
-    zend_object_std_dtor(&custom_object->zo);
-    efree(custom_object);
+    zend_object_std_dtor(object);
 }
 
 zend_object* php_wxAuiManagerEvent_new(zend_class_entry *class_type)
@@ -38168,6 +38187,9 @@ zend_object* php_wxAuiManagerEvent_new(zend_class_entry *class_type)
 
     zend_object_std_init(&custom_object->zo, class_type);
     object_properties_init(&custom_object->zo, class_type);
+
+    wxphp_wxAuiManagerEvent_object_handlers.offset = XtOffsetOf(zo_wxAuiManagerEvent, zo);
+    wxphp_wxAuiManagerEvent_object_handlers.free_obj = php_wxAuiManagerEvent_free;
 
     custom_object->zo.handlers = &wxphp_wxAuiManagerEvent_object_handlers;
 

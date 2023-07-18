@@ -54,7 +54,7 @@
 
 
 BEGIN_EXTERN_C()
-void php_wxMenuBar_free(void *object)
+void php_wxMenuBar_free(zend_object *object)
 {
     zo_wxMenuBar* custom_object = (zo_wxMenuBar*) object;
 
@@ -67,8 +67,7 @@ void php_wxMenuBar_free(void *object)
     php_printf("===========================================\n\n");
     #endif
 
-    zend_object_std_dtor(&custom_object->zo);
-    efree(custom_object);
+    zend_object_std_dtor(object);
 }
 
 zend_object* php_wxMenuBar_new(zend_class_entry *class_type)
@@ -92,6 +91,9 @@ zend_object* php_wxMenuBar_new(zend_class_entry *class_type)
 
     zend_object_std_init(&custom_object->zo, class_type);
     object_properties_init(&custom_object->zo, class_type);
+
+    wxphp_wxMenuBar_object_handlers.offset = XtOffsetOf(zo_wxMenuBar, zo);
+    wxphp_wxMenuBar_object_handlers.free_obj = php_wxMenuBar_free;
 
     custom_object->zo.handlers = &wxphp_wxMenuBar_object_handlers;
 
@@ -3220,7 +3222,7 @@ PHP_METHOD(php_wxMenuBar, SetMenuLabel)
 /* }}} */
 
 BEGIN_EXTERN_C()
-void php_wxMenu_free(void *object)
+void php_wxMenu_free(zend_object *object)
 {
     zo_wxMenu* custom_object = (zo_wxMenu*) object;
 
@@ -3233,8 +3235,7 @@ void php_wxMenu_free(void *object)
     php_printf("===========================================\n\n");
     #endif
 
-    zend_object_std_dtor(&custom_object->zo);
-    efree(custom_object);
+    zend_object_std_dtor(object);
 }
 
 zend_object* php_wxMenu_new(zend_class_entry *class_type)
@@ -3258,6 +3259,9 @@ zend_object* php_wxMenu_new(zend_class_entry *class_type)
 
     zend_object_std_init(&custom_object->zo, class_type);
     object_properties_init(&custom_object->zo, class_type);
+
+    wxphp_wxMenu_object_handlers.offset = XtOffsetOf(zo_wxMenu, zo);
+    wxphp_wxMenu_object_handlers.free_obj = php_wxMenu_free;
 
     custom_object->zo.handlers = &wxphp_wxMenu_object_handlers;
 
@@ -9724,7 +9728,7 @@ PHP_METHOD(php_wxMenu, FindChildItem)
 /* }}} */
 
 BEGIN_EXTERN_C()
-void php_wxMenuItem_free(void *object)
+void php_wxMenuItem_free(zend_object *object)
 {
     zo_wxMenuItem* custom_object = (zo_wxMenuItem*) object;
 
@@ -9737,8 +9741,7 @@ void php_wxMenuItem_free(void *object)
     php_printf("===========================================\n\n");
     #endif
 
-    zend_object_std_dtor(&custom_object->zo);
-    efree(custom_object);
+    zend_object_std_dtor(object);
 }
 
 zend_object* php_wxMenuItem_new(zend_class_entry *class_type)
@@ -9762,6 +9765,9 @@ zend_object* php_wxMenuItem_new(zend_class_entry *class_type)
 
     zend_object_std_init(&custom_object->zo, class_type);
     object_properties_init(&custom_object->zo, class_type);
+
+    wxphp_wxMenuItem_object_handlers.offset = XtOffsetOf(zo_wxMenuItem, zo);
+    wxphp_wxMenuItem_object_handlers.free_obj = php_wxMenuItem_free;
 
     custom_object->zo.handlers = &wxphp_wxMenuItem_object_handlers;
 

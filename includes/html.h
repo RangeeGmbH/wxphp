@@ -44,7 +44,7 @@ typedef struct _zo_wxHtmlRenderingStyle{
     zend_object zo;
 } zo_wxHtmlRenderingStyle;
 
-void php_wxHtmlRenderingStyle_free(void *object);
+void php_wxHtmlRenderingStyle_free(zend_object *object);
 zend_object* php_wxHtmlRenderingStyle_new(zend_class_entry *class_type);
 END_EXTERN_C()
 
@@ -87,7 +87,7 @@ typedef struct _zo_wxHtmlRenderingInfo{
     zend_object zo;
 } zo_wxHtmlRenderingInfo;
 
-void php_wxHtmlRenderingInfo_free(void *object);
+void php_wxHtmlRenderingInfo_free(zend_object *object);
 zend_object* php_wxHtmlRenderingInfo_new(zend_class_entry *class_type);
 END_EXTERN_C()
 
@@ -140,7 +140,7 @@ typedef struct _zo_wxHtmlCell{
     zend_object zo;
 } zo_wxHtmlCell;
 
-void php_wxHtmlCell_free(void *object);
+void php_wxHtmlCell_free(zend_object *object);
 zend_object* php_wxHtmlCell_new(zend_class_entry *class_type);
 END_EXTERN_C()
 
@@ -264,7 +264,7 @@ typedef struct _zo_wxHtmlContainerCell{
     zend_object zo;
 } zo_wxHtmlContainerCell;
 
-void php_wxHtmlContainerCell_free(void *object);
+void php_wxHtmlContainerCell_free(zend_object *object);
 zend_object* php_wxHtmlContainerCell_new(zend_class_entry *class_type);
 END_EXTERN_C()
 
@@ -431,7 +431,7 @@ typedef struct _zo_wxHtmlLinkInfo{
     zend_object zo;
 } zo_wxHtmlLinkInfo;
 
-void php_wxHtmlLinkInfo_free(void *object);
+void php_wxHtmlLinkInfo_free(zend_object *object);
 zend_object* php_wxHtmlLinkInfo_new(zend_class_entry *class_type);
 END_EXTERN_C()
 
@@ -506,7 +506,7 @@ typedef struct _zo_wxHtmlColourCell{
     zend_object zo;
 } zo_wxHtmlColourCell;
 
-void php_wxHtmlColourCell_free(void *object);
+void php_wxHtmlColourCell_free(zend_object *object);
 zend_object* php_wxHtmlColourCell_new(zend_class_entry *class_type);
 END_EXTERN_C()
 
@@ -614,7 +614,7 @@ typedef struct _zo_wxHtmlWidgetCell{
     zend_object zo;
 } zo_wxHtmlWidgetCell;
 
-void php_wxHtmlWidgetCell_free(void *object);
+void php_wxHtmlWidgetCell_free(zend_object *object);
 zend_object* php_wxHtmlWidgetCell_new(zend_class_entry *class_type);
 END_EXTERN_C()
 
@@ -724,7 +724,7 @@ typedef struct _zo_wxHtmlFilter{
     zend_object zo;
 } zo_wxHtmlFilter;
 
-void php_wxHtmlFilter_free(void *object);
+void php_wxHtmlFilter_free(zend_object *object);
 zend_object* php_wxHtmlFilter_new(zend_class_entry *class_type);
 END_EXTERN_C()
 
@@ -800,7 +800,7 @@ typedef struct _zo_wxHtmlTagHandler{
     zend_object zo;
 } zo_wxHtmlTagHandler;
 
-void php_wxHtmlTagHandler_free(void *object);
+void php_wxHtmlTagHandler_free(zend_object *object);
 zend_object* php_wxHtmlTagHandler_new(zend_class_entry *class_type);
 END_EXTERN_C()
 
@@ -862,7 +862,7 @@ typedef struct _zo_wxHtmlTag{
     zend_object zo;
 } zo_wxHtmlTag;
 
-void php_wxHtmlTag_free(void *object);
+void php_wxHtmlTag_free(zend_object *object);
 zend_object* php_wxHtmlTag_new(zend_class_entry *class_type);
 END_EXTERN_C()
 
@@ -950,7 +950,7 @@ typedef struct _zo_wxHtmlWindow{
     zend_object zo;
 } zo_wxHtmlWindow;
 
-void php_wxHtmlWindow_free(void *object);
+void php_wxHtmlWindow_free(zend_object *object);
 zend_object* php_wxHtmlWindow_new(zend_class_entry *class_type);
 END_EXTERN_C()
 
@@ -1827,7 +1827,7 @@ typedef struct _zo_wxHtmlLinkEvent{
     zend_object zo;
 } zo_wxHtmlLinkEvent;
 
-void php_wxHtmlLinkEvent_free(void *object);
+void php_wxHtmlLinkEvent_free(zend_object *object);
 zend_object* php_wxHtmlLinkEvent_new(zend_class_entry *class_type);
 END_EXTERN_C()
 
@@ -1950,7 +1950,7 @@ typedef struct _zo_wxHtmlCellEvent{
     zend_object zo;
 } zo_wxHtmlCellEvent;
 
-void php_wxHtmlCellEvent_free(void *object);
+void php_wxHtmlCellEvent_free(zend_object *object);
 zend_object* php_wxHtmlCellEvent_new(zend_class_entry *class_type);
 END_EXTERN_C()
 
@@ -2086,7 +2086,7 @@ typedef struct _zo_wxHtmlDCRenderer{
     zend_object zo;
 } zo_wxHtmlDCRenderer;
 
-void php_wxHtmlDCRenderer_free(void *object);
+void php_wxHtmlDCRenderer_free(zend_object *object);
 zend_object* php_wxHtmlDCRenderer_new(zend_class_entry *class_type);
 END_EXTERN_C()
 
@@ -2182,7 +2182,7 @@ typedef struct _zo_wxHtmlEasyPrinting{
     zend_object zo;
 } zo_wxHtmlEasyPrinting;
 
-void php_wxHtmlEasyPrinting_free(void *object);
+void php_wxHtmlEasyPrinting_free(zend_object *object);
 zend_object* php_wxHtmlEasyPrinting_new(zend_class_entry *class_type);
 END_EXTERN_C()
 
@@ -2308,7 +2308,7 @@ typedef struct _zo_wxHtmlPrintout{
     zend_object zo;
 } zo_wxHtmlPrintout;
 
-void php_wxHtmlPrintout_free(void *object);
+void php_wxHtmlPrintout_free(zend_object *object);
 zend_object* php_wxHtmlPrintout_new(zend_class_entry *class_type);
 END_EXTERN_C()
 
@@ -2476,7 +2476,7 @@ typedef struct _zo_wxHtmlTagsModule{
     zend_object zo;
 } zo_wxHtmlTagsModule;
 
-void php_wxHtmlTagsModule_free(void *object);
+void php_wxHtmlTagsModule_free(zend_object *object);
 zend_object* php_wxHtmlTagsModule_new(zend_class_entry *class_type);
 END_EXTERN_C()
 
@@ -2552,7 +2552,7 @@ typedef struct _zo_wxHtmlWinTagHandler{
     zend_object zo;
 } zo_wxHtmlWinTagHandler;
 
-void php_wxHtmlWinTagHandler_free(void *object);
+void php_wxHtmlWinTagHandler_free(zend_object *object);
 zend_object* php_wxHtmlWinTagHandler_new(zend_class_entry *class_type);
 END_EXTERN_C()
 
@@ -2612,7 +2612,7 @@ typedef struct _zo_wxHtmlWinParser{
     zend_object zo;
 } zo_wxHtmlWinParser;
 
-void php_wxHtmlWinParser_free(void *object);
+void php_wxHtmlWinParser_free(zend_object *object);
 zend_object* php_wxHtmlWinParser_new(zend_class_entry *class_type);
 END_EXTERN_C()
 

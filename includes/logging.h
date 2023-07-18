@@ -44,7 +44,7 @@ typedef struct _zo_wxLog{
     zend_object zo;
 } zo_wxLog;
 
-void php_wxLog_free(void *object);
+void php_wxLog_free(zend_object *object);
 zend_object* php_wxLog_new(zend_class_entry *class_type);
 END_EXTERN_C()
 
@@ -179,7 +179,7 @@ typedef struct _zo_wxLogChain{
     zend_object zo;
 } zo_wxLogChain;
 
-void php_wxLogChain_free(void *object);
+void php_wxLogChain_free(zend_object *object);
 zend_object* php_wxLogChain_new(zend_class_entry *class_type);
 END_EXTERN_C()
 
@@ -309,7 +309,7 @@ typedef struct _zo_wxLogInterposer{
     zend_object zo;
 } zo_wxLogInterposer;
 
-void php_wxLogInterposer_free(void *object);
+void php_wxLogInterposer_free(zend_object *object);
 zend_object* php_wxLogInterposer_new(zend_class_entry *class_type);
 END_EXTERN_C()
 
@@ -434,7 +434,7 @@ typedef struct _zo_wxLogBuffer{
     zend_object zo;
 } zo_wxLogBuffer;
 
-void php_wxLogBuffer_free(void *object);
+void php_wxLogBuffer_free(zend_object *object);
 zend_object* php_wxLogBuffer_new(zend_class_entry *class_type);
 END_EXTERN_C()
 
@@ -552,7 +552,7 @@ typedef struct _zo_wxLogWindow{
     zend_object zo;
 } zo_wxLogWindow;
 
-void php_wxLogWindow_free(void *object);
+void php_wxLogWindow_free(zend_object *object);
 zend_object* php_wxLogWindow_new(zend_class_entry *class_type);
 END_EXTERN_C()
 
@@ -704,7 +704,7 @@ typedef struct _zo_wxLogGui{
     zend_object zo;
 } zo_wxLogGui;
 
-void php_wxLogGui_free(void *object);
+void php_wxLogGui_free(zend_object *object);
 zend_object* php_wxLogGui_new(zend_class_entry *class_type);
 END_EXTERN_C()
 
@@ -818,7 +818,7 @@ typedef struct _zo_wxLogTextCtrl{
     zend_object zo;
 } zo_wxLogTextCtrl;
 
-void php_wxLogTextCtrl_free(void *object);
+void php_wxLogTextCtrl_free(zend_object *object);
 zend_object* php_wxLogTextCtrl_new(zend_class_entry *class_type);
 END_EXTERN_C()
 

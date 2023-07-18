@@ -54,7 +54,7 @@
 
 
 BEGIN_EXTERN_C()
-void php_wxTextAttr_free(void *object)
+void php_wxTextAttr_free(zend_object *object)
 {
     zo_wxTextAttr* custom_object = (zo_wxTextAttr*) object;
 
@@ -96,8 +96,7 @@ void php_wxTextAttr_free(void *object)
         #endif
     }
 
-    zend_object_std_dtor(&custom_object->zo);
-    efree(custom_object);
+    zend_object_std_dtor(object);
 }
 
 zend_object* php_wxTextAttr_new(zend_class_entry *class_type)
@@ -121,6 +120,9 @@ zend_object* php_wxTextAttr_new(zend_class_entry *class_type)
 
     zend_object_std_init(&custom_object->zo, class_type);
     object_properties_init(&custom_object->zo, class_type);
+
+    wxphp_wxTextAttr_object_handlers.offset = XtOffsetOf(zo_wxTextAttr, zo);
+    wxphp_wxTextAttr_object_handlers.free_obj = php_wxTextAttr_free;
 
     custom_object->zo.handlers = &wxphp_wxTextAttr_object_handlers;
 
