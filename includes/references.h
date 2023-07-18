@@ -14,6 +14,12 @@
 #include <vector>
 #include <string>
 
+struct referenceEntity {
+    zval* zvalue;
+    std::string methodName;
+    referenceEntity(zval* zvalue, std::string methodName) : zvalue(zvalue), methodName(methodName) {}
+};
+
 /**
  * Used internally by each php wrapper class to keep track of
  * zval references used by them
@@ -61,6 +67,7 @@ class wxPHPObjectReferences
      *
      * @param var Pointer of zval to increment its refcount
      */
+    void AddReference(zval* var, std::string class_and_method, std::string methodName);
     void AddReference(zval* var, std::string class_and_method);
 
     /**
@@ -78,7 +85,7 @@ class wxPHPObjectReferences
 
     // Vector that keeps a registry of all zvals* which
     // refcount was incremented
-    std::vector<zval*> m_references;
+    std::vector<referenceEntity> m_references;
 
     std::string className;
 };

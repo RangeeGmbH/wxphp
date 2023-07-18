@@ -45,15 +45,34 @@ void wxPHPObjectReferences::AddReference(zval* var, std::string class_and_method
     if(IsUserInitialized())
     {
         #ifdef USE_WXPHP_DEBUG
-        php_printf("Adding Reference on %s\n", class_and_method.c_str());
+        php_printf("Adding Reference CLOSE BEFORE DISASTER?\n");
+        php_printf("Adding Reference ??? on %s\n", class_and_method.c_str());
         #endif
 
         Z_TRY_ADDREF_P(var);
 
-        m_references.push_back(var);
+        m_references.emplace_back(var, "none");
     }
     #endif
 }
+
+void wxPHPObjectReferences::AddReference(zval* var, std::string class_and_method, std::string methodName)
+{
+#ifdef USE_WXPHP_REFERENCES_MANAGEMENT
+    if(IsUserInitialized())
+    {
+#ifdef USE_WXPHP_DEBUG
+        php_printf("Adding Reference CLOSE BEFORE DISASTER?\n");
+        php_printf("Adding Reference %s on %s\n", class_and_method.c_str(), methodName.c_str());
+#endif
+
+        Z_TRY_ADDREF_P(var);
+
+        m_references.emplace_back(var, methodName);
+    }
+#endif
+}
+
 
 void wxPHPObjectReferences::RemoveReferences()
 {
@@ -66,11 +85,12 @@ void wxPHPObjectReferences::RemoveReferences()
 
         for(unsigned int i=0; i<m_references.size(); i++)
         {
-            if (Z_REFCOUNTED_P((m_references[i])) && Z_TYPE_P(m_references[i]) > IS_UNDEF && Z_TYPE_P(m_references[i]) <= _IS_ERROR && m_references[i]->value.counted->gc.refcount > 0) {
+            php_printf("reference_name: %s from %i\n", m_references[i].methodName.c_str(), i);
+            if (Z_REFCOUNTED_P((m_references[i].zvalue)) && Z_TYPE_P(m_references[i].zvalue) > IS_UNDEF && Z_TYPE_P(m_references[i].zvalue) <= _IS_ERROR && m_references[i].zvalue->value.counted->gc.refcount > 0) {
                 #ifdef USE_WXPHP_DEBUG
-                php_printf("Removing reference: %i\n", i);
+                php_printf("Removing reference: %i %s\n", i, m_references[i].methodName.c_str());
                 #endif
-                Z_TRY_DELREF_P(m_references[i]);
+                Z_TRY_DELREF_P(m_references[i].zvalue);
             }
         }
 

@@ -1,6 +1,6 @@
 <?php
 
-class MyDialog extends wxDialog
+/*class MyDialog extends wxDialog
 {
     public function __construct()
     {
@@ -34,7 +34,7 @@ class MyDialog extends wxDialog
         echo 'OnActivate Wurde getriggert!\n';
         var_dump($this, $event);
     }
-}
+}*/
 class MyDialog2 extends wxDialog
 {
     public function __construct()
@@ -70,11 +70,11 @@ class MyDialog2 extends wxDialog
         var_dump($this, $event);
     }
 }
-for ($i = 0; $i < 10; $i++) {
-    $dialog = new MyDialog();
+//for ($i = 0; $i < 10; $i++) {
+    $dialog = new MyDialog2();
     $dialog->ShowModal();
 
         $msgDialog = new wxMessageDialog(null, "HELLO WORLD!", 'debug test', wxOK | wxICON_ERROR | wxSTAY_ON_TOP | wxCENTRE);
         $msgDialog->ShowModal();
 
-}
+//}

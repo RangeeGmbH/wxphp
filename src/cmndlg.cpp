@@ -12309,9 +12309,9 @@ PHP_METHOD(php_wxDialog, __construct)
                 native_object = new wxDialog_php((wxWindow*) object_pointer0_0, (wxWindowID) id0, wxString(title0, wxConvUTF8), *(wxPoint*) object_pointer0_3, *(wxSize*) object_pointer0_4);
 
                 native_object->references.Initialize();
-                ((wxDialog_php*) native_object)->references.AddReference(parent0, "wxDialog::wxDialog at call 2 with 5 argument(s)");
-                ((wxDialog_php*) native_object)->references.AddReference(pos0, "wxDialog::wxDialog at call 4 with 5 argument(s)");
-                ((wxDialog_php*) native_object)->references.AddReference(size0, "wxDialog::wxDialog at call 4 with 5 argument(s)");
+                ((wxDialog_php*) native_object)->references.AddReference(parent0, "wxDialog::wxDialog at call 2 with 5 argument(s)", "parent0");
+                ((wxDialog_php*) native_object)->references.AddReference(pos0, "wxDialog::wxDialog at call 4 with 5 argument(s)", "pos0");
+                ((wxDialog_php*) native_object)->references.AddReference(size0, "wxDialog::wxDialog at call 4 with 5 argument(s)", "size0");
                 break;
             }
             case 6:
@@ -12323,9 +12323,9 @@ PHP_METHOD(php_wxDialog, __construct)
                 native_object = new wxDialog_php((wxWindow*) object_pointer0_0, (wxWindowID) id0, wxString(title0, wxConvUTF8), *(wxPoint*) object_pointer0_3, *(wxSize*) object_pointer0_4, (long) style0);
 
                 native_object->references.Initialize();
-                ((wxDialog_php*) native_object)->references.AddReference(parent0, "wxDialog::wxDialog at call 2 with 6 argument(s)");
-                ((wxDialog_php*) native_object)->references.AddReference(pos0, "wxDialog::wxDialog at call 4 with 6 argument(s)");
-                ((wxDialog_php*) native_object)->references.AddReference(size0, "wxDialog::wxDialog at call 4 with 6 argument(s)");
+                ((wxDialog_php*) native_object)->references.AddReference(parent0, "wxDialog::wxDialog at call 2 with 6 argument(s)", "parent0");
+                ((wxDialog_php*) native_object)->references.AddReference(pos0, "wxDialog::wxDialog at call 4 with 6 argument(s)", "pos0");
+                ((wxDialog_php*) native_object)->references.AddReference(size0, "wxDialog::wxDialog at call 4 with 6 argument(s)", "size0");
                 break;
             }
             case 7:
