@@ -288,7 +288,6 @@
 	wxUSE_URL	Use wxURL class.
 	wxUSE_VALIDATORS	Use wxValidator class.
 	wxUSE_VARIANT	Use wxVariant class.
-	wxUSE_WEBVIEW	Use wxWebView class.
 	wxUSE_WIZARDDLG	Use wxWizard class.
 	wxUSE_WXHTML_HELP	Use wxHtmlHelpController and related classes.
 	wxUSE_XML	Use XML parsing classes.

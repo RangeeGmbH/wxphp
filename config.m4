@@ -64,15 +64,6 @@ if test "$PHP_WXWIDGETS" != "no"; then
     else
         dnl If not building for macosx check dependencies are met
         if test "$PHP_WXWIDGETS_MACOSX" == "no"; then
-            AC_MSG_CHECKING([for webkitgtk include files])
-            WEBKITGTK=`find /usr/include -name "webkit.h" -or -name "webkit2.h"`
-            if test "$WEBKITGTK" != ""; then
-                AC_MSG_RESULT([found])
-            else
-                AC_MSG_RESULT([not found])
-                AC_MSG_ERROR([webkitgtk include files where not found])
-            fi
-
             AC_MSG_CHECKING([for gstreamer include files])
             if test -e "/usr/include/gstreamer-1.0/gst/gst.h"; then
                 AC_MSG_RESULT([found])
@@ -250,20 +241,13 @@ if test "$PHP_WXWIDGETS" != "no"; then
     if test "$PHP_WXWIDGETS_MONOLITHIC" != "no"; then
         PHP_WXWIDGETS_LIBS=`$WXCONFIG_PATH --libs`
 
-        WEBKIT_LIB=""
-        if test "$(find /usr/include -name "webkit.h")" != "" ; then
-            WEBKIT_LIB="-lwebkitgtk-3.0"
-        elif test "$(find /usr/include -name "webkit2.h")" != "" ; then
-            WEBKIT_LIB="-lwebkit2gtk-4.0"
-        fi
-
         dnl Append wxscintilla and gstreamer if static build
         if test "$PHP_WXWIDGETS_STATIC" != "no"; then
-            PHP_WXWIDGETS_LDFLAGS="$PHP_WXWIDGETS_LIBS -lwxscintilla-3.0 $WEBKIT_LIB $PHP_WXWIDGETS_OTHER_LDFLAGS"
+            PHP_WXWIDGETS_LDFLAGS="$PHP_WXWIDGETS_LIBS -lwxscintilla-3.0 $PHP_WXWIDGETS_OTHER_LDFLAGS"
             LDFLAGS="$LDFLAGS $PHP_WXWIDGETS_LDFLAGS"
         fi
     else
-        PHP_WXWIDGETS_LIBS=`$WXCONFIG_PATH --libs xrc,webview,stc,richtext,ribbon,propgrid,aui,html,qa,adv,core,xml,net,media,base`
+        PHP_WXWIDGETS_LIBS=`$WXCONFIG_PATH --libs xrc,stc,richtext,ribbon,propgrid,aui,html,qa,adv,core,xml,net,media,base`
     fi
 
     dnl Append wxWidgets flags to the compiler flags and suppress warning flags
@@ -282,5 +266,5 @@ if test "$PHP_WXWIDGETS" != "no"; then
     PHP_ADD_LIBRARY(stdc++, 1, WXWIDGETS_SHARED_LIBADD)
 
     dnl PHP_NEW_EXTENSION(extname, sources [, shared [, sapi_class [, extra-cflags [, cxx [, zend_ext]]]]])
-    PHP_NEW_EXTENSION(wxwidgets, src/app.cpp src/references.cpp src/appmanagement.cpp src/aui.cpp src/bookctrl.cpp src/cfg.cpp src/cmndlg.cpp src/containers.cpp src/ctrl.cpp src/data.cpp src/dc.cpp src/dnd.cpp src/docview.cpp src/dvc.cpp src/events.cpp src/file.cpp src/gdi.cpp src/grid.cpp src/help.cpp src/html.cpp src/logging.cpp src/managedwnd.cpp src/media.cpp src/menus.cpp src/misc.cpp src/miscwnd.cpp src/net.cpp src/pickers.cpp src/printing.cpp src/ribbon.cpp src/richtext.cpp src/rtti.cpp src/stc.cpp src/streams.cpp src/threading.cpp src/validator.cpp src/vfs.cpp src/webview.cpp src/winlayout.cpp src/xml.cpp src/xrc.cpp src/others.cpp src/functions.cpp wxwidgets.cpp, $ext_shared,,,1)
+    PHP_NEW_EXTENSION(wxwidgets, src/app.cpp src/references.cpp src/appmanagement.cpp src/aui.cpp src/bookctrl.cpp src/cfg.cpp src/cmndlg.cpp src/containers.cpp src/ctrl.cpp src/data.cpp src/dc.cpp src/dnd.cpp src/docview.cpp src/dvc.cpp src/events.cpp src/file.cpp src/gdi.cpp src/grid.cpp src/help.cpp src/html.cpp src/logging.cpp src/managedwnd.cpp src/media.cpp src/menus.cpp src/misc.cpp src/miscwnd.cpp src/net.cpp src/pickers.cpp src/printing.cpp src/ribbon.cpp src/richtext.cpp src/rtti.cpp src/stc.cpp src/streams.cpp src/threading.cpp src/validator.cpp src/vfs.cpp src/winlayout.cpp src/xml.cpp src/xrc.cpp src/others.cpp src/functions.cpp wxwidgets.cpp, $ext_shared,,,1)
 fi
