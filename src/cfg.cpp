@@ -10761,26 +10761,17 @@ PHP_METHOD(php_wxPlatformInfo, Get)
             {
                 #ifdef USE_WXPHP_DEBUG
                 php_printf("Static ");
-                php_printf("Executing wxPlatformInfo::Get() to return object reference\n\n");
+                php_printf("Executing wxPlatformInfo::Get() to return new object\n\n");
                 #endif
 
-                wxPlatformInfo_php* value_to_return0;
-                value_to_return0 = (wxPlatformInfo_php*) &wxPlatformInfo::Get();
-                if(value_to_return0->references.IsUserInitialized()){
-                    if(!Z_ISNULL(value_to_return0->phpObj)){
-                        ZVAL_COPY_VALUE(return_value, &value_to_return0->phpObj);
-                        zval_add_ref(&value_to_return0->phpObj);
-                        return_is_user_initialized = true;
-                    }
-                    else{
-                        zend_error(E_ERROR, "Could not retreive original zval.");
-                    }
-                }
-                else{
-                    object_init_ex(return_value,php_wxPlatformInfo_entry);
-                    Z_wxPlatformInfo_P(return_value)->native_object = (wxPlatformInfo_php*) value_to_return0;
-                }
-
+                wxPlatformInfo value_to_return0;
+                value_to_return0 = wxPlatformInfo::Get();
+                void* ptr = safe_emalloc(1, sizeof(wxPlatformInfo_php), 0);
+                memcpy(ptr, (void*) &value_to_return0, sizeof(wxPlatformInfo));
+                object_init_ex(return_value, php_wxPlatformInfo_entry);
+                ((wxPlatformInfo_php*)ptr)->phpObj = *return_value;
+                zo_wxPlatformInfo* zo0 = Z_wxPlatformInfo_P(return_value);
+                zo0->native_object = (wxPlatformInfo_php*) ptr;
 
 
                 return;

@@ -2736,30 +2736,18 @@ PHP_METHOD(php_wxTextAttr, GetBackgroundColour)
             case 0:
             {
                 #ifdef USE_WXPHP_DEBUG
-                php_printf("Executing wxTextAttr::GetBackgroundColour() to return object reference\n\n");
+                php_printf("Executing wxTextAttr::GetBackgroundColour() to return new object\n\n");
                 #endif
 
-                wxColour_php* value_to_return0;
-                value_to_return0 = (wxColour_php*) &((wxTextAttr_php*)native_object)->GetBackgroundColour();
-
-                if(value_to_return0->references.IsUserInitialized()){
-                    if(!Z_ISNULL(value_to_return0->phpObj)){
-                        ZVAL_COPY_VALUE(return_value, &value_to_return0->phpObj);
-                        zval_add_ref(&value_to_return0->phpObj);
-                        return_is_user_initialized = true;
-                    }
-                    else{
-                        zend_error(E_ERROR, "Could not retreive original zval.");
-                    }
-                }
-                else{
-                    object_init_ex(return_value,php_wxColour_entry);
-                    Z_wxColour_P(return_value)->native_object = (wxColour_php*) value_to_return0;
-                }
-
-                if((void*)value_to_return0 != (void*)native_object && return_is_user_initialized){ //Prevent adding references to it self
-                    references->AddReference(return_value, "wxTextAttr::GetBackgroundColour at call 6 with 0 argument(s)");
-                }
+                wxColour value_to_return0;
+                value_to_return0 = ((wxTextAttr_php*)native_object)->GetBackgroundColour();
+                ((wxRefCounter *) value_to_return0.GetRefData())->IncRef();
+                void* ptr = safe_emalloc(1, sizeof(wxColour_php), 0);
+                memcpy(ptr, (void*) &value_to_return0, sizeof(wxColour));
+                object_init_ex(return_value, php_wxColour_entry);
+                ((wxColour_php*)ptr)->phpObj = *return_value;
+                zo_wxColour* zo0 = Z_wxColour_P(return_value);
+                zo0->native_object = (wxColour_php*) ptr;
 
 
                 return;
@@ -5598,30 +5586,18 @@ PHP_METHOD(php_wxTextAttr, GetTextColour)
             case 0:
             {
                 #ifdef USE_WXPHP_DEBUG
-                php_printf("Executing wxTextAttr::GetTextColour() to return object reference\n\n");
+                php_printf("Executing wxTextAttr::GetTextColour() to return new object\n\n");
                 #endif
 
-                wxColour_php* value_to_return0;
-                value_to_return0 = (wxColour_php*) &((wxTextAttr_php*)native_object)->GetTextColour();
-
-                if(value_to_return0->references.IsUserInitialized()){
-                    if(!Z_ISNULL(value_to_return0->phpObj)){
-                        ZVAL_COPY_VALUE(return_value, &value_to_return0->phpObj);
-                        zval_add_ref(&value_to_return0->phpObj);
-                        return_is_user_initialized = true;
-                    }
-                    else{
-                        zend_error(E_ERROR, "Could not retreive original zval.");
-                    }
-                }
-                else{
-                    object_init_ex(return_value,php_wxColour_entry);
-                    Z_wxColour_P(return_value)->native_object = (wxColour_php*) value_to_return0;
-                }
-
-                if((void*)value_to_return0 != (void*)native_object && return_is_user_initialized){ //Prevent adding references to it self
-                    references->AddReference(return_value, "wxTextAttr::GetTextColour at call 6 with 0 argument(s)");
-                }
+                wxColour value_to_return0;
+                value_to_return0 = ((wxTextAttr_php*)native_object)->GetTextColour();
+                ((wxRefCounter *) value_to_return0.GetRefData())->IncRef();
+                void* ptr = safe_emalloc(1, sizeof(wxColour_php), 0);
+                memcpy(ptr, (void*) &value_to_return0, sizeof(wxColour));
+                object_init_ex(return_value, php_wxColour_entry);
+                ((wxColour_php*)ptr)->phpObj = *return_value;
+                zo_wxColour* zo0 = Z_wxColour_P(return_value);
+                zo0->native_object = (wxColour_php*) ptr;
 
 
                 return;

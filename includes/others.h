@@ -4566,7 +4566,6 @@ class wxGridCornerHeaderRenderer_php: public wxGridCornerHeaderRenderer{
     public:
 
     
-    void DrawBorder(const wxGrid& grid, wxDC& dc, wxRect& rect) const;
     
 
     zval phpObj;
@@ -4586,6 +4585,15 @@ zend_object* php_wxGridCornerHeaderRenderer_new(zend_class_entry *class_type);
 END_EXTERN_C()
 
 #ifdef WXPHP_INCLUDE_METHOD_TABLES
+ZEND_BEGIN_ARG_INFO_EX(php_wxGridCornerHeaderRenderer_DrawLabel_arg_infos, 0, 0, 0)
+    ZEND_ARG_INFO(0, grid)
+    ZEND_ARG_INFO(0, dc)
+    ZEND_ARG_INFO(0, value)
+    ZEND_ARG_INFO(0, rect)
+    ZEND_ARG_INFO(0, horizAlign)
+    ZEND_ARG_INFO(0, vertAlign)
+    ZEND_ARG_INFO(0, textOrientation)
+ZEND_END_ARG_INFO()
 
 static zend_function_entry php_wxGridCornerHeaderRenderer_functions[] = {
     PHP_FE_END
@@ -4633,6 +4641,15 @@ ZEND_BEGIN_ARG_INFO_EX(php_wxGridCornerHeaderRendererDefault_DrawBorder_arg_info
     ZEND_ARG_INFO(0, dc)
     ZEND_ARG_INFO(0, rect)
 ZEND_END_ARG_INFO()
+ZEND_BEGIN_ARG_INFO_EX(php_wxGridCornerHeaderRendererDefault_DrawLabel_arg_infos, 0, 0, 0)
+    ZEND_ARG_INFO(0, grid)
+    ZEND_ARG_INFO(0, dc)
+    ZEND_ARG_INFO(0, value)
+    ZEND_ARG_INFO(0, rect)
+    ZEND_ARG_INFO(0, horizAlign)
+    ZEND_ARG_INFO(0, vertAlign)
+    ZEND_ARG_INFO(0, textOrientation)
+ZEND_END_ARG_INFO()
 
 static zend_function_entry php_wxGridCornerHeaderRendererDefault_functions[] = {
     PHP_ME(php_wxGridCornerHeaderRendererDefault, DrawBorder, php_wxGridCornerHeaderRendererDefault_DrawBorder_arg_infos, ZEND_ACC_PUBLIC)
@@ -4657,6 +4674,7 @@ class wxGridHeaderLabelsRenderer_php: public wxGridHeaderLabelsRenderer{
     public:
 
     
+    void DrawBorder(const wxGrid& grid, wxDC& dc, wxRect& rect) const;
     
 
     zval phpObj;

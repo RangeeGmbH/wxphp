@@ -15243,30 +15243,18 @@ PHP_METHOD(php_wxTopLevelWindow, GetIcons)
             case 0:
             {
                 #ifdef USE_WXPHP_DEBUG
-                php_printf("Executing wxTopLevelWindow::GetIcons() to return object reference\n\n");
+                php_printf("Executing wxTopLevelWindow::GetIcons() to return new object\n\n");
                 #endif
 
-                wxIconBundle_php* value_to_return0;
-                value_to_return0 = (wxIconBundle_php*) &((wxTopLevelWindow_php*)native_object)->GetIcons();
-
-                if(value_to_return0->references.IsUserInitialized()){
-                    if(!Z_ISNULL(value_to_return0->phpObj)){
-                        ZVAL_COPY_VALUE(return_value, &value_to_return0->phpObj);
-                        zval_add_ref(&value_to_return0->phpObj);
-                        return_is_user_initialized = true;
-                    }
-                    else{
-                        zend_error(E_ERROR, "Could not retreive original zval.");
-                    }
-                }
-                else{
-                    object_init_ex(return_value,php_wxIconBundle_entry);
-                    Z_wxIconBundle_P(return_value)->native_object = (wxIconBundle_php*) value_to_return0;
-                }
-
-                if((void*)value_to_return0 != (void*)native_object && return_is_user_initialized){ //Prevent adding references to it self
-                    references->AddReference(return_value, "wxTopLevelWindow::GetIcons at call 6 with 0 argument(s)");
-                }
+                wxIconBundle value_to_return0;
+                value_to_return0 = ((wxTopLevelWindow_php*)native_object)->GetIcons();
+                ((wxRefCounter *) value_to_return0.GetRefData())->IncRef();
+                void* ptr = safe_emalloc(1, sizeof(wxIconBundle_php), 0);
+                memcpy(ptr, (void*) &value_to_return0, sizeof(wxIconBundle));
+                object_init_ex(return_value, php_wxIconBundle_entry);
+                ((wxIconBundle_php*)ptr)->phpObj = *return_value;
+                zo_wxIconBundle* zo0 = Z_wxIconBundle_P(return_value);
+                zo0->native_object = (wxIconBundle_php*) ptr;
 
 
                 return;

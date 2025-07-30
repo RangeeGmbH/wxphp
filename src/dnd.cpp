@@ -5149,30 +5149,17 @@ PHP_METHOD(php_wxDataObjectSimple, GetFormat)
             case 0:
             {
                 #ifdef USE_WXPHP_DEBUG
-                php_printf("Executing wxDataObjectSimple::GetFormat() to return object reference\n\n");
+                php_printf("Executing wxDataObjectSimple::GetFormat() to return new object\n\n");
                 #endif
 
-                wxDataFormat_php* value_to_return0;
-                value_to_return0 = (wxDataFormat_php*) &((wxDataObjectSimple_php*)native_object)->GetFormat();
-
-                if(value_to_return0->references.IsUserInitialized()){
-                    if(!Z_ISNULL(value_to_return0->phpObj)){
-                        ZVAL_COPY_VALUE(return_value, &value_to_return0->phpObj);
-                        zval_add_ref(&value_to_return0->phpObj);
-                        return_is_user_initialized = true;
-                    }
-                    else{
-                        zend_error(E_ERROR, "Could not retreive original zval.");
-                    }
-                }
-                else{
-                    object_init_ex(return_value,php_wxDataFormat_entry);
-                    Z_wxDataFormat_P(return_value)->native_object = (wxDataFormat_php*) value_to_return0;
-                }
-
-                if((void*)value_to_return0 != (void*)native_object && return_is_user_initialized){ //Prevent adding references to it self
-                    references->AddReference(return_value, "wxDataObjectSimple::GetFormat at call 6 with 0 argument(s)");
-                }
+                wxDataFormat value_to_return0;
+                value_to_return0 = ((wxDataObjectSimple_php*)native_object)->GetFormat();
+                void* ptr = safe_emalloc(1, sizeof(wxDataFormat_php), 0);
+                memcpy(ptr, (void*) &value_to_return0, sizeof(wxDataFormat));
+                object_init_ex(return_value, php_wxDataFormat_entry);
+                ((wxDataFormat_php*)ptr)->phpObj = *return_value;
+                zo_wxDataFormat* zo0 = Z_wxDataFormat_P(return_value);
+                zo0->native_object = (wxDataFormat_php*) ptr;
 
 
                 return;
@@ -6522,30 +6509,17 @@ PHP_METHOD(php_wxTextDataObject, GetFormat)
             case 0:
             {
                 #ifdef USE_WXPHP_DEBUG
-                php_printf("Executing wxTextDataObject::GetFormat() to return object reference\n\n");
+                php_printf("Executing wxTextDataObject::GetFormat() to return new object\n\n");
                 #endif
 
-                wxDataFormat_php* value_to_return0;
-                value_to_return0 = (wxDataFormat_php*) &((wxTextDataObject_php*)native_object)->GetFormat();
-
-                if(value_to_return0->references.IsUserInitialized()){
-                    if(!Z_ISNULL(value_to_return0->phpObj)){
-                        ZVAL_COPY_VALUE(return_value, &value_to_return0->phpObj);
-                        zval_add_ref(&value_to_return0->phpObj);
-                        return_is_user_initialized = true;
-                    }
-                    else{
-                        zend_error(E_ERROR, "Could not retreive original zval.");
-                    }
-                }
-                else{
-                    object_init_ex(return_value,php_wxDataFormat_entry);
-                    Z_wxDataFormat_P(return_value)->native_object = (wxDataFormat_php*) value_to_return0;
-                }
-
-                if((void*)value_to_return0 != (void*)native_object && return_is_user_initialized){ //Prevent adding references to it self
-                    references->AddReference(return_value, "wxTextDataObject::GetFormat at call 6 with 0 argument(s)");
-                }
+                wxDataFormat value_to_return0;
+                value_to_return0 = ((wxTextDataObject_php*)native_object)->GetFormat();
+                void* ptr = safe_emalloc(1, sizeof(wxDataFormat_php), 0);
+                memcpy(ptr, (void*) &value_to_return0, sizeof(wxDataFormat));
+                object_init_ex(return_value, php_wxDataFormat_entry);
+                ((wxDataFormat_php*)ptr)->phpObj = *return_value;
+                zo_wxDataFormat* zo0 = Z_wxDataFormat_P(return_value);
+                zo0->native_object = (wxDataFormat_php*) ptr;
 
 
                 return;

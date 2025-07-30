@@ -348,30 +348,17 @@ PHP_METHOD(php_wxTreeItemData, GetId)
             case 0:
             {
                 #ifdef USE_WXPHP_DEBUG
-                php_printf("Executing wxTreeItemData::GetId() to return object reference\n\n");
+                php_printf("Executing wxTreeItemData::GetId() to return new object\n\n");
                 #endif
 
-                wxTreeItemId_php* value_to_return0;
-                value_to_return0 = (wxTreeItemId_php*) &((wxTreeItemData_php*)native_object)->GetId();
-
-                if(value_to_return0->references.IsUserInitialized()){
-                    if(!Z_ISNULL(value_to_return0->phpObj)){
-                        ZVAL_COPY_VALUE(return_value, &value_to_return0->phpObj);
-                        zval_add_ref(&value_to_return0->phpObj);
-                        return_is_user_initialized = true;
-                    }
-                    else{
-                        zend_error(E_ERROR, "Could not retreive original zval.");
-                    }
-                }
-                else{
-                    object_init_ex(return_value,php_wxTreeItemId_entry);
-                    Z_wxTreeItemId_P(return_value)->native_object = (wxTreeItemId_php*) value_to_return0;
-                }
-
-                if((void*)value_to_return0 != (void*)native_object && return_is_user_initialized){ //Prevent adding references to it self
-                    references->AddReference(return_value, "wxTreeItemData::GetId at call 6 with 0 argument(s)");
-                }
+                wxTreeItemId value_to_return0;
+                value_to_return0 = ((wxTreeItemData_php*)native_object)->GetId();
+                void* ptr = safe_emalloc(1, sizeof(wxTreeItemId_php), 0);
+                memcpy(ptr, (void*) &value_to_return0, sizeof(wxTreeItemId));
+                object_init_ex(return_value, php_wxTreeItemId_entry);
+                ((wxTreeItemId_php*)ptr)->phpObj = *return_value;
+                zo_wxTreeItemId* zo0 = Z_wxTreeItemId_P(return_value);
+                zo0->native_object = (wxTreeItemId_php*) ptr;
 
 
                 return;

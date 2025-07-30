@@ -148,7 +148,7 @@ for ($i = 0; $i < $entries->length; $i++)
 				}
 				
 				//skip destructor
-				if($function_name{0} == "~")
+				if($function_name[0] == "~")
 					continue;
 					
 				$function_constant = false;
@@ -282,9 +282,9 @@ for ($i = 0; $i < $entries->length; $i++)
 				$enum_name = $class_xpath->evaluate("name", $class_member->item($member))->item(0)->nodeValue;
 				
 				//Skip unnamed enums TODO: implement them
-				if($enum_name{0} == "@")
+				if($enum_name[0] == "@")
 					continue;
-				
+
 				if(!isset($enums[0][$name]))
 					$enums[0][$name] = array();
 				
@@ -368,7 +368,7 @@ for ($i = 0; $i < $entries->length; $i++)
 				}
 				
 				//Skip defines used for compiler
-				if($define_name{0} == "_" && $define_name{1} == "_")
+				if($define_name[0] == "_" && $define_name[1] == "_")
 				{
 					continue;
 				}
@@ -382,7 +382,7 @@ for ($i = 0; $i < $entries->length; $i++)
 				$enum_name = $file_xpath->evaluate("name", $file_members->item($member))->item(0)->nodeValue;
 				
 				//If unnamed enum store on consts.json
-				if($enum_name{0} != "@")
+				if($enum_name[0] != "@")
 				{
 					if(!isset($enums[1]))
 						$enums[1] = array();
@@ -392,7 +392,7 @@ for ($i = 0; $i < $entries->length; $i++)
 				
 				$enum_values = $file_xpath->evaluate("enumvalue", $file_members->item($member));
 				
-				if($enum_name{0} != "@")
+				if($enum_name[0] != "@")
 				{
 					for($enum_value=0; $enum_value<$enum_values->length; $enum_value++)
 					{
@@ -415,7 +415,7 @@ for ($i = 0; $i < $entries->length; $i++)
 				{
 					$function_name = $file_xpath->evaluate("name", $file_members->item($member))->item(0)->nodeValue;
 					
-					if($function_name{0} == "w" && $function_name{1} == "x")
+					if($function_name[0] == "w" && $function_name[1] == "x")
 					{
 						$function_type = $file_xpath->evaluate("type", $file_members->item($member))->item(0)->nodeValue;
 						$function_brief_description = trim($file_xpath->evaluate("briefdescription", $file_members->item($member))->item(0)->nodeValue);
@@ -586,22 +586,30 @@ print "Classes with variables found: " . count($class_variables) . "\n";
 print "Class groups found: " . count($class_groups) . "\n";
 print "Structs found: " . count($structs) . "\n";
 print "Functions found: " . count($functions) . "\n";
-print "Class enumerations found: " . count($enums[0]) . "\n";
-print "Global enumerations found: " . count($enums[1]) . "\n";
+// Check if $enums is set and is an array
+if (isset($enums) && is_array($enums)) {
+    // Use null coalescing operator to provide a default value if the index does not exist
+    $classEnumsCount = isset($enums[0]) ? count($enums[0]) : 0;
+    $globalEnumsCount = isset($enums[1]) ? count($enums[1]) : 0;
 
+    print "Class enumerations found: " . $classEnumsCount . "\n";
+    print "Global enumerations found: " . $globalEnumsCount . "\n";
+} else {
+    print "No enumerations found.\n";
+}
 print "\n";
 print "Saving output to files...\n";
 
 //We save the output as indented json format to make possible manual editing
-file_put_contents("./../json/includes.json", serialize_json($includes));
-file_put_contents("./../json/classes.json", serialize_json($classes));
-file_put_contents("./../json/class_variables.json", serialize_json($class_variables));
-file_put_contents("./../json/class_groups.json", serialize_json($class_groups));
-file_put_contents("./../json/functions.json", serialize_json($functions));
-file_put_contents("./../json/enums.json", serialize_json($enums));
-file_put_contents("./../json/consts.json", serialize_json($defines));
-file_put_contents("./../json/typedef.json", serialize_json($typedef));
-file_put_contents("./../json/global_variables.json", serialize_json($global_variables));
+file_put_contents("./../json_new/includes.json", serialize_json($includes));
+file_put_contents("./../json_new/classes.json", serialize_json($classes));
+file_put_contents("./../json_new/class_variables.json", serialize_json($class_variables));
+file_put_contents("./../json_new/class_groups.json", serialize_json($class_groups));
+file_put_contents("./../json_new/functions.json", serialize_json($functions));
+file_put_contents("./../json_new/enums.json", serialize_json($enums));
+file_put_contents("./../json_new/consts.json", serialize_json($defines));
+file_put_contents("./../json_new/typedef.json", serialize_json($typedef));
+file_put_contents("./../json_new/global_variables.json", serialize_json($global_variables));
 
 print "Done.\n"
 

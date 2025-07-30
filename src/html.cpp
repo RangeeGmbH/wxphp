@@ -12345,30 +12345,18 @@ PHP_METHOD(php_wxHtmlLinkEvent, GetLinkInfo)
             case 0:
             {
                 #ifdef USE_WXPHP_DEBUG
-                php_printf("Executing wxHtmlLinkEvent::GetLinkInfo() to return object reference\n\n");
+                php_printf("Executing wxHtmlLinkEvent::GetLinkInfo() to return new object\n\n");
                 #endif
 
-                wxHtmlLinkInfo_php* value_to_return0;
-                value_to_return0 = (wxHtmlLinkInfo_php*) &((wxHtmlLinkEvent_php*)native_object)->GetLinkInfo();
-
-                if(value_to_return0->references.IsUserInitialized()){
-                    if(!Z_ISNULL(value_to_return0->phpObj)){
-                        ZVAL_COPY_VALUE(return_value, &value_to_return0->phpObj);
-                        zval_add_ref(&value_to_return0->phpObj);
-                        return_is_user_initialized = true;
-                    }
-                    else{
-                        zend_error(E_ERROR, "Could not retreive original zval.");
-                    }
-                }
-                else{
-                    object_init_ex(return_value,php_wxHtmlLinkInfo_entry);
-                    Z_wxHtmlLinkInfo_P(return_value)->native_object = (wxHtmlLinkInfo_php*) value_to_return0;
-                }
-
-                if((void*)value_to_return0 != (void*)native_object && return_is_user_initialized){ //Prevent adding references to it self
-                    references->AddReference(return_value, "wxHtmlLinkEvent::GetLinkInfo at call 6 with 0 argument(s)");
-                }
+                wxHtmlLinkInfo value_to_return0;
+                value_to_return0 = ((wxHtmlLinkEvent_php*)native_object)->GetLinkInfo();
+                ((wxRefCounter *) value_to_return0.GetRefData())->IncRef();
+                void* ptr = safe_emalloc(1, sizeof(wxHtmlLinkInfo_php), 0);
+                memcpy(ptr, (void*) &value_to_return0, sizeof(wxHtmlLinkInfo));
+                object_init_ex(return_value, php_wxHtmlLinkInfo_entry);
+                ((wxHtmlLinkInfo_php*)ptr)->phpObj = *return_value;
+                zo_wxHtmlLinkInfo* zo0 = Z_wxHtmlLinkInfo_P(return_value);
+                zo0->native_object = (wxHtmlLinkInfo_php*) ptr;
 
 
                 return;
@@ -18364,32 +18352,20 @@ PHP_METHOD(php_wxHtmlWinParser, GetActualColor)
             case 0:
             {
                 #ifdef USE_WXPHP_DEBUG
-                php_printf("Executing wxHtmlWinParser::GetActualColor() to return object reference\n\n");
+                php_printf("Executing wxHtmlWinParser::GetActualColor() to return new object\n\n");
                 #endif
 
-                wxColour_php* value_to_return0;
+                wxColour value_to_return0;
                 if(current_object_type == PHP_WXHTMLWINPARSER_TYPE)
                 {
-                    value_to_return0 = (wxColour_php*) &((wxHtmlWinParser_php*)native_object)->GetActualColor();
-
-                }
-                if(value_to_return0->references.IsUserInitialized()){
-                    if(!Z_ISNULL(value_to_return0->phpObj)){
-                        ZVAL_COPY_VALUE(return_value, &value_to_return0->phpObj);
-                        zval_add_ref(&value_to_return0->phpObj);
-                        return_is_user_initialized = true;
-                    }
-                    else{
-                        zend_error(E_ERROR, "Could not retreive original zval.");
-                    }
-                }
-                else{
-                    object_init_ex(return_value,php_wxColour_entry);
-                    Z_wxColour_P(return_value)->native_object = (wxColour_php*) value_to_return0;
-                }
-
-                if((void*)value_to_return0 != (void*)native_object && return_is_user_initialized){ //Prevent adding references to it self
-                    references->AddReference(return_value, "wxHtmlWinParser::GetActualColor at call 6 with 0 argument(s)");
+                    value_to_return0 = ((wxHtmlWinParser_php*)native_object)->GetActualColor();
+                    ((wxRefCounter *) value_to_return0.GetRefData())->IncRef();
+                    void* ptr = safe_emalloc(1, sizeof(wxColour_php), 0);
+                    memcpy(ptr, (void*) &value_to_return0, sizeof(wxColour));
+                    object_init_ex(return_value, php_wxColour_entry);
+                    ((wxColour_php*)ptr)->phpObj = *return_value;
+                    zo_wxColour* zo0 = Z_wxColour_P(return_value);
+                    zo0->native_object = (wxColour_php*) ptr;
                 }
 
 
@@ -19752,32 +19728,20 @@ PHP_METHOD(php_wxHtmlWinParser, GetLink)
             case 0:
             {
                 #ifdef USE_WXPHP_DEBUG
-                php_printf("Executing wxHtmlWinParser::GetLink() to return object reference\n\n");
+                php_printf("Executing wxHtmlWinParser::GetLink() to return new object\n\n");
                 #endif
 
-                wxHtmlLinkInfo_php* value_to_return0;
+                wxHtmlLinkInfo value_to_return0;
                 if(current_object_type == PHP_WXHTMLWINPARSER_TYPE)
                 {
-                    value_to_return0 = (wxHtmlLinkInfo_php*) &((wxHtmlWinParser_php*)native_object)->GetLink();
-
-                }
-                if(value_to_return0->references.IsUserInitialized()){
-                    if(!Z_ISNULL(value_to_return0->phpObj)){
-                        ZVAL_COPY_VALUE(return_value, &value_to_return0->phpObj);
-                        zval_add_ref(&value_to_return0->phpObj);
-                        return_is_user_initialized = true;
-                    }
-                    else{
-                        zend_error(E_ERROR, "Could not retreive original zval.");
-                    }
-                }
-                else{
-                    object_init_ex(return_value,php_wxHtmlLinkInfo_entry);
-                    Z_wxHtmlLinkInfo_P(return_value)->native_object = (wxHtmlLinkInfo_php*) value_to_return0;
-                }
-
-                if((void*)value_to_return0 != (void*)native_object && return_is_user_initialized){ //Prevent adding references to it self
-                    references->AddReference(return_value, "wxHtmlWinParser::GetLink at call 6 with 0 argument(s)");
+                    value_to_return0 = ((wxHtmlWinParser_php*)native_object)->GetLink();
+                    ((wxRefCounter *) value_to_return0.GetRefData())->IncRef();
+                    void* ptr = safe_emalloc(1, sizeof(wxHtmlLinkInfo_php), 0);
+                    memcpy(ptr, (void*) &value_to_return0, sizeof(wxHtmlLinkInfo));
+                    object_init_ex(return_value, php_wxHtmlLinkInfo_entry);
+                    ((wxHtmlLinkInfo_php*)ptr)->phpObj = *return_value;
+                    zo_wxHtmlLinkInfo* zo0 = Z_wxHtmlLinkInfo_P(return_value);
+                    zo0->native_object = (wxHtmlLinkInfo_php*) ptr;
                 }
 
 
@@ -19882,32 +19846,20 @@ PHP_METHOD(php_wxHtmlWinParser, GetLinkColor)
             case 0:
             {
                 #ifdef USE_WXPHP_DEBUG
-                php_printf("Executing wxHtmlWinParser::GetLinkColor() to return object reference\n\n");
+                php_printf("Executing wxHtmlWinParser::GetLinkColor() to return new object\n\n");
                 #endif
 
-                wxColour_php* value_to_return0;
+                wxColour value_to_return0;
                 if(current_object_type == PHP_WXHTMLWINPARSER_TYPE)
                 {
-                    value_to_return0 = (wxColour_php*) &((wxHtmlWinParser_php*)native_object)->GetLinkColor();
-
-                }
-                if(value_to_return0->references.IsUserInitialized()){
-                    if(!Z_ISNULL(value_to_return0->phpObj)){
-                        ZVAL_COPY_VALUE(return_value, &value_to_return0->phpObj);
-                        zval_add_ref(&value_to_return0->phpObj);
-                        return_is_user_initialized = true;
-                    }
-                    else{
-                        zend_error(E_ERROR, "Could not retreive original zval.");
-                    }
-                }
-                else{
-                    object_init_ex(return_value,php_wxColour_entry);
-                    Z_wxColour_P(return_value)->native_object = (wxColour_php*) value_to_return0;
-                }
-
-                if((void*)value_to_return0 != (void*)native_object && return_is_user_initialized){ //Prevent adding references to it self
-                    references->AddReference(return_value, "wxHtmlWinParser::GetLinkColor at call 6 with 0 argument(s)");
+                    value_to_return0 = ((wxHtmlWinParser_php*)native_object)->GetLinkColor();
+                    ((wxRefCounter *) value_to_return0.GetRefData())->IncRef();
+                    void* ptr = safe_emalloc(1, sizeof(wxColour_php), 0);
+                    memcpy(ptr, (void*) &value_to_return0, sizeof(wxColour));
+                    object_init_ex(return_value, php_wxColour_entry);
+                    ((wxColour_php*)ptr)->phpObj = *return_value;
+                    zo_wxColour* zo0 = Z_wxColour_P(return_value);
+                    zo0->native_object = (wxColour_php*) ptr;
                 }
 
 

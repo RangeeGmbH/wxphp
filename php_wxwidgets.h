@@ -23,7 +23,7 @@
  * Define Extension Properties
  */
 #define PHP_WXWIDGETS_EXTNAME        "wxWidgets"
-#define PHP_WXWIDGETS_VERSION        "3.0.5.1"
+#define PHP_WXWIDGETS_VERSION        "3.2.4"
 
 /**
  * Define php compatible library version string
@@ -1273,12 +1273,13 @@ PHP_METHOD(php_wxAuiManager, DetachPane);
 PHP_METHOD(php_wxAuiManager, AddPane);
 PHP_METHOD(php_wxAuiManager, Connect);
 PHP_METHOD(php_wxAuiDockArt, __construct);
+PHP_METHOD(php_wxAuiDockArt, CloneMethod);
 PHP_METHOD(php_wxAuiDockArt, SetMetric);
 PHP_METHOD(php_wxAuiDockArt, SetFont);
 PHP_METHOD(php_wxAuiDockArt, GetMetric);
 PHP_METHOD(php_wxAuiDockArt, SetColour);
-PHP_METHOD(php_wxAuiDockArt, GetFont);
 PHP_METHOD(php_wxAuiDockArt, GetColour);
+PHP_METHOD(php_wxAuiDockArt, GetFont);
 PHP_METHOD(php_wxAuiDockArt, DrawSash);
 PHP_METHOD(php_wxAuiDockArt, DrawPaneButton);
 PHP_METHOD(php_wxAuiDockArt, DrawGripper);
@@ -1661,7 +1662,6 @@ PHP_METHOD(php_wxStyledTextCtrl, GetFoldParent);
 PHP_METHOD(php_wxStyledTextCtrl, GetHighlightGuide);
 PHP_METHOD(php_wxStyledTextCtrl, GetIndent);
 PHP_METHOD(php_wxStyledTextCtrl, GetIndentationGuides);
-PHP_METHOD(php_wxStyledTextCtrl, GetKeysUnicode);
 PHP_METHOD(php_wxStyledTextCtrl, GetLastChild);
 PHP_METHOD(php_wxStyledTextCtrl, GetLastKeydownProcessed);
 PHP_METHOD(php_wxStyledTextCtrl, GetLayoutCache);
@@ -1893,7 +1893,6 @@ PHP_METHOD(php_wxStyledTextCtrl, SetHotspotSingleLine);
 PHP_METHOD(php_wxStyledTextCtrl, SetIndent);
 PHP_METHOD(php_wxStyledTextCtrl, SetIndentationGuides);
 PHP_METHOD(php_wxStyledTextCtrl, SetKeyWords);
-PHP_METHOD(php_wxStyledTextCtrl, SetKeysUnicode);
 PHP_METHOD(php_wxStyledTextCtrl, SetLastKeydownProcessed);
 PHP_METHOD(php_wxStyledTextCtrl, SetLayoutCache);
 PHP_METHOD(php_wxStyledTextCtrl, SetLexer);
@@ -3054,8 +3053,6 @@ PHP_METHOD(php_wxTimer, Start);
 PHP_METHOD(php_wxTimer, Stop);
 PHP_METHOD(php_wxTimer, __construct);
 PHP_METHOD(php_wxTimer, Connect);
-PHP_METHOD(php_wxTimerEvent, GetInterval);
-PHP_METHOD(php_wxTimerEvent, __construct);
 PHP_METHOD(php_wxThreadEvent, CloneMethod);
 PHP_METHOD(php_wxThreadEvent, GetExtraLong);
 PHP_METHOD(php_wxThreadEvent, GetEventCategory);
@@ -4293,7 +4290,6 @@ PHP_METHOD(php_wxGridCellStringRenderer, __construct);
 PHP_METHOD(php_wxGridCellTextEditor, __construct);
 PHP_METHOD(php_wxGridCellTextEditor, SetParameters);
 PHP_METHOD(php_wxGridColumnHeaderRendererDefault, DrawBorder);
-PHP_METHOD(php_wxGridCornerHeaderRenderer, DrawBorder);
 PHP_METHOD(php_wxGridCornerHeaderRendererDefault, DrawBorder);
 PHP_METHOD(php_wxGridEditorCreatedEvent, GetCol);
 PHP_METHOD(php_wxGridEditorCreatedEvent, GetControl);
@@ -4302,6 +4298,7 @@ PHP_METHOD(php_wxGridEditorCreatedEvent, SetCol);
 PHP_METHOD(php_wxGridEditorCreatedEvent, SetControl);
 PHP_METHOD(php_wxGridEditorCreatedEvent, SetRow);
 PHP_METHOD(php_wxGridEditorCreatedEvent, __construct);
+PHP_METHOD(php_wxGridHeaderLabelsRenderer, DrawBorder);
 PHP_METHOD(php_wxGridHeaderLabelsRenderer, DrawLabel);
 PHP_METHOD(php_wxGridRangeSelectEvent, AltDown);
 PHP_METHOD(php_wxGridRangeSelectEvent, ControlDown);
@@ -4610,7 +4607,6 @@ PHP_METHOD(php_wxDataViewEvent, SetDataObject);
 PHP_METHOD(php_wxDataViewEvent, SetDataViewColumn);
 PHP_METHOD(php_wxDataViewEvent, SetModel);
 PHP_METHOD(php_wxDataViewEvent, SetValue);
-PHP_METHOD(php_wxDataViewEvent, __construct);
 PHP_METHOD(php_wxDataFormat, GetId);
 PHP_METHOD(php_wxDataFormat, GetType);
 PHP_METHOD(php_wxDataFormat, SetId);
@@ -5426,7 +5422,6 @@ PHP_METHOD(php_wxBufferedDC, Init);
 PHP_METHOD(php_wxBufferedDC, __construct);
 PHP_METHOD(php_wxBufferedPaintDC, __construct);
 PHP_METHOD(php_wxClientDC, __construct);
-PHP_METHOD(php_wxPaintEvent, __construct);
 PHP_METHOD(php_wxPaintDC, __construct);
 PHP_METHOD(php_wxMemoryDC, SelectObject);
 PHP_METHOD(php_wxMemoryDC, SelectObjectAsSource);

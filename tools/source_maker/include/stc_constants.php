@@ -14,36 +14,6 @@
 */
 
 //Event types
-$defConsts["wxEVT_STC_CHANGE"] = true;
-$defConsts["wxEVT_STC_STYLENEEDED"] = true;
-$defConsts["wxEVT_STC_CHARADDED"] = true;
-$defConsts["wxEVT_STC_SAVEPOINTREACHED"] = true;
-$defConsts["wxEVT_STC_SAVEPOINTLEFT"] = true;
-$defConsts["wxEVT_STC_ROMODIFYATTEMPT"] = true;
-$defConsts["wxEVT_STC_KEY"] = true;
-$defConsts["wxEVT_STC_DOUBLECLICK"] = true;
-$defConsts["wxEVT_STC_UPDATEUI"] = true;
-$defConsts["wxEVT_STC_MODIFIED"] = true;
-$defConsts["wxEVT_STC_MACRORECORD"] = true;
-$defConsts["wxEVT_STC_MARGINCLICK"] = true;
-$defConsts["wxEVT_STC_NEEDSHOWN"] = true;
-$defConsts["wxEVT_STC_PAINTED"] = true;
-$defConsts["wxEVT_STC_USERLISTSELECTION"] = true;
-$defConsts["wxEVT_STC_URIDROPPED"] = true;
-$defConsts["wxEVT_STC_DWELLSTART"] = true;
-$defConsts["wxEVT_STC_DWELLEND"] = true;
-$defConsts["wxEVT_STC_START_DRAG"] = true;
-$defConsts["wxEVT_STC_DRAG_OVER"] = true;
-$defConsts["wxEVT_STC_DO_DROP"] = true;
-$defConsts["wxEVT_STC_ZOOM"] = true;
-$defConsts["wxEVT_STC_HOTSPOT_CLICK"] = true;
-$defConsts["wxEVT_STC_HOTSPOT_DCLICK"] = true;
-$defConsts["wxEVT_STC_CALLTIP_CLICK"] = true;
-$defConsts["wxEVT_STC_AUTOCOMP_SELECTION"] = true;
-$defConsts["wxEVT_STC_INDICATOR_CLICK"] = true;
-$defConsts["wxEVT_STC_INDICATOR_RELEASE"] = true;
-$defConsts["wxEVT_STC_AUTOCOMP_CANCELLED"] = true;
-$defConsts["wxEVT_STC_AUTOCOMP_CHAR_DELETED"] = true;
 
 $defConsts["wxSTC_INVALID_POSITION"] = true;
 
@@ -64,7 +34,6 @@ $defConsts["wxSTC_EOL_LF"] = true;
 $defConsts["wxSTC_CP_UTF8"] = true;
 
 // The SC_CP_DBCS value can be used to indicate a DBCS mode for GTK+.
-$defConsts["wxSTC_CP_DBCS"] = true;
 $defConsts["wxSTC_MARKER_MAX"] = true;
 $defConsts["wxSTC_MARK_CIRCLE"] = true;
 $defConsts["wxSTC_MARK_ROUNDRECT"] = true;
@@ -281,9 +250,6 @@ $defConsts["wxSTC_ANNOTATION_HIDDEN"] = true;
 $defConsts["wxSTC_ANNOTATION_STANDARD"] = true;
 $defConsts["wxSTC_ANNOTATION_BOXED"] = true;
 $defConsts["wxSTC_UNDO_MAY_COALESCE"] = true;
-$defConsts["wxSTC_SCVS_NONE"] = true;
-$defConsts["wxSTC_SCVS_RECTANGULARSELECTION"] = true;
-$defConsts["wxSTC_SCVS_USERACCESSIBLE"] = true;
 
 // Maximum value of keywordSet parameter of SetKeyWords.
 $defConsts["wxSTC_KEYWORDSET_MAX"] = true;
@@ -336,11 +302,6 @@ $defConsts["wxSTC_KEY_DIVIDE"] = true;
 $defConsts["wxSTC_KEY_WIN"] = true;
 $defConsts["wxSTC_KEY_RWIN"] = true;
 $defConsts["wxSTC_KEY_MENU"] = true;
-$defConsts["wxSTC_SCMOD_NORM"] = true;
-$defConsts["wxSTC_SCMOD_SHIFT"] = true;
-$defConsts["wxSTC_SCMOD_CTRL"] = true;
-$defConsts["wxSTC_SCMOD_ALT"] = true;
-$defConsts["wxSTC_SCMOD_SUPER"] = true;
 
 // For SciLexer.h
 $defConsts["wxSTC_LEX_CONTAINER"] = true;
@@ -1552,11 +1513,6 @@ $defConsts["wxSTC_FS_IDENTIFIER"] = true;
 $defConsts["wxSTC_FS_DATE"] = true;
 $defConsts["wxSTC_FS_STRINGEOL"] = true;
 $defConsts["wxSTC_FS_CONSTANT"] = true;
-$defConsts["wxSTC_FS_ASM"] = true;
-$defConsts["wxSTC_FS_LABEL"] = true;
-$defConsts["wxSTC_FS_ERROR"] = true;
-$defConsts["wxSTC_FS_HEXNUMBER"] = true;
-$defConsts["wxSTC_FS_BINNUMBER"] = true;
 
 // Lexical states for SCLEX_CSOUND
 $defConsts["wxSTC_CSOUND_DEFAULT"] = true;
@@ -1656,38 +1612,6 @@ $defConsts["wxSTC_PLM_CONTROL"] = true;
 $defConsts["wxSTC_PLM_KEYWORD"] = true;
 
 // Lexical state for SCLEX_PROGRESS
-$defConsts["wxSTC_4GL_DEFAULT"] = true;
-$defConsts["wxSTC_4GL_NUMBER"] = true;
-$defConsts["wxSTC_4GL_WORD"] = true;
-$defConsts["wxSTC_4GL_STRING"] = true;
-$defConsts["wxSTC_4GL_CHARACTER"] = true;
-$defConsts["wxSTC_4GL_PREPROCESSOR"] = true;
-$defConsts["wxSTC_4GL_OPERATOR"] = true;
-$defConsts["wxSTC_4GL_IDENTIFIER"] = true;
-$defConsts["wxSTC_4GL_BLOCK"] = true;
-$defConsts["wxSTC_4GL_END"] = true;
-$defConsts["wxSTC_4GL_COMMENT1"] = true;
-$defConsts["wxSTC_4GL_COMMENT2"] = true;
-$defConsts["wxSTC_4GL_COMMENT3"] = true;
-$defConsts["wxSTC_4GL_COMMENT4"] = true;
-$defConsts["wxSTC_4GL_COMMENT5"] = true;
-$defConsts["wxSTC_4GL_COMMENT6"] = true;
-$defConsts["wxSTC_4GL_DEFAULT_"] = true;
-$defConsts["wxSTC_4GL_NUMBER_"] = true;
-$defConsts["wxSTC_4GL_WORD_"] = true;
-$defConsts["wxSTC_4GL_STRING_"] = true;
-$defConsts["wxSTC_4GL_CHARACTER_"] = true;
-$defConsts["wxSTC_4GL_PREPROCESSOR_"] = true;
-$defConsts["wxSTC_4GL_OPERATOR_"] = true;
-$defConsts["wxSTC_4GL_IDENTIFIER_"] = true;
-$defConsts["wxSTC_4GL_BLOCK_"] = true;
-$defConsts["wxSTC_4GL_END_"] = true;
-$defConsts["wxSTC_4GL_COMMENT1_"] = true;
-$defConsts["wxSTC_4GL_COMMENT2_"] = true;
-$defConsts["wxSTC_4GL_COMMENT3_"] = true;
-$defConsts["wxSTC_4GL_COMMENT4_"] = true;
-$defConsts["wxSTC_4GL_COMMENT5_"] = true;
-$defConsts["wxSTC_4GL_COMMENT6_"] = true;
 
 // Lexical states for SCLEX_ABAQUS
 $defConsts["wxSTC_ABAQUS_DEFAULT"] = true;

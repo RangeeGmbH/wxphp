@@ -6430,30 +6430,18 @@ PHP_METHOD(php_wxCalendarCtrl, GetHeaderColourBg)
             case 0:
             {
                 #ifdef USE_WXPHP_DEBUG
-                php_printf("Executing wxCalendarCtrl::GetHeaderColourBg() to return object reference\n\n");
+                php_printf("Executing wxCalendarCtrl::GetHeaderColourBg() to return new object\n\n");
                 #endif
 
-                wxColour_php* value_to_return0;
-                value_to_return0 = (wxColour_php*) &((wxCalendarCtrl_php*)native_object)->GetHeaderColourBg();
-
-                if(value_to_return0->references.IsUserInitialized()){
-                    if(!Z_ISNULL(value_to_return0->phpObj)){
-                        ZVAL_COPY_VALUE(return_value, &value_to_return0->phpObj);
-                        zval_add_ref(&value_to_return0->phpObj);
-                        return_is_user_initialized = true;
-                    }
-                    else{
-                        zend_error(E_ERROR, "Could not retreive original zval.");
-                    }
-                }
-                else{
-                    object_init_ex(return_value,php_wxColour_entry);
-                    Z_wxColour_P(return_value)->native_object = (wxColour_php*) value_to_return0;
-                }
-
-                if((void*)value_to_return0 != (void*)native_object && return_is_user_initialized){ //Prevent adding references to it self
-                    references->AddReference(return_value, "wxCalendarCtrl::GetHeaderColourBg at call 6 with 0 argument(s)");
-                }
+                wxColour value_to_return0;
+                value_to_return0 = ((wxCalendarCtrl_php*)native_object)->GetHeaderColourBg();
+                ((wxRefCounter *) value_to_return0.GetRefData())->IncRef();
+                void* ptr = safe_emalloc(1, sizeof(wxColour_php), 0);
+                memcpy(ptr, (void*) &value_to_return0, sizeof(wxColour));
+                object_init_ex(return_value, php_wxColour_entry);
+                ((wxColour_php*)ptr)->phpObj = *return_value;
+                zo_wxColour* zo0 = Z_wxColour_P(return_value);
+                zo0->native_object = (wxColour_php*) ptr;
 
 
                 return;
@@ -6557,30 +6545,18 @@ PHP_METHOD(php_wxCalendarCtrl, GetHeaderColourFg)
             case 0:
             {
                 #ifdef USE_WXPHP_DEBUG
-                php_printf("Executing wxCalendarCtrl::GetHeaderColourFg() to return object reference\n\n");
+                php_printf("Executing wxCalendarCtrl::GetHeaderColourFg() to return new object\n\n");
                 #endif
 
-                wxColour_php* value_to_return0;
-                value_to_return0 = (wxColour_php*) &((wxCalendarCtrl_php*)native_object)->GetHeaderColourFg();
-
-                if(value_to_return0->references.IsUserInitialized()){
-                    if(!Z_ISNULL(value_to_return0->phpObj)){
-                        ZVAL_COPY_VALUE(return_value, &value_to_return0->phpObj);
-                        zval_add_ref(&value_to_return0->phpObj);
-                        return_is_user_initialized = true;
-                    }
-                    else{
-                        zend_error(E_ERROR, "Could not retreive original zval.");
-                    }
-                }
-                else{
-                    object_init_ex(return_value,php_wxColour_entry);
-                    Z_wxColour_P(return_value)->native_object = (wxColour_php*) value_to_return0;
-                }
-
-                if((void*)value_to_return0 != (void*)native_object && return_is_user_initialized){ //Prevent adding references to it self
-                    references->AddReference(return_value, "wxCalendarCtrl::GetHeaderColourFg at call 6 with 0 argument(s)");
-                }
+                wxColour value_to_return0;
+                value_to_return0 = ((wxCalendarCtrl_php*)native_object)->GetHeaderColourFg();
+                ((wxRefCounter *) value_to_return0.GetRefData())->IncRef();
+                void* ptr = safe_emalloc(1, sizeof(wxColour_php), 0);
+                memcpy(ptr, (void*) &value_to_return0, sizeof(wxColour));
+                object_init_ex(return_value, php_wxColour_entry);
+                ((wxColour_php*)ptr)->phpObj = *return_value;
+                zo_wxColour* zo0 = Z_wxColour_P(return_value);
+                zo0->native_object = (wxColour_php*) ptr;
 
 
                 return;
@@ -6684,30 +6660,18 @@ PHP_METHOD(php_wxCalendarCtrl, GetHighlightColourBg)
             case 0:
             {
                 #ifdef USE_WXPHP_DEBUG
-                php_printf("Executing wxCalendarCtrl::GetHighlightColourBg() to return object reference\n\n");
+                php_printf("Executing wxCalendarCtrl::GetHighlightColourBg() to return new object\n\n");
                 #endif
 
-                wxColour_php* value_to_return0;
-                value_to_return0 = (wxColour_php*) &((wxCalendarCtrl_php*)native_object)->GetHighlightColourBg();
-
-                if(value_to_return0->references.IsUserInitialized()){
-                    if(!Z_ISNULL(value_to_return0->phpObj)){
-                        ZVAL_COPY_VALUE(return_value, &value_to_return0->phpObj);
-                        zval_add_ref(&value_to_return0->phpObj);
-                        return_is_user_initialized = true;
-                    }
-                    else{
-                        zend_error(E_ERROR, "Could not retreive original zval.");
-                    }
-                }
-                else{
-                    object_init_ex(return_value,php_wxColour_entry);
-                    Z_wxColour_P(return_value)->native_object = (wxColour_php*) value_to_return0;
-                }
-
-                if((void*)value_to_return0 != (void*)native_object && return_is_user_initialized){ //Prevent adding references to it self
-                    references->AddReference(return_value, "wxCalendarCtrl::GetHighlightColourBg at call 6 with 0 argument(s)");
-                }
+                wxColour value_to_return0;
+                value_to_return0 = ((wxCalendarCtrl_php*)native_object)->GetHighlightColourBg();
+                ((wxRefCounter *) value_to_return0.GetRefData())->IncRef();
+                void* ptr = safe_emalloc(1, sizeof(wxColour_php), 0);
+                memcpy(ptr, (void*) &value_to_return0, sizeof(wxColour));
+                object_init_ex(return_value, php_wxColour_entry);
+                ((wxColour_php*)ptr)->phpObj = *return_value;
+                zo_wxColour* zo0 = Z_wxColour_P(return_value);
+                zo0->native_object = (wxColour_php*) ptr;
 
 
                 return;
@@ -6811,30 +6775,18 @@ PHP_METHOD(php_wxCalendarCtrl, GetHighlightColourFg)
             case 0:
             {
                 #ifdef USE_WXPHP_DEBUG
-                php_printf("Executing wxCalendarCtrl::GetHighlightColourFg() to return object reference\n\n");
+                php_printf("Executing wxCalendarCtrl::GetHighlightColourFg() to return new object\n\n");
                 #endif
 
-                wxColour_php* value_to_return0;
-                value_to_return0 = (wxColour_php*) &((wxCalendarCtrl_php*)native_object)->GetHighlightColourFg();
-
-                if(value_to_return0->references.IsUserInitialized()){
-                    if(!Z_ISNULL(value_to_return0->phpObj)){
-                        ZVAL_COPY_VALUE(return_value, &value_to_return0->phpObj);
-                        zval_add_ref(&value_to_return0->phpObj);
-                        return_is_user_initialized = true;
-                    }
-                    else{
-                        zend_error(E_ERROR, "Could not retreive original zval.");
-                    }
-                }
-                else{
-                    object_init_ex(return_value,php_wxColour_entry);
-                    Z_wxColour_P(return_value)->native_object = (wxColour_php*) value_to_return0;
-                }
-
-                if((void*)value_to_return0 != (void*)native_object && return_is_user_initialized){ //Prevent adding references to it self
-                    references->AddReference(return_value, "wxCalendarCtrl::GetHighlightColourFg at call 6 with 0 argument(s)");
-                }
+                wxColour value_to_return0;
+                value_to_return0 = ((wxCalendarCtrl_php*)native_object)->GetHighlightColourFg();
+                ((wxRefCounter *) value_to_return0.GetRefData())->IncRef();
+                void* ptr = safe_emalloc(1, sizeof(wxColour_php), 0);
+                memcpy(ptr, (void*) &value_to_return0, sizeof(wxColour));
+                object_init_ex(return_value, php_wxColour_entry);
+                ((wxColour_php*)ptr)->phpObj = *return_value;
+                zo_wxColour* zo0 = Z_wxColour_P(return_value);
+                zo0->native_object = (wxColour_php*) ptr;
 
 
                 return;
@@ -6938,30 +6890,18 @@ PHP_METHOD(php_wxCalendarCtrl, GetHolidayColourBg)
             case 0:
             {
                 #ifdef USE_WXPHP_DEBUG
-                php_printf("Executing wxCalendarCtrl::GetHolidayColourBg() to return object reference\n\n");
+                php_printf("Executing wxCalendarCtrl::GetHolidayColourBg() to return new object\n\n");
                 #endif
 
-                wxColour_php* value_to_return0;
-                value_to_return0 = (wxColour_php*) &((wxCalendarCtrl_php*)native_object)->GetHolidayColourBg();
-
-                if(value_to_return0->references.IsUserInitialized()){
-                    if(!Z_ISNULL(value_to_return0->phpObj)){
-                        ZVAL_COPY_VALUE(return_value, &value_to_return0->phpObj);
-                        zval_add_ref(&value_to_return0->phpObj);
-                        return_is_user_initialized = true;
-                    }
-                    else{
-                        zend_error(E_ERROR, "Could not retreive original zval.");
-                    }
-                }
-                else{
-                    object_init_ex(return_value,php_wxColour_entry);
-                    Z_wxColour_P(return_value)->native_object = (wxColour_php*) value_to_return0;
-                }
-
-                if((void*)value_to_return0 != (void*)native_object && return_is_user_initialized){ //Prevent adding references to it self
-                    references->AddReference(return_value, "wxCalendarCtrl::GetHolidayColourBg at call 6 with 0 argument(s)");
-                }
+                wxColour value_to_return0;
+                value_to_return0 = ((wxCalendarCtrl_php*)native_object)->GetHolidayColourBg();
+                ((wxRefCounter *) value_to_return0.GetRefData())->IncRef();
+                void* ptr = safe_emalloc(1, sizeof(wxColour_php), 0);
+                memcpy(ptr, (void*) &value_to_return0, sizeof(wxColour));
+                object_init_ex(return_value, php_wxColour_entry);
+                ((wxColour_php*)ptr)->phpObj = *return_value;
+                zo_wxColour* zo0 = Z_wxColour_P(return_value);
+                zo0->native_object = (wxColour_php*) ptr;
 
 
                 return;
@@ -7065,30 +7005,18 @@ PHP_METHOD(php_wxCalendarCtrl, GetHolidayColourFg)
             case 0:
             {
                 #ifdef USE_WXPHP_DEBUG
-                php_printf("Executing wxCalendarCtrl::GetHolidayColourFg() to return object reference\n\n");
+                php_printf("Executing wxCalendarCtrl::GetHolidayColourFg() to return new object\n\n");
                 #endif
 
-                wxColour_php* value_to_return0;
-                value_to_return0 = (wxColour_php*) &((wxCalendarCtrl_php*)native_object)->GetHolidayColourFg();
-
-                if(value_to_return0->references.IsUserInitialized()){
-                    if(!Z_ISNULL(value_to_return0->phpObj)){
-                        ZVAL_COPY_VALUE(return_value, &value_to_return0->phpObj);
-                        zval_add_ref(&value_to_return0->phpObj);
-                        return_is_user_initialized = true;
-                    }
-                    else{
-                        zend_error(E_ERROR, "Could not retreive original zval.");
-                    }
-                }
-                else{
-                    object_init_ex(return_value,php_wxColour_entry);
-                    Z_wxColour_P(return_value)->native_object = (wxColour_php*) value_to_return0;
-                }
-
-                if((void*)value_to_return0 != (void*)native_object && return_is_user_initialized){ //Prevent adding references to it self
-                    references->AddReference(return_value, "wxCalendarCtrl::GetHolidayColourFg at call 6 with 0 argument(s)");
-                }
+                wxColour value_to_return0;
+                value_to_return0 = ((wxCalendarCtrl_php*)native_object)->GetHolidayColourFg();
+                ((wxRefCounter *) value_to_return0.GetRefData())->IncRef();
+                void* ptr = safe_emalloc(1, sizeof(wxColour_php), 0);
+                memcpy(ptr, (void*) &value_to_return0, sizeof(wxColour));
+                object_init_ex(return_value, php_wxColour_entry);
+                ((wxColour_php*)ptr)->phpObj = *return_value;
+                zo_wxColour* zo0 = Z_wxColour_P(return_value);
+                zo0->native_object = (wxColour_php*) ptr;
 
 
                 return;
@@ -20034,30 +19962,18 @@ PHP_METHOD(php_wxComboCtrl, GetTextRect)
             case 0:
             {
                 #ifdef USE_WXPHP_DEBUG
-                php_printf("Executing wxComboCtrl::GetTextRect() to return object reference\n\n");
+                php_printf("Executing wxComboCtrl::GetTextRect() to return new object\n\n");
                 #endif
 
-                wxRect_php* value_to_return0;
-                value_to_return0 = (wxRect_php*) &((wxComboCtrl_php*)native_object)->GetTextRect();
-
-                if(value_to_return0->references.IsUserInitialized()){
-                    if(!Z_ISNULL(value_to_return0->phpObj)){
-                        ZVAL_COPY_VALUE(return_value, &value_to_return0->phpObj);
-                        zval_add_ref(&value_to_return0->phpObj);
-                        return_is_user_initialized = true;
-                    }
-                    else{
-                        zend_error(E_ERROR, "Could not retreive original zval.");
-                    }
-                }
-                else{
-                    object_init_ex(return_value,php_wxRect_entry);
-                    Z_wxRect_P(return_value)->native_object = (wxRect_php*) value_to_return0;
-                }
-
-                if((void*)value_to_return0 != (void*)native_object && return_is_user_initialized){ //Prevent adding references to it self
-                    references->AddReference(return_value, "wxComboCtrl::GetTextRect at call 6 with 0 argument(s)");
-                }
+                wxRect value_to_return0;
+                value_to_return0 = ((wxComboCtrl_php*)native_object)->GetTextRect();
+                void* ptr = safe_emalloc(1, sizeof(wxRect_php), 0);
+                memcpy(ptr, (void*) &value_to_return0, sizeof(wxRect));
+                object_init_ex(return_value, php_wxRect_entry);
+                ((wxRect_php*)ptr)->phpObj = *return_value;
+                ((wxRect_php*)ptr)->InitProperties();
+                zo_wxRect* zo0 = Z_wxRect_P(return_value);
+                zo0->native_object = (wxRect_php*) ptr;
 
 
                 return;
@@ -21318,30 +21234,18 @@ PHP_METHOD(php_wxComboCtrl, GetBitmapPressed)
             case 0:
             {
                 #ifdef USE_WXPHP_DEBUG
-                php_printf("Executing wxComboCtrl::GetBitmapPressed() to return object reference\n\n");
+                php_printf("Executing wxComboCtrl::GetBitmapPressed() to return new object\n\n");
                 #endif
 
-                wxBitmap_php* value_to_return0;
-                value_to_return0 = (wxBitmap_php*) &((wxComboCtrl_php*)native_object)->GetBitmapPressed();
-
-                if(value_to_return0->references.IsUserInitialized()){
-                    if(!Z_ISNULL(value_to_return0->phpObj)){
-                        ZVAL_COPY_VALUE(return_value, &value_to_return0->phpObj);
-                        zval_add_ref(&value_to_return0->phpObj);
-                        return_is_user_initialized = true;
-                    }
-                    else{
-                        zend_error(E_ERROR, "Could not retreive original zval.");
-                    }
-                }
-                else{
-                    object_init_ex(return_value,php_wxBitmap_entry);
-                    Z_wxBitmap_P(return_value)->native_object = (wxBitmap_php*) value_to_return0;
-                }
-
-                if((void*)value_to_return0 != (void*)native_object && return_is_user_initialized){ //Prevent adding references to it self
-                    references->AddReference(return_value, "wxComboCtrl::GetBitmapPressed at call 6 with 0 argument(s)");
-                }
+                wxBitmap value_to_return0;
+                value_to_return0 = ((wxComboCtrl_php*)native_object)->GetBitmapPressed();
+                ((wxRefCounter *) value_to_return0.GetRefData())->IncRef();
+                void* ptr = safe_emalloc(1, sizeof(wxBitmap_php), 0);
+                memcpy(ptr, (void*) &value_to_return0, sizeof(wxBitmap));
+                object_init_ex(return_value, php_wxBitmap_entry);
+                ((wxBitmap_php*)ptr)->phpObj = *return_value;
+                zo_wxBitmap* zo0 = Z_wxBitmap_P(return_value);
+                zo0->native_object = (wxBitmap_php*) ptr;
 
 
                 return;
@@ -21445,30 +21349,18 @@ PHP_METHOD(php_wxComboCtrl, GetBitmapNormal)
             case 0:
             {
                 #ifdef USE_WXPHP_DEBUG
-                php_printf("Executing wxComboCtrl::GetBitmapNormal() to return object reference\n\n");
+                php_printf("Executing wxComboCtrl::GetBitmapNormal() to return new object\n\n");
                 #endif
 
-                wxBitmap_php* value_to_return0;
-                value_to_return0 = (wxBitmap_php*) &((wxComboCtrl_php*)native_object)->GetBitmapNormal();
-
-                if(value_to_return0->references.IsUserInitialized()){
-                    if(!Z_ISNULL(value_to_return0->phpObj)){
-                        ZVAL_COPY_VALUE(return_value, &value_to_return0->phpObj);
-                        zval_add_ref(&value_to_return0->phpObj);
-                        return_is_user_initialized = true;
-                    }
-                    else{
-                        zend_error(E_ERROR, "Could not retreive original zval.");
-                    }
-                }
-                else{
-                    object_init_ex(return_value,php_wxBitmap_entry);
-                    Z_wxBitmap_P(return_value)->native_object = (wxBitmap_php*) value_to_return0;
-                }
-
-                if((void*)value_to_return0 != (void*)native_object && return_is_user_initialized){ //Prevent adding references to it self
-                    references->AddReference(return_value, "wxComboCtrl::GetBitmapNormal at call 6 with 0 argument(s)");
-                }
+                wxBitmap value_to_return0;
+                value_to_return0 = ((wxComboCtrl_php*)native_object)->GetBitmapNormal();
+                ((wxRefCounter *) value_to_return0.GetRefData())->IncRef();
+                void* ptr = safe_emalloc(1, sizeof(wxBitmap_php), 0);
+                memcpy(ptr, (void*) &value_to_return0, sizeof(wxBitmap));
+                object_init_ex(return_value, php_wxBitmap_entry);
+                ((wxBitmap_php*)ptr)->phpObj = *return_value;
+                zo_wxBitmap* zo0 = Z_wxBitmap_P(return_value);
+                zo0->native_object = (wxBitmap_php*) ptr;
 
 
                 return;
@@ -21572,30 +21464,18 @@ PHP_METHOD(php_wxComboCtrl, GetBitmapHover)
             case 0:
             {
                 #ifdef USE_WXPHP_DEBUG
-                php_printf("Executing wxComboCtrl::GetBitmapHover() to return object reference\n\n");
+                php_printf("Executing wxComboCtrl::GetBitmapHover() to return new object\n\n");
                 #endif
 
-                wxBitmap_php* value_to_return0;
-                value_to_return0 = (wxBitmap_php*) &((wxComboCtrl_php*)native_object)->GetBitmapHover();
-
-                if(value_to_return0->references.IsUserInitialized()){
-                    if(!Z_ISNULL(value_to_return0->phpObj)){
-                        ZVAL_COPY_VALUE(return_value, &value_to_return0->phpObj);
-                        zval_add_ref(&value_to_return0->phpObj);
-                        return_is_user_initialized = true;
-                    }
-                    else{
-                        zend_error(E_ERROR, "Could not retreive original zval.");
-                    }
-                }
-                else{
-                    object_init_ex(return_value,php_wxBitmap_entry);
-                    Z_wxBitmap_P(return_value)->native_object = (wxBitmap_php*) value_to_return0;
-                }
-
-                if((void*)value_to_return0 != (void*)native_object && return_is_user_initialized){ //Prevent adding references to it self
-                    references->AddReference(return_value, "wxComboCtrl::GetBitmapHover at call 6 with 0 argument(s)");
-                }
+                wxBitmap value_to_return0;
+                value_to_return0 = ((wxComboCtrl_php*)native_object)->GetBitmapHover();
+                ((wxRefCounter *) value_to_return0.GetRefData())->IncRef();
+                void* ptr = safe_emalloc(1, sizeof(wxBitmap_php), 0);
+                memcpy(ptr, (void*) &value_to_return0, sizeof(wxBitmap));
+                object_init_ex(return_value, php_wxBitmap_entry);
+                ((wxBitmap_php*)ptr)->phpObj = *return_value;
+                zo_wxBitmap* zo0 = Z_wxBitmap_P(return_value);
+                zo0->native_object = (wxBitmap_php*) ptr;
 
 
                 return;
@@ -21699,30 +21579,18 @@ PHP_METHOD(php_wxComboCtrl, GetBitmapDisabled)
             case 0:
             {
                 #ifdef USE_WXPHP_DEBUG
-                php_printf("Executing wxComboCtrl::GetBitmapDisabled() to return object reference\n\n");
+                php_printf("Executing wxComboCtrl::GetBitmapDisabled() to return new object\n\n");
                 #endif
 
-                wxBitmap_php* value_to_return0;
-                value_to_return0 = (wxBitmap_php*) &((wxComboCtrl_php*)native_object)->GetBitmapDisabled();
-
-                if(value_to_return0->references.IsUserInitialized()){
-                    if(!Z_ISNULL(value_to_return0->phpObj)){
-                        ZVAL_COPY_VALUE(return_value, &value_to_return0->phpObj);
-                        zval_add_ref(&value_to_return0->phpObj);
-                        return_is_user_initialized = true;
-                    }
-                    else{
-                        zend_error(E_ERROR, "Could not retreive original zval.");
-                    }
-                }
-                else{
-                    object_init_ex(return_value,php_wxBitmap_entry);
-                    Z_wxBitmap_P(return_value)->native_object = (wxBitmap_php*) value_to_return0;
-                }
-
-                if((void*)value_to_return0 != (void*)native_object && return_is_user_initialized){ //Prevent adding references to it self
-                    references->AddReference(return_value, "wxComboCtrl::GetBitmapDisabled at call 6 with 0 argument(s)");
-                }
+                wxBitmap value_to_return0;
+                value_to_return0 = ((wxComboCtrl_php*)native_object)->GetBitmapDisabled();
+                ((wxRefCounter *) value_to_return0.GetRefData())->IncRef();
+                void* ptr = safe_emalloc(1, sizeof(wxBitmap_php), 0);
+                memcpy(ptr, (void*) &value_to_return0, sizeof(wxBitmap));
+                object_init_ex(return_value, php_wxBitmap_entry);
+                ((wxBitmap_php*)ptr)->phpObj = *return_value;
+                zo_wxBitmap* zo0 = Z_wxBitmap_P(return_value);
+                zo0->native_object = (wxBitmap_php*) ptr;
 
 
                 return;
@@ -60001,30 +59869,18 @@ PHP_METHOD(php_wxDataViewTreeCtrl, GetItemExpandedIcon)
             case 1:
             {
                 #ifdef USE_WXPHP_DEBUG
-                php_printf("Executing wxDataViewTreeCtrl::GetItemExpandedIcon(*(wxDataViewItem*) object_pointer0_0) to return object reference\n\n");
+                php_printf("Executing wxDataViewTreeCtrl::GetItemExpandedIcon(*(wxDataViewItem*) object_pointer0_0) to return new object\n\n");
                 #endif
 
-                wxIcon_php* value_to_return1;
-                value_to_return1 = (wxIcon_php*) &((wxDataViewTreeCtrl_php*)native_object)->GetItemExpandedIcon(*(wxDataViewItem*) object_pointer0_0);
-
-                if(value_to_return1->references.IsUserInitialized()){
-                    if(!Z_ISNULL(value_to_return1->phpObj)){
-                        ZVAL_COPY_VALUE(return_value, &value_to_return1->phpObj);
-                        zval_add_ref(&value_to_return1->phpObj);
-                        return_is_user_initialized = true;
-                    }
-                    else{
-                        zend_error(E_ERROR, "Could not retreive original zval.");
-                    }
-                }
-                else{
-                    object_init_ex(return_value,php_wxIcon_entry);
-                    Z_wxIcon_P(return_value)->native_object = (wxIcon_php*) value_to_return1;
-                }
-
-                if((void*)value_to_return1 != (void*)native_object && return_is_user_initialized){ //Prevent adding references to it self
-                    references->AddReference(return_value, "wxDataViewTreeCtrl::GetItemExpandedIcon at call 6 with 1 argument(s)");
-                }
+                wxIcon value_to_return1;
+                value_to_return1 = ((wxDataViewTreeCtrl_php*)native_object)->GetItemExpandedIcon(*(wxDataViewItem*) object_pointer0_0);
+                ((wxRefCounter *) value_to_return1.GetRefData())->IncRef();
+                void* ptr = safe_emalloc(1, sizeof(wxIcon_php), 0);
+                memcpy(ptr, (void*) &value_to_return1, sizeof(wxIcon));
+                object_init_ex(return_value, php_wxIcon_entry);
+                ((wxIcon_php*)ptr)->phpObj = *return_value;
+                zo_wxIcon* zo1 = Z_wxIcon_P(return_value);
+                zo1->native_object = (wxIcon_php*) ptr;
 
                 references->AddReference(item0, "wxDataViewTreeCtrl::GetItemExpandedIcon at call 3 with 1 argument(s)");
 
@@ -60152,30 +60008,18 @@ PHP_METHOD(php_wxDataViewTreeCtrl, GetItemIcon)
             case 1:
             {
                 #ifdef USE_WXPHP_DEBUG
-                php_printf("Executing wxDataViewTreeCtrl::GetItemIcon(*(wxDataViewItem*) object_pointer0_0) to return object reference\n\n");
+                php_printf("Executing wxDataViewTreeCtrl::GetItemIcon(*(wxDataViewItem*) object_pointer0_0) to return new object\n\n");
                 #endif
 
-                wxIcon_php* value_to_return1;
-                value_to_return1 = (wxIcon_php*) &((wxDataViewTreeCtrl_php*)native_object)->GetItemIcon(*(wxDataViewItem*) object_pointer0_0);
-
-                if(value_to_return1->references.IsUserInitialized()){
-                    if(!Z_ISNULL(value_to_return1->phpObj)){
-                        ZVAL_COPY_VALUE(return_value, &value_to_return1->phpObj);
-                        zval_add_ref(&value_to_return1->phpObj);
-                        return_is_user_initialized = true;
-                    }
-                    else{
-                        zend_error(E_ERROR, "Could not retreive original zval.");
-                    }
-                }
-                else{
-                    object_init_ex(return_value,php_wxIcon_entry);
-                    Z_wxIcon_P(return_value)->native_object = (wxIcon_php*) value_to_return1;
-                }
-
-                if((void*)value_to_return1 != (void*)native_object && return_is_user_initialized){ //Prevent adding references to it self
-                    references->AddReference(return_value, "wxDataViewTreeCtrl::GetItemIcon at call 6 with 1 argument(s)");
-                }
+                wxIcon value_to_return1;
+                value_to_return1 = ((wxDataViewTreeCtrl_php*)native_object)->GetItemIcon(*(wxDataViewItem*) object_pointer0_0);
+                ((wxRefCounter *) value_to_return1.GetRefData())->IncRef();
+                void* ptr = safe_emalloc(1, sizeof(wxIcon_php), 0);
+                memcpy(ptr, (void*) &value_to_return1, sizeof(wxIcon));
+                object_init_ex(return_value, php_wxIcon_entry);
+                ((wxIcon_php*)ptr)->phpObj = *return_value;
+                zo_wxIcon* zo1 = Z_wxIcon_P(return_value);
+                zo1->native_object = (wxIcon_php*) ptr;
 
                 references->AddReference(item0, "wxDataViewTreeCtrl::GetItemIcon at call 3 with 1 argument(s)");
 
@@ -114109,30 +113953,17 @@ PHP_METHOD(php_wxTextCtrl, GetDefaultStyle)
             case 0:
             {
                 #ifdef USE_WXPHP_DEBUG
-                php_printf("Executing wxTextCtrl::GetDefaultStyle() to return object reference\n\n");
+                php_printf("Executing wxTextCtrl::GetDefaultStyle() to return new object\n\n");
                 #endif
 
-                wxTextAttr_php* value_to_return0;
-                value_to_return0 = (wxTextAttr_php*) &((wxTextCtrl_php*)native_object)->GetDefaultStyle();
-
-                if(value_to_return0->references.IsUserInitialized()){
-                    if(!Z_ISNULL(value_to_return0->phpObj)){
-                        ZVAL_COPY_VALUE(return_value, &value_to_return0->phpObj);
-                        zval_add_ref(&value_to_return0->phpObj);
-                        return_is_user_initialized = true;
-                    }
-                    else{
-                        zend_error(E_ERROR, "Could not retreive original zval.");
-                    }
-                }
-                else{
-                    object_init_ex(return_value,php_wxTextAttr_entry);
-                    Z_wxTextAttr_P(return_value)->native_object = (wxTextAttr_php*) value_to_return0;
-                }
-
-                if((void*)value_to_return0 != (void*)native_object && return_is_user_initialized){ //Prevent adding references to it self
-                    references->AddReference(return_value, "wxTextCtrl::GetDefaultStyle at call 6 with 0 argument(s)");
-                }
+                wxTextAttr value_to_return0;
+                value_to_return0 = ((wxTextCtrl_php*)native_object)->GetDefaultStyle();
+                void* ptr = safe_emalloc(1, sizeof(wxTextAttr_php), 0);
+                memcpy(ptr, (void*) &value_to_return0, sizeof(wxTextAttr));
+                object_init_ex(return_value, php_wxTextAttr_entry);
+                ((wxTextAttr_php*)ptr)->phpObj = *return_value;
+                zo_wxTextAttr* zo0 = Z_wxTextAttr_P(return_value);
+                zo0->native_object = (wxTextAttr_php*) ptr;
 
 
                 return;
@@ -142483,30 +142314,18 @@ PHP_METHOD(php_wxVListBox, GetSelectionBackground)
             case 0:
             {
                 #ifdef USE_WXPHP_DEBUG
-                php_printf("Executing wxVListBox::GetSelectionBackground() to return object reference\n\n");
+                php_printf("Executing wxVListBox::GetSelectionBackground() to return new object\n\n");
                 #endif
 
-                wxColour_php* value_to_return0;
-                value_to_return0 = (wxColour_php*) &((wxVListBox_php*)native_object)->GetSelectionBackground();
-
-                if(value_to_return0->references.IsUserInitialized()){
-                    if(!Z_ISNULL(value_to_return0->phpObj)){
-                        ZVAL_COPY_VALUE(return_value, &value_to_return0->phpObj);
-                        zval_add_ref(&value_to_return0->phpObj);
-                        return_is_user_initialized = true;
-                    }
-                    else{
-                        zend_error(E_ERROR, "Could not retreive original zval.");
-                    }
-                }
-                else{
-                    object_init_ex(return_value,php_wxColour_entry);
-                    Z_wxColour_P(return_value)->native_object = (wxColour_php*) value_to_return0;
-                }
-
-                if((void*)value_to_return0 != (void*)native_object && return_is_user_initialized){ //Prevent adding references to it self
-                    references->AddReference(return_value, "wxVListBox::GetSelectionBackground at call 6 with 0 argument(s)");
-                }
+                wxColour value_to_return0;
+                value_to_return0 = ((wxVListBox_php*)native_object)->GetSelectionBackground();
+                ((wxRefCounter *) value_to_return0.GetRefData())->IncRef();
+                void* ptr = safe_emalloc(1, sizeof(wxColour_php), 0);
+                memcpy(ptr, (void*) &value_to_return0, sizeof(wxColour));
+                object_init_ex(return_value, php_wxColour_entry);
+                ((wxColour_php*)ptr)->phpObj = *return_value;
+                zo_wxColour* zo0 = Z_wxColour_P(return_value);
+                zo0->native_object = (wxColour_php*) ptr;
 
 
                 return;

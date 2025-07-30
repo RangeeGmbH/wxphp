@@ -9932,87 +9932,141 @@ PHP_METHOD(php_wxDC, GetBackground)
             case 0:
             {
                 #ifdef USE_WXPHP_DEBUG
-                php_printf("Executing wxDC::GetBackground() to return object reference\n\n");
+                php_printf("Executing wxDC::GetBackground() to return new object\n\n");
                 #endif
 
-                wxBrush_php* value_to_return0;
+                wxBrush value_to_return0;
                 if(current_object_type == PHP_WXWINDOWDC_TYPE)
                 {
-                    value_to_return0 = (wxBrush_php*) &((wxWindowDC_php*)native_object)->GetBackground();
-
+                    value_to_return0 = ((wxWindowDC_php*)native_object)->GetBackground();
+                    ((wxRefCounter *) value_to_return0.GetRefData())->IncRef();
+                    void* ptr = safe_emalloc(1, sizeof(wxBrush_php), 0);
+                    memcpy(ptr, (void*) &value_to_return0, sizeof(wxBrush));
+                    object_init_ex(return_value, php_wxBrush_entry);
+                    ((wxBrush_php*)ptr)->phpObj = *return_value;
+                    zo_wxBrush* zo0 = Z_wxBrush_P(return_value);
+                    zo0->native_object = (wxBrush_php*) ptr;
                 }
                 else if(current_object_type == PHP_WXCLIENTDC_TYPE)
                 {
-                    value_to_return0 = (wxBrush_php*) &((wxClientDC_php*)native_object)->GetBackground();
-
+                    value_to_return0 = ((wxClientDC_php*)native_object)->GetBackground();
+                    ((wxRefCounter *) value_to_return0.GetRefData())->IncRef();
+                    void* ptr = safe_emalloc(1, sizeof(wxBrush_php), 0);
+                    memcpy(ptr, (void*) &value_to_return0, sizeof(wxBrush));
+                    object_init_ex(return_value, php_wxBrush_entry);
+                    ((wxBrush_php*)ptr)->phpObj = *return_value;
+                    zo_wxBrush* zo0 = Z_wxBrush_P(return_value);
+                    zo0->native_object = (wxBrush_php*) ptr;
                 }
                 else if(current_object_type == PHP_WXPAINTDC_TYPE)
                 {
-                    value_to_return0 = (wxBrush_php*) &((wxPaintDC_php*)native_object)->GetBackground();
-
+                    value_to_return0 = ((wxPaintDC_php*)native_object)->GetBackground();
+                    ((wxRefCounter *) value_to_return0.GetRefData())->IncRef();
+                    void* ptr = safe_emalloc(1, sizeof(wxBrush_php), 0);
+                    memcpy(ptr, (void*) &value_to_return0, sizeof(wxBrush));
+                    object_init_ex(return_value, php_wxBrush_entry);
+                    ((wxBrush_php*)ptr)->phpObj = *return_value;
+                    zo_wxBrush* zo0 = Z_wxBrush_P(return_value);
+                    zo0->native_object = (wxBrush_php*) ptr;
                 }
                 else if(current_object_type == PHP_WXSCREENDC_TYPE)
                 {
-                    value_to_return0 = (wxBrush_php*) &((wxScreenDC_php*)native_object)->GetBackground();
-
+                    value_to_return0 = ((wxScreenDC_php*)native_object)->GetBackground();
+                    ((wxRefCounter *) value_to_return0.GetRefData())->IncRef();
+                    void* ptr = safe_emalloc(1, sizeof(wxBrush_php), 0);
+                    memcpy(ptr, (void*) &value_to_return0, sizeof(wxBrush));
+                    object_init_ex(return_value, php_wxBrush_entry);
+                    ((wxBrush_php*)ptr)->phpObj = *return_value;
+                    zo_wxBrush* zo0 = Z_wxBrush_P(return_value);
+                    zo0->native_object = (wxBrush_php*) ptr;
                 }
                 else if(current_object_type == PHP_WXPOSTSCRIPTDC_TYPE)
                 {
-                    value_to_return0 = (wxBrush_php*) &((wxPostScriptDC_php*)native_object)->GetBackground();
-
+                    value_to_return0 = ((wxPostScriptDC_php*)native_object)->GetBackground();
+                    ((wxRefCounter *) value_to_return0.GetRefData())->IncRef();
+                    void* ptr = safe_emalloc(1, sizeof(wxBrush_php), 0);
+                    memcpy(ptr, (void*) &value_to_return0, sizeof(wxBrush));
+                    object_init_ex(return_value, php_wxBrush_entry);
+                    ((wxBrush_php*)ptr)->phpObj = *return_value;
+                    zo_wxBrush* zo0 = Z_wxBrush_P(return_value);
+                    zo0->native_object = (wxBrush_php*) ptr;
                 }
                 else if(current_object_type == PHP_WXPRINTERDC_TYPE)
                 {
-                    value_to_return0 = (wxBrush_php*) &((wxPrinterDC_php*)native_object)->GetBackground();
-
+                    value_to_return0 = ((wxPrinterDC_php*)native_object)->GetBackground();
+                    ((wxRefCounter *) value_to_return0.GetRefData())->IncRef();
+                    void* ptr = safe_emalloc(1, sizeof(wxBrush_php), 0);
+                    memcpy(ptr, (void*) &value_to_return0, sizeof(wxBrush));
+                    object_init_ex(return_value, php_wxBrush_entry);
+                    ((wxBrush_php*)ptr)->phpObj = *return_value;
+                    zo_wxBrush* zo0 = Z_wxBrush_P(return_value);
+                    zo0->native_object = (wxBrush_php*) ptr;
                 }
                 else if(current_object_type == PHP_WXMEMORYDC_TYPE)
                 {
-                    value_to_return0 = (wxBrush_php*) &((wxMemoryDC_php*)native_object)->GetBackground();
-
+                    value_to_return0 = ((wxMemoryDC_php*)native_object)->GetBackground();
+                    ((wxRefCounter *) value_to_return0.GetRefData())->IncRef();
+                    void* ptr = safe_emalloc(1, sizeof(wxBrush_php), 0);
+                    memcpy(ptr, (void*) &value_to_return0, sizeof(wxBrush));
+                    object_init_ex(return_value, php_wxBrush_entry);
+                    ((wxBrush_php*)ptr)->phpObj = *return_value;
+                    zo_wxBrush* zo0 = Z_wxBrush_P(return_value);
+                    zo0->native_object = (wxBrush_php*) ptr;
                 }
                 else if(current_object_type == PHP_WXBUFFEREDDC_TYPE)
                 {
-                    value_to_return0 = (wxBrush_php*) &((wxBufferedDC_php*)native_object)->GetBackground();
-
+                    value_to_return0 = ((wxBufferedDC_php*)native_object)->GetBackground();
+                    ((wxRefCounter *) value_to_return0.GetRefData())->IncRef();
+                    void* ptr = safe_emalloc(1, sizeof(wxBrush_php), 0);
+                    memcpy(ptr, (void*) &value_to_return0, sizeof(wxBrush));
+                    object_init_ex(return_value, php_wxBrush_entry);
+                    ((wxBrush_php*)ptr)->phpObj = *return_value;
+                    zo_wxBrush* zo0 = Z_wxBrush_P(return_value);
+                    zo0->native_object = (wxBrush_php*) ptr;
                 }
                 else if(current_object_type == PHP_WXBUFFEREDPAINTDC_TYPE)
                 {
-                    value_to_return0 = (wxBrush_php*) &((wxBufferedPaintDC_php*)native_object)->GetBackground();
-
+                    value_to_return0 = ((wxBufferedPaintDC_php*)native_object)->GetBackground();
+                    ((wxRefCounter *) value_to_return0.GetRefData())->IncRef();
+                    void* ptr = safe_emalloc(1, sizeof(wxBrush_php), 0);
+                    memcpy(ptr, (void*) &value_to_return0, sizeof(wxBrush));
+                    object_init_ex(return_value, php_wxBrush_entry);
+                    ((wxBrush_php*)ptr)->phpObj = *return_value;
+                    zo_wxBrush* zo0 = Z_wxBrush_P(return_value);
+                    zo0->native_object = (wxBrush_php*) ptr;
                 }
                 else if(current_object_type == PHP_WXAUTOBUFFEREDPAINTDC_TYPE)
                 {
-                    value_to_return0 = (wxBrush_php*) &((wxAutoBufferedPaintDC_php*)native_object)->GetBackground();
-
+                    value_to_return0 = ((wxAutoBufferedPaintDC_php*)native_object)->GetBackground();
+                    ((wxRefCounter *) value_to_return0.GetRefData())->IncRef();
+                    void* ptr = safe_emalloc(1, sizeof(wxBrush_php), 0);
+                    memcpy(ptr, (void*) &value_to_return0, sizeof(wxBrush));
+                    object_init_ex(return_value, php_wxBrush_entry);
+                    ((wxBrush_php*)ptr)->phpObj = *return_value;
+                    zo_wxBrush* zo0 = Z_wxBrush_P(return_value);
+                    zo0->native_object = (wxBrush_php*) ptr;
                 }
                 else if(current_object_type == PHP_WXMIRRORDC_TYPE)
                 {
-                    value_to_return0 = (wxBrush_php*) &((wxMirrorDC_php*)native_object)->GetBackground();
-
+                    value_to_return0 = ((wxMirrorDC_php*)native_object)->GetBackground();
+                    ((wxRefCounter *) value_to_return0.GetRefData())->IncRef();
+                    void* ptr = safe_emalloc(1, sizeof(wxBrush_php), 0);
+                    memcpy(ptr, (void*) &value_to_return0, sizeof(wxBrush));
+                    object_init_ex(return_value, php_wxBrush_entry);
+                    ((wxBrush_php*)ptr)->phpObj = *return_value;
+                    zo_wxBrush* zo0 = Z_wxBrush_P(return_value);
+                    zo0->native_object = (wxBrush_php*) ptr;
                 }
                 else if(current_object_type == PHP_WXDC_TYPE)
                 {
-                    value_to_return0 = (wxBrush_php*) &((wxDC_php*)native_object)->GetBackground();
-
-                }
-                if(value_to_return0->references.IsUserInitialized()){
-                    if(!Z_ISNULL(value_to_return0->phpObj)){
-                        ZVAL_COPY_VALUE(return_value, &value_to_return0->phpObj);
-                        zval_add_ref(&value_to_return0->phpObj);
-                        return_is_user_initialized = true;
-                    }
-                    else{
-                        zend_error(E_ERROR, "Could not retreive original zval.");
-                    }
-                }
-                else{
-                    object_init_ex(return_value,php_wxBrush_entry);
-                    Z_wxBrush_P(return_value)->native_object = (wxBrush_php*) value_to_return0;
-                }
-
-                if((void*)value_to_return0 != (void*)native_object && return_is_user_initialized){ //Prevent adding references to it self
-                    references->AddReference(return_value, "wxDC::GetBackground at call 6 with 0 argument(s)");
+                    value_to_return0 = ((wxDC_php*)native_object)->GetBackground();
+                    ((wxRefCounter *) value_to_return0.GetRefData())->IncRef();
+                    void* ptr = safe_emalloc(1, sizeof(wxBrush_php), 0);
+                    memcpy(ptr, (void*) &value_to_return0, sizeof(wxBrush));
+                    object_init_ex(return_value, php_wxBrush_entry);
+                    ((wxBrush_php*)ptr)->phpObj = *return_value;
+                    zo_wxBrush* zo0 = Z_wxBrush_P(return_value);
+                    zo0->native_object = (wxBrush_php*) ptr;
                 }
 
 
@@ -10359,87 +10413,141 @@ PHP_METHOD(php_wxDC, GetBrush)
             case 0:
             {
                 #ifdef USE_WXPHP_DEBUG
-                php_printf("Executing wxDC::GetBrush() to return object reference\n\n");
+                php_printf("Executing wxDC::GetBrush() to return new object\n\n");
                 #endif
 
-                wxBrush_php* value_to_return0;
+                wxBrush value_to_return0;
                 if(current_object_type == PHP_WXWINDOWDC_TYPE)
                 {
-                    value_to_return0 = (wxBrush_php*) &((wxWindowDC_php*)native_object)->GetBrush();
-
+                    value_to_return0 = ((wxWindowDC_php*)native_object)->GetBrush();
+                    ((wxRefCounter *) value_to_return0.GetRefData())->IncRef();
+                    void* ptr = safe_emalloc(1, sizeof(wxBrush_php), 0);
+                    memcpy(ptr, (void*) &value_to_return0, sizeof(wxBrush));
+                    object_init_ex(return_value, php_wxBrush_entry);
+                    ((wxBrush_php*)ptr)->phpObj = *return_value;
+                    zo_wxBrush* zo0 = Z_wxBrush_P(return_value);
+                    zo0->native_object = (wxBrush_php*) ptr;
                 }
                 else if(current_object_type == PHP_WXCLIENTDC_TYPE)
                 {
-                    value_to_return0 = (wxBrush_php*) &((wxClientDC_php*)native_object)->GetBrush();
-
+                    value_to_return0 = ((wxClientDC_php*)native_object)->GetBrush();
+                    ((wxRefCounter *) value_to_return0.GetRefData())->IncRef();
+                    void* ptr = safe_emalloc(1, sizeof(wxBrush_php), 0);
+                    memcpy(ptr, (void*) &value_to_return0, sizeof(wxBrush));
+                    object_init_ex(return_value, php_wxBrush_entry);
+                    ((wxBrush_php*)ptr)->phpObj = *return_value;
+                    zo_wxBrush* zo0 = Z_wxBrush_P(return_value);
+                    zo0->native_object = (wxBrush_php*) ptr;
                 }
                 else if(current_object_type == PHP_WXPAINTDC_TYPE)
                 {
-                    value_to_return0 = (wxBrush_php*) &((wxPaintDC_php*)native_object)->GetBrush();
-
+                    value_to_return0 = ((wxPaintDC_php*)native_object)->GetBrush();
+                    ((wxRefCounter *) value_to_return0.GetRefData())->IncRef();
+                    void* ptr = safe_emalloc(1, sizeof(wxBrush_php), 0);
+                    memcpy(ptr, (void*) &value_to_return0, sizeof(wxBrush));
+                    object_init_ex(return_value, php_wxBrush_entry);
+                    ((wxBrush_php*)ptr)->phpObj = *return_value;
+                    zo_wxBrush* zo0 = Z_wxBrush_P(return_value);
+                    zo0->native_object = (wxBrush_php*) ptr;
                 }
                 else if(current_object_type == PHP_WXSCREENDC_TYPE)
                 {
-                    value_to_return0 = (wxBrush_php*) &((wxScreenDC_php*)native_object)->GetBrush();
-
+                    value_to_return0 = ((wxScreenDC_php*)native_object)->GetBrush();
+                    ((wxRefCounter *) value_to_return0.GetRefData())->IncRef();
+                    void* ptr = safe_emalloc(1, sizeof(wxBrush_php), 0);
+                    memcpy(ptr, (void*) &value_to_return0, sizeof(wxBrush));
+                    object_init_ex(return_value, php_wxBrush_entry);
+                    ((wxBrush_php*)ptr)->phpObj = *return_value;
+                    zo_wxBrush* zo0 = Z_wxBrush_P(return_value);
+                    zo0->native_object = (wxBrush_php*) ptr;
                 }
                 else if(current_object_type == PHP_WXPOSTSCRIPTDC_TYPE)
                 {
-                    value_to_return0 = (wxBrush_php*) &((wxPostScriptDC_php*)native_object)->GetBrush();
-
+                    value_to_return0 = ((wxPostScriptDC_php*)native_object)->GetBrush();
+                    ((wxRefCounter *) value_to_return0.GetRefData())->IncRef();
+                    void* ptr = safe_emalloc(1, sizeof(wxBrush_php), 0);
+                    memcpy(ptr, (void*) &value_to_return0, sizeof(wxBrush));
+                    object_init_ex(return_value, php_wxBrush_entry);
+                    ((wxBrush_php*)ptr)->phpObj = *return_value;
+                    zo_wxBrush* zo0 = Z_wxBrush_P(return_value);
+                    zo0->native_object = (wxBrush_php*) ptr;
                 }
                 else if(current_object_type == PHP_WXPRINTERDC_TYPE)
                 {
-                    value_to_return0 = (wxBrush_php*) &((wxPrinterDC_php*)native_object)->GetBrush();
-
+                    value_to_return0 = ((wxPrinterDC_php*)native_object)->GetBrush();
+                    ((wxRefCounter *) value_to_return0.GetRefData())->IncRef();
+                    void* ptr = safe_emalloc(1, sizeof(wxBrush_php), 0);
+                    memcpy(ptr, (void*) &value_to_return0, sizeof(wxBrush));
+                    object_init_ex(return_value, php_wxBrush_entry);
+                    ((wxBrush_php*)ptr)->phpObj = *return_value;
+                    zo_wxBrush* zo0 = Z_wxBrush_P(return_value);
+                    zo0->native_object = (wxBrush_php*) ptr;
                 }
                 else if(current_object_type == PHP_WXMEMORYDC_TYPE)
                 {
-                    value_to_return0 = (wxBrush_php*) &((wxMemoryDC_php*)native_object)->GetBrush();
-
+                    value_to_return0 = ((wxMemoryDC_php*)native_object)->GetBrush();
+                    ((wxRefCounter *) value_to_return0.GetRefData())->IncRef();
+                    void* ptr = safe_emalloc(1, sizeof(wxBrush_php), 0);
+                    memcpy(ptr, (void*) &value_to_return0, sizeof(wxBrush));
+                    object_init_ex(return_value, php_wxBrush_entry);
+                    ((wxBrush_php*)ptr)->phpObj = *return_value;
+                    zo_wxBrush* zo0 = Z_wxBrush_P(return_value);
+                    zo0->native_object = (wxBrush_php*) ptr;
                 }
                 else if(current_object_type == PHP_WXBUFFEREDDC_TYPE)
                 {
-                    value_to_return0 = (wxBrush_php*) &((wxBufferedDC_php*)native_object)->GetBrush();
-
+                    value_to_return0 = ((wxBufferedDC_php*)native_object)->GetBrush();
+                    ((wxRefCounter *) value_to_return0.GetRefData())->IncRef();
+                    void* ptr = safe_emalloc(1, sizeof(wxBrush_php), 0);
+                    memcpy(ptr, (void*) &value_to_return0, sizeof(wxBrush));
+                    object_init_ex(return_value, php_wxBrush_entry);
+                    ((wxBrush_php*)ptr)->phpObj = *return_value;
+                    zo_wxBrush* zo0 = Z_wxBrush_P(return_value);
+                    zo0->native_object = (wxBrush_php*) ptr;
                 }
                 else if(current_object_type == PHP_WXBUFFEREDPAINTDC_TYPE)
                 {
-                    value_to_return0 = (wxBrush_php*) &((wxBufferedPaintDC_php*)native_object)->GetBrush();
-
+                    value_to_return0 = ((wxBufferedPaintDC_php*)native_object)->GetBrush();
+                    ((wxRefCounter *) value_to_return0.GetRefData())->IncRef();
+                    void* ptr = safe_emalloc(1, sizeof(wxBrush_php), 0);
+                    memcpy(ptr, (void*) &value_to_return0, sizeof(wxBrush));
+                    object_init_ex(return_value, php_wxBrush_entry);
+                    ((wxBrush_php*)ptr)->phpObj = *return_value;
+                    zo_wxBrush* zo0 = Z_wxBrush_P(return_value);
+                    zo0->native_object = (wxBrush_php*) ptr;
                 }
                 else if(current_object_type == PHP_WXAUTOBUFFEREDPAINTDC_TYPE)
                 {
-                    value_to_return0 = (wxBrush_php*) &((wxAutoBufferedPaintDC_php*)native_object)->GetBrush();
-
+                    value_to_return0 = ((wxAutoBufferedPaintDC_php*)native_object)->GetBrush();
+                    ((wxRefCounter *) value_to_return0.GetRefData())->IncRef();
+                    void* ptr = safe_emalloc(1, sizeof(wxBrush_php), 0);
+                    memcpy(ptr, (void*) &value_to_return0, sizeof(wxBrush));
+                    object_init_ex(return_value, php_wxBrush_entry);
+                    ((wxBrush_php*)ptr)->phpObj = *return_value;
+                    zo_wxBrush* zo0 = Z_wxBrush_P(return_value);
+                    zo0->native_object = (wxBrush_php*) ptr;
                 }
                 else if(current_object_type == PHP_WXMIRRORDC_TYPE)
                 {
-                    value_to_return0 = (wxBrush_php*) &((wxMirrorDC_php*)native_object)->GetBrush();
-
+                    value_to_return0 = ((wxMirrorDC_php*)native_object)->GetBrush();
+                    ((wxRefCounter *) value_to_return0.GetRefData())->IncRef();
+                    void* ptr = safe_emalloc(1, sizeof(wxBrush_php), 0);
+                    memcpy(ptr, (void*) &value_to_return0, sizeof(wxBrush));
+                    object_init_ex(return_value, php_wxBrush_entry);
+                    ((wxBrush_php*)ptr)->phpObj = *return_value;
+                    zo_wxBrush* zo0 = Z_wxBrush_P(return_value);
+                    zo0->native_object = (wxBrush_php*) ptr;
                 }
                 else if(current_object_type == PHP_WXDC_TYPE)
                 {
-                    value_to_return0 = (wxBrush_php*) &((wxDC_php*)native_object)->GetBrush();
-
-                }
-                if(value_to_return0->references.IsUserInitialized()){
-                    if(!Z_ISNULL(value_to_return0->phpObj)){
-                        ZVAL_COPY_VALUE(return_value, &value_to_return0->phpObj);
-                        zval_add_ref(&value_to_return0->phpObj);
-                        return_is_user_initialized = true;
-                    }
-                    else{
-                        zend_error(E_ERROR, "Could not retreive original zval.");
-                    }
-                }
-                else{
-                    object_init_ex(return_value,php_wxBrush_entry);
-                    Z_wxBrush_P(return_value)->native_object = (wxBrush_php*) value_to_return0;
-                }
-
-                if((void*)value_to_return0 != (void*)native_object && return_is_user_initialized){ //Prevent adding references to it self
-                    references->AddReference(return_value, "wxDC::GetBrush at call 6 with 0 argument(s)");
+                    value_to_return0 = ((wxDC_php*)native_object)->GetBrush();
+                    ((wxRefCounter *) value_to_return0.GetRefData())->IncRef();
+                    void* ptr = safe_emalloc(1, sizeof(wxBrush_php), 0);
+                    memcpy(ptr, (void*) &value_to_return0, sizeof(wxBrush));
+                    object_init_ex(return_value, php_wxBrush_entry);
+                    ((wxBrush_php*)ptr)->phpObj = *return_value;
+                    zo_wxBrush* zo0 = Z_wxBrush_P(return_value);
+                    zo0->native_object = (wxBrush_php*) ptr;
                 }
 
 
@@ -11671,87 +11779,141 @@ PHP_METHOD(php_wxDC, GetFont)
             case 0:
             {
                 #ifdef USE_WXPHP_DEBUG
-                php_printf("Executing wxDC::GetFont() to return object reference\n\n");
+                php_printf("Executing wxDC::GetFont() to return new object\n\n");
                 #endif
 
-                wxFont_php* value_to_return0;
+                wxFont value_to_return0;
                 if(current_object_type == PHP_WXWINDOWDC_TYPE)
                 {
-                    value_to_return0 = (wxFont_php*) &((wxWindowDC_php*)native_object)->GetFont();
-
+                    value_to_return0 = ((wxWindowDC_php*)native_object)->GetFont();
+                    ((wxRefCounter *) value_to_return0.GetRefData())->IncRef();
+                    void* ptr = safe_emalloc(1, sizeof(wxFont_php), 0);
+                    memcpy(ptr, (void*) &value_to_return0, sizeof(wxFont));
+                    object_init_ex(return_value, php_wxFont_entry);
+                    ((wxFont_php*)ptr)->phpObj = *return_value;
+                    zo_wxFont* zo0 = Z_wxFont_P(return_value);
+                    zo0->native_object = (wxFont_php*) ptr;
                 }
                 else if(current_object_type == PHP_WXCLIENTDC_TYPE)
                 {
-                    value_to_return0 = (wxFont_php*) &((wxClientDC_php*)native_object)->GetFont();
-
+                    value_to_return0 = ((wxClientDC_php*)native_object)->GetFont();
+                    ((wxRefCounter *) value_to_return0.GetRefData())->IncRef();
+                    void* ptr = safe_emalloc(1, sizeof(wxFont_php), 0);
+                    memcpy(ptr, (void*) &value_to_return0, sizeof(wxFont));
+                    object_init_ex(return_value, php_wxFont_entry);
+                    ((wxFont_php*)ptr)->phpObj = *return_value;
+                    zo_wxFont* zo0 = Z_wxFont_P(return_value);
+                    zo0->native_object = (wxFont_php*) ptr;
                 }
                 else if(current_object_type == PHP_WXPAINTDC_TYPE)
                 {
-                    value_to_return0 = (wxFont_php*) &((wxPaintDC_php*)native_object)->GetFont();
-
+                    value_to_return0 = ((wxPaintDC_php*)native_object)->GetFont();
+                    ((wxRefCounter *) value_to_return0.GetRefData())->IncRef();
+                    void* ptr = safe_emalloc(1, sizeof(wxFont_php), 0);
+                    memcpy(ptr, (void*) &value_to_return0, sizeof(wxFont));
+                    object_init_ex(return_value, php_wxFont_entry);
+                    ((wxFont_php*)ptr)->phpObj = *return_value;
+                    zo_wxFont* zo0 = Z_wxFont_P(return_value);
+                    zo0->native_object = (wxFont_php*) ptr;
                 }
                 else if(current_object_type == PHP_WXSCREENDC_TYPE)
                 {
-                    value_to_return0 = (wxFont_php*) &((wxScreenDC_php*)native_object)->GetFont();
-
+                    value_to_return0 = ((wxScreenDC_php*)native_object)->GetFont();
+                    ((wxRefCounter *) value_to_return0.GetRefData())->IncRef();
+                    void* ptr = safe_emalloc(1, sizeof(wxFont_php), 0);
+                    memcpy(ptr, (void*) &value_to_return0, sizeof(wxFont));
+                    object_init_ex(return_value, php_wxFont_entry);
+                    ((wxFont_php*)ptr)->phpObj = *return_value;
+                    zo_wxFont* zo0 = Z_wxFont_P(return_value);
+                    zo0->native_object = (wxFont_php*) ptr;
                 }
                 else if(current_object_type == PHP_WXPOSTSCRIPTDC_TYPE)
                 {
-                    value_to_return0 = (wxFont_php*) &((wxPostScriptDC_php*)native_object)->GetFont();
-
+                    value_to_return0 = ((wxPostScriptDC_php*)native_object)->GetFont();
+                    ((wxRefCounter *) value_to_return0.GetRefData())->IncRef();
+                    void* ptr = safe_emalloc(1, sizeof(wxFont_php), 0);
+                    memcpy(ptr, (void*) &value_to_return0, sizeof(wxFont));
+                    object_init_ex(return_value, php_wxFont_entry);
+                    ((wxFont_php*)ptr)->phpObj = *return_value;
+                    zo_wxFont* zo0 = Z_wxFont_P(return_value);
+                    zo0->native_object = (wxFont_php*) ptr;
                 }
                 else if(current_object_type == PHP_WXPRINTERDC_TYPE)
                 {
-                    value_to_return0 = (wxFont_php*) &((wxPrinterDC_php*)native_object)->GetFont();
-
+                    value_to_return0 = ((wxPrinterDC_php*)native_object)->GetFont();
+                    ((wxRefCounter *) value_to_return0.GetRefData())->IncRef();
+                    void* ptr = safe_emalloc(1, sizeof(wxFont_php), 0);
+                    memcpy(ptr, (void*) &value_to_return0, sizeof(wxFont));
+                    object_init_ex(return_value, php_wxFont_entry);
+                    ((wxFont_php*)ptr)->phpObj = *return_value;
+                    zo_wxFont* zo0 = Z_wxFont_P(return_value);
+                    zo0->native_object = (wxFont_php*) ptr;
                 }
                 else if(current_object_type == PHP_WXMEMORYDC_TYPE)
                 {
-                    value_to_return0 = (wxFont_php*) &((wxMemoryDC_php*)native_object)->GetFont();
-
+                    value_to_return0 = ((wxMemoryDC_php*)native_object)->GetFont();
+                    ((wxRefCounter *) value_to_return0.GetRefData())->IncRef();
+                    void* ptr = safe_emalloc(1, sizeof(wxFont_php), 0);
+                    memcpy(ptr, (void*) &value_to_return0, sizeof(wxFont));
+                    object_init_ex(return_value, php_wxFont_entry);
+                    ((wxFont_php*)ptr)->phpObj = *return_value;
+                    zo_wxFont* zo0 = Z_wxFont_P(return_value);
+                    zo0->native_object = (wxFont_php*) ptr;
                 }
                 else if(current_object_type == PHP_WXBUFFEREDDC_TYPE)
                 {
-                    value_to_return0 = (wxFont_php*) &((wxBufferedDC_php*)native_object)->GetFont();
-
+                    value_to_return0 = ((wxBufferedDC_php*)native_object)->GetFont();
+                    ((wxRefCounter *) value_to_return0.GetRefData())->IncRef();
+                    void* ptr = safe_emalloc(1, sizeof(wxFont_php), 0);
+                    memcpy(ptr, (void*) &value_to_return0, sizeof(wxFont));
+                    object_init_ex(return_value, php_wxFont_entry);
+                    ((wxFont_php*)ptr)->phpObj = *return_value;
+                    zo_wxFont* zo0 = Z_wxFont_P(return_value);
+                    zo0->native_object = (wxFont_php*) ptr;
                 }
                 else if(current_object_type == PHP_WXBUFFEREDPAINTDC_TYPE)
                 {
-                    value_to_return0 = (wxFont_php*) &((wxBufferedPaintDC_php*)native_object)->GetFont();
-
+                    value_to_return0 = ((wxBufferedPaintDC_php*)native_object)->GetFont();
+                    ((wxRefCounter *) value_to_return0.GetRefData())->IncRef();
+                    void* ptr = safe_emalloc(1, sizeof(wxFont_php), 0);
+                    memcpy(ptr, (void*) &value_to_return0, sizeof(wxFont));
+                    object_init_ex(return_value, php_wxFont_entry);
+                    ((wxFont_php*)ptr)->phpObj = *return_value;
+                    zo_wxFont* zo0 = Z_wxFont_P(return_value);
+                    zo0->native_object = (wxFont_php*) ptr;
                 }
                 else if(current_object_type == PHP_WXAUTOBUFFEREDPAINTDC_TYPE)
                 {
-                    value_to_return0 = (wxFont_php*) &((wxAutoBufferedPaintDC_php*)native_object)->GetFont();
-
+                    value_to_return0 = ((wxAutoBufferedPaintDC_php*)native_object)->GetFont();
+                    ((wxRefCounter *) value_to_return0.GetRefData())->IncRef();
+                    void* ptr = safe_emalloc(1, sizeof(wxFont_php), 0);
+                    memcpy(ptr, (void*) &value_to_return0, sizeof(wxFont));
+                    object_init_ex(return_value, php_wxFont_entry);
+                    ((wxFont_php*)ptr)->phpObj = *return_value;
+                    zo_wxFont* zo0 = Z_wxFont_P(return_value);
+                    zo0->native_object = (wxFont_php*) ptr;
                 }
                 else if(current_object_type == PHP_WXMIRRORDC_TYPE)
                 {
-                    value_to_return0 = (wxFont_php*) &((wxMirrorDC_php*)native_object)->GetFont();
-
+                    value_to_return0 = ((wxMirrorDC_php*)native_object)->GetFont();
+                    ((wxRefCounter *) value_to_return0.GetRefData())->IncRef();
+                    void* ptr = safe_emalloc(1, sizeof(wxFont_php), 0);
+                    memcpy(ptr, (void*) &value_to_return0, sizeof(wxFont));
+                    object_init_ex(return_value, php_wxFont_entry);
+                    ((wxFont_php*)ptr)->phpObj = *return_value;
+                    zo_wxFont* zo0 = Z_wxFont_P(return_value);
+                    zo0->native_object = (wxFont_php*) ptr;
                 }
                 else if(current_object_type == PHP_WXDC_TYPE)
                 {
-                    value_to_return0 = (wxFont_php*) &((wxDC_php*)native_object)->GetFont();
-
-                }
-                if(value_to_return0->references.IsUserInitialized()){
-                    if(!Z_ISNULL(value_to_return0->phpObj)){
-                        ZVAL_COPY_VALUE(return_value, &value_to_return0->phpObj);
-                        zval_add_ref(&value_to_return0->phpObj);
-                        return_is_user_initialized = true;
-                    }
-                    else{
-                        zend_error(E_ERROR, "Could not retreive original zval.");
-                    }
-                }
-                else{
-                    object_init_ex(return_value,php_wxFont_entry);
-                    Z_wxFont_P(return_value)->native_object = (wxFont_php*) value_to_return0;
-                }
-
-                if((void*)value_to_return0 != (void*)native_object && return_is_user_initialized){ //Prevent adding references to it self
-                    references->AddReference(return_value, "wxDC::GetFont at call 6 with 0 argument(s)");
+                    value_to_return0 = ((wxDC_php*)native_object)->GetFont();
+                    ((wxRefCounter *) value_to_return0.GetRefData())->IncRef();
+                    void* ptr = safe_emalloc(1, sizeof(wxFont_php), 0);
+                    memcpy(ptr, (void*) &value_to_return0, sizeof(wxFont));
+                    object_init_ex(return_value, php_wxFont_entry);
+                    ((wxFont_php*)ptr)->phpObj = *return_value;
+                    zo_wxFont* zo0 = Z_wxFont_P(return_value);
+                    zo0->native_object = (wxFont_php*) ptr;
                 }
 
 
@@ -13861,87 +14023,141 @@ PHP_METHOD(php_wxDC, GetPen)
             case 0:
             {
                 #ifdef USE_WXPHP_DEBUG
-                php_printf("Executing wxDC::GetPen() to return object reference\n\n");
+                php_printf("Executing wxDC::GetPen() to return new object\n\n");
                 #endif
 
-                wxPen_php* value_to_return0;
+                wxPen value_to_return0;
                 if(current_object_type == PHP_WXWINDOWDC_TYPE)
                 {
-                    value_to_return0 = (wxPen_php*) &((wxWindowDC_php*)native_object)->GetPen();
-
+                    value_to_return0 = ((wxWindowDC_php*)native_object)->GetPen();
+                    ((wxRefCounter *) value_to_return0.GetRefData())->IncRef();
+                    void* ptr = safe_emalloc(1, sizeof(wxPen_php), 0);
+                    memcpy(ptr, (void*) &value_to_return0, sizeof(wxPen));
+                    object_init_ex(return_value, php_wxPen_entry);
+                    ((wxPen_php*)ptr)->phpObj = *return_value;
+                    zo_wxPen* zo0 = Z_wxPen_P(return_value);
+                    zo0->native_object = (wxPen_php*) ptr;
                 }
                 else if(current_object_type == PHP_WXCLIENTDC_TYPE)
                 {
-                    value_to_return0 = (wxPen_php*) &((wxClientDC_php*)native_object)->GetPen();
-
+                    value_to_return0 = ((wxClientDC_php*)native_object)->GetPen();
+                    ((wxRefCounter *) value_to_return0.GetRefData())->IncRef();
+                    void* ptr = safe_emalloc(1, sizeof(wxPen_php), 0);
+                    memcpy(ptr, (void*) &value_to_return0, sizeof(wxPen));
+                    object_init_ex(return_value, php_wxPen_entry);
+                    ((wxPen_php*)ptr)->phpObj = *return_value;
+                    zo_wxPen* zo0 = Z_wxPen_P(return_value);
+                    zo0->native_object = (wxPen_php*) ptr;
                 }
                 else if(current_object_type == PHP_WXPAINTDC_TYPE)
                 {
-                    value_to_return0 = (wxPen_php*) &((wxPaintDC_php*)native_object)->GetPen();
-
+                    value_to_return0 = ((wxPaintDC_php*)native_object)->GetPen();
+                    ((wxRefCounter *) value_to_return0.GetRefData())->IncRef();
+                    void* ptr = safe_emalloc(1, sizeof(wxPen_php), 0);
+                    memcpy(ptr, (void*) &value_to_return0, sizeof(wxPen));
+                    object_init_ex(return_value, php_wxPen_entry);
+                    ((wxPen_php*)ptr)->phpObj = *return_value;
+                    zo_wxPen* zo0 = Z_wxPen_P(return_value);
+                    zo0->native_object = (wxPen_php*) ptr;
                 }
                 else if(current_object_type == PHP_WXSCREENDC_TYPE)
                 {
-                    value_to_return0 = (wxPen_php*) &((wxScreenDC_php*)native_object)->GetPen();
-
+                    value_to_return0 = ((wxScreenDC_php*)native_object)->GetPen();
+                    ((wxRefCounter *) value_to_return0.GetRefData())->IncRef();
+                    void* ptr = safe_emalloc(1, sizeof(wxPen_php), 0);
+                    memcpy(ptr, (void*) &value_to_return0, sizeof(wxPen));
+                    object_init_ex(return_value, php_wxPen_entry);
+                    ((wxPen_php*)ptr)->phpObj = *return_value;
+                    zo_wxPen* zo0 = Z_wxPen_P(return_value);
+                    zo0->native_object = (wxPen_php*) ptr;
                 }
                 else if(current_object_type == PHP_WXPOSTSCRIPTDC_TYPE)
                 {
-                    value_to_return0 = (wxPen_php*) &((wxPostScriptDC_php*)native_object)->GetPen();
-
+                    value_to_return0 = ((wxPostScriptDC_php*)native_object)->GetPen();
+                    ((wxRefCounter *) value_to_return0.GetRefData())->IncRef();
+                    void* ptr = safe_emalloc(1, sizeof(wxPen_php), 0);
+                    memcpy(ptr, (void*) &value_to_return0, sizeof(wxPen));
+                    object_init_ex(return_value, php_wxPen_entry);
+                    ((wxPen_php*)ptr)->phpObj = *return_value;
+                    zo_wxPen* zo0 = Z_wxPen_P(return_value);
+                    zo0->native_object = (wxPen_php*) ptr;
                 }
                 else if(current_object_type == PHP_WXPRINTERDC_TYPE)
                 {
-                    value_to_return0 = (wxPen_php*) &((wxPrinterDC_php*)native_object)->GetPen();
-
+                    value_to_return0 = ((wxPrinterDC_php*)native_object)->GetPen();
+                    ((wxRefCounter *) value_to_return0.GetRefData())->IncRef();
+                    void* ptr = safe_emalloc(1, sizeof(wxPen_php), 0);
+                    memcpy(ptr, (void*) &value_to_return0, sizeof(wxPen));
+                    object_init_ex(return_value, php_wxPen_entry);
+                    ((wxPen_php*)ptr)->phpObj = *return_value;
+                    zo_wxPen* zo0 = Z_wxPen_P(return_value);
+                    zo0->native_object = (wxPen_php*) ptr;
                 }
                 else if(current_object_type == PHP_WXMEMORYDC_TYPE)
                 {
-                    value_to_return0 = (wxPen_php*) &((wxMemoryDC_php*)native_object)->GetPen();
-
+                    value_to_return0 = ((wxMemoryDC_php*)native_object)->GetPen();
+                    ((wxRefCounter *) value_to_return0.GetRefData())->IncRef();
+                    void* ptr = safe_emalloc(1, sizeof(wxPen_php), 0);
+                    memcpy(ptr, (void*) &value_to_return0, sizeof(wxPen));
+                    object_init_ex(return_value, php_wxPen_entry);
+                    ((wxPen_php*)ptr)->phpObj = *return_value;
+                    zo_wxPen* zo0 = Z_wxPen_P(return_value);
+                    zo0->native_object = (wxPen_php*) ptr;
                 }
                 else if(current_object_type == PHP_WXBUFFEREDDC_TYPE)
                 {
-                    value_to_return0 = (wxPen_php*) &((wxBufferedDC_php*)native_object)->GetPen();
-
+                    value_to_return0 = ((wxBufferedDC_php*)native_object)->GetPen();
+                    ((wxRefCounter *) value_to_return0.GetRefData())->IncRef();
+                    void* ptr = safe_emalloc(1, sizeof(wxPen_php), 0);
+                    memcpy(ptr, (void*) &value_to_return0, sizeof(wxPen));
+                    object_init_ex(return_value, php_wxPen_entry);
+                    ((wxPen_php*)ptr)->phpObj = *return_value;
+                    zo_wxPen* zo0 = Z_wxPen_P(return_value);
+                    zo0->native_object = (wxPen_php*) ptr;
                 }
                 else if(current_object_type == PHP_WXBUFFEREDPAINTDC_TYPE)
                 {
-                    value_to_return0 = (wxPen_php*) &((wxBufferedPaintDC_php*)native_object)->GetPen();
-
+                    value_to_return0 = ((wxBufferedPaintDC_php*)native_object)->GetPen();
+                    ((wxRefCounter *) value_to_return0.GetRefData())->IncRef();
+                    void* ptr = safe_emalloc(1, sizeof(wxPen_php), 0);
+                    memcpy(ptr, (void*) &value_to_return0, sizeof(wxPen));
+                    object_init_ex(return_value, php_wxPen_entry);
+                    ((wxPen_php*)ptr)->phpObj = *return_value;
+                    zo_wxPen* zo0 = Z_wxPen_P(return_value);
+                    zo0->native_object = (wxPen_php*) ptr;
                 }
                 else if(current_object_type == PHP_WXAUTOBUFFEREDPAINTDC_TYPE)
                 {
-                    value_to_return0 = (wxPen_php*) &((wxAutoBufferedPaintDC_php*)native_object)->GetPen();
-
+                    value_to_return0 = ((wxAutoBufferedPaintDC_php*)native_object)->GetPen();
+                    ((wxRefCounter *) value_to_return0.GetRefData())->IncRef();
+                    void* ptr = safe_emalloc(1, sizeof(wxPen_php), 0);
+                    memcpy(ptr, (void*) &value_to_return0, sizeof(wxPen));
+                    object_init_ex(return_value, php_wxPen_entry);
+                    ((wxPen_php*)ptr)->phpObj = *return_value;
+                    zo_wxPen* zo0 = Z_wxPen_P(return_value);
+                    zo0->native_object = (wxPen_php*) ptr;
                 }
                 else if(current_object_type == PHP_WXMIRRORDC_TYPE)
                 {
-                    value_to_return0 = (wxPen_php*) &((wxMirrorDC_php*)native_object)->GetPen();
-
+                    value_to_return0 = ((wxMirrorDC_php*)native_object)->GetPen();
+                    ((wxRefCounter *) value_to_return0.GetRefData())->IncRef();
+                    void* ptr = safe_emalloc(1, sizeof(wxPen_php), 0);
+                    memcpy(ptr, (void*) &value_to_return0, sizeof(wxPen));
+                    object_init_ex(return_value, php_wxPen_entry);
+                    ((wxPen_php*)ptr)->phpObj = *return_value;
+                    zo_wxPen* zo0 = Z_wxPen_P(return_value);
+                    zo0->native_object = (wxPen_php*) ptr;
                 }
                 else if(current_object_type == PHP_WXDC_TYPE)
                 {
-                    value_to_return0 = (wxPen_php*) &((wxDC_php*)native_object)->GetPen();
-
-                }
-                if(value_to_return0->references.IsUserInitialized()){
-                    if(!Z_ISNULL(value_to_return0->phpObj)){
-                        ZVAL_COPY_VALUE(return_value, &value_to_return0->phpObj);
-                        zval_add_ref(&value_to_return0->phpObj);
-                        return_is_user_initialized = true;
-                    }
-                    else{
-                        zend_error(E_ERROR, "Could not retreive original zval.");
-                    }
-                }
-                else{
-                    object_init_ex(return_value,php_wxPen_entry);
-                    Z_wxPen_P(return_value)->native_object = (wxPen_php*) value_to_return0;
-                }
-
-                if((void*)value_to_return0 != (void*)native_object && return_is_user_initialized){ //Prevent adding references to it self
-                    references->AddReference(return_value, "wxDC::GetPen at call 6 with 0 argument(s)");
+                    value_to_return0 = ((wxDC_php*)native_object)->GetPen();
+                    ((wxRefCounter *) value_to_return0.GetRefData())->IncRef();
+                    void* ptr = safe_emalloc(1, sizeof(wxPen_php), 0);
+                    memcpy(ptr, (void*) &value_to_return0, sizeof(wxPen));
+                    object_init_ex(return_value, php_wxPen_entry);
+                    ((wxPen_php*)ptr)->phpObj = *return_value;
+                    zo_wxPen* zo0 = Z_wxPen_P(return_value);
+                    zo0->native_object = (wxPen_php*) ptr;
                 }
 
 
@@ -15032,87 +15248,141 @@ PHP_METHOD(php_wxDC, GetTextBackground)
             case 0:
             {
                 #ifdef USE_WXPHP_DEBUG
-                php_printf("Executing wxDC::GetTextBackground() to return object reference\n\n");
+                php_printf("Executing wxDC::GetTextBackground() to return new object\n\n");
                 #endif
 
-                wxColour_php* value_to_return0;
+                wxColour value_to_return0;
                 if(current_object_type == PHP_WXWINDOWDC_TYPE)
                 {
-                    value_to_return0 = (wxColour_php*) &((wxWindowDC_php*)native_object)->GetTextBackground();
-
+                    value_to_return0 = ((wxWindowDC_php*)native_object)->GetTextBackground();
+                    ((wxRefCounter *) value_to_return0.GetRefData())->IncRef();
+                    void* ptr = safe_emalloc(1, sizeof(wxColour_php), 0);
+                    memcpy(ptr, (void*) &value_to_return0, sizeof(wxColour));
+                    object_init_ex(return_value, php_wxColour_entry);
+                    ((wxColour_php*)ptr)->phpObj = *return_value;
+                    zo_wxColour* zo0 = Z_wxColour_P(return_value);
+                    zo0->native_object = (wxColour_php*) ptr;
                 }
                 else if(current_object_type == PHP_WXCLIENTDC_TYPE)
                 {
-                    value_to_return0 = (wxColour_php*) &((wxClientDC_php*)native_object)->GetTextBackground();
-
+                    value_to_return0 = ((wxClientDC_php*)native_object)->GetTextBackground();
+                    ((wxRefCounter *) value_to_return0.GetRefData())->IncRef();
+                    void* ptr = safe_emalloc(1, sizeof(wxColour_php), 0);
+                    memcpy(ptr, (void*) &value_to_return0, sizeof(wxColour));
+                    object_init_ex(return_value, php_wxColour_entry);
+                    ((wxColour_php*)ptr)->phpObj = *return_value;
+                    zo_wxColour* zo0 = Z_wxColour_P(return_value);
+                    zo0->native_object = (wxColour_php*) ptr;
                 }
                 else if(current_object_type == PHP_WXPAINTDC_TYPE)
                 {
-                    value_to_return0 = (wxColour_php*) &((wxPaintDC_php*)native_object)->GetTextBackground();
-
+                    value_to_return0 = ((wxPaintDC_php*)native_object)->GetTextBackground();
+                    ((wxRefCounter *) value_to_return0.GetRefData())->IncRef();
+                    void* ptr = safe_emalloc(1, sizeof(wxColour_php), 0);
+                    memcpy(ptr, (void*) &value_to_return0, sizeof(wxColour));
+                    object_init_ex(return_value, php_wxColour_entry);
+                    ((wxColour_php*)ptr)->phpObj = *return_value;
+                    zo_wxColour* zo0 = Z_wxColour_P(return_value);
+                    zo0->native_object = (wxColour_php*) ptr;
                 }
                 else if(current_object_type == PHP_WXSCREENDC_TYPE)
                 {
-                    value_to_return0 = (wxColour_php*) &((wxScreenDC_php*)native_object)->GetTextBackground();
-
+                    value_to_return0 = ((wxScreenDC_php*)native_object)->GetTextBackground();
+                    ((wxRefCounter *) value_to_return0.GetRefData())->IncRef();
+                    void* ptr = safe_emalloc(1, sizeof(wxColour_php), 0);
+                    memcpy(ptr, (void*) &value_to_return0, sizeof(wxColour));
+                    object_init_ex(return_value, php_wxColour_entry);
+                    ((wxColour_php*)ptr)->phpObj = *return_value;
+                    zo_wxColour* zo0 = Z_wxColour_P(return_value);
+                    zo0->native_object = (wxColour_php*) ptr;
                 }
                 else if(current_object_type == PHP_WXPOSTSCRIPTDC_TYPE)
                 {
-                    value_to_return0 = (wxColour_php*) &((wxPostScriptDC_php*)native_object)->GetTextBackground();
-
+                    value_to_return0 = ((wxPostScriptDC_php*)native_object)->GetTextBackground();
+                    ((wxRefCounter *) value_to_return0.GetRefData())->IncRef();
+                    void* ptr = safe_emalloc(1, sizeof(wxColour_php), 0);
+                    memcpy(ptr, (void*) &value_to_return0, sizeof(wxColour));
+                    object_init_ex(return_value, php_wxColour_entry);
+                    ((wxColour_php*)ptr)->phpObj = *return_value;
+                    zo_wxColour* zo0 = Z_wxColour_P(return_value);
+                    zo0->native_object = (wxColour_php*) ptr;
                 }
                 else if(current_object_type == PHP_WXPRINTERDC_TYPE)
                 {
-                    value_to_return0 = (wxColour_php*) &((wxPrinterDC_php*)native_object)->GetTextBackground();
-
+                    value_to_return0 = ((wxPrinterDC_php*)native_object)->GetTextBackground();
+                    ((wxRefCounter *) value_to_return0.GetRefData())->IncRef();
+                    void* ptr = safe_emalloc(1, sizeof(wxColour_php), 0);
+                    memcpy(ptr, (void*) &value_to_return0, sizeof(wxColour));
+                    object_init_ex(return_value, php_wxColour_entry);
+                    ((wxColour_php*)ptr)->phpObj = *return_value;
+                    zo_wxColour* zo0 = Z_wxColour_P(return_value);
+                    zo0->native_object = (wxColour_php*) ptr;
                 }
                 else if(current_object_type == PHP_WXMEMORYDC_TYPE)
                 {
-                    value_to_return0 = (wxColour_php*) &((wxMemoryDC_php*)native_object)->GetTextBackground();
-
+                    value_to_return0 = ((wxMemoryDC_php*)native_object)->GetTextBackground();
+                    ((wxRefCounter *) value_to_return0.GetRefData())->IncRef();
+                    void* ptr = safe_emalloc(1, sizeof(wxColour_php), 0);
+                    memcpy(ptr, (void*) &value_to_return0, sizeof(wxColour));
+                    object_init_ex(return_value, php_wxColour_entry);
+                    ((wxColour_php*)ptr)->phpObj = *return_value;
+                    zo_wxColour* zo0 = Z_wxColour_P(return_value);
+                    zo0->native_object = (wxColour_php*) ptr;
                 }
                 else if(current_object_type == PHP_WXBUFFEREDDC_TYPE)
                 {
-                    value_to_return0 = (wxColour_php*) &((wxBufferedDC_php*)native_object)->GetTextBackground();
-
+                    value_to_return0 = ((wxBufferedDC_php*)native_object)->GetTextBackground();
+                    ((wxRefCounter *) value_to_return0.GetRefData())->IncRef();
+                    void* ptr = safe_emalloc(1, sizeof(wxColour_php), 0);
+                    memcpy(ptr, (void*) &value_to_return0, sizeof(wxColour));
+                    object_init_ex(return_value, php_wxColour_entry);
+                    ((wxColour_php*)ptr)->phpObj = *return_value;
+                    zo_wxColour* zo0 = Z_wxColour_P(return_value);
+                    zo0->native_object = (wxColour_php*) ptr;
                 }
                 else if(current_object_type == PHP_WXBUFFEREDPAINTDC_TYPE)
                 {
-                    value_to_return0 = (wxColour_php*) &((wxBufferedPaintDC_php*)native_object)->GetTextBackground();
-
+                    value_to_return0 = ((wxBufferedPaintDC_php*)native_object)->GetTextBackground();
+                    ((wxRefCounter *) value_to_return0.GetRefData())->IncRef();
+                    void* ptr = safe_emalloc(1, sizeof(wxColour_php), 0);
+                    memcpy(ptr, (void*) &value_to_return0, sizeof(wxColour));
+                    object_init_ex(return_value, php_wxColour_entry);
+                    ((wxColour_php*)ptr)->phpObj = *return_value;
+                    zo_wxColour* zo0 = Z_wxColour_P(return_value);
+                    zo0->native_object = (wxColour_php*) ptr;
                 }
                 else if(current_object_type == PHP_WXAUTOBUFFEREDPAINTDC_TYPE)
                 {
-                    value_to_return0 = (wxColour_php*) &((wxAutoBufferedPaintDC_php*)native_object)->GetTextBackground();
-
+                    value_to_return0 = ((wxAutoBufferedPaintDC_php*)native_object)->GetTextBackground();
+                    ((wxRefCounter *) value_to_return0.GetRefData())->IncRef();
+                    void* ptr = safe_emalloc(1, sizeof(wxColour_php), 0);
+                    memcpy(ptr, (void*) &value_to_return0, sizeof(wxColour));
+                    object_init_ex(return_value, php_wxColour_entry);
+                    ((wxColour_php*)ptr)->phpObj = *return_value;
+                    zo_wxColour* zo0 = Z_wxColour_P(return_value);
+                    zo0->native_object = (wxColour_php*) ptr;
                 }
                 else if(current_object_type == PHP_WXMIRRORDC_TYPE)
                 {
-                    value_to_return0 = (wxColour_php*) &((wxMirrorDC_php*)native_object)->GetTextBackground();
-
+                    value_to_return0 = ((wxMirrorDC_php*)native_object)->GetTextBackground();
+                    ((wxRefCounter *) value_to_return0.GetRefData())->IncRef();
+                    void* ptr = safe_emalloc(1, sizeof(wxColour_php), 0);
+                    memcpy(ptr, (void*) &value_to_return0, sizeof(wxColour));
+                    object_init_ex(return_value, php_wxColour_entry);
+                    ((wxColour_php*)ptr)->phpObj = *return_value;
+                    zo_wxColour* zo0 = Z_wxColour_P(return_value);
+                    zo0->native_object = (wxColour_php*) ptr;
                 }
                 else if(current_object_type == PHP_WXDC_TYPE)
                 {
-                    value_to_return0 = (wxColour_php*) &((wxDC_php*)native_object)->GetTextBackground();
-
-                }
-                if(value_to_return0->references.IsUserInitialized()){
-                    if(!Z_ISNULL(value_to_return0->phpObj)){
-                        ZVAL_COPY_VALUE(return_value, &value_to_return0->phpObj);
-                        zval_add_ref(&value_to_return0->phpObj);
-                        return_is_user_initialized = true;
-                    }
-                    else{
-                        zend_error(E_ERROR, "Could not retreive original zval.");
-                    }
-                }
-                else{
-                    object_init_ex(return_value,php_wxColour_entry);
-                    Z_wxColour_P(return_value)->native_object = (wxColour_php*) value_to_return0;
-                }
-
-                if((void*)value_to_return0 != (void*)native_object && return_is_user_initialized){ //Prevent adding references to it self
-                    references->AddReference(return_value, "wxDC::GetTextBackground at call 6 with 0 argument(s)");
+                    value_to_return0 = ((wxDC_php*)native_object)->GetTextBackground();
+                    ((wxRefCounter *) value_to_return0.GetRefData())->IncRef();
+                    void* ptr = safe_emalloc(1, sizeof(wxColour_php), 0);
+                    memcpy(ptr, (void*) &value_to_return0, sizeof(wxColour));
+                    object_init_ex(return_value, php_wxColour_entry);
+                    ((wxColour_php*)ptr)->phpObj = *return_value;
+                    zo_wxColour* zo0 = Z_wxColour_P(return_value);
+                    zo0->native_object = (wxColour_php*) ptr;
                 }
 
 
@@ -15827,87 +16097,141 @@ PHP_METHOD(php_wxDC, GetTextForeground)
             case 0:
             {
                 #ifdef USE_WXPHP_DEBUG
-                php_printf("Executing wxDC::GetTextForeground() to return object reference\n\n");
+                php_printf("Executing wxDC::GetTextForeground() to return new object\n\n");
                 #endif
 
-                wxColour_php* value_to_return0;
+                wxColour value_to_return0;
                 if(current_object_type == PHP_WXWINDOWDC_TYPE)
                 {
-                    value_to_return0 = (wxColour_php*) &((wxWindowDC_php*)native_object)->GetTextForeground();
-
+                    value_to_return0 = ((wxWindowDC_php*)native_object)->GetTextForeground();
+                    ((wxRefCounter *) value_to_return0.GetRefData())->IncRef();
+                    void* ptr = safe_emalloc(1, sizeof(wxColour_php), 0);
+                    memcpy(ptr, (void*) &value_to_return0, sizeof(wxColour));
+                    object_init_ex(return_value, php_wxColour_entry);
+                    ((wxColour_php*)ptr)->phpObj = *return_value;
+                    zo_wxColour* zo0 = Z_wxColour_P(return_value);
+                    zo0->native_object = (wxColour_php*) ptr;
                 }
                 else if(current_object_type == PHP_WXCLIENTDC_TYPE)
                 {
-                    value_to_return0 = (wxColour_php*) &((wxClientDC_php*)native_object)->GetTextForeground();
-
+                    value_to_return0 = ((wxClientDC_php*)native_object)->GetTextForeground();
+                    ((wxRefCounter *) value_to_return0.GetRefData())->IncRef();
+                    void* ptr = safe_emalloc(1, sizeof(wxColour_php), 0);
+                    memcpy(ptr, (void*) &value_to_return0, sizeof(wxColour));
+                    object_init_ex(return_value, php_wxColour_entry);
+                    ((wxColour_php*)ptr)->phpObj = *return_value;
+                    zo_wxColour* zo0 = Z_wxColour_P(return_value);
+                    zo0->native_object = (wxColour_php*) ptr;
                 }
                 else if(current_object_type == PHP_WXPAINTDC_TYPE)
                 {
-                    value_to_return0 = (wxColour_php*) &((wxPaintDC_php*)native_object)->GetTextForeground();
-
+                    value_to_return0 = ((wxPaintDC_php*)native_object)->GetTextForeground();
+                    ((wxRefCounter *) value_to_return0.GetRefData())->IncRef();
+                    void* ptr = safe_emalloc(1, sizeof(wxColour_php), 0);
+                    memcpy(ptr, (void*) &value_to_return0, sizeof(wxColour));
+                    object_init_ex(return_value, php_wxColour_entry);
+                    ((wxColour_php*)ptr)->phpObj = *return_value;
+                    zo_wxColour* zo0 = Z_wxColour_P(return_value);
+                    zo0->native_object = (wxColour_php*) ptr;
                 }
                 else if(current_object_type == PHP_WXSCREENDC_TYPE)
                 {
-                    value_to_return0 = (wxColour_php*) &((wxScreenDC_php*)native_object)->GetTextForeground();
-
+                    value_to_return0 = ((wxScreenDC_php*)native_object)->GetTextForeground();
+                    ((wxRefCounter *) value_to_return0.GetRefData())->IncRef();
+                    void* ptr = safe_emalloc(1, sizeof(wxColour_php), 0);
+                    memcpy(ptr, (void*) &value_to_return0, sizeof(wxColour));
+                    object_init_ex(return_value, php_wxColour_entry);
+                    ((wxColour_php*)ptr)->phpObj = *return_value;
+                    zo_wxColour* zo0 = Z_wxColour_P(return_value);
+                    zo0->native_object = (wxColour_php*) ptr;
                 }
                 else if(current_object_type == PHP_WXPOSTSCRIPTDC_TYPE)
                 {
-                    value_to_return0 = (wxColour_php*) &((wxPostScriptDC_php*)native_object)->GetTextForeground();
-
+                    value_to_return0 = ((wxPostScriptDC_php*)native_object)->GetTextForeground();
+                    ((wxRefCounter *) value_to_return0.GetRefData())->IncRef();
+                    void* ptr = safe_emalloc(1, sizeof(wxColour_php), 0);
+                    memcpy(ptr, (void*) &value_to_return0, sizeof(wxColour));
+                    object_init_ex(return_value, php_wxColour_entry);
+                    ((wxColour_php*)ptr)->phpObj = *return_value;
+                    zo_wxColour* zo0 = Z_wxColour_P(return_value);
+                    zo0->native_object = (wxColour_php*) ptr;
                 }
                 else if(current_object_type == PHP_WXPRINTERDC_TYPE)
                 {
-                    value_to_return0 = (wxColour_php*) &((wxPrinterDC_php*)native_object)->GetTextForeground();
-
+                    value_to_return0 = ((wxPrinterDC_php*)native_object)->GetTextForeground();
+                    ((wxRefCounter *) value_to_return0.GetRefData())->IncRef();
+                    void* ptr = safe_emalloc(1, sizeof(wxColour_php), 0);
+                    memcpy(ptr, (void*) &value_to_return0, sizeof(wxColour));
+                    object_init_ex(return_value, php_wxColour_entry);
+                    ((wxColour_php*)ptr)->phpObj = *return_value;
+                    zo_wxColour* zo0 = Z_wxColour_P(return_value);
+                    zo0->native_object = (wxColour_php*) ptr;
                 }
                 else if(current_object_type == PHP_WXMEMORYDC_TYPE)
                 {
-                    value_to_return0 = (wxColour_php*) &((wxMemoryDC_php*)native_object)->GetTextForeground();
-
+                    value_to_return0 = ((wxMemoryDC_php*)native_object)->GetTextForeground();
+                    ((wxRefCounter *) value_to_return0.GetRefData())->IncRef();
+                    void* ptr = safe_emalloc(1, sizeof(wxColour_php), 0);
+                    memcpy(ptr, (void*) &value_to_return0, sizeof(wxColour));
+                    object_init_ex(return_value, php_wxColour_entry);
+                    ((wxColour_php*)ptr)->phpObj = *return_value;
+                    zo_wxColour* zo0 = Z_wxColour_P(return_value);
+                    zo0->native_object = (wxColour_php*) ptr;
                 }
                 else if(current_object_type == PHP_WXBUFFEREDDC_TYPE)
                 {
-                    value_to_return0 = (wxColour_php*) &((wxBufferedDC_php*)native_object)->GetTextForeground();
-
+                    value_to_return0 = ((wxBufferedDC_php*)native_object)->GetTextForeground();
+                    ((wxRefCounter *) value_to_return0.GetRefData())->IncRef();
+                    void* ptr = safe_emalloc(1, sizeof(wxColour_php), 0);
+                    memcpy(ptr, (void*) &value_to_return0, sizeof(wxColour));
+                    object_init_ex(return_value, php_wxColour_entry);
+                    ((wxColour_php*)ptr)->phpObj = *return_value;
+                    zo_wxColour* zo0 = Z_wxColour_P(return_value);
+                    zo0->native_object = (wxColour_php*) ptr;
                 }
                 else if(current_object_type == PHP_WXBUFFEREDPAINTDC_TYPE)
                 {
-                    value_to_return0 = (wxColour_php*) &((wxBufferedPaintDC_php*)native_object)->GetTextForeground();
-
+                    value_to_return0 = ((wxBufferedPaintDC_php*)native_object)->GetTextForeground();
+                    ((wxRefCounter *) value_to_return0.GetRefData())->IncRef();
+                    void* ptr = safe_emalloc(1, sizeof(wxColour_php), 0);
+                    memcpy(ptr, (void*) &value_to_return0, sizeof(wxColour));
+                    object_init_ex(return_value, php_wxColour_entry);
+                    ((wxColour_php*)ptr)->phpObj = *return_value;
+                    zo_wxColour* zo0 = Z_wxColour_P(return_value);
+                    zo0->native_object = (wxColour_php*) ptr;
                 }
                 else if(current_object_type == PHP_WXAUTOBUFFEREDPAINTDC_TYPE)
                 {
-                    value_to_return0 = (wxColour_php*) &((wxAutoBufferedPaintDC_php*)native_object)->GetTextForeground();
-
+                    value_to_return0 = ((wxAutoBufferedPaintDC_php*)native_object)->GetTextForeground();
+                    ((wxRefCounter *) value_to_return0.GetRefData())->IncRef();
+                    void* ptr = safe_emalloc(1, sizeof(wxColour_php), 0);
+                    memcpy(ptr, (void*) &value_to_return0, sizeof(wxColour));
+                    object_init_ex(return_value, php_wxColour_entry);
+                    ((wxColour_php*)ptr)->phpObj = *return_value;
+                    zo_wxColour* zo0 = Z_wxColour_P(return_value);
+                    zo0->native_object = (wxColour_php*) ptr;
                 }
                 else if(current_object_type == PHP_WXMIRRORDC_TYPE)
                 {
-                    value_to_return0 = (wxColour_php*) &((wxMirrorDC_php*)native_object)->GetTextForeground();
-
+                    value_to_return0 = ((wxMirrorDC_php*)native_object)->GetTextForeground();
+                    ((wxRefCounter *) value_to_return0.GetRefData())->IncRef();
+                    void* ptr = safe_emalloc(1, sizeof(wxColour_php), 0);
+                    memcpy(ptr, (void*) &value_to_return0, sizeof(wxColour));
+                    object_init_ex(return_value, php_wxColour_entry);
+                    ((wxColour_php*)ptr)->phpObj = *return_value;
+                    zo_wxColour* zo0 = Z_wxColour_P(return_value);
+                    zo0->native_object = (wxColour_php*) ptr;
                 }
                 else if(current_object_type == PHP_WXDC_TYPE)
                 {
-                    value_to_return0 = (wxColour_php*) &((wxDC_php*)native_object)->GetTextForeground();
-
-                }
-                if(value_to_return0->references.IsUserInitialized()){
-                    if(!Z_ISNULL(value_to_return0->phpObj)){
-                        ZVAL_COPY_VALUE(return_value, &value_to_return0->phpObj);
-                        zval_add_ref(&value_to_return0->phpObj);
-                        return_is_user_initialized = true;
-                    }
-                    else{
-                        zend_error(E_ERROR, "Could not retreive original zval.");
-                    }
-                }
-                else{
-                    object_init_ex(return_value,php_wxColour_entry);
-                    Z_wxColour_P(return_value)->native_object = (wxColour_php*) value_to_return0;
-                }
-
-                if((void*)value_to_return0 != (void*)native_object && return_is_user_initialized){ //Prevent adding references to it self
-                    references->AddReference(return_value, "wxDC::GetTextForeground at call 6 with 0 argument(s)");
+                    value_to_return0 = ((wxDC_php*)native_object)->GetTextForeground();
+                    ((wxRefCounter *) value_to_return0.GetRefData())->IncRef();
+                    void* ptr = safe_emalloc(1, sizeof(wxColour_php), 0);
+                    memcpy(ptr, (void*) &value_to_return0, sizeof(wxColour));
+                    object_init_ex(return_value, php_wxColour_entry);
+                    ((wxColour_php*)ptr)->phpObj = *return_value;
+                    zo_wxColour* zo0 = Z_wxColour_P(return_value);
+                    zo0->native_object = (wxColour_php*) ptr;
                 }
 
 

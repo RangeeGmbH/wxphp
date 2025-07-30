@@ -1727,7 +1727,6 @@ void php_wxPaintEvent_destruction_handler(zend_resource*);
 class wxPaintEvent_php: public wxPaintEvent{
     public:
 
-    wxPaintEvent_php(int id=0):wxPaintEvent(id){}
     
     
 
@@ -1748,10 +1747,6 @@ zend_object* php_wxPaintEvent_new(zend_class_entry *class_type);
 END_EXTERN_C()
 
 #ifdef WXPHP_INCLUDE_METHOD_TABLES
-ZEND_BEGIN_ARG_INFO_EX(php_wxPaintEvent___construct_arg_infos, 0, 0, 0)
-    ZEND_ARG_INFO(0, id)
-    ZEND_ARG_INFO(0, eventType)
-ZEND_END_ARG_INFO()
 ZEND_BEGIN_ARG_INFO_EX(php_wxPaintEvent_GetEventCategory_arg_infos, 0, 0, 0)
 ZEND_END_ARG_INFO()
 ZEND_BEGIN_ARG_INFO_EX(php_wxPaintEvent_GetEventObject_arg_infos, 0, 0, 0)
@@ -1788,6 +1783,10 @@ ZEND_BEGIN_ARG_INFO_EX(php_wxPaintEvent_Skip_arg_infos, 0, 0, 0)
 ZEND_END_ARG_INFO()
 ZEND_BEGIN_ARG_INFO_EX(php_wxPaintEvent_StopPropagation_arg_infos, 0, 0, 0)
 ZEND_END_ARG_INFO()
+ZEND_BEGIN_ARG_INFO_EX(php_wxPaintEvent___construct_arg_infos, 0, 0, 0)
+    ZEND_ARG_INFO(0, id)
+    ZEND_ARG_INFO(0, eventType)
+ZEND_END_ARG_INFO()
 ZEND_BEGIN_ARG_INFO_EX(php_wxPaintEvent_UnShare_arg_infos, 0, 0, 0)
 ZEND_END_ARG_INFO()
 ZEND_BEGIN_ARG_INFO_EX(php_wxPaintEvent_UnRef_arg_infos, 0, 0, 0)
@@ -1805,7 +1804,6 @@ ZEND_BEGIN_ARG_INFO_EX(php_wxPaintEvent_IsKindOf_arg_infos, 0, 0, 0)
 ZEND_END_ARG_INFO()
 
 static zend_function_entry php_wxPaintEvent_functions[] = {
-    PHP_ME(php_wxPaintEvent, __construct, php_wxPaintEvent___construct_arg_infos, ZEND_ACC_PUBLIC|ZEND_ACC_CTOR)
     PHP_FE_END
 };
 #endif
@@ -8277,109 +8275,6 @@ static inline zo_wxTaskBarIconEvent * php_wxTaskBarIconEvent_fetch_object(zend_o
 
 #define Z_wxTaskBarIconEvent_P(zv) \
     php_wxTaskBarIconEvent_fetch_object(Z_OBJ_P(zv))
-extern zend_class_entry* php_wxTimerEvent_entry;
-extern zend_object_handlers wxphp_wxTimerEvent_object_handlers;
-void php_wxTimerEvent_destruction_handler(zend_resource*);
-
-class wxTimerEvent_php: public wxTimerEvent{
-    public:
-
-    wxTimerEvent_php():wxTimerEvent(){}
-    wxTimerEvent_php(wxTimer& timer):wxTimerEvent(timer){}
-    
-    
-
-    zval phpObj;
-    wxPHPObjectReferences references;
-};
-
-BEGIN_EXTERN_C()
-typedef struct _zo_wxTimerEvent{
-    wxTimerEvent_php* native_object;
-    wxphp_object_type object_type;
-    int is_user_initialized;
-    zend_object zo;
-} zo_wxTimerEvent;
-
-void php_wxTimerEvent_free(void *object);
-zend_object* php_wxTimerEvent_new(zend_class_entry *class_type);
-END_EXTERN_C()
-
-#ifdef WXPHP_INCLUDE_METHOD_TABLES
-ZEND_BEGIN_ARG_INFO_EX(php_wxTimerEvent_GetInterval_arg_infos, 0, 0, 0)
-ZEND_END_ARG_INFO()
-ZEND_BEGIN_ARG_INFO_EX(php_wxTimerEvent___construct_arg_infos, 0, 0, 0)
-    ZEND_ARG_INFO(0, id)
-    ZEND_ARG_INFO(0, eventType)
-ZEND_END_ARG_INFO()
-ZEND_BEGIN_ARG_INFO_EX(php_wxTimerEvent_GetEventCategory_arg_infos, 0, 0, 0)
-ZEND_END_ARG_INFO()
-ZEND_BEGIN_ARG_INFO_EX(php_wxTimerEvent_GetEventObject_arg_infos, 0, 0, 0)
-ZEND_END_ARG_INFO()
-ZEND_BEGIN_ARG_INFO_EX(php_wxTimerEvent_GetEventType_arg_infos, 0, 0, 0)
-ZEND_END_ARG_INFO()
-ZEND_BEGIN_ARG_INFO_EX(php_wxTimerEvent_GetId_arg_infos, 0, 0, 0)
-ZEND_END_ARG_INFO()
-ZEND_BEGIN_ARG_INFO_EX(php_wxTimerEvent_GetSkipped_arg_infos, 0, 0, 0)
-ZEND_END_ARG_INFO()
-ZEND_BEGIN_ARG_INFO_EX(php_wxTimerEvent_GetTimestamp_arg_infos, 0, 0, 0)
-ZEND_END_ARG_INFO()
-ZEND_BEGIN_ARG_INFO_EX(php_wxTimerEvent_IsCommandEvent_arg_infos, 0, 0, 0)
-ZEND_END_ARG_INFO()
-ZEND_BEGIN_ARG_INFO_EX(php_wxTimerEvent_ResumePropagation_arg_infos, 0, 0, 0)
-    ZEND_ARG_INFO(0, propagationLevel)
-ZEND_END_ARG_INFO()
-ZEND_BEGIN_ARG_INFO_EX(php_wxTimerEvent_SetEventObject_arg_infos, 0, 0, 0)
-    ZEND_ARG_INFO(0, object)
-ZEND_END_ARG_INFO()
-ZEND_BEGIN_ARG_INFO_EX(php_wxTimerEvent_SetEventType_arg_infos, 0, 0, 0)
-    ZEND_ARG_INFO(0, type)
-ZEND_END_ARG_INFO()
-ZEND_BEGIN_ARG_INFO_EX(php_wxTimerEvent_SetId_arg_infos, 0, 0, 0)
-    ZEND_ARG_INFO(0, id)
-ZEND_END_ARG_INFO()
-ZEND_BEGIN_ARG_INFO_EX(php_wxTimerEvent_SetTimestamp_arg_infos, 0, 0, 0)
-    ZEND_ARG_INFO(0, timeStamp)
-ZEND_END_ARG_INFO()
-ZEND_BEGIN_ARG_INFO_EX(php_wxTimerEvent_ShouldPropagate_arg_infos, 0, 0, 0)
-ZEND_END_ARG_INFO()
-ZEND_BEGIN_ARG_INFO_EX(php_wxTimerEvent_Skip_arg_infos, 0, 0, 0)
-    ZEND_ARG_INFO(0, skip)
-ZEND_END_ARG_INFO()
-ZEND_BEGIN_ARG_INFO_EX(php_wxTimerEvent_StopPropagation_arg_infos, 0, 0, 0)
-ZEND_END_ARG_INFO()
-ZEND_BEGIN_ARG_INFO_EX(php_wxTimerEvent_UnShare_arg_infos, 0, 0, 0)
-ZEND_END_ARG_INFO()
-ZEND_BEGIN_ARG_INFO_EX(php_wxTimerEvent_UnRef_arg_infos, 0, 0, 0)
-ZEND_END_ARG_INFO()
-ZEND_BEGIN_ARG_INFO_EX(php_wxTimerEvent_IsSameAs_arg_infos, 0, 0, 0)
-    ZEND_ARG_INFO(0, obj)
-ZEND_END_ARG_INFO()
-ZEND_BEGIN_ARG_INFO_EX(php_wxTimerEvent_Ref_arg_infos, 0, 0, 0)
-    ZEND_ARG_INFO(0, clone)
-ZEND_END_ARG_INFO()
-ZEND_BEGIN_ARG_INFO_EX(php_wxTimerEvent_GetClassInfo_arg_infos, 0, 0, 0)
-ZEND_END_ARG_INFO()
-ZEND_BEGIN_ARG_INFO_EX(php_wxTimerEvent_IsKindOf_arg_infos, 0, 0, 0)
-    ZEND_ARG_INFO(0, info)
-ZEND_END_ARG_INFO()
-
-static zend_function_entry php_wxTimerEvent_functions[] = {
-    PHP_ME(php_wxTimerEvent, GetInterval, php_wxTimerEvent_GetInterval_arg_infos, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxTimerEvent, __construct, php_wxTimerEvent___construct_arg_infos, ZEND_ACC_PUBLIC|ZEND_ACC_CTOR)
-    PHP_FE_END
-};
-#endif
-
-
-static inline zo_wxTimerEvent * php_wxTimerEvent_fetch_object(zend_object *obj) {
-    return (zo_wxTimerEvent *)(
-        (char *)(obj) - XtOffsetOf(zo_wxTimerEvent, zo)
-    );
-}
-
-#define Z_wxTimerEvent_P(zv) \
-    php_wxTimerEvent_fetch_object(Z_OBJ_P(zv))
 extern zend_class_entry* php_wxTreeEvent_entry;
 extern zend_object_handlers wxphp_wxTreeEvent_object_handlers;
 void php_wxTreeEvent_destruction_handler(zend_resource*);

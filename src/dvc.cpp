@@ -10623,37 +10623,29 @@ PHP_METHOD(php_wxDataViewCustomRenderer, GetAttr)
             case 0:
             {
                 #ifdef USE_WXPHP_DEBUG
-                php_printf("Executing wxDataViewCustomRenderer::GetAttr() to return object reference\n\n");
+                php_printf("Executing wxDataViewCustomRenderer::GetAttr() to return new object\n\n");
                 #endif
 
-                wxDataViewItemAttr_php* value_to_return0;
+                wxDataViewItemAttr value_to_return0;
                 if(current_object_type == PHP_WXDATAVIEWSPINRENDERER_TYPE)
                 {
-                    value_to_return0 = (wxDataViewItemAttr_php*) &((wxDataViewSpinRenderer_php*)native_object)->GetAttr();
-
+                    value_to_return0 = ((wxDataViewSpinRenderer_php*)native_object)->GetAttr();
+                    void* ptr = safe_emalloc(1, sizeof(wxDataViewItemAttr_php), 0);
+                    memcpy(ptr, (void*) &value_to_return0, sizeof(wxDataViewItemAttr));
+                    object_init_ex(return_value, php_wxDataViewItemAttr_entry);
+                    ((wxDataViewItemAttr_php*)ptr)->phpObj = *return_value;
+                    zo_wxDataViewItemAttr* zo0 = Z_wxDataViewItemAttr_P(return_value);
+                    zo0->native_object = (wxDataViewItemAttr_php*) ptr;
                 }
                 else if(current_object_type == PHP_WXDATAVIEWCUSTOMRENDERER_TYPE)
                 {
-                    value_to_return0 = (wxDataViewItemAttr_php*) &((wxDataViewCustomRenderer_php*)native_object)->GetAttr();
-
-                }
-                if(value_to_return0->references.IsUserInitialized()){
-                    if(!Z_ISNULL(value_to_return0->phpObj)){
-                        ZVAL_COPY_VALUE(return_value, &value_to_return0->phpObj);
-                        zval_add_ref(&value_to_return0->phpObj);
-                        return_is_user_initialized = true;
-                    }
-                    else{
-                        zend_error(E_ERROR, "Could not retreive original zval.");
-                    }
-                }
-                else{
-                    object_init_ex(return_value,php_wxDataViewItemAttr_entry);
-                    Z_wxDataViewItemAttr_P(return_value)->native_object = (wxDataViewItemAttr_php*) value_to_return0;
-                }
-
-                if((void*)value_to_return0 != (void*)native_object && return_is_user_initialized){ //Prevent adding references to it self
-                    references->AddReference(return_value, "wxDataViewCustomRenderer::GetAttr at call 6 with 0 argument(s)");
+                    value_to_return0 = ((wxDataViewCustomRenderer_php*)native_object)->GetAttr();
+                    void* ptr = safe_emalloc(1, sizeof(wxDataViewItemAttr_php), 0);
+                    memcpy(ptr, (void*) &value_to_return0, sizeof(wxDataViewItemAttr));
+                    object_init_ex(return_value, php_wxDataViewItemAttr_entry);
+                    ((wxDataViewItemAttr_php*)ptr)->phpObj = *return_value;
+                    zo_wxDataViewItemAttr* zo0 = Z_wxDataViewItemAttr_P(return_value);
+                    zo0->native_object = (wxDataViewItemAttr_php*) ptr;
                 }
 
 
@@ -14957,30 +14949,18 @@ PHP_METHOD(php_wxDataViewTreeStore, GetItemExpandedIcon)
             case 1:
             {
                 #ifdef USE_WXPHP_DEBUG
-                php_printf("Executing wxDataViewTreeStore::GetItemExpandedIcon(*(wxDataViewItem*) object_pointer0_0) to return object reference\n\n");
+                php_printf("Executing wxDataViewTreeStore::GetItemExpandedIcon(*(wxDataViewItem*) object_pointer0_0) to return new object\n\n");
                 #endif
 
-                wxIcon_php* value_to_return1;
-                value_to_return1 = (wxIcon_php*) &((wxDataViewTreeStore_php*)native_object)->GetItemExpandedIcon(*(wxDataViewItem*) object_pointer0_0);
-
-                if(value_to_return1->references.IsUserInitialized()){
-                    if(!Z_ISNULL(value_to_return1->phpObj)){
-                        ZVAL_COPY_VALUE(return_value, &value_to_return1->phpObj);
-                        zval_add_ref(&value_to_return1->phpObj);
-                        return_is_user_initialized = true;
-                    }
-                    else{
-                        zend_error(E_ERROR, "Could not retreive original zval.");
-                    }
-                }
-                else{
-                    object_init_ex(return_value,php_wxIcon_entry);
-                    Z_wxIcon_P(return_value)->native_object = (wxIcon_php*) value_to_return1;
-                }
-
-                if((void*)value_to_return1 != (void*)native_object && return_is_user_initialized){ //Prevent adding references to it self
-                    references->AddReference(return_value, "wxDataViewTreeStore::GetItemExpandedIcon at call 6 with 1 argument(s)");
-                }
+                wxIcon value_to_return1;
+                value_to_return1 = ((wxDataViewTreeStore_php*)native_object)->GetItemExpandedIcon(*(wxDataViewItem*) object_pointer0_0);
+                ((wxRefCounter *) value_to_return1.GetRefData())->IncRef();
+                void* ptr = safe_emalloc(1, sizeof(wxIcon_php), 0);
+                memcpy(ptr, (void*) &value_to_return1, sizeof(wxIcon));
+                object_init_ex(return_value, php_wxIcon_entry);
+                ((wxIcon_php*)ptr)->phpObj = *return_value;
+                zo_wxIcon* zo1 = Z_wxIcon_P(return_value);
+                zo1->native_object = (wxIcon_php*) ptr;
 
                 references->AddReference(item0, "wxDataViewTreeStore::GetItemExpandedIcon at call 3 with 1 argument(s)");
 
@@ -15108,30 +15088,18 @@ PHP_METHOD(php_wxDataViewTreeStore, GetItemIcon)
             case 1:
             {
                 #ifdef USE_WXPHP_DEBUG
-                php_printf("Executing wxDataViewTreeStore::GetItemIcon(*(wxDataViewItem*) object_pointer0_0) to return object reference\n\n");
+                php_printf("Executing wxDataViewTreeStore::GetItemIcon(*(wxDataViewItem*) object_pointer0_0) to return new object\n\n");
                 #endif
 
-                wxIcon_php* value_to_return1;
-                value_to_return1 = (wxIcon_php*) &((wxDataViewTreeStore_php*)native_object)->GetItemIcon(*(wxDataViewItem*) object_pointer0_0);
-
-                if(value_to_return1->references.IsUserInitialized()){
-                    if(!Z_ISNULL(value_to_return1->phpObj)){
-                        ZVAL_COPY_VALUE(return_value, &value_to_return1->phpObj);
-                        zval_add_ref(&value_to_return1->phpObj);
-                        return_is_user_initialized = true;
-                    }
-                    else{
-                        zend_error(E_ERROR, "Could not retreive original zval.");
-                    }
-                }
-                else{
-                    object_init_ex(return_value,php_wxIcon_entry);
-                    Z_wxIcon_P(return_value)->native_object = (wxIcon_php*) value_to_return1;
-                }
-
-                if((void*)value_to_return1 != (void*)native_object && return_is_user_initialized){ //Prevent adding references to it self
-                    references->AddReference(return_value, "wxDataViewTreeStore::GetItemIcon at call 6 with 1 argument(s)");
-                }
+                wxIcon value_to_return1;
+                value_to_return1 = ((wxDataViewTreeStore_php*)native_object)->GetItemIcon(*(wxDataViewItem*) object_pointer0_0);
+                ((wxRefCounter *) value_to_return1.GetRefData())->IncRef();
+                void* ptr = safe_emalloc(1, sizeof(wxIcon_php), 0);
+                memcpy(ptr, (void*) &value_to_return1, sizeof(wxIcon));
+                object_init_ex(return_value, php_wxIcon_entry);
+                ((wxIcon_php*)ptr)->phpObj = *return_value;
+                zo_wxIcon* zo1 = Z_wxIcon_P(return_value);
+                zo1->native_object = (wxIcon_php*) ptr;
 
                 references->AddReference(item0, "wxDataViewTreeStore::GetItemIcon at call 3 with 1 argument(s)");
 
@@ -17136,30 +17104,18 @@ PHP_METHOD(php_wxDataViewIconText, GetIcon)
             case 0:
             {
                 #ifdef USE_WXPHP_DEBUG
-                php_printf("Executing wxDataViewIconText::GetIcon() to return object reference\n\n");
+                php_printf("Executing wxDataViewIconText::GetIcon() to return new object\n\n");
                 #endif
 
-                wxIcon_php* value_to_return0;
-                value_to_return0 = (wxIcon_php*) &((wxDataViewIconText_php*)native_object)->GetIcon();
-
-                if(value_to_return0->references.IsUserInitialized()){
-                    if(!Z_ISNULL(value_to_return0->phpObj)){
-                        ZVAL_COPY_VALUE(return_value, &value_to_return0->phpObj);
-                        zval_add_ref(&value_to_return0->phpObj);
-                        return_is_user_initialized = true;
-                    }
-                    else{
-                        zend_error(E_ERROR, "Could not retreive original zval.");
-                    }
-                }
-                else{
-                    object_init_ex(return_value,php_wxIcon_entry);
-                    Z_wxIcon_P(return_value)->native_object = (wxIcon_php*) value_to_return0;
-                }
-
-                if((void*)value_to_return0 != (void*)native_object && return_is_user_initialized){ //Prevent adding references to it self
-                    references->AddReference(return_value, "wxDataViewIconText::GetIcon at call 6 with 0 argument(s)");
-                }
+                wxIcon value_to_return0;
+                value_to_return0 = ((wxDataViewIconText_php*)native_object)->GetIcon();
+                ((wxRefCounter *) value_to_return0.GetRefData())->IncRef();
+                void* ptr = safe_emalloc(1, sizeof(wxIcon_php), 0);
+                memcpy(ptr, (void*) &value_to_return0, sizeof(wxIcon));
+                object_init_ex(return_value, php_wxIcon_entry);
+                ((wxIcon_php*)ptr)->phpObj = *return_value;
+                zo_wxIcon* zo0 = Z_wxIcon_P(return_value);
+                zo0->native_object = (wxIcon_php*) ptr;
 
 
                 return;
@@ -17887,13 +17843,16 @@ PHP_METHOD(php_wxDataViewEvent, GetItem)
                 #endif
 
                 wxDataViewItem value_to_return0;
-                value_to_return0 = ((wxDataViewEvent_php*)native_object)->GetItem();
-                void* ptr = safe_emalloc(1, sizeof(wxDataViewItem_php), 0);
-                memcpy(ptr, (void*) &value_to_return0, sizeof(wxDataViewItem));
-                object_init_ex(return_value, php_wxDataViewItem_entry);
-                ((wxDataViewItem_php*)ptr)->phpObj = *return_value;
-                zo_wxDataViewItem* zo0 = Z_wxDataViewItem_P(return_value);
-                zo0->native_object = (wxDataViewItem_php*) ptr;
+                if(current_object_type == PHP_WXDATAVIEWEVENT_TYPE)
+                {
+                    value_to_return0 = ((wxDataViewEvent_php*)native_object)->GetItem();
+                    void* ptr = safe_emalloc(1, sizeof(wxDataViewItem_php), 0);
+                    memcpy(ptr, (void*) &value_to_return0, sizeof(wxDataViewItem));
+                    object_init_ex(return_value, php_wxDataViewItem_entry);
+                    ((wxDataViewItem_php*)ptr)->phpObj = *return_value;
+                    zo_wxDataViewItem* zo0 = Z_wxDataViewItem_P(return_value);
+                    zo0->native_object = (wxDataViewItem_php*) ptr;
+                }
 
 
                 return;
@@ -18022,7 +17981,10 @@ PHP_METHOD(php_wxDataViewEvent, SetItem)
                 php_printf("Executing wxDataViewEvent::SetItem(*(wxDataViewItem*) object_pointer0_0)\n\n");
                 #endif
 
-                ((wxDataViewEvent_php*)native_object)->SetItem(*(wxDataViewItem*) object_pointer0_0);
+                if(current_object_type == PHP_WXDATAVIEWEVENT_TYPE)
+                {
+                    ((wxDataViewEvent_php*)native_object)->SetItem(*(wxDataViewItem*) object_pointer0_0);
+                }
 
                 references->AddReference(item0, "wxDataViewEvent::SetItem at call 3 with 1 argument(s)");
 
@@ -18130,7 +18092,10 @@ PHP_METHOD(php_wxDataViewEvent, GetCacheFrom)
                 php_printf("Executing RETURN_LONG(wxDataViewEvent::GetCacheFrom())\n\n");
                 #endif
 
-                RETVAL_LONG(((wxDataViewEvent_php*)native_object)->GetCacheFrom());
+                if(current_object_type == PHP_WXDATAVIEWEVENT_TYPE)
+                {
+                    RETVAL_LONG(((wxDataViewEvent_php*)native_object)->GetCacheFrom());
+                }
 
 
                 return;
@@ -18237,7 +18202,10 @@ PHP_METHOD(php_wxDataViewEvent, GetCacheTo)
                 php_printf("Executing RETURN_LONG(wxDataViewEvent::GetCacheTo())\n\n");
                 #endif
 
-                RETVAL_LONG(((wxDataViewEvent_php*)native_object)->GetCacheTo());
+                if(current_object_type == PHP_WXDATAVIEWEVENT_TYPE)
+                {
+                    RETVAL_LONG(((wxDataViewEvent_php*)native_object)->GetCacheTo());
+                }
 
 
                 return;
@@ -18344,7 +18312,10 @@ PHP_METHOD(php_wxDataViewEvent, GetColumn)
                 php_printf("Executing RETURN_LONG(wxDataViewEvent::GetColumn())\n\n");
                 #endif
 
-                RETVAL_LONG(((wxDataViewEvent_php*)native_object)->GetColumn());
+                if(current_object_type == PHP_WXDATAVIEWEVENT_TYPE)
+                {
+                    RETVAL_LONG(((wxDataViewEvent_php*)native_object)->GetColumn());
+                }
 
 
                 return;
@@ -18451,7 +18422,10 @@ PHP_METHOD(php_wxDataViewEvent, GetDataBuffer)
                 php_printf("Executing wxDataViewEvent::GetDataBuffer()\n\n");
                 #endif
 
-                RETVAL_STRING((char*) ((wxDataViewEvent_php*)native_object)->GetDataBuffer());
+                if(current_object_type == PHP_WXDATAVIEWEVENT_TYPE)
+                {
+                    RETVAL_STRING((char*) ((wxDataViewEvent_php*)native_object)->GetDataBuffer());
+                }
 
 
                 return;
@@ -18559,13 +18533,16 @@ PHP_METHOD(php_wxDataViewEvent, GetDataFormat)
                 #endif
 
                 wxDataFormat value_to_return0;
-                value_to_return0 = ((wxDataViewEvent_php*)native_object)->GetDataFormat();
-                void* ptr = safe_emalloc(1, sizeof(wxDataFormat_php), 0);
-                memcpy(ptr, (void*) &value_to_return0, sizeof(wxDataFormat));
-                object_init_ex(return_value, php_wxDataFormat_entry);
-                ((wxDataFormat_php*)ptr)->phpObj = *return_value;
-                zo_wxDataFormat* zo0 = Z_wxDataFormat_P(return_value);
-                zo0->native_object = (wxDataFormat_php*) ptr;
+                if(current_object_type == PHP_WXDATAVIEWEVENT_TYPE)
+                {
+                    value_to_return0 = ((wxDataViewEvent_php*)native_object)->GetDataFormat();
+                    void* ptr = safe_emalloc(1, sizeof(wxDataFormat_php), 0);
+                    memcpy(ptr, (void*) &value_to_return0, sizeof(wxDataFormat));
+                    object_init_ex(return_value, php_wxDataFormat_entry);
+                    ((wxDataFormat_php*)ptr)->phpObj = *return_value;
+                    zo_wxDataFormat* zo0 = Z_wxDataFormat_P(return_value);
+                    zo0->native_object = (wxDataFormat_php*) ptr;
+                }
 
 
                 return;
@@ -18672,7 +18649,10 @@ PHP_METHOD(php_wxDataViewEvent, GetDataSize)
                 php_printf("Executing RETURN_LONG(wxDataViewEvent::GetDataSize())\n\n");
                 #endif
 
-                RETVAL_LONG(((wxDataViewEvent_php*)native_object)->GetDataSize());
+                if(current_object_type == PHP_WXDATAVIEWEVENT_TYPE)
+                {
+                    RETVAL_LONG(((wxDataViewEvent_php*)native_object)->GetDataSize());
+                }
 
 
                 return;
@@ -18780,8 +18760,11 @@ PHP_METHOD(php_wxDataViewEvent, GetDataViewColumn)
                 #endif
 
                 wxDataViewColumn_php* value_to_return0;
-                value_to_return0 = (wxDataViewColumn_php*) ((wxDataViewEvent_php*)native_object)->GetDataViewColumn();
+                if(current_object_type == PHP_WXDATAVIEWEVENT_TYPE)
+                {
+                    value_to_return0 = (wxDataViewColumn_php*) ((wxDataViewEvent_php*)native_object)->GetDataViewColumn();
 
+                }
                 if(value_to_return0 == NULL){
                     RETVAL_NULL();
                 }
@@ -18910,8 +18893,11 @@ PHP_METHOD(php_wxDataViewEvent, GetModel)
                 #endif
 
                 wxDataViewModel_php* value_to_return0;
-                value_to_return0 = (wxDataViewModel_php*) ((wxDataViewEvent_php*)native_object)->GetModel();
+                if(current_object_type == PHP_WXDATAVIEWEVENT_TYPE)
+                {
+                    value_to_return0 = (wxDataViewModel_php*) ((wxDataViewEvent_php*)native_object)->GetModel();
 
+                }
                 if(value_to_return0 == NULL){
                     RETVAL_NULL();
                 }
@@ -19040,14 +19026,17 @@ PHP_METHOD(php_wxDataViewEvent, GetPosition)
                 #endif
 
                 wxPoint value_to_return0;
-                value_to_return0 = ((wxDataViewEvent_php*)native_object)->GetPosition();
-                void* ptr = safe_emalloc(1, sizeof(wxPoint_php), 0);
-                memcpy(ptr, (void*) &value_to_return0, sizeof(wxPoint));
-                object_init_ex(return_value, php_wxPoint_entry);
-                ((wxPoint_php*)ptr)->phpObj = *return_value;
-                ((wxPoint_php*)ptr)->InitProperties();
-                zo_wxPoint* zo0 = Z_wxPoint_P(return_value);
-                zo0->native_object = (wxPoint_php*) ptr;
+                if(current_object_type == PHP_WXDATAVIEWEVENT_TYPE)
+                {
+                    value_to_return0 = ((wxDataViewEvent_php*)native_object)->GetPosition();
+                    void* ptr = safe_emalloc(1, sizeof(wxPoint_php), 0);
+                    memcpy(ptr, (void*) &value_to_return0, sizeof(wxPoint));
+                    object_init_ex(return_value, php_wxPoint_entry);
+                    ((wxPoint_php*)ptr)->phpObj = *return_value;
+                    ((wxPoint_php*)ptr)->InitProperties();
+                    zo_wxPoint* zo0 = Z_wxPoint_P(return_value);
+                    zo0->native_object = (wxPoint_php*) ptr;
+                }
 
 
                 return;
@@ -19151,29 +19140,20 @@ PHP_METHOD(php_wxDataViewEvent, GetValue)
             case 0:
             {
                 #ifdef USE_WXPHP_DEBUG
-                php_printf("Executing wxDataViewEvent::GetValue() to return object reference\n\n");
+                php_printf("Executing wxDataViewEvent::GetValue() to return new object\n\n");
                 #endif
 
-                wxVariant_php* value_to_return0;
-                value_to_return0 = (wxVariant_php*) &((wxDataViewEvent_php*)native_object)->GetValue();
-
-                if(value_to_return0->references.IsUserInitialized()){
-                    if(!Z_ISNULL(value_to_return0->phpObj)){
-                        ZVAL_COPY_VALUE(return_value, &value_to_return0->phpObj);
-                        zval_add_ref(&value_to_return0->phpObj);
-                        return_is_user_initialized = true;
-                    }
-                    else{
-                        zend_error(E_ERROR, "Could not retreive original zval.");
-                    }
-                }
-                else{
-                    object_init_ex(return_value,php_wxVariant_entry);
-                    Z_wxVariant_P(return_value)->native_object = (wxVariant_php*) value_to_return0;
-                }
-
-                if((void*)value_to_return0 != (void*)native_object && return_is_user_initialized){ //Prevent adding references to it self
-                    references->AddReference(return_value, "wxDataViewEvent::GetValue at call 6 with 0 argument(s)");
+                wxVariant value_to_return0;
+                if(current_object_type == PHP_WXDATAVIEWEVENT_TYPE)
+                {
+                    value_to_return0 = ((wxDataViewEvent_php*)native_object)->GetValue();
+                    ((wxRefCounter *) value_to_return0.GetRefData())->IncRef();
+                    void* ptr = safe_emalloc(1, sizeof(wxVariant_php), 0);
+                    memcpy(ptr, (void*) &value_to_return0, sizeof(wxVariant));
+                    object_init_ex(return_value, php_wxVariant_entry);
+                    ((wxVariant_php*)ptr)->phpObj = *return_value;
+                    zo_wxVariant* zo0 = Z_wxVariant_P(return_value);
+                    zo0->native_object = (wxVariant_php*) ptr;
                 }
 
 
@@ -19281,7 +19261,10 @@ PHP_METHOD(php_wxDataViewEvent, IsEditCancelled)
                 php_printf("Executing RETURN_BOOL(wxDataViewEvent::IsEditCancelled())\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxDataViewEvent_php*)native_object)->IsEditCancelled());
+                if(current_object_type == PHP_WXDATAVIEWEVENT_TYPE)
+                {
+                    RETVAL_BOOL(((wxDataViewEvent_php*)native_object)->IsEditCancelled());
+                }
 
 
                 return;
@@ -19393,7 +19376,10 @@ PHP_METHOD(php_wxDataViewEvent, SetColumn)
                 php_printf("Executing wxDataViewEvent::SetColumn((int) col0)\n\n");
                 #endif
 
-                ((wxDataViewEvent_php*)native_object)->SetColumn((int) col0);
+                if(current_object_type == PHP_WXDATAVIEWEVENT_TYPE)
+                {
+                    ((wxDataViewEvent_php*)native_object)->SetColumn((int) col0);
+                }
 
 
                 return;
@@ -19523,7 +19509,10 @@ PHP_METHOD(php_wxDataViewEvent, SetDataObject)
                 php_printf("Executing wxDataViewEvent::SetDataObject((wxDataObject*) object_pointer0_0)\n\n");
                 #endif
 
-                ((wxDataViewEvent_php*)native_object)->SetDataObject((wxDataObject*) object_pointer0_0);
+                if(current_object_type == PHP_WXDATAVIEWEVENT_TYPE)
+                {
+                    ((wxDataViewEvent_php*)native_object)->SetDataObject((wxDataObject*) object_pointer0_0);
+                }
 
                 references->AddReference(obj0, "wxDataViewEvent::SetDataObject at call 1 with 1 argument(s)");
 
@@ -19654,7 +19643,10 @@ PHP_METHOD(php_wxDataViewEvent, SetDataViewColumn)
                 php_printf("Executing wxDataViewEvent::SetDataViewColumn((wxDataViewColumn*) object_pointer0_0)\n\n");
                 #endif
 
-                ((wxDataViewEvent_php*)native_object)->SetDataViewColumn((wxDataViewColumn*) object_pointer0_0);
+                if(current_object_type == PHP_WXDATAVIEWEVENT_TYPE)
+                {
+                    ((wxDataViewEvent_php*)native_object)->SetDataViewColumn((wxDataViewColumn*) object_pointer0_0);
+                }
 
                 references->AddReference(col0, "wxDataViewEvent::SetDataViewColumn at call 1 with 1 argument(s)");
 
@@ -19785,7 +19777,10 @@ PHP_METHOD(php_wxDataViewEvent, SetModel)
                 php_printf("Executing wxDataViewEvent::SetModel((wxDataViewModel*) object_pointer0_0)\n\n");
                 #endif
 
-                ((wxDataViewEvent_php*)native_object)->SetModel((wxDataViewModel*) object_pointer0_0);
+                if(current_object_type == PHP_WXDATAVIEWEVENT_TYPE)
+                {
+                    ((wxDataViewEvent_php*)native_object)->SetModel((wxDataViewModel*) object_pointer0_0);
+                }
 
                 references->AddReference(model0, "wxDataViewEvent::SetModel at call 1 with 1 argument(s)");
 
@@ -19916,7 +19911,10 @@ PHP_METHOD(php_wxDataViewEvent, SetValue)
                 php_printf("Executing wxDataViewEvent::SetValue(*(wxVariant*) object_pointer0_0)\n\n");
                 #endif
 
-                ((wxDataViewEvent_php*)native_object)->SetValue(*(wxVariant*) object_pointer0_0);
+                if(current_object_type == PHP_WXDATAVIEWEVENT_TYPE)
+                {
+                    ((wxDataViewEvent_php*)native_object)->SetValue(*(wxVariant*) object_pointer0_0);
+                }
 
                 references->AddReference(value0, "wxDataViewEvent::SetValue at call 3 with 1 argument(s)");
 
@@ -19936,117 +19934,6 @@ PHP_METHOD(php_wxDataViewEvent, SetValue)
             "wxDataViewEvent::SetValue\n"
         );
     }
-}
-/* }}} */
-
-/* {{{ proto  wxDataViewEvent::wxDataViewEvent(int commandType, int winid)
-   Constructor. */
-PHP_METHOD(php_wxDataViewEvent, __construct)
-{
-    #ifdef USE_WXPHP_DEBUG
-    php_printf("Invoking wxDataViewEvent::__construct\n");
-    php_printf("===========================================\n");
-    #endif
-
-    zo_wxDataViewEvent* current_object;
-    wxDataViewEvent_php* native_object;
-    void* argument_native_object = NULL;
-
-    //Other variables used thru the code
-    zval dummy;
-    ZVAL_NULL(&dummy);
-    bool already_called = false;
-    int arguments_received = ZEND_NUM_ARGS();
-
-
-    //Parameters for overload 0
-    long commandType0;
-    long winid0;
-    bool overload0_called = false;
-
-    
-    //Overload 0
-    overload0:
-    if(!already_called && arguments_received >= 0  && arguments_received <= 2)
-    {
-        #ifdef USE_WXPHP_DEBUG
-        php_printf("Parameters received %d\n", arguments_received);
-        php_printf("Parsing parameters with '|ll' (&commandType0, &winid0)\n");
-        #endif
-
-        char parse_parameters_string[] = "|ll";
-        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &commandType0, &winid0 ) == SUCCESS)
-        {
-            overload0_called = true;
-            already_called = true;
-        }
-    }
-
-    
-    if(overload0_called)
-    {
-        switch(arguments_received)
-        {
-            case 0:
-            {
-                #ifdef USE_WXPHP_DEBUG
-                php_printf("Executing __construct()\n");
-                #endif
-
-                native_object = new wxDataViewEvent_php();
-
-                native_object->references.Initialize();
-                break;
-            }
-            case 1:
-            {
-                #ifdef USE_WXPHP_DEBUG
-                php_printf("Executing __construct((wxEventType) commandType0)\n");
-                #endif
-
-                native_object = new wxDataViewEvent_php((wxEventType) commandType0);
-
-                native_object->references.Initialize();
-                break;
-            }
-            case 2:
-            {
-                #ifdef USE_WXPHP_DEBUG
-                php_printf("Executing __construct((wxEventType) commandType0, (int) winid0)\n");
-                #endif
-
-                native_object = new wxDataViewEvent_php((wxEventType) commandType0, (int) winid0);
-
-                native_object->references.Initialize();
-                break;
-            }
-        }
-    }
-
-    
-    if(already_called)
-    {
-        native_object->phpObj = *getThis();
-
-
-        current_object = Z_wxDataViewEvent_P(getThis());
-
-        current_object->native_object = native_object;
-
-        current_object->is_user_initialized = 1;
-    }
-    else
-    {
-        zend_error(
-            E_ERROR,
-            "Abstract class or wrong type/count of parameters "
-            "passed to: wxDataViewEvent::__construct\n"
-        );
-    }
-
-    #ifdef USE_WXPHP_DEBUG
-        php_printf("===========================================\n\n");
-    #endif
 }
 /* }}} */
 

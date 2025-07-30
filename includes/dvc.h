@@ -2179,7 +2179,6 @@ void php_wxDataViewEvent_destruction_handler(zend_resource*);
 class wxDataViewEvent_php: public wxDataViewEvent{
     public:
 
-    wxDataViewEvent_php(wxEventType commandType=wxEVT_NULL, int winid=0):wxDataViewEvent(commandType, winid){}
     
     
 
@@ -2242,15 +2241,15 @@ ZEND_END_ARG_INFO()
 ZEND_BEGIN_ARG_INFO_EX(php_wxDataViewEvent_SetValue_arg_infos, 0, 0, 0)
     ZEND_ARG_INFO(0, value)
 ZEND_END_ARG_INFO()
-ZEND_BEGIN_ARG_INFO_EX(php_wxDataViewEvent___construct_arg_infos, 0, 0, 0)
-    ZEND_ARG_INFO(0, commandType)
-    ZEND_ARG_INFO(0, winid)
-ZEND_END_ARG_INFO()
 ZEND_BEGIN_ARG_INFO_EX(php_wxDataViewEvent_Allow_arg_infos, 0, 0, 0)
 ZEND_END_ARG_INFO()
 ZEND_BEGIN_ARG_INFO_EX(php_wxDataViewEvent_IsAllowed_arg_infos, 0, 0, 0)
 ZEND_END_ARG_INFO()
 ZEND_BEGIN_ARG_INFO_EX(php_wxDataViewEvent_Veto_arg_infos, 0, 0, 0)
+ZEND_END_ARG_INFO()
+ZEND_BEGIN_ARG_INFO_EX(php_wxDataViewEvent___construct_arg_infos, 0, 0, 0)
+    ZEND_ARG_INFO(0, eventType)
+    ZEND_ARG_INFO(0, id)
 ZEND_END_ARG_INFO()
 ZEND_BEGIN_ARG_INFO_EX(php_wxDataViewEvent_SetString_arg_infos, 0, 0, 0)
     ZEND_ARG_INFO(0, string)
@@ -2344,7 +2343,6 @@ static zend_function_entry php_wxDataViewEvent_functions[] = {
     PHP_ME(php_wxDataViewEvent, SetDataViewColumn, php_wxDataViewEvent_SetDataViewColumn_arg_infos, ZEND_ACC_PUBLIC)
     PHP_ME(php_wxDataViewEvent, SetModel, php_wxDataViewEvent_SetModel_arg_infos, ZEND_ACC_PUBLIC)
     PHP_ME(php_wxDataViewEvent, SetValue, php_wxDataViewEvent_SetValue_arg_infos, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxDataViewEvent, __construct, php_wxDataViewEvent___construct_arg_infos, ZEND_ACC_PUBLIC|ZEND_ACC_CTOR)
     PHP_FE_END
 };
 #endif

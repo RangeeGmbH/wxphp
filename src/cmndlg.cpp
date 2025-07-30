@@ -20729,30 +20729,18 @@ PHP_METHOD(php_wxFontData, GetColour)
             case 0:
             {
                 #ifdef USE_WXPHP_DEBUG
-                php_printf("Executing wxFontData::GetColour() to return object reference\n\n");
+                php_printf("Executing wxFontData::GetColour() to return new object\n\n");
                 #endif
 
-                wxColour_php* value_to_return0;
-                value_to_return0 = (wxColour_php*) &((wxFontData_php*)native_object)->GetColour();
-
-                if(value_to_return0->references.IsUserInitialized()){
-                    if(!Z_ISNULL(value_to_return0->phpObj)){
-                        ZVAL_COPY_VALUE(return_value, &value_to_return0->phpObj);
-                        zval_add_ref(&value_to_return0->phpObj);
-                        return_is_user_initialized = true;
-                    }
-                    else{
-                        zend_error(E_ERROR, "Could not retreive original zval.");
-                    }
-                }
-                else{
-                    object_init_ex(return_value,php_wxColour_entry);
-                    Z_wxColour_P(return_value)->native_object = (wxColour_php*) value_to_return0;
-                }
-
-                if((void*)value_to_return0 != (void*)native_object && return_is_user_initialized){ //Prevent adding references to it self
-                    references->AddReference(return_value, "wxFontData::GetColour at call 6 with 0 argument(s)");
-                }
+                wxColour value_to_return0;
+                value_to_return0 = ((wxFontData_php*)native_object)->GetColour();
+                ((wxRefCounter *) value_to_return0.GetRefData())->IncRef();
+                void* ptr = safe_emalloc(1, sizeof(wxColour_php), 0);
+                memcpy(ptr, (void*) &value_to_return0, sizeof(wxColour));
+                object_init_ex(return_value, php_wxColour_entry);
+                ((wxColour_php*)ptr)->phpObj = *return_value;
+                zo_wxColour* zo0 = Z_wxColour_P(return_value);
+                zo0->native_object = (wxColour_php*) ptr;
 
 
                 return;
@@ -21463,30 +21451,18 @@ PHP_METHOD(php_wxFontDialog, GetFontData)
             case 0:
             {
                 #ifdef USE_WXPHP_DEBUG
-                php_printf("Executing wxFontDialog::GetFontData() to return object reference\n\n");
+                php_printf("Executing wxFontDialog::GetFontData() to return new object\n\n");
                 #endif
 
-                wxFontData_php* value_to_return0;
-                value_to_return0 = (wxFontData_php*) &((wxFontDialog_php*)native_object)->GetFontData();
-
-                if(value_to_return0->references.IsUserInitialized()){
-                    if(!Z_ISNULL(value_to_return0->phpObj)){
-                        ZVAL_COPY_VALUE(return_value, &value_to_return0->phpObj);
-                        zval_add_ref(&value_to_return0->phpObj);
-                        return_is_user_initialized = true;
-                    }
-                    else{
-                        zend_error(E_ERROR, "Could not retreive original zval.");
-                    }
-                }
-                else{
-                    object_init_ex(return_value,php_wxFontData_entry);
-                    Z_wxFontData_P(return_value)->native_object = (wxFontData_php*) value_to_return0;
-                }
-
-                if((void*)value_to_return0 != (void*)native_object && return_is_user_initialized){ //Prevent adding references to it self
-                    references->AddReference(return_value, "wxFontDialog::GetFontData at call 6 with 0 argument(s)");
-                }
+                wxFontData value_to_return0;
+                value_to_return0 = ((wxFontDialog_php*)native_object)->GetFontData();
+                ((wxRefCounter *) value_to_return0.GetRefData())->IncRef();
+                void* ptr = safe_emalloc(1, sizeof(wxFontData_php), 0);
+                memcpy(ptr, (void*) &value_to_return0, sizeof(wxFontData));
+                object_init_ex(return_value, php_wxFontData_entry);
+                ((wxFontData_php*)ptr)->phpObj = *return_value;
+                zo_wxFontData* zo0 = Z_wxFontData_P(return_value);
+                zo0->native_object = (wxFontData_php*) ptr;
 
 
                 return;
@@ -29052,30 +29028,18 @@ PHP_METHOD(php_wxWizard, GetBitmap)
             case 0:
             {
                 #ifdef USE_WXPHP_DEBUG
-                php_printf("Executing wxWizard::GetBitmap() to return object reference\n\n");
+                php_printf("Executing wxWizard::GetBitmap() to return new object\n\n");
                 #endif
 
-                wxBitmap_php* value_to_return0;
-                value_to_return0 = (wxBitmap_php*) &((wxWizard_php*)native_object)->GetBitmap();
-
-                if(value_to_return0->references.IsUserInitialized()){
-                    if(!Z_ISNULL(value_to_return0->phpObj)){
-                        ZVAL_COPY_VALUE(return_value, &value_to_return0->phpObj);
-                        zval_add_ref(&value_to_return0->phpObj);
-                        return_is_user_initialized = true;
-                    }
-                    else{
-                        zend_error(E_ERROR, "Could not retreive original zval.");
-                    }
-                }
-                else{
-                    object_init_ex(return_value,php_wxBitmap_entry);
-                    Z_wxBitmap_P(return_value)->native_object = (wxBitmap_php*) value_to_return0;
-                }
-
-                if((void*)value_to_return0 != (void*)native_object && return_is_user_initialized){ //Prevent adding references to it self
-                    references->AddReference(return_value, "wxWizard::GetBitmap at call 6 with 0 argument(s)");
-                }
+                wxBitmap value_to_return0;
+                value_to_return0 = ((wxWizard_php*)native_object)->GetBitmap();
+                ((wxRefCounter *) value_to_return0.GetRefData())->IncRef();
+                void* ptr = safe_emalloc(1, sizeof(wxBitmap_php), 0);
+                memcpy(ptr, (void*) &value_to_return0, sizeof(wxBitmap));
+                object_init_ex(return_value, php_wxBitmap_entry);
+                ((wxBitmap_php*)ptr)->phpObj = *return_value;
+                zo_wxBitmap* zo0 = Z_wxBitmap_P(return_value);
+                zo0->native_object = (wxBitmap_php*) ptr;
 
 
                 return;
@@ -29179,30 +29143,18 @@ PHP_METHOD(php_wxWizard, GetBitmapBackgroundColour)
             case 0:
             {
                 #ifdef USE_WXPHP_DEBUG
-                php_printf("Executing wxWizard::GetBitmapBackgroundColour() to return object reference\n\n");
+                php_printf("Executing wxWizard::GetBitmapBackgroundColour() to return new object\n\n");
                 #endif
 
-                wxColour_php* value_to_return0;
-                value_to_return0 = (wxColour_php*) &((wxWizard_php*)native_object)->GetBitmapBackgroundColour();
-
-                if(value_to_return0->references.IsUserInitialized()){
-                    if(!Z_ISNULL(value_to_return0->phpObj)){
-                        ZVAL_COPY_VALUE(return_value, &value_to_return0->phpObj);
-                        zval_add_ref(&value_to_return0->phpObj);
-                        return_is_user_initialized = true;
-                    }
-                    else{
-                        zend_error(E_ERROR, "Could not retreive original zval.");
-                    }
-                }
-                else{
-                    object_init_ex(return_value,php_wxColour_entry);
-                    Z_wxColour_P(return_value)->native_object = (wxColour_php*) value_to_return0;
-                }
-
-                if((void*)value_to_return0 != (void*)native_object && return_is_user_initialized){ //Prevent adding references to it self
-                    references->AddReference(return_value, "wxWizard::GetBitmapBackgroundColour at call 6 with 0 argument(s)");
-                }
+                wxColour value_to_return0;
+                value_to_return0 = ((wxWizard_php*)native_object)->GetBitmapBackgroundColour();
+                ((wxRefCounter *) value_to_return0.GetRefData())->IncRef();
+                void* ptr = safe_emalloc(1, sizeof(wxColour_php), 0);
+                memcpy(ptr, (void*) &value_to_return0, sizeof(wxColour));
+                object_init_ex(return_value, php_wxColour_entry);
+                ((wxColour_php*)ptr)->phpObj = *return_value;
+                zo_wxColour* zo0 = Z_wxColour_P(return_value);
+                zo0->native_object = (wxColour_php*) ptr;
 
 
                 return;

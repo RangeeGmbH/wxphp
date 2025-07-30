@@ -24,7 +24,7 @@ PHP_ARG_ENABLE(wxphp-references-management, whether to enable references managem
 if test "$PHP_WXWIDGETS" != "no"; then
 
     dnl Set the wxWidgets version to download and compile
-    PHP_WX_VERSION="3.0.5"
+    PHP_WX_VERSION="3.2.4"
 
     if test "$PHP_WXWIDGETS_VERSION" != "no"; then
         PHP_WX_VERSION=$PHP_WXWIDGETS_VERSION
@@ -67,7 +67,7 @@ if test "$PHP_WXWIDGETS" != "no"; then
             AC_MSG_CHECKING([for webkitgtk include files])
             WEBKITGTK=`find /usr/include -name "webkit.h" -or -name "webkit2.h"`
             if test "$WEBKITGTK" != ""; then
-                AC_MSG_RESULT([found])
+                AC_MSG_RESULT([found TEST$WEBKITGTK])
             else
                 AC_MSG_RESULT([not found])
                 AC_MSG_ERROR([webkitgtk include files where not found])
@@ -251,15 +251,15 @@ if test "$PHP_WXWIDGETS" != "no"; then
         PHP_WXWIDGETS_LIBS=`$WXCONFIG_PATH --libs`
 
         WEBKIT_LIB=""
-        if test "$(find /usr/include -name "webkit.h")" != "" ; then
-            WEBKIT_LIB="-lwebkitgtk-3.0"
-        elif test "$(find /usr/include -name "webkit2.h")" != "" ; then
-            WEBKIT_LIB="-lwebkit2gtk-4.0"
+        if test "$(find /usr/include -name "webkit2.h")" != "" ; then
+            WEBKIT_LIB="-lwebkit2gtk-4.1"
+        elif test "$(find /usr/include -name "webkit.h")" != "" ; then
+            WEBKIT_LIB="-lwebkitgtk-6.0"
         fi
 
         dnl Append wxscintilla and gstreamer if static build
         if test "$PHP_WXWIDGETS_STATIC" != "no"; then
-            PHP_WXWIDGETS_LDFLAGS="$PHP_WXWIDGETS_LIBS -lwxscintilla-3.0 $WEBKIT_LIB $PHP_WXWIDGETS_OTHER_LDFLAGS"
+            PHP_WXWIDGETS_LDFLAGS="$PHP_WXWIDGETS_LIBS -lwxscintilla-3.2 $WEBKIT_LIB $PHP_WXWIDGETS_OTHER_LDFLAGS"
             LDFLAGS="$LDFLAGS $PHP_WXWIDGETS_LDFLAGS"
         fi
     else

@@ -2396,12 +2396,13 @@ class wxAuiDockArt_php: public wxAuiDockArt{
 
     wxAuiDockArt_php():wxAuiDockArt(){}
     
+    wxAuiDockArt* Clone();
     void SetMetric(int id, int new_val);
     void SetFont(int id, const wxFont& font);
     int GetMetric(int id);
     void SetColour(int id, const wxColour& colour);
-    wxFont GetFont(int id);
     wxColour GetColour(int id);
+    wxFont GetFont(int id);
     void DrawSash(wxDC& dc, wxWindow* window, int orientation, const wxRect& rect);
     void DrawPaneButton(wxDC& dc, wxWindow* window, int button, int button_state, const wxRect& rect, wxAuiPaneInfo& pane);
     void DrawGripper(wxDC& dc, wxWindow* window, const wxRect& rect, wxAuiPaneInfo& pane);

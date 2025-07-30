@@ -267,7 +267,7 @@
 		],
 		"GetCopyright":[
 			{
-				"return_type":"const wxString&",
+				"return_type":"wxString",
 				"brief_description":"Get the copyright string.",
 				"constant":true,
 				"virtual":false,
@@ -296,7 +296,7 @@
 		],
 		"GetDescription":[
 			{
-				"return_type":"const wxString&",
+				"return_type":"wxString",
 				"brief_description":"Get the description string.",
 				"constant":false,
 				"virtual":false,
@@ -2229,7 +2229,7 @@
 		],
 		"GetIcons":[
 			{
-				"return_type":"const wxIconBundle&",
+				"return_type":"wxIconBundle",
 				"brief_description":"Returns all icons associated with the window, there will be none of them if neither SetIcon() nor SetIcons() had been called before.",
 				"constant":true,
 				"virtual":false,
@@ -5494,7 +5494,7 @@
 		],
 		"GetCursor":[
 			{
-				"return_type":"const wxCursor&",
+				"return_type":"wxCursor",
 				"brief_description":"Return the cursor associated with this window.",
 				"constant":true,
 				"virtual":false,
@@ -6646,7 +6646,7 @@
 		],
 		"GetUpdateRegion":[
 			{
-				"return_type":"const wxRegion&",
+				"return_type":"wxRegion",
 				"brief_description":"Returns the region specifying which parts of the window have been damaged.",
 				"constant":true,
 				"virtual":false,
@@ -11469,7 +11469,7 @@
 		],
 		"GetField":[
 			{
-				"return_type":"const wxStatusBarPane&",
+				"return_type":"wxStatusBarPane",
 				"brief_description":"Returns the wxStatusBarPane representing the n-th field.",
 				"constant":true,
 				"virtual":false,
@@ -13513,7 +13513,7 @@
 		],
 		"GetName":[
 			{
-				"return_type":"const wxString&",
+				"return_type":"wxString",
 				"brief_description":"Gets the name of this handler.",
 				"constant":true,
 				"virtual":false,
@@ -13542,7 +13542,7 @@
 		],
 		"GetExtension":[
 			{
-				"return_type":"const wxString&",
+				"return_type":"wxString",
 				"brief_description":"Gets the file extension associated with this handler.",
 				"constant":true,
 				"virtual":false,
@@ -17069,7 +17069,7 @@
 		],
 		"GetPalette":[
 			{
-				"return_type":"const wxPalette&",
+				"return_type":"wxPalette",
 				"brief_description":"Returns the palette associated with the image.",
 				"constant":true,
 				"virtual":false,
@@ -28428,7 +28428,7 @@
 	"wxTreeItemData":{
 		"GetId":[
 			{
-				"return_type":"const wxTreeItemId&",
+				"return_type":"wxTreeItemId",
 				"brief_description":"Returns the item associated with this node.",
 				"constant":true,
 				"virtual":false,
@@ -31062,7 +31062,7 @@
 		],
 		"GetBackground":[
 			{
-				"return_type":"const wxBrush&",
+				"return_type":"wxBrush",
 				"brief_description":"Gets the brush used for painting the background.",
 				"constant":true,
 				"virtual":false,
@@ -31120,7 +31120,7 @@
 		],
 		"GetBrush":[
 			{
-				"return_type":"const wxBrush&",
+				"return_type":"wxBrush",
 				"brief_description":"Gets the current brush.",
 				"constant":true,
 				"virtual":false,
@@ -31312,7 +31312,7 @@
 		],
 		"GetFont":[
 			{
-				"return_type":"const wxFont&",
+				"return_type":"wxFont",
 				"brief_description":"Gets the current font.",
 				"constant":true,
 				"virtual":false,
@@ -31696,7 +31696,7 @@
 		],
 		"GetPen":[
 			{
-				"return_type":"const wxPen&",
+				"return_type":"wxPen",
 				"brief_description":"Gets the current pen.",
 				"constant":true,
 				"virtual":false,
@@ -31890,7 +31890,7 @@
 		],
 		"GetTextBackground":[
 			{
-				"return_type":"const wxColour&",
+				"return_type":"wxColour",
 				"brief_description":"Gets the current text background colour.",
 				"constant":true,
 				"virtual":false,
@@ -32002,7 +32002,7 @@
 		],
 		"GetTextForeground":[
 			{
-				"return_type":"const wxColour&",
+				"return_type":"wxColour",
 				"brief_description":"Gets the current text foreground colour.",
 				"constant":true,
 				"virtual":false,
@@ -38152,7 +38152,7 @@
 		],
 		"GetBitmap":[
 			{
-				"return_type":"const wxBitmap&",
+				"return_type":"wxBitmap",
 				"brief_description":"Returns the checked or unchecked bitmap.",
 				"constant":true,
 				"virtual":true,
@@ -38184,7 +38184,7 @@
 		],
 		"GetHelp":[
 			{
-				"return_type":"const wxString&",
+				"return_type":"wxString",
 				"brief_description":"Returns the help string associated with the menu item.",
 				"constant":true,
 				"virtual":false,
@@ -38506,7 +38506,7 @@
 		],
 		"GetText":[
 			{
-				"return_type":"const wxString&",
+				"return_type":"wxString",
 				"brief_description":"Returns the text associated with the menu item, such as it was passed to the wxMenuItem constructor, i.e.",
 				"constant":true,
 				"virtual":false,
@@ -39938,7 +39938,7 @@
 		],
 		"GetTitle":[
 			{
-				"return_type":"const wxString&",
+				"return_type":"wxString",
 				"brief_description":"Returns the title of the menu.",
 				"constant":true,
 				"virtual":false,
@@ -40884,7 +40884,7 @@
 		],
 		"GetKeyEvent":[
 			{
-				"return_type":"const wxKeyEvent&",
+				"return_type":"wxKeyEvent",
 				"brief_description":"Returns the key event for EVT_TREE_KEY_DOWN events.",
 				"constant":true,
 				"virtual":false,
@@ -40913,7 +40913,7 @@
 		],
 		"GetLabel":[
 			{
-				"return_type":"const wxString&",
+				"return_type":"wxString",
 				"brief_description":"Returns the label if the event is a begin or end edit label event.",
 				"constant":true,
 				"virtual":false,
@@ -43426,6 +43426,23 @@
 				]
 			}
 		],
+		"Clone": [
+            {
+                "return_type": "wxAuiDockArt*",
+                "brief_description": "",
+                "constant": false,
+                "virtual": false,
+                "pure_virtual": true,
+                "static": false,
+                "protected": false,
+                "parameters_type": [],
+                "parameters_is_array": [],
+                "parameters_extra": [],
+                "parameters_name": [],
+                "parameters_required": [],
+                "parameters_default_value": []
+            }
+        ],
 		"SetMetric":[
 			{
 				"return_type":"void",
@@ -43560,6 +43577,35 @@
 				]
 			}
 		],
+		"GetColour": [
+            {
+                "return_type": "wxColour",
+                "brief_description": "",
+                "constant": false,
+                "virtual": false,
+                "pure_virtual": true,
+                "static": false,
+                "protected": false,
+                "parameters_type": [
+                    "int"
+                ],
+                "parameters_is_array": [
+                    false
+                ],
+                "parameters_extra": [
+                    false
+                ],
+                "parameters_name": [
+                    "id"
+                ],
+                "parameters_required": [
+                    true
+                ],
+                "parameters_default_value": [
+                    null
+                ]
+            }
+        ],
 		"GetFont":[
 			{
 				"return_type":"wxFont",
@@ -51403,22 +51449,22 @@
 				"static":false,
 				"protected":false,
 				"parameters_type":[
-					
+
 				],
 				"parameters_is_array":[
-					
+
 				],
 				"parameters_extra":[
-					
+
 				],
 				"parameters_name":[
-					
+
 				],
 				"parameters_required":[
-					
+
 				],
 				"parameters_default_value":[
-					
+
 				]
 			}
 		],
@@ -51473,22 +51519,22 @@
 				"static":false,
 				"protected":false,
 				"parameters_type":[
-					
+
 				],
 				"parameters_is_array":[
-					
+
 				],
 				"parameters_extra":[
-					
+
 				],
 				"parameters_name":[
-					
+
 				],
 				"parameters_required":[
-					
+
 				],
 				"parameters_default_value":[
-					
+
 				]
 			}
 		],
@@ -51502,22 +51548,22 @@
 				"static":false,
 				"protected":false,
 				"parameters_type":[
-					
+
 				],
 				"parameters_is_array":[
-					
+
 				],
 				"parameters_extra":[
-					
+
 				],
 				"parameters_name":[
-					
+
 				],
 				"parameters_required":[
-					
+
 				],
 				"parameters_default_value":[
-					
+
 				]
 			}
 		],
@@ -51618,22 +51664,22 @@
 				"static":false,
 				"protected":false,
 				"parameters_type":[
-					
+
 				],
 				"parameters_is_array":[
-					
+
 				],
 				"parameters_extra":[
-					
+
 				],
 				"parameters_name":[
-					
+
 				],
 				"parameters_required":[
-					
+
 				],
 				"parameters_default_value":[
-					
+
 				]
 			}
 		],
@@ -51647,22 +51693,22 @@
 				"static":false,
 				"protected":false,
 				"parameters_type":[
-					
+
 				],
 				"parameters_is_array":[
-					
+
 				],
 				"parameters_extra":[
-					
+
 				],
 				"parameters_name":[
-					
+
 				],
 				"parameters_required":[
-					
+
 				],
 				"parameters_default_value":[
-					
+
 				]
 			}
 		],
@@ -51808,22 +51854,22 @@
 				"static":false,
 				"protected":false,
 				"parameters_type":[
-					
+
 				],
 				"parameters_is_array":[
-					
+
 				],
 				"parameters_extra":[
-					
+
 				],
 				"parameters_name":[
-					
+
 				],
 				"parameters_required":[
-					
+
 				],
 				"parameters_default_value":[
-					
+
 				]
 			}
 		],
@@ -51901,22 +51947,22 @@
 				"static":false,
 				"protected":false,
 				"parameters_type":[
-					
+
 				],
 				"parameters_is_array":[
-					
+
 				],
 				"parameters_extra":[
-					
+
 				],
 				"parameters_name":[
-					
+
 				],
 				"parameters_required":[
-					
+
 				],
 				"parameters_default_value":[
-					
+
 				]
 			}
 		],
@@ -51988,22 +52034,22 @@
 				"static":false,
 				"protected":false,
 				"parameters_type":[
-					
+
 				],
 				"parameters_is_array":[
-					
+
 				],
 				"parameters_extra":[
-					
+
 				],
 				"parameters_name":[
-					
+
 				],
 				"parameters_required":[
-					
+
 				],
 				"parameters_default_value":[
-					
+
 				]
 			}
 		],
@@ -52075,22 +52121,22 @@
 				"static":false,
 				"protected":false,
 				"parameters_type":[
-					
+
 				],
 				"parameters_is_array":[
-					
+
 				],
 				"parameters_extra":[
-					
+
 				],
 				"parameters_name":[
-					
+
 				],
 				"parameters_required":[
-					
+
 				],
 				"parameters_default_value":[
-					
+
 				]
 			}
 		],
@@ -52296,22 +52342,22 @@
 				"static":false,
 				"protected":false,
 				"parameters_type":[
-					
+
 				],
 				"parameters_is_array":[
-					
+
 				],
 				"parameters_extra":[
-					
+
 				],
 				"parameters_name":[
-					
+
 				],
 				"parameters_required":[
-					
+
 				],
 				"parameters_default_value":[
-					
+
 				]
 			}
 		],
@@ -52325,22 +52371,22 @@
 				"static":false,
 				"protected":false,
 				"parameters_type":[
-					
+
 				],
 				"parameters_is_array":[
-					
+
 				],
 				"parameters_extra":[
-					
+
 				],
 				"parameters_name":[
-					
+
 				],
 				"parameters_required":[
-					
+
 				],
 				"parameters_default_value":[
-					
+
 				]
 			}
 		],
@@ -52354,22 +52400,22 @@
 				"static":false,
 				"protected":false,
 				"parameters_type":[
-					
+
 				],
 				"parameters_is_array":[
-					
+
 				],
 				"parameters_extra":[
-					
+
 				],
 				"parameters_name":[
-					
+
 				],
 				"parameters_required":[
-					
+
 				],
 				"parameters_default_value":[
-					
+
 				]
 			}
 		],
@@ -52383,22 +52429,22 @@
 				"static":false,
 				"protected":false,
 				"parameters_type":[
-					
+
 				],
 				"parameters_is_array":[
-					
+
 				],
 				"parameters_extra":[
-					
+
 				],
 				"parameters_name":[
-					
+
 				],
 				"parameters_required":[
-					
+
 				],
 				"parameters_default_value":[
-					
+
 				]
 			}
 		],
@@ -52412,22 +52458,22 @@
 				"static":false,
 				"protected":false,
 				"parameters_type":[
-					
+
 				],
 				"parameters_is_array":[
-					
+
 				],
 				"parameters_extra":[
-					
+
 				],
 				"parameters_name":[
-					
+
 				],
 				"parameters_required":[
-					
+
 				],
 				"parameters_default_value":[
-					
+
 				]
 			}
 		],
@@ -52441,22 +52487,22 @@
 				"static":false,
 				"protected":false,
 				"parameters_type":[
-					
+
 				],
 				"parameters_is_array":[
-					
+
 				],
 				"parameters_extra":[
-					
+
 				],
 				"parameters_name":[
-					
+
 				],
 				"parameters_required":[
-					
+
 				],
 				"parameters_default_value":[
-					
+
 				]
 			}
 		],
@@ -52470,22 +52516,22 @@
 				"static":false,
 				"protected":false,
 				"parameters_type":[
-					
+
 				],
 				"parameters_is_array":[
-					
+
 				],
 				"parameters_extra":[
-					
+
 				],
 				"parameters_name":[
-					
+
 				],
 				"parameters_required":[
-					
+
 				],
 				"parameters_default_value":[
-					
+
 				]
 			}
 		],
@@ -52499,22 +52545,22 @@
 				"static":false,
 				"protected":false,
 				"parameters_type":[
-					
+
 				],
 				"parameters_is_array":[
-					
+
 				],
 				"parameters_extra":[
-					
+
 				],
 				"parameters_name":[
-					
+
 				],
 				"parameters_required":[
-					
+
 				],
 				"parameters_default_value":[
-					
+
 				]
 			}
 		],
@@ -52528,22 +52574,22 @@
 				"static":false,
 				"protected":false,
 				"parameters_type":[
-					
+
 				],
 				"parameters_is_array":[
-					
+
 				],
 				"parameters_extra":[
-					
+
 				],
 				"parameters_name":[
-					
+
 				],
 				"parameters_required":[
-					
+
 				],
 				"parameters_default_value":[
-					
+
 				]
 			}
 		],
@@ -52557,22 +52603,22 @@
 				"static":false,
 				"protected":false,
 				"parameters_type":[
-					
+
 				],
 				"parameters_is_array":[
-					
+
 				],
 				"parameters_extra":[
-					
+
 				],
 				"parameters_name":[
-					
+
 				],
 				"parameters_required":[
-					
+
 				],
 				"parameters_default_value":[
-					
+
 				]
 			}
 		],
@@ -52586,22 +52632,22 @@
 				"static":false,
 				"protected":false,
 				"parameters_type":[
-					
+
 				],
 				"parameters_is_array":[
-					
+
 				],
 				"parameters_extra":[
-					
+
 				],
 				"parameters_name":[
-					
+
 				],
 				"parameters_required":[
-					
+
 				],
 				"parameters_default_value":[
-					
+
 				]
 			}
 		],
@@ -52615,22 +52661,22 @@
 				"static":false,
 				"protected":false,
 				"parameters_type":[
-					
+
 				],
 				"parameters_is_array":[
-					
+
 				],
 				"parameters_extra":[
-					
+
 				],
 				"parameters_name":[
-					
+
 				],
 				"parameters_required":[
-					
+
 				],
 				"parameters_default_value":[
-					
+
 				]
 			}
 		],
@@ -52644,22 +52690,22 @@
 				"static":false,
 				"protected":false,
 				"parameters_type":[
-					
+
 				],
 				"parameters_is_array":[
-					
+
 				],
 				"parameters_extra":[
-					
+
 				],
 				"parameters_name":[
-					
+
 				],
 				"parameters_required":[
-					
+
 				],
 				"parameters_default_value":[
-					
+
 				]
 			}
 		],
@@ -53056,22 +53102,22 @@
 				"static":false,
 				"protected":false,
 				"parameters_type":[
-					
+
 				],
 				"parameters_is_array":[
-					
+
 				],
 				"parameters_extra":[
-					
+
 				],
 				"parameters_name":[
-					
+
 				],
 				"parameters_required":[
-					
+
 				],
 				"parameters_default_value":[
-					
+
 				]
 			}
 		],
@@ -53085,22 +53131,22 @@
 				"static":false,
 				"protected":false,
 				"parameters_type":[
-					
+
 				],
 				"parameters_is_array":[
-					
+
 				],
 				"parameters_extra":[
-					
+
 				],
 				"parameters_name":[
-					
+
 				],
 				"parameters_required":[
-					
+
 				],
 				"parameters_default_value":[
-					
+
 				]
 			}
 		],
@@ -53207,22 +53253,22 @@
 				"static":false,
 				"protected":false,
 				"parameters_type":[
-					
+
 				],
 				"parameters_is_array":[
-					
+
 				],
 				"parameters_extra":[
-					
+
 				],
 				"parameters_name":[
-					
+
 				],
 				"parameters_required":[
-					
+
 				],
 				"parameters_default_value":[
-					
+
 				]
 			}
 		],
@@ -53236,22 +53282,22 @@
 				"static":false,
 				"protected":false,
 				"parameters_type":[
-					
+
 				],
 				"parameters_is_array":[
-					
+
 				],
 				"parameters_extra":[
-					
+
 				],
 				"parameters_name":[
-					
+
 				],
 				"parameters_required":[
-					
+
 				],
 				"parameters_default_value":[
-					
+
 				]
 			}
 		],
@@ -53265,22 +53311,22 @@
 				"static":false,
 				"protected":false,
 				"parameters_type":[
-					
+
 				],
 				"parameters_is_array":[
-					
+
 				],
 				"parameters_extra":[
-					
+
 				],
 				"parameters_name":[
-					
+
 				],
 				"parameters_required":[
-					
+
 				],
 				"parameters_default_value":[
-					
+
 				]
 			}
 		],
@@ -53480,22 +53526,22 @@
 				"static":false,
 				"protected":false,
 				"parameters_type":[
-					
+
 				],
 				"parameters_is_array":[
-					
+
 				],
 				"parameters_extra":[
-					
+
 				],
 				"parameters_name":[
-					
+
 				],
 				"parameters_required":[
-					
+
 				],
 				"parameters_default_value":[
-					
+
 				]
 			}
 		],
@@ -53509,22 +53555,22 @@
 				"static":false,
 				"protected":false,
 				"parameters_type":[
-					
+
 				],
 				"parameters_is_array":[
-					
+
 				],
 				"parameters_extra":[
-					
+
 				],
 				"parameters_name":[
-					
+
 				],
 				"parameters_required":[
-					
+
 				],
 				"parameters_default_value":[
-					
+
 				]
 			}
 		],
@@ -53538,22 +53584,22 @@
 				"static":false,
 				"protected":false,
 				"parameters_type":[
-					
+
 				],
 				"parameters_is_array":[
-					
+
 				],
 				"parameters_extra":[
-					
+
 				],
 				"parameters_name":[
-					
+
 				],
 				"parameters_required":[
-					
+
 				],
 				"parameters_default_value":[
-					
+
 				]
 			}
 		],
@@ -53567,22 +53613,22 @@
 				"static":false,
 				"protected":false,
 				"parameters_type":[
-					
+
 				],
 				"parameters_is_array":[
-					
+
 				],
 				"parameters_extra":[
-					
+
 				],
 				"parameters_name":[
-					
+
 				],
 				"parameters_required":[
-					
+
 				],
 				"parameters_default_value":[
-					
+
 				]
 			}
 		],
@@ -53596,22 +53642,22 @@
 				"static":false,
 				"protected":false,
 				"parameters_type":[
-					
+
 				],
 				"parameters_is_array":[
-					
+
 				],
 				"parameters_extra":[
-					
+
 				],
 				"parameters_name":[
-					
+
 				],
 				"parameters_required":[
-					
+
 				],
 				"parameters_default_value":[
-					
+
 				]
 			}
 		],
@@ -53625,22 +53671,22 @@
 				"static":false,
 				"protected":false,
 				"parameters_type":[
-					
+
 				],
 				"parameters_is_array":[
-					
+
 				],
 				"parameters_extra":[
-					
+
 				],
 				"parameters_name":[
-					
+
 				],
 				"parameters_required":[
-					
+
 				],
 				"parameters_default_value":[
-					
+
 				]
 			}
 		],
@@ -53654,22 +53700,22 @@
 				"static":false,
 				"protected":false,
 				"parameters_type":[
-					
+
 				],
 				"parameters_is_array":[
-					
+
 				],
 				"parameters_extra":[
-					
+
 				],
 				"parameters_name":[
-					
+
 				],
 				"parameters_required":[
-					
+
 				],
 				"parameters_default_value":[
-					
+
 				]
 			}
 		],
@@ -53753,22 +53799,22 @@
 				"static":false,
 				"protected":false,
 				"parameters_type":[
-					
+
 				],
 				"parameters_is_array":[
-					
+
 				],
 				"parameters_extra":[
-					
+
 				],
 				"parameters_name":[
-					
+
 				],
 				"parameters_required":[
-					
+
 				],
 				"parameters_default_value":[
-					
+
 				]
 			}
 		],
@@ -53782,22 +53828,22 @@
 				"static":false,
 				"protected":false,
 				"parameters_type":[
-					
+
 				],
 				"parameters_is_array":[
-					
+
 				],
 				"parameters_extra":[
-					
+
 				],
 				"parameters_name":[
-					
+
 				],
 				"parameters_required":[
-					
+
 				],
 				"parameters_default_value":[
-					
+
 				]
 			}
 		],
@@ -53811,22 +53857,22 @@
 				"static":false,
 				"protected":false,
 				"parameters_type":[
-					
+
 				],
 				"parameters_is_array":[
-					
+
 				],
 				"parameters_extra":[
-					
+
 				],
 				"parameters_name":[
-					
+
 				],
 				"parameters_required":[
-					
+
 				],
 				"parameters_default_value":[
-					
+
 				]
 			}
 		],
@@ -53840,22 +53886,22 @@
 				"static":false,
 				"protected":false,
 				"parameters_type":[
-					
+
 				],
 				"parameters_is_array":[
-					
+
 				],
 				"parameters_extra":[
-					
+
 				],
 				"parameters_name":[
-					
+
 				],
 				"parameters_required":[
-					
+
 				],
 				"parameters_default_value":[
-					
+
 				]
 			}
 		],
@@ -53869,22 +53915,22 @@
 				"static":false,
 				"protected":false,
 				"parameters_type":[
-					
+
 				],
 				"parameters_is_array":[
-					
+
 				],
 				"parameters_extra":[
-					
+
 				],
 				"parameters_name":[
-					
+
 				],
 				"parameters_required":[
-					
+
 				],
 				"parameters_default_value":[
-					
+
 				]
 			}
 		],
@@ -53898,22 +53944,22 @@
 				"static":false,
 				"protected":false,
 				"parameters_type":[
-					
+
 				],
 				"parameters_is_array":[
-					
+
 				],
 				"parameters_extra":[
-					
+
 				],
 				"parameters_name":[
-					
+
 				],
 				"parameters_required":[
-					
+
 				],
 				"parameters_default_value":[
-					
+
 				]
 			}
 		],
@@ -53927,22 +53973,22 @@
 				"static":false,
 				"protected":false,
 				"parameters_type":[
-					
+
 				],
 				"parameters_is_array":[
-					
+
 				],
 				"parameters_extra":[
-					
+
 				],
 				"parameters_name":[
-					
+
 				],
 				"parameters_required":[
-					
+
 				],
 				"parameters_default_value":[
-					
+
 				]
 			}
 		],
@@ -53956,22 +54002,22 @@
 				"static":false,
 				"protected":false,
 				"parameters_type":[
-					
+
 				],
 				"parameters_is_array":[
-					
+
 				],
 				"parameters_extra":[
-					
+
 				],
 				"parameters_name":[
-					
+
 				],
 				"parameters_required":[
-					
+
 				],
 				"parameters_default_value":[
-					
+
 				]
 			}
 		],
@@ -53985,22 +54031,22 @@
 				"static":false,
 				"protected":false,
 				"parameters_type":[
-					
+
 				],
 				"parameters_is_array":[
-					
+
 				],
 				"parameters_extra":[
-					
+
 				],
 				"parameters_name":[
-					
+
 				],
 				"parameters_required":[
-					
+
 				],
 				"parameters_default_value":[
-					
+
 				]
 			}
 		],
@@ -54090,22 +54136,22 @@
 				"static":false,
 				"protected":false,
 				"parameters_type":[
-					
+
 				],
 				"parameters_is_array":[
-					
+
 				],
 				"parameters_extra":[
-					
+
 				],
 				"parameters_name":[
-					
+
 				],
 				"parameters_required":[
-					
+
 				],
 				"parameters_default_value":[
-					
+
 				]
 			}
 		],
@@ -54212,22 +54258,22 @@
 				"static":false,
 				"protected":false,
 				"parameters_type":[
-					
+
 				],
 				"parameters_is_array":[
-					
+
 				],
 				"parameters_extra":[
-					
+
 				],
 				"parameters_name":[
-					
+
 				],
 				"parameters_required":[
-					
+
 				],
 				"parameters_default_value":[
-					
+
 				]
 			}
 		],
@@ -54241,22 +54287,22 @@
 				"static":false,
 				"protected":false,
 				"parameters_type":[
-					
+
 				],
 				"parameters_is_array":[
-					
+
 				],
 				"parameters_extra":[
-					
+
 				],
 				"parameters_name":[
-					
+
 				],
 				"parameters_required":[
-					
+
 				],
 				"parameters_default_value":[
-					
+
 				]
 			}
 		],
@@ -54394,22 +54440,22 @@
 				"static":false,
 				"protected":false,
 				"parameters_type":[
-					
+
 				],
 				"parameters_is_array":[
-					
+
 				],
 				"parameters_extra":[
-					
+
 				],
 				"parameters_name":[
-					
+
 				],
 				"parameters_required":[
-					
+
 				],
 				"parameters_default_value":[
-					
+
 				]
 			}
 		],
@@ -54423,22 +54469,22 @@
 				"static":false,
 				"protected":false,
 				"parameters_type":[
-					
+
 				],
 				"parameters_is_array":[
-					
+
 				],
 				"parameters_extra":[
-					
+
 				],
 				"parameters_name":[
-					
+
 				],
 				"parameters_required":[
-					
+
 				],
 				"parameters_default_value":[
-					
+
 				]
 			}
 		],
@@ -54452,22 +54498,22 @@
 				"static":false,
 				"protected":false,
 				"parameters_type":[
-					
+
 				],
 				"parameters_is_array":[
-					
+
 				],
 				"parameters_extra":[
-					
+
 				],
 				"parameters_name":[
-					
+
 				],
 				"parameters_required":[
-					
+
 				],
 				"parameters_default_value":[
-					
+
 				]
 			}
 		],
@@ -54481,22 +54527,22 @@
 				"static":false,
 				"protected":false,
 				"parameters_type":[
-					
+
 				],
 				"parameters_is_array":[
-					
+
 				],
 				"parameters_extra":[
-					
+
 				],
 				"parameters_name":[
-					
+
 				],
 				"parameters_required":[
-					
+
 				],
 				"parameters_default_value":[
-					
+
 				]
 			}
 		],
@@ -54510,22 +54556,22 @@
 				"static":false,
 				"protected":false,
 				"parameters_type":[
-					
+
 				],
 				"parameters_is_array":[
-					
+
 				],
 				"parameters_extra":[
-					
+
 				],
 				"parameters_name":[
-					
+
 				],
 				"parameters_required":[
-					
+
 				],
 				"parameters_default_value":[
-					
+
 				]
 			}
 		],
@@ -54539,22 +54585,22 @@
 				"static":false,
 				"protected":false,
 				"parameters_type":[
-					
+
 				],
 				"parameters_is_array":[
-					
+
 				],
 				"parameters_extra":[
-					
+
 				],
 				"parameters_name":[
-					
+
 				],
 				"parameters_required":[
-					
+
 				],
 				"parameters_default_value":[
-					
+
 				]
 			}
 		],
@@ -54568,22 +54614,22 @@
 				"static":false,
 				"protected":false,
 				"parameters_type":[
-					
+
 				],
 				"parameters_is_array":[
-					
+
 				],
 				"parameters_extra":[
-					
+
 				],
 				"parameters_name":[
-					
+
 				],
 				"parameters_required":[
-					
+
 				],
 				"parameters_default_value":[
-					
+
 				]
 			}
 		],
@@ -54597,22 +54643,22 @@
 				"static":false,
 				"protected":false,
 				"parameters_type":[
-					
+
 				],
 				"parameters_is_array":[
-					
+
 				],
 				"parameters_extra":[
-					
+
 				],
 				"parameters_name":[
-					
+
 				],
 				"parameters_required":[
-					
+
 				],
 				"parameters_default_value":[
-					
+
 				]
 			}
 		],
@@ -54696,22 +54742,22 @@
 				"static":false,
 				"protected":false,
 				"parameters_type":[
-					
+
 				],
 				"parameters_is_array":[
-					
+
 				],
 				"parameters_extra":[
-					
+
 				],
 				"parameters_name":[
-					
+
 				],
 				"parameters_required":[
-					
+
 				],
 				"parameters_default_value":[
-					
+
 				]
 			}
 		],
@@ -54725,22 +54771,22 @@
 				"static":false,
 				"protected":false,
 				"parameters_type":[
-					
+
 				],
 				"parameters_is_array":[
-					
+
 				],
 				"parameters_extra":[
-					
+
 				],
 				"parameters_name":[
-					
+
 				],
 				"parameters_required":[
-					
+
 				],
 				"parameters_default_value":[
-					
+
 				]
 			}
 		],
@@ -54754,22 +54800,22 @@
 				"static":false,
 				"protected":false,
 				"parameters_type":[
-					
+
 				],
 				"parameters_is_array":[
-					
+
 				],
 				"parameters_extra":[
-					
+
 				],
 				"parameters_name":[
-					
+
 				],
 				"parameters_required":[
-					
+
 				],
 				"parameters_default_value":[
-					
+
 				]
 			}
 		],
@@ -54783,22 +54829,22 @@
 				"static":false,
 				"protected":false,
 				"parameters_type":[
-					
+
 				],
 				"parameters_is_array":[
-					
+
 				],
 				"parameters_extra":[
-					
+
 				],
 				"parameters_name":[
-					
+
 				],
 				"parameters_required":[
-					
+
 				],
 				"parameters_default_value":[
-					
+
 				]
 			}
 		],
@@ -54812,22 +54858,22 @@
 				"static":false,
 				"protected":false,
 				"parameters_type":[
-					
+
 				],
 				"parameters_is_array":[
-					
+
 				],
 				"parameters_extra":[
-					
+
 				],
 				"parameters_name":[
-					
+
 				],
 				"parameters_required":[
-					
+
 				],
 				"parameters_default_value":[
-					
+
 				]
 			}
 		],
@@ -54841,22 +54887,22 @@
 				"static":false,
 				"protected":false,
 				"parameters_type":[
-					
+
 				],
 				"parameters_is_array":[
-					
+
 				],
 				"parameters_extra":[
-					
+
 				],
 				"parameters_name":[
-					
+
 				],
 				"parameters_required":[
-					
+
 				],
 				"parameters_default_value":[
-					
+
 				]
 			}
 		],
@@ -54870,22 +54916,22 @@
 				"static":false,
 				"protected":false,
 				"parameters_type":[
-					
+
 				],
 				"parameters_is_array":[
-					
+
 				],
 				"parameters_extra":[
-					
+
 				],
 				"parameters_name":[
-					
+
 				],
 				"parameters_required":[
-					
+
 				],
 				"parameters_default_value":[
-					
+
 				]
 			}
 		],
@@ -54899,22 +54945,22 @@
 				"static":false,
 				"protected":false,
 				"parameters_type":[
-					
+
 				],
 				"parameters_is_array":[
-					
+
 				],
 				"parameters_extra":[
-					
+
 				],
 				"parameters_name":[
-					
+
 				],
 				"parameters_required":[
-					
+
 				],
 				"parameters_default_value":[
-					
+
 				]
 			}
 		],
@@ -55067,22 +55113,22 @@
 				"static":false,
 				"protected":false,
 				"parameters_type":[
-					
+
 				],
 				"parameters_is_array":[
-					
+
 				],
 				"parameters_extra":[
-					
+
 				],
 				"parameters_name":[
-					
+
 				],
 				"parameters_required":[
-					
+
 				],
 				"parameters_default_value":[
-					
+
 				]
 			}
 		],
@@ -55161,22 +55207,22 @@
 				"static":false,
 				"protected":false,
 				"parameters_type":[
-					
+
 				],
 				"parameters_is_array":[
-					
+
 				],
 				"parameters_extra":[
-					
+
 				],
 				"parameters_name":[
-					
+
 				],
 				"parameters_required":[
-					
+
 				],
 				"parameters_default_value":[
-					
+
 				]
 			}
 		],
@@ -55190,22 +55236,22 @@
 				"static":false,
 				"protected":false,
 				"parameters_type":[
-					
+
 				],
 				"parameters_is_array":[
-					
+
 				],
 				"parameters_extra":[
-					
+
 				],
 				"parameters_name":[
-					
+
 				],
 				"parameters_required":[
-					
+
 				],
 				"parameters_default_value":[
-					
+
 				]
 			}
 		],
@@ -55219,22 +55265,22 @@
 				"static":false,
 				"protected":false,
 				"parameters_type":[
-					
+
 				],
 				"parameters_is_array":[
-					
+
 				],
 				"parameters_extra":[
-					
+
 				],
 				"parameters_name":[
-					
+
 				],
 				"parameters_required":[
-					
+
 				],
 				"parameters_default_value":[
-					
+
 				]
 			}
 		],
@@ -55248,22 +55294,22 @@
 				"static":false,
 				"protected":false,
 				"parameters_type":[
-					
+
 				],
 				"parameters_is_array":[
-					
+
 				],
 				"parameters_extra":[
-					
+
 				],
 				"parameters_name":[
-					
+
 				],
 				"parameters_required":[
-					
+
 				],
 				"parameters_default_value":[
-					
+
 				]
 			}
 		],
@@ -55277,22 +55323,22 @@
 				"static":false,
 				"protected":false,
 				"parameters_type":[
-					
+
 				],
 				"parameters_is_array":[
-					
+
 				],
 				"parameters_extra":[
-					
+
 				],
 				"parameters_name":[
-					
+
 				],
 				"parameters_required":[
-					
+
 				],
 				"parameters_default_value":[
-					
+
 				]
 			}
 		],
@@ -55306,22 +55352,22 @@
 				"static":false,
 				"protected":false,
 				"parameters_type":[
-					
+
 				],
 				"parameters_is_array":[
-					
+
 				],
 				"parameters_extra":[
-					
+
 				],
 				"parameters_name":[
-					
+
 				],
 				"parameters_required":[
-					
+
 				],
 				"parameters_default_value":[
-					
+
 				]
 			}
 		],
@@ -55335,22 +55381,22 @@
 				"static":false,
 				"protected":false,
 				"parameters_type":[
-					
+
 				],
 				"parameters_is_array":[
-					
+
 				],
 				"parameters_extra":[
-					
+
 				],
 				"parameters_name":[
-					
+
 				],
 				"parameters_required":[
-					
+
 				],
 				"parameters_default_value":[
-					
+
 				]
 			}
 		],
@@ -55364,22 +55410,22 @@
 				"static":false,
 				"protected":false,
 				"parameters_type":[
-					
+
 				],
 				"parameters_is_array":[
-					
+
 				],
 				"parameters_extra":[
-					
+
 				],
 				"parameters_name":[
-					
+
 				],
 				"parameters_required":[
-					
+
 				],
 				"parameters_default_value":[
-					
+
 				]
 			}
 		],
@@ -55393,22 +55439,22 @@
 				"static":false,
 				"protected":false,
 				"parameters_type":[
-					
+
 				],
 				"parameters_is_array":[
-					
+
 				],
 				"parameters_extra":[
-					
+
 				],
 				"parameters_name":[
-					
+
 				],
 				"parameters_required":[
-					
+
 				],
 				"parameters_default_value":[
-					
+
 				]
 			}
 		],
@@ -55422,22 +55468,22 @@
 				"static":false,
 				"protected":false,
 				"parameters_type":[
-					
+
 				],
 				"parameters_is_array":[
-					
+
 				],
 				"parameters_extra":[
-					
+
 				],
 				"parameters_name":[
-					
+
 				],
 				"parameters_required":[
-					
+
 				],
 				"parameters_default_value":[
-					
+
 				]
 			}
 		],
@@ -55451,22 +55497,22 @@
 				"static":false,
 				"protected":false,
 				"parameters_type":[
-					
+
 				],
 				"parameters_is_array":[
-					
+
 				],
 				"parameters_extra":[
-					
+
 				],
 				"parameters_name":[
-					
+
 				],
 				"parameters_required":[
-					
+
 				],
 				"parameters_default_value":[
-					
+
 				]
 			}
 		],
@@ -55480,22 +55526,22 @@
 				"static":false,
 				"protected":false,
 				"parameters_type":[
-					
+
 				],
 				"parameters_is_array":[
-					
+
 				],
 				"parameters_extra":[
-					
+
 				],
 				"parameters_name":[
-					
+
 				],
 				"parameters_required":[
-					
+
 				],
 				"parameters_default_value":[
-					
+
 				]
 			}
 		],
@@ -55509,22 +55555,22 @@
 				"static":false,
 				"protected":false,
 				"parameters_type":[
-					
+
 				],
 				"parameters_is_array":[
-					
+
 				],
 				"parameters_extra":[
-					
+
 				],
 				"parameters_name":[
-					
+
 				],
 				"parameters_required":[
-					
+
 				],
 				"parameters_default_value":[
-					
+
 				]
 			}
 		],
@@ -55538,22 +55584,22 @@
 				"static":false,
 				"protected":false,
 				"parameters_type":[
-					
+
 				],
 				"parameters_is_array":[
-					
+
 				],
 				"parameters_extra":[
-					
+
 				],
 				"parameters_name":[
-					
+
 				],
 				"parameters_required":[
-					
+
 				],
 				"parameters_default_value":[
-					
+
 				]
 			}
 		],
@@ -55596,22 +55642,22 @@
 				"static":false,
 				"protected":false,
 				"parameters_type":[
-					
+
 				],
 				"parameters_is_array":[
-					
+
 				],
 				"parameters_extra":[
-					
+
 				],
 				"parameters_name":[
-					
+
 				],
 				"parameters_required":[
-					
+
 				],
 				"parameters_default_value":[
-					
+
 				]
 			}
 		],
@@ -55654,22 +55700,22 @@
 				"static":false,
 				"protected":false,
 				"parameters_type":[
-					
+
 				],
 				"parameters_is_array":[
-					
+
 				],
 				"parameters_extra":[
-					
+
 				],
 				"parameters_name":[
-					
+
 				],
 				"parameters_required":[
-					
+
 				],
 				"parameters_default_value":[
-					
+
 				]
 			}
 		],
@@ -55683,22 +55729,22 @@
 				"static":false,
 				"protected":false,
 				"parameters_type":[
-					
+
 				],
 				"parameters_is_array":[
-					
+
 				],
 				"parameters_extra":[
-					
+
 				],
 				"parameters_name":[
-					
+
 				],
 				"parameters_required":[
-					
+
 				],
 				"parameters_default_value":[
-					
+
 				]
 			}
 		],
@@ -55712,22 +55758,22 @@
 				"static":false,
 				"protected":false,
 				"parameters_type":[
-					
+
 				],
 				"parameters_is_array":[
-					
+
 				],
 				"parameters_extra":[
-					
+
 				],
 				"parameters_name":[
-					
+
 				],
 				"parameters_required":[
-					
+
 				],
 				"parameters_default_value":[
-					
+
 				]
 			}
 		],
@@ -55741,22 +55787,22 @@
 				"static":false,
 				"protected":false,
 				"parameters_type":[
-					
+
 				],
 				"parameters_is_array":[
-					
+
 				],
 				"parameters_extra":[
-					
+
 				],
 				"parameters_name":[
-					
+
 				],
 				"parameters_required":[
-					
+
 				],
 				"parameters_default_value":[
-					
+
 				]
 			}
 		],
@@ -55770,22 +55816,22 @@
 				"static":false,
 				"protected":false,
 				"parameters_type":[
-					
+
 				],
 				"parameters_is_array":[
-					
+
 				],
 				"parameters_extra":[
-					
+
 				],
 				"parameters_name":[
-					
+
 				],
 				"parameters_required":[
-					
+
 				],
 				"parameters_default_value":[
-					
+
 				]
 			}
 		],
@@ -55799,22 +55845,22 @@
 				"static":false,
 				"protected":false,
 				"parameters_type":[
-					
+
 				],
 				"parameters_is_array":[
-					
+
 				],
 				"parameters_extra":[
-					
+
 				],
 				"parameters_name":[
-					
+
 				],
 				"parameters_required":[
-					
+
 				],
 				"parameters_default_value":[
-					
+
 				]
 			}
 		],
@@ -55828,22 +55874,22 @@
 				"static":false,
 				"protected":false,
 				"parameters_type":[
-					
+
 				],
 				"parameters_is_array":[
-					
+
 				],
 				"parameters_extra":[
-					
+
 				],
 				"parameters_name":[
-					
+
 				],
 				"parameters_required":[
-					
+
 				],
 				"parameters_default_value":[
-					
+
 				]
 			}
 		],
@@ -55857,22 +55903,22 @@
 				"static":false,
 				"protected":false,
 				"parameters_type":[
-					
+
 				],
 				"parameters_is_array":[
-					
+
 				],
 				"parameters_extra":[
-					
+
 				],
 				"parameters_name":[
-					
+
 				],
 				"parameters_required":[
-					
+
 				],
 				"parameters_default_value":[
-					
+
 				]
 			}
 		],
@@ -55886,22 +55932,22 @@
 				"static":false,
 				"protected":false,
 				"parameters_type":[
-					
+
 				],
 				"parameters_is_array":[
-					
+
 				],
 				"parameters_extra":[
-					
+
 				],
 				"parameters_name":[
-					
+
 				],
 				"parameters_required":[
-					
+
 				],
 				"parameters_default_value":[
-					
+
 				]
 			}
 		],
@@ -55915,22 +55961,22 @@
 				"static":false,
 				"protected":false,
 				"parameters_type":[
-					
+
 				],
 				"parameters_is_array":[
-					
+
 				],
 				"parameters_extra":[
-					
+
 				],
 				"parameters_name":[
-					
+
 				],
 				"parameters_required":[
-					
+
 				],
 				"parameters_default_value":[
-					
+
 				]
 			}
 		],
@@ -55944,22 +55990,22 @@
 				"static":false,
 				"protected":false,
 				"parameters_type":[
-					
+
 				],
 				"parameters_is_array":[
-					
+
 				],
 				"parameters_extra":[
-					
+
 				],
 				"parameters_name":[
-					
+
 				],
 				"parameters_required":[
-					
+
 				],
 				"parameters_default_value":[
-					
+
 				]
 			}
 		],
@@ -55973,22 +56019,22 @@
 				"static":false,
 				"protected":false,
 				"parameters_type":[
-					
+
 				],
 				"parameters_is_array":[
-					
+
 				],
 				"parameters_extra":[
-					
+
 				],
 				"parameters_name":[
-					
+
 				],
 				"parameters_required":[
-					
+
 				],
 				"parameters_default_value":[
-					
+
 				]
 			}
 		],
@@ -56089,22 +56135,22 @@
 				"static":false,
 				"protected":false,
 				"parameters_type":[
-					
+
 				],
 				"parameters_is_array":[
-					
+
 				],
 				"parameters_extra":[
-					
+
 				],
 				"parameters_name":[
-					
+
 				],
 				"parameters_required":[
-					
+
 				],
 				"parameters_default_value":[
-					
+
 				]
 			}
 		],
@@ -56118,22 +56164,22 @@
 				"static":false,
 				"protected":false,
 				"parameters_type":[
-					
+
 				],
 				"parameters_is_array":[
-					
+
 				],
 				"parameters_extra":[
-					
+
 				],
 				"parameters_name":[
-					
+
 				],
 				"parameters_required":[
-					
+
 				],
 				"parameters_default_value":[
-					
+
 				]
 			}
 		],
@@ -56147,51 +56193,22 @@
 				"static":false,
 				"protected":false,
 				"parameters_type":[
-					
+
 				],
 				"parameters_is_array":[
-					
+
 				],
 				"parameters_extra":[
-					
+
 				],
 				"parameters_name":[
-					
+
 				],
 				"parameters_required":[
-					
+
 				],
 				"parameters_default_value":[
-					
-				]
-			}
-		],
-		"GetKeysUnicode":[
-			{
-				"return_type":"bool",
-				"brief_description":"Are keys always interpreted as Unicode?",
-				"constant":true,
-				"virtual":false,
-				"pure_virtual":false,
-				"static":false,
-				"protected":false,
-				"parameters_type":[
-					
-				],
-				"parameters_is_array":[
-					
-				],
-				"parameters_extra":[
-					
-				],
-				"parameters_name":[
-					
-				],
-				"parameters_required":[
-					
-				],
-				"parameters_default_value":[
-					
+
 				]
 			}
 		],
@@ -56240,22 +56257,22 @@
 				"static":false,
 				"protected":false,
 				"parameters_type":[
-					
+
 				],
 				"parameters_is_array":[
-					
+
 				],
 				"parameters_extra":[
-					
+
 				],
 				"parameters_name":[
-					
+
 				],
 				"parameters_required":[
-					
+
 				],
 				"parameters_default_value":[
-					
+
 				]
 			}
 		],
@@ -56269,22 +56286,22 @@
 				"static":false,
 				"protected":false,
 				"parameters_type":[
-					
+
 				],
 				"parameters_is_array":[
-					
+
 				],
 				"parameters_extra":[
-					
+
 				],
 				"parameters_name":[
-					
+
 				],
 				"parameters_required":[
-					
+
 				],
 				"parameters_default_value":[
-					
+
 				]
 			}
 		],
@@ -56298,22 +56315,22 @@
 				"static":false,
 				"protected":false,
 				"parameters_type":[
-					
+
 				],
 				"parameters_is_array":[
-					
+
 				],
 				"parameters_extra":[
-					
+
 				],
 				"parameters_name":[
-					
+
 				],
 				"parameters_required":[
-					
+
 				],
 				"parameters_default_value":[
-					
+
 				]
 			}
 		],
@@ -56327,22 +56344,22 @@
 				"static":false,
 				"protected":false,
 				"parameters_type":[
-					
+
 				],
 				"parameters_is_array":[
-					
+
 				],
 				"parameters_extra":[
-					
+
 				],
 				"parameters_name":[
-					
+
 				],
 				"parameters_required":[
-					
+
 				],
 				"parameters_default_value":[
-					
+
 				]
 			}
 		],
@@ -56356,22 +56373,22 @@
 				"static":true,
 				"protected":false,
 				"parameters_type":[
-					
+
 				],
 				"parameters_is_array":[
-					
+
 				],
 				"parameters_extra":[
-					
+
 				],
 				"parameters_name":[
-					
+
 				],
 				"parameters_required":[
-					
+
 				],
 				"parameters_default_value":[
-					
+
 				]
 			}
 		],
@@ -56414,22 +56431,22 @@
 				"static":false,
 				"protected":false,
 				"parameters_type":[
-					
+
 				],
 				"parameters_is_array":[
-					
+
 				],
 				"parameters_extra":[
-					
+
 				],
 				"parameters_name":[
-					
+
 				],
 				"parameters_required":[
-					
+
 				],
 				"parameters_default_value":[
-					
+
 				]
 			}
 		],
@@ -56675,22 +56692,22 @@
 				"static":false,
 				"protected":false,
 				"parameters_type":[
-					
+
 				],
 				"parameters_is_array":[
-					
+
 				],
 				"parameters_extra":[
-					
+
 				],
 				"parameters_name":[
-					
+
 				],
 				"parameters_required":[
-					
+
 				],
 				"parameters_default_value":[
-					
+
 				]
 			}
 		],
@@ -56704,22 +56721,22 @@
 				"static":false,
 				"protected":false,
 				"parameters_type":[
-					
+
 				],
 				"parameters_is_array":[
-					
+
 				],
 				"parameters_extra":[
-					
+
 				],
 				"parameters_name":[
-					
+
 				],
 				"parameters_required":[
-					
+
 				],
 				"parameters_default_value":[
-					
+
 				]
 			}
 		],
@@ -56762,22 +56779,22 @@
 				"static":false,
 				"protected":false,
 				"parameters_type":[
-					
+
 				],
 				"parameters_is_array":[
-					
+
 				],
 				"parameters_extra":[
-					
+
 				],
 				"parameters_name":[
-					
+
 				],
 				"parameters_required":[
-					
+
 				],
 				"parameters_default_value":[
-					
+
 				]
 			}
 		],
@@ -56907,22 +56924,22 @@
 				"static":false,
 				"protected":false,
 				"parameters_type":[
-					
+
 				],
 				"parameters_is_array":[
-					
+
 				],
 				"parameters_extra":[
-					
+
 				],
 				"parameters_name":[
-					
+
 				],
 				"parameters_required":[
-					
+
 				],
 				"parameters_default_value":[
-					
+
 				]
 			}
 		],
@@ -56936,22 +56953,22 @@
 				"static":false,
 				"protected":false,
 				"parameters_type":[
-					
+
 				],
 				"parameters_is_array":[
-					
+
 				],
 				"parameters_extra":[
-					
+
 				],
 				"parameters_name":[
-					
+
 				],
 				"parameters_required":[
-					
+
 				],
 				"parameters_default_value":[
-					
+
 				]
 			}
 		],
@@ -56965,22 +56982,22 @@
 				"static":false,
 				"protected":false,
 				"parameters_type":[
-					
+
 				],
 				"parameters_is_array":[
-					
+
 				],
 				"parameters_extra":[
-					
+
 				],
 				"parameters_name":[
-					
+
 				],
 				"parameters_required":[
-					
+
 				],
 				"parameters_default_value":[
-					
+
 				]
 			}
 		],
@@ -56994,22 +57011,22 @@
 				"static":false,
 				"protected":false,
 				"parameters_type":[
-					
+
 				],
 				"parameters_is_array":[
-					
+
 				],
 				"parameters_extra":[
-					
+
 				],
 				"parameters_name":[
-					
+
 				],
 				"parameters_required":[
-					
+
 				],
 				"parameters_default_value":[
-					
+
 				]
 			}
 		],
@@ -57023,22 +57040,22 @@
 				"static":false,
 				"protected":false,
 				"parameters_type":[
-					
+
 				],
 				"parameters_is_array":[
-					
+
 				],
 				"parameters_extra":[
-					
+
 				],
 				"parameters_name":[
-					
+
 				],
 				"parameters_required":[
-					
+
 				],
 				"parameters_default_value":[
-					
+
 				]
 			}
 		],
@@ -57052,22 +57069,22 @@
 				"static":false,
 				"protected":false,
 				"parameters_type":[
-					
+
 				],
 				"parameters_is_array":[
-					
+
 				],
 				"parameters_extra":[
-					
+
 				],
 				"parameters_name":[
-					
+
 				],
 				"parameters_required":[
-					
+
 				],
 				"parameters_default_value":[
-					
+
 				]
 			}
 		],
@@ -57081,22 +57098,22 @@
 				"static":false,
 				"protected":false,
 				"parameters_type":[
-					
+
 				],
 				"parameters_is_array":[
-					
+
 				],
 				"parameters_extra":[
-					
+
 				],
 				"parameters_name":[
-					
+
 				],
 				"parameters_required":[
-					
+
 				],
 				"parameters_default_value":[
-					
+
 				]
 			}
 		],
@@ -57110,22 +57127,22 @@
 				"static":false,
 				"protected":false,
 				"parameters_type":[
-					
+
 				],
 				"parameters_is_array":[
-					
+
 				],
 				"parameters_extra":[
-					
+
 				],
 				"parameters_name":[
-					
+
 				],
 				"parameters_required":[
-					
+
 				],
 				"parameters_default_value":[
-					
+
 				]
 			}
 		],
@@ -57139,22 +57156,22 @@
 				"static":false,
 				"protected":false,
 				"parameters_type":[
-					
+
 				],
 				"parameters_is_array":[
-					
+
 				],
 				"parameters_extra":[
-					
+
 				],
 				"parameters_name":[
-					
+
 				],
 				"parameters_required":[
-					
+
 				],
 				"parameters_default_value":[
-					
+
 				]
 			}
 		],
@@ -57168,22 +57185,22 @@
 				"static":false,
 				"protected":false,
 				"parameters_type":[
-					
+
 				],
 				"parameters_is_array":[
-					
+
 				],
 				"parameters_extra":[
-					
+
 				],
 				"parameters_name":[
-					
+
 				],
 				"parameters_required":[
-					
+
 				],
 				"parameters_default_value":[
-					
+
 				]
 			}
 		],
@@ -57197,22 +57214,22 @@
 				"static":false,
 				"protected":false,
 				"parameters_type":[
-					
+
 				],
 				"parameters_is_array":[
-					
+
 				],
 				"parameters_extra":[
-					
+
 				],
 				"parameters_name":[
-					
+
 				],
 				"parameters_required":[
-					
+
 				],
 				"parameters_default_value":[
-					
+
 				]
 			}
 		],
@@ -57313,22 +57330,22 @@
 				"static":false,
 				"protected":false,
 				"parameters_type":[
-					
+
 				],
 				"parameters_is_array":[
-					
+
 				],
 				"parameters_extra":[
-					
+
 				],
 				"parameters_name":[
-					
+
 				],
 				"parameters_required":[
-					
+
 				],
 				"parameters_default_value":[
-					
+
 				]
 			}
 		],
@@ -57342,22 +57359,22 @@
 				"static":false,
 				"protected":false,
 				"parameters_type":[
-					
+
 				],
 				"parameters_is_array":[
-					
+
 				],
 				"parameters_extra":[
-					
+
 				],
 				"parameters_name":[
-					
+
 				],
 				"parameters_required":[
-					
+
 				],
 				"parameters_default_value":[
-					
+
 				]
 			}
 		],
@@ -57371,22 +57388,22 @@
 				"static":false,
 				"protected":false,
 				"parameters_type":[
-					
+
 				],
 				"parameters_is_array":[
-					
+
 				],
 				"parameters_extra":[
-					
+
 				],
 				"parameters_name":[
-					
+
 				],
 				"parameters_required":[
-					
+
 				],
 				"parameters_default_value":[
-					
+
 				]
 			}
 		],
@@ -57400,22 +57417,22 @@
 				"static":false,
 				"protected":false,
 				"parameters_type":[
-					
+
 				],
 				"parameters_is_array":[
-					
+
 				],
 				"parameters_extra":[
-					
+
 				],
 				"parameters_name":[
-					
+
 				],
 				"parameters_required":[
-					
+
 				],
 				"parameters_default_value":[
-					
+
 				]
 			}
 		],
@@ -57429,22 +57446,22 @@
 				"static":false,
 				"protected":false,
 				"parameters_type":[
-					
+
 				],
 				"parameters_is_array":[
-					
+
 				],
 				"parameters_extra":[
-					
+
 				],
 				"parameters_name":[
-					
+
 				],
 				"parameters_required":[
-					
+
 				],
 				"parameters_default_value":[
-					
+
 				]
 			}
 		],
@@ -57458,22 +57475,22 @@
 				"static":false,
 				"protected":false,
 				"parameters_type":[
-					
+
 				],
 				"parameters_is_array":[
-					
+
 				],
 				"parameters_extra":[
-					
+
 				],
 				"parameters_name":[
-					
+
 				],
 				"parameters_required":[
-					
+
 				],
 				"parameters_default_value":[
-					
+
 				]
 			}
 		],
@@ -57487,22 +57504,22 @@
 				"static":false,
 				"protected":false,
 				"parameters_type":[
-					
+
 				],
 				"parameters_is_array":[
-					
+
 				],
 				"parameters_extra":[
-					
+
 				],
 				"parameters_name":[
-					
+
 				],
 				"parameters_required":[
-					
+
 				],
 				"parameters_default_value":[
-					
+
 				]
 			}
 		],
@@ -57516,22 +57533,22 @@
 				"static":false,
 				"protected":false,
 				"parameters_type":[
-					
+
 				],
 				"parameters_is_array":[
-					
+
 				],
 				"parameters_extra":[
-					
+
 				],
 				"parameters_name":[
-					
+
 				],
 				"parameters_required":[
-					
+
 				],
 				"parameters_default_value":[
-					
+
 				]
 			}
 		],
@@ -57545,22 +57562,22 @@
 				"static":false,
 				"protected":false,
 				"parameters_type":[
-					
+
 				],
 				"parameters_is_array":[
-					
+
 				],
 				"parameters_extra":[
-					
+
 				],
 				"parameters_name":[
-					
+
 				],
 				"parameters_required":[
-					
+
 				],
 				"parameters_default_value":[
-					
+
 				]
 			}
 		],
@@ -57574,22 +57591,22 @@
 				"static":false,
 				"protected":false,
 				"parameters_type":[
-					
+
 				],
 				"parameters_is_array":[
-					
+
 				],
 				"parameters_extra":[
-					
+
 				],
 				"parameters_name":[
-					
+
 				],
 				"parameters_required":[
-					
+
 				],
 				"parameters_default_value":[
-					
+
 				]
 			}
 		],
@@ -57603,22 +57620,22 @@
 				"static":false,
 				"protected":false,
 				"parameters_type":[
-					
+
 				],
 				"parameters_is_array":[
-					
+
 				],
 				"parameters_extra":[
-					
+
 				],
 				"parameters_name":[
-					
+
 				],
 				"parameters_required":[
-					
+
 				],
 				"parameters_default_value":[
-					
+
 				]
 			}
 		],
@@ -57632,22 +57649,22 @@
 				"static":false,
 				"protected":false,
 				"parameters_type":[
-					
+
 				],
 				"parameters_is_array":[
-					
+
 				],
 				"parameters_extra":[
-					
+
 				],
 				"parameters_name":[
-					
+
 				],
 				"parameters_required":[
-					
+
 				],
 				"parameters_default_value":[
-					
+
 				]
 			}
 		],
@@ -57661,22 +57678,22 @@
 				"static":false,
 				"protected":false,
 				"parameters_type":[
-					
+
 				],
 				"parameters_is_array":[
-					
+
 				],
 				"parameters_extra":[
-					
+
 				],
 				"parameters_name":[
-					
+
 				],
 				"parameters_required":[
-					
+
 				],
 				"parameters_default_value":[
-					
+
 				]
 			}
 		],
@@ -57690,22 +57707,22 @@
 				"static":false,
 				"protected":false,
 				"parameters_type":[
-					
+
 				],
 				"parameters_is_array":[
-					
+
 				],
 				"parameters_extra":[
-					
+
 				],
 				"parameters_name":[
-					
+
 				],
 				"parameters_required":[
-					
+
 				],
 				"parameters_default_value":[
-					
+
 				]
 			}
 		],
@@ -57719,22 +57736,22 @@
 				"static":false,
 				"protected":false,
 				"parameters_type":[
-					
+
 				],
 				"parameters_is_array":[
-					
+
 				],
 				"parameters_extra":[
-					
+
 				],
 				"parameters_name":[
-					
+
 				],
 				"parameters_required":[
-					
+
 				],
 				"parameters_default_value":[
-					
+
 				]
 			}
 		],
@@ -57922,22 +57939,22 @@
 				"static":false,
 				"protected":false,
 				"parameters_type":[
-					
+
 				],
 				"parameters_is_array":[
-					
+
 				],
 				"parameters_extra":[
-					
+
 				],
 				"parameters_name":[
-					
+
 				],
 				"parameters_required":[
-					
+
 				],
 				"parameters_default_value":[
-					
+
 				]
 			}
 		],
@@ -57951,22 +57968,22 @@
 				"static":false,
 				"protected":false,
 				"parameters_type":[
-					
+
 				],
 				"parameters_is_array":[
-					
+
 				],
 				"parameters_extra":[
-					
+
 				],
 				"parameters_name":[
-					
+
 				],
 				"parameters_required":[
-					
+
 				],
 				"parameters_default_value":[
-					
+
 				]
 			}
 		],
@@ -57980,22 +57997,22 @@
 				"static":false,
 				"protected":false,
 				"parameters_type":[
-					
+
 				],
 				"parameters_is_array":[
-					
+
 				],
 				"parameters_extra":[
-					
+
 				],
 				"parameters_name":[
-					
+
 				],
 				"parameters_required":[
-					
+
 				],
 				"parameters_default_value":[
-					
+
 				]
 			}
 		],
@@ -58038,22 +58055,22 @@
 				"static":false,
 				"protected":false,
 				"parameters_type":[
-					
+
 				],
 				"parameters_is_array":[
-					
+
 				],
 				"parameters_extra":[
-					
+
 				],
 				"parameters_name":[
-					
+
 				],
 				"parameters_required":[
-					
+
 				],
 				"parameters_default_value":[
-					
+
 				]
 			}
 		],
@@ -58067,22 +58084,22 @@
 				"static":false,
 				"protected":false,
 				"parameters_type":[
-					
+
 				],
 				"parameters_is_array":[
-					
+
 				],
 				"parameters_extra":[
-					
+
 				],
 				"parameters_name":[
-					
+
 				],
 				"parameters_required":[
-					
+
 				],
 				"parameters_default_value":[
-					
+
 				]
 			}
 		],
@@ -58096,22 +58113,22 @@
 				"static":false,
 				"protected":false,
 				"parameters_type":[
-					
+
 				],
 				"parameters_is_array":[
-					
+
 				],
 				"parameters_extra":[
-					
+
 				],
 				"parameters_name":[
-					
+
 				],
 				"parameters_required":[
-					
+
 				],
 				"parameters_default_value":[
-					
+
 				]
 			}
 		],
@@ -58125,22 +58142,22 @@
 				"static":false,
 				"protected":false,
 				"parameters_type":[
-					
+
 				],
 				"parameters_is_array":[
-					
+
 				],
 				"parameters_extra":[
-					
+
 				],
 				"parameters_name":[
-					
+
 				],
 				"parameters_required":[
-					
+
 				],
 				"parameters_default_value":[
-					
+
 				]
 			}
 		],
@@ -58154,22 +58171,22 @@
 				"static":false,
 				"protected":false,
 				"parameters_type":[
-					
+
 				],
 				"parameters_is_array":[
-					
+
 				],
 				"parameters_extra":[
-					
+
 				],
 				"parameters_name":[
-					
+
 				],
 				"parameters_required":[
-					
+
 				],
 				"parameters_default_value":[
-					
+
 				]
 			}
 		],
@@ -58183,22 +58200,22 @@
 				"static":false,
 				"protected":false,
 				"parameters_type":[
-					
+
 				],
 				"parameters_is_array":[
-					
+
 				],
 				"parameters_extra":[
-					
+
 				],
 				"parameters_name":[
-					
+
 				],
 				"parameters_required":[
-					
+
 				],
 				"parameters_default_value":[
-					
+
 				]
 			}
 		],
@@ -58212,22 +58229,22 @@
 				"static":false,
 				"protected":false,
 				"parameters_type":[
-					
+
 				],
 				"parameters_is_array":[
-					
+
 				],
 				"parameters_extra":[
-					
+
 				],
 				"parameters_name":[
-					
+
 				],
 				"parameters_required":[
-					
+
 				],
 				"parameters_default_value":[
-					
+
 				]
 			}
 		],
@@ -58241,22 +58258,22 @@
 				"static":false,
 				"protected":false,
 				"parameters_type":[
-					
+
 				],
 				"parameters_is_array":[
-					
+
 				],
 				"parameters_extra":[
-					
+
 				],
 				"parameters_name":[
-					
+
 				],
 				"parameters_required":[
-					
+
 				],
 				"parameters_default_value":[
-					
+
 				]
 			}
 		],
@@ -58340,22 +58357,22 @@
 				"static":false,
 				"protected":false,
 				"parameters_type":[
-					
+
 				],
 				"parameters_is_array":[
-					
+
 				],
 				"parameters_extra":[
-					
+
 				],
 				"parameters_name":[
-					
+
 				],
 				"parameters_required":[
-					
+
 				],
 				"parameters_default_value":[
-					
+
 				]
 			}
 		],
@@ -58369,22 +58386,22 @@
 				"static":false,
 				"protected":false,
 				"parameters_type":[
-					
+
 				],
 				"parameters_is_array":[
-					
+
 				],
 				"parameters_extra":[
-					
+
 				],
 				"parameters_name":[
-					
+
 				],
 				"parameters_required":[
-					
+
 				],
 				"parameters_default_value":[
-					
+
 				]
 			}
 		],
@@ -58398,22 +58415,22 @@
 				"static":false,
 				"protected":false,
 				"parameters_type":[
-					
+
 				],
 				"parameters_is_array":[
-					
+
 				],
 				"parameters_extra":[
-					
+
 				],
 				"parameters_name":[
-					
+
 				],
 				"parameters_required":[
-					
+
 				],
 				"parameters_default_value":[
-					
+
 				]
 			}
 		],
@@ -58427,22 +58444,22 @@
 				"static":false,
 				"protected":false,
 				"parameters_type":[
-					
+
 				],
 				"parameters_is_array":[
-					
+
 				],
 				"parameters_extra":[
-					
+
 				],
 				"parameters_name":[
-					
+
 				],
 				"parameters_required":[
-					
+
 				],
 				"parameters_default_value":[
-					
+
 				]
 			}
 		],
@@ -58456,22 +58473,22 @@
 				"static":false,
 				"protected":false,
 				"parameters_type":[
-					
+
 				],
 				"parameters_is_array":[
-					
+
 				],
 				"parameters_extra":[
-					
+
 				],
 				"parameters_name":[
-					
+
 				],
 				"parameters_required":[
-					
+
 				],
 				"parameters_default_value":[
-					
+
 				]
 			}
 		],
@@ -58485,22 +58502,22 @@
 				"static":false,
 				"protected":false,
 				"parameters_type":[
-					
+
 				],
 				"parameters_is_array":[
-					
+
 				],
 				"parameters_extra":[
-					
+
 				],
 				"parameters_name":[
-					
+
 				],
 				"parameters_required":[
-					
+
 				],
 				"parameters_default_value":[
-					
+
 				]
 			}
 		],
@@ -58514,22 +58531,22 @@
 				"static":false,
 				"protected":false,
 				"parameters_type":[
-					
+
 				],
 				"parameters_is_array":[
-					
+
 				],
 				"parameters_extra":[
-					
+
 				],
 				"parameters_name":[
-					
+
 				],
 				"parameters_required":[
-					
+
 				],
 				"parameters_default_value":[
-					
+
 				]
 			}
 		],
@@ -58543,22 +58560,22 @@
 				"static":false,
 				"protected":false,
 				"parameters_type":[
-					
+
 				],
 				"parameters_is_array":[
-					
+
 				],
 				"parameters_extra":[
-					
+
 				],
 				"parameters_name":[
-					
+
 				],
 				"parameters_required":[
-					
+
 				],
 				"parameters_default_value":[
-					
+
 				]
 			}
 		],
@@ -58572,22 +58589,22 @@
 				"static":false,
 				"protected":false,
 				"parameters_type":[
-					
+
 				],
 				"parameters_is_array":[
-					
+
 				],
 				"parameters_extra":[
-					
+
 				],
 				"parameters_name":[
-					
+
 				],
 				"parameters_required":[
-					
+
 				],
 				"parameters_default_value":[
-					
+
 				]
 			}
 		],
@@ -58601,22 +58618,22 @@
 				"static":false,
 				"protected":false,
 				"parameters_type":[
-					
+
 				],
 				"parameters_is_array":[
-					
+
 				],
 				"parameters_extra":[
-					
+
 				],
 				"parameters_name":[
-					
+
 				],
 				"parameters_required":[
-					
+
 				],
 				"parameters_default_value":[
-					
+
 				]
 			}
 		],
@@ -58630,22 +58647,22 @@
 				"static":false,
 				"protected":false,
 				"parameters_type":[
-					
+
 				],
 				"parameters_is_array":[
-					
+
 				],
 				"parameters_extra":[
-					
+
 				],
 				"parameters_name":[
-					
+
 				],
 				"parameters_required":[
-					
+
 				],
 				"parameters_default_value":[
-					
+
 				]
 			}
 		],
@@ -58659,22 +58676,22 @@
 				"static":false,
 				"protected":false,
 				"parameters_type":[
-					
+
 				],
 				"parameters_is_array":[
-					
+
 				],
 				"parameters_extra":[
-					
+
 				],
 				"parameters_name":[
-					
+
 				],
 				"parameters_required":[
-					
+
 				],
 				"parameters_default_value":[
-					
+
 				]
 			}
 		],
@@ -58688,22 +58705,22 @@
 				"static":false,
 				"protected":false,
 				"parameters_type":[
-					
+
 				],
 				"parameters_is_array":[
-					
+
 				],
 				"parameters_extra":[
-					
+
 				],
 				"parameters_name":[
-					
+
 				],
 				"parameters_required":[
-					
+
 				],
 				"parameters_default_value":[
-					
+
 				]
 			}
 		],
@@ -58717,22 +58734,22 @@
 				"static":false,
 				"protected":false,
 				"parameters_type":[
-					
+
 				],
 				"parameters_is_array":[
-					
+
 				],
 				"parameters_extra":[
-					
+
 				],
 				"parameters_name":[
-					
+
 				],
 				"parameters_required":[
-					
+
 				],
 				"parameters_default_value":[
-					
+
 				]
 			}
 		],
@@ -58746,22 +58763,22 @@
 				"static":false,
 				"protected":false,
 				"parameters_type":[
-					
+
 				],
 				"parameters_is_array":[
-					
+
 				],
 				"parameters_extra":[
-					
+
 				],
 				"parameters_name":[
-					
+
 				],
 				"parameters_required":[
-					
+
 				],
 				"parameters_default_value":[
-					
+
 				]
 			}
 		],
@@ -58775,22 +58792,22 @@
 				"static":false,
 				"protected":false,
 				"parameters_type":[
-					
+
 				],
 				"parameters_is_array":[
-					
+
 				],
 				"parameters_extra":[
-					
+
 				],
 				"parameters_name":[
-					
+
 				],
 				"parameters_required":[
-					
+
 				],
 				"parameters_default_value":[
-					
+
 				]
 			}
 		],
@@ -58804,22 +58821,22 @@
 				"static":false,
 				"protected":false,
 				"parameters_type":[
-					
+
 				],
 				"parameters_is_array":[
-					
+
 				],
 				"parameters_extra":[
-					
+
 				],
 				"parameters_name":[
-					
+
 				],
 				"parameters_required":[
-					
+
 				],
 				"parameters_default_value":[
-					
+
 				]
 			}
 		],
@@ -58955,22 +58972,22 @@
 				"static":false,
 				"protected":false,
 				"parameters_type":[
-					
+
 				],
 				"parameters_is_array":[
-					
+
 				],
 				"parameters_extra":[
-					
+
 				],
 				"parameters_name":[
-					
+
 				],
 				"parameters_required":[
-					
+
 				],
 				"parameters_default_value":[
-					
+
 				]
 			}
 		],
@@ -58984,22 +59001,22 @@
 				"static":false,
 				"protected":false,
 				"parameters_type":[
-					
+
 				],
 				"parameters_is_array":[
-					
+
 				],
 				"parameters_extra":[
-					
+
 				],
 				"parameters_name":[
-					
+
 				],
 				"parameters_required":[
-					
+
 				],
 				"parameters_default_value":[
-					
+
 				]
 			}
 		],
@@ -59013,22 +59030,22 @@
 				"static":false,
 				"protected":false,
 				"parameters_type":[
-					
+
 				],
 				"parameters_is_array":[
-					
+
 				],
 				"parameters_extra":[
-					
+
 				],
 				"parameters_name":[
-					
+
 				],
 				"parameters_required":[
-					
+
 				],
 				"parameters_default_value":[
-					
+
 				]
 			}
 		],
@@ -59042,22 +59059,22 @@
 				"static":false,
 				"protected":false,
 				"parameters_type":[
-					
+
 				],
 				"parameters_is_array":[
-					
+
 				],
 				"parameters_extra":[
-					
+
 				],
 				"parameters_name":[
-					
+
 				],
 				"parameters_required":[
-					
+
 				],
 				"parameters_default_value":[
-					
+
 				]
 			}
 		],
@@ -59071,22 +59088,22 @@
 				"static":false,
 				"protected":false,
 				"parameters_type":[
-					
+
 				],
 				"parameters_is_array":[
-					
+
 				],
 				"parameters_extra":[
-					
+
 				],
 				"parameters_name":[
-					
+
 				],
 				"parameters_required":[
-					
+
 				],
 				"parameters_default_value":[
-					
+
 				]
 			}
 		],
@@ -59100,22 +59117,22 @@
 				"static":false,
 				"protected":false,
 				"parameters_type":[
-					
+
 				],
 				"parameters_is_array":[
-					
+
 				],
 				"parameters_extra":[
-					
+
 				],
 				"parameters_name":[
-					
+
 				],
 				"parameters_required":[
-					
+
 				],
 				"parameters_default_value":[
-					
+
 				]
 			}
 		],
@@ -59129,22 +59146,22 @@
 				"static":false,
 				"protected":false,
 				"parameters_type":[
-					
+
 				],
 				"parameters_is_array":[
-					
+
 				],
 				"parameters_extra":[
-					
+
 				],
 				"parameters_name":[
-					
+
 				],
 				"parameters_required":[
-					
+
 				],
 				"parameters_default_value":[
-					
+
 				]
 			}
 		],
@@ -59420,22 +59437,22 @@
 				"static":false,
 				"protected":false,
 				"parameters_type":[
-					
+
 				],
 				"parameters_is_array":[
-					
+
 				],
 				"parameters_extra":[
-					
+
 				],
 				"parameters_name":[
-					
+
 				],
 				"parameters_required":[
-					
+
 				],
 				"parameters_default_value":[
-					
+
 				]
 			}
 		],
@@ -59449,22 +59466,22 @@
 				"static":false,
 				"protected":false,
 				"parameters_type":[
-					
+
 				],
 				"parameters_is_array":[
-					
+
 				],
 				"parameters_extra":[
-					
+
 				],
 				"parameters_name":[
-					
+
 				],
 				"parameters_required":[
-					
+
 				],
 				"parameters_default_value":[
-					
+
 				]
 			}
 		],
@@ -59478,22 +59495,22 @@
 				"static":false,
 				"protected":false,
 				"parameters_type":[
-					
+
 				],
 				"parameters_is_array":[
-					
+
 				],
 				"parameters_extra":[
-					
+
 				],
 				"parameters_name":[
-					
+
 				],
 				"parameters_required":[
-					
+
 				],
 				"parameters_default_value":[
-					
+
 				]
 			}
 		],
@@ -59507,22 +59524,22 @@
 				"static":false,
 				"protected":false,
 				"parameters_type":[
-					
+
 				],
 				"parameters_is_array":[
-					
+
 				],
 				"parameters_extra":[
-					
+
 				],
 				"parameters_name":[
-					
+
 				],
 				"parameters_required":[
-					
+
 				],
 				"parameters_default_value":[
-					
+
 				]
 			}
 		],
@@ -59536,22 +59553,22 @@
 				"static":false,
 				"protected":false,
 				"parameters_type":[
-					
+
 				],
 				"parameters_is_array":[
-					
+
 				],
 				"parameters_extra":[
-					
+
 				],
 				"parameters_name":[
-					
+
 				],
 				"parameters_required":[
-					
+
 				],
 				"parameters_default_value":[
-					
+
 				]
 			}
 		],
@@ -59565,22 +59582,22 @@
 				"static":false,
 				"protected":false,
 				"parameters_type":[
-					
+
 				],
 				"parameters_is_array":[
-					
+
 				],
 				"parameters_extra":[
-					
+
 				],
 				"parameters_name":[
-					
+
 				],
 				"parameters_required":[
-					
+
 				],
 				"parameters_default_value":[
-					
+
 				]
 			}
 		],
@@ -59594,22 +59611,22 @@
 				"static":false,
 				"protected":false,
 				"parameters_type":[
-					
+
 				],
 				"parameters_is_array":[
-					
+
 				],
 				"parameters_extra":[
-					
+
 				],
 				"parameters_name":[
-					
+
 				],
 				"parameters_required":[
-					
+
 				],
 				"parameters_default_value":[
-					
+
 				]
 			}
 		],
@@ -59623,22 +59640,22 @@
 				"static":false,
 				"protected":false,
 				"parameters_type":[
-					
+
 				],
 				"parameters_is_array":[
-					
+
 				],
 				"parameters_extra":[
-					
+
 				],
 				"parameters_name":[
-					
+
 				],
 				"parameters_required":[
-					
+
 				],
 				"parameters_default_value":[
-					
+
 				]
 			}
 		],
@@ -59652,22 +59669,22 @@
 				"static":false,
 				"protected":false,
 				"parameters_type":[
-					
+
 				],
 				"parameters_is_array":[
-					
+
 				],
 				"parameters_extra":[
-					
+
 				],
 				"parameters_name":[
-					
+
 				],
 				"parameters_required":[
-					
+
 				],
 				"parameters_default_value":[
-					
+
 				]
 			}
 		],
@@ -59681,22 +59698,22 @@
 				"static":false,
 				"protected":false,
 				"parameters_type":[
-					
+
 				],
 				"parameters_is_array":[
-					
+
 				],
 				"parameters_extra":[
-					
+
 				],
 				"parameters_name":[
-					
+
 				],
 				"parameters_required":[
-					
+
 				],
 				"parameters_default_value":[
-					
+
 				]
 			}
 		],
@@ -59710,22 +59727,22 @@
 				"static":false,
 				"protected":false,
 				"parameters_type":[
-					
+
 				],
 				"parameters_is_array":[
-					
+
 				],
 				"parameters_extra":[
-					
+
 				],
 				"parameters_name":[
-					
+
 				],
 				"parameters_required":[
-					
+
 				],
 				"parameters_default_value":[
-					
+
 				]
 			}
 		],
@@ -59739,22 +59756,22 @@
 				"static":false,
 				"protected":false,
 				"parameters_type":[
-					
+
 				],
 				"parameters_is_array":[
-					
+
 				],
 				"parameters_extra":[
-					
+
 				],
 				"parameters_name":[
-					
+
 				],
 				"parameters_required":[
-					
+
 				],
 				"parameters_default_value":[
-					
+
 				]
 			}
 		],
@@ -59768,22 +59785,22 @@
 				"static":false,
 				"protected":false,
 				"parameters_type":[
-					
+
 				],
 				"parameters_is_array":[
-					
+
 				],
 				"parameters_extra":[
-					
+
 				],
 				"parameters_name":[
-					
+
 				],
 				"parameters_required":[
-					
+
 				],
 				"parameters_default_value":[
-					
+
 				]
 			}
 		],
@@ -59797,22 +59814,22 @@
 				"static":false,
 				"protected":false,
 				"parameters_type":[
-					
+
 				],
 				"parameters_is_array":[
-					
+
 				],
 				"parameters_extra":[
-					
+
 				],
 				"parameters_name":[
-					
+
 				],
 				"parameters_required":[
-					
+
 				],
 				"parameters_default_value":[
-					
+
 				]
 			}
 		],
@@ -59919,22 +59936,22 @@
 				"static":false,
 				"protected":false,
 				"parameters_type":[
-					
+
 				],
 				"parameters_is_array":[
-					
+
 				],
 				"parameters_extra":[
-					
+
 				],
 				"parameters_name":[
-					
+
 				],
 				"parameters_required":[
-					
+
 				],
 				"parameters_default_value":[
-					
+
 				]
 			}
 		],
@@ -59948,22 +59965,22 @@
 				"static":false,
 				"protected":false,
 				"parameters_type":[
-					
+
 				],
 				"parameters_is_array":[
-					
+
 				],
 				"parameters_extra":[
-					
+
 				],
 				"parameters_name":[
-					
+
 				],
 				"parameters_required":[
-					
+
 				],
 				"parameters_default_value":[
-					
+
 				]
 			}
 		],
@@ -59977,22 +59994,22 @@
 				"static":false,
 				"protected":false,
 				"parameters_type":[
-					
+
 				],
 				"parameters_is_array":[
-					
+
 				],
 				"parameters_extra":[
-					
+
 				],
 				"parameters_name":[
-					
+
 				],
 				"parameters_required":[
-					
+
 				],
 				"parameters_default_value":[
-					
+
 				]
 			}
 		],
@@ -60006,22 +60023,22 @@
 				"static":false,
 				"protected":false,
 				"parameters_type":[
-					
+
 				],
 				"parameters_is_array":[
-					
+
 				],
 				"parameters_extra":[
-					
+
 				],
 				"parameters_name":[
-					
+
 				],
 				"parameters_required":[
-					
+
 				],
 				"parameters_default_value":[
-					
+
 				]
 			}
 		],
@@ -60035,22 +60052,22 @@
 				"static":false,
 				"protected":false,
 				"parameters_type":[
-					
+
 				],
 				"parameters_is_array":[
-					
+
 				],
 				"parameters_extra":[
-					
+
 				],
 				"parameters_name":[
-					
+
 				],
 				"parameters_required":[
-					
+
 				],
 				"parameters_default_value":[
-					
+
 				]
 			}
 		],
@@ -60064,22 +60081,22 @@
 				"static":false,
 				"protected":false,
 				"parameters_type":[
-					
+
 				],
 				"parameters_is_array":[
-					
+
 				],
 				"parameters_extra":[
-					
+
 				],
 				"parameters_name":[
-					
+
 				],
 				"parameters_required":[
-					
+
 				],
 				"parameters_default_value":[
-					
+
 				]
 			}
 		],
@@ -60093,22 +60110,22 @@
 				"static":false,
 				"protected":false,
 				"parameters_type":[
-					
+
 				],
 				"parameters_is_array":[
-					
+
 				],
 				"parameters_extra":[
-					
+
 				],
 				"parameters_name":[
-					
+
 				],
 				"parameters_required":[
-					
+
 				],
 				"parameters_default_value":[
-					
+
 				]
 			}
 		],
@@ -60122,22 +60139,22 @@
 				"static":false,
 				"protected":false,
 				"parameters_type":[
-					
+
 				],
 				"parameters_is_array":[
-					
+
 				],
 				"parameters_extra":[
-					
+
 				],
 				"parameters_name":[
-					
+
 				],
 				"parameters_required":[
-					
+
 				],
 				"parameters_default_value":[
-					
+
 				]
 			}
 		],
@@ -60180,22 +60197,22 @@
 				"static":false,
 				"protected":false,
 				"parameters_type":[
-					
+
 				],
 				"parameters_is_array":[
-					
+
 				],
 				"parameters_extra":[
-					
+
 				],
 				"parameters_name":[
-					
+
 				],
 				"parameters_required":[
-					
+
 				],
 				"parameters_default_value":[
-					
+
 				]
 			}
 		],
@@ -60238,22 +60255,22 @@
 				"static":false,
 				"protected":false,
 				"parameters_type":[
-					
+
 				],
 				"parameters_is_array":[
-					
+
 				],
 				"parameters_extra":[
-					
+
 				],
 				"parameters_name":[
-					
+
 				],
 				"parameters_required":[
-					
+
 				],
 				"parameters_default_value":[
-					
+
 				]
 			}
 		],
@@ -60459,22 +60476,22 @@
 				"static":false,
 				"protected":false,
 				"parameters_type":[
-					
+
 				],
 				"parameters_is_array":[
-					
+
 				],
 				"parameters_extra":[
-					
+
 				],
 				"parameters_name":[
-					
+
 				],
 				"parameters_required":[
-					
+
 				],
 				"parameters_default_value":[
-					
+
 				]
 			}
 		],
@@ -60964,22 +60981,22 @@
 				"static":false,
 				"protected":false,
 				"parameters_type":[
-					
+
 				],
 				"parameters_is_array":[
-					
+
 				],
 				"parameters_extra":[
-					
+
 				],
 				"parameters_name":[
-					
+
 				],
 				"parameters_required":[
-					
+
 				],
 				"parameters_default_value":[
-					
+
 				]
 			}
 		],
@@ -60993,22 +61010,22 @@
 				"static":false,
 				"protected":false,
 				"parameters_type":[
-					
+
 				],
 				"parameters_is_array":[
-					
+
 				],
 				"parameters_extra":[
-					
+
 				],
 				"parameters_name":[
-					
+
 				],
 				"parameters_required":[
-					
+
 				],
 				"parameters_default_value":[
-					
+
 				]
 			}
 		],
@@ -61022,22 +61039,22 @@
 				"static":false,
 				"protected":false,
 				"parameters_type":[
-					
+
 				],
 				"parameters_is_array":[
-					
+
 				],
 				"parameters_extra":[
-					
+
 				],
 				"parameters_name":[
-					
+
 				],
 				"parameters_required":[
-					
+
 				],
 				"parameters_default_value":[
-					
+
 				]
 			}
 		],
@@ -61051,22 +61068,22 @@
 				"static":false,
 				"protected":false,
 				"parameters_type":[
-					
+
 				],
 				"parameters_is_array":[
-					
+
 				],
 				"parameters_extra":[
-					
+
 				],
 				"parameters_name":[
-					
+
 				],
 				"parameters_required":[
-					
+
 				],
 				"parameters_default_value":[
-					
+
 				]
 			}
 		],
@@ -61080,22 +61097,22 @@
 				"static":false,
 				"protected":false,
 				"parameters_type":[
-					
+
 				],
 				"parameters_is_array":[
-					
+
 				],
 				"parameters_extra":[
-					
+
 				],
 				"parameters_name":[
-					
+
 				],
 				"parameters_required":[
-					
+
 				],
 				"parameters_default_value":[
-					
+
 				]
 			}
 		],
@@ -61109,22 +61126,22 @@
 				"static":false,
 				"protected":false,
 				"parameters_type":[
-					
+
 				],
 				"parameters_is_array":[
-					
+
 				],
 				"parameters_extra":[
-					
+
 				],
 				"parameters_name":[
-					
+
 				],
 				"parameters_required":[
-					
+
 				],
 				"parameters_default_value":[
-					
+
 				]
 			}
 		],
@@ -61138,22 +61155,22 @@
 				"static":false,
 				"protected":false,
 				"parameters_type":[
-					
+
 				],
 				"parameters_is_array":[
-					
+
 				],
 				"parameters_extra":[
-					
+
 				],
 				"parameters_name":[
-					
+
 				],
 				"parameters_required":[
-					
+
 				],
 				"parameters_default_value":[
-					
+
 				]
 			}
 		],
@@ -61167,22 +61184,22 @@
 				"static":false,
 				"protected":false,
 				"parameters_type":[
-					
+
 				],
 				"parameters_is_array":[
-					
+
 				],
 				"parameters_extra":[
-					
+
 				],
 				"parameters_name":[
-					
+
 				],
 				"parameters_required":[
-					
+
 				],
 				"parameters_default_value":[
-					
+
 				]
 			}
 		],
@@ -61196,22 +61213,22 @@
 				"static":false,
 				"protected":false,
 				"parameters_type":[
-					
+
 				],
 				"parameters_is_array":[
-					
+
 				],
 				"parameters_extra":[
-					
+
 				],
 				"parameters_name":[
-					
+
 				],
 				"parameters_required":[
-					
+
 				],
 				"parameters_default_value":[
-					
+
 				]
 			}
 		],
@@ -61225,22 +61242,22 @@
 				"static":false,
 				"protected":false,
 				"parameters_type":[
-					
+
 				],
 				"parameters_is_array":[
-					
+
 				],
 				"parameters_extra":[
-					
+
 				],
 				"parameters_name":[
-					
+
 				],
 				"parameters_required":[
-					
+
 				],
 				"parameters_default_value":[
-					
+
 				]
 			}
 		],
@@ -61254,22 +61271,22 @@
 				"static":false,
 				"protected":false,
 				"parameters_type":[
-					
+
 				],
 				"parameters_is_array":[
-					
+
 				],
 				"parameters_extra":[
-					
+
 				],
 				"parameters_name":[
-					
+
 				],
 				"parameters_required":[
-					
+
 				],
 				"parameters_default_value":[
-					
+
 				]
 			}
 		],
@@ -61283,22 +61300,22 @@
 				"static":false,
 				"protected":false,
 				"parameters_type":[
-					
+
 				],
 				"parameters_is_array":[
-					
+
 				],
 				"parameters_extra":[
-					
+
 				],
 				"parameters_name":[
-					
+
 				],
 				"parameters_required":[
-					
+
 				],
 				"parameters_default_value":[
-					
+
 				]
 			}
 		],
@@ -61312,22 +61329,22 @@
 				"static":false,
 				"protected":false,
 				"parameters_type":[
-					
+
 				],
 				"parameters_is_array":[
-					
+
 				],
 				"parameters_extra":[
-					
+
 				],
 				"parameters_name":[
-					
+
 				],
 				"parameters_required":[
-					
+
 				],
 				"parameters_default_value":[
-					
+
 				]
 			}
 		],
@@ -61521,22 +61538,22 @@
 				"static":false,
 				"protected":false,
 				"parameters_type":[
-					
+
 				],
 				"parameters_is_array":[
-					
+
 				],
 				"parameters_extra":[
-					
+
 				],
 				"parameters_name":[
-					
+
 				],
 				"parameters_required":[
-					
+
 				],
 				"parameters_default_value":[
-					
+
 				]
 			}
 		],
@@ -61672,22 +61689,22 @@
 				"static":false,
 				"protected":false,
 				"parameters_type":[
-					
+
 				],
 				"parameters_is_array":[
-					
+
 				],
 				"parameters_extra":[
-					
+
 				],
 				"parameters_name":[
-					
+
 				],
 				"parameters_required":[
-					
+
 				],
 				"parameters_default_value":[
-					
+
 				]
 			}
 		],
@@ -61759,22 +61776,22 @@
 				"static":false,
 				"protected":false,
 				"parameters_type":[
-					
+
 				],
 				"parameters_is_array":[
-					
+
 				],
 				"parameters_extra":[
-					
+
 				],
 				"parameters_name":[
-					
+
 				],
 				"parameters_required":[
-					
+
 				],
 				"parameters_default_value":[
-					
+
 				]
 			}
 		],
@@ -61887,22 +61904,22 @@
 				"static":false,
 				"protected":false,
 				"parameters_type":[
-					
+
 				],
 				"parameters_is_array":[
-					
+
 				],
 				"parameters_extra":[
-					
+
 				],
 				"parameters_name":[
-					
+
 				],
 				"parameters_required":[
-					
+
 				],
 				"parameters_default_value":[
-					
+
 				]
 			}
 		],
@@ -61916,22 +61933,22 @@
 				"static":false,
 				"protected":false,
 				"parameters_type":[
-					
+
 				],
 				"parameters_is_array":[
-					
+
 				],
 				"parameters_extra":[
-					
+
 				],
 				"parameters_name":[
-					
+
 				],
 				"parameters_required":[
-					
+
 				],
 				"parameters_default_value":[
-					
+
 				]
 			}
 		],
@@ -61945,22 +61962,22 @@
 				"static":false,
 				"protected":false,
 				"parameters_type":[
-					
+
 				],
 				"parameters_is_array":[
-					
+
 				],
 				"parameters_extra":[
-					
+
 				],
 				"parameters_name":[
-					
+
 				],
 				"parameters_required":[
-					
+
 				],
 				"parameters_default_value":[
-					
+
 				]
 			}
 		],
@@ -62438,22 +62455,22 @@
 				"static":false,
 				"protected":false,
 				"parameters_type":[
-					
+
 				],
 				"parameters_is_array":[
-					
+
 				],
 				"parameters_extra":[
-					
+
 				],
 				"parameters_name":[
-					
+
 				],
 				"parameters_required":[
-					
+
 				],
 				"parameters_default_value":[
-					
+
 				]
 			}
 		],
@@ -63220,35 +63237,6 @@
 				],
 				"parameters_default_value":[
 					null,
-					null
-				]
-			}
-		],
-		"SetKeysUnicode":[
-			{
-				"return_type":"void",
-				"brief_description":"Always interpret keyboard input as Unicode.",
-				"constant":false,
-				"virtual":false,
-				"pure_virtual":false,
-				"static":false,
-				"protected":false,
-				"parameters_type":[
-					"bool"
-				],
-				"parameters_is_array":[
-					false
-				],
-				"parameters_extra":[
-					false
-				],
-				"parameters_name":[
-					"keysUnicode"
-				],
-				"parameters_required":[
-					true
-				],
-				"parameters_default_value":[
 					null
 				]
 			}
@@ -64239,22 +64227,22 @@
 				"static":false,
 				"protected":false,
 				"parameters_type":[
-					
+
 				],
 				"parameters_is_array":[
-					
+
 				],
 				"parameters_extra":[
-					
+
 				],
 				"parameters_name":[
-					
+
 				],
 				"parameters_required":[
-					
+
 				],
 				"parameters_default_value":[
-					
+
 				]
 			}
 		],
@@ -65785,22 +65773,22 @@
 				"static":false,
 				"protected":false,
 				"parameters_type":[
-					
+
 				],
 				"parameters_is_array":[
-					
+
 				],
 				"parameters_extra":[
-					
+
 				],
 				"parameters_name":[
-					
+
 				],
 				"parameters_required":[
-					
+
 				],
 				"parameters_default_value":[
-					
+
 				]
 			}
 		],
@@ -65849,22 +65837,22 @@
 				"static":false,
 				"protected":false,
 				"parameters_type":[
-					
+
 				],
 				"parameters_is_array":[
-					
+
 				],
 				"parameters_extra":[
-					
+
 				],
 				"parameters_name":[
-					
+
 				],
 				"parameters_required":[
-					
+
 				],
 				"parameters_default_value":[
-					
+
 				]
 			}
 		],
@@ -65878,22 +65866,22 @@
 				"static":false,
 				"protected":false,
 				"parameters_type":[
-					
+
 				],
 				"parameters_is_array":[
-					
+
 				],
 				"parameters_extra":[
-					
+
 				],
 				"parameters_name":[
-					
+
 				],
 				"parameters_required":[
-					
+
 				],
 				"parameters_default_value":[
-					
+
 				]
 			}
 		],
@@ -65907,22 +65895,22 @@
 				"static":false,
 				"protected":false,
 				"parameters_type":[
-					
+
 				],
 				"parameters_is_array":[
-					
+
 				],
 				"parameters_extra":[
-					
+
 				],
 				"parameters_name":[
-					
+
 				],
 				"parameters_required":[
-					
+
 				],
 				"parameters_default_value":[
-					
+
 				]
 			}
 		],
@@ -65936,22 +65924,22 @@
 				"static":false,
 				"protected":false,
 				"parameters_type":[
-					
+
 				],
 				"parameters_is_array":[
-					
+
 				],
 				"parameters_extra":[
-					
+
 				],
 				"parameters_name":[
-					
+
 				],
 				"parameters_required":[
-					
+
 				],
 				"parameters_default_value":[
-					
+
 				]
 			}
 		],
@@ -65965,22 +65953,22 @@
 				"static":false,
 				"protected":false,
 				"parameters_type":[
-					
+
 				],
 				"parameters_is_array":[
-					
+
 				],
 				"parameters_extra":[
-					
+
 				],
 				"parameters_name":[
-					
+
 				],
 				"parameters_required":[
-					
+
 				],
 				"parameters_default_value":[
-					
+
 				]
 			}
 		],
@@ -65994,22 +65982,22 @@
 				"static":false,
 				"protected":false,
 				"parameters_type":[
-					
+
 				],
 				"parameters_is_array":[
-					
+
 				],
 				"parameters_extra":[
-					
+
 				],
 				"parameters_name":[
-					
+
 				],
 				"parameters_required":[
-					
+
 				],
 				"parameters_default_value":[
-					
+
 				]
 			}
 		],
@@ -66023,22 +66011,22 @@
 				"static":false,
 				"protected":false,
 				"parameters_type":[
-					
+
 				],
 				"parameters_is_array":[
-					
+
 				],
 				"parameters_extra":[
-					
+
 				],
 				"parameters_name":[
-					
+
 				],
 				"parameters_required":[
-					
+
 				],
 				"parameters_default_value":[
-					
+
 				]
 			}
 		],
@@ -66676,22 +66664,22 @@
 				"static":false,
 				"protected":false,
 				"parameters_type":[
-					
+
 				],
 				"parameters_is_array":[
-					
+
 				],
 				"parameters_extra":[
-					
+
 				],
 				"parameters_name":[
-					
+
 				],
 				"parameters_required":[
-					
+
 				],
 				"parameters_default_value":[
-					
+
 				]
 			}
 		],
@@ -66705,22 +66693,22 @@
 				"static":false,
 				"protected":false,
 				"parameters_type":[
-					
+
 				],
 				"parameters_is_array":[
-					
+
 				],
 				"parameters_extra":[
-					
+
 				],
 				"parameters_name":[
-					
+
 				],
 				"parameters_required":[
-					
+
 				],
 				"parameters_default_value":[
-					
+
 				]
 			}
 		],
@@ -66734,22 +66722,22 @@
 				"static":false,
 				"protected":false,
 				"parameters_type":[
-					
+
 				],
 				"parameters_is_array":[
-					
+
 				],
 				"parameters_extra":[
-					
+
 				],
 				"parameters_name":[
-					
+
 				],
 				"parameters_required":[
-					
+
 				],
 				"parameters_default_value":[
-					
+
 				]
 			}
 		],
@@ -66827,22 +66815,22 @@
 				"static":false,
 				"protected":false,
 				"parameters_type":[
-					
+
 				],
 				"parameters_is_array":[
-					
+
 				],
 				"parameters_extra":[
-					
+
 				],
 				"parameters_name":[
-					
+
 				],
 				"parameters_required":[
-					
+
 				],
 				"parameters_default_value":[
-					
+
 				]
 			}
 		],
@@ -66885,22 +66873,22 @@
 				"static":false,
 				"protected":false,
 				"parameters_type":[
-					
+
 				],
 				"parameters_is_array":[
-					
+
 				],
 				"parameters_extra":[
-					
+
 				],
 				"parameters_name":[
-					
+
 				],
 				"parameters_required":[
-					
+
 				],
 				"parameters_default_value":[
-					
+
 				]
 			}
 		],
@@ -66914,22 +66902,22 @@
 				"static":false,
 				"protected":false,
 				"parameters_type":[
-					
+
 				],
 				"parameters_is_array":[
-					
+
 				],
 				"parameters_extra":[
-					
+
 				],
 				"parameters_name":[
-					
+
 				],
 				"parameters_required":[
-					
+
 				],
 				"parameters_default_value":[
-					
+
 				]
 			}
 		],
@@ -67007,22 +66995,22 @@
 				"static":false,
 				"protected":false,
 				"parameters_type":[
-					
+
 				],
 				"parameters_is_array":[
-					
+
 				],
 				"parameters_extra":[
-					
+
 				],
 				"parameters_name":[
-					
+
 				],
 				"parameters_required":[
-					
+
 				],
 				"parameters_default_value":[
-					
+
 				]
 			}
 		],
@@ -67036,22 +67024,22 @@
 				"static":false,
 				"protected":false,
 				"parameters_type":[
-					
+
 				],
 				"parameters_is_array":[
-					
+
 				],
 				"parameters_extra":[
-					
+
 				],
 				"parameters_name":[
-					
+
 				],
 				"parameters_required":[
-					
+
 				],
 				"parameters_default_value":[
-					
+
 				]
 			}
 		],
@@ -67065,22 +67053,22 @@
 				"static":false,
 				"protected":false,
 				"parameters_type":[
-					
+
 				],
 				"parameters_is_array":[
-					
+
 				],
 				"parameters_extra":[
-					
+
 				],
 				"parameters_name":[
-					
+
 				],
 				"parameters_required":[
-					
+
 				],
 				"parameters_default_value":[
-					
+
 				]
 			}
 		],
@@ -67094,22 +67082,22 @@
 				"static":false,
 				"protected":false,
 				"parameters_type":[
-					
+
 				],
 				"parameters_is_array":[
-					
+
 				],
 				"parameters_extra":[
-					
+
 				],
 				"parameters_name":[
-					
+
 				],
 				"parameters_required":[
-					
+
 				],
 				"parameters_default_value":[
-					
+
 				]
 			}
 		],
@@ -67123,22 +67111,22 @@
 				"static":false,
 				"protected":false,
 				"parameters_type":[
-					
+
 				],
 				"parameters_is_array":[
-					
+
 				],
 				"parameters_extra":[
-					
+
 				],
 				"parameters_name":[
-					
+
 				],
 				"parameters_required":[
-					
+
 				],
 				"parameters_default_value":[
-					
+
 				]
 			}
 		],
@@ -67216,22 +67204,22 @@
 				"static":false,
 				"protected":false,
 				"parameters_type":[
-					
+
 				],
 				"parameters_is_array":[
-					
+
 				],
 				"parameters_extra":[
-					
+
 				],
 				"parameters_name":[
-					
+
 				],
 				"parameters_required":[
-					
+
 				],
 				"parameters_default_value":[
-					
+
 				]
 			}
 		],
@@ -67245,22 +67233,22 @@
 				"static":false,
 				"protected":false,
 				"parameters_type":[
-					
+
 				],
 				"parameters_is_array":[
-					
+
 				],
 				"parameters_extra":[
-					
+
 				],
 				"parameters_name":[
-					
+
 				],
 				"parameters_required":[
-					
+
 				],
 				"parameters_default_value":[
-					
+
 				]
 			}
 		],
@@ -67274,22 +67262,22 @@
 				"static":false,
 				"protected":false,
 				"parameters_type":[
-					
+
 				],
 				"parameters_is_array":[
-					
+
 				],
 				"parameters_extra":[
-					
+
 				],
 				"parameters_name":[
-					
+
 				],
 				"parameters_required":[
-					
+
 				],
 				"parameters_default_value":[
-					
+
 				]
 			}
 		],
@@ -67303,22 +67291,22 @@
 				"static":false,
 				"protected":false,
 				"parameters_type":[
-					
+
 				],
 				"parameters_is_array":[
-					
+
 				],
 				"parameters_extra":[
-					
+
 				],
 				"parameters_name":[
-					
+
 				],
 				"parameters_required":[
-					
+
 				],
 				"parameters_default_value":[
-					
+
 				]
 			}
 		],
@@ -67332,22 +67320,22 @@
 				"static":false,
 				"protected":false,
 				"parameters_type":[
-					
+
 				],
 				"parameters_is_array":[
-					
+
 				],
 				"parameters_extra":[
-					
+
 				],
 				"parameters_name":[
-					
+
 				],
 				"parameters_required":[
-					
+
 				],
 				"parameters_default_value":[
-					
+
 				]
 			}
 		],
@@ -67361,22 +67349,22 @@
 				"static":false,
 				"protected":false,
 				"parameters_type":[
-					
+
 				],
 				"parameters_is_array":[
-					
+
 				],
 				"parameters_extra":[
-					
+
 				],
 				"parameters_name":[
-					
+
 				],
 				"parameters_required":[
-					
+
 				],
 				"parameters_default_value":[
-					
+
 				]
 			}
 		],
@@ -67390,22 +67378,22 @@
 				"static":false,
 				"protected":false,
 				"parameters_type":[
-					
+
 				],
 				"parameters_is_array":[
-					
+
 				],
 				"parameters_extra":[
-					
+
 				],
 				"parameters_name":[
-					
+
 				],
 				"parameters_required":[
-					
+
 				],
 				"parameters_default_value":[
-					
+
 				]
 			}
 		],
@@ -67419,22 +67407,22 @@
 				"static":false,
 				"protected":false,
 				"parameters_type":[
-					
+
 				],
 				"parameters_is_array":[
-					
+
 				],
 				"parameters_extra":[
-					
+
 				],
 				"parameters_name":[
-					
+
 				],
 				"parameters_required":[
-					
+
 				],
 				"parameters_default_value":[
-					
+
 				]
 			}
 		],
@@ -67448,22 +67436,22 @@
 				"static":false,
 				"protected":false,
 				"parameters_type":[
-					
+
 				],
 				"parameters_is_array":[
-					
+
 				],
 				"parameters_extra":[
-					
+
 				],
 				"parameters_name":[
-					
+
 				],
 				"parameters_required":[
-					
+
 				],
 				"parameters_default_value":[
-					
+
 				]
 			}
 		],
@@ -67477,22 +67465,22 @@
 				"static":false,
 				"protected":false,
 				"parameters_type":[
-					
+
 				],
 				"parameters_is_array":[
-					
+
 				],
 				"parameters_extra":[
-					
+
 				],
 				"parameters_name":[
-					
+
 				],
 				"parameters_required":[
-					
+
 				],
 				"parameters_default_value":[
-					
+
 				]
 			}
 		],
@@ -67506,22 +67494,22 @@
 				"static":false,
 				"protected":false,
 				"parameters_type":[
-					
+
 				],
 				"parameters_is_array":[
-					
+
 				],
 				"parameters_extra":[
-					
+
 				],
 				"parameters_name":[
-					
+
 				],
 				"parameters_required":[
-					
+
 				],
 				"parameters_default_value":[
-					
+
 				]
 			}
 		],
@@ -67603,22 +67591,22 @@
 				"static":false,
 				"protected":false,
 				"parameters_type":[
-					
+
 				],
 				"parameters_is_array":[
-					
+
 				],
 				"parameters_extra":[
-					
+
 				],
 				"parameters_name":[
-					
+
 				],
 				"parameters_required":[
-					
+
 				],
 				"parameters_default_value":[
-					
+
 				]
 			}
 		],
@@ -67632,22 +67620,22 @@
 				"static":false,
 				"protected":false,
 				"parameters_type":[
-					
+
 				],
 				"parameters_is_array":[
-					
+
 				],
 				"parameters_extra":[
-					
+
 				],
 				"parameters_name":[
-					
+
 				],
 				"parameters_required":[
-					
+
 				],
 				"parameters_default_value":[
-					
+
 				]
 			}
 		],
@@ -67754,22 +67742,22 @@
 				"static":false,
 				"protected":false,
 				"parameters_type":[
-					
+
 				],
 				"parameters_is_array":[
-					
+
 				],
 				"parameters_extra":[
-					
+
 				],
 				"parameters_name":[
-					
+
 				],
 				"parameters_required":[
-					
+
 				],
 				"parameters_default_value":[
-					
+
 				]
 			}
 		],
@@ -68010,22 +67998,22 @@
 				"static":false,
 				"protected":false,
 				"parameters_type":[
-					
+
 				],
 				"parameters_is_array":[
-					
+
 				],
 				"parameters_extra":[
-					
+
 				],
 				"parameters_name":[
-					
+
 				],
 				"parameters_required":[
-					
+
 				],
 				"parameters_default_value":[
-					
+
 				]
 			}
 		],
@@ -68074,22 +68062,22 @@
 				"static":false,
 				"protected":false,
 				"parameters_type":[
-					
+
 				],
 				"parameters_is_array":[
-					
+
 				],
 				"parameters_extra":[
-					
+
 				],
 				"parameters_name":[
-					
+
 				],
 				"parameters_required":[
-					
+
 				],
 				"parameters_default_value":[
-					
+
 				]
 			}
 		],
@@ -68132,22 +68120,22 @@
 				"static":false,
 				"protected":false,
 				"parameters_type":[
-					
+
 				],
 				"parameters_is_array":[
-					
+
 				],
 				"parameters_extra":[
-					
+
 				],
 				"parameters_name":[
-					
+
 				],
 				"parameters_required":[
-					
+
 				],
 				"parameters_default_value":[
-					
+
 				]
 			}
 		],
@@ -68161,22 +68149,22 @@
 				"static":false,
 				"protected":false,
 				"parameters_type":[
-					
+
 				],
 				"parameters_is_array":[
-					
+
 				],
 				"parameters_extra":[
-					
+
 				],
 				"parameters_name":[
-					
+
 				],
 				"parameters_required":[
-					
+
 				],
 				"parameters_default_value":[
-					
+
 				]
 			}
 		],
@@ -68190,22 +68178,22 @@
 				"static":false,
 				"protected":false,
 				"parameters_type":[
-					
+
 				],
 				"parameters_is_array":[
-					
+
 				],
 				"parameters_extra":[
-					
+
 				],
 				"parameters_name":[
-					
+
 				],
 				"parameters_required":[
-					
+
 				],
 				"parameters_default_value":[
-					
+
 				]
 			}
 		],
@@ -68231,7 +68219,7 @@
 					"linePos"
 				],
 				"parameters_required":[
-					
+
 				],
 				"parameters_default_value":[
 					"NULL"
@@ -68260,7 +68248,7 @@
 					"linePos"
 				],
 				"parameters_required":[
-					
+
 				],
 				"parameters_default_value":[
 					"NULL"
@@ -68277,22 +68265,22 @@
 				"static":false,
 				"protected":false,
 				"parameters_type":[
-					
+
 				],
 				"parameters_is_array":[
-					
+
 				],
 				"parameters_extra":[
-					
+
 				],
 				"parameters_name":[
-					
+
 				],
 				"parameters_required":[
-					
+
 				],
 				"parameters_default_value":[
-					
+
 				]
 			}
 		],
@@ -68306,22 +68294,22 @@
 				"static":false,
 				"protected":false,
 				"parameters_type":[
-					
+
 				],
 				"parameters_is_array":[
-					
+
 				],
 				"parameters_extra":[
-					
+
 				],
 				"parameters_name":[
-					
+
 				],
 				"parameters_required":[
-					
+
 				],
 				"parameters_default_value":[
-					
+
 				]
 			}
 		],
@@ -68335,22 +68323,22 @@
 				"static":false,
 				"protected":false,
 				"parameters_type":[
-					
+
 				],
 				"parameters_is_array":[
-					
+
 				],
 				"parameters_extra":[
-					
+
 				],
 				"parameters_name":[
-					
+
 				],
 				"parameters_required":[
-					
+
 				],
 				"parameters_default_value":[
-					
+
 				]
 			}
 		],
@@ -68364,22 +68352,22 @@
 				"static":false,
 				"protected":false,
 				"parameters_type":[
-					
+
 				],
 				"parameters_is_array":[
-					
+
 				],
 				"parameters_extra":[
-					
+
 				],
 				"parameters_name":[
-					
+
 				],
 				"parameters_required":[
-					
+
 				],
 				"parameters_default_value":[
-					
+
 				]
 			}
 		],
@@ -68393,22 +68381,22 @@
 				"static":false,
 				"protected":false,
 				"parameters_type":[
-					
+
 				],
 				"parameters_is_array":[
-					
+
 				],
 				"parameters_extra":[
-					
+
 				],
 				"parameters_name":[
-					
+
 				],
 				"parameters_required":[
-					
+
 				],
 				"parameters_default_value":[
-					
+
 				]
 			}
 		],
@@ -68422,22 +68410,22 @@
 				"static":false,
 				"protected":false,
 				"parameters_type":[
-					
+
 				],
 				"parameters_is_array":[
-					
+
 				],
 				"parameters_extra":[
-					
+
 				],
 				"parameters_name":[
-					
+
 				],
 				"parameters_required":[
-					
+
 				],
 				"parameters_default_value":[
-					
+
 				]
 			}
 		],
@@ -68451,22 +68439,22 @@
 				"static":false,
 				"protected":false,
 				"parameters_type":[
-					
+
 				],
 				"parameters_is_array":[
-					
+
 				],
 				"parameters_extra":[
-					
+
 				],
 				"parameters_name":[
-					
+
 				],
 				"parameters_required":[
-					
+
 				],
 				"parameters_default_value":[
-					
+
 				]
 			}
 		],
@@ -68480,22 +68468,22 @@
 				"static":false,
 				"protected":false,
 				"parameters_type":[
-					
+
 				],
 				"parameters_is_array":[
-					
+
 				],
 				"parameters_extra":[
-					
+
 				],
 				"parameters_name":[
-					
+
 				],
 				"parameters_required":[
-					
+
 				],
 				"parameters_default_value":[
-					
+
 				]
 			}
 		],
@@ -68509,22 +68497,22 @@
 				"static":false,
 				"protected":false,
 				"parameters_type":[
-					
+
 				],
 				"parameters_is_array":[
-					
+
 				],
 				"parameters_extra":[
-					
+
 				],
 				"parameters_name":[
-					
+
 				],
 				"parameters_required":[
-					
+
 				],
 				"parameters_default_value":[
-					
+
 				]
 			}
 		],
@@ -68625,22 +68613,22 @@
 				"static":false,
 				"protected":false,
 				"parameters_type":[
-					
+
 				],
 				"parameters_is_array":[
-					
+
 				],
 				"parameters_extra":[
-					
+
 				],
 				"parameters_name":[
-					
+
 				],
 				"parameters_required":[
-					
+
 				],
 				"parameters_default_value":[
-					
+
 				]
 			}
 		],
@@ -68654,22 +68642,22 @@
 				"static":false,
 				"protected":false,
 				"parameters_type":[
-					
+
 				],
 				"parameters_is_array":[
-					
+
 				],
 				"parameters_extra":[
-					
+
 				],
 				"parameters_name":[
-					
+
 				],
 				"parameters_required":[
-					
+
 				],
 				"parameters_default_value":[
-					
+
 				]
 			}
 		],
@@ -68683,22 +68671,22 @@
 				"static":false,
 				"protected":false,
 				"parameters_type":[
-					
+
 				],
 				"parameters_is_array":[
-					
+
 				],
 				"parameters_extra":[
-					
+
 				],
 				"parameters_name":[
-					
+
 				],
 				"parameters_required":[
-					
+
 				],
 				"parameters_default_value":[
-					
+
 				]
 			}
 		],
@@ -68712,22 +68700,22 @@
 				"static":false,
 				"protected":false,
 				"parameters_type":[
-					
+
 				],
 				"parameters_is_array":[
-					
+
 				],
 				"parameters_extra":[
-					
+
 				],
 				"parameters_name":[
-					
+
 				],
 				"parameters_required":[
-					
+
 				],
 				"parameters_default_value":[
-					
+
 				]
 			}
 		],
@@ -68741,22 +68729,22 @@
 				"static":false,
 				"protected":false,
 				"parameters_type":[
-					
+
 				],
 				"parameters_is_array":[
-					
+
 				],
 				"parameters_extra":[
-					
+
 				],
 				"parameters_name":[
-					
+
 				],
 				"parameters_required":[
-					
+
 				],
 				"parameters_default_value":[
-					
+
 				]
 			}
 		],
@@ -68770,22 +68758,22 @@
 				"static":false,
 				"protected":false,
 				"parameters_type":[
-					
+
 				],
 				"parameters_is_array":[
-					
+
 				],
 				"parameters_extra":[
-					
+
 				],
 				"parameters_name":[
-					
+
 				],
 				"parameters_required":[
-					
+
 				],
 				"parameters_default_value":[
-					
+
 				]
 			}
 		],
@@ -68799,22 +68787,22 @@
 				"static":false,
 				"protected":false,
 				"parameters_type":[
-					
+
 				],
 				"parameters_is_array":[
-					
+
 				],
 				"parameters_extra":[
-					
+
 				],
 				"parameters_name":[
-					
+
 				],
 				"parameters_required":[
-					
+
 				],
 				"parameters_default_value":[
-					
+
 				]
 			}
 		],
@@ -68892,22 +68880,22 @@
 				"static":false,
 				"protected":false,
 				"parameters_type":[
-					
+
 				],
 				"parameters_is_array":[
-					
+
 				],
 				"parameters_extra":[
-					
+
 				],
 				"parameters_name":[
-					
+
 				],
 				"parameters_required":[
-					
+
 				],
 				"parameters_default_value":[
-					
+
 				]
 			}
 		],
@@ -68921,22 +68909,22 @@
 				"static":false,
 				"protected":false,
 				"parameters_type":[
-					
+
 				],
 				"parameters_is_array":[
-					
+
 				],
 				"parameters_extra":[
-					
+
 				],
 				"parameters_name":[
-					
+
 				],
 				"parameters_required":[
-					
+
 				],
 				"parameters_default_value":[
-					
+
 				]
 			}
 		],
@@ -68950,22 +68938,22 @@
 				"static":false,
 				"protected":false,
 				"parameters_type":[
-					
+
 				],
 				"parameters_is_array":[
-					
+
 				],
 				"parameters_extra":[
-					
+
 				],
 				"parameters_name":[
-					
+
 				],
 				"parameters_required":[
-					
+
 				],
 				"parameters_default_value":[
-					
+
 				]
 			}
 		],
@@ -69311,22 +69299,22 @@
 				"static":false,
 				"protected":false,
 				"parameters_type":[
-					
+
 				],
 				"parameters_is_array":[
-					
+
 				],
 				"parameters_extra":[
-					
+
 				],
 				"parameters_name":[
-					
+
 				],
 				"parameters_required":[
-					
+
 				],
 				"parameters_default_value":[
-					
+
 				]
 			}
 		],
@@ -69340,22 +69328,22 @@
 				"static":false,
 				"protected":false,
 				"parameters_type":[
-					
+
 				],
 				"parameters_is_array":[
-					
+
 				],
 				"parameters_extra":[
-					
+
 				],
 				"parameters_name":[
-					
+
 				],
 				"parameters_required":[
-					
+
 				],
 				"parameters_default_value":[
-					
+
 				]
 			}
 		],
@@ -69369,22 +69357,22 @@
 				"static":false,
 				"protected":false,
 				"parameters_type":[
-					
+
 				],
 				"parameters_is_array":[
-					
+
 				],
 				"parameters_extra":[
-					
+
 				],
 				"parameters_name":[
-					
+
 				],
 				"parameters_required":[
-					
+
 				],
 				"parameters_default_value":[
-					
+
 				]
 			}
 		],
@@ -69433,22 +69421,22 @@
 				"static":false,
 				"protected":false,
 				"parameters_type":[
-					
+
 				],
 				"parameters_is_array":[
-					
+
 				],
 				"parameters_extra":[
-					
+
 				],
 				"parameters_name":[
-					
+
 				],
 				"parameters_required":[
-					
+
 				],
 				"parameters_default_value":[
-					
+
 				]
 			}
 		],
@@ -69462,22 +69450,22 @@
 				"static":false,
 				"protected":false,
 				"parameters_type":[
-					
+
 				],
 				"parameters_is_array":[
-					
+
 				],
 				"parameters_extra":[
-					
+
 				],
 				"parameters_name":[
-					
+
 				],
 				"parameters_required":[
-					
+
 				],
 				"parameters_default_value":[
-					
+
 				]
 			}
 		],
@@ -69491,22 +69479,22 @@
 				"static":false,
 				"protected":false,
 				"parameters_type":[
-					
+
 				],
 				"parameters_is_array":[
-					
+
 				],
 				"parameters_extra":[
-					
+
 				],
 				"parameters_name":[
-					
+
 				],
 				"parameters_required":[
-					
+
 				],
 				"parameters_default_value":[
-					
+
 				]
 			}
 		],
@@ -69718,22 +69706,22 @@
 				"static":false,
 				"protected":false,
 				"parameters_type":[
-					
+
 				],
 				"parameters_is_array":[
-					
+
 				],
 				"parameters_extra":[
-					
+
 				],
 				"parameters_name":[
-					
+
 				],
 				"parameters_required":[
-					
+
 				],
 				"parameters_default_value":[
-					
+
 				]
 			}
 		],
@@ -69840,22 +69828,22 @@
 				"static":false,
 				"protected":false,
 				"parameters_type":[
-					
+
 				],
 				"parameters_is_array":[
-					
+
 				],
 				"parameters_extra":[
-					
+
 				],
 				"parameters_name":[
-					
+
 				],
 				"parameters_required":[
-					
+
 				],
 				"parameters_default_value":[
-					
+
 				]
 			}
 		],
@@ -70775,22 +70763,22 @@
 				"static":false,
 				"protected":false,
 				"parameters_type":[
-					
+
 				],
 				"parameters_is_array":[
-					
+
 				],
 				"parameters_extra":[
-					
+
 				],
 				"parameters_name":[
-					
+
 				],
 				"parameters_required":[
-					
+
 				],
 				"parameters_default_value":[
-					
+
 				]
 			}
 		],
@@ -72314,7 +72302,7 @@
 		],
 		"GetName":[
 			{
-				"return_type":"const wxString&",
+				"return_type":"wxString",
 				"brief_description":"Get the name of the object (library).",
 				"constant":true,
 				"virtual":false,
@@ -72430,7 +72418,7 @@
 		],
 		"GetDescription":[
 			{
-				"return_type":"const wxString&",
+				"return_type":"wxString",
 				"brief_description":"Get the description string.",
 				"constant":false,
 				"virtual":false,
@@ -72459,7 +72447,7 @@
 		],
 		"GetCopyright":[
 			{
-				"return_type":"const wxString&",
+				"return_type":"wxString",
 				"brief_description":"Get the copyright string.",
 				"constant":true,
 				"virtual":false,
@@ -74883,7 +74871,7 @@
 		],
 		"GetShortHelp":[
 			{
-				"return_type":"const wxString&",
+				"return_type":"wxString",
 				"brief_description":"",
 				"constant":true,
 				"virtual":false,
@@ -74941,7 +74929,7 @@
 		],
 		"GetMinSize":[
 			{
-				"return_type":"const wxSize&",
+				"return_type":"wxSize",
 				"brief_description":"",
 				"constant":true,
 				"virtual":false,
@@ -74970,7 +74958,7 @@
 		],
 		"GetLongHelp":[
 			{
-				"return_type":"const wxString&",
+				"return_type":"wxString",
 				"brief_description":"",
 				"constant":true,
 				"virtual":false,
@@ -74999,7 +74987,7 @@
 		],
 		"GetLabel":[
 			{
-				"return_type":"const wxString&",
+				"return_type":"wxString",
 				"brief_description":"",
 				"constant":true,
 				"virtual":false,
@@ -75086,7 +75074,7 @@
 		],
 		"GetHoverBitmap":[
 			{
-				"return_type":"const wxBitmap&",
+				"return_type":"wxBitmap",
 				"brief_description":"",
 				"constant":true,
 				"virtual":false,
@@ -75115,7 +75103,7 @@
 		],
 		"GetDisabledBitmap":[
 			{
-				"return_type":"const wxBitmap&",
+				"return_type":"wxBitmap",
 				"brief_description":"",
 				"constant":true,
 				"virtual":false,
@@ -75144,7 +75132,7 @@
 		],
 		"GetBitmap":[
 			{
-				"return_type":"const wxBitmap&",
+				"return_type":"wxBitmap",
 				"brief_description":"",
 				"constant":true,
 				"virtual":false,
@@ -77917,7 +77905,7 @@
 		],
 		"GetDefaultStyle":[
 			{
-				"return_type":"const wxTextAttr&",
+				"return_type":"wxTextAttr",
 				"brief_description":"Returns the style currently used for the new text.",
 				"constant":true,
 				"virtual":true,
@@ -78676,7 +78664,7 @@
 		],
 		"GetBackgroundColour":[
 			{
-				"return_type":"const wxColour&",
+				"return_type":"wxColour",
 				"brief_description":"Returns the background colour.",
 				"constant":true,
 				"virtual":false,
@@ -78705,7 +78693,7 @@
 		],
 		"GetBulletFont":[
 			{
-				"return_type":"const wxString&",
+				"return_type":"wxString",
 				"brief_description":"Returns a string containing the name of the font associated with the bullet symbol.",
 				"constant":true,
 				"virtual":false,
@@ -78734,7 +78722,7 @@
 		],
 		"GetBulletName":[
 			{
-				"return_type":"const wxString&",
+				"return_type":"wxString",
 				"brief_description":"Returns the standard bullet name, applicable if the bullet style is wxTEXT_ATTR_BULLET_STYLE_STANDARD.",
 				"constant":true,
 				"virtual":false,
@@ -78821,7 +78809,7 @@
 		],
 		"GetBulletText":[
 			{
-				"return_type":"const wxString&",
+				"return_type":"wxString",
 				"brief_description":"Returns the bullet text, which could be a symbol, or (for example) cached outline text.",
 				"constant":true,
 				"virtual":false,
@@ -78850,7 +78838,7 @@
 		],
 		"GetCharacterStyleName":[
 			{
-				"return_type":"const wxString&",
+				"return_type":"wxString",
 				"brief_description":"Returns the name of the character style.",
 				"constant":true,
 				"virtual":false,
@@ -79000,7 +78988,7 @@
 		],
 		"GetFontFaceName":[
 			{
-				"return_type":"const wxString&",
+				"return_type":"wxString",
 				"brief_description":"Returns the font face name.",
 				"constant":true,
 				"virtual":false,
@@ -79261,7 +79249,7 @@
 		],
 		"GetListStyleName":[
 			{
-				"return_type":"const wxString&",
+				"return_type":"wxString",
 				"brief_description":"Returns the name of the list style.",
 				"constant":true,
 				"virtual":false,
@@ -79377,7 +79365,7 @@
 		],
 		"GetParagraphStyleName":[
 			{
-				"return_type":"const wxString&",
+				"return_type":"wxString",
 				"brief_description":"Returns the name of the paragraph style.",
 				"constant":true,
 				"virtual":false,
@@ -79435,7 +79423,7 @@
 		],
 		"GetTextColour":[
 			{
-				"return_type":"const wxColour&",
+				"return_type":"wxColour",
 				"brief_description":"Returns the text foreground colour.",
 				"constant":true,
 				"virtual":false,
@@ -79522,7 +79510,7 @@
 		],
 		"GetURL":[
 			{
-				"return_type":"const wxString&",
+				"return_type":"wxString",
 				"brief_description":"Returns the URL for the content.",
 				"constant":true,
 				"virtual":false,
@@ -85964,7 +85952,7 @@
 		],
 		"GetItem":[
 			{
-				"return_type":"const wxListItem&",
+				"return_type":"wxListItem",
 				"brief_description":"An item object, used by some events.",
 				"constant":true,
 				"virtual":false,
@@ -86022,7 +86010,7 @@
 		],
 		"GetLabel":[
 			{
-				"return_type":"const wxString&",
+				"return_type":"wxString",
 				"brief_description":"The (new) item label for EVT_LIST_END_LABEL_EDIT event.",
 				"constant":true,
 				"virtual":false,
@@ -86109,7 +86097,7 @@
 		],
 		"GetText":[
 			{
-				"return_type":"const wxString&",
+				"return_type":"wxString",
 				"brief_description":"The text.",
 				"constant":true,
 				"virtual":false,
@@ -88468,7 +88456,7 @@
 	"wxListItemAttr":{
 		"GetBackgroundColour":[
 			{
-				"return_type":"const wxColour&",
+				"return_type":"wxColour",
 				"brief_description":"Returns the currently set background color.",
 				"constant":true,
 				"virtual":false,
@@ -88739,7 +88727,7 @@
 		],
 		"GetTextColour":[
 			{
-				"return_type":"const wxColour&",
+				"return_type":"wxColour",
 				"brief_description":"Returns the currently set text color.",
 				"constant":true,
 				"virtual":false,
@@ -88768,7 +88756,7 @@
 		],
 		"GetFont":[
 			{
-				"return_type":"const wxFont&",
+				"return_type":"wxFont",
 				"brief_description":"Returns the currently set font.",
 				"constant":true,
 				"virtual":false,
@@ -89292,7 +89280,7 @@
 		],
 		"GetText":[
 			{
-				"return_type":"const wxString&",
+				"return_type":"wxString",
 				"brief_description":"Returns the label\/header text.",
 				"constant":true,
 				"virtual":false,
@@ -95755,7 +95743,7 @@
 		],
 		"GetId":[
 			{
-				"return_type":"const wxString&",
+				"return_type":"wxString",
 				"brief_description":"Returns unique cell identifier if there is any, the empty string otherwise.",
 				"constant":true,
 				"virtual":false,
@@ -96451,7 +96439,7 @@
 	"wxHtmlEasyPrinting":{
 		"GetName":[
 			{
-				"return_type":"const wxString&",
+				"return_type":"wxString",
 				"brief_description":"Returns the current name being used for preview frames and setup dialogs.",
 				"constant":true,
 				"virtual":false,
@@ -96966,7 +96954,7 @@
 	"wxHtmlLinkEvent":{
 		"GetLinkInfo":[
 			{
-				"return_type":"const wxHtmlLinkInfo&",
+				"return_type":"wxHtmlLinkInfo",
 				"brief_description":"Returns the wxHtmlLinkInfo which contains info about the cell clicked and the hyperlink it contains.",
 				"constant":true,
 				"virtual":false,
@@ -100856,7 +100844,7 @@
 		],
 		"GetSelectionBackground":[
 			{
-				"return_type":"const wxColour&",
+				"return_type":"wxColour",
 				"brief_description":"Returns the background colour used for the selected cells.",
 				"constant":true,
 				"virtual":false,
@@ -102880,96 +102868,6 @@
 			}
 		]
 	},
-	"wxTimerEvent":{
-		"GetInterval":[
-			{
-				"return_type":"int",
-				"brief_description":"Returns the interval of the timer which generated this event.",
-				"constant":true,
-				"virtual":false,
-				"pure_virtual":false,
-				"static":false,
-				"protected":false,
-				"parameters_type":[
-					
-				],
-				"parameters_is_array":[
-					
-				],
-				"parameters_extra":[
-					
-				],
-				"parameters_name":[
-					
-				],
-				"parameters_required":[
-					
-				],
-				"parameters_default_value":[
-					
-				]
-			}
-		],
-		"wxTimerEvent":[
-			{
-				"return_type":"",
-				"brief_description":"",
-				"constant":false,
-				"virtual":false,
-				"pure_virtual":false,
-				"static":false,
-				"protected":false,
-				"parameters_type":[
-					
-				],
-				"parameters_is_array":[
-					
-				],
-				"parameters_extra":[
-					
-				],
-				"parameters_name":[
-					
-				],
-				"parameters_required":[
-					
-				],
-				"parameters_default_value":[
-					
-				]
-			},
-			{
-				"return_type":"",
-				"brief_description":"",
-				"constant":false,
-				"virtual":false,
-				"pure_virtual":false,
-				"static":false,
-				"protected":false,
-				"parameters_type":[
-					"wxTimer&"
-				],
-				"parameters_is_array":[
-					false
-				],
-				"parameters_extra":[
-					false
-				],
-				"parameters_name":[
-					"timer"
-				],
-				"parameters_required":[
-					true
-				],
-				"parameters_default_value":[
-					null
-				]
-			}
-		],
-		"_implements":[
-			"wxEvent"
-		]
-	},
 	"wxThreadEvent":{
 		"Clone":[
 			{
@@ -104741,7 +104639,7 @@
 	"wxFindReplaceData":{
 		"GetFindString":[
 			{
-				"return_type":"const wxString&",
+				"return_type":"wxString",
 				"brief_description":"Get the string to find.",
 				"constant":true,
 				"virtual":false,
@@ -104770,7 +104668,7 @@
 		],
 		"GetReplaceString":[
 			{
-				"return_type":"const wxString&",
+				"return_type":"wxString",
 				"brief_description":"Get the replacement string.",
 				"constant":true,
 				"virtual":false,
@@ -108756,7 +108654,7 @@
 		],
 		"GetDirs":[
 			{
-				"return_type":"const wxArrayString&",
+				"return_type":"wxArrayString",
 				"brief_description":"Returns the directories in string array form.",
 				"constant":true,
 				"virtual":false,
@@ -117646,7 +117544,7 @@
 		],
 		"GetBitmap":[
 			{
-				"return_type":"const wxBitmap&",
+				"return_type":"wxBitmap",
 				"brief_description":"Returns the bitmap used for the wizard.",
 				"constant":true,
 				"virtual":false,
@@ -117675,7 +117573,7 @@
 		],
 		"GetBitmapBackgroundColour":[
 			{
-				"return_type":"const wxColour&",
+				"return_type":"wxColour",
 				"brief_description":"Returns the colour that should be used to fill the area not taken up by the wizard or page bitmap, if a non-zero bitmap placement flag has been set.",
 				"constant":true,
 				"virtual":false,
@@ -120206,7 +120104,7 @@
 		],
 		"GetItemText":[
 			{
-				"return_type":"const wxString&",
+				"return_type":"wxString",
 				"brief_description":"Items attributes.",
 				"constant":true,
 				"virtual":false,
@@ -122744,7 +122642,7 @@
 	"wxDateEvent":{
 		"GetDate":[
 			{
-				"return_type":"const wxDateTime&",
+				"return_type":"wxDateTime",
 				"brief_description":"Returns the date.",
 				"constant":true,
 				"virtual":false,
@@ -123458,7 +123356,7 @@
 		],
 		"GetTextColour":[
 			{
-				"return_type":"const wxColour&",
+				"return_type":"wxColour",
 				"brief_description":"Returns the text colour set for the calendar date.",
 				"constant":true,
 				"virtual":false,
@@ -123487,7 +123385,7 @@
 		],
 		"GetMark":[
 			{
-				"return_type":"const wxCalendarDateAttr&",
+				"return_type":"wxCalendarDateAttr",
 				"brief_description":"Used (internally) by the generic wxCalendarCtrl::Mark().",
 				"constant":false,
 				"virtual":false,
@@ -123516,7 +123414,7 @@
 		],
 		"GetFont":[
 			{
-				"return_type":"const wxFont&",
+				"return_type":"wxFont",
 				"brief_description":"Returns the font set for the calendar date.",
 				"constant":true,
 				"virtual":false,
@@ -123545,7 +123443,7 @@
 		],
 		"GetBorderColour":[
 			{
-				"return_type":"const wxColour&",
+				"return_type":"wxColour",
 				"brief_description":"Returns the border colour set for the calendar date.",
 				"constant":true,
 				"virtual":false,
@@ -123603,7 +123501,7 @@
 		],
 		"GetBackgroundColour":[
 			{
-				"return_type":"const wxColour&",
+				"return_type":"wxColour",
 				"brief_description":"Returns the background colour set for the calendar date.",
 				"constant":true,
 				"virtual":false,
@@ -123874,7 +123772,7 @@
 		],
 		"GetHeaderColourBg":[
 			{
-				"return_type":"const wxColour&",
+				"return_type":"wxColour",
 				"brief_description":"Gets the background colour of the header part of the calendar window.",
 				"constant":true,
 				"virtual":true,
@@ -123903,7 +123801,7 @@
 		],
 		"GetHeaderColourFg":[
 			{
-				"return_type":"const wxColour&",
+				"return_type":"wxColour",
 				"brief_description":"Gets the foreground colour of the header part of the calendar window.",
 				"constant":true,
 				"virtual":true,
@@ -123932,7 +123830,7 @@
 		],
 		"GetHighlightColourBg":[
 			{
-				"return_type":"const wxColour&",
+				"return_type":"wxColour",
 				"brief_description":"Gets the background highlight colour.",
 				"constant":true,
 				"virtual":true,
@@ -123961,7 +123859,7 @@
 		],
 		"GetHighlightColourFg":[
 			{
-				"return_type":"const wxColour&",
+				"return_type":"wxColour",
 				"brief_description":"Gets the foreground highlight colour.",
 				"constant":true,
 				"virtual":true,
@@ -123990,7 +123888,7 @@
 		],
 		"GetHolidayColourBg":[
 			{
-				"return_type":"const wxColour&",
+				"return_type":"wxColour",
 				"brief_description":"Return the background colour currently used for holiday highlighting.",
 				"constant":true,
 				"virtual":true,
@@ -124019,7 +123917,7 @@
 		],
 		"GetHolidayColourFg":[
 			{
-				"return_type":"const wxColour&",
+				"return_type":"wxColour",
 				"brief_description":"Return the foreground colour currently used for holiday highlighting.",
 				"constant":true,
 				"virtual":true,
@@ -127913,7 +127811,7 @@
 	"wxGraphicsGradientStop":{
 		"GetColour":[
 			{
-				"return_type":"const wxColour&",
+				"return_type":"wxColour",
 				"brief_description":"Return the stop colour.",
 				"constant":true,
 				"virtual":false,
@@ -130390,7 +130288,7 @@
 		],
 		"GetPosition":[
 			{
-				"return_type":"const wxPoint&",
+				"return_type":"wxPoint",
 				"brief_description":"Returns the left-click position of the mouse, in screen coordinates.",
 				"constant":true,
 				"virtual":false,
@@ -131990,7 +131888,7 @@
 		],
 		"GetMimeType":[
 			{
-				"return_type":"const wxString&",
+				"return_type":"wxString",
 				"brief_description":"Returns the MIME type of the content of this file.",
 				"constant":true,
 				"virtual":false,
@@ -132019,7 +131917,7 @@
 		],
 		"GetLocation":[
 			{
-				"return_type":"const wxString&",
+				"return_type":"wxString",
 				"brief_description":"Returns full location of the file, including path and protocol.",
 				"constant":true,
 				"virtual":false,
@@ -132048,7 +131946,7 @@
 		],
 		"GetAnchor":[
 			{
-				"return_type":"const wxString&",
+				"return_type":"wxString",
 				"brief_description":"Returns anchor (if present).",
 				"constant":true,
 				"virtual":false,
@@ -135337,7 +135235,7 @@
 		],
 		"GetColour":[
 			{
-				"return_type":"const wxColour&",
+				"return_type":"wxColour",
 				"brief_description":"Gets the colour associated with the font dialog.",
 				"constant":true,
 				"virtual":false,
@@ -135523,7 +135421,7 @@
 		],
 		"GetFontData":[
 			{
-				"return_type":"const wxFontData&",
+				"return_type":"wxFontData",
 				"brief_description":"Returns the font data associated with the font dialog.",
 				"constant":true,
 				"virtual":false,
@@ -143366,44 +143264,45 @@
 				]
 			},
 			{
-				"return_type":"void",
-				"brief_description":"Sets the horizontal and vertical alignment for grid cell text at the specified location.",
-				"constant":false,
-				"virtual":false,
-				"pure_virtual":false,
-				"static":false,
-				"protected":false,
-				"parameters_type":[
-					"int",
-					"int",
-					"int"
-				],
-				"parameters_is_array":[
-					false,
-					false,
-					false
-				],
-				"parameters_extra":[
-					false,
-					false,
-					false
-				],
-				"parameters_name":[
-					"align",
-					"row",
-					"col"
-				],
-				"parameters_required":[
-					true,
-					true,
-					true
-				],
-				"parameters_default_value":[
-					null,
-					null,
-					null
-				]
-			}
+                "brief_description": "Sets the horizontal and vertical alignment for grid cell text at the specified location.",
+                "constant": false,
+                "deprecated": true,
+                "parameters_default_value": [
+                  null,
+                  null,
+                  null
+                ],
+                "parameters_extra": [
+                  false,
+                  false,
+                  false
+                ],
+                "parameters_is_array": [
+                  false,
+                  false,
+                  false
+                ],
+                "parameters_name": [
+                  "align",
+                  "row",
+                  "col"
+                ],
+                "parameters_required": [
+                  true,
+                  true,
+                  true
+                ],
+                "parameters_type": [
+                  "int",
+                  "int",
+                  "int"
+                ],
+                "protected": false,
+                "pure_virtual": false,
+                "return_type": "void",
+                "static": false,
+                "virtual": false
+              }
 		],
 		"SetCellBackgroundColour":[
 			{
@@ -143693,7 +143592,8 @@
 					null,
 					null,
 					null
-				]
+                ],
+                "deprecated": true
 			},
 			{
 				"return_type":"void",
@@ -143720,7 +143620,8 @@
 				],
 				"parameters_default_value":[
 					null
-				]
+                ],
+                "deprecated": true
 			}
 		],
 		"SetCellValue":[
@@ -145849,7 +145750,7 @@
 		],
 		"GetBackgroundColour":[
 			{
-				"return_type":"const wxColour&",
+				"return_type":"wxColour",
 				"brief_description":"Returns the background colour.",
 				"constant":true,
 				"virtual":false,
@@ -145919,7 +145820,7 @@
 		],
 		"GetFont":[
 			{
-				"return_type":"const wxFont&",
+				"return_type":"wxFont",
 				"brief_description":"Returns the font.",
 				"constant":true,
 				"virtual":false,
@@ -146024,7 +145925,7 @@
 		],
 		"GetTextColour":[
 			{
-				"return_type":"const wxColour&",
+				"return_type":"wxColour",
 				"brief_description":"Returns the text colour.",
 				"constant":true,
 				"virtual":false,
@@ -146603,275 +146504,295 @@
 		]
 	},
 	"wxGridCellAttrProvider":{
-		"GetAttr":[
-			{
-				"return_type":"wxGridCellAttr*",
-				"brief_description":"Get the attribute to use for the specified cell.",
-				"constant":true,
-				"virtual":true,
-				"pure_virtual":false,
-				"static":false,
-				"protected":false,
-				"parameters_type":[
-					"int",
-					"int",
-					"wxGridCellAttr::wxAttrKind"
-				],
-				"parameters_is_array":[
-					false,
-					false,
-					false
-				],
-				"parameters_extra":[
-					false,
-					false,
-					false
-				],
-				"parameters_name":[
-					"row",
-					"col",
-					"kind"
-				],
-				"parameters_required":[
-					true,
-					true,
-					true
-				],
-				"parameters_default_value":[
-					null,
-					null,
-					null
-				]
-			}
-		],
-		"GetColumnHeaderRenderer":[
-			{
-				"return_type":"const wxGridColumnHeaderRenderer&",
-				"brief_description":"Getting header renderers.",
-				"constant":false,
-				"virtual":true,
-				"pure_virtual":false,
-				"static":false,
-				"protected":false,
-				"parameters_type":[
-					"int"
-				],
-				"parameters_is_array":[
-					false
-				],
-				"parameters_extra":[
-					false
-				],
-				"parameters_name":[
-					"col"
-				],
-				"parameters_required":[
-					true
-				],
-				"parameters_default_value":[
-					null
-				]
-			}
-		],
-		"GetCornerRenderer":[
-			{
-				"return_type":"const wxGridCornerHeaderRenderer&",
-				"brief_description":"Return the renderer used for drawing the corner window.",
-				"constant":false,
-				"virtual":true,
-				"pure_virtual":false,
-				"static":false,
-				"protected":false,
-				"parameters_type":[
-					
-				],
-				"parameters_is_array":[
-					
-				],
-				"parameters_extra":[
-					
-				],
-				"parameters_name":[
-					
-				],
-				"parameters_required":[
-					
-				],
-				"parameters_default_value":[
-					
-				]
-			}
-		],
-		"GetRowHeaderRenderer":[
-			{
-				"return_type":"const wxGridRowHeaderRenderer&",
-				"brief_description":"Return the renderer used for drawing row headers.",
-				"constant":false,
-				"virtual":true,
-				"pure_virtual":false,
-				"static":false,
-				"protected":false,
-				"parameters_type":[
-					"int"
-				],
-				"parameters_is_array":[
-					false
-				],
-				"parameters_extra":[
-					false
-				],
-				"parameters_name":[
-					"row"
-				],
-				"parameters_required":[
-					true
-				],
-				"parameters_default_value":[
-					null
-				]
-			}
-		],
-		"SetAttr":[
-			{
-				"return_type":"void",
-				"brief_description":"Setting attributes.",
-				"constant":false,
-				"virtual":true,
-				"pure_virtual":false,
-				"static":false,
-				"protected":false,
-				"parameters_type":[
-					"wxGridCellAttr*",
-					"int",
-					"int"
-				],
-				"parameters_is_array":[
-					false,
-					false,
-					false
-				],
-				"parameters_extra":[
-					false,
-					false,
-					false
-				],
-				"parameters_name":[
-					"attr",
-					"row",
-					"col"
-				],
-				"parameters_required":[
-					true,
-					true,
-					true
-				],
-				"parameters_default_value":[
-					null,
-					null,
-					null
-				]
-			}
-		],
-		"SetColAttr":[
-			{
-				"return_type":"void",
-				"brief_description":"Set attribute for the specified column.",
-				"constant":false,
-				"virtual":true,
-				"pure_virtual":false,
-				"static":false,
-				"protected":false,
-				"parameters_type":[
-					"wxGridCellAttr*",
-					"int"
-				],
-				"parameters_is_array":[
-					false,
-					false
-				],
-				"parameters_extra":[
-					false,
-					false
-				],
-				"parameters_name":[
-					"attr",
-					"col"
-				],
-				"parameters_required":[
-					true,
-					true
-				],
-				"parameters_default_value":[
-					null,
-					null
-				]
-			}
-		],
-		"SetRowAttr":[
-			{
-				"return_type":"void",
-				"brief_description":"Set attribute for the specified row.",
-				"constant":false,
-				"virtual":true,
-				"pure_virtual":false,
-				"static":false,
-				"protected":false,
-				"parameters_type":[
-					"wxGridCellAttr*",
-					"int"
-				],
-				"parameters_is_array":[
-					false,
-					false
-				],
-				"parameters_extra":[
-					false,
-					false
-				],
-				"parameters_name":[
-					"attr",
-					"row"
-				],
-				"parameters_required":[
-					true,
-					true
-				],
-				"parameters_default_value":[
-					null,
-					null
-				]
-			}
-		],
-		"wxGridCellAttrProvider":[
-			{
-				"return_type":"",
-				"brief_description":"Trivial default constructor.",
-				"constant":false,
-				"virtual":false,
-				"pure_virtual":false,
-				"static":false,
-				"protected":false,
-				"parameters_type":[
-					
-				],
-				"parameters_is_array":[
-					
-				],
-				"parameters_extra":[
-					
-				],
-				"parameters_name":[
-					
-				],
-				"parameters_required":[
-					
-				],
-				"parameters_default_value":[
-					
-				]
-			}
-		]
-	},
+  "GetAttr": [
+    {
+      "brief_description": "Get the attribute to use for the specified cell.",
+      "constant": true,
+      "parameters_default_value": [
+        null,
+        null,
+        null
+      ],
+      "parameters_extra": [
+        false,
+        false,
+        false
+      ],
+      "parameters_is_array": [
+        false,
+        false,
+        false
+      ],
+      "parameters_name": [
+        "row",
+        "col",
+        "kind"
+      ],
+      "parameters_required": [
+        true,
+        true,
+        true
+      ],
+      "parameters_type": [
+        "int",
+        "int",
+        "wxGridCellAttr::wxAttrKind"
+      ],
+      "protected": false,
+      "pure_virtual": false,
+      "return_type": "wxGridCellAttr*",
+      "static": false,
+      "virtual": true
+    }
+  ],
+  "GetAttrPtr": [
+    {
+      "brief_description": "",
+      "constant": true,
+      "parameters_default_value": [
+        null,
+        null,
+        null
+      ],
+      "parameters_extra": [
+        false,
+        false,
+        false
+      ],
+      "parameters_is_array": [
+        false,
+        false,
+        false
+      ],
+      "parameters_name": [
+        "row",
+        "col",
+        "kind"
+      ],
+      "parameters_required": [
+        true,
+        true,
+        true
+      ],
+      "parameters_type": [
+        "int",
+        "int",
+        "wxGridCellAttr::wxAttrKind"
+      ],
+      "protected": false,
+      "pure_virtual": false,
+      "return_type": "wxGridCellAttrPtr",
+      "static": false,
+      "virtual": false
+    }
+  ],
+  "GetColumnHeaderRenderer": [
+    {
+      "brief_description": "Getting header renderers.",
+      "constant": false,
+      "parameters_default_value": [
+        null
+      ],
+      "parameters_extra": [
+        false
+      ],
+      "parameters_is_array": [
+        false
+      ],
+      "parameters_name": [
+        "col"
+      ],
+      "parameters_required": [
+        true
+      ],
+      "parameters_type": [
+        "int"
+      ],
+      "protected": false,
+      "pure_virtual": false,
+      "return_type": "const wxGridColumnHeaderRenderer&",
+      "static": false,
+      "virtual": true
+    }
+  ],
+  "GetCornerRenderer": [
+    {
+      "brief_description": "Return the renderer used for drawing the corner window.",
+      "constant": false,
+      "parameters_default_value": [],
+      "parameters_extra": [],
+      "parameters_is_array": [],
+      "parameters_name": [],
+      "parameters_required": [],
+      "parameters_type": [],
+      "protected": false,
+      "pure_virtual": false,
+      "return_type": "const wxGridCornerHeaderRenderer&",
+      "static": false,
+      "virtual": true
+    }
+  ],
+  "GetRowHeaderRenderer": [
+    {
+      "brief_description": "Return the renderer used for drawing row headers.",
+      "constant": false,
+      "parameters_default_value": [
+        null
+      ],
+      "parameters_extra": [
+        false
+      ],
+      "parameters_is_array": [
+        false
+      ],
+      "parameters_name": [
+        "row"
+      ],
+      "parameters_required": [
+        true
+      ],
+      "parameters_type": [
+        "int"
+      ],
+      "protected": false,
+      "pure_virtual": false,
+      "return_type": "const wxGridRowHeaderRenderer&",
+      "static": false,
+      "virtual": true
+    }
+  ],
+  "SetAttr": [
+    {
+      "brief_description": "Set attribute for the specified cell.",
+      "constant": false,
+      "parameters_default_value": [
+        null,
+        null,
+        null
+      ],
+      "parameters_extra": [
+        false,
+        false,
+        false
+      ],
+      "parameters_is_array": [
+        false,
+        false,
+        false
+      ],
+      "parameters_name": [
+        "attr",
+        "row",
+        "col"
+      ],
+      "parameters_required": [
+        true,
+        true,
+        true
+      ],
+      "parameters_type": [
+        "wxGridCellAttr*",
+        "int",
+        "int"
+      ],
+      "protected": false,
+      "pure_virtual": false,
+      "return_type": "void",
+      "static": false,
+      "virtual": true
+    }
+  ],
+  "SetColAttr": [
+    {
+      "brief_description": "Set attribute for the specified column.",
+      "constant": false,
+      "parameters_default_value": [
+        null,
+        null
+      ],
+      "parameters_extra": [
+        false,
+        false
+      ],
+      "parameters_is_array": [
+        false,
+        false
+      ],
+      "parameters_name": [
+        "attr",
+        "col"
+      ],
+      "parameters_required": [
+        true,
+        true
+      ],
+      "parameters_type": [
+        "wxGridCellAttr*",
+        "int"
+      ],
+      "protected": false,
+      "pure_virtual": false,
+      "return_type": "void",
+      "static": false,
+      "virtual": true
+    }
+  ],
+  "SetRowAttr": [
+    {
+      "brief_description": "Set attribute for the specified row.",
+      "constant": false,
+      "parameters_default_value": [
+        null,
+        null
+      ],
+      "parameters_extra": [
+        false,
+        false
+      ],
+      "parameters_is_array": [
+        false,
+        false
+      ],
+      "parameters_name": [
+        "attr",
+        "row"
+      ],
+      "parameters_required": [
+        true,
+        true
+      ],
+      "parameters_type": [
+        "wxGridCellAttr*",
+        "int"
+      ],
+      "protected": false,
+      "pure_virtual": false,
+      "return_type": "void",
+      "static": false,
+      "virtual": true
+    }
+  ],
+  "_implements": [
+    "wxClientDataContainer"
+  ],
+  "wxGridCellAttrProvider": [
+    {
+      "brief_description": "Trivial default constructor.",
+      "constant": false,
+      "parameters_default_value": [],
+      "parameters_extra": [],
+      "parameters_is_array": [],
+      "parameters_name": [],
+      "parameters_required": [],
+      "parameters_type": [],
+      "protected": false,
+      "pure_virtual": false,
+      "return_type": "",
+      "static": false,
+      "virtual": false
+    }
+  ]
+},
 	"wxGridCellBoolEditor":{
 		"IsTrueValue":[
 			{
@@ -148566,49 +148487,11 @@
 			"wxGridColumnHeaderRenderer"
 		]
 	},
-	"wxGridCornerHeaderRenderer":{
-		"DrawBorder":[
-			{
-				"return_type":"void",
-				"brief_description":"Called by the grid to draw the corner window border.",
-				"constant":true,
-				"virtual":false,
-				"pure_virtual":true,
-				"static":false,
-				"protected":false,
-				"parameters_type":[
-					"const wxGrid&",
-					"wxDC&",
-					"wxRect&"
-				],
-				"parameters_is_array":[
-					false,
-					false,
-					false
-				],
-				"parameters_extra":[
-					false,
-					false,
-					false
-				],
-				"parameters_name":[
-					"grid",
-					"dc",
-					"rect"
-				],
-				"parameters_required":[
-					true,
-					true,
-					true
-				],
-				"parameters_default_value":[
-					null,
-					null,
-					null
-				]
-			}
-		]
-	},
+	"wxGridCornerHeaderRenderer": {
+        "_implements": [
+            "wxGridHeaderLabelsRenderer"
+        ]
+    },
 	"wxGridCornerHeaderRendererDefault":{
 		"DrawBorder":[
 			{
@@ -148921,75 +148804,113 @@
 		]
 	},
 	"wxGridHeaderLabelsRenderer":{
-		"DrawLabel":[
-			{
-				"return_type":"void",
-				"brief_description":"Called by the grid to draw the specified label.",
-				"constant":true,
-				"virtual":true,
-				"pure_virtual":false,
-				"static":false,
-				"protected":false,
-				"parameters_type":[
-					"const wxGrid&",
-					"wxDC&",
-					"const wxString&",
-					"const wxRect&",
-					"int",
-					"int",
-					"int"
-				],
-				"parameters_is_array":[
-					false,
-					false,
-					false,
-					false,
-					false,
-					false,
-					false
-				],
-				"parameters_extra":[
-					false,
-					false,
-					false,
-					false,
-					false,
-					false,
-					false
-				],
-				"parameters_name":[
-					"grid",
-					"dc",
-					"value",
-					"rect",
-					"horizAlign",
-					"vertAlign",
-					"textOrientation"
-				],
-				"parameters_required":[
-					true,
-					true,
-					true,
-					true,
-					true,
-					true,
-					true
-				],
-				"parameters_default_value":[
-					null,
-					null,
-					null,
-					null,
-					null,
-					null,
-					null
-				]
-			}
-		],
-		"_implements":[
-			"wxGridCornerHeaderRenderer"
-		]
-	},
+  "DrawBorder": [
+    {
+      "brief_description": "",
+      "constant": true,
+      "parameters_default_value": [
+        null,
+        null,
+        null
+      ],
+      "parameters_extra": [
+        false,
+        false,
+        false
+      ],
+      "parameters_is_array": [
+        false,
+        false,
+        false
+      ],
+      "parameters_name": [
+        "grid",
+        "dc",
+        "rect"
+      ],
+      "parameters_required": [
+        true,
+        true,
+        true
+      ],
+      "parameters_type": [
+        "const wxGrid&",
+        "wxDC&",
+        "wxRect&"
+      ],
+      "protected": false,
+      "pure_virtual": true,
+      "return_type": "void",
+      "static": false,
+      "virtual": false
+    }
+  ],
+  "DrawLabel": [
+    {
+      "brief_description": "Called by the grid to draw the specified label.",
+      "constant": true,
+      "parameters_default_value": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      "parameters_extra": [
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false
+      ],
+      "parameters_is_array": [
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false
+      ],
+      "parameters_name": [
+        "grid",
+        "dc",
+        "value",
+        "rect",
+        "horizAlign",
+        "vertAlign",
+        "textOrientation"
+      ],
+      "parameters_required": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ],
+      "parameters_type": [
+        "const wxGrid&",
+        "wxDC&",
+        "const wxString&",
+        "const wxRect&",
+        "int",
+        "int",
+        "int"
+      ],
+      "protected": false,
+      "pure_virtual": false,
+      "return_type": "void",
+      "static": false,
+      "virtual": true
+    }
+  ]
+},
 	"wxGridRangeSelectEvent":{
 		"AltDown":[
 			{
@@ -152844,7 +152765,7 @@
 		],
 		"GetTextRect":[
 			{
-				"return_type":"const wxRect&",
+				"return_type":"wxRect",
 				"brief_description":"Returns area covered by the text field (includes everything except borders and the dropdown button).",
 				"constant":true,
 				"virtual":false,
@@ -153193,7 +153114,7 @@
 		],
 		"GetBitmapPressed":[
 			{
-				"return_type":"const wxBitmap&",
+				"return_type":"wxBitmap",
 				"brief_description":"Returns depressed button bitmap that has been set with SetButtonBitmaps().",
 				"constant":true,
 				"virtual":false,
@@ -153222,7 +153143,7 @@
 		],
 		"GetBitmapNormal":[
 			{
-				"return_type":"const wxBitmap&",
+				"return_type":"wxBitmap",
 				"brief_description":"Returns default button bitmap that has been set with SetButtonBitmaps().",
 				"constant":true,
 				"virtual":false,
@@ -153251,7 +153172,7 @@
 		],
 		"GetBitmapHover":[
 			{
-				"return_type":"const wxBitmap&",
+				"return_type":"wxBitmap",
 				"brief_description":"Returns button mouse hover bitmap that has been set with SetButtonBitmaps().",
 				"constant":true,
 				"virtual":false,
@@ -153280,7 +153201,7 @@
 		],
 		"GetBitmapDisabled":[
 			{
-				"return_type":"const wxBitmap&",
+				"return_type":"wxBitmap",
 				"brief_description":"Returns disabled button bitmap that has been set with SetButtonBitmaps().",
 				"constant":true,
 				"virtual":false,
@@ -160249,7 +160170,7 @@
 		],
 		"GetValue":[
 			{
-				"return_type":"const wxVariant&",
+				"return_type":"wxVariant",
 				"brief_description":"Returns a reference to a value.",
 				"constant":true,
 				"virtual":false,
@@ -160461,26 +160382,31 @@
 				"protected":false,
 				"parameters_type":[
 					"wxEventType",
-					"int"
+					"wxDataViewCtrlBase*",
+					"const wxDataViewItem&"
 				],
 				"parameters_is_array":[
+					false,
 					false,
 					false
 				],
 				"parameters_extra":[
 					false,
+					false,
 					false
 				],
 				"parameters_name":[
-					"commandType",
-					"winid"
+					"evtType",
+					"dvc",
+					"item"
 				],
 				"parameters_required":[
 					
 				],
 				"parameters_default_value":[
-					"wxEVT_NULL",
-					"0"
+					"",
+					"",
+					""
 				]
 			}
 		]
@@ -161574,7 +161500,7 @@
 		],
 		"GetFormat":[
 			{
-				"return_type":"const wxDataFormat&",
+				"return_type":"wxDataFormat",
 				"brief_description":"Returns the (one and only one) format supported by this object.",
 				"constant":true,
 				"virtual":false,
@@ -162174,7 +162100,7 @@
 		],
 		"GetChoices":[
 			{
-				"return_type":"const wxArrayString&",
+				"return_type":"wxArrayString",
 				"brief_description":"Returns all choices.",
 				"constant":true,
 				"virtual":false,
@@ -162341,7 +162267,7 @@
 		],
 		"GetAttr":[
 			{
-				"return_type":"const wxDataViewItemAttr&",
+				"return_type":"wxDataViewItemAttr",
 				"brief_description":"Return the attribute to be used for rendering.",
 				"constant":true,
 				"virtual":false,
@@ -162713,7 +162639,7 @@
 		],
 		"GetIcon":[
 			{
-				"return_type":"const wxIcon&",
+				"return_type":"wxIcon",
 				"brief_description":"Gets the icon.",
 				"constant":true,
 				"virtual":false,
@@ -163573,7 +163499,7 @@
 		],
 		"GetItemExpandedIcon":[
 			{
-				"return_type":"const wxIcon&",
+				"return_type":"wxIcon",
 				"brief_description":"Calls the identical method from wxDataViewTreeStore.",
 				"constant":true,
 				"virtual":false,
@@ -163602,7 +163528,7 @@
 		],
 		"GetItemIcon":[
 			{
-				"return_type":"const wxIcon&",
+				"return_type":"wxIcon",
 				"brief_description":"Calls the identical method from wxDataViewTreeStore.",
 				"constant":true,
 				"virtual":false,
@@ -164478,7 +164404,7 @@
 		],
 		"GetItemExpandedIcon":[
 			{
-				"return_type":"const wxIcon&",
+				"return_type":"wxIcon",
 				"brief_description":"Returns the icon to display in expanded containers.",
 				"constant":true,
 				"virtual":false,
@@ -164507,7 +164433,7 @@
 		],
 		"GetItemIcon":[
 			{
-				"return_type":"const wxIcon&",
+				"return_type":"wxIcon",
 				"brief_description":"Returns the icon of the item.",
 				"constant":true,
 				"virtual":false,
@@ -165458,7 +165384,7 @@
 		],
 		"GetName":[
 			{
-				"return_type":"const wxString&",
+				"return_type":"wxString",
 				"brief_description":"Returns a constant reference to the variant name.",
 				"constant":true,
 				"virtual":false,
@@ -171813,7 +171739,7 @@
 		],
 		"GetCursor":[
 			{
-				"return_type":"const wxCursor&",
+				"return_type":"wxCursor",
 				"brief_description":"Returns a reference to the cursor specified by this event.",
 				"constant":true,
 				"virtual":false,
@@ -176111,7 +176037,7 @@
 		],
 		"GetDomain":[
 			{
-				"return_type":"const wxString&",
+				"return_type":"wxString",
 				"brief_description":"Returns the domain (message catalog) that will be used to load translatable strings in the XRC.",
 				"constant":true,
 				"virtual":false,
@@ -179920,7 +179846,7 @@
 		],
 		"Get":[
 			{
-				"return_type":"const wxPlatformInfo&",
+				"return_type":"wxPlatformInfo",
 				"brief_description":"Returns the global wxPlatformInfo object, initialized with the values for the currently running platform.",
 				"constant":false,
 				"virtual":false,
@@ -181708,7 +181634,7 @@
 				]
 			},
 			{
-				"return_type":"const wxPrintData&",
+				"return_type":"wxPrintData",
 				"brief_description":"",
 				"constant":true,
 				"virtual":false,
@@ -183350,7 +183276,7 @@
 		],
 		"GetPrinterName":[
 			{
-				"return_type":"const wxString&",
+				"return_type":"wxString",
 				"brief_description":"Returns the printer name.",
 				"constant":true,
 				"virtual":false,
@@ -187405,7 +187331,7 @@
 		],
 		"GetBookRecArray":[
 			{
-				"return_type":"const wxHtmlBookRecArray&",
+				"return_type":"wxHtmlBookRecArray",
 				"brief_description":"Returns array with help books info.",
 				"constant":true,
 				"virtual":false,
@@ -187434,7 +187360,7 @@
 		],
 		"GetContentsArray":[
 			{
-				"return_type":"const wxHtmlHelpDataItems&",
+				"return_type":"wxHtmlHelpDataItems",
 				"brief_description":"Returns reference to array with contents entries.",
 				"constant":true,
 				"virtual":false,
@@ -187463,7 +187389,7 @@
 		],
 		"GetIndexArray":[
 			{
-				"return_type":"const wxHtmlHelpDataItems&",
+				"return_type":"wxHtmlHelpDataItems",
 				"brief_description":"Returns reference to array with index entries.",
 				"constant":true,
 				"virtual":false,
@@ -189679,7 +189605,7 @@
 		],
 		"GetActualColor":[
 			{
-				"return_type":"const wxColour&",
+				"return_type":"wxColour",
 				"brief_description":"Returns actual text colour.",
 				"constant":true,
 				"virtual":false,
@@ -190056,7 +189982,7 @@
 		],
 		"GetLink":[
 			{
-				"return_type":"const wxHtmlLinkInfo&",
+				"return_type":"wxHtmlLinkInfo",
 				"brief_description":"Returns actual hypertext link.",
 				"constant":true,
 				"virtual":false,
@@ -190085,7 +190011,7 @@
 		],
 		"GetLinkColor":[
 			{
-				"return_type":"const wxColour&",
+				"return_type":"wxColour",
 				"brief_description":"Returns the colour of hypertext link text.",
 				"constant":true,
 				"virtual":false,
@@ -190911,7 +190837,7 @@
 				"static":false,
 				"protected":false,
 				"parameters_type":[
-					"int"
+					"wxWindowBase*"
 				],
 				"parameters_is_array":[
 					false
@@ -190926,7 +190852,7 @@
 					
 				],
 				"parameters_default_value":[
-					"0"
+					"NULL"
 				]
 			}
 		],
@@ -192603,7 +192529,7 @@
 		],
 		"GetAltExtensions":[
 			{
-				"return_type":"const wxArrayString&",
+				"return_type":"wxArrayString",
 				"brief_description":"Returns the other file extensions associated with this handler.",
 				"constant":true,
 				"virtual":false,
@@ -192632,7 +192558,7 @@
 		],
 		"GetExtension":[
 			{
-				"return_type":"const wxString&",
+				"return_type":"wxString",
 				"brief_description":"Gets the preferred file extension associated with this handler.",
 				"constant":true,
 				"virtual":false,
@@ -192690,7 +192616,7 @@
 		],
 		"GetMimeType":[
 			{
-				"return_type":"const wxString&",
+				"return_type":"wxString",
 				"brief_description":"Gets the MIME type associated with this handler.",
 				"constant":true,
 				"virtual":false,
@@ -192719,7 +192645,7 @@
 		],
 		"GetName":[
 			{
-				"return_type":"const wxString&",
+				"return_type":"wxString",
 				"brief_description":"Gets the name of this handler.",
 				"constant":true,
 				"virtual":false,
@@ -195520,7 +195446,7 @@
 		],
 		"GetContent":[
 			{
-				"return_type":"const wxString&",
+				"return_type":"wxString",
 				"brief_description":"Returns the content of this node.",
 				"constant":true,
 				"virtual":false,
@@ -195607,7 +195533,7 @@
 		],
 		"GetName":[
 			{
-				"return_type":"const wxString&",
+				"return_type":"wxString",
 				"brief_description":"Returns the name of this node.",
 				"constant":true,
 				"virtual":false,
@@ -196448,7 +196374,7 @@
 		],
 		"GetFileEncoding":[
 			{
-				"return_type":"const wxString&",
+				"return_type":"wxString",
 				"brief_description":"Returns encoding of document (may be empty).",
 				"constant":true,
 				"virtual":false,
@@ -196535,7 +196461,7 @@
 		],
 		"GetVersion":[
 			{
-				"return_type":"const wxString&",
+				"return_type":"wxString",
 				"brief_description":"Returns the version of document.",
 				"constant":true,
 				"virtual":false,
@@ -199714,7 +199640,7 @@
 		],
 		"GetPath":[
 			{
-				"return_type":"const wxString&",
+				"return_type":"wxString",
 				"brief_description":"Retrieve the current path (always as absolute path).",
 				"constant":true,
 				"virtual":true,
@@ -200333,7 +200259,7 @@
 		],
 		"GetMenus":[
 			{
-				"return_type":"const wxList&",
+				"return_type":"wxList",
 				"brief_description":"Returns the list of menus that are managed by this file history object.",
 				"constant":true,
 				"virtual":false,
@@ -201293,7 +201219,7 @@
 		],
 		"GetNewPath":[
 			{
-				"return_type":"const wxFileName&",
+				"return_type":"wxFileName",
 				"brief_description":"Returns the new path of the renamed file\/directory if this is a rename event.",
 				"constant":true,
 				"virtual":false,
@@ -201322,7 +201248,7 @@
 		],
 		"GetPath":[
 			{
-				"return_type":"const wxFileName&",
+				"return_type":"wxFileName",
 				"brief_description":"Returns the path at which the event occurred.",
 				"constant":true,
 				"virtual":false,
@@ -203179,7 +203105,7 @@
 		],
 		"GetTimestamp":[
 			{
-				"return_type":"const wxString&",
+				"return_type":"wxString",
 				"brief_description":"Returns the current timestamp format string.",
 				"constant":false,
 				"virtual":false,
@@ -203208,7 +203134,7 @@
 		],
 		"GetTraceMasks":[
 			{
-				"return_type":"const wxArrayString&",
+				"return_type":"wxArrayString",
 				"brief_description":"Returns the currently allowed list of string trace masks.",
 				"constant":false,
 				"virtual":false,
@@ -203730,7 +203656,7 @@
 		],
 		"GetBuffer":[
 			{
-				"return_type":"const wxString&",
+				"return_type":"wxString",
 				"brief_description":"Returns the current buffer contains.",
 				"constant":true,
 				"virtual":false,
@@ -204353,7 +204279,7 @@
 	"wxTextDataObject":{
 		"GetFormat":[
 			{
-				"return_type":"const wxDataFormat&",
+				"return_type":"wxDataFormat",
 				"brief_description":"Returns the preferred format supported by this object.",
 				"constant":true,
 				"virtual":false,
@@ -204598,7 +204524,7 @@
 		],
 		"GetFilenames":[
 			{
-				"return_type":"const wxArrayString&",
+				"return_type":"wxArrayString",
 				"brief_description":"Returns the array of file names.",
 				"constant":true,
 				"virtual":false,
@@ -205651,7 +205577,7 @@
 		],
 		"GetPosition":[
 			{
-				"return_type":"const wxPoint&",
+				"return_type":"wxPoint",
 				"brief_description":"Returns the position in screen coordinates at which the menu should be shown.",
 				"constant":true,
 				"virtual":false,
@@ -211373,7 +211299,7 @@
 				]
 			},
 			{
-				"return_type":"const wxBitmap&",
+				"return_type":"wxBitmap",
 				"brief_description":"",
 				"constant":true,
 				"virtual":false,
@@ -213573,7 +213499,7 @@
 		],
 		"GetBitmap":[
 			{
-				"return_type":"const wxBitmap&",
+				"return_type":"wxBitmap",
 				"brief_description":"",
 				"constant":true,
 				"virtual":false,
@@ -213660,7 +213586,7 @@
 		],
 		"GetDisabledBitmap":[
 			{
-				"return_type":"const wxBitmap&",
+				"return_type":"wxBitmap",
 				"brief_description":"",
 				"constant":true,
 				"virtual":false,
@@ -213776,7 +213702,7 @@
 		],
 		"GetLabel":[
 			{
-				"return_type":"const wxString&",
+				"return_type":"wxString",
 				"brief_description":"",
 				"constant":true,
 				"virtual":false,
@@ -213805,7 +213731,7 @@
 		],
 		"GetLongHelp":[
 			{
-				"return_type":"const wxString&",
+				"return_type":"wxString",
 				"brief_description":"",
 				"constant":true,
 				"virtual":false,
@@ -213834,7 +213760,7 @@
 		],
 		"GetNormalBitmap":[
 			{
-				"return_type":"const wxBitmap&",
+				"return_type":"wxBitmap",
 				"brief_description":"",
 				"constant":true,
 				"virtual":false,
@@ -213863,7 +213789,7 @@
 		],
 		"GetShortHelp":[
 			{
-				"return_type":"const wxString&",
+				"return_type":"wxString",
 				"brief_description":"",
 				"constant":true,
 				"virtual":false,
@@ -214767,7 +214693,7 @@
 		],
 		"GetTarget":[
 			{
-				"return_type":"const wxString&",
+				"return_type":"wxString",
 				"brief_description":"Get the name of the target frame which the url of this event has been or will be loaded into.",
 				"constant":true,
 				"virtual":false,
@@ -214796,7 +214722,7 @@
 		],
 		"GetURL":[
 			{
-				"return_type":"const wxString&",
+				"return_type":"wxString",
 				"brief_description":"Get the URL being visited.",
 				"constant":true,
 				"virtual":false,
@@ -217270,7 +217196,7 @@
 		],
 		"GetFragment":[
 			{
-				"return_type":"const wxString&",
+				"return_type":"wxString",
 				"brief_description":"Obtains the fragment of this URI.",
 				"constant":true,
 				"virtual":false,
@@ -217357,7 +217283,7 @@
 		],
 		"GetPath":[
 			{
-				"return_type":"const wxString&",
+				"return_type":"wxString",
 				"brief_description":"Returns the (normalized) path of the URI.",
 				"constant":true,
 				"virtual":false,
@@ -217386,7 +217312,7 @@
 		],
 		"GetPort":[
 			{
-				"return_type":"const wxString&",
+				"return_type":"wxString",
 				"brief_description":"Returns a string representation of the URI's port.",
 				"constant":true,
 				"virtual":false,
@@ -217793,7 +217719,7 @@
 		],
 		"GetUserInfo":[
 			{
-				"return_type":"const wxString&",
+				"return_type":"wxString",
 				"brief_description":"Returns the UserInfo component of the URI.",
 				"constant":true,
 				"virtual":false,
@@ -217851,7 +217777,7 @@
 		],
 		"GetServer":[
 			{
-				"return_type":"const wxString&",
+				"return_type":"wxString",
 				"brief_description":"Returns the Server component of the URI.",
 				"constant":true,
 				"virtual":false,
@@ -217880,7 +217806,7 @@
 		],
 		"GetScheme":[
 			{
-				"return_type":"const wxString&",
+				"return_type":"wxString",
 				"brief_description":"Returns the Scheme component of the URI.",
 				"constant":true,
 				"virtual":false,
@@ -217909,7 +217835,7 @@
 		],
 		"GetQuery":[
 			{
-				"return_type":"const wxString&",
+				"return_type":"wxString",
 				"brief_description":"Returns the Query component of the URI.",
 				"constant":true,
 				"virtual":false,

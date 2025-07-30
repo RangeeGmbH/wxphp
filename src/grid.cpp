@@ -7064,30 +7064,18 @@ PHP_METHOD(php_wxGridCellAttr, GetBackgroundColour)
             case 0:
             {
                 #ifdef USE_WXPHP_DEBUG
-                php_printf("Executing wxGridCellAttr::GetBackgroundColour() to return object reference\n\n");
+                php_printf("Executing wxGridCellAttr::GetBackgroundColour() to return new object\n\n");
                 #endif
 
-                wxColour_php* value_to_return0;
-                value_to_return0 = (wxColour_php*) &((wxGridCellAttr_php*)native_object)->GetBackgroundColour();
-
-                if(value_to_return0->references.IsUserInitialized()){
-                    if(!Z_ISNULL(value_to_return0->phpObj)){
-                        ZVAL_COPY_VALUE(return_value, &value_to_return0->phpObj);
-                        zval_add_ref(&value_to_return0->phpObj);
-                        return_is_user_initialized = true;
-                    }
-                    else{
-                        zend_error(E_ERROR, "Could not retreive original zval.");
-                    }
-                }
-                else{
-                    object_init_ex(return_value,php_wxColour_entry);
-                    Z_wxColour_P(return_value)->native_object = (wxColour_php*) value_to_return0;
-                }
-
-                if((void*)value_to_return0 != (void*)native_object && return_is_user_initialized){ //Prevent adding references to it self
-                    references->AddReference(return_value, "wxGridCellAttr::GetBackgroundColour at call 6 with 0 argument(s)");
-                }
+                wxColour value_to_return0;
+                value_to_return0 = ((wxGridCellAttr_php*)native_object)->GetBackgroundColour();
+                ((wxRefCounter *) value_to_return0.GetRefData())->IncRef();
+                void* ptr = safe_emalloc(1, sizeof(wxColour_php), 0);
+                memcpy(ptr, (void*) &value_to_return0, sizeof(wxColour));
+                object_init_ex(return_value, php_wxColour_entry);
+                ((wxColour_php*)ptr)->phpObj = *return_value;
+                zo_wxColour* zo0 = Z_wxColour_P(return_value);
+                zo0->native_object = (wxColour_php*) ptr;
 
 
                 return;
@@ -7347,30 +7335,18 @@ PHP_METHOD(php_wxGridCellAttr, GetFont)
             case 0:
             {
                 #ifdef USE_WXPHP_DEBUG
-                php_printf("Executing wxGridCellAttr::GetFont() to return object reference\n\n");
+                php_printf("Executing wxGridCellAttr::GetFont() to return new object\n\n");
                 #endif
 
-                wxFont_php* value_to_return0;
-                value_to_return0 = (wxFont_php*) &((wxGridCellAttr_php*)native_object)->GetFont();
-
-                if(value_to_return0->references.IsUserInitialized()){
-                    if(!Z_ISNULL(value_to_return0->phpObj)){
-                        ZVAL_COPY_VALUE(return_value, &value_to_return0->phpObj);
-                        zval_add_ref(&value_to_return0->phpObj);
-                        return_is_user_initialized = true;
-                    }
-                    else{
-                        zend_error(E_ERROR, "Could not retreive original zval.");
-                    }
-                }
-                else{
-                    object_init_ex(return_value,php_wxFont_entry);
-                    Z_wxFont_P(return_value)->native_object = (wxFont_php*) value_to_return0;
-                }
-
-                if((void*)value_to_return0 != (void*)native_object && return_is_user_initialized){ //Prevent adding references to it self
-                    references->AddReference(return_value, "wxGridCellAttr::GetFont at call 6 with 0 argument(s)");
-                }
+                wxFont value_to_return0;
+                value_to_return0 = ((wxGridCellAttr_php*)native_object)->GetFont();
+                ((wxRefCounter *) value_to_return0.GetRefData())->IncRef();
+                void* ptr = safe_emalloc(1, sizeof(wxFont_php), 0);
+                memcpy(ptr, (void*) &value_to_return0, sizeof(wxFont));
+                object_init_ex(return_value, php_wxFont_entry);
+                ((wxFont_php*)ptr)->phpObj = *return_value;
+                zo_wxFont* zo0 = Z_wxFont_P(return_value);
+                zo0->native_object = (wxFont_php*) ptr;
 
 
                 return;
@@ -7760,30 +7736,18 @@ PHP_METHOD(php_wxGridCellAttr, GetTextColour)
             case 0:
             {
                 #ifdef USE_WXPHP_DEBUG
-                php_printf("Executing wxGridCellAttr::GetTextColour() to return object reference\n\n");
+                php_printf("Executing wxGridCellAttr::GetTextColour() to return new object\n\n");
                 #endif
 
-                wxColour_php* value_to_return0;
-                value_to_return0 = (wxColour_php*) &((wxGridCellAttr_php*)native_object)->GetTextColour();
-
-                if(value_to_return0->references.IsUserInitialized()){
-                    if(!Z_ISNULL(value_to_return0->phpObj)){
-                        ZVAL_COPY_VALUE(return_value, &value_to_return0->phpObj);
-                        zval_add_ref(&value_to_return0->phpObj);
-                        return_is_user_initialized = true;
-                    }
-                    else{
-                        zend_error(E_ERROR, "Could not retreive original zval.");
-                    }
-                }
-                else{
-                    object_init_ex(return_value,php_wxColour_entry);
-                    Z_wxColour_P(return_value)->native_object = (wxColour_php*) value_to_return0;
-                }
-
-                if((void*)value_to_return0 != (void*)native_object && return_is_user_initialized){ //Prevent adding references to it self
-                    references->AddReference(return_value, "wxGridCellAttr::GetTextColour at call 6 with 0 argument(s)");
-                }
+                wxColour value_to_return0;
+                value_to_return0 = ((wxGridCellAttr_php*)native_object)->GetTextColour();
+                ((wxRefCounter *) value_to_return0.GetRefData())->IncRef();
+                void* ptr = safe_emalloc(1, sizeof(wxColour_php), 0);
+                memcpy(ptr, (void*) &value_to_return0, sizeof(wxColour));
+                object_init_ex(return_value, php_wxColour_entry);
+                ((wxColour_php*)ptr)->phpObj = *return_value;
+                zo_wxColour* zo0 = Z_wxColour_P(return_value);
+                zo0->native_object = (wxColour_php*) ptr;
 
 
                 return;
@@ -33001,12 +32965,6 @@ PHP_METHOD(php_wxGrid, SetCellAlignment)
     long vert0;
     bool overload0_called = false;
 
-    //Parameters for overload 1
-    long align1;
-    long row1;
-    long col1;
-    bool overload1_called = false;
-
     
     //Overload 0
     overload0:
@@ -33025,23 +32983,6 @@ PHP_METHOD(php_wxGrid, SetCellAlignment)
         }
     }
 
-    //Overload 1
-    overload1:
-    if(!already_called && arguments_received == 3)
-    {
-        #ifdef USE_WXPHP_DEBUG
-        php_printf("Parameters received %d\n", arguments_received);
-        php_printf("Parsing parameters with 'lll' (&align1, &row1, &col1)\n");
-        #endif
-
-        char parse_parameters_string[] = "lll";
-        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &align1, &row1, &col1 ) == SUCCESS)
-        {
-            overload1_called = true;
-            already_called = true;
-        }
-    }
-
     
     if(overload0_called)
     {
@@ -33054,25 +32995,6 @@ PHP_METHOD(php_wxGrid, SetCellAlignment)
                 #endif
 
                 ((wxGrid_php*)native_object)->SetCellAlignment((int) row0, (int) col0, (int) horiz0, (int) vert0);
-
-
-                return;
-                break;
-            }
-        }
-    }
-
-    if(overload1_called)
-    {
-        switch(arguments_received)
-        {
-            case 3:
-            {
-                #ifdef USE_WXPHP_DEBUG
-                php_printf("Executing wxGrid::SetCellAlignment((int) align1, (int) row1, (int) col1)\n\n");
-                #endif
-
-                ((wxGrid_php*)native_object)->SetCellAlignment((int) align1, (int) row1, (int) col1);
 
 
                 return;
@@ -33805,18 +33727,6 @@ PHP_METHOD(php_wxGrid, SetCellTextColour)
     wxColour* object_pointer0_2 = 0;
     bool overload0_called = false;
 
-    //Parameters for overload 1
-    zval* val1;
-    wxColour* object_pointer1_0 = 0;
-    long row1;
-    long col1;
-    bool overload1_called = false;
-
-    //Parameters for overload 2
-    zval* colour2;
-    wxColour* object_pointer2_0 = 0;
-    bool overload2_called = false;
-
     
     //Overload 0
     overload0:
@@ -33838,84 +33748,16 @@ PHP_METHOD(php_wxGrid, SetCellTextColour)
                     object_pointer0_2 = (wxColour*) argument_native_object;
                     if (!object_pointer0_2 )
                     {
-                        goto overload1;
-                    }
-                }
-                else if(Z_TYPE_P(colour0) != IS_NULL)
-                {
-                    goto overload1;
-                }
-            }
-
-            overload0_called = true;
-            already_called = true;
-        }
-    }
-
-    //Overload 1
-    overload1:
-    if(!already_called && arguments_received == 3)
-    {
-        #ifdef USE_WXPHP_DEBUG
-        php_printf("Parameters received %d\n", arguments_received);
-        php_printf("Parsing parameters with 'Oll' (&val1, php_wxColour_entry, &row1, &col1)\n");
-        #endif
-
-        char parse_parameters_string[] = "Oll";
-        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &val1, php_wxColour_entry, &row1, &col1 ) == SUCCESS)
-        {
-            if(arguments_received >= 1){
-                if(Z_TYPE_P(val1) == IS_OBJECT)
-                {
-                    wxphp_object_type argument_type = Z_wxColour_P(val1)->object_type;
-                    argument_native_object = (void*) Z_wxColour_P(val1)->native_object;
-                    object_pointer1_0 = (wxColour*) argument_native_object;
-                    if (!object_pointer1_0 )
-                    {
-                        goto overload2;
-                    }
-                }
-                else if(Z_TYPE_P(val1) != IS_NULL)
-                {
-                    goto overload2;
-                }
-            }
-
-            overload1_called = true;
-            already_called = true;
-        }
-    }
-
-    //Overload 2
-    overload2:
-    if(!already_called && arguments_received == 1)
-    {
-        #ifdef USE_WXPHP_DEBUG
-        php_printf("Parameters received %d\n", arguments_received);
-        php_printf("Parsing parameters with 'O' (&colour2, php_wxColour_entry)\n");
-        #endif
-
-        char parse_parameters_string[] = "O";
-        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &colour2, php_wxColour_entry ) == SUCCESS)
-        {
-            if(arguments_received >= 1){
-                if(Z_TYPE_P(colour2) == IS_OBJECT)
-                {
-                    wxphp_object_type argument_type = Z_wxColour_P(colour2)->object_type;
-                    argument_native_object = (void*) Z_wxColour_P(colour2)->native_object;
-                    object_pointer2_0 = (wxColour*) argument_native_object;
-                    if (!object_pointer2_0 )
-                    {
                         zend_error(E_ERROR, "Parameter 'colour' could not be retreived correctly.");
                     }
                 }
-                else if(Z_TYPE_P(colour2) != IS_NULL)
+                else if(Z_TYPE_P(colour0) != IS_NULL)
                 {
                     zend_error(E_ERROR, "Parameter 'colour' not null, could not be retreived correctly.");
                 }
             }
 
-            overload2_called = true;
+            overload0_called = true;
             already_called = true;
         }
     }
@@ -33934,46 +33776,6 @@ PHP_METHOD(php_wxGrid, SetCellTextColour)
                 ((wxGrid_php*)native_object)->SetCellTextColour((int) row0, (int) col0, *(wxColour*) object_pointer0_2);
 
                 references->AddReference(colour0, "wxGrid::SetCellTextColour at call 3 with 3 argument(s)");
-
-                return;
-                break;
-            }
-        }
-    }
-
-    if(overload1_called)
-    {
-        switch(arguments_received)
-        {
-            case 3:
-            {
-                #ifdef USE_WXPHP_DEBUG
-                php_printf("Executing wxGrid::SetCellTextColour(*(wxColour*) object_pointer1_0, (int) row1, (int) col1)\n\n");
-                #endif
-
-                ((wxGrid_php*)native_object)->SetCellTextColour(*(wxColour*) object_pointer1_0, (int) row1, (int) col1);
-
-                references->AddReference(val1, "wxGrid::SetCellTextColour at call 3 with 3 argument(s)");
-
-                return;
-                break;
-            }
-        }
-    }
-
-    if(overload2_called)
-    {
-        switch(arguments_received)
-        {
-            case 1:
-            {
-                #ifdef USE_WXPHP_DEBUG
-                php_printf("Executing wxGrid::SetCellTextColour(*(wxColour*) object_pointer2_0)\n\n");
-                #endif
-
-                ((wxGrid_php*)native_object)->SetCellTextColour(*(wxColour*) object_pointer2_0);
-
-                references->AddReference(colour2, "wxGrid::SetCellTextColour at call 3 with 1 argument(s)");
 
                 return;
                 break;
