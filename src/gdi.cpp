@@ -41,6 +41,7 @@
 #include "ribbon.h"
 #include "richtext.h"
 #include "rtti.h"
+#include "smartpointers.h"
 #include "stc.h"
 #include "streams.h"
 #include "threading.h"

@@ -190906,5 +190906,2185 @@
   },
   "wxVisualAttributes": {
     "_struct": true
+  },
+  "wxTimeSpan": {
+    "wxTimeSpan": [
+      {
+        "return_type": "",
+        "brief_description": "",
+        "constant": false,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [],
+        "parameters_is_array": [],
+        "parameters_extra": [],
+        "parameters_name": [],
+        "parameters_required": [],
+        "parameters_default_value": []
+      },
+      {
+        "return_type": "",
+        "brief_description": "",
+        "constant": false,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [
+          "long",
+          "long",
+          "wxLongLong",
+          "wxLongLong"
+        ],
+        "parameters_is_array": [
+          false,
+          false,
+          false,
+          false
+        ],
+        "parameters_extra": [
+          false,
+          false,
+          false,
+          false
+        ],
+        "parameters_name": [
+          "hours",
+          "min",
+          "sec",
+          "msec"
+        ],
+        "parameters_required": [
+          true
+        ],
+        "parameters_default_value": [
+          null,
+          "0",
+          "0",
+          "0"
+        ]
+      }
+    ],
+    "Abs": [
+      {
+        "return_type": "wxTimeSpan",
+        "brief_description": "",
+        "constant": true,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [],
+        "parameters_is_array": [],
+        "parameters_extra": [],
+        "parameters_name": [],
+        "parameters_required": [],
+        "parameters_default_value": []
+      }
+    ],
+    "Add": [
+      {
+        "return_type": "wxTimeSpan",
+        "brief_description": "",
+        "constant": true,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [
+          "const wxTimeSpan&"
+        ],
+        "parameters_is_array": [
+          false
+        ],
+        "parameters_extra": [
+          false
+        ],
+        "parameters_name": [
+          "diff"
+        ],
+        "parameters_required": [
+          true
+        ],
+        "parameters_default_value": [
+          null
+        ]
+      },
+      {
+        "return_type": "wxTimeSpan&",
+        "brief_description": "",
+        "constant": false,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [
+          "const wxTimeSpan&"
+        ],
+        "parameters_is_array": [
+          false
+        ],
+        "parameters_extra": [
+          false
+        ],
+        "parameters_name": [
+          "diff"
+        ],
+        "parameters_required": [
+          true
+        ],
+        "parameters_default_value": [
+          null
+        ]
+      }
+    ],
+    "Format": [
+      {
+        "return_type": "wxString",
+        "brief_description": "",
+        "constant": true,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [
+          "const wxString&"
+        ],
+        "parameters_is_array": [
+          false
+        ],
+        "parameters_extra": [
+          false
+        ],
+        "parameters_name": [
+          "format"
+        ],
+        "parameters_required": [],
+        "parameters_default_value": [
+          "wxDefaultTimeSpanFormat"
+        ]
+      }
+    ],
+    "GetDays": [
+      {
+        "return_type": "int",
+        "brief_description": "",
+        "constant": true,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [],
+        "parameters_is_array": [],
+        "parameters_extra": [],
+        "parameters_name": [],
+        "parameters_required": [],
+        "parameters_default_value": []
+      }
+    ],
+    "GetHours": [
+      {
+        "return_type": "int",
+        "brief_description": "",
+        "constant": true,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [],
+        "parameters_is_array": [],
+        "parameters_extra": [],
+        "parameters_name": [],
+        "parameters_required": [],
+        "parameters_default_value": []
+      }
+    ],
+    "GetMilliseconds": [
+      {
+        "return_type": "wxLongLong",
+        "brief_description": "",
+        "constant": true,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [],
+        "parameters_is_array": [],
+        "parameters_extra": [],
+        "parameters_name": [],
+        "parameters_required": [],
+        "parameters_default_value": []
+      }
+    ],
+    "GetMinutes": [
+      {
+        "return_type": "int",
+        "brief_description": "",
+        "constant": true,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [],
+        "parameters_is_array": [],
+        "parameters_extra": [],
+        "parameters_name": [],
+        "parameters_required": [],
+        "parameters_default_value": []
+      }
+    ],
+    "GetSeconds": [
+      {
+        "return_type": "wxLongLong",
+        "brief_description": "",
+        "constant": true,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [],
+        "parameters_is_array": [],
+        "parameters_extra": [],
+        "parameters_name": [],
+        "parameters_required": [],
+        "parameters_default_value": []
+      }
+    ],
+    "GetValue": [
+      {
+        "return_type": "wxLongLong",
+        "brief_description": "",
+        "constant": true,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [],
+        "parameters_is_array": [],
+        "parameters_extra": [],
+        "parameters_name": [],
+        "parameters_required": [],
+        "parameters_default_value": []
+      }
+    ],
+    "GetWeeks": [
+      {
+        "return_type": "int",
+        "brief_description": "",
+        "constant": true,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [],
+        "parameters_is_array": [],
+        "parameters_extra": [],
+        "parameters_name": [],
+        "parameters_required": [],
+        "parameters_default_value": []
+      }
+    ],
+    "IsEqualTo": [
+      {
+        "return_type": "bool",
+        "brief_description": "",
+        "constant": true,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [
+          "const wxTimeSpan&"
+        ],
+        "parameters_is_array": [
+          false
+        ],
+        "parameters_extra": [
+          false
+        ],
+        "parameters_name": [
+          "ts"
+        ],
+        "parameters_required": [
+          true
+        ],
+        "parameters_default_value": [
+          null
+        ]
+      }
+    ],
+    "IsLongerThan": [
+      {
+        "return_type": "bool",
+        "brief_description": "",
+        "constant": true,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [
+          "const wxTimeSpan&"
+        ],
+        "parameters_is_array": [
+          false
+        ],
+        "parameters_extra": [
+          false
+        ],
+        "parameters_name": [
+          "ts"
+        ],
+        "parameters_required": [
+          true
+        ],
+        "parameters_default_value": [
+          null
+        ]
+      }
+    ],
+    "IsNegative": [
+      {
+        "return_type": "bool",
+        "brief_description": "",
+        "constant": true,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [],
+        "parameters_is_array": [],
+        "parameters_extra": [],
+        "parameters_name": [],
+        "parameters_required": [],
+        "parameters_default_value": []
+      }
+    ],
+    "IsNull": [
+      {
+        "return_type": "bool",
+        "brief_description": "",
+        "constant": true,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [],
+        "parameters_is_array": [],
+        "parameters_extra": [],
+        "parameters_name": [],
+        "parameters_required": [],
+        "parameters_default_value": []
+      }
+    ],
+    "IsPositive": [
+      {
+        "return_type": "bool",
+        "brief_description": "",
+        "constant": true,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [],
+        "parameters_is_array": [],
+        "parameters_extra": [],
+        "parameters_name": [],
+        "parameters_required": [],
+        "parameters_default_value": []
+      }
+    ],
+    "IsShorterThan": [
+      {
+        "return_type": "bool",
+        "brief_description": "",
+        "constant": true,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [
+          "const wxTimeSpan&"
+        ],
+        "parameters_is_array": [
+          false
+        ],
+        "parameters_extra": [
+          false
+        ],
+        "parameters_name": [
+          "ts"
+        ],
+        "parameters_required": [
+          true
+        ],
+        "parameters_default_value": [
+          null
+        ]
+      }
+    ],
+    "Multiply": [
+      {
+        "return_type": "wxTimeSpan",
+        "brief_description": "",
+        "constant": true,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [
+          "int"
+        ],
+        "parameters_is_array": [
+          false
+        ],
+        "parameters_extra": [
+          false
+        ],
+        "parameters_name": [
+          "n"
+        ],
+        "parameters_required": [
+          true
+        ],
+        "parameters_default_value": [
+          null
+        ]
+      },
+      {
+        "return_type": "wxTimeSpan&",
+        "brief_description": "",
+        "constant": false,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [
+          "int"
+        ],
+        "parameters_is_array": [
+          false
+        ],
+        "parameters_extra": [
+          false
+        ],
+        "parameters_name": [
+          "n"
+        ],
+        "parameters_required": [
+          true
+        ],
+        "parameters_default_value": [
+          null
+        ]
+      }
+    ],
+    "Neg": [
+      {
+        "return_type": "wxTimeSpan&",
+        "brief_description": "",
+        "constant": false,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [],
+        "parameters_is_array": [],
+        "parameters_extra": [],
+        "parameters_name": [],
+        "parameters_required": [],
+        "parameters_default_value": []
+      }
+    ],
+    "Negate": [
+      {
+        "return_type": "wxTimeSpan",
+        "brief_description": "",
+        "constant": true,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [],
+        "parameters_is_array": [],
+        "parameters_extra": [],
+        "parameters_name": [],
+        "parameters_required": [],
+        "parameters_default_value": []
+      }
+    ],
+    "Subtract": [
+      {
+        "return_type": "wxTimeSpan",
+        "brief_description": "",
+        "constant": true,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [
+          "const wxTimeSpan&"
+        ],
+        "parameters_is_array": [
+          false
+        ],
+        "parameters_extra": [
+          false
+        ],
+        "parameters_name": [
+          "diff"
+        ],
+        "parameters_required": [
+          true
+        ],
+        "parameters_default_value": [
+          null
+        ]
+      },
+      {
+        "return_type": "wxTimeSpan&",
+        "brief_description": "",
+        "constant": false,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [
+          "const wxTimeSpan&"
+        ],
+        "parameters_is_array": [
+          false
+        ],
+        "parameters_extra": [
+          false
+        ],
+        "parameters_name": [
+          "diff"
+        ],
+        "parameters_required": [
+          true
+        ],
+        "parameters_default_value": [
+          null
+        ]
+      }
+    ],
+    "operator+=": [
+      {
+        "return_type": "wxTimeSpan&",
+        "brief_description": "",
+        "constant": false,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [
+          "const wxTimeSpan&"
+        ],
+        "parameters_is_array": [
+          false
+        ],
+        "parameters_extra": [
+          false
+        ],
+        "parameters_name": [
+          "diff"
+        ],
+        "parameters_required": [
+          true
+        ],
+        "parameters_default_value": [
+          null
+        ]
+      }
+    ],
+    "operator*=": [
+      {
+        "return_type": "wxTimeSpan&",
+        "brief_description": "",
+        "constant": false,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [
+          "int"
+        ],
+        "parameters_is_array": [
+          false
+        ],
+        "parameters_extra": [
+          false
+        ],
+        "parameters_name": [
+          "n"
+        ],
+        "parameters_required": [
+          true
+        ],
+        "parameters_default_value": [
+          null
+        ]
+      }
+    ],
+    "operator-": [
+      {
+        "return_type": "wxTimeSpan&",
+        "brief_description": "",
+        "constant": false,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [],
+        "parameters_is_array": [],
+        "parameters_extra": [],
+        "parameters_name": [],
+        "parameters_required": [],
+        "parameters_default_value": []
+      }
+    ],
+    "operator-=": [
+      {
+        "return_type": "wxTimeSpan&",
+        "brief_description": "",
+        "constant": false,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [
+          "const wxTimeSpan&"
+        ],
+        "parameters_is_array": [
+          false
+        ],
+        "parameters_extra": [
+          false
+        ],
+        "parameters_name": [
+          "diff"
+        ],
+        "parameters_required": [
+          true
+        ],
+        "parameters_default_value": [
+          null
+        ]
+      }
+    ],
+    "Day": [
+      {
+        "return_type": "wxTimeSpan",
+        "brief_description": "",
+        "constant": false,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": true,
+        "protected": false,
+        "parameters_type": [],
+        "parameters_is_array": [],
+        "parameters_extra": [],
+        "parameters_name": [],
+        "parameters_required": [],
+        "parameters_default_value": []
+      }
+    ],
+    "Days": [
+      {
+        "return_type": "wxTimeSpan",
+        "brief_description": "",
+        "constant": false,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": true,
+        "protected": false,
+        "parameters_type": [
+          "long"
+        ],
+        "parameters_is_array": [
+          false
+        ],
+        "parameters_extra": [
+          false
+        ],
+        "parameters_name": [
+          "days"
+        ],
+        "parameters_required": [
+          true
+        ],
+        "parameters_default_value": [
+          null
+        ]
+      }
+    ],
+    "Hour": [
+      {
+        "return_type": "wxTimeSpan",
+        "brief_description": "",
+        "constant": false,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": true,
+        "protected": false,
+        "parameters_type": [],
+        "parameters_is_array": [],
+        "parameters_extra": [],
+        "parameters_name": [],
+        "parameters_required": [],
+        "parameters_default_value": []
+      }
+    ],
+    "Hours": [
+      {
+        "return_type": "wxTimeSpan",
+        "brief_description": "",
+        "constant": false,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": true,
+        "protected": false,
+        "parameters_type": [
+          "long"
+        ],
+        "parameters_is_array": [
+          false
+        ],
+        "parameters_extra": [
+          false
+        ],
+        "parameters_name": [
+          "hours"
+        ],
+        "parameters_required": [
+          true
+        ],
+        "parameters_default_value": [
+          null
+        ]
+      }
+    ],
+    "Millisecond": [
+      {
+        "return_type": "wxTimeSpan",
+        "brief_description": "",
+        "constant": false,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": true,
+        "protected": false,
+        "parameters_type": [],
+        "parameters_is_array": [],
+        "parameters_extra": [],
+        "parameters_name": [],
+        "parameters_required": [],
+        "parameters_default_value": []
+      }
+    ],
+    "Milliseconds": [
+      {
+        "return_type": "wxTimeSpan",
+        "brief_description": "",
+        "constant": false,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": true,
+        "protected": false,
+        "parameters_type": [
+          "wxLongLong"
+        ],
+        "parameters_is_array": [
+          false
+        ],
+        "parameters_extra": [
+          false
+        ],
+        "parameters_name": [
+          "ms"
+        ],
+        "parameters_required": [
+          true
+        ],
+        "parameters_default_value": [
+          null
+        ]
+      }
+    ],
+    "Minute": [
+      {
+        "return_type": "wxTimeSpan",
+        "brief_description": "",
+        "constant": false,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": true,
+        "protected": false,
+        "parameters_type": [],
+        "parameters_is_array": [],
+        "parameters_extra": [],
+        "parameters_name": [],
+        "parameters_required": [],
+        "parameters_default_value": []
+      }
+    ],
+    "Minutes": [
+      {
+        "return_type": "wxTimeSpan",
+        "brief_description": "",
+        "constant": false,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": true,
+        "protected": false,
+        "parameters_type": [
+          "long"
+        ],
+        "parameters_is_array": [
+          false
+        ],
+        "parameters_extra": [
+          false
+        ],
+        "parameters_name": [
+          "min"
+        ],
+        "parameters_required": [
+          true
+        ],
+        "parameters_default_value": [
+          null
+        ]
+      }
+    ],
+    "Second": [
+      {
+        "return_type": "wxTimeSpan",
+        "brief_description": "",
+        "constant": false,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": true,
+        "protected": false,
+        "parameters_type": [],
+        "parameters_is_array": [],
+        "parameters_extra": [],
+        "parameters_name": [],
+        "parameters_required": [],
+        "parameters_default_value": []
+      }
+    ],
+    "Seconds": [
+      {
+        "return_type": "wxTimeSpan",
+        "brief_description": "",
+        "constant": false,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": true,
+        "protected": false,
+        "parameters_type": [
+          "wxLongLong"
+        ],
+        "parameters_is_array": [
+          false
+        ],
+        "parameters_extra": [
+          false
+        ],
+        "parameters_name": [
+          "sec"
+        ],
+        "parameters_required": [
+          true
+        ],
+        "parameters_default_value": [
+          null
+        ]
+      }
+    ],
+    "Week": [
+      {
+        "return_type": "wxTimeSpan",
+        "brief_description": "",
+        "constant": false,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": true,
+        "protected": false,
+        "parameters_type": [],
+        "parameters_is_array": [],
+        "parameters_extra": [],
+        "parameters_name": [],
+        "parameters_required": [],
+        "parameters_default_value": []
+      }
+    ],
+    "Weeks": [
+      {
+        "return_type": "wxTimeSpan",
+        "brief_description": "",
+        "constant": false,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": true,
+        "protected": false,
+        "parameters_type": [
+          "long"
+        ],
+        "parameters_is_array": [
+          false
+        ],
+        "parameters_extra": [
+          false
+        ],
+        "parameters_name": [
+          "weeks"
+        ],
+        "parameters_required": [
+          true
+        ],
+        "parameters_default_value": [
+          null
+        ]
+      }
+    ]
+  },
+  "wxTipWindow": {
+    "_implements": [
+      "wxWindow"
+    ],
+    "wxTipWindow": [
+      {
+        "return_type": "",
+        "brief_description": "",
+        "constant": false,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [
+          "wxWindow*",
+          "const wxString&",
+          "wxCoord",
+          "wxTipWindow**",
+          "wxRect*"
+        ],
+        "parameters_is_array": [
+          false,
+          false,
+          false,
+          false,
+          false
+        ],
+        "parameters_extra": [
+          false,
+          false,
+          false,
+          false,
+          false
+        ],
+        "parameters_name": [
+          "parent",
+          "text",
+          "maxLength",
+          "windowPtr",
+          "rectBounds"
+        ],
+        "parameters_required": [
+          true,
+          true
+        ],
+        "parameters_default_value": [
+          null,
+          null,
+          "100",
+          "NULL",
+          "NULL"
+        ]
+      }
+    ],
+    "SetBoundingRect": [
+      {
+        "return_type": "void",
+        "brief_description": "",
+        "constant": false,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [
+          "const wxRect&"
+        ],
+        "parameters_is_array": [
+          false
+        ],
+        "parameters_extra": [
+          false
+        ],
+        "parameters_name": [
+          "rectBound"
+        ],
+        "parameters_required": [
+          true
+        ],
+        "parameters_default_value": [
+          null
+        ]
+      }
+    ],
+    "SetTipWindowPtr": [
+      {
+        "return_type": "void",
+        "brief_description": "",
+        "constant": false,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [
+          "wxTipWindow**"
+        ],
+        "parameters_is_array": [
+          false
+        ],
+        "parameters_extra": [
+          false
+        ],
+        "parameters_name": [
+          "windowPtr"
+        ],
+        "parameters_required": [
+          true
+        ],
+        "parameters_default_value": [
+          null
+        ]
+      }
+    ]
+  },
+  "wxTrackable": {
+    "AddNode": [
+      {
+        "return_type": "void",
+        "brief_description": "",
+        "constant": false,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [
+          "wxTrackerNode*"
+        ],
+        "parameters_is_array": [
+          false
+        ],
+        "parameters_extra": [
+          false
+        ],
+        "parameters_name": [
+          "prn"
+        ],
+        "parameters_required": [
+          true
+        ],
+        "parameters_default_value": [
+          null
+        ]
+      }
+    ],
+    "RemoveNode": [
+      {
+        "return_type": "void",
+        "brief_description": "",
+        "constant": false,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [
+          "wxTrackerNode*"
+        ],
+        "parameters_is_array": [
+          false
+        ],
+        "parameters_extra": [
+          false
+        ],
+        "parameters_name": [
+          "prn"
+        ],
+        "parameters_required": [
+          true
+        ],
+        "parameters_default_value": [
+          null
+        ]
+      }
+    ],
+    "GetFirst": [
+      {
+        "return_type": "wxTrackerNode*",
+        "brief_description": "",
+        "constant": true,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [],
+        "parameters_is_array": [],
+        "parameters_extra": [],
+        "parameters_name": [],
+        "parameters_required": [],
+        "parameters_default_value": []
+      }
+    ],
+    "wxTrackable": [
+      {
+        "return_type": "",
+        "brief_description": "",
+        "constant": false,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": true,
+        "parameters_type": [],
+        "parameters_is_array": [],
+        "parameters_extra": [],
+        "parameters_name": [],
+        "parameters_required": [],
+        "parameters_default_value": []
+      },
+      {
+        "return_type": "",
+        "brief_description": "",
+        "constant": false,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": true,
+        "parameters_type": [
+          "const wxTrackable&"
+        ],
+        "parameters_is_array": [
+          false
+        ],
+        "parameters_extra": [
+          "other"
+        ],
+        "parameters_name": [
+          "WXUNUSED"
+        ],
+        "parameters_required": [
+          true
+        ],
+        "parameters_default_value": [
+          null
+        ]
+      }
+    ],
+    "operator=": [
+      {
+        "return_type": "wxTrackable&",
+        "brief_description": "",
+        "constant": false,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": true,
+        "parameters_type": [
+          "const wxTrackable&"
+        ],
+        "parameters_is_array": [
+          false
+        ],
+        "parameters_extra": [
+          "other"
+        ],
+        "parameters_name": [
+          "WXUNUSED"
+        ],
+        "parameters_required": [
+          true
+        ],
+        "parameters_default_value": [
+          null
+        ]
+      }
+    ]
+  },
+  "wxTransform2D": {
+    "Transform": [
+      {
+        "return_type": "void",
+        "brief_description": "",
+        "constant": true,
+        "virtual": false,
+        "pure_virtual": true,
+        "static": false,
+        "protected": false,
+        "parameters_type": [
+          "wxPoint2DInt*"
+        ],
+        "parameters_is_array": [
+          false
+        ],
+        "parameters_extra": [
+          false
+        ],
+        "parameters_name": [
+          "pt"
+        ],
+        "parameters_required": [
+          true
+        ],
+        "parameters_default_value": [
+          null
+        ]
+      },
+      {
+        "return_type": "void",
+        "brief_description": "",
+        "constant": true,
+        "virtual": true,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [
+          "wxRect2DInt*"
+        ],
+        "parameters_is_array": [
+          false
+        ],
+        "parameters_extra": [
+          false
+        ],
+        "parameters_name": [
+          "r"
+        ],
+        "parameters_required": [
+          true
+        ],
+        "parameters_default_value": [
+          null
+        ]
+      },
+      {
+        "return_type": "wxPoint2DInt",
+        "brief_description": "",
+        "constant": true,
+        "virtual": true,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [
+          "const wxPoint2DInt&"
+        ],
+        "parameters_is_array": [
+          false
+        ],
+        "parameters_extra": [
+          false
+        ],
+        "parameters_name": [
+          "pt"
+        ],
+        "parameters_required": [
+          true
+        ],
+        "parameters_default_value": [
+          null
+        ]
+      },
+      {
+        "return_type": "wxRect2DInt",
+        "brief_description": "",
+        "constant": true,
+        "virtual": true,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [
+          "const wxRect2DInt&"
+        ],
+        "parameters_is_array": [
+          false
+        ],
+        "parameters_extra": [
+          false
+        ],
+        "parameters_name": [
+          "r"
+        ],
+        "parameters_required": [
+          true
+        ],
+        "parameters_default_value": [
+          null
+        ]
+      }
+    ],
+    "InverseTransform": [
+      {
+        "return_type": "void",
+        "brief_description": "",
+        "constant": true,
+        "virtual": false,
+        "pure_virtual": true,
+        "static": false,
+        "protected": false,
+        "parameters_type": [
+          "wxPoint2DInt*"
+        ],
+        "parameters_is_array": [
+          false
+        ],
+        "parameters_extra": [
+          false
+        ],
+        "parameters_name": [
+          "pt"
+        ],
+        "parameters_required": [
+          true
+        ],
+        "parameters_default_value": [
+          null
+        ]
+      },
+      {
+        "return_type": "void",
+        "brief_description": "",
+        "constant": true,
+        "virtual": true,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [
+          "wxRect2DInt*"
+        ],
+        "parameters_is_array": [
+          false
+        ],
+        "parameters_extra": [
+          false
+        ],
+        "parameters_name": [
+          "r"
+        ],
+        "parameters_required": [
+          true
+        ],
+        "parameters_default_value": [
+          null
+        ]
+      },
+      {
+        "return_type": "wxPoint2DInt",
+        "brief_description": "",
+        "constant": true,
+        "virtual": true,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [
+          "const wxPoint2DInt&"
+        ],
+        "parameters_is_array": [
+          false
+        ],
+        "parameters_extra": [
+          false
+        ],
+        "parameters_name": [
+          "pt"
+        ],
+        "parameters_required": [
+          true
+        ],
+        "parameters_default_value": [
+          null
+        ]
+      },
+      {
+        "return_type": "wxRect2DInt",
+        "brief_description": "",
+        "constant": true,
+        "virtual": true,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [
+          "const wxRect2DInt&"
+        ],
+        "parameters_is_array": [
+          false
+        ],
+        "parameters_extra": [
+          false
+        ],
+        "parameters_name": [
+          "r"
+        ],
+        "parameters_required": [
+          true
+        ],
+        "parameters_default_value": [
+          null
+        ]
+      }
+    ]
+  },
+  "wxTranslations": {
+    "wxTranslations": [
+      {
+        "return_type": "",
+        "brief_description": "Constructor.",
+        "constant": false,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [],
+        "parameters_is_array": [],
+        "parameters_extra": [],
+        "parameters_name": [],
+        "parameters_required": [],
+        "parameters_default_value": []
+      }
+    ],
+    "SetLoader": [
+      {
+        "return_type": "void",
+        "brief_description": "",
+        "constant": false,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [
+          "wxTranslationsLoader*"
+        ],
+        "parameters_is_array": [
+          false
+        ],
+        "parameters_extra": [
+          false
+        ],
+        "parameters_name": [
+          "loader"
+        ],
+        "parameters_required": [
+          true
+        ],
+        "parameters_default_value": [
+          null
+        ]
+      }
+    ],
+    "SetLanguage": [
+      {
+        "return_type": "void",
+        "brief_description": "",
+        "constant": false,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [
+          "wxLanguage"
+        ],
+        "parameters_is_array": [
+          false
+        ],
+        "parameters_extra": [
+          false
+        ],
+        "parameters_name": [
+          "lang"
+        ],
+        "parameters_required": [
+          true
+        ],
+        "parameters_default_value": [
+          null
+        ]
+      },
+      {
+        "return_type": "void",
+        "brief_description": "",
+        "constant": false,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [
+          "const wxString&"
+        ],
+        "parameters_is_array": [
+          false
+        ],
+        "parameters_extra": [
+          false
+        ],
+        "parameters_name": [
+          "lang"
+        ],
+        "parameters_required": [
+          true
+        ],
+        "parameters_default_value": [
+          null
+        ]
+      }
+    ],
+    "GetAvailableTranslations": [
+      {
+        "return_type": "wxArrayString",
+        "brief_description": "",
+        "constant": true,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [
+          "const wxString&"
+        ],
+        "parameters_is_array": [
+          false
+        ],
+        "parameters_extra": [
+          false
+        ],
+        "parameters_name": [
+          "domain"
+        ],
+        "parameters_required": [
+          true
+        ],
+        "parameters_default_value": [
+          null
+        ]
+      }
+    ],
+    "GetBestAvailableTranslation": [
+      {
+        "return_type": "wxString",
+        "brief_description": "",
+        "constant": false,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [
+          "const wxString&"
+        ],
+        "parameters_is_array": [
+          false
+        ],
+        "parameters_extra": [
+          false
+        ],
+        "parameters_name": [
+          "domain"
+        ],
+        "parameters_required": [
+          true
+        ],
+        "parameters_default_value": [
+          null
+        ]
+      }
+    ],
+    "GetBestTranslation": [
+      {
+        "return_type": "wxString",
+        "brief_description": "",
+        "constant": false,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [
+          "const wxString&",
+          "wxLanguage"
+        ],
+        "parameters_is_array": [
+          false,
+          false
+        ],
+        "parameters_extra": [
+          false,
+          false
+        ],
+        "parameters_name": [
+          "domain",
+          "msgIdLanguage"
+        ],
+        "parameters_required": [
+          true,
+          true
+        ],
+        "parameters_default_value": [
+          null,
+          null
+        ]
+      },
+      {
+        "return_type": "wxString",
+        "brief_description": "",
+        "constant": false,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [
+          "const wxString&",
+          "const wxString&"
+        ],
+        "parameters_is_array": [
+          false,
+          false
+        ],
+        "parameters_extra": [
+          false,
+          false
+        ],
+        "parameters_name": [
+          "domain",
+          "msgIdLanguage"
+        ],
+        "parameters_required": [
+          true
+        ],
+        "parameters_default_value": [
+          null,
+          "\"en\""
+        ]
+      }
+    ],
+    "AddStdCatalog": [
+      {
+        "return_type": "bool",
+        "brief_description": "",
+        "constant": false,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [],
+        "parameters_is_array": [],
+        "parameters_extra": [],
+        "parameters_name": [],
+        "parameters_required": [],
+        "parameters_default_value": []
+      }
+    ],
+    "AddAvailableCatalog": [
+      {
+        "return_type": "bool",
+        "brief_description": "",
+        "constant": false,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [
+          "const wxString&"
+        ],
+        "parameters_is_array": [
+          false
+        ],
+        "parameters_extra": [
+          false
+        ],
+        "parameters_name": [
+          "domain"
+        ],
+        "parameters_required": [
+          true
+        ],
+        "parameters_default_value": [
+          null
+        ]
+      }
+    ],
+    "AddCatalog": [
+      {
+        "return_type": "bool",
+        "brief_description": "",
+        "constant": false,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [
+          "const wxString&",
+          "wxLanguage"
+        ],
+        "parameters_is_array": [
+          false,
+          false
+        ],
+        "parameters_extra": [
+          false,
+          false
+        ],
+        "parameters_name": [
+          "domain",
+          "msgIdLanguage"
+        ],
+        "parameters_required": [
+          true
+        ],
+        "parameters_default_value": [
+          null,
+          "wxLANGUAGE_ENGLISH_US"
+        ]
+      },
+      {
+        "return_type": "bool",
+        "brief_description": "",
+        "constant": false,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [
+          "const wxString&",
+          "wxLanguage",
+          "const wxString&"
+        ],
+        "parameters_is_array": [
+          false,
+          false,
+          false
+        ],
+        "parameters_extra": [
+          false,
+          false,
+          false
+        ],
+        "parameters_name": [
+          "domain",
+          "msgIdLanguage",
+          "msgIdCharset"
+        ],
+        "parameters_required": [
+          true,
+          true,
+          true
+        ],
+        "parameters_default_value": [
+          null,
+          null,
+          null
+        ]
+      }
+    ],
+    "IsLoaded": [
+      {
+        "return_type": "bool",
+        "brief_description": "",
+        "constant": true,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [
+          "const wxString&"
+        ],
+        "parameters_is_array": [
+          false
+        ],
+        "parameters_extra": [
+          false
+        ],
+        "parameters_name": [
+          "domain"
+        ],
+        "parameters_required": [
+          true
+        ],
+        "parameters_default_value": [
+          null
+        ]
+      }
+    ],
+    "GetTranslatedString": [
+      {
+        "return_type": "const wxString*",
+        "brief_description": "",
+        "constant": true,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [
+          "const wxString&",
+          "const wxString&"
+        ],
+        "parameters_is_array": [
+          false,
+          false
+        ],
+        "parameters_extra": [
+          false,
+          false
+        ],
+        "parameters_name": [
+          "origString",
+          "domain"
+        ],
+        "parameters_required": [
+          true
+        ],
+        "parameters_default_value": [
+          null,
+          "wxEmptyString"
+        ]
+      },
+      {
+        "return_type": "const wxString*",
+        "brief_description": "",
+        "constant": true,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [
+          "const wxString&",
+          "unsigned",
+          "const wxString&"
+        ],
+        "parameters_is_array": [
+          false,
+          false,
+          false
+        ],
+        "parameters_extra": [
+          false,
+          false,
+          false
+        ],
+        "parameters_name": [
+          "origString",
+          "n",
+          "domain"
+        ],
+        "parameters_required": [
+          true,
+          true
+        ],
+        "parameters_default_value": [
+          null,
+          null,
+          "wxEmptyString"
+        ]
+      }
+    ],
+    "GetHeaderValue": [
+      {
+        "return_type": "wxString",
+        "brief_description": "",
+        "constant": true,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [
+          "const wxString&",
+          "const wxString&"
+        ],
+        "parameters_is_array": [
+          false,
+          false
+        ],
+        "parameters_extra": [
+          false,
+          false
+        ],
+        "parameters_name": [
+          "header",
+          "domain"
+        ],
+        "parameters_required": [
+          true
+        ],
+        "parameters_default_value": [
+          null,
+          "wxEmptyString"
+        ]
+      }
+    ],
+    "Get": [
+      {
+        "return_type": "wxTranslations*",
+        "brief_description": "",
+        "constant": false,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": true,
+        "protected": false,
+        "parameters_type": [],
+        "parameters_is_array": [],
+        "parameters_extra": [],
+        "parameters_name": [],
+        "parameters_required": [],
+        "parameters_default_value": []
+      }
+    ],
+    "Set": [
+      {
+        "return_type": "void",
+        "brief_description": "",
+        "constant": false,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": true,
+        "protected": false,
+        "parameters_type": [
+          "wxTranslations*"
+        ],
+        "parameters_is_array": [
+          false
+        ],
+        "parameters_extra": [
+          false
+        ],
+        "parameters_name": [
+          "t"
+        ],
+        "parameters_required": [
+          true
+        ],
+        "parameters_default_value": [
+          null
+        ]
+      }
+    ]
+  },
+  "wxTranslationsLoader": {
+    "wxTranslationsLoader": [
+      {
+        "return_type": "",
+        "brief_description": "Trivial default constructor.",
+        "constant": false,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [],
+        "parameters_is_array": [],
+        "parameters_extra": [],
+        "parameters_name": [],
+        "parameters_required": [],
+        "parameters_default_value": []
+      }
+    ],
+    "LoadCatalog": [
+      {
+        "return_type": "wxMsgCatalog*",
+        "brief_description": "",
+        "constant": false,
+        "virtual": false,
+        "pure_virtual": true,
+        "static": false,
+        "protected": false,
+        "parameters_type": [
+          "const wxString&",
+          "const wxString&"
+        ],
+        "parameters_is_array": [
+          false,
+          false
+        ],
+        "parameters_extra": [
+          false,
+          false
+        ],
+        "parameters_name": [
+          "domain",
+          "lang"
+        ],
+        "parameters_required": [
+          true,
+          true
+        ],
+        "parameters_default_value": [
+          null,
+          null
+        ]
+      }
+    ],
+    "GetAvailableTranslations": [
+      {
+        "return_type": "wxArrayString",
+        "brief_description": "",
+        "constant": true,
+        "virtual": false,
+        "pure_virtual": true,
+        "static": false,
+        "protected": false,
+        "parameters_type": [
+          "const wxString&"
+        ],
+        "parameters_is_array": [
+          false
+        ],
+        "parameters_extra": [
+          false
+        ],
+        "parameters_name": [
+          "domain"
+        ],
+        "parameters_required": [
+          true
+        ],
+        "parameters_default_value": [
+          null
+        ]
+      }
+    ]
+  },
+  "wxTreeListEvent": {
+    "_implements": [
+      "wxNotifyEvent"
+    ],
+    "wxTreeListEvent": [
+      {
+        "return_type": "",
+        "brief_description": "",
+        "constant": false,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [],
+        "parameters_is_array": [],
+        "parameters_extra": [],
+        "parameters_name": [],
+        "parameters_required": [],
+        "parameters_default_value": []
+      }
+    ],
+    "GetItem": [
+      {
+        "return_type": "wxTreeListItem",
+        "brief_description": "",
+        "constant": true,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [],
+        "parameters_is_array": [],
+        "parameters_extra": [],
+        "parameters_name": [],
+        "parameters_required": [],
+        "parameters_default_value": []
+      }
+    ],
+    "GetOldCheckedState": [
+      {
+        "return_type": "wxCheckBoxState",
+        "brief_description": "",
+        "constant": true,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [],
+        "parameters_is_array": [],
+        "parameters_extra": [],
+        "parameters_name": [],
+        "parameters_required": [],
+        "parameters_default_value": []
+      }
+    ],
+    "GetColumn": [
+      {
+        "return_type": "unsigned",
+        "brief_description": "",
+        "constant": true,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [],
+        "parameters_is_array": [],
+        "parameters_extra": [],
+        "parameters_name": [],
+        "parameters_required": [],
+        "parameters_default_value": []
+      }
+    ]
+  },
+  "wxTreeListItemComparator": {
+    "wxTreeListItemComparator": [
+      {
+        "return_type": "",
+        "brief_description": "",
+        "constant": false,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [],
+        "parameters_is_array": [],
+        "parameters_extra": [],
+        "parameters_name": [],
+        "parameters_required": [],
+        "parameters_default_value": []
+      }
+    ],
+    "Compare": [
+      {
+        "return_type": "int",
+        "brief_description": "",
+        "constant": false,
+        "virtual": false,
+        "pure_virtual": true,
+        "static": false,
+        "protected": false,
+        "parameters_type": [
+          "wxTreeListCtrl*",
+          "unsigned",
+          "wxTreeListItem",
+          "wxTreeListItem"
+        ],
+        "parameters_is_array": [
+          false,
+          false,
+          false,
+          false
+        ],
+        "parameters_extra": [
+          false,
+          false,
+          false,
+          false
+        ],
+        "parameters_name": [
+          "treelist",
+          "column",
+          "first",
+          "second"
+        ],
+        "parameters_required": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "parameters_default_value": [
+          null,
+          null,
+          null,
+          null
+        ]
+      }
+    ]
   }
 }

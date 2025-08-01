@@ -63,6 +63,7 @@
 #include "ribbon.h"
 #include "richtext.h"
 #include "rtti.h"
+#include "smartpointers.h"
 #include "stc.h"
 #include "streams.h"
 #include "threading.h"
@@ -1042,6 +1043,22 @@ zend_class_entry* php_wxView_entry;
 zend_object_handlers wxphp_wxView_object_handlers;
 zend_class_entry* php_wxVisualAttributes_entry;
 zend_object_handlers wxphp_wxVisualAttributes_object_handlers;
+zend_class_entry* php_wxTimeSpan_entry;
+zend_object_handlers wxphp_wxTimeSpan_object_handlers;
+zend_class_entry* php_wxTipWindow_entry;
+zend_object_handlers wxphp_wxTipWindow_object_handlers;
+zend_class_entry* php_wxTrackable_entry;
+zend_object_handlers wxphp_wxTrackable_object_handlers;
+zend_class_entry* php_wxTransform2D_entry;
+zend_object_handlers wxphp_wxTransform2D_object_handlers;
+zend_class_entry* php_wxTranslations_entry;
+zend_object_handlers wxphp_wxTranslations_object_handlers;
+zend_class_entry* php_wxTranslationsLoader_entry;
+zend_object_handlers wxphp_wxTranslationsLoader_object_handlers;
+zend_class_entry* php_wxTreeListEvent_entry;
+zend_object_handlers wxphp_wxTreeListEvent_object_handlers;
+zend_class_entry* php_wxTreeListItemComparator_entry;
+zend_object_handlers wxphp_wxTreeListItemComparator_object_handlers;
 
 
 /**
@@ -3147,6 +3164,42 @@ PHP_MINIT_FUNCTION(php_wxWidgets)
     php_wxVisualAttributes_entry = zend_register_internal_class(&ce);
     php_wxVisualAttributes_entry->create_object = php_wxVisualAttributes_new;
     wxPHP_PREPARE_OBJECT_HANDLERS(wxVisualAttributes)
+
+    char PHP_wxTimeSpan_name[] = "wxTimeSpan";
+    INIT_CLASS_ENTRY(ce, PHP_wxTimeSpan_name, php_wxTimeSpan_functions);
+    php_wxTimeSpan_entry = zend_register_internal_class(&ce);
+    php_wxTimeSpan_entry->create_object = php_wxTimeSpan_new;
+    wxPHP_PREPARE_OBJECT_HANDLERS(wxTimeSpan)
+
+    char PHP_wxTrackable_name[] = "wxTrackable";
+    INIT_CLASS_ENTRY(ce, PHP_wxTrackable_name, php_wxTrackable_functions);
+    php_wxTrackable_entry = zend_register_internal_class(&ce);
+    php_wxTrackable_entry->create_object = php_wxTrackable_new;
+    wxPHP_PREPARE_OBJECT_HANDLERS(wxTrackable)
+
+    char PHP_wxTransform2D_name[] = "wxTransform2D";
+    INIT_CLASS_ENTRY(ce, PHP_wxTransform2D_name, php_wxTransform2D_functions);
+    php_wxTransform2D_entry = zend_register_internal_class(&ce);
+    php_wxTransform2D_entry->create_object = php_wxTransform2D_new;
+    wxPHP_PREPARE_OBJECT_HANDLERS(wxTransform2D)
+
+    char PHP_wxTranslations_name[] = "wxTranslations";
+    INIT_CLASS_ENTRY(ce, PHP_wxTranslations_name, php_wxTranslations_functions);
+    php_wxTranslations_entry = zend_register_internal_class(&ce);
+    php_wxTranslations_entry->create_object = php_wxTranslations_new;
+    wxPHP_PREPARE_OBJECT_HANDLERS(wxTranslations)
+
+    char PHP_wxTranslationsLoader_name[] = "wxTranslationsLoader";
+    INIT_CLASS_ENTRY(ce, PHP_wxTranslationsLoader_name, php_wxTranslationsLoader_functions);
+    php_wxTranslationsLoader_entry = zend_register_internal_class(&ce);
+    php_wxTranslationsLoader_entry->create_object = php_wxTranslationsLoader_new;
+    wxPHP_PREPARE_OBJECT_HANDLERS(wxTranslationsLoader)
+
+    char PHP_wxTreeListItemComparator_name[] = "wxTreeListItemComparator";
+    INIT_CLASS_ENTRY(ce, PHP_wxTreeListItemComparator_name, php_wxTreeListItemComparator_functions);
+    php_wxTreeListItemComparator_entry = zend_register_internal_class(&ce);
+    php_wxTreeListItemComparator_entry->create_object = php_wxTreeListItemComparator_new;
+    wxPHP_PREPARE_OBJECT_HANDLERS(wxTreeListItemComparator)
 
     char PHP_wxEvtHandler_name[] = "wxEvtHandler";
     INIT_CLASS_ENTRY(ce, PHP_wxEvtHandler_name, php_wxEvtHandler_functions);
@@ -5313,6 +5366,18 @@ PHP_MINIT_FUNCTION(php_wxWidgets)
     php_wxView_entry = zend_register_internal_class_ex(&ce, php_wxEvtHandler_entry);
     php_wxView_entry->create_object = php_wxView_new;
     wxPHP_PREPARE_OBJECT_HANDLERS(wxView)
+
+    char PHP_wxTipWindow_name[] = "wxTipWindow";
+    INIT_CLASS_ENTRY(ce, PHP_wxTipWindow_name, php_wxTipWindow_functions);
+    php_wxTipWindow_entry = zend_register_internal_class_ex(&ce, php_wxWindow_entry);
+    php_wxTipWindow_entry->create_object = php_wxTipWindow_new;
+    wxPHP_PREPARE_OBJECT_HANDLERS(wxTipWindow)
+
+    char PHP_wxTreeListEvent_name[] = "wxTreeListEvent";
+    INIT_CLASS_ENTRY(ce, PHP_wxTreeListEvent_name, php_wxTreeListEvent_functions);
+    php_wxTreeListEvent_entry = zend_register_internal_class_ex(&ce, php_wxNotifyEvent_entry);
+    php_wxTreeListEvent_entry->create_object = php_wxTreeListEvent_new;
+    wxPHP_PREPARE_OBJECT_HANDLERS(wxTreeListEvent)
 
 
     //Variables found on consts.json
