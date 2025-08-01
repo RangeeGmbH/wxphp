@@ -193086,5 +193086,7678 @@
         ]
       }
     ]
+  },
+  "wxTextAttrBorder": {
+    "wxTextAttrBorder": [
+      {
+        "return_type": "",
+        "brief_description": "",
+        "constant": false,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [],
+        "parameters_is_array": [],
+        "parameters_extra": [],
+        "parameters_name": [],
+        "parameters_required": [],
+        "parameters_default_value": []
+      }
+    ],
+    "operator==": [
+      {
+        "return_type": "bool",
+        "brief_description": "",
+        "constant": true,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [
+          "const wxTextAttrBorder&"
+        ],
+        "parameters_is_array": [
+          false
+        ],
+        "parameters_extra": [
+          false
+        ],
+        "parameters_name": [
+          "border"
+        ],
+        "parameters_required": [
+          true
+        ],
+        "parameters_default_value": [
+          null
+        ]
+      }
+    ],
+    "Reset": [
+      {
+        "return_type": "void",
+        "brief_description": "",
+        "constant": false,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [],
+        "parameters_is_array": [],
+        "parameters_extra": [],
+        "parameters_name": [],
+        "parameters_required": [],
+        "parameters_default_value": []
+      }
+    ],
+    "EqPartial": [
+      {
+        "return_type": "bool",
+        "brief_description": "",
+        "constant": true,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [
+          "const wxTextAttrBorder&",
+          "bool"
+        ],
+        "parameters_is_array": [
+          false,
+          false
+        ],
+        "parameters_extra": [
+          false,
+          false
+        ],
+        "parameters_name": [
+          "border",
+          "weakTest"
+        ],
+        "parameters_required": [
+          true
+        ],
+        "parameters_default_value": [
+          null,
+          "true"
+        ]
+      }
+    ],
+    "Apply": [
+      {
+        "return_type": "bool",
+        "brief_description": "",
+        "constant": false,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [
+          "const wxTextAttrBorder&",
+          "const wxTextAttrBorder*"
+        ],
+        "parameters_is_array": [
+          false,
+          false
+        ],
+        "parameters_extra": [
+          false,
+          false
+        ],
+        "parameters_name": [
+          "border",
+          "compareWith"
+        ],
+        "parameters_required": [
+          true
+        ],
+        "parameters_default_value": [
+          null,
+          "NULL"
+        ]
+      }
+    ],
+    "RemoveStyle": [
+      {
+        "return_type": "bool",
+        "brief_description": "",
+        "constant": false,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [
+          "const wxTextAttrBorder&"
+        ],
+        "parameters_is_array": [
+          false
+        ],
+        "parameters_extra": [
+          false
+        ],
+        "parameters_name": [
+          "attr"
+        ],
+        "parameters_required": [
+          true
+        ],
+        "parameters_default_value": [
+          null
+        ]
+      }
+    ],
+    "CollectCommonAttributes": [
+      {
+        "return_type": "void",
+        "brief_description": "",
+        "constant": false,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [
+          "const wxTextAttrBorder&",
+          "wxTextAttrBorder&",
+          "wxTextAttrBorder&"
+        ],
+        "parameters_is_array": [
+          false,
+          false,
+          false
+        ],
+        "parameters_extra": [
+          false,
+          false,
+          false
+        ],
+        "parameters_name": [
+          "attr",
+          "clashingAttr",
+          "absentAttr"
+        ],
+        "parameters_required": [
+          true,
+          true,
+          true
+        ],
+        "parameters_default_value": [
+          null,
+          null,
+          null
+        ]
+      }
+    ],
+    "SetStyle": [
+      {
+        "return_type": "void",
+        "brief_description": "",
+        "constant": false,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [
+          "int"
+        ],
+        "parameters_is_array": [
+          false
+        ],
+        "parameters_extra": [
+          false
+        ],
+        "parameters_name": [
+          "style"
+        ],
+        "parameters_required": [
+          true
+        ],
+        "parameters_default_value": [
+          null
+        ]
+      }
+    ],
+    "GetStyle": [
+      {
+        "return_type": "int",
+        "brief_description": "",
+        "constant": true,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [],
+        "parameters_is_array": [],
+        "parameters_extra": [],
+        "parameters_name": [],
+        "parameters_required": [],
+        "parameters_default_value": []
+      }
+    ],
+    "SetColour": [
+      {
+        "return_type": "void",
+        "brief_description": "",
+        "constant": false,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [
+          "unsigned long"
+        ],
+        "parameters_is_array": [
+          false
+        ],
+        "parameters_extra": [
+          false
+        ],
+        "parameters_name": [
+          "colour"
+        ],
+        "parameters_required": [
+          true
+        ],
+        "parameters_default_value": [
+          null
+        ]
+      },
+      {
+        "return_type": "void",
+        "brief_description": "",
+        "constant": false,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [
+          "const wxColour&"
+        ],
+        "parameters_is_array": [
+          false
+        ],
+        "parameters_extra": [
+          false
+        ],
+        "parameters_name": [
+          "colour"
+        ],
+        "parameters_required": [
+          true
+        ],
+        "parameters_default_value": [
+          null
+        ]
+      }
+    ],
+    "GetColourLong": [
+      {
+        "return_type": "unsigned long",
+        "brief_description": "",
+        "constant": true,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [],
+        "parameters_is_array": [],
+        "parameters_extra": [],
+        "parameters_name": [],
+        "parameters_required": [],
+        "parameters_default_value": []
+      }
+    ],
+    "GetColour": [
+      {
+        "return_type": "wxColour",
+        "brief_description": "",
+        "constant": true,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [],
+        "parameters_is_array": [],
+        "parameters_extra": [],
+        "parameters_name": [],
+        "parameters_required": [],
+        "parameters_default_value": []
+      }
+    ],
+    "GetWidth": [
+      {
+        "return_type": "wxTextAttrDimension&",
+        "brief_description": "",
+        "constant": false,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [],
+        "parameters_is_array": [],
+        "parameters_extra": [],
+        "parameters_name": [],
+        "parameters_required": [],
+        "parameters_default_value": []
+      },
+      {
+        "return_type": "const wxTextAttrDimension&",
+        "brief_description": "",
+        "constant": true,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [],
+        "parameters_is_array": [],
+        "parameters_extra": [],
+        "parameters_name": [],
+        "parameters_required": [],
+        "parameters_default_value": []
+      }
+    ],
+    "SetWidth": [
+      {
+        "return_type": "void",
+        "brief_description": "",
+        "constant": false,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [
+          "const wxTextAttrDimension&"
+        ],
+        "parameters_is_array": [
+          false
+        ],
+        "parameters_extra": [
+          false
+        ],
+        "parameters_name": [
+          "width"
+        ],
+        "parameters_required": [
+          true
+        ],
+        "parameters_default_value": [
+          null
+        ]
+      },
+      {
+        "return_type": "void",
+        "brief_description": "",
+        "constant": false,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [
+          "int",
+          "wxTextAttrUnits"
+        ],
+        "parameters_is_array": [
+          false,
+          false
+        ],
+        "parameters_extra": [
+          false,
+          false
+        ],
+        "parameters_name": [
+          "value",
+          "units"
+        ],
+        "parameters_required": [
+          true
+        ],
+        "parameters_default_value": [
+          null,
+          "wxTEXT_ATTR_UNITS_TENTHS_MM"
+        ]
+      }
+    ],
+    "HasStyle": [
+      {
+        "return_type": "bool",
+        "brief_description": "",
+        "constant": true,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [],
+        "parameters_is_array": [],
+        "parameters_extra": [],
+        "parameters_name": [],
+        "parameters_required": [],
+        "parameters_default_value": []
+      }
+    ],
+    "HasColour": [
+      {
+        "return_type": "bool",
+        "brief_description": "",
+        "constant": true,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [],
+        "parameters_is_array": [],
+        "parameters_extra": [],
+        "parameters_name": [],
+        "parameters_required": [],
+        "parameters_default_value": []
+      }
+    ],
+    "HasWidth": [
+      {
+        "return_type": "bool",
+        "brief_description": "",
+        "constant": true,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [],
+        "parameters_is_array": [],
+        "parameters_extra": [],
+        "parameters_name": [],
+        "parameters_required": [],
+        "parameters_default_value": []
+      }
+    ],
+    "IsValid": [
+      {
+        "return_type": "bool",
+        "brief_description": "",
+        "constant": true,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [],
+        "parameters_is_array": [],
+        "parameters_extra": [],
+        "parameters_name": [],
+        "parameters_required": [],
+        "parameters_default_value": []
+      }
+    ],
+    "IsDefault": [
+      {
+        "return_type": "bool",
+        "brief_description": "",
+        "constant": true,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [],
+        "parameters_is_array": [],
+        "parameters_extra": [],
+        "parameters_name": [],
+        "parameters_required": [],
+        "parameters_default_value": []
+      }
+    ],
+    "MakeValid": [
+      {
+        "return_type": "void",
+        "brief_description": "",
+        "constant": false,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [],
+        "parameters_is_array": [],
+        "parameters_extra": [],
+        "parameters_name": [],
+        "parameters_required": [],
+        "parameters_default_value": []
+      }
+    ],
+    "GetFlags": [
+      {
+        "return_type": "int",
+        "brief_description": "",
+        "constant": true,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [],
+        "parameters_is_array": [],
+        "parameters_extra": [],
+        "parameters_name": [],
+        "parameters_required": [],
+        "parameters_default_value": []
+      }
+    ],
+    "SetFlags": [
+      {
+        "return_type": "void",
+        "brief_description": "",
+        "constant": false,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [
+          "int"
+        ],
+        "parameters_is_array": [
+          false
+        ],
+        "parameters_extra": [
+          false
+        ],
+        "parameters_name": [
+          "flags"
+        ],
+        "parameters_required": [
+          true
+        ],
+        "parameters_default_value": [
+          null
+        ]
+      }
+    ],
+    "AddFlag": [
+      {
+        "return_type": "void",
+        "brief_description": "",
+        "constant": false,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [
+          "int"
+        ],
+        "parameters_is_array": [
+          false
+        ],
+        "parameters_extra": [
+          false
+        ],
+        "parameters_name": [
+          "flag"
+        ],
+        "parameters_required": [
+          true
+        ],
+        "parameters_default_value": [
+          null
+        ]
+      }
+    ],
+    "RemoveFlag": [
+      {
+        "return_type": "void",
+        "brief_description": "",
+        "constant": false,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [
+          "int"
+        ],
+        "parameters_is_array": [
+          false
+        ],
+        "parameters_extra": [
+          false
+        ],
+        "parameters_name": [
+          "flag"
+        ],
+        "parameters_required": [
+          true
+        ],
+        "parameters_default_value": [
+          null
+        ]
+      }
+    ]
+  },
+  "wxTextAttrBorders": {
+    "wxTextAttrBorders": [
+      {
+        "return_type": "",
+        "brief_description": "",
+        "constant": false,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [],
+        "parameters_is_array": [],
+        "parameters_extra": [],
+        "parameters_name": [],
+        "parameters_required": [],
+        "parameters_default_value": []
+      }
+    ],
+    "operator==": [
+      {
+        "return_type": "bool",
+        "brief_description": "",
+        "constant": true,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [
+          "const wxTextAttrBorders&"
+        ],
+        "parameters_is_array": [
+          false
+        ],
+        "parameters_extra": [
+          false
+        ],
+        "parameters_name": [
+          "borders"
+        ],
+        "parameters_required": [
+          true
+        ],
+        "parameters_default_value": [
+          null
+        ]
+      }
+    ],
+    "SetStyle": [
+      {
+        "return_type": "void",
+        "brief_description": "",
+        "constant": false,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [
+          "int"
+        ],
+        "parameters_is_array": [
+          false
+        ],
+        "parameters_extra": [
+          false
+        ],
+        "parameters_name": [
+          "style"
+        ],
+        "parameters_required": [
+          true
+        ],
+        "parameters_default_value": [
+          null
+        ]
+      }
+    ],
+    "SetColour": [
+      {
+        "return_type": "void",
+        "brief_description": "",
+        "constant": false,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [
+          "unsigned long"
+        ],
+        "parameters_is_array": [
+          false
+        ],
+        "parameters_extra": [
+          false
+        ],
+        "parameters_name": [
+          "colour"
+        ],
+        "parameters_required": [
+          true
+        ],
+        "parameters_default_value": [
+          null
+        ]
+      },
+      {
+        "return_type": "void",
+        "brief_description": "",
+        "constant": false,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [
+          "const wxColour&"
+        ],
+        "parameters_is_array": [
+          false
+        ],
+        "parameters_extra": [
+          false
+        ],
+        "parameters_name": [
+          "colour"
+        ],
+        "parameters_required": [
+          true
+        ],
+        "parameters_default_value": [
+          null
+        ]
+      }
+    ],
+    "SetWidth": [
+      {
+        "return_type": "void",
+        "brief_description": "",
+        "constant": false,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [
+          "const wxTextAttrDimension&"
+        ],
+        "parameters_is_array": [
+          false
+        ],
+        "parameters_extra": [
+          false
+        ],
+        "parameters_name": [
+          "width"
+        ],
+        "parameters_required": [
+          true
+        ],
+        "parameters_default_value": [
+          null
+        ]
+      },
+      {
+        "return_type": "void",
+        "brief_description": "",
+        "constant": false,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [
+          "int",
+          "wxTextAttrUnits"
+        ],
+        "parameters_is_array": [
+          false,
+          false
+        ],
+        "parameters_extra": [
+          false,
+          false
+        ],
+        "parameters_name": [
+          "value",
+          "units"
+        ],
+        "parameters_required": [
+          true
+        ],
+        "parameters_default_value": [
+          null,
+          "wxTEXT_ATTR_UNITS_TENTHS_MM"
+        ]
+      }
+    ],
+    "Reset": [
+      {
+        "return_type": "void",
+        "brief_description": "",
+        "constant": false,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [],
+        "parameters_is_array": [],
+        "parameters_extra": [],
+        "parameters_name": [],
+        "parameters_required": [],
+        "parameters_default_value": []
+      }
+    ],
+    "EqPartial": [
+      {
+        "return_type": "bool",
+        "brief_description": "",
+        "constant": true,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [
+          "const wxTextAttrBorders&",
+          "bool"
+        ],
+        "parameters_is_array": [
+          false,
+          false
+        ],
+        "parameters_extra": [
+          false,
+          false
+        ],
+        "parameters_name": [
+          "borders",
+          "weakTest"
+        ],
+        "parameters_required": [
+          true
+        ],
+        "parameters_default_value": [
+          null,
+          "true"
+        ]
+      }
+    ],
+    "Apply": [
+      {
+        "return_type": "bool",
+        "brief_description": "",
+        "constant": false,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [
+          "const wxTextAttrBorders&",
+          "const wxTextAttrBorders*"
+        ],
+        "parameters_is_array": [
+          false,
+          false
+        ],
+        "parameters_extra": [
+          false,
+          false
+        ],
+        "parameters_name": [
+          "borders",
+          "compareWith"
+        ],
+        "parameters_required": [
+          true
+        ],
+        "parameters_default_value": [
+          null,
+          "NULL"
+        ]
+      }
+    ],
+    "RemoveStyle": [
+      {
+        "return_type": "bool",
+        "brief_description": "",
+        "constant": false,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [
+          "const wxTextAttrBorders&"
+        ],
+        "parameters_is_array": [
+          false
+        ],
+        "parameters_extra": [
+          false
+        ],
+        "parameters_name": [
+          "attr"
+        ],
+        "parameters_required": [
+          true
+        ],
+        "parameters_default_value": [
+          null
+        ]
+      }
+    ],
+    "CollectCommonAttributes": [
+      {
+        "return_type": "void",
+        "brief_description": "",
+        "constant": false,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [
+          "const wxTextAttrBorders&",
+          "wxTextAttrBorders&",
+          "wxTextAttrBorders&"
+        ],
+        "parameters_is_array": [
+          false,
+          false,
+          false
+        ],
+        "parameters_extra": [
+          false,
+          false,
+          false
+        ],
+        "parameters_name": [
+          "attr",
+          "clashingAttr",
+          "absentAttr"
+        ],
+        "parameters_required": [
+          true,
+          true,
+          true
+        ],
+        "parameters_default_value": [
+          null,
+          null,
+          null
+        ]
+      }
+    ],
+    "IsValid": [
+      {
+        "return_type": "bool",
+        "brief_description": "",
+        "constant": true,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [],
+        "parameters_is_array": [],
+        "parameters_extra": [],
+        "parameters_name": [],
+        "parameters_required": [],
+        "parameters_default_value": []
+      }
+    ],
+    "GetLeft": [
+      {
+        "return_type": "const wxTextAttrBorder&",
+        "brief_description": "",
+        "constant": true,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [],
+        "parameters_is_array": [],
+        "parameters_extra": [],
+        "parameters_name": [],
+        "parameters_required": [],
+        "parameters_default_value": []
+      },
+      {
+        "return_type": "wxTextAttrBorder&",
+        "brief_description": "",
+        "constant": false,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [],
+        "parameters_is_array": [],
+        "parameters_extra": [],
+        "parameters_name": [],
+        "parameters_required": [],
+        "parameters_default_value": []
+      }
+    ],
+    "GetRight": [
+      {
+        "return_type": "const wxTextAttrBorder&",
+        "brief_description": "",
+        "constant": true,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [],
+        "parameters_is_array": [],
+        "parameters_extra": [],
+        "parameters_name": [],
+        "parameters_required": [],
+        "parameters_default_value": []
+      },
+      {
+        "return_type": "wxTextAttrBorder&",
+        "brief_description": "",
+        "constant": false,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [],
+        "parameters_is_array": [],
+        "parameters_extra": [],
+        "parameters_name": [],
+        "parameters_required": [],
+        "parameters_default_value": []
+      }
+    ],
+    "GetTop": [
+      {
+        "return_type": "const wxTextAttrBorder&",
+        "brief_description": "",
+        "constant": true,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [],
+        "parameters_is_array": [],
+        "parameters_extra": [],
+        "parameters_name": [],
+        "parameters_required": [],
+        "parameters_default_value": []
+      },
+      {
+        "return_type": "wxTextAttrBorder&",
+        "brief_description": "",
+        "constant": false,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [],
+        "parameters_is_array": [],
+        "parameters_extra": [],
+        "parameters_name": [],
+        "parameters_required": [],
+        "parameters_default_value": []
+      }
+    ],
+    "GetBottom": [
+      {
+        "return_type": "const wxTextAttrBorder&",
+        "brief_description": "",
+        "constant": true,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [],
+        "parameters_is_array": [],
+        "parameters_extra": [],
+        "parameters_name": [],
+        "parameters_required": [],
+        "parameters_default_value": []
+      },
+      {
+        "return_type": "wxTextAttrBorder&",
+        "brief_description": "",
+        "constant": false,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [],
+        "parameters_is_array": [],
+        "parameters_extra": [],
+        "parameters_name": [],
+        "parameters_required": [],
+        "parameters_default_value": []
+      }
+    ]
+  },
+  "wxTextAttrDimension": {
+    "wxTextAttrDimension": [
+      {
+        "return_type": "",
+        "brief_description": "",
+        "constant": false,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [],
+        "parameters_is_array": [],
+        "parameters_extra": [],
+        "parameters_name": [],
+        "parameters_required": [],
+        "parameters_default_value": []
+      },
+      {
+        "return_type": "",
+        "brief_description": "",
+        "constant": false,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [
+          "int",
+          "wxTextAttrUnits"
+        ],
+        "parameters_is_array": [
+          false,
+          false
+        ],
+        "parameters_extra": [
+          false,
+          false
+        ],
+        "parameters_name": [
+          "value",
+          "units"
+        ],
+        "parameters_required": [
+          true
+        ],
+        "parameters_default_value": [
+          null,
+          "wxTEXT_ATTR_UNITS_TENTHS_MM"
+        ]
+      }
+    ],
+    "Reset": [
+      {
+        "return_type": "void",
+        "brief_description": "",
+        "constant": false,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [],
+        "parameters_is_array": [],
+        "parameters_extra": [],
+        "parameters_name": [],
+        "parameters_required": [],
+        "parameters_default_value": []
+      }
+    ],
+    "EqPartial": [
+      {
+        "return_type": "bool",
+        "brief_description": "",
+        "constant": true,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [
+          "const wxTextAttrDimension&",
+          "bool"
+        ],
+        "parameters_is_array": [
+          false,
+          false
+        ],
+        "parameters_extra": [
+          false,
+          false
+        ],
+        "parameters_name": [
+          "dim",
+          "weakTest"
+        ],
+        "parameters_required": [
+          true
+        ],
+        "parameters_default_value": [
+          null,
+          "true"
+        ]
+      }
+    ],
+    "Apply": [
+      {
+        "return_type": "bool",
+        "brief_description": "",
+        "constant": false,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [
+          "const wxTextAttrDimension&",
+          "const wxTextAttrDimension*"
+        ],
+        "parameters_is_array": [
+          false,
+          false
+        ],
+        "parameters_extra": [
+          false,
+          false
+        ],
+        "parameters_name": [
+          "dim",
+          "compareWith"
+        ],
+        "parameters_required": [
+          true
+        ],
+        "parameters_default_value": [
+          null,
+          "NULL"
+        ]
+      }
+    ],
+    "CollectCommonAttributes": [
+      {
+        "return_type": "void",
+        "brief_description": "",
+        "constant": false,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [
+          "const wxTextAttrDimension&",
+          "wxTextAttrDimension&",
+          "wxTextAttrDimension&"
+        ],
+        "parameters_is_array": [
+          false,
+          false,
+          false
+        ],
+        "parameters_extra": [
+          false,
+          false,
+          false
+        ],
+        "parameters_name": [
+          "attr",
+          "clashingAttr",
+          "absentAttr"
+        ],
+        "parameters_required": [
+          true,
+          true,
+          true
+        ],
+        "parameters_default_value": [
+          null,
+          null,
+          null
+        ]
+      }
+    ],
+    "operator==": [
+      {
+        "return_type": "bool",
+        "brief_description": "",
+        "constant": true,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [
+          "const wxTextAttrDimension&"
+        ],
+        "parameters_is_array": [
+          false
+        ],
+        "parameters_extra": [
+          false
+        ],
+        "parameters_name": [
+          "dim"
+        ],
+        "parameters_required": [
+          true
+        ],
+        "parameters_default_value": [
+          null
+        ]
+      }
+    ],
+    "GetValue": [
+      {
+        "return_type": "int",
+        "brief_description": "",
+        "constant": true,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [],
+        "parameters_is_array": [],
+        "parameters_extra": [],
+        "parameters_name": [],
+        "parameters_required": [],
+        "parameters_default_value": []
+      }
+    ],
+    "GetValueMM": [
+      {
+        "return_type": "float",
+        "brief_description": "",
+        "constant": true,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [],
+        "parameters_is_array": [],
+        "parameters_extra": [],
+        "parameters_name": [],
+        "parameters_required": [],
+        "parameters_default_value": []
+      }
+    ],
+    "SetValueMM": [
+      {
+        "return_type": "void",
+        "brief_description": "",
+        "constant": false,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [
+          "float"
+        ],
+        "parameters_is_array": [
+          false
+        ],
+        "parameters_extra": [
+          false
+        ],
+        "parameters_name": [
+          "value"
+        ],
+        "parameters_required": [
+          true
+        ],
+        "parameters_default_value": [
+          null
+        ]
+      }
+    ],
+    "SetValue": [
+      {
+        "return_type": "void",
+        "brief_description": "",
+        "constant": false,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [
+          "int"
+        ],
+        "parameters_is_array": [
+          false
+        ],
+        "parameters_extra": [
+          false
+        ],
+        "parameters_name": [
+          "value"
+        ],
+        "parameters_required": [
+          true
+        ],
+        "parameters_default_value": [
+          null
+        ]
+      },
+      {
+        "return_type": "void",
+        "brief_description": "",
+        "constant": false,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [
+          "int",
+          "wxTextAttrDimensionFlags"
+        ],
+        "parameters_is_array": [
+          false,
+          false
+        ],
+        "parameters_extra": [
+          false,
+          false
+        ],
+        "parameters_name": [
+          "value",
+          "flags"
+        ],
+        "parameters_required": [
+          true,
+          true
+        ],
+        "parameters_default_value": [
+          null,
+          null
+        ]
+      },
+      {
+        "return_type": "void",
+        "brief_description": "",
+        "constant": false,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [
+          "int",
+          "wxTextAttrUnits"
+        ],
+        "parameters_is_array": [
+          false,
+          false
+        ],
+        "parameters_extra": [
+          false,
+          false
+        ],
+        "parameters_name": [
+          "value",
+          "units"
+        ],
+        "parameters_required": [
+          true,
+          true
+        ],
+        "parameters_default_value": [
+          null,
+          null
+        ]
+      },
+      {
+        "return_type": "void",
+        "brief_description": "",
+        "constant": false,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [
+          "const wxTextAttrDimension&"
+        ],
+        "parameters_is_array": [
+          false
+        ],
+        "parameters_extra": [
+          false
+        ],
+        "parameters_name": [
+          "dim"
+        ],
+        "parameters_required": [
+          true
+        ],
+        "parameters_default_value": [
+          null
+        ]
+      }
+    ],
+    "GetUnits": [
+      {
+        "return_type": "wxTextAttrUnits",
+        "brief_description": "",
+        "constant": true,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [],
+        "parameters_is_array": [],
+        "parameters_extra": [],
+        "parameters_name": [],
+        "parameters_required": [],
+        "parameters_default_value": []
+      }
+    ],
+    "SetUnits": [
+      {
+        "return_type": "void",
+        "brief_description": "",
+        "constant": false,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [
+          "wxTextAttrUnits"
+        ],
+        "parameters_is_array": [
+          false
+        ],
+        "parameters_extra": [
+          false
+        ],
+        "parameters_name": [
+          "units"
+        ],
+        "parameters_required": [
+          true
+        ],
+        "parameters_default_value": [
+          null
+        ]
+      }
+    ],
+    "GetPosition": [
+      {
+        "return_type": "wxTextBoxAttrPosition",
+        "brief_description": "",
+        "constant": true,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [],
+        "parameters_is_array": [],
+        "parameters_extra": [],
+        "parameters_name": [],
+        "parameters_required": [],
+        "parameters_default_value": []
+      }
+    ],
+    "SetPosition": [
+      {
+        "return_type": "void",
+        "brief_description": "",
+        "constant": false,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [
+          "wxTextBoxAttrPosition"
+        ],
+        "parameters_is_array": [
+          false
+        ],
+        "parameters_extra": [
+          false
+        ],
+        "parameters_name": [
+          "pos"
+        ],
+        "parameters_required": [
+          true
+        ],
+        "parameters_default_value": [
+          null
+        ]
+      }
+    ],
+    "IsValid": [
+      {
+        "return_type": "bool",
+        "brief_description": "",
+        "constant": true,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [],
+        "parameters_is_array": [],
+        "parameters_extra": [],
+        "parameters_name": [],
+        "parameters_required": [],
+        "parameters_default_value": []
+      }
+    ],
+    "SetValid": [
+      {
+        "return_type": "void",
+        "brief_description": "",
+        "constant": false,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [
+          "bool"
+        ],
+        "parameters_is_array": [
+          false
+        ],
+        "parameters_extra": [
+          false
+        ],
+        "parameters_name": [
+          "b"
+        ],
+        "parameters_required": [
+          true
+        ],
+        "parameters_default_value": [
+          null
+        ]
+      }
+    ],
+    "GetFlags": [
+      {
+        "return_type": "wxTextAttrDimensionFlags",
+        "brief_description": "",
+        "constant": true,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [],
+        "parameters_is_array": [],
+        "parameters_extra": [],
+        "parameters_name": [],
+        "parameters_required": [],
+        "parameters_default_value": []
+      }
+    ],
+    "SetFlags": [
+      {
+        "return_type": "void",
+        "brief_description": "",
+        "constant": false,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [
+          "wxTextAttrDimensionFlags"
+        ],
+        "parameters_is_array": [
+          false
+        ],
+        "parameters_extra": [
+          false
+        ],
+        "parameters_name": [
+          "flags"
+        ],
+        "parameters_required": [
+          true
+        ],
+        "parameters_default_value": [
+          null
+        ]
+      }
+    ]
+  },
+  "wxTextAttrDimensionConverter": {
+    "wxTextAttrDimensionConverter": [
+      {
+        "return_type": "",
+        "brief_description": "",
+        "constant": false,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [
+          "wxDC&",
+          "double",
+          "const wxSize&"
+        ],
+        "parameters_is_array": [
+          false,
+          false,
+          false
+        ],
+        "parameters_extra": [
+          false,
+          false,
+          false
+        ],
+        "parameters_name": [
+          "dc",
+          "scale",
+          "parentSize"
+        ],
+        "parameters_required": [
+          true
+        ],
+        "parameters_default_value": [
+          null,
+          "1.0",
+          "wxDefaultSize"
+        ]
+      },
+      {
+        "return_type": "",
+        "brief_description": "",
+        "constant": false,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [
+          "int",
+          "double",
+          "const wxSize&"
+        ],
+        "parameters_is_array": [
+          false,
+          false,
+          false
+        ],
+        "parameters_extra": [
+          false,
+          false,
+          false
+        ],
+        "parameters_name": [
+          "ppi",
+          "scale",
+          "parentSize"
+        ],
+        "parameters_required": [
+          true
+        ],
+        "parameters_default_value": [
+          null,
+          "1.0",
+          "wxDefaultSize"
+        ]
+      }
+    ],
+    "GetPixels": [
+      {
+        "return_type": "int",
+        "brief_description": "",
+        "constant": true,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [
+          "const wxTextAttrDimension&",
+          "int"
+        ],
+        "parameters_is_array": [
+          false,
+          false
+        ],
+        "parameters_extra": [
+          false,
+          false
+        ],
+        "parameters_name": [
+          "dim",
+          "direction"
+        ],
+        "parameters_required": [
+          true
+        ],
+        "parameters_default_value": [
+          null,
+          "wxHORIZONTAL"
+        ]
+      }
+    ],
+    "GetTenthsMM": [
+      {
+        "return_type": "int",
+        "brief_description": "",
+        "constant": true,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [
+          "const wxTextAttrDimension&"
+        ],
+        "parameters_is_array": [
+          false
+        ],
+        "parameters_extra": [
+          false
+        ],
+        "parameters_name": [
+          "dim"
+        ],
+        "parameters_required": [
+          true
+        ],
+        "parameters_default_value": [
+          null
+        ]
+      }
+    ],
+    "ConvertTenthsMMToPixels": [
+      {
+        "return_type": "int",
+        "brief_description": "",
+        "constant": true,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [
+          "int"
+        ],
+        "parameters_is_array": [
+          false
+        ],
+        "parameters_extra": [
+          false
+        ],
+        "parameters_name": [
+          "units"
+        ],
+        "parameters_required": [
+          true
+        ],
+        "parameters_default_value": [
+          null
+        ]
+      }
+    ],
+    "ConvertPixelsToTenthsMM": [
+      {
+        "return_type": "int",
+        "brief_description": "",
+        "constant": true,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [
+          "int"
+        ],
+        "parameters_is_array": [
+          false
+        ],
+        "parameters_extra": [
+          false
+        ],
+        "parameters_name": [
+          "pixels"
+        ],
+        "parameters_required": [
+          true
+        ],
+        "parameters_default_value": [
+          null
+        ]
+      }
+    ]
+  },
+  "wxTextAttrDimensions": {
+    "wxTextAttrDimensions": [
+      {
+        "return_type": "",
+        "brief_description": "",
+        "constant": false,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [],
+        "parameters_is_array": [],
+        "parameters_extra": [],
+        "parameters_name": [],
+        "parameters_required": [],
+        "parameters_default_value": []
+      }
+    ],
+    "Reset": [
+      {
+        "return_type": "void",
+        "brief_description": "",
+        "constant": false,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [],
+        "parameters_is_array": [],
+        "parameters_extra": [],
+        "parameters_name": [],
+        "parameters_required": [],
+        "parameters_default_value": []
+      }
+    ],
+    "operator==": [
+      {
+        "return_type": "bool",
+        "brief_description": "",
+        "constant": true,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [
+          "const wxTextAttrDimensions&"
+        ],
+        "parameters_is_array": [
+          false
+        ],
+        "parameters_extra": [
+          false
+        ],
+        "parameters_name": [
+          "dims"
+        ],
+        "parameters_required": [
+          true
+        ],
+        "parameters_default_value": [
+          null
+        ]
+      }
+    ],
+    "EqPartial": [
+      {
+        "return_type": "bool",
+        "brief_description": "",
+        "constant": true,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [
+          "const wxTextAttrDimensions&",
+          "bool"
+        ],
+        "parameters_is_array": [
+          false,
+          false
+        ],
+        "parameters_extra": [
+          false,
+          false
+        ],
+        "parameters_name": [
+          "dims",
+          "weakTest"
+        ],
+        "parameters_required": [
+          true
+        ],
+        "parameters_default_value": [
+          null,
+          "true"
+        ]
+      }
+    ],
+    "Apply": [
+      {
+        "return_type": "bool",
+        "brief_description": "",
+        "constant": false,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [
+          "const wxTextAttrDimensions&",
+          "const wxTextAttrDimensions*"
+        ],
+        "parameters_is_array": [
+          false,
+          false
+        ],
+        "parameters_extra": [
+          false,
+          false
+        ],
+        "parameters_name": [
+          "dims",
+          "compareWith"
+        ],
+        "parameters_required": [
+          true
+        ],
+        "parameters_default_value": [
+          null,
+          "NULL"
+        ]
+      }
+    ],
+    "CollectCommonAttributes": [
+      {
+        "return_type": "void",
+        "brief_description": "",
+        "constant": false,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [
+          "const wxTextAttrDimensions&",
+          "wxTextAttrDimensions&",
+          "wxTextAttrDimensions&"
+        ],
+        "parameters_is_array": [
+          false,
+          false,
+          false
+        ],
+        "parameters_extra": [
+          false,
+          false,
+          false
+        ],
+        "parameters_name": [
+          "attr",
+          "clashingAttr",
+          "absentAttr"
+        ],
+        "parameters_required": [
+          true,
+          true,
+          true
+        ],
+        "parameters_default_value": [
+          null,
+          null,
+          null
+        ]
+      }
+    ],
+    "RemoveStyle": [
+      {
+        "return_type": "bool",
+        "brief_description": "",
+        "constant": false,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [
+          "const wxTextAttrDimensions&"
+        ],
+        "parameters_is_array": [
+          false
+        ],
+        "parameters_extra": [
+          false
+        ],
+        "parameters_name": [
+          "attr"
+        ],
+        "parameters_required": [
+          true
+        ],
+        "parameters_default_value": [
+          null
+        ]
+      }
+    ],
+    "GetLeft": [
+      {
+        "return_type": "const wxTextAttrDimension&",
+        "brief_description": "",
+        "constant": true,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [],
+        "parameters_is_array": [],
+        "parameters_extra": [],
+        "parameters_name": [],
+        "parameters_required": [],
+        "parameters_default_value": []
+      },
+      {
+        "return_type": "wxTextAttrDimension&",
+        "brief_description": "",
+        "constant": false,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [],
+        "parameters_is_array": [],
+        "parameters_extra": [],
+        "parameters_name": [],
+        "parameters_required": [],
+        "parameters_default_value": []
+      }
+    ],
+    "GetRight": [
+      {
+        "return_type": "const wxTextAttrDimension&",
+        "brief_description": "",
+        "constant": true,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [],
+        "parameters_is_array": [],
+        "parameters_extra": [],
+        "parameters_name": [],
+        "parameters_required": [],
+        "parameters_default_value": []
+      },
+      {
+        "return_type": "wxTextAttrDimension&",
+        "brief_description": "",
+        "constant": false,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [],
+        "parameters_is_array": [],
+        "parameters_extra": [],
+        "parameters_name": [],
+        "parameters_required": [],
+        "parameters_default_value": []
+      }
+    ],
+    "GetTop": [
+      {
+        "return_type": "const wxTextAttrDimension&",
+        "brief_description": "",
+        "constant": true,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [],
+        "parameters_is_array": [],
+        "parameters_extra": [],
+        "parameters_name": [],
+        "parameters_required": [],
+        "parameters_default_value": []
+      },
+      {
+        "return_type": "wxTextAttrDimension&",
+        "brief_description": "",
+        "constant": false,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [],
+        "parameters_is_array": [],
+        "parameters_extra": [],
+        "parameters_name": [],
+        "parameters_required": [],
+        "parameters_default_value": []
+      }
+    ],
+    "GetBottom": [
+      {
+        "return_type": "const wxTextAttrDimension&",
+        "brief_description": "",
+        "constant": true,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [],
+        "parameters_is_array": [],
+        "parameters_extra": [],
+        "parameters_name": [],
+        "parameters_required": [],
+        "parameters_default_value": []
+      },
+      {
+        "return_type": "wxTextAttrDimension&",
+        "brief_description": "",
+        "constant": false,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [],
+        "parameters_is_array": [],
+        "parameters_extra": [],
+        "parameters_name": [],
+        "parameters_required": [],
+        "parameters_default_value": []
+      }
+    ],
+    "IsValid": [
+      {
+        "return_type": "bool",
+        "brief_description": "",
+        "constant": true,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [],
+        "parameters_is_array": [],
+        "parameters_extra": [],
+        "parameters_name": [],
+        "parameters_required": [],
+        "parameters_default_value": []
+      }
+    ]
+  },
+  "wxTextAttrShadow": {
+    "wxTextAttrShadow": [
+      {
+        "return_type": "",
+        "brief_description": "",
+        "constant": false,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [],
+        "parameters_is_array": [],
+        "parameters_extra": [],
+        "parameters_name": [],
+        "parameters_required": [],
+        "parameters_default_value": []
+      }
+    ],
+    "operator==": [
+      {
+        "return_type": "bool",
+        "brief_description": "",
+        "constant": true,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [
+          "const wxTextAttrShadow&"
+        ],
+        "parameters_is_array": [
+          false
+        ],
+        "parameters_extra": [
+          false
+        ],
+        "parameters_name": [
+          "shadow"
+        ],
+        "parameters_required": [
+          true
+        ],
+        "parameters_default_value": [
+          null
+        ]
+      }
+    ],
+    "Reset": [
+      {
+        "return_type": "void",
+        "brief_description": "",
+        "constant": false,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [],
+        "parameters_is_array": [],
+        "parameters_extra": [],
+        "parameters_name": [],
+        "parameters_required": [],
+        "parameters_default_value": []
+      }
+    ],
+    "EqPartial": [
+      {
+        "return_type": "bool",
+        "brief_description": "",
+        "constant": true,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [
+          "const wxTextAttrShadow&",
+          "bool"
+        ],
+        "parameters_is_array": [
+          false,
+          false
+        ],
+        "parameters_extra": [
+          false,
+          false
+        ],
+        "parameters_name": [
+          "shadow",
+          "weakTest"
+        ],
+        "parameters_required": [
+          true
+        ],
+        "parameters_default_value": [
+          null,
+          "true"
+        ]
+      }
+    ],
+    "Apply": [
+      {
+        "return_type": "bool",
+        "brief_description": "",
+        "constant": false,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [
+          "const wxTextAttrShadow&",
+          "const wxTextAttrShadow*"
+        ],
+        "parameters_is_array": [
+          false,
+          false
+        ],
+        "parameters_extra": [
+          false,
+          false
+        ],
+        "parameters_name": [
+          "shadow",
+          "compareWith"
+        ],
+        "parameters_required": [
+          true
+        ],
+        "parameters_default_value": [
+          null,
+          "NULL"
+        ]
+      }
+    ],
+    "RemoveStyle": [
+      {
+        "return_type": "bool",
+        "brief_description": "",
+        "constant": false,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [
+          "const wxTextAttrShadow&"
+        ],
+        "parameters_is_array": [
+          false
+        ],
+        "parameters_extra": [
+          false
+        ],
+        "parameters_name": [
+          "attr"
+        ],
+        "parameters_required": [
+          true
+        ],
+        "parameters_default_value": [
+          null
+        ]
+      }
+    ],
+    "CollectCommonAttributes": [
+      {
+        "return_type": "void",
+        "brief_description": "",
+        "constant": false,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [
+          "const wxTextAttrShadow&",
+          "wxTextAttrShadow&",
+          "wxTextAttrShadow&"
+        ],
+        "parameters_is_array": [
+          false,
+          false,
+          false
+        ],
+        "parameters_extra": [
+          false,
+          false,
+          false
+        ],
+        "parameters_name": [
+          "attr",
+          "clashingAttr",
+          "absentAttr"
+        ],
+        "parameters_required": [
+          true,
+          true,
+          true
+        ],
+        "parameters_default_value": [
+          null,
+          null,
+          null
+        ]
+      }
+    ],
+    "SetColour": [
+      {
+        "return_type": "void",
+        "brief_description": "",
+        "constant": false,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [
+          "unsigned long"
+        ],
+        "parameters_is_array": [
+          false
+        ],
+        "parameters_extra": [
+          false
+        ],
+        "parameters_name": [
+          "colour"
+        ],
+        "parameters_required": [
+          true
+        ],
+        "parameters_default_value": [
+          null
+        ]
+      },
+      {
+        "return_type": "void",
+        "brief_description": "",
+        "constant": false,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [
+          "const wxColour&"
+        ],
+        "parameters_is_array": [
+          false
+        ],
+        "parameters_extra": [
+          false
+        ],
+        "parameters_name": [
+          "colour"
+        ],
+        "parameters_required": [
+          true
+        ],
+        "parameters_default_value": [
+          null
+        ]
+      }
+    ],
+    "GetColourLong": [
+      {
+        "return_type": "unsigned long",
+        "brief_description": "",
+        "constant": true,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [],
+        "parameters_is_array": [],
+        "parameters_extra": [],
+        "parameters_name": [],
+        "parameters_required": [],
+        "parameters_default_value": []
+      }
+    ],
+    "GetColour": [
+      {
+        "return_type": "wxColour",
+        "brief_description": "",
+        "constant": true,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [],
+        "parameters_is_array": [],
+        "parameters_extra": [],
+        "parameters_name": [],
+        "parameters_required": [],
+        "parameters_default_value": []
+      }
+    ],
+    "HasColour": [
+      {
+        "return_type": "bool",
+        "brief_description": "",
+        "constant": true,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [],
+        "parameters_is_array": [],
+        "parameters_extra": [],
+        "parameters_name": [],
+        "parameters_required": [],
+        "parameters_default_value": []
+      }
+    ],
+    "GetOffsetX": [
+      {
+        "return_type": "wxTextAttrDimension&",
+        "brief_description": "",
+        "constant": false,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [],
+        "parameters_is_array": [],
+        "parameters_extra": [],
+        "parameters_name": [],
+        "parameters_required": [],
+        "parameters_default_value": []
+      },
+      {
+        "return_type": "const wxTextAttrDimension&",
+        "brief_description": "",
+        "constant": true,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [],
+        "parameters_is_array": [],
+        "parameters_extra": [],
+        "parameters_name": [],
+        "parameters_required": [],
+        "parameters_default_value": []
+      }
+    ],
+    "SetOffsetX": [
+      {
+        "return_type": "void",
+        "brief_description": "",
+        "constant": false,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [
+          "const wxTextAttrDimension&"
+        ],
+        "parameters_is_array": [
+          false
+        ],
+        "parameters_extra": [
+          false
+        ],
+        "parameters_name": [
+          "offset"
+        ],
+        "parameters_required": [
+          true
+        ],
+        "parameters_default_value": [
+          null
+        ]
+      }
+    ],
+    "GetOffsetY": [
+      {
+        "return_type": "wxTextAttrDimension&",
+        "brief_description": "",
+        "constant": false,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [],
+        "parameters_is_array": [],
+        "parameters_extra": [],
+        "parameters_name": [],
+        "parameters_required": [],
+        "parameters_default_value": []
+      },
+      {
+        "return_type": "const wxTextAttrDimension&",
+        "brief_description": "",
+        "constant": true,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [],
+        "parameters_is_array": [],
+        "parameters_extra": [],
+        "parameters_name": [],
+        "parameters_required": [],
+        "parameters_default_value": []
+      }
+    ],
+    "SetOffsetY": [
+      {
+        "return_type": "void",
+        "brief_description": "",
+        "constant": false,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [
+          "const wxTextAttrDimension&"
+        ],
+        "parameters_is_array": [
+          false
+        ],
+        "parameters_extra": [
+          false
+        ],
+        "parameters_name": [
+          "offset"
+        ],
+        "parameters_required": [
+          true
+        ],
+        "parameters_default_value": [
+          null
+        ]
+      }
+    ],
+    "GetSpread": [
+      {
+        "return_type": "wxTextAttrDimension&",
+        "brief_description": "",
+        "constant": false,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [],
+        "parameters_is_array": [],
+        "parameters_extra": [],
+        "parameters_name": [],
+        "parameters_required": [],
+        "parameters_default_value": []
+      },
+      {
+        "return_type": "const wxTextAttrDimension&",
+        "brief_description": "",
+        "constant": true,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [],
+        "parameters_is_array": [],
+        "parameters_extra": [],
+        "parameters_name": [],
+        "parameters_required": [],
+        "parameters_default_value": []
+      }
+    ],
+    "SetSpread": [
+      {
+        "return_type": "void",
+        "brief_description": "",
+        "constant": false,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [
+          "const wxTextAttrDimension&"
+        ],
+        "parameters_is_array": [
+          false
+        ],
+        "parameters_extra": [
+          false
+        ],
+        "parameters_name": [
+          "spread"
+        ],
+        "parameters_required": [
+          true
+        ],
+        "parameters_default_value": [
+          null
+        ]
+      }
+    ],
+    "GetBlurDistance": [
+      {
+        "return_type": "wxTextAttrDimension&",
+        "brief_description": "",
+        "constant": false,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [],
+        "parameters_is_array": [],
+        "parameters_extra": [],
+        "parameters_name": [],
+        "parameters_required": [],
+        "parameters_default_value": []
+      },
+      {
+        "return_type": "const wxTextAttrDimension&",
+        "brief_description": "",
+        "constant": true,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [],
+        "parameters_is_array": [],
+        "parameters_extra": [],
+        "parameters_name": [],
+        "parameters_required": [],
+        "parameters_default_value": []
+      }
+    ],
+    "SetBlurDistance": [
+      {
+        "return_type": "void",
+        "brief_description": "",
+        "constant": false,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [
+          "const wxTextAttrDimension&"
+        ],
+        "parameters_is_array": [
+          false
+        ],
+        "parameters_extra": [
+          false
+        ],
+        "parameters_name": [
+          "blur"
+        ],
+        "parameters_required": [
+          true
+        ],
+        "parameters_default_value": [
+          null
+        ]
+      }
+    ],
+    "GetOpacity": [
+      {
+        "return_type": "wxTextAttrDimension&",
+        "brief_description": "",
+        "constant": false,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [],
+        "parameters_is_array": [],
+        "parameters_extra": [],
+        "parameters_name": [],
+        "parameters_required": [],
+        "parameters_default_value": []
+      },
+      {
+        "return_type": "const wxTextAttrDimension&",
+        "brief_description": "",
+        "constant": true,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [],
+        "parameters_is_array": [],
+        "parameters_extra": [],
+        "parameters_name": [],
+        "parameters_required": [],
+        "parameters_default_value": []
+      }
+    ],
+    "IsValid": [
+      {
+        "return_type": "bool",
+        "brief_description": "",
+        "constant": true,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [],
+        "parameters_is_array": [],
+        "parameters_extra": [],
+        "parameters_name": [],
+        "parameters_required": [],
+        "parameters_default_value": []
+      }
+    ],
+    "SetValid": [
+      {
+        "return_type": "void",
+        "brief_description": "",
+        "constant": false,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [
+          "bool"
+        ],
+        "parameters_is_array": [
+          false
+        ],
+        "parameters_extra": [
+          false
+        ],
+        "parameters_name": [
+          "b"
+        ],
+        "parameters_required": [
+          true
+        ],
+        "parameters_default_value": [
+          null
+        ]
+      }
+    ],
+    "GetFlags": [
+      {
+        "return_type": "int",
+        "brief_description": "",
+        "constant": true,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [],
+        "parameters_is_array": [],
+        "parameters_extra": [],
+        "parameters_name": [],
+        "parameters_required": [],
+        "parameters_default_value": []
+      }
+    ],
+    "SetFlags": [
+      {
+        "return_type": "void",
+        "brief_description": "",
+        "constant": false,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [
+          "int"
+        ],
+        "parameters_is_array": [
+          false
+        ],
+        "parameters_extra": [
+          false
+        ],
+        "parameters_name": [
+          "flags"
+        ],
+        "parameters_required": [
+          true
+        ],
+        "parameters_default_value": [
+          null
+        ]
+      }
+    ],
+    "AddFlag": [
+      {
+        "return_type": "void",
+        "brief_description": "",
+        "constant": false,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [
+          "int"
+        ],
+        "parameters_is_array": [
+          false
+        ],
+        "parameters_extra": [
+          false
+        ],
+        "parameters_name": [
+          "flag"
+        ],
+        "parameters_required": [
+          true
+        ],
+        "parameters_default_value": [
+          null
+        ]
+      }
+    ],
+    "RemoveFlag": [
+      {
+        "return_type": "void",
+        "brief_description": "",
+        "constant": false,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [
+          "int"
+        ],
+        "parameters_is_array": [
+          false
+        ],
+        "parameters_extra": [
+          false
+        ],
+        "parameters_name": [
+          "flag"
+        ],
+        "parameters_required": [
+          true
+        ],
+        "parameters_default_value": [
+          null
+        ]
+      }
+    ],
+    "SetOpacity": [
+      {
+        "return_type": "void",
+        "brief_description": "",
+        "constant": false,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [
+          "const wxTextAttrDimension&"
+        ],
+        "parameters_is_array": [
+          false
+        ],
+        "parameters_extra": [
+          false
+        ],
+        "parameters_name": [
+          "opacity"
+        ],
+        "parameters_required": [
+          true
+        ],
+        "parameters_default_value": [
+          null
+        ]
+      }
+    ],
+    "IsDefault": [
+      {
+        "return_type": "bool",
+        "brief_description": "",
+        "constant": true,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [],
+        "parameters_is_array": [],
+        "parameters_extra": [],
+        "parameters_name": [],
+        "parameters_required": [],
+        "parameters_default_value": []
+      }
+    ]
+  },
+  "wxTextAttrSize": {
+    "wxTextAttrSize": [
+      {
+        "return_type": "",
+        "brief_description": "",
+        "constant": false,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [],
+        "parameters_is_array": [],
+        "parameters_extra": [],
+        "parameters_name": [],
+        "parameters_required": [],
+        "parameters_default_value": []
+      }
+    ],
+    "Reset": [
+      {
+        "return_type": "void",
+        "brief_description": "",
+        "constant": false,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [],
+        "parameters_is_array": [],
+        "parameters_extra": [],
+        "parameters_name": [],
+        "parameters_required": [],
+        "parameters_default_value": []
+      }
+    ],
+    "operator==": [
+      {
+        "return_type": "bool",
+        "brief_description": "",
+        "constant": true,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [
+          "const wxTextAttrSize&"
+        ],
+        "parameters_is_array": [
+          false
+        ],
+        "parameters_extra": [
+          false
+        ],
+        "parameters_name": [
+          "size"
+        ],
+        "parameters_required": [
+          true
+        ],
+        "parameters_default_value": [
+          null
+        ]
+      }
+    ],
+    "EqPartial": [
+      {
+        "return_type": "bool",
+        "brief_description": "",
+        "constant": true,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [
+          "const wxTextAttrSize&",
+          "bool"
+        ],
+        "parameters_is_array": [
+          false,
+          false
+        ],
+        "parameters_extra": [
+          false,
+          false
+        ],
+        "parameters_name": [
+          "size",
+          "weakTest"
+        ],
+        "parameters_required": [
+          true
+        ],
+        "parameters_default_value": [
+          null,
+          "true"
+        ]
+      }
+    ],
+    "Apply": [
+      {
+        "return_type": "bool",
+        "brief_description": "",
+        "constant": false,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [
+          "const wxTextAttrSize&",
+          "const wxTextAttrSize*"
+        ],
+        "parameters_is_array": [
+          false,
+          false
+        ],
+        "parameters_extra": [
+          false,
+          false
+        ],
+        "parameters_name": [
+          "dims",
+          "compareWith"
+        ],
+        "parameters_required": [
+          true
+        ],
+        "parameters_default_value": [
+          null,
+          "NULL"
+        ]
+      }
+    ],
+    "CollectCommonAttributes": [
+      {
+        "return_type": "void",
+        "brief_description": "",
+        "constant": false,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [
+          "const wxTextAttrSize&",
+          "wxTextAttrSize&",
+          "wxTextAttrSize&"
+        ],
+        "parameters_is_array": [
+          false,
+          false,
+          false
+        ],
+        "parameters_extra": [
+          false,
+          false,
+          false
+        ],
+        "parameters_name": [
+          "attr",
+          "clashingAttr",
+          "absentAttr"
+        ],
+        "parameters_required": [
+          true,
+          true,
+          true
+        ],
+        "parameters_default_value": [
+          null,
+          null,
+          null
+        ]
+      }
+    ],
+    "RemoveStyle": [
+      {
+        "return_type": "bool",
+        "brief_description": "",
+        "constant": false,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [
+          "const wxTextAttrSize&"
+        ],
+        "parameters_is_array": [
+          false
+        ],
+        "parameters_extra": [
+          false
+        ],
+        "parameters_name": [
+          "attr"
+        ],
+        "parameters_required": [
+          true
+        ],
+        "parameters_default_value": [
+          null
+        ]
+      }
+    ],
+    "GetWidth": [
+      {
+        "return_type": "wxTextAttrDimension&",
+        "brief_description": "",
+        "constant": false,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [],
+        "parameters_is_array": [],
+        "parameters_extra": [],
+        "parameters_name": [],
+        "parameters_required": [],
+        "parameters_default_value": []
+      },
+      {
+        "return_type": "const wxTextAttrDimension&",
+        "brief_description": "",
+        "constant": true,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [],
+        "parameters_is_array": [],
+        "parameters_extra": [],
+        "parameters_name": [],
+        "parameters_required": [],
+        "parameters_default_value": []
+      }
+    ],
+    "SetWidth": [
+      {
+        "return_type": "void",
+        "brief_description": "",
+        "constant": false,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [
+          "int",
+          "wxTextAttrDimensionFlags"
+        ],
+        "parameters_is_array": [
+          false,
+          false
+        ],
+        "parameters_extra": [
+          false,
+          false
+        ],
+        "parameters_name": [
+          "value",
+          "flags"
+        ],
+        "parameters_required": [
+          true,
+          true
+        ],
+        "parameters_default_value": [
+          null,
+          null
+        ]
+      },
+      {
+        "return_type": "void",
+        "brief_description": "",
+        "constant": false,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [
+          "int",
+          "wxTextAttrUnits"
+        ],
+        "parameters_is_array": [
+          false,
+          false
+        ],
+        "parameters_extra": [
+          false,
+          false
+        ],
+        "parameters_name": [
+          "value",
+          "units"
+        ],
+        "parameters_required": [
+          true,
+          true
+        ],
+        "parameters_default_value": [
+          null,
+          null
+        ]
+      },
+      {
+        "return_type": "void",
+        "brief_description": "",
+        "constant": false,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [
+          "const wxTextAttrDimension&"
+        ],
+        "parameters_is_array": [
+          false
+        ],
+        "parameters_extra": [
+          false
+        ],
+        "parameters_name": [
+          "dim"
+        ],
+        "parameters_required": [
+          true
+        ],
+        "parameters_default_value": [
+          null
+        ]
+      }
+    ],
+    "GetHeight": [
+      {
+        "return_type": "wxTextAttrDimension&",
+        "brief_description": "",
+        "constant": false,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [],
+        "parameters_is_array": [],
+        "parameters_extra": [],
+        "parameters_name": [],
+        "parameters_required": [],
+        "parameters_default_value": []
+      },
+      {
+        "return_type": "const wxTextAttrDimension&",
+        "brief_description": "",
+        "constant": true,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [],
+        "parameters_is_array": [],
+        "parameters_extra": [],
+        "parameters_name": [],
+        "parameters_required": [],
+        "parameters_default_value": []
+      }
+    ],
+    "SetHeight": [
+      {
+        "return_type": "void",
+        "brief_description": "",
+        "constant": false,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [
+          "int",
+          "wxTextAttrDimensionFlags"
+        ],
+        "parameters_is_array": [
+          false,
+          false
+        ],
+        "parameters_extra": [
+          false,
+          false
+        ],
+        "parameters_name": [
+          "value",
+          "flags"
+        ],
+        "parameters_required": [
+          true,
+          true
+        ],
+        "parameters_default_value": [
+          null,
+          null
+        ]
+      },
+      {
+        "return_type": "void",
+        "brief_description": "",
+        "constant": false,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [
+          "int",
+          "wxTextAttrUnits"
+        ],
+        "parameters_is_array": [
+          false,
+          false
+        ],
+        "parameters_extra": [
+          false,
+          false
+        ],
+        "parameters_name": [
+          "value",
+          "units"
+        ],
+        "parameters_required": [
+          true,
+          true
+        ],
+        "parameters_default_value": [
+          null,
+          null
+        ]
+      },
+      {
+        "return_type": "void",
+        "brief_description": "",
+        "constant": false,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [
+          "const wxTextAttrDimension&"
+        ],
+        "parameters_is_array": [
+          false
+        ],
+        "parameters_extra": [
+          false
+        ],
+        "parameters_name": [
+          "dim"
+        ],
+        "parameters_required": [
+          true
+        ],
+        "parameters_default_value": [
+          null
+        ]
+      }
+    ],
+    "IsValid": [
+      {
+        "return_type": "bool",
+        "brief_description": "",
+        "constant": true,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [],
+        "parameters_is_array": [],
+        "parameters_extra": [],
+        "parameters_name": [],
+        "parameters_required": [],
+        "parameters_default_value": []
+      }
+    ]
+  },
+  "wxTextBoxAttr": {
+    "wxTextBoxAttr": [
+      {
+        "return_type": "",
+        "brief_description": "",
+        "constant": false,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [],
+        "parameters_is_array": [],
+        "parameters_extra": [],
+        "parameters_name": [],
+        "parameters_required": [],
+        "parameters_default_value": []
+      },
+      {
+        "return_type": "",
+        "brief_description": "",
+        "constant": false,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [
+          "const wxTextBoxAttr&"
+        ],
+        "parameters_is_array": [
+          false
+        ],
+        "parameters_extra": [
+          false
+        ],
+        "parameters_name": [
+          "attr"
+        ],
+        "parameters_required": [
+          true
+        ],
+        "parameters_default_value": [
+          null
+        ]
+      }
+    ],
+    "Init": [
+      {
+        "return_type": "void",
+        "brief_description": "",
+        "constant": false,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [],
+        "parameters_is_array": [],
+        "parameters_extra": [],
+        "parameters_name": [],
+        "parameters_required": [],
+        "parameters_default_value": []
+      }
+    ],
+    "Reset": [
+      {
+        "return_type": "void",
+        "brief_description": "",
+        "constant": false,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [],
+        "parameters_is_array": [],
+        "parameters_extra": [],
+        "parameters_name": [],
+        "parameters_required": [],
+        "parameters_default_value": []
+      }
+    ],
+    "operator==": [
+      {
+        "return_type": "bool",
+        "brief_description": "",
+        "constant": true,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [
+          "const wxTextBoxAttr&"
+        ],
+        "parameters_is_array": [
+          false
+        ],
+        "parameters_extra": [
+          false
+        ],
+        "parameters_name": [
+          "attr"
+        ],
+        "parameters_required": [
+          true
+        ],
+        "parameters_default_value": [
+          null
+        ]
+      }
+    ],
+    "EqPartial": [
+      {
+        "return_type": "bool",
+        "brief_description": "",
+        "constant": true,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [
+          "const wxTextBoxAttr&",
+          "bool"
+        ],
+        "parameters_is_array": [
+          false,
+          false
+        ],
+        "parameters_extra": [
+          false,
+          false
+        ],
+        "parameters_name": [
+          "attr",
+          "weakTest"
+        ],
+        "parameters_required": [
+          true
+        ],
+        "parameters_default_value": [
+          null,
+          "true"
+        ]
+      }
+    ],
+    "Apply": [
+      {
+        "return_type": "bool",
+        "brief_description": "",
+        "constant": false,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [
+          "const wxTextBoxAttr&",
+          "const wxTextBoxAttr*"
+        ],
+        "parameters_is_array": [
+          false,
+          false
+        ],
+        "parameters_extra": [
+          false,
+          false
+        ],
+        "parameters_name": [
+          "style",
+          "compareWith"
+        ],
+        "parameters_required": [
+          true
+        ],
+        "parameters_default_value": [
+          null,
+          "NULL"
+        ]
+      }
+    ],
+    "CollectCommonAttributes": [
+      {
+        "return_type": "void",
+        "brief_description": "",
+        "constant": false,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [
+          "const wxTextBoxAttr&",
+          "wxTextBoxAttr&",
+          "wxTextBoxAttr&"
+        ],
+        "parameters_is_array": [
+          false,
+          false,
+          false
+        ],
+        "parameters_extra": [
+          false,
+          false,
+          false
+        ],
+        "parameters_name": [
+          "attr",
+          "clashingAttr",
+          "absentAttr"
+        ],
+        "parameters_required": [
+          true,
+          true,
+          true
+        ],
+        "parameters_default_value": [
+          null,
+          null,
+          null
+        ]
+      }
+    ],
+    "RemoveStyle": [
+      {
+        "return_type": "bool",
+        "brief_description": "",
+        "constant": false,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [
+          "const wxTextBoxAttr&"
+        ],
+        "parameters_is_array": [
+          false
+        ],
+        "parameters_extra": [
+          false
+        ],
+        "parameters_name": [
+          "attr"
+        ],
+        "parameters_required": [
+          true
+        ],
+        "parameters_default_value": [
+          null
+        ]
+      }
+    ],
+    "SetFlags": [
+      {
+        "return_type": "void",
+        "brief_description": "",
+        "constant": false,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [
+          "int"
+        ],
+        "parameters_is_array": [
+          false
+        ],
+        "parameters_extra": [
+          false
+        ],
+        "parameters_name": [
+          "flags"
+        ],
+        "parameters_required": [
+          true
+        ],
+        "parameters_default_value": [
+          null
+        ]
+      }
+    ],
+    "GetFlags": [
+      {
+        "return_type": "int",
+        "brief_description": "",
+        "constant": true,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [],
+        "parameters_is_array": [],
+        "parameters_extra": [],
+        "parameters_name": [],
+        "parameters_required": [],
+        "parameters_default_value": []
+      }
+    ],
+    "HasFlag": [
+      {
+        "return_type": "bool",
+        "brief_description": "",
+        "constant": true,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [
+          "wxTextBoxAttrFlags"
+        ],
+        "parameters_is_array": [
+          false
+        ],
+        "parameters_extra": [
+          false
+        ],
+        "parameters_name": [
+          "flag"
+        ],
+        "parameters_required": [
+          true
+        ],
+        "parameters_default_value": [
+          null
+        ]
+      }
+    ],
+    "RemoveFlag": [
+      {
+        "return_type": "void",
+        "brief_description": "",
+        "constant": false,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [
+          "wxTextBoxAttrFlags"
+        ],
+        "parameters_is_array": [
+          false
+        ],
+        "parameters_extra": [
+          false
+        ],
+        "parameters_name": [
+          "flag"
+        ],
+        "parameters_required": [
+          true
+        ],
+        "parameters_default_value": [
+          null
+        ]
+      }
+    ],
+    "AddFlag": [
+      {
+        "return_type": "void",
+        "brief_description": "",
+        "constant": false,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [
+          "wxTextBoxAttrFlags"
+        ],
+        "parameters_is_array": [
+          false
+        ],
+        "parameters_extra": [
+          false
+        ],
+        "parameters_name": [
+          "flag"
+        ],
+        "parameters_required": [
+          true
+        ],
+        "parameters_default_value": [
+          null
+        ]
+      }
+    ],
+    "IsDefault": [
+      {
+        "return_type": "bool",
+        "brief_description": "",
+        "constant": true,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [],
+        "parameters_is_array": [],
+        "parameters_extra": [],
+        "parameters_name": [],
+        "parameters_required": [],
+        "parameters_default_value": []
+      }
+    ],
+    "GetFloatMode": [
+      {
+        "return_type": "wxTextBoxAttrFloatStyle",
+        "brief_description": "",
+        "constant": true,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [],
+        "parameters_is_array": [],
+        "parameters_extra": [],
+        "parameters_name": [],
+        "parameters_required": [],
+        "parameters_default_value": []
+      }
+    ],
+    "SetFloatMode": [
+      {
+        "return_type": "void",
+        "brief_description": "",
+        "constant": false,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [
+          "wxTextBoxAttrFloatStyle"
+        ],
+        "parameters_is_array": [
+          false
+        ],
+        "parameters_extra": [
+          false
+        ],
+        "parameters_name": [
+          "mode"
+        ],
+        "parameters_required": [
+          true
+        ],
+        "parameters_default_value": [
+          null
+        ]
+      }
+    ],
+    "HasFloatMode": [
+      {
+        "return_type": "bool",
+        "brief_description": "",
+        "constant": true,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [],
+        "parameters_is_array": [],
+        "parameters_extra": [],
+        "parameters_name": [],
+        "parameters_required": [],
+        "parameters_default_value": []
+      }
+    ],
+    "IsFloating": [
+      {
+        "return_type": "bool",
+        "brief_description": "",
+        "constant": true,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [],
+        "parameters_is_array": [],
+        "parameters_extra": [],
+        "parameters_name": [],
+        "parameters_required": [],
+        "parameters_default_value": []
+      }
+    ],
+    "GetClearMode": [
+      {
+        "return_type": "wxTextBoxAttrClearStyle",
+        "brief_description": "",
+        "constant": true,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [],
+        "parameters_is_array": [],
+        "parameters_extra": [],
+        "parameters_name": [],
+        "parameters_required": [],
+        "parameters_default_value": []
+      }
+    ],
+    "SetClearMode": [
+      {
+        "return_type": "void",
+        "brief_description": "",
+        "constant": false,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [
+          "wxTextBoxAttrClearStyle"
+        ],
+        "parameters_is_array": [
+          false
+        ],
+        "parameters_extra": [
+          false
+        ],
+        "parameters_name": [
+          "mode"
+        ],
+        "parameters_required": [
+          true
+        ],
+        "parameters_default_value": [
+          null
+        ]
+      }
+    ],
+    "HasClearMode": [
+      {
+        "return_type": "bool",
+        "brief_description": "",
+        "constant": true,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [],
+        "parameters_is_array": [],
+        "parameters_extra": [],
+        "parameters_name": [],
+        "parameters_required": [],
+        "parameters_default_value": []
+      }
+    ],
+    "GetCollapseBorders": [
+      {
+        "return_type": "wxTextBoxAttrCollapseMode",
+        "brief_description": "",
+        "constant": true,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [],
+        "parameters_is_array": [],
+        "parameters_extra": [],
+        "parameters_name": [],
+        "parameters_required": [],
+        "parameters_default_value": []
+      }
+    ],
+    "SetCollapseBorders": [
+      {
+        "return_type": "void",
+        "brief_description": "",
+        "constant": false,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [
+          "wxTextBoxAttrCollapseMode"
+        ],
+        "parameters_is_array": [
+          false
+        ],
+        "parameters_extra": [
+          false
+        ],
+        "parameters_name": [
+          "collapse"
+        ],
+        "parameters_required": [
+          true
+        ],
+        "parameters_default_value": [
+          null
+        ]
+      }
+    ],
+    "HasCollapseBorders": [
+      {
+        "return_type": "bool",
+        "brief_description": "",
+        "constant": true,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [],
+        "parameters_is_array": [],
+        "parameters_extra": [],
+        "parameters_name": [],
+        "parameters_required": [],
+        "parameters_default_value": []
+      }
+    ],
+    "GetWhitespaceMode": [
+      {
+        "return_type": "wxTextBoxAttrWhitespaceMode",
+        "brief_description": "",
+        "constant": true,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [],
+        "parameters_is_array": [],
+        "parameters_extra": [],
+        "parameters_name": [],
+        "parameters_required": [],
+        "parameters_default_value": []
+      }
+    ],
+    "SetWhitespaceMode": [
+      {
+        "return_type": "void",
+        "brief_description": "",
+        "constant": false,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [
+          "wxTextBoxAttrWhitespaceMode"
+        ],
+        "parameters_is_array": [
+          false
+        ],
+        "parameters_extra": [
+          false
+        ],
+        "parameters_name": [
+          "whitespace"
+        ],
+        "parameters_required": [
+          true
+        ],
+        "parameters_default_value": [
+          null
+        ]
+      }
+    ],
+    "HasWhitespaceMode": [
+      {
+        "return_type": "bool",
+        "brief_description": "",
+        "constant": true,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [],
+        "parameters_is_array": [],
+        "parameters_extra": [],
+        "parameters_name": [],
+        "parameters_required": [],
+        "parameters_default_value": []
+      }
+    ],
+    "HasCornerRadius": [
+      {
+        "return_type": "bool",
+        "brief_description": "",
+        "constant": true,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [],
+        "parameters_is_array": [],
+        "parameters_extra": [],
+        "parameters_name": [],
+        "parameters_required": [],
+        "parameters_default_value": []
+      }
+    ],
+    "GetCornerRadius": [
+      {
+        "return_type": "const wxTextAttrDimension&",
+        "brief_description": "",
+        "constant": true,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [],
+        "parameters_is_array": [],
+        "parameters_extra": [],
+        "parameters_name": [],
+        "parameters_required": [],
+        "parameters_default_value": []
+      },
+      {
+        "return_type": "wxTextAttrDimension&",
+        "brief_description": "",
+        "constant": false,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [],
+        "parameters_is_array": [],
+        "parameters_extra": [],
+        "parameters_name": [],
+        "parameters_required": [],
+        "parameters_default_value": []
+      }
+    ],
+    "SetCornerRadius": [
+      {
+        "return_type": "void",
+        "brief_description": "",
+        "constant": false,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [
+          "const wxTextAttrDimension&"
+        ],
+        "parameters_is_array": [
+          false
+        ],
+        "parameters_extra": [
+          false
+        ],
+        "parameters_name": [
+          "dim"
+        ],
+        "parameters_required": [
+          true
+        ],
+        "parameters_default_value": [
+          null
+        ]
+      }
+    ],
+    "GetVerticalAlignment": [
+      {
+        "return_type": "wxTextBoxAttrVerticalAlignment",
+        "brief_description": "",
+        "constant": true,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [],
+        "parameters_is_array": [],
+        "parameters_extra": [],
+        "parameters_name": [],
+        "parameters_required": [],
+        "parameters_default_value": []
+      }
+    ],
+    "SetVerticalAlignment": [
+      {
+        "return_type": "void",
+        "brief_description": "",
+        "constant": false,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [
+          "wxTextBoxAttrVerticalAlignment"
+        ],
+        "parameters_is_array": [
+          false
+        ],
+        "parameters_extra": [
+          false
+        ],
+        "parameters_name": [
+          "verticalAlignment"
+        ],
+        "parameters_required": [
+          true
+        ],
+        "parameters_default_value": [
+          null
+        ]
+      }
+    ],
+    "HasVerticalAlignment": [
+      {
+        "return_type": "bool",
+        "brief_description": "",
+        "constant": true,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [],
+        "parameters_is_array": [],
+        "parameters_extra": [],
+        "parameters_name": [],
+        "parameters_required": [],
+        "parameters_default_value": []
+      }
+    ],
+    "GetMargins": [
+      {
+        "return_type": "wxTextAttrDimensions&",
+        "brief_description": "",
+        "constant": false,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [],
+        "parameters_is_array": [],
+        "parameters_extra": [],
+        "parameters_name": [],
+        "parameters_required": [],
+        "parameters_default_value": []
+      },
+      {
+        "return_type": "const wxTextAttrDimensions&",
+        "brief_description": "",
+        "constant": true,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [],
+        "parameters_is_array": [],
+        "parameters_extra": [],
+        "parameters_name": [],
+        "parameters_required": [],
+        "parameters_default_value": []
+      }
+    ],
+    "GetLeftMargin": [
+      {
+        "return_type": "wxTextAttrDimension&",
+        "brief_description": "",
+        "constant": false,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [],
+        "parameters_is_array": [],
+        "parameters_extra": [],
+        "parameters_name": [],
+        "parameters_required": [],
+        "parameters_default_value": []
+      },
+      {
+        "return_type": "const wxTextAttrDimension&",
+        "brief_description": "",
+        "constant": true,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [],
+        "parameters_is_array": [],
+        "parameters_extra": [],
+        "parameters_name": [],
+        "parameters_required": [],
+        "parameters_default_value": []
+      }
+    ],
+    "GetRightMargin": [
+      {
+        "return_type": "wxTextAttrDimension&",
+        "brief_description": "",
+        "constant": false,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [],
+        "parameters_is_array": [],
+        "parameters_extra": [],
+        "parameters_name": [],
+        "parameters_required": [],
+        "parameters_default_value": []
+      },
+      {
+        "return_type": "const wxTextAttrDimension&",
+        "brief_description": "",
+        "constant": true,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [],
+        "parameters_is_array": [],
+        "parameters_extra": [],
+        "parameters_name": [],
+        "parameters_required": [],
+        "parameters_default_value": []
+      }
+    ],
+    "GetTopMargin": [
+      {
+        "return_type": "wxTextAttrDimension&",
+        "brief_description": "",
+        "constant": false,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [],
+        "parameters_is_array": [],
+        "parameters_extra": [],
+        "parameters_name": [],
+        "parameters_required": [],
+        "parameters_default_value": []
+      },
+      {
+        "return_type": "const wxTextAttrDimension&",
+        "brief_description": "",
+        "constant": true,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [],
+        "parameters_is_array": [],
+        "parameters_extra": [],
+        "parameters_name": [],
+        "parameters_required": [],
+        "parameters_default_value": []
+      }
+    ],
+    "GetBottomMargin": [
+      {
+        "return_type": "wxTextAttrDimension&",
+        "brief_description": "",
+        "constant": false,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [],
+        "parameters_is_array": [],
+        "parameters_extra": [],
+        "parameters_name": [],
+        "parameters_required": [],
+        "parameters_default_value": []
+      },
+      {
+        "return_type": "const wxTextAttrDimension&",
+        "brief_description": "",
+        "constant": true,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [],
+        "parameters_is_array": [],
+        "parameters_extra": [],
+        "parameters_name": [],
+        "parameters_required": [],
+        "parameters_default_value": []
+      }
+    ],
+    "GetPosition": [
+      {
+        "return_type": "wxTextAttrDimensions&",
+        "brief_description": "",
+        "constant": false,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [],
+        "parameters_is_array": [],
+        "parameters_extra": [],
+        "parameters_name": [],
+        "parameters_required": [],
+        "parameters_default_value": []
+      },
+      {
+        "return_type": "const wxTextAttrDimensions&",
+        "brief_description": "",
+        "constant": true,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [],
+        "parameters_is_array": [],
+        "parameters_extra": [],
+        "parameters_name": [],
+        "parameters_required": [],
+        "parameters_default_value": []
+      }
+    ],
+    "GetLeft": [
+      {
+        "return_type": "wxTextAttrDimension&",
+        "brief_description": "",
+        "constant": false,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [],
+        "parameters_is_array": [],
+        "parameters_extra": [],
+        "parameters_name": [],
+        "parameters_required": [],
+        "parameters_default_value": []
+      },
+      {
+        "return_type": "const wxTextAttrDimension&",
+        "brief_description": "",
+        "constant": true,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [],
+        "parameters_is_array": [],
+        "parameters_extra": [],
+        "parameters_name": [],
+        "parameters_required": [],
+        "parameters_default_value": []
+      }
+    ],
+    "GetRight": [
+      {
+        "return_type": "wxTextAttrDimension&",
+        "brief_description": "",
+        "constant": false,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [],
+        "parameters_is_array": [],
+        "parameters_extra": [],
+        "parameters_name": [],
+        "parameters_required": [],
+        "parameters_default_value": []
+      },
+      {
+        "return_type": "const wxTextAttrDimension&",
+        "brief_description": "",
+        "constant": true,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [],
+        "parameters_is_array": [],
+        "parameters_extra": [],
+        "parameters_name": [],
+        "parameters_required": [],
+        "parameters_default_value": []
+      }
+    ],
+    "GetTop": [
+      {
+        "return_type": "wxTextAttrDimension&",
+        "brief_description": "",
+        "constant": false,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [],
+        "parameters_is_array": [],
+        "parameters_extra": [],
+        "parameters_name": [],
+        "parameters_required": [],
+        "parameters_default_value": []
+      },
+      {
+        "return_type": "const wxTextAttrDimension&",
+        "brief_description": "",
+        "constant": true,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [],
+        "parameters_is_array": [],
+        "parameters_extra": [],
+        "parameters_name": [],
+        "parameters_required": [],
+        "parameters_default_value": []
+      }
+    ],
+    "GetBottom": [
+      {
+        "return_type": "wxTextAttrDimension&",
+        "brief_description": "",
+        "constant": false,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [],
+        "parameters_is_array": [],
+        "parameters_extra": [],
+        "parameters_name": [],
+        "parameters_required": [],
+        "parameters_default_value": []
+      },
+      {
+        "return_type": "const wxTextAttrDimension&",
+        "brief_description": "",
+        "constant": true,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [],
+        "parameters_is_array": [],
+        "parameters_extra": [],
+        "parameters_name": [],
+        "parameters_required": [],
+        "parameters_default_value": []
+      }
+    ],
+    "GetPadding": [
+      {
+        "return_type": "wxTextAttrDimensions&",
+        "brief_description": "",
+        "constant": false,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [],
+        "parameters_is_array": [],
+        "parameters_extra": [],
+        "parameters_name": [],
+        "parameters_required": [],
+        "parameters_default_value": []
+      },
+      {
+        "return_type": "const wxTextAttrDimensions&",
+        "brief_description": "",
+        "constant": true,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [],
+        "parameters_is_array": [],
+        "parameters_extra": [],
+        "parameters_name": [],
+        "parameters_required": [],
+        "parameters_default_value": []
+      }
+    ],
+    "GetLeftPadding": [
+      {
+        "return_type": "wxTextAttrDimension&",
+        "brief_description": "",
+        "constant": false,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [],
+        "parameters_is_array": [],
+        "parameters_extra": [],
+        "parameters_name": [],
+        "parameters_required": [],
+        "parameters_default_value": []
+      },
+      {
+        "return_type": "const wxTextAttrDimension&",
+        "brief_description": "",
+        "constant": true,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [],
+        "parameters_is_array": [],
+        "parameters_extra": [],
+        "parameters_name": [],
+        "parameters_required": [],
+        "parameters_default_value": []
+      }
+    ],
+    "GetRightPadding": [
+      {
+        "return_type": "wxTextAttrDimension&",
+        "brief_description": "",
+        "constant": false,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [],
+        "parameters_is_array": [],
+        "parameters_extra": [],
+        "parameters_name": [],
+        "parameters_required": [],
+        "parameters_default_value": []
+      },
+      {
+        "return_type": "const wxTextAttrDimension&",
+        "brief_description": "",
+        "constant": true,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [],
+        "parameters_is_array": [],
+        "parameters_extra": [],
+        "parameters_name": [],
+        "parameters_required": [],
+        "parameters_default_value": []
+      }
+    ],
+    "GetTopPadding": [
+      {
+        "return_type": "wxTextAttrDimension&",
+        "brief_description": "",
+        "constant": false,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [],
+        "parameters_is_array": [],
+        "parameters_extra": [],
+        "parameters_name": [],
+        "parameters_required": [],
+        "parameters_default_value": []
+      },
+      {
+        "return_type": "const wxTextAttrDimension&",
+        "brief_description": "",
+        "constant": true,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [],
+        "parameters_is_array": [],
+        "parameters_extra": [],
+        "parameters_name": [],
+        "parameters_required": [],
+        "parameters_default_value": []
+      }
+    ],
+    "GetBottomPadding": [
+      {
+        "return_type": "wxTextAttrDimension&",
+        "brief_description": "",
+        "constant": false,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [],
+        "parameters_is_array": [],
+        "parameters_extra": [],
+        "parameters_name": [],
+        "parameters_required": [],
+        "parameters_default_value": []
+      },
+      {
+        "return_type": "const wxTextAttrDimension&",
+        "brief_description": "",
+        "constant": true,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [],
+        "parameters_is_array": [],
+        "parameters_extra": [],
+        "parameters_name": [],
+        "parameters_required": [],
+        "parameters_default_value": []
+      }
+    ],
+    "GetBorder": [
+      {
+        "return_type": "wxTextAttrBorders&",
+        "brief_description": "",
+        "constant": false,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [],
+        "parameters_is_array": [],
+        "parameters_extra": [],
+        "parameters_name": [],
+        "parameters_required": [],
+        "parameters_default_value": []
+      },
+      {
+        "return_type": "const wxTextAttrBorders&",
+        "brief_description": "",
+        "constant": true,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [],
+        "parameters_is_array": [],
+        "parameters_extra": [],
+        "parameters_name": [],
+        "parameters_required": [],
+        "parameters_default_value": []
+      }
+    ],
+    "GetLeftBorder": [
+      {
+        "return_type": "wxTextAttrBorder&",
+        "brief_description": "",
+        "constant": false,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [],
+        "parameters_is_array": [],
+        "parameters_extra": [],
+        "parameters_name": [],
+        "parameters_required": [],
+        "parameters_default_value": []
+      },
+      {
+        "return_type": "const wxTextAttrBorder&",
+        "brief_description": "",
+        "constant": true,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [],
+        "parameters_is_array": [],
+        "parameters_extra": [],
+        "parameters_name": [],
+        "parameters_required": [],
+        "parameters_default_value": []
+      }
+    ],
+    "GetTopBorder": [
+      {
+        "return_type": "wxTextAttrBorder&",
+        "brief_description": "",
+        "constant": false,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [],
+        "parameters_is_array": [],
+        "parameters_extra": [],
+        "parameters_name": [],
+        "parameters_required": [],
+        "parameters_default_value": []
+      },
+      {
+        "return_type": "const wxTextAttrBorder&",
+        "brief_description": "",
+        "constant": true,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [],
+        "parameters_is_array": [],
+        "parameters_extra": [],
+        "parameters_name": [],
+        "parameters_required": [],
+        "parameters_default_value": []
+      }
+    ],
+    "GetRightBorder": [
+      {
+        "return_type": "wxTextAttrBorder&",
+        "brief_description": "",
+        "constant": false,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [],
+        "parameters_is_array": [],
+        "parameters_extra": [],
+        "parameters_name": [],
+        "parameters_required": [],
+        "parameters_default_value": []
+      },
+      {
+        "return_type": "const wxTextAttrBorder&",
+        "brief_description": "",
+        "constant": true,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [],
+        "parameters_is_array": [],
+        "parameters_extra": [],
+        "parameters_name": [],
+        "parameters_required": [],
+        "parameters_default_value": []
+      }
+    ],
+    "GetBottomBorder": [
+      {
+        "return_type": "wxTextAttrBorder&",
+        "brief_description": "",
+        "constant": false,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [],
+        "parameters_is_array": [],
+        "parameters_extra": [],
+        "parameters_name": [],
+        "parameters_required": [],
+        "parameters_default_value": []
+      },
+      {
+        "return_type": "const wxTextAttrBorder&",
+        "brief_description": "",
+        "constant": true,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [],
+        "parameters_is_array": [],
+        "parameters_extra": [],
+        "parameters_name": [],
+        "parameters_required": [],
+        "parameters_default_value": []
+      }
+    ],
+    "GetOutline": [
+      {
+        "return_type": "wxTextAttrBorders&",
+        "brief_description": "",
+        "constant": false,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [],
+        "parameters_is_array": [],
+        "parameters_extra": [],
+        "parameters_name": [],
+        "parameters_required": [],
+        "parameters_default_value": []
+      },
+      {
+        "return_type": "const wxTextAttrBorders&",
+        "brief_description": "",
+        "constant": true,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [],
+        "parameters_is_array": [],
+        "parameters_extra": [],
+        "parameters_name": [],
+        "parameters_required": [],
+        "parameters_default_value": []
+      }
+    ],
+    "GetLeftOutline": [
+      {
+        "return_type": "wxTextAttrBorder&",
+        "brief_description": "",
+        "constant": false,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [],
+        "parameters_is_array": [],
+        "parameters_extra": [],
+        "parameters_name": [],
+        "parameters_required": [],
+        "parameters_default_value": []
+      },
+      {
+        "return_type": "const wxTextAttrBorder&",
+        "brief_description": "",
+        "constant": true,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [],
+        "parameters_is_array": [],
+        "parameters_extra": [],
+        "parameters_name": [],
+        "parameters_required": [],
+        "parameters_default_value": []
+      }
+    ],
+    "GetTopOutline": [
+      {
+        "return_type": "wxTextAttrBorder&",
+        "brief_description": "",
+        "constant": false,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [],
+        "parameters_is_array": [],
+        "parameters_extra": [],
+        "parameters_name": [],
+        "parameters_required": [],
+        "parameters_default_value": []
+      },
+      {
+        "return_type": "const wxTextAttrBorder&",
+        "brief_description": "",
+        "constant": true,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [],
+        "parameters_is_array": [],
+        "parameters_extra": [],
+        "parameters_name": [],
+        "parameters_required": [],
+        "parameters_default_value": []
+      }
+    ],
+    "GetRightOutline": [
+      {
+        "return_type": "wxTextAttrBorder&",
+        "brief_description": "",
+        "constant": false,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [],
+        "parameters_is_array": [],
+        "parameters_extra": [],
+        "parameters_name": [],
+        "parameters_required": [],
+        "parameters_default_value": []
+      },
+      {
+        "return_type": "const wxTextAttrBorder&",
+        "brief_description": "",
+        "constant": true,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [],
+        "parameters_is_array": [],
+        "parameters_extra": [],
+        "parameters_name": [],
+        "parameters_required": [],
+        "parameters_default_value": []
+      }
+    ],
+    "GetBottomOutline": [
+      {
+        "return_type": "wxTextAttrBorder&",
+        "brief_description": "",
+        "constant": false,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [],
+        "parameters_is_array": [],
+        "parameters_extra": [],
+        "parameters_name": [],
+        "parameters_required": [],
+        "parameters_default_value": []
+      },
+      {
+        "return_type": "const wxTextAttrBorder&",
+        "brief_description": "",
+        "constant": true,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [],
+        "parameters_is_array": [],
+        "parameters_extra": [],
+        "parameters_name": [],
+        "parameters_required": [],
+        "parameters_default_value": []
+      }
+    ],
+    "GetSize": [
+      {
+        "return_type": "wxTextAttrSize&",
+        "brief_description": "",
+        "constant": false,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [],
+        "parameters_is_array": [],
+        "parameters_extra": [],
+        "parameters_name": [],
+        "parameters_required": [],
+        "parameters_default_value": []
+      },
+      {
+        "return_type": "const wxTextAttrSize&",
+        "brief_description": "",
+        "constant": true,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [],
+        "parameters_is_array": [],
+        "parameters_extra": [],
+        "parameters_name": [],
+        "parameters_required": [],
+        "parameters_default_value": []
+      }
+    ],
+    "GetMinSize": [
+      {
+        "return_type": "wxTextAttrSize&",
+        "brief_description": "",
+        "constant": false,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [],
+        "parameters_is_array": [],
+        "parameters_extra": [],
+        "parameters_name": [],
+        "parameters_required": [],
+        "parameters_default_value": []
+      },
+      {
+        "return_type": "const wxTextAttrSize&",
+        "brief_description": "",
+        "constant": true,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [],
+        "parameters_is_array": [],
+        "parameters_extra": [],
+        "parameters_name": [],
+        "parameters_required": [],
+        "parameters_default_value": []
+      }
+    ],
+    "GetMaxSize": [
+      {
+        "return_type": "wxTextAttrSize&",
+        "brief_description": "",
+        "constant": false,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [],
+        "parameters_is_array": [],
+        "parameters_extra": [],
+        "parameters_name": [],
+        "parameters_required": [],
+        "parameters_default_value": []
+      },
+      {
+        "return_type": "const wxTextAttrSize&",
+        "brief_description": "",
+        "constant": true,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [],
+        "parameters_is_array": [],
+        "parameters_extra": [],
+        "parameters_name": [],
+        "parameters_required": [],
+        "parameters_default_value": []
+      }
+    ],
+    "SetSize": [
+      {
+        "return_type": "void",
+        "brief_description": "",
+        "constant": false,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [
+          "const wxTextAttrSize&"
+        ],
+        "parameters_is_array": [
+          false
+        ],
+        "parameters_extra": [
+          false
+        ],
+        "parameters_name": [
+          "sz"
+        ],
+        "parameters_required": [
+          true
+        ],
+        "parameters_default_value": [
+          null
+        ]
+      }
+    ],
+    "SetMinSize": [
+      {
+        "return_type": "void",
+        "brief_description": "",
+        "constant": false,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [
+          "const wxTextAttrSize&"
+        ],
+        "parameters_is_array": [
+          false
+        ],
+        "parameters_extra": [
+          false
+        ],
+        "parameters_name": [
+          "sz"
+        ],
+        "parameters_required": [
+          true
+        ],
+        "parameters_default_value": [
+          null
+        ]
+      }
+    ],
+    "SetMaxSize": [
+      {
+        "return_type": "void",
+        "brief_description": "",
+        "constant": false,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [
+          "const wxTextAttrSize&"
+        ],
+        "parameters_is_array": [
+          false
+        ],
+        "parameters_extra": [
+          false
+        ],
+        "parameters_name": [
+          "sz"
+        ],
+        "parameters_required": [
+          true
+        ],
+        "parameters_default_value": [
+          null
+        ]
+      }
+    ],
+    "GetWidth": [
+      {
+        "return_type": "wxTextAttrDimension&",
+        "brief_description": "",
+        "constant": false,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [],
+        "parameters_is_array": [],
+        "parameters_extra": [],
+        "parameters_name": [],
+        "parameters_required": [],
+        "parameters_default_value": []
+      },
+      {
+        "return_type": "const wxTextAttrDimension&",
+        "brief_description": "",
+        "constant": true,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [],
+        "parameters_is_array": [],
+        "parameters_extra": [],
+        "parameters_name": [],
+        "parameters_required": [],
+        "parameters_default_value": []
+      }
+    ],
+    "GetHeight": [
+      {
+        "return_type": "wxTextAttrDimension&",
+        "brief_description": "",
+        "constant": false,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [],
+        "parameters_is_array": [],
+        "parameters_extra": [],
+        "parameters_name": [],
+        "parameters_required": [],
+        "parameters_default_value": []
+      },
+      {
+        "return_type": "const wxTextAttrDimension&",
+        "brief_description": "",
+        "constant": true,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [],
+        "parameters_is_array": [],
+        "parameters_extra": [],
+        "parameters_name": [],
+        "parameters_required": [],
+        "parameters_default_value": []
+      }
+    ],
+    "GetBoxStyleName": [
+      {
+        "return_type": "const wxString&",
+        "brief_description": "",
+        "constant": true,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [],
+        "parameters_is_array": [],
+        "parameters_extra": [],
+        "parameters_name": [],
+        "parameters_required": [],
+        "parameters_default_value": []
+      }
+    ],
+    "SetBoxStyleName": [
+      {
+        "return_type": "void",
+        "brief_description": "",
+        "constant": false,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [
+          "const wxString&"
+        ],
+        "parameters_is_array": [
+          false
+        ],
+        "parameters_extra": [
+          false
+        ],
+        "parameters_name": [
+          "name"
+        ],
+        "parameters_required": [
+          true
+        ],
+        "parameters_default_value": [
+          null
+        ]
+      }
+    ],
+    "HasBoxStyleName": [
+      {
+        "return_type": "bool",
+        "brief_description": "",
+        "constant": true,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [],
+        "parameters_is_array": [],
+        "parameters_extra": [],
+        "parameters_name": [],
+        "parameters_required": [],
+        "parameters_default_value": []
+      }
+    ],
+    "GetShadow": [
+      {
+        "return_type": "wxTextAttrShadow&",
+        "brief_description": "",
+        "constant": false,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [],
+        "parameters_is_array": [],
+        "parameters_extra": [],
+        "parameters_name": [],
+        "parameters_required": [],
+        "parameters_default_value": []
+      },
+      {
+        "return_type": "const wxTextAttrShadow&",
+        "brief_description": "",
+        "constant": true,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [],
+        "parameters_is_array": [],
+        "parameters_extra": [],
+        "parameters_name": [],
+        "parameters_required": [],
+        "parameters_default_value": []
+      }
+    ]
+  },
+  "wxTextFile": {
+    "GetLine": [
+      {
+        "return_type": "wxString&",
+        "brief_description": "",
+        "constant": false,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [
+          "size_t"
+        ],
+        "parameters_is_array": [
+          false
+        ],
+        "parameters_extra": [
+          false
+        ],
+        "parameters_name": [
+          "n"
+        ],
+        "parameters_required": [
+          true
+        ],
+        "parameters_default_value": [
+          null
+        ]
+      },
+      {
+        "return_type": "const wxString&",
+        "brief_description": "",
+        "constant": true,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [
+          "size_t"
+        ],
+        "parameters_is_array": [
+          false
+        ],
+        "parameters_extra": [
+          false
+        ],
+        "parameters_name": [
+          "n"
+        ],
+        "parameters_required": [
+          true
+        ],
+        "parameters_default_value": [
+          null
+        ]
+      }
+    ],
+    "wxTextFile": [
+      {
+        "return_type": "",
+        "brief_description": "",
+        "constant": false,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [],
+        "parameters_is_array": [],
+        "parameters_extra": [],
+        "parameters_name": [],
+        "parameters_required": [],
+        "parameters_default_value": []
+      },
+      {
+        "return_type": "",
+        "brief_description": "",
+        "constant": false,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [
+          "const wxString&"
+        ],
+        "parameters_is_array": [
+          false
+        ],
+        "parameters_extra": [
+          false
+        ],
+        "parameters_name": [
+          "strFile"
+        ],
+        "parameters_required": [
+          true
+        ],
+        "parameters_default_value": [
+          null
+        ]
+      }
+    ],
+    "AddLine": [
+      {
+        "return_type": "void",
+        "brief_description": "",
+        "constant": false,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [
+          "const wxString&",
+          "wxTextFileType"
+        ],
+        "parameters_is_array": [
+          false,
+          false
+        ],
+        "parameters_extra": [
+          false,
+          false
+        ],
+        "parameters_name": [
+          "str",
+          "type"
+        ],
+        "parameters_required": [
+          true
+        ],
+        "parameters_default_value": [
+          null,
+          "typeDefault"
+        ]
+      }
+    ],
+    "Clear": [
+      {
+        "return_type": "void",
+        "brief_description": "",
+        "constant": false,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [],
+        "parameters_is_array": [],
+        "parameters_extra": [],
+        "parameters_name": [],
+        "parameters_required": [],
+        "parameters_default_value": []
+      }
+    ],
+    "Close": [
+      {
+        "return_type": "bool",
+        "brief_description": "",
+        "constant": false,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [],
+        "parameters_is_array": [],
+        "parameters_extra": [],
+        "parameters_name": [],
+        "parameters_required": [],
+        "parameters_default_value": []
+      }
+    ],
+    "Create": [
+      {
+        "return_type": "bool",
+        "brief_description": "",
+        "constant": false,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [],
+        "parameters_is_array": [],
+        "parameters_extra": [],
+        "parameters_name": [],
+        "parameters_required": [],
+        "parameters_default_value": []
+      },
+      {
+        "return_type": "bool",
+        "brief_description": "",
+        "constant": false,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [
+          "const wxString&"
+        ],
+        "parameters_is_array": [
+          false
+        ],
+        "parameters_extra": [
+          false
+        ],
+        "parameters_name": [
+          "strFile"
+        ],
+        "parameters_required": [
+          true
+        ],
+        "parameters_default_value": [
+          null
+        ]
+      }
+    ],
+    "Eof": [
+      {
+        "return_type": "bool",
+        "brief_description": "",
+        "constant": true,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [],
+        "parameters_is_array": [],
+        "parameters_extra": [],
+        "parameters_name": [],
+        "parameters_required": [],
+        "parameters_default_value": []
+      }
+    ],
+    "Exists": [
+      {
+        "return_type": "bool",
+        "brief_description": "",
+        "constant": true,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [],
+        "parameters_is_array": [],
+        "parameters_extra": [],
+        "parameters_name": [],
+        "parameters_required": [],
+        "parameters_default_value": []
+      }
+    ],
+    "GetCurrentLine": [
+      {
+        "return_type": "size_t",
+        "brief_description": "",
+        "constant": true,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [],
+        "parameters_is_array": [],
+        "parameters_extra": [],
+        "parameters_name": [],
+        "parameters_required": [],
+        "parameters_default_value": []
+      }
+    ],
+    "GetFirstLine": [
+      {
+        "return_type": "wxString&",
+        "brief_description": "",
+        "constant": false,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [],
+        "parameters_is_array": [],
+        "parameters_extra": [],
+        "parameters_name": [],
+        "parameters_required": [],
+        "parameters_default_value": []
+      }
+    ],
+    "GetLastLine": [
+      {
+        "return_type": "wxString&",
+        "brief_description": "",
+        "constant": false,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [],
+        "parameters_is_array": [],
+        "parameters_extra": [],
+        "parameters_name": [],
+        "parameters_required": [],
+        "parameters_default_value": []
+      }
+    ],
+    "GetLineCount": [
+      {
+        "return_type": "size_t",
+        "brief_description": "",
+        "constant": true,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [],
+        "parameters_is_array": [],
+        "parameters_extra": [],
+        "parameters_name": [],
+        "parameters_required": [],
+        "parameters_default_value": []
+      }
+    ],
+    "GetLineType": [
+      {
+        "return_type": "wxTextFileType",
+        "brief_description": "",
+        "constant": true,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [
+          "size_t"
+        ],
+        "parameters_is_array": [
+          false
+        ],
+        "parameters_extra": [
+          false
+        ],
+        "parameters_name": [
+          "n"
+        ],
+        "parameters_required": [
+          true
+        ],
+        "parameters_default_value": [
+          null
+        ]
+      }
+    ],
+    "GetName": [
+      {
+        "return_type": "const wxString&",
+        "brief_description": "",
+        "constant": true,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [],
+        "parameters_is_array": [],
+        "parameters_extra": [],
+        "parameters_name": [],
+        "parameters_required": [],
+        "parameters_default_value": []
+      }
+    ],
+    "GetNextLine": [
+      {
+        "return_type": "wxString&",
+        "brief_description": "",
+        "constant": false,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [],
+        "parameters_is_array": [],
+        "parameters_extra": [],
+        "parameters_name": [],
+        "parameters_required": [],
+        "parameters_default_value": []
+      }
+    ],
+    "GetPrevLine": [
+      {
+        "return_type": "wxString&",
+        "brief_description": "",
+        "constant": false,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [],
+        "parameters_is_array": [],
+        "parameters_extra": [],
+        "parameters_name": [],
+        "parameters_required": [],
+        "parameters_default_value": []
+      }
+    ],
+    "GoToLine": [
+      {
+        "return_type": "void",
+        "brief_description": "",
+        "constant": false,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [
+          "size_t"
+        ],
+        "parameters_is_array": [
+          false
+        ],
+        "parameters_extra": [
+          false
+        ],
+        "parameters_name": [
+          "n"
+        ],
+        "parameters_required": [
+          true
+        ],
+        "parameters_default_value": [
+          null
+        ]
+      }
+    ],
+    "GuessType": [
+      {
+        "return_type": "wxTextFileType",
+        "brief_description": "",
+        "constant": true,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [],
+        "parameters_is_array": [],
+        "parameters_extra": [],
+        "parameters_name": [],
+        "parameters_required": [],
+        "parameters_default_value": []
+      }
+    ],
+    "InsertLine": [
+      {
+        "return_type": "void",
+        "brief_description": "",
+        "constant": false,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [
+          "const wxString&",
+          "size_t",
+          "wxTextFileType"
+        ],
+        "parameters_is_array": [
+          false,
+          false,
+          false
+        ],
+        "parameters_extra": [
+          false,
+          false,
+          false
+        ],
+        "parameters_name": [
+          "str",
+          "n",
+          "type"
+        ],
+        "parameters_required": [
+          true,
+          true
+        ],
+        "parameters_default_value": [
+          null,
+          null,
+          "typeDefault"
+        ]
+      }
+    ],
+    "IsOpened": [
+      {
+        "return_type": "bool",
+        "brief_description": "",
+        "constant": true,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [],
+        "parameters_is_array": [],
+        "parameters_extra": [],
+        "parameters_name": [],
+        "parameters_required": [],
+        "parameters_default_value": []
+      }
+    ],
+    "Open": [
+      {
+        "return_type": "bool",
+        "brief_description": "",
+        "constant": false,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [
+          "const wxMBConv&"
+        ],
+        "parameters_is_array": [
+          false
+        ],
+        "parameters_extra": [
+          false
+        ],
+        "parameters_name": [
+          "conv"
+        ],
+        "parameters_required": [],
+        "parameters_default_value": [
+          "wxConvAuto()"
+        ]
+      },
+      {
+        "return_type": "bool",
+        "brief_description": "",
+        "constant": false,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [
+          "const wxString&",
+          "const wxMBConv&"
+        ],
+        "parameters_is_array": [
+          false,
+          false
+        ],
+        "parameters_extra": [
+          false,
+          false
+        ],
+        "parameters_name": [
+          "strFile",
+          "conv"
+        ],
+        "parameters_required": [
+          true
+        ],
+        "parameters_default_value": [
+          null,
+          "wxConvAuto()"
+        ]
+      }
+    ],
+    "RemoveLine": [
+      {
+        "return_type": "void",
+        "brief_description": "",
+        "constant": false,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [
+          "size_t"
+        ],
+        "parameters_is_array": [
+          false
+        ],
+        "parameters_extra": [
+          false
+        ],
+        "parameters_name": [
+          "n"
+        ],
+        "parameters_required": [
+          true
+        ],
+        "parameters_default_value": [
+          null
+        ]
+      }
+    ],
+    "Write": [
+      {
+        "return_type": "bool",
+        "brief_description": "",
+        "constant": false,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [
+          "wxTextFileType",
+          "const wxMBConv&"
+        ],
+        "parameters_is_array": [
+          false,
+          false
+        ],
+        "parameters_extra": [
+          false,
+          false
+        ],
+        "parameters_name": [
+          "typeNew",
+          "conv"
+        ],
+        "parameters_required": [],
+        "parameters_default_value": [
+          "wxTextFileType_None",
+          "wxConvAuto()"
+        ]
+      }
+    ],
+    "operator[]": [
+      {
+        "return_type": "wxString&",
+        "brief_description": "",
+        "constant": true,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [
+          "size_t"
+        ],
+        "parameters_is_array": [
+          false
+        ],
+        "parameters_extra": [
+          false
+        ],
+        "parameters_name": [
+          "n"
+        ],
+        "parameters_required": [
+          true
+        ],
+        "parameters_default_value": [
+          null
+        ]
+      }
+    ],
+    "GetEOL": [
+      {
+        "return_type": "const wxChar*",
+        "brief_description": "",
+        "constant": false,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": true,
+        "protected": false,
+        "parameters_type": [
+          "wxTextFileType"
+        ],
+        "parameters_is_array": [
+          false
+        ],
+        "parameters_extra": [
+          false
+        ],
+        "parameters_name": [
+          "type"
+        ],
+        "parameters_required": [],
+        "parameters_default_value": [
+          "typeDefault"
+        ]
+      }
+    ]
+  },
+  "wxTextInputStream": {
+    "wxTextInputStream": [
+      {
+        "return_type": "",
+        "brief_description": "",
+        "constant": false,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [
+          "wxInputStream&",
+          "const wxString&",
+          "const wxMBConv&"
+        ],
+        "parameters_is_array": [
+          false,
+          false,
+          false
+        ],
+        "parameters_extra": [
+          false,
+          false,
+          false
+        ],
+        "parameters_name": [
+          "stream",
+          "sep",
+          "conv"
+        ],
+        "parameters_required": [
+          true
+        ],
+        "parameters_default_value": [
+          null,
+          "\" \\\\ t\"",
+          "wxConvAuto()"
+        ]
+      }
+    ],
+    "GetInputStream": [
+      {
+        "return_type": "const wxInputStream&",
+        "brief_description": "",
+        "constant": true,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [],
+        "parameters_is_array": [],
+        "parameters_extra": [],
+        "parameters_name": [],
+        "parameters_required": [],
+        "parameters_default_value": []
+      }
+    ],
+    "GetChar": [
+      {
+        "return_type": "wxChar",
+        "brief_description": "",
+        "constant": false,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [],
+        "parameters_is_array": [],
+        "parameters_extra": [],
+        "parameters_name": [],
+        "parameters_required": [],
+        "parameters_default_value": []
+      }
+    ],
+    "Read16": [
+      {
+        "return_type": "wxUint16",
+        "brief_description": "",
+        "constant": false,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [
+          "int"
+        ],
+        "parameters_is_array": [
+          false
+        ],
+        "parameters_extra": [
+          false
+        ],
+        "parameters_name": [
+          "base"
+        ],
+        "parameters_required": [],
+        "parameters_default_value": [
+          "10"
+        ]
+      }
+    ],
+    "Read16S": [
+      {
+        "return_type": "wxInt16",
+        "brief_description": "",
+        "constant": false,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [
+          "int"
+        ],
+        "parameters_is_array": [
+          false
+        ],
+        "parameters_extra": [
+          false
+        ],
+        "parameters_name": [
+          "base"
+        ],
+        "parameters_required": [],
+        "parameters_default_value": [
+          "10"
+        ]
+      }
+    ],
+    "Read32": [
+      {
+        "return_type": "wxUint32",
+        "brief_description": "",
+        "constant": false,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [
+          "int"
+        ],
+        "parameters_is_array": [
+          false
+        ],
+        "parameters_extra": [
+          false
+        ],
+        "parameters_name": [
+          "base"
+        ],
+        "parameters_required": [],
+        "parameters_default_value": [
+          "10"
+        ]
+      }
+    ],
+    "Read32S": [
+      {
+        "return_type": "wxInt32",
+        "brief_description": "",
+        "constant": false,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [
+          "int"
+        ],
+        "parameters_is_array": [
+          false
+        ],
+        "parameters_extra": [
+          false
+        ],
+        "parameters_name": [
+          "base"
+        ],
+        "parameters_required": [],
+        "parameters_default_value": [
+          "10"
+        ]
+      }
+    ],
+    "Read64": [
+      {
+        "return_type": "wxUint64",
+        "brief_description": "",
+        "constant": false,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [
+          "int"
+        ],
+        "parameters_is_array": [
+          false
+        ],
+        "parameters_extra": [
+          false
+        ],
+        "parameters_name": [
+          "base"
+        ],
+        "parameters_required": [],
+        "parameters_default_value": [
+          "10"
+        ]
+      }
+    ],
+    "Read64S": [
+      {
+        "return_type": "wxInt64",
+        "brief_description": "",
+        "constant": false,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [
+          "int"
+        ],
+        "parameters_is_array": [
+          false
+        ],
+        "parameters_extra": [
+          false
+        ],
+        "parameters_name": [
+          "base"
+        ],
+        "parameters_required": [],
+        "parameters_default_value": [
+          "10"
+        ]
+      }
+    ],
+    "Read8": [
+      {
+        "return_type": "wxUint8",
+        "brief_description": "",
+        "constant": false,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [
+          "int"
+        ],
+        "parameters_is_array": [
+          false
+        ],
+        "parameters_extra": [
+          false
+        ],
+        "parameters_name": [
+          "base"
+        ],
+        "parameters_required": [],
+        "parameters_default_value": [
+          "10"
+        ]
+      }
+    ],
+    "Read8S": [
+      {
+        "return_type": "wxInt8",
+        "brief_description": "",
+        "constant": false,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [
+          "int"
+        ],
+        "parameters_is_array": [
+          false
+        ],
+        "parameters_extra": [
+          false
+        ],
+        "parameters_name": [
+          "base"
+        ],
+        "parameters_required": [],
+        "parameters_default_value": [
+          "10"
+        ]
+      }
+    ],
+    "ReadDouble": [
+      {
+        "return_type": "double",
+        "brief_description": "",
+        "constant": false,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [],
+        "parameters_is_array": [],
+        "parameters_extra": [],
+        "parameters_name": [],
+        "parameters_required": [],
+        "parameters_default_value": []
+      }
+    ],
+    "ReadLine": [
+      {
+        "return_type": "wxString",
+        "brief_description": "",
+        "constant": false,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [],
+        "parameters_is_array": [],
+        "parameters_extra": [],
+        "parameters_name": [],
+        "parameters_required": [],
+        "parameters_default_value": []
+      }
+    ],
+    "ReadString": [
+      {
+        "return_type": "wxString",
+        "brief_description": "",
+        "constant": false,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [],
+        "parameters_is_array": [],
+        "parameters_extra": [],
+        "parameters_name": [],
+        "parameters_required": [],
+        "parameters_default_value": [],
+        "deprecated": true
+      }
+    ],
+    "ReadWord": [
+      {
+        "return_type": "wxString",
+        "brief_description": "",
+        "constant": false,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [],
+        "parameters_is_array": [],
+        "parameters_extra": [],
+        "parameters_name": [],
+        "parameters_required": [],
+        "parameters_default_value": []
+      }
+    ],
+    "SetStringSeparators": [
+      {
+        "return_type": "void",
+        "brief_description": "",
+        "constant": false,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [
+          "const wxString&"
+        ],
+        "parameters_is_array": [
+          false
+        ],
+        "parameters_extra": [
+          false
+        ],
+        "parameters_name": [
+          "sep"
+        ],
+        "parameters_required": [
+          true
+        ],
+        "parameters_default_value": [
+          null
+        ]
+      }
+    ],
+    "operator>>": [
+      {
+        "return_type": "wxTextInputStream&",
+        "brief_description": "",
+        "constant": false,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [
+          "wxString&"
+        ],
+        "parameters_is_array": [
+          false
+        ],
+        "parameters_extra": [
+          false
+        ],
+        "parameters_name": [
+          "word"
+        ],
+        "parameters_required": [
+          true
+        ],
+        "parameters_default_value": [
+          null
+        ]
+      },
+      {
+        "return_type": "wxTextInputStream&",
+        "brief_description": "",
+        "constant": false,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [
+          "char&"
+        ],
+        "parameters_is_array": [
+          false
+        ],
+        "parameters_extra": [
+          false
+        ],
+        "parameters_name": [
+          "c"
+        ],
+        "parameters_required": [
+          true
+        ],
+        "parameters_default_value": [
+          null
+        ]
+      },
+      {
+        "return_type": "wxTextInputStream&",
+        "brief_description": "",
+        "constant": false,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [
+          "wchar_t&"
+        ],
+        "parameters_is_array": [
+          false
+        ],
+        "parameters_extra": [
+          false
+        ],
+        "parameters_name": [
+          "wc"
+        ],
+        "parameters_required": [
+          true
+        ],
+        "parameters_default_value": [
+          null
+        ]
+      },
+      {
+        "return_type": "wxTextInputStream&",
+        "brief_description": "",
+        "constant": false,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [
+          "wxInt16&"
+        ],
+        "parameters_is_array": [
+          false
+        ],
+        "parameters_extra": [
+          false
+        ],
+        "parameters_name": [
+          "i"
+        ],
+        "parameters_required": [
+          true
+        ],
+        "parameters_default_value": [
+          null
+        ]
+      },
+      {
+        "return_type": "wxTextInputStream&",
+        "brief_description": "",
+        "constant": false,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [
+          "wxInt32&"
+        ],
+        "parameters_is_array": [
+          false
+        ],
+        "parameters_extra": [
+          false
+        ],
+        "parameters_name": [
+          "i"
+        ],
+        "parameters_required": [
+          true
+        ],
+        "parameters_default_value": [
+          null
+        ]
+      },
+      {
+        "return_type": "wxTextInputStream&",
+        "brief_description": "",
+        "constant": false,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [
+          "wxInt64&"
+        ],
+        "parameters_is_array": [
+          false
+        ],
+        "parameters_extra": [
+          false
+        ],
+        "parameters_name": [
+          "i"
+        ],
+        "parameters_required": [
+          true
+        ],
+        "parameters_default_value": [
+          null
+        ]
+      },
+      {
+        "return_type": "wxTextInputStream&",
+        "brief_description": "",
+        "constant": false,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [
+          "wxUint16&"
+        ],
+        "parameters_is_array": [
+          false
+        ],
+        "parameters_extra": [
+          false
+        ],
+        "parameters_name": [
+          "i"
+        ],
+        "parameters_required": [
+          true
+        ],
+        "parameters_default_value": [
+          null
+        ]
+      },
+      {
+        "return_type": "wxTextInputStream&",
+        "brief_description": "",
+        "constant": false,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [
+          "wxUint32&"
+        ],
+        "parameters_is_array": [
+          false
+        ],
+        "parameters_extra": [
+          false
+        ],
+        "parameters_name": [
+          "i"
+        ],
+        "parameters_required": [
+          true
+        ],
+        "parameters_default_value": [
+          null
+        ]
+      },
+      {
+        "return_type": "wxTextInputStream&",
+        "brief_description": "",
+        "constant": false,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [
+          "wxUint64&"
+        ],
+        "parameters_is_array": [
+          false
+        ],
+        "parameters_extra": [
+          false
+        ],
+        "parameters_name": [
+          "i"
+        ],
+        "parameters_required": [
+          true
+        ],
+        "parameters_default_value": [
+          null
+        ]
+      },
+      {
+        "return_type": "wxTextInputStream&",
+        "brief_description": "",
+        "constant": false,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [
+          "double&"
+        ],
+        "parameters_is_array": [
+          false
+        ],
+        "parameters_extra": [
+          false
+        ],
+        "parameters_name": [
+          "i"
+        ],
+        "parameters_required": [
+          true
+        ],
+        "parameters_default_value": [
+          null
+        ]
+      },
+      {
+        "return_type": "wxTextInputStream&",
+        "brief_description": "",
+        "constant": false,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [
+          "float&"
+        ],
+        "parameters_is_array": [
+          false
+        ],
+        "parameters_extra": [
+          false
+        ],
+        "parameters_name": [
+          "f"
+        ],
+        "parameters_required": [
+          true
+        ],
+        "parameters_default_value": [
+          null
+        ]
+      },
+      {
+        "return_type": "wxTextInputStream&",
+        "brief_description": "",
+        "constant": false,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [
+          "__wxTextInputManip"
+        ],
+        "parameters_is_array": [
+          false
+        ],
+        "parameters_extra": [
+          false
+        ],
+        "parameters_name": [
+          "func"
+        ],
+        "parameters_required": [
+          true
+        ],
+        "parameters_default_value": [
+          null
+        ]
+      }
+    ]
+  },
+  "wxTextOutputStream": {
+    "wxTextOutputStream": [
+      {
+        "return_type": "",
+        "brief_description": "",
+        "constant": false,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [
+          "wxOutputStream&",
+          "wxEOL",
+          "const wxMBConv&"
+        ],
+        "parameters_is_array": [
+          false,
+          false,
+          false
+        ],
+        "parameters_extra": [
+          false,
+          false,
+          false
+        ],
+        "parameters_name": [
+          "stream",
+          "mode",
+          "conv"
+        ],
+        "parameters_required": [
+          true
+        ],
+        "parameters_default_value": [
+          null,
+          "wxEOL_NATIVE",
+          "wxConvAuto()"
+        ]
+      }
+    ],
+    "Flush": [
+      {
+        "return_type": "void",
+        "brief_description": "",
+        "constant": false,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [],
+        "parameters_is_array": [],
+        "parameters_extra": [],
+        "parameters_name": [],
+        "parameters_required": [],
+        "parameters_default_value": []
+      }
+    ],
+    "GetOutputStream": [
+      {
+        "return_type": "const wxOutputStream&",
+        "brief_description": "",
+        "constant": true,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [],
+        "parameters_is_array": [],
+        "parameters_extra": [],
+        "parameters_name": [],
+        "parameters_required": [],
+        "parameters_default_value": []
+      }
+    ],
+    "GetMode": [
+      {
+        "return_type": "wxEOL",
+        "brief_description": "",
+        "constant": false,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [],
+        "parameters_is_array": [],
+        "parameters_extra": [],
+        "parameters_name": [],
+        "parameters_required": [],
+        "parameters_default_value": []
+      }
+    ],
+    "PutChar": [
+      {
+        "return_type": "wxTextOutputStream&",
+        "brief_description": "",
+        "constant": false,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [
+          "wxChar"
+        ],
+        "parameters_is_array": [
+          false
+        ],
+        "parameters_extra": [
+          false
+        ],
+        "parameters_name": [
+          "c"
+        ],
+        "parameters_required": [
+          true
+        ],
+        "parameters_default_value": [
+          null
+        ]
+      }
+    ],
+    "SetMode": [
+      {
+        "return_type": "void",
+        "brief_description": "",
+        "constant": false,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [
+          "wxEOL"
+        ],
+        "parameters_is_array": [
+          false
+        ],
+        "parameters_extra": [
+          false
+        ],
+        "parameters_name": [
+          "mode"
+        ],
+        "parameters_required": [],
+        "parameters_default_value": [
+          "wxEOL_NATIVE"
+        ]
+      }
+    ],
+    "Write": [
+      {
+        "return_type": "void",
+        "brief_description": "",
+        "constant": false,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [
+          "const T&"
+        ],
+        "parameters_is_array": [
+          false
+        ],
+        "parameters_extra": [
+          false
+        ],
+        "parameters_name": [
+          "i"
+        ],
+        "parameters_required": [
+          true
+        ],
+        "parameters_default_value": [
+          null
+        ]
+      }
+    ],
+    "Write64": [
+      {
+        "return_type": "void",
+        "brief_description": "",
+        "constant": false,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [
+          "wxUint64"
+        ],
+        "parameters_is_array": [
+          false
+        ],
+        "parameters_extra": [
+          false
+        ],
+        "parameters_name": [
+          "i64"
+        ],
+        "parameters_required": [
+          true
+        ],
+        "parameters_default_value": [
+          null
+        ]
+      }
+    ],
+    "Write32": [
+      {
+        "return_type": "void",
+        "brief_description": "",
+        "constant": false,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [
+          "wxUint32"
+        ],
+        "parameters_is_array": [
+          false
+        ],
+        "parameters_extra": [
+          false
+        ],
+        "parameters_name": [
+          "i32"
+        ],
+        "parameters_required": [
+          true
+        ],
+        "parameters_default_value": [
+          null
+        ]
+      }
+    ],
+    "Write16": [
+      {
+        "return_type": "void",
+        "brief_description": "",
+        "constant": false,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [
+          "wxUint16"
+        ],
+        "parameters_is_array": [
+          false
+        ],
+        "parameters_extra": [
+          false
+        ],
+        "parameters_name": [
+          "i16"
+        ],
+        "parameters_required": [
+          true
+        ],
+        "parameters_default_value": [
+          null
+        ]
+      }
+    ],
+    "Write8": [
+      {
+        "return_type": "void",
+        "brief_description": "",
+        "constant": false,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [
+          "wxUint8"
+        ],
+        "parameters_is_array": [
+          false
+        ],
+        "parameters_extra": [
+          false
+        ],
+        "parameters_name": [
+          "i8"
+        ],
+        "parameters_required": [
+          true
+        ],
+        "parameters_default_value": [
+          null
+        ]
+      }
+    ],
+    "WriteDouble": [
+      {
+        "return_type": "void",
+        "brief_description": "",
+        "constant": false,
+        "virtual": true,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [
+          "double"
+        ],
+        "parameters_is_array": [
+          false
+        ],
+        "parameters_extra": [
+          false
+        ],
+        "parameters_name": [
+          "f"
+        ],
+        "parameters_required": [
+          true
+        ],
+        "parameters_default_value": [
+          null
+        ]
+      }
+    ],
+    "WriteString": [
+      {
+        "return_type": "void",
+        "brief_description": "",
+        "constant": false,
+        "virtual": true,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [
+          "const wxString&"
+        ],
+        "parameters_is_array": [
+          false
+        ],
+        "parameters_extra": [
+          false
+        ],
+        "parameters_name": [
+          "string"
+        ],
+        "parameters_required": [
+          true
+        ],
+        "parameters_default_value": [
+          null
+        ]
+      }
+    ],
+    "operator<<": [
+      {
+        "return_type": "wxTextOutputStream&",
+        "brief_description": "",
+        "constant": false,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [
+          "const wxString&"
+        ],
+        "parameters_is_array": [
+          false
+        ],
+        "parameters_extra": [
+          false
+        ],
+        "parameters_name": [
+          "string"
+        ],
+        "parameters_required": [
+          true
+        ],
+        "parameters_default_value": [
+          null
+        ]
+      },
+      {
+        "return_type": "wxTextOutputStream&",
+        "brief_description": "",
+        "constant": false,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [
+          "char"
+        ],
+        "parameters_is_array": [
+          false
+        ],
+        "parameters_extra": [
+          false
+        ],
+        "parameters_name": [
+          "c"
+        ],
+        "parameters_required": [
+          true
+        ],
+        "parameters_default_value": [
+          null
+        ]
+      },
+      {
+        "return_type": "wxTextOutputStream&",
+        "brief_description": "",
+        "constant": false,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [
+          "wchar_t"
+        ],
+        "parameters_is_array": [
+          false
+        ],
+        "parameters_extra": [
+          false
+        ],
+        "parameters_name": [
+          "wc"
+        ],
+        "parameters_required": [
+          true
+        ],
+        "parameters_default_value": [
+          null
+        ]
+      },
+      {
+        "return_type": "wxTextOutputStream&",
+        "brief_description": "",
+        "constant": false,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [
+          "wxInt16"
+        ],
+        "parameters_is_array": [
+          false
+        ],
+        "parameters_extra": [
+          false
+        ],
+        "parameters_name": [
+          "c"
+        ],
+        "parameters_required": [
+          true
+        ],
+        "parameters_default_value": [
+          null
+        ]
+      },
+      {
+        "return_type": "wxTextOutputStream&",
+        "brief_description": "",
+        "constant": false,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [
+          "wxInt32"
+        ],
+        "parameters_is_array": [
+          false
+        ],
+        "parameters_extra": [
+          false
+        ],
+        "parameters_name": [
+          "c"
+        ],
+        "parameters_required": [
+          true
+        ],
+        "parameters_default_value": [
+          null
+        ]
+      },
+      {
+        "return_type": "wxTextOutputStream&",
+        "brief_description": "",
+        "constant": false,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [
+          "wxInt64"
+        ],
+        "parameters_is_array": [
+          false
+        ],
+        "parameters_extra": [
+          false
+        ],
+        "parameters_name": [
+          "c"
+        ],
+        "parameters_required": [
+          true
+        ],
+        "parameters_default_value": [
+          null
+        ]
+      },
+      {
+        "return_type": "wxTextOutputStream&",
+        "brief_description": "",
+        "constant": false,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [
+          "wxUint16"
+        ],
+        "parameters_is_array": [
+          false
+        ],
+        "parameters_extra": [
+          false
+        ],
+        "parameters_name": [
+          "c"
+        ],
+        "parameters_required": [
+          true
+        ],
+        "parameters_default_value": [
+          null
+        ]
+      },
+      {
+        "return_type": "wxTextOutputStream&",
+        "brief_description": "",
+        "constant": false,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [
+          "wxUint32"
+        ],
+        "parameters_is_array": [
+          false
+        ],
+        "parameters_extra": [
+          false
+        ],
+        "parameters_name": [
+          "c"
+        ],
+        "parameters_required": [
+          true
+        ],
+        "parameters_default_value": [
+          null
+        ]
+      },
+      {
+        "return_type": "wxTextOutputStream&",
+        "brief_description": "",
+        "constant": false,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [
+          "wxUint64"
+        ],
+        "parameters_is_array": [
+          false
+        ],
+        "parameters_extra": [
+          false
+        ],
+        "parameters_name": [
+          "c"
+        ],
+        "parameters_required": [
+          true
+        ],
+        "parameters_default_value": [
+          null
+        ]
+      },
+      {
+        "return_type": "wxTextOutputStream&",
+        "brief_description": "",
+        "constant": false,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [
+          "double"
+        ],
+        "parameters_is_array": [
+          false
+        ],
+        "parameters_extra": [
+          false
+        ],
+        "parameters_name": [
+          "f"
+        ],
+        "parameters_required": [
+          true
+        ],
+        "parameters_default_value": [
+          null
+        ]
+      },
+      {
+        "return_type": "wxTextOutputStream&",
+        "brief_description": "",
+        "constant": false,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [
+          "float"
+        ],
+        "parameters_is_array": [
+          false
+        ],
+        "parameters_extra": [
+          false
+        ],
+        "parameters_name": [
+          "f"
+        ],
+        "parameters_required": [
+          true
+        ],
+        "parameters_default_value": [
+          null
+        ]
+      },
+      {
+        "return_type": "wxTextOutputStream&",
+        "brief_description": "",
+        "constant": false,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [
+          "__wxTextOutputManip"
+        ],
+        "parameters_is_array": [
+          false
+        ],
+        "parameters_extra": [
+          false
+        ],
+        "parameters_name": [
+          "func"
+        ],
+        "parameters_required": [
+          true
+        ],
+        "parameters_default_value": [
+          null
+        ]
+      }
+    ]
+  },
+  "wxTextUrlEvent": {
+    "_implements": [
+      "wxCommandEvent"
+    ],
+    "wxTextUrlEvent": [
+      {
+        "return_type": "",
+        "brief_description": "",
+        "constant": false,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [
+          "int",
+          "const wxMouseEvent&",
+          "long",
+          "long"
+        ],
+        "parameters_is_array": [
+          false,
+          false,
+          false,
+          false
+        ],
+        "parameters_extra": [
+          false,
+          false,
+          false,
+          false
+        ],
+        "parameters_name": [
+          "winid",
+          "evtMouse",
+          "start",
+          "end"
+        ],
+        "parameters_required": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "parameters_default_value": [
+          null,
+          null,
+          null,
+          null
+        ]
+      },
+      {
+        "return_type": "",
+        "brief_description": "",
+        "constant": false,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [
+          "const wxTextUrlEvent&"
+        ],
+        "parameters_is_array": [
+          false
+        ],
+        "parameters_extra": [
+          false
+        ],
+        "parameters_name": [
+          "event"
+        ],
+        "parameters_required": [
+          true
+        ],
+        "parameters_default_value": [
+          null
+        ]
+      }
+    ],
+    "GetMouseEvent": [
+      {
+        "return_type": "const wxMouseEvent&",
+        "brief_description": "",
+        "constant": true,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [],
+        "parameters_is_array": [],
+        "parameters_extra": [],
+        "parameters_name": [],
+        "parameters_required": [],
+        "parameters_default_value": []
+      }
+    ],
+    "GetURLStart": [
+      {
+        "return_type": "long",
+        "brief_description": "",
+        "constant": true,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [],
+        "parameters_is_array": [],
+        "parameters_extra": [],
+        "parameters_name": [],
+        "parameters_required": [],
+        "parameters_default_value": []
+      }
+    ],
+    "GetURLEnd": [
+      {
+        "return_type": "long",
+        "brief_description": "",
+        "constant": true,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [],
+        "parameters_is_array": [],
+        "parameters_extra": [],
+        "parameters_name": [],
+        "parameters_required": [],
+        "parameters_default_value": []
+      }
+    ],
+    "Clone": [
+      {
+        "return_type": "wxEvent*",
+        "brief_description": "",
+        "constant": true,
+        "virtual": true,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [],
+        "parameters_is_array": [],
+        "parameters_extra": [],
+        "parameters_name": [],
+        "parameters_required": [],
+        "parameters_default_value": []
+      }
+    ]
   }
 }

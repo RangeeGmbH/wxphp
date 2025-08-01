@@ -1059,6 +1059,30 @@ zend_class_entry* php_wxTreeListEvent_entry;
 zend_object_handlers wxphp_wxTreeListEvent_object_handlers;
 zend_class_entry* php_wxTreeListItemComparator_entry;
 zend_object_handlers wxphp_wxTreeListItemComparator_object_handlers;
+zend_class_entry* php_wxTextAttrBorder_entry;
+zend_object_handlers wxphp_wxTextAttrBorder_object_handlers;
+zend_class_entry* php_wxTextAttrBorders_entry;
+zend_object_handlers wxphp_wxTextAttrBorders_object_handlers;
+zend_class_entry* php_wxTextAttrDimension_entry;
+zend_object_handlers wxphp_wxTextAttrDimension_object_handlers;
+zend_class_entry* php_wxTextAttrDimensionConverter_entry;
+zend_object_handlers wxphp_wxTextAttrDimensionConverter_object_handlers;
+zend_class_entry* php_wxTextAttrDimensions_entry;
+zend_object_handlers wxphp_wxTextAttrDimensions_object_handlers;
+zend_class_entry* php_wxTextAttrShadow_entry;
+zend_object_handlers wxphp_wxTextAttrShadow_object_handlers;
+zend_class_entry* php_wxTextAttrSize_entry;
+zend_object_handlers wxphp_wxTextAttrSize_object_handlers;
+zend_class_entry* php_wxTextBoxAttr_entry;
+zend_object_handlers wxphp_wxTextBoxAttr_object_handlers;
+zend_class_entry* php_wxTextFile_entry;
+zend_object_handlers wxphp_wxTextFile_object_handlers;
+zend_class_entry* php_wxTextInputStream_entry;
+zend_object_handlers wxphp_wxTextInputStream_object_handlers;
+zend_class_entry* php_wxTextOutputStream_entry;
+zend_object_handlers wxphp_wxTextOutputStream_object_handlers;
+zend_class_entry* php_wxTextUrlEvent_entry;
+zend_object_handlers wxphp_wxTextUrlEvent_object_handlers;
 
 
 /**
@@ -3200,6 +3224,72 @@ PHP_MINIT_FUNCTION(php_wxWidgets)
     php_wxTreeListItemComparator_entry = zend_register_internal_class(&ce);
     php_wxTreeListItemComparator_entry->create_object = php_wxTreeListItemComparator_new;
     wxPHP_PREPARE_OBJECT_HANDLERS(wxTreeListItemComparator)
+
+    char PHP_wxTextAttrBorder_name[] = "wxTextAttrBorder";
+    INIT_CLASS_ENTRY(ce, PHP_wxTextAttrBorder_name, php_wxTextAttrBorder_functions);
+    php_wxTextAttrBorder_entry = zend_register_internal_class(&ce);
+    php_wxTextAttrBorder_entry->create_object = php_wxTextAttrBorder_new;
+    wxPHP_PREPARE_OBJECT_HANDLERS(wxTextAttrBorder)
+
+    char PHP_wxTextAttrBorders_name[] = "wxTextAttrBorders";
+    INIT_CLASS_ENTRY(ce, PHP_wxTextAttrBorders_name, php_wxTextAttrBorders_functions);
+    php_wxTextAttrBorders_entry = zend_register_internal_class(&ce);
+    php_wxTextAttrBorders_entry->create_object = php_wxTextAttrBorders_new;
+    wxPHP_PREPARE_OBJECT_HANDLERS(wxTextAttrBorders)
+
+    char PHP_wxTextAttrDimension_name[] = "wxTextAttrDimension";
+    INIT_CLASS_ENTRY(ce, PHP_wxTextAttrDimension_name, php_wxTextAttrDimension_functions);
+    php_wxTextAttrDimension_entry = zend_register_internal_class(&ce);
+    php_wxTextAttrDimension_entry->create_object = php_wxTextAttrDimension_new;
+    wxPHP_PREPARE_OBJECT_HANDLERS(wxTextAttrDimension)
+
+    char PHP_wxTextAttrDimensionConverter_name[] = "wxTextAttrDimensionConverter";
+    INIT_CLASS_ENTRY(ce, PHP_wxTextAttrDimensionConverter_name, php_wxTextAttrDimensionConverter_functions);
+    php_wxTextAttrDimensionConverter_entry = zend_register_internal_class(&ce);
+    php_wxTextAttrDimensionConverter_entry->create_object = php_wxTextAttrDimensionConverter_new;
+    wxPHP_PREPARE_OBJECT_HANDLERS(wxTextAttrDimensionConverter)
+
+    char PHP_wxTextAttrDimensions_name[] = "wxTextAttrDimensions";
+    INIT_CLASS_ENTRY(ce, PHP_wxTextAttrDimensions_name, php_wxTextAttrDimensions_functions);
+    php_wxTextAttrDimensions_entry = zend_register_internal_class(&ce);
+    php_wxTextAttrDimensions_entry->create_object = php_wxTextAttrDimensions_new;
+    wxPHP_PREPARE_OBJECT_HANDLERS(wxTextAttrDimensions)
+
+    char PHP_wxTextAttrShadow_name[] = "wxTextAttrShadow";
+    INIT_CLASS_ENTRY(ce, PHP_wxTextAttrShadow_name, php_wxTextAttrShadow_functions);
+    php_wxTextAttrShadow_entry = zend_register_internal_class(&ce);
+    php_wxTextAttrShadow_entry->create_object = php_wxTextAttrShadow_new;
+    wxPHP_PREPARE_OBJECT_HANDLERS(wxTextAttrShadow)
+
+    char PHP_wxTextAttrSize_name[] = "wxTextAttrSize";
+    INIT_CLASS_ENTRY(ce, PHP_wxTextAttrSize_name, php_wxTextAttrSize_functions);
+    php_wxTextAttrSize_entry = zend_register_internal_class(&ce);
+    php_wxTextAttrSize_entry->create_object = php_wxTextAttrSize_new;
+    wxPHP_PREPARE_OBJECT_HANDLERS(wxTextAttrSize)
+
+    char PHP_wxTextBoxAttr_name[] = "wxTextBoxAttr";
+    INIT_CLASS_ENTRY(ce, PHP_wxTextBoxAttr_name, php_wxTextBoxAttr_functions);
+    php_wxTextBoxAttr_entry = zend_register_internal_class(&ce);
+    php_wxTextBoxAttr_entry->create_object = php_wxTextBoxAttr_new;
+    wxPHP_PREPARE_OBJECT_HANDLERS(wxTextBoxAttr)
+
+    char PHP_wxTextFile_name[] = "wxTextFile";
+    INIT_CLASS_ENTRY(ce, PHP_wxTextFile_name, php_wxTextFile_functions);
+    php_wxTextFile_entry = zend_register_internal_class(&ce);
+    php_wxTextFile_entry->create_object = php_wxTextFile_new;
+    wxPHP_PREPARE_OBJECT_HANDLERS(wxTextFile)
+
+    char PHP_wxTextInputStream_name[] = "wxTextInputStream";
+    INIT_CLASS_ENTRY(ce, PHP_wxTextInputStream_name, php_wxTextInputStream_functions);
+    php_wxTextInputStream_entry = zend_register_internal_class(&ce);
+    php_wxTextInputStream_entry->create_object = php_wxTextInputStream_new;
+    wxPHP_PREPARE_OBJECT_HANDLERS(wxTextInputStream)
+
+    char PHP_wxTextOutputStream_name[] = "wxTextOutputStream";
+    INIT_CLASS_ENTRY(ce, PHP_wxTextOutputStream_name, php_wxTextOutputStream_functions);
+    php_wxTextOutputStream_entry = zend_register_internal_class(&ce);
+    php_wxTextOutputStream_entry->create_object = php_wxTextOutputStream_new;
+    wxPHP_PREPARE_OBJECT_HANDLERS(wxTextOutputStream)
 
     char PHP_wxEvtHandler_name[] = "wxEvtHandler";
     INIT_CLASS_ENTRY(ce, PHP_wxEvtHandler_name, php_wxEvtHandler_functions);
@@ -5378,6 +5468,12 @@ PHP_MINIT_FUNCTION(php_wxWidgets)
     php_wxTreeListEvent_entry = zend_register_internal_class_ex(&ce, php_wxNotifyEvent_entry);
     php_wxTreeListEvent_entry->create_object = php_wxTreeListEvent_new;
     wxPHP_PREPARE_OBJECT_HANDLERS(wxTreeListEvent)
+
+    char PHP_wxTextUrlEvent_name[] = "wxTextUrlEvent";
+    INIT_CLASS_ENTRY(ce, PHP_wxTextUrlEvent_name, php_wxTextUrlEvent_functions);
+    php_wxTextUrlEvent_entry = zend_register_internal_class_ex(&ce, php_wxCommandEvent_entry);
+    php_wxTextUrlEvent_entry->create_object = php_wxTextUrlEvent_new;
+    wxPHP_PREPARE_OBJECT_HANDLERS(wxTextUrlEvent)
 
 
     //Variables found on consts.json

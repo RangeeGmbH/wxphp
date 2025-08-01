@@ -55,6 +55,22193 @@
 
 
 BEGIN_EXTERN_C()
+void php_wxTextAttrDimension_free(void *object)
+{
+    zo_wxTextAttrDimension* custom_object = (zo_wxTextAttrDimension*) object;
+
+    #ifdef USE_WXPHP_DEBUG
+    php_printf(
+        "Calling php_wxTextAttrDimension_free on %s at line %i\n",
+        zend_get_executed_filename(),
+        zend_get_executed_lineno()
+    );
+    php_printf("===========================================\n");
+    #endif
+
+    if(custom_object->native_object != NULL)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Pointer not null\n");
+        php_printf("Pointer address %x\n", (unsigned int)(size_t)custom_object->native_object);
+        #endif
+
+        if(custom_object->is_user_initialized)
+        {
+            #ifdef USE_WXPHP_DEBUG
+            php_printf("Deleting pointer with delete\n");
+            #endif
+
+            custom_object->native_object->UninitProperties();
+            delete custom_object->native_object;
+            custom_object->native_object = NULL;
+        }
+
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Deletion of wxTextAttrDimension done\n");
+        php_printf("===========================================\n\n");
+        #endif
+    }
+    else
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Not user space initialized\n");
+        #endif
+    }
+
+    zend_object_std_dtor(&custom_object->zo);
+    efree(custom_object);
+}
+
+zend_object* php_wxTextAttrDimension_new(zend_class_entry *class_type)
+{
+    #ifdef USE_WXPHP_DEBUG
+    php_printf(
+        "Calling php_wxTextAttrDimension_new on %s at line %i\n",
+        zend_get_executed_filename(),
+        zend_get_executed_lineno()
+    );
+    php_printf("===========================================\n");
+    #endif
+
+    zo_wxTextAttrDimension* custom_object;
+
+    custom_object = (zo_wxTextAttrDimension*) ecalloc(
+        1,
+        sizeof(zo_wxTextAttrDimension)
+        + zend_object_properties_size(class_type)
+    );
+
+    zend_object_std_init(&custom_object->zo, class_type);
+    object_properties_init(&custom_object->zo, class_type);
+
+    custom_object->zo.handlers = &wxphp_wxTextAttrDimension_object_handlers;
+
+    custom_object->native_object = NULL;
+    custom_object->object_type = PHP_WXTEXTATTRDIMENSION_TYPE;
+    custom_object->is_user_initialized = 0;
+
+    return &custom_object->zo;
+}
+END_EXTERN_C()
+
+/* {{{ proto  wxTextAttrDimension::wxTextAttrDimension() */
+PHP_METHOD(php_wxTextAttrDimension, __construct)
+{
+    #ifdef USE_WXPHP_DEBUG
+    php_printf("Invoking wxTextAttrDimension::__construct\n");
+    php_printf("===========================================\n");
+    #endif
+
+    zo_wxTextAttrDimension* current_object;
+    wxTextAttrDimension_php* native_object;
+    void* argument_native_object = NULL;
+
+    //Other variables used thru the code
+    zval dummy;
+    ZVAL_NULL(&dummy);
+    bool already_called = false;
+    int arguments_received = ZEND_NUM_ARGS();
+
+
+    //Parameters for overload 0
+    bool overload0_called = false;
+
+    //Parameters for overload 1
+    long value1;
+    long units1;
+    bool overload1_called = false;
+
+    
+    //Overload 0
+    overload0:
+    if(!already_called && arguments_received == 0)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Parameters received %d\n", arguments_received);
+        php_printf("Parsing parameters with '' ()\n");
+        #endif
+
+        overload0_called = true;
+        already_called = true;
+    }
+
+    //Overload 1
+    overload1:
+    if(!already_called && arguments_received >= 1  && arguments_received <= 2)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Parameters received %d\n", arguments_received);
+        php_printf("Parsing parameters with 'l|l' (&value1, &units1)\n");
+        #endif
+
+        char parse_parameters_string[] = "l|l";
+        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &value1, &units1 ) == SUCCESS)
+        {
+            overload1_called = true;
+            already_called = true;
+        }
+    }
+
+    
+    if(overload0_called)
+    {
+        switch(arguments_received)
+        {
+            case 0:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing __construct()\n");
+                #endif
+
+                native_object = new wxTextAttrDimension_php();
+
+                native_object->references.Initialize();
+                break;
+            }
+        }
+    }
+
+    if(overload1_called)
+    {
+        switch(arguments_received)
+        {
+            case 1:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing __construct((int) value1)\n");
+                #endif
+
+                native_object = new wxTextAttrDimension_php((int) value1);
+
+                native_object->references.Initialize();
+                break;
+            }
+            case 2:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing __construct((int) value1, (wxTextAttrUnits) units1)\n");
+                #endif
+
+                native_object = new wxTextAttrDimension_php((int) value1, (wxTextAttrUnits) units1);
+
+                native_object->references.Initialize();
+                break;
+            }
+        }
+    }
+
+    
+    if(already_called)
+    {
+        native_object->phpObj = *getThis();
+
+        native_object->InitProperties();
+
+        current_object = Z_wxTextAttrDimension_P(getThis());
+
+        current_object->native_object = native_object;
+
+        current_object->is_user_initialized = 1;
+    }
+    else
+    {
+        zend_error(
+            E_ERROR,
+            "Abstract class or wrong type/count of parameters "
+            "passed to: wxTextAttrDimension::__construct\n"
+        );
+    }
+
+    #ifdef USE_WXPHP_DEBUG
+        php_printf("===========================================\n\n");
+    #endif
+}
+/* }}} */
+
+PHP_METHOD(php_wxTextAttrDimension, __get)
+{
+    #ifdef USE_WXPHP_DEBUG
+    php_printf("Invoking wxTextAttrDimension::__get\n");
+    php_printf("===========================================\n");
+    #endif
+
+    int arguments_received = ZEND_NUM_ARGS();
+    zo_wxTextAttrDimension* current_object;
+    wxTextAttrDimension_php* native_object;
+
+    char* name;
+    size_t name_len;
+
+    //Get native object of the php object that called the method
+    if (getThis() != NULL)
+    {
+        current_object = Z_wxTextAttrDimension_P(getThis());
+
+        if(current_object->native_object == NULL)
+        {
+            zend_error(
+                E_ERROR,
+                "Failed to get the native object for "
+                "wxTextAttrDimension::wxTextAttrDimension call\n"
+            );
+
+            return;
+        }
+        else
+        {
+            native_object = current_object->native_object;
+        }
+    }
+    else
+    {
+        zend_error(E_ERROR, "Could not process __get call as static\n");
+    }
+
+    char parse_parameters_string[] = "s";
+
+    if(
+        zend_parse_parameters_ex(
+            ZEND_PARSE_PARAMS_QUIET,
+            arguments_received,
+            parse_parameters_string,
+            &name,
+            &name_len
+        ) == FAILURE
+    )
+    {
+        RETVAL_NULL();
+    }
+
+    #ifdef USE_WXPHP_DEBUG
+    php_printf("Property to get: %s\n", name);
+    php_printf("===========================================\n\n");
+    #endif
+
+    if(false){}
+    else if(strcmp("m_value", name) == 0)
+    {
+        RETVAL_LONG(*((int*) native_object->properties[0]));
+    }
+    else if(strcmp("m_flags", name) == 0)
+    {
+        RETVAL_LONG(*((wxTextAttrDimensionFlags*) native_object->properties[1]));
+    }
+    else
+    {
+        RETVAL_NULL();
+    }
+}
+/* {{{ proto  wxTextAttrDimension::Reset() */
+PHP_METHOD(php_wxTextAttrDimension, Reset)
+{
+    #ifdef USE_WXPHP_DEBUG
+    php_printf("Invoking wxTextAttrDimension::Reset\n");
+    php_printf("===========================================\n");
+    #endif
+
+    zo_wxTextAttrDimension* current_object;
+    wxphp_object_type current_object_type;
+    wxTextAttrDimension_php* native_object;
+    void* argument_native_object = NULL;
+
+    //Other variables used thru the code
+    zval dummy;
+    ZVAL_NULL(&dummy);
+    bool already_called = false;
+    wxPHPObjectReferences* references;
+    int arguments_received = ZEND_NUM_ARGS();
+    bool return_is_user_initialized = false;
+
+    //Get native object of the php object that called the method
+    if(getThis() != NULL)
+    {
+        current_object = Z_wxTextAttrDimension_P(getThis());
+
+        if(current_object->native_object == NULL)
+        {
+            zend_error(
+                E_ERROR,
+                "Failed to get the native object for "
+                "wxTextAttrDimension::Reset call\n"
+            );
+
+            return;
+        }
+        else
+        {
+            native_object = current_object->native_object;
+            current_object_type = current_object->object_type;
+
+            bool reference_type_found = false;
+
+            if(current_object_type == PHP_WXTEXTATTRDIMENSION_TYPE){
+                references = &((wxTextAttrDimension_php*)native_object)->references;
+                reference_type_found = true;
+            }
+        }
+    }
+    #ifdef USE_WXPHP_DEBUG
+    else
+    {
+        php_printf("Processing the method call as static\n");
+    }
+    #endif
+
+    //Parameters for overload 0
+    bool overload0_called = false;
+
+    
+    //Overload 0
+    overload0:
+    if(!already_called && arguments_received == 0)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Parameters received %d\n", arguments_received);
+        php_printf("Parsing parameters with '' ()\n");
+        #endif
+
+        overload0_called = true;
+        already_called = true;
+    }
+
+    
+    if(overload0_called)
+    {
+        switch(arguments_received)
+        {
+            case 0:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing wxTextAttrDimension::Reset()\n\n");
+                #endif
+
+                ((wxTextAttrDimension_php*)native_object)->Reset();
+
+
+                return;
+                break;
+            }
+        }
+    }
+
+    
+    //In case wrong type/count of parameters was passed
+    if(!already_called)
+    {
+        zend_error(
+            E_ERROR,
+            "Wrong type or count of parameters passed to: "
+            "wxTextAttrDimension::Reset\n"
+        );
+    }
+}
+/* }}} */
+
+/* {{{ proto bool wxTextAttrDimension::EqPartial(wxTextAttrDimension dim, bool weakTest) */
+PHP_METHOD(php_wxTextAttrDimension, EqPartial)
+{
+    #ifdef USE_WXPHP_DEBUG
+    php_printf("Invoking wxTextAttrDimension::EqPartial\n");
+    php_printf("===========================================\n");
+    #endif
+
+    zo_wxTextAttrDimension* current_object;
+    wxphp_object_type current_object_type;
+    wxTextAttrDimension_php* native_object;
+    void* argument_native_object = NULL;
+
+    //Other variables used thru the code
+    zval dummy;
+    ZVAL_NULL(&dummy);
+    bool already_called = false;
+    wxPHPObjectReferences* references;
+    int arguments_received = ZEND_NUM_ARGS();
+    bool return_is_user_initialized = false;
+
+    //Get native object of the php object that called the method
+    if(getThis() != NULL)
+    {
+        current_object = Z_wxTextAttrDimension_P(getThis());
+
+        if(current_object->native_object == NULL)
+        {
+            zend_error(
+                E_ERROR,
+                "Failed to get the native object for "
+                "wxTextAttrDimension::EqPartial call\n"
+            );
+
+            return;
+        }
+        else
+        {
+            native_object = current_object->native_object;
+            current_object_type = current_object->object_type;
+
+            bool reference_type_found = false;
+
+            if(current_object_type == PHP_WXTEXTATTRDIMENSION_TYPE){
+                references = &((wxTextAttrDimension_php*)native_object)->references;
+                reference_type_found = true;
+            }
+        }
+    }
+    #ifdef USE_WXPHP_DEBUG
+    else
+    {
+        php_printf("Processing the method call as static\n");
+    }
+    #endif
+
+    //Parameters for overload 0
+    zval* dim0;
+    wxTextAttrDimension* object_pointer0_0 = 0;
+    bool weakTest0;
+    bool overload0_called = false;
+
+    
+    //Overload 0
+    overload0:
+    if(!already_called && arguments_received >= 1  && arguments_received <= 2)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Parameters received %d\n", arguments_received);
+        php_printf("Parsing parameters with 'O|b' (&dim0, php_wxTextAttrDimension_entry, &weakTest0)\n");
+        #endif
+
+        char parse_parameters_string[] = "O|b";
+        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &dim0, php_wxTextAttrDimension_entry, &weakTest0 ) == SUCCESS)
+        {
+            if(arguments_received >= 1){
+                if(Z_TYPE_P(dim0) == IS_OBJECT)
+                {
+                    wxphp_object_type argument_type = Z_wxTextAttrDimension_P(dim0)->object_type;
+                    argument_native_object = (void*) Z_wxTextAttrDimension_P(dim0)->native_object;
+                    object_pointer0_0 = (wxTextAttrDimension*) argument_native_object;
+                    if (!object_pointer0_0 )
+                    {
+                        zend_error(E_ERROR, "Parameter 'dim' could not be retreived correctly.");
+                    }
+                }
+                else if(Z_TYPE_P(dim0) != IS_NULL)
+                {
+                    zend_error(E_ERROR, "Parameter 'dim' not null, could not be retreived correctly.");
+                }
+            }
+
+            overload0_called = true;
+            already_called = true;
+        }
+    }
+
+    
+    if(overload0_called)
+    {
+        switch(arguments_received)
+        {
+            case 1:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing RETURN_BOOL(wxTextAttrDimension::EqPartial(*(wxTextAttrDimension*) object_pointer0_0))\n\n");
+                #endif
+
+                RETVAL_BOOL(((wxTextAttrDimension_php*)native_object)->EqPartial(*(wxTextAttrDimension*) object_pointer0_0));
+
+                references->AddReference(dim0, "wxTextAttrDimension::EqPartial at call 3 with 1 argument(s)");
+
+                return;
+                break;
+            }
+            case 2:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing RETURN_BOOL(wxTextAttrDimension::EqPartial(*(wxTextAttrDimension*) object_pointer0_0, weakTest0))\n\n");
+                #endif
+
+                RETVAL_BOOL(((wxTextAttrDimension_php*)native_object)->EqPartial(*(wxTextAttrDimension*) object_pointer0_0, weakTest0));
+
+                references->AddReference(dim0, "wxTextAttrDimension::EqPartial at call 3 with 2 argument(s)");
+
+                return;
+                break;
+            }
+        }
+    }
+
+    
+    //In case wrong type/count of parameters was passed
+    if(!already_called)
+    {
+        zend_error(
+            E_ERROR,
+            "Wrong type or count of parameters passed to: "
+            "wxTextAttrDimension::EqPartial\n"
+        );
+    }
+}
+/* }}} */
+
+/* {{{ proto bool wxTextAttrDimension::Apply(wxTextAttrDimension dim, wxTextAttrDimension compareWith) */
+PHP_METHOD(php_wxTextAttrDimension, Apply)
+{
+    #ifdef USE_WXPHP_DEBUG
+    php_printf("Invoking wxTextAttrDimension::Apply\n");
+    php_printf("===========================================\n");
+    #endif
+
+    zo_wxTextAttrDimension* current_object;
+    wxphp_object_type current_object_type;
+    wxTextAttrDimension_php* native_object;
+    void* argument_native_object = NULL;
+
+    //Other variables used thru the code
+    zval dummy;
+    ZVAL_NULL(&dummy);
+    bool already_called = false;
+    wxPHPObjectReferences* references;
+    int arguments_received = ZEND_NUM_ARGS();
+    bool return_is_user_initialized = false;
+
+    //Get native object of the php object that called the method
+    if(getThis() != NULL)
+    {
+        current_object = Z_wxTextAttrDimension_P(getThis());
+
+        if(current_object->native_object == NULL)
+        {
+            zend_error(
+                E_ERROR,
+                "Failed to get the native object for "
+                "wxTextAttrDimension::Apply call\n"
+            );
+
+            return;
+        }
+        else
+        {
+            native_object = current_object->native_object;
+            current_object_type = current_object->object_type;
+
+            bool reference_type_found = false;
+
+            if(current_object_type == PHP_WXTEXTATTRDIMENSION_TYPE){
+                references = &((wxTextAttrDimension_php*)native_object)->references;
+                reference_type_found = true;
+            }
+        }
+    }
+    #ifdef USE_WXPHP_DEBUG
+    else
+    {
+        php_printf("Processing the method call as static\n");
+    }
+    #endif
+
+    //Parameters for overload 0
+    zval* dim0;
+    wxTextAttrDimension* object_pointer0_0 = 0;
+    zval* compareWith0;
+    wxTextAttrDimension* object_pointer0_1 = 0;
+    bool overload0_called = false;
+
+    
+    //Overload 0
+    overload0:
+    if(!already_called && arguments_received >= 1  && arguments_received <= 2)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Parameters received %d\n", arguments_received);
+        php_printf("Parsing parameters with 'O|z' (&dim0, php_wxTextAttrDimension_entry, &compareWith0)\n");
+        #endif
+
+        char parse_parameters_string[] = "O|z";
+        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &dim0, php_wxTextAttrDimension_entry, &compareWith0 ) == SUCCESS)
+        {
+            if(arguments_received >= 1){
+                if(Z_TYPE_P(dim0) == IS_OBJECT)
+                {
+                    wxphp_object_type argument_type = Z_wxTextAttrDimension_P(dim0)->object_type;
+                    argument_native_object = (void*) Z_wxTextAttrDimension_P(dim0)->native_object;
+                    object_pointer0_0 = (wxTextAttrDimension*) argument_native_object;
+                    if (!object_pointer0_0 )
+                    {
+                        zend_error(E_ERROR, "Parameter 'dim' could not be retreived correctly.");
+                    }
+                }
+                else if(Z_TYPE_P(dim0) != IS_NULL)
+                {
+                    zend_error(E_ERROR, "Parameter 'dim' not null, could not be retreived correctly.");
+                }
+            }
+
+            if(arguments_received >= 2){
+                if(Z_TYPE_P(compareWith0) == IS_OBJECT)
+                {
+                    wxphp_object_type argument_type = Z_wxTextAttrDimension_P(compareWith0)->object_type;
+                    argument_native_object = (void*) Z_wxTextAttrDimension_P(compareWith0)->native_object;
+                    object_pointer0_1 = (wxTextAttrDimension*) argument_native_object;
+                    if (!object_pointer0_1 || (argument_type != PHP_WXTEXTATTRDIMENSION_TYPE))
+                    {
+                        zend_error(E_ERROR, "Parameter 'compareWith' could not be retreived correctly.");
+                    }
+                }
+                else if(Z_TYPE_P(compareWith0) != IS_NULL)
+                {
+                    zend_error(E_ERROR, "Parameter 'compareWith' not null, could not be retreived correctly.");
+                }
+            }
+
+            overload0_called = true;
+            already_called = true;
+        }
+    }
+
+    
+    if(overload0_called)
+    {
+        switch(arguments_received)
+        {
+            case 1:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing RETURN_BOOL(wxTextAttrDimension::Apply(*(wxTextAttrDimension*) object_pointer0_0))\n\n");
+                #endif
+
+                RETVAL_BOOL(((wxTextAttrDimension_php*)native_object)->Apply(*(wxTextAttrDimension*) object_pointer0_0));
+
+                references->AddReference(dim0, "wxTextAttrDimension::Apply at call 3 with 1 argument(s)");
+
+                return;
+                break;
+            }
+            case 2:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing RETURN_BOOL(wxTextAttrDimension::Apply(*(wxTextAttrDimension*) object_pointer0_0, (const wxTextAttrDimension*) object_pointer0_1))\n\n");
+                #endif
+
+                RETVAL_BOOL(((wxTextAttrDimension_php*)native_object)->Apply(*(wxTextAttrDimension*) object_pointer0_0, (const wxTextAttrDimension*) object_pointer0_1));
+
+                references->AddReference(dim0, "wxTextAttrDimension::Apply at call 3 with 2 argument(s)");
+                references->AddReference(compareWith0, "wxTextAttrDimension::Apply at call 1 with 2 argument(s)");
+
+                return;
+                break;
+            }
+        }
+    }
+
+    
+    //In case wrong type/count of parameters was passed
+    if(!already_called)
+    {
+        zend_error(
+            E_ERROR,
+            "Wrong type or count of parameters passed to: "
+            "wxTextAttrDimension::Apply\n"
+        );
+    }
+}
+/* }}} */
+
+/* {{{ proto  wxTextAttrDimension::CollectCommonAttributes(wxTextAttrDimension attr, wxTextAttrDimension &clashingAttr, wxTextAttrDimension &absentAttr) */
+PHP_METHOD(php_wxTextAttrDimension, CollectCommonAttributes)
+{
+    #ifdef USE_WXPHP_DEBUG
+    php_printf("Invoking wxTextAttrDimension::CollectCommonAttributes\n");
+    php_printf("===========================================\n");
+    #endif
+
+    zo_wxTextAttrDimension* current_object;
+    wxphp_object_type current_object_type;
+    wxTextAttrDimension_php* native_object;
+    void* argument_native_object = NULL;
+
+    //Other variables used thru the code
+    zval dummy;
+    ZVAL_NULL(&dummy);
+    bool already_called = false;
+    wxPHPObjectReferences* references;
+    int arguments_received = ZEND_NUM_ARGS();
+    bool return_is_user_initialized = false;
+
+    //Get native object of the php object that called the method
+    if(getThis() != NULL)
+    {
+        current_object = Z_wxTextAttrDimension_P(getThis());
+
+        if(current_object->native_object == NULL)
+        {
+            zend_error(
+                E_ERROR,
+                "Failed to get the native object for "
+                "wxTextAttrDimension::CollectCommonAttributes call\n"
+            );
+
+            return;
+        }
+        else
+        {
+            native_object = current_object->native_object;
+            current_object_type = current_object->object_type;
+
+            bool reference_type_found = false;
+
+            if(current_object_type == PHP_WXTEXTATTRDIMENSION_TYPE){
+                references = &((wxTextAttrDimension_php*)native_object)->references;
+                reference_type_found = true;
+            }
+        }
+    }
+    #ifdef USE_WXPHP_DEBUG
+    else
+    {
+        php_printf("Processing the method call as static\n");
+    }
+    #endif
+
+    //Parameters for overload 0
+    zval* attr0;
+    wxTextAttrDimension* object_pointer0_0 = 0;
+    zval* clashingAttr0;
+    wxTextAttrDimension* object_pointer0_1 = 0;
+    zval* absentAttr0;
+    wxTextAttrDimension* object_pointer0_2 = 0;
+    bool overload0_called = false;
+
+    
+    //Overload 0
+    overload0:
+    if(!already_called && arguments_received == 3)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Parameters received %d\n", arguments_received);
+        php_printf("Parsing parameters with 'OOO' (&attr0, php_wxTextAttrDimension_entry, &clashingAttr0, php_wxTextAttrDimension_entry, &absentAttr0, php_wxTextAttrDimension_entry)\n");
+        #endif
+
+        char parse_parameters_string[] = "OOO";
+        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &attr0, php_wxTextAttrDimension_entry, &clashingAttr0, php_wxTextAttrDimension_entry, &absentAttr0, php_wxTextAttrDimension_entry ) == SUCCESS)
+        {
+            if(arguments_received >= 1){
+                if(Z_TYPE_P(attr0) == IS_OBJECT)
+                {
+                    wxphp_object_type argument_type = Z_wxTextAttrDimension_P(attr0)->object_type;
+                    argument_native_object = (void*) Z_wxTextAttrDimension_P(attr0)->native_object;
+                    object_pointer0_0 = (wxTextAttrDimension*) argument_native_object;
+                    if (!object_pointer0_0 )
+                    {
+                        zend_error(E_ERROR, "Parameter 'attr' could not be retreived correctly.");
+                    }
+                }
+                else if(Z_TYPE_P(attr0) != IS_NULL)
+                {
+                    zend_error(E_ERROR, "Parameter 'attr' not null, could not be retreived correctly.");
+                }
+            }
+
+            if(arguments_received >= 2){
+                if(Z_TYPE_P(clashingAttr0) == IS_OBJECT)
+                {
+                    wxphp_object_type argument_type = Z_wxTextAttrDimension_P(clashingAttr0)->object_type;
+                    argument_native_object = (void*) Z_wxTextAttrDimension_P(clashingAttr0)->native_object;
+                    object_pointer0_1 = (wxTextAttrDimension*) argument_native_object;
+                    if (!object_pointer0_1 )
+                    {
+                        zend_error(E_ERROR, "Parameter 'clashingAttr' could not be retreived correctly.");
+                    }
+                }
+                else if(Z_TYPE_P(clashingAttr0) != IS_NULL)
+                {
+                    zend_error(E_ERROR, "Parameter 'clashingAttr' not null, could not be retreived correctly.");
+                }
+            }
+
+            if(arguments_received >= 3){
+                if(Z_TYPE_P(absentAttr0) == IS_OBJECT)
+                {
+                    wxphp_object_type argument_type = Z_wxTextAttrDimension_P(absentAttr0)->object_type;
+                    argument_native_object = (void*) Z_wxTextAttrDimension_P(absentAttr0)->native_object;
+                    object_pointer0_2 = (wxTextAttrDimension*) argument_native_object;
+                    if (!object_pointer0_2 )
+                    {
+                        zend_error(E_ERROR, "Parameter 'absentAttr' could not be retreived correctly.");
+                    }
+                }
+                else if(Z_TYPE_P(absentAttr0) != IS_NULL)
+                {
+                    zend_error(E_ERROR, "Parameter 'absentAttr' not null, could not be retreived correctly.");
+                }
+            }
+
+            overload0_called = true;
+            already_called = true;
+        }
+    }
+
+    
+    if(overload0_called)
+    {
+        switch(arguments_received)
+        {
+            case 3:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing wxTextAttrDimension::CollectCommonAttributes(*(wxTextAttrDimension*) object_pointer0_0, *(wxTextAttrDimension*) object_pointer0_1, *(wxTextAttrDimension*) object_pointer0_2)\n\n");
+                #endif
+
+                ((wxTextAttrDimension_php*)native_object)->CollectCommonAttributes(*(wxTextAttrDimension*) object_pointer0_0, *(wxTextAttrDimension*) object_pointer0_1, *(wxTextAttrDimension*) object_pointer0_2);
+
+                references->AddReference(attr0, "wxTextAttrDimension::CollectCommonAttributes at call 3 with 3 argument(s)");
+                references->AddReference(clashingAttr0, "wxTextAttrDimension::CollectCommonAttributes at call 3 with 3 argument(s)");
+                references->AddReference(absentAttr0, "wxTextAttrDimension::CollectCommonAttributes at call 3 with 3 argument(s)");
+
+                return;
+                break;
+            }
+        }
+    }
+
+    
+    //In case wrong type/count of parameters was passed
+    if(!already_called)
+    {
+        zend_error(
+            E_ERROR,
+            "Wrong type or count of parameters passed to: "
+            "wxTextAttrDimension::CollectCommonAttributes\n"
+        );
+    }
+}
+/* }}} */
+
+/* {{{ proto int wxTextAttrDimension::GetValue() */
+PHP_METHOD(php_wxTextAttrDimension, GetValue)
+{
+    #ifdef USE_WXPHP_DEBUG
+    php_printf("Invoking wxTextAttrDimension::GetValue\n");
+    php_printf("===========================================\n");
+    #endif
+
+    zo_wxTextAttrDimension* current_object;
+    wxphp_object_type current_object_type;
+    wxTextAttrDimension_php* native_object;
+    void* argument_native_object = NULL;
+
+    //Other variables used thru the code
+    zval dummy;
+    ZVAL_NULL(&dummy);
+    bool already_called = false;
+    wxPHPObjectReferences* references;
+    int arguments_received = ZEND_NUM_ARGS();
+    bool return_is_user_initialized = false;
+
+    //Get native object of the php object that called the method
+    if(getThis() != NULL)
+    {
+        current_object = Z_wxTextAttrDimension_P(getThis());
+
+        if(current_object->native_object == NULL)
+        {
+            zend_error(
+                E_ERROR,
+                "Failed to get the native object for "
+                "wxTextAttrDimension::GetValue call\n"
+            );
+
+            return;
+        }
+        else
+        {
+            native_object = current_object->native_object;
+            current_object_type = current_object->object_type;
+
+            bool reference_type_found = false;
+
+            if(current_object_type == PHP_WXTEXTATTRDIMENSION_TYPE){
+                references = &((wxTextAttrDimension_php*)native_object)->references;
+                reference_type_found = true;
+            }
+        }
+    }
+    #ifdef USE_WXPHP_DEBUG
+    else
+    {
+        php_printf("Processing the method call as static\n");
+    }
+    #endif
+
+    //Parameters for overload 0
+    bool overload0_called = false;
+
+    
+    //Overload 0
+    overload0:
+    if(!already_called && arguments_received == 0)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Parameters received %d\n", arguments_received);
+        php_printf("Parsing parameters with '' ()\n");
+        #endif
+
+        overload0_called = true;
+        already_called = true;
+    }
+
+    
+    if(overload0_called)
+    {
+        switch(arguments_received)
+        {
+            case 0:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing RETURN_LONG(wxTextAttrDimension::GetValue())\n\n");
+                #endif
+
+                RETVAL_LONG(((wxTextAttrDimension_php*)native_object)->GetValue());
+
+
+                return;
+                break;
+            }
+        }
+    }
+
+    
+    //In case wrong type/count of parameters was passed
+    if(!already_called)
+    {
+        zend_error(
+            E_ERROR,
+            "Wrong type or count of parameters passed to: "
+            "wxTextAttrDimension::GetValue\n"
+        );
+    }
+}
+/* }}} */
+
+/* {{{ proto float wxTextAttrDimension::GetValueMM() */
+PHP_METHOD(php_wxTextAttrDimension, GetValueMM)
+{
+    #ifdef USE_WXPHP_DEBUG
+    php_printf("Invoking wxTextAttrDimension::GetValueMM\n");
+    php_printf("===========================================\n");
+    #endif
+
+    zo_wxTextAttrDimension* current_object;
+    wxphp_object_type current_object_type;
+    wxTextAttrDimension_php* native_object;
+    void* argument_native_object = NULL;
+
+    //Other variables used thru the code
+    zval dummy;
+    ZVAL_NULL(&dummy);
+    bool already_called = false;
+    wxPHPObjectReferences* references;
+    int arguments_received = ZEND_NUM_ARGS();
+    bool return_is_user_initialized = false;
+
+    //Get native object of the php object that called the method
+    if(getThis() != NULL)
+    {
+        current_object = Z_wxTextAttrDimension_P(getThis());
+
+        if(current_object->native_object == NULL)
+        {
+            zend_error(
+                E_ERROR,
+                "Failed to get the native object for "
+                "wxTextAttrDimension::GetValueMM call\n"
+            );
+
+            return;
+        }
+        else
+        {
+            native_object = current_object->native_object;
+            current_object_type = current_object->object_type;
+
+            bool reference_type_found = false;
+
+            if(current_object_type == PHP_WXTEXTATTRDIMENSION_TYPE){
+                references = &((wxTextAttrDimension_php*)native_object)->references;
+                reference_type_found = true;
+            }
+        }
+    }
+    #ifdef USE_WXPHP_DEBUG
+    else
+    {
+        php_printf("Processing the method call as static\n");
+    }
+    #endif
+
+    //Parameters for overload 0
+    bool overload0_called = false;
+
+    
+    //Overload 0
+    overload0:
+    if(!already_called && arguments_received == 0)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Parameters received %d\n", arguments_received);
+        php_printf("Parsing parameters with '' ()\n");
+        #endif
+
+        overload0_called = true;
+        already_called = true;
+    }
+
+    
+    if(overload0_called)
+    {
+        switch(arguments_received)
+        {
+            case 0:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing RETURN_LONG(wxTextAttrDimension::GetValueMM())\n\n");
+                #endif
+
+                RETVAL_DOUBLE(((wxTextAttrDimension_php*)native_object)->GetValueMM());
+
+
+                return;
+                break;
+            }
+        }
+    }
+
+    
+    //In case wrong type/count of parameters was passed
+    if(!already_called)
+    {
+        zend_error(
+            E_ERROR,
+            "Wrong type or count of parameters passed to: "
+            "wxTextAttrDimension::GetValueMM\n"
+        );
+    }
+}
+/* }}} */
+
+/* {{{ proto  wxTextAttrDimension::SetValueMM(float value) */
+PHP_METHOD(php_wxTextAttrDimension, SetValueMM)
+{
+    #ifdef USE_WXPHP_DEBUG
+    php_printf("Invoking wxTextAttrDimension::SetValueMM\n");
+    php_printf("===========================================\n");
+    #endif
+
+    zo_wxTextAttrDimension* current_object;
+    wxphp_object_type current_object_type;
+    wxTextAttrDimension_php* native_object;
+    void* argument_native_object = NULL;
+
+    //Other variables used thru the code
+    zval dummy;
+    ZVAL_NULL(&dummy);
+    bool already_called = false;
+    wxPHPObjectReferences* references;
+    int arguments_received = ZEND_NUM_ARGS();
+    bool return_is_user_initialized = false;
+
+    //Get native object of the php object that called the method
+    if(getThis() != NULL)
+    {
+        current_object = Z_wxTextAttrDimension_P(getThis());
+
+        if(current_object->native_object == NULL)
+        {
+            zend_error(
+                E_ERROR,
+                "Failed to get the native object for "
+                "wxTextAttrDimension::SetValueMM call\n"
+            );
+
+            return;
+        }
+        else
+        {
+            native_object = current_object->native_object;
+            current_object_type = current_object->object_type;
+
+            bool reference_type_found = false;
+
+            if(current_object_type == PHP_WXTEXTATTRDIMENSION_TYPE){
+                references = &((wxTextAttrDimension_php*)native_object)->references;
+                reference_type_found = true;
+            }
+        }
+    }
+    #ifdef USE_WXPHP_DEBUG
+    else
+    {
+        php_printf("Processing the method call as static\n");
+    }
+    #endif
+
+    //Parameters for overload 0
+    double value0;
+    bool overload0_called = false;
+
+    
+    //Overload 0
+    overload0:
+    if(!already_called && arguments_received == 1)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Parameters received %d\n", arguments_received);
+        php_printf("Parsing parameters with 'd' (&value0)\n");
+        #endif
+
+        char parse_parameters_string[] = "d";
+        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &value0 ) == SUCCESS)
+        {
+            overload0_called = true;
+            already_called = true;
+        }
+    }
+
+    
+    if(overload0_called)
+    {
+        switch(arguments_received)
+        {
+            case 1:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing wxTextAttrDimension::SetValueMM(value0)\n\n");
+                #endif
+
+                ((wxTextAttrDimension_php*)native_object)->SetValueMM(value0);
+
+
+                return;
+                break;
+            }
+        }
+    }
+
+    
+    //In case wrong type/count of parameters was passed
+    if(!already_called)
+    {
+        zend_error(
+            E_ERROR,
+            "Wrong type or count of parameters passed to: "
+            "wxTextAttrDimension::SetValueMM\n"
+        );
+    }
+}
+/* }}} */
+
+/* {{{ proto  wxTextAttrDimension::SetValue(int value) */
+PHP_METHOD(php_wxTextAttrDimension, SetValue)
+{
+    #ifdef USE_WXPHP_DEBUG
+    php_printf("Invoking wxTextAttrDimension::SetValue\n");
+    php_printf("===========================================\n");
+    #endif
+
+    zo_wxTextAttrDimension* current_object;
+    wxphp_object_type current_object_type;
+    wxTextAttrDimension_php* native_object;
+    void* argument_native_object = NULL;
+
+    //Other variables used thru the code
+    zval dummy;
+    ZVAL_NULL(&dummy);
+    bool already_called = false;
+    wxPHPObjectReferences* references;
+    int arguments_received = ZEND_NUM_ARGS();
+    bool return_is_user_initialized = false;
+
+    //Get native object of the php object that called the method
+    if(getThis() != NULL)
+    {
+        current_object = Z_wxTextAttrDimension_P(getThis());
+
+        if(current_object->native_object == NULL)
+        {
+            zend_error(
+                E_ERROR,
+                "Failed to get the native object for "
+                "wxTextAttrDimension::SetValue call\n"
+            );
+
+            return;
+        }
+        else
+        {
+            native_object = current_object->native_object;
+            current_object_type = current_object->object_type;
+
+            bool reference_type_found = false;
+
+            if(current_object_type == PHP_WXTEXTATTRDIMENSION_TYPE){
+                references = &((wxTextAttrDimension_php*)native_object)->references;
+                reference_type_found = true;
+            }
+        }
+    }
+    #ifdef USE_WXPHP_DEBUG
+    else
+    {
+        php_printf("Processing the method call as static\n");
+    }
+    #endif
+
+    //Parameters for overload 0
+    long value0;
+    bool overload0_called = false;
+
+    //Parameters for overload 1
+    long value1;
+    long flags1;
+    bool overload1_called = false;
+
+    //Parameters for overload 2
+    long value2;
+    long units2;
+    bool overload2_called = false;
+
+    //Parameters for overload 3
+    zval* dim3;
+    wxTextAttrDimension* object_pointer3_0 = 0;
+    bool overload3_called = false;
+
+    
+    //Overload 0
+    overload0:
+    if(!already_called && arguments_received == 1)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Parameters received %d\n", arguments_received);
+        php_printf("Parsing parameters with 'l' (&value0)\n");
+        #endif
+
+        char parse_parameters_string[] = "l";
+        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &value0 ) == SUCCESS)
+        {
+            overload0_called = true;
+            already_called = true;
+        }
+    }
+
+    //Overload 1
+    overload1:
+    if(!already_called && arguments_received == 2)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Parameters received %d\n", arguments_received);
+        php_printf("Parsing parameters with 'll' (&value1, &flags1)\n");
+        #endif
+
+        char parse_parameters_string[] = "ll";
+        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &value1, &flags1 ) == SUCCESS)
+        {
+            overload1_called = true;
+            already_called = true;
+        }
+    }
+
+    //Overload 2
+    overload2:
+    if(!already_called && arguments_received == 2)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Parameters received %d\n", arguments_received);
+        php_printf("Parsing parameters with 'll' (&value2, &units2)\n");
+        #endif
+
+        char parse_parameters_string[] = "ll";
+        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &value2, &units2 ) == SUCCESS)
+        {
+            overload2_called = true;
+            already_called = true;
+        }
+    }
+
+    //Overload 3
+    overload3:
+    if(!already_called && arguments_received == 1)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Parameters received %d\n", arguments_received);
+        php_printf("Parsing parameters with 'O' (&dim3, php_wxTextAttrDimension_entry)\n");
+        #endif
+
+        char parse_parameters_string[] = "O";
+        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &dim3, php_wxTextAttrDimension_entry ) == SUCCESS)
+        {
+            if(arguments_received >= 1){
+                if(Z_TYPE_P(dim3) == IS_OBJECT)
+                {
+                    wxphp_object_type argument_type = Z_wxTextAttrDimension_P(dim3)->object_type;
+                    argument_native_object = (void*) Z_wxTextAttrDimension_P(dim3)->native_object;
+                    object_pointer3_0 = (wxTextAttrDimension*) argument_native_object;
+                    if (!object_pointer3_0 )
+                    {
+                        zend_error(E_ERROR, "Parameter 'dim' could not be retreived correctly.");
+                    }
+                }
+                else if(Z_TYPE_P(dim3) != IS_NULL)
+                {
+                    zend_error(E_ERROR, "Parameter 'dim' not null, could not be retreived correctly.");
+                }
+            }
+
+            overload3_called = true;
+            already_called = true;
+        }
+    }
+
+    
+    if(overload0_called)
+    {
+        switch(arguments_received)
+        {
+            case 1:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing wxTextAttrDimension::SetValue((int) value0)\n\n");
+                #endif
+
+                ((wxTextAttrDimension_php*)native_object)->SetValue((int) value0);
+
+
+                return;
+                break;
+            }
+        }
+    }
+
+    if(overload1_called)
+    {
+        switch(arguments_received)
+        {
+            case 2:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing wxTextAttrDimension::SetValue((int) value1, (wxTextAttrDimensionFlags) flags1)\n\n");
+                #endif
+
+                ((wxTextAttrDimension_php*)native_object)->SetValue((int) value1, (wxTextAttrDimensionFlags) flags1);
+
+
+                return;
+                break;
+            }
+        }
+    }
+
+    if(overload2_called)
+    {
+        switch(arguments_received)
+        {
+            case 2:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing wxTextAttrDimension::SetValue((int) value2, (wxTextAttrUnits) units2)\n\n");
+                #endif
+
+                ((wxTextAttrDimension_php*)native_object)->SetValue((int) value2, (wxTextAttrUnits) units2);
+
+
+                return;
+                break;
+            }
+        }
+    }
+
+    if(overload3_called)
+    {
+        switch(arguments_received)
+        {
+            case 1:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing wxTextAttrDimension::SetValue(*(wxTextAttrDimension*) object_pointer3_0)\n\n");
+                #endif
+
+                ((wxTextAttrDimension_php*)native_object)->SetValue(*(wxTextAttrDimension*) object_pointer3_0);
+
+                references->AddReference(dim3, "wxTextAttrDimension::SetValue at call 3 with 1 argument(s)");
+
+                return;
+                break;
+            }
+        }
+    }
+
+    
+    //In case wrong type/count of parameters was passed
+    if(!already_called)
+    {
+        zend_error(
+            E_ERROR,
+            "Wrong type or count of parameters passed to: "
+            "wxTextAttrDimension::SetValue\n"
+        );
+    }
+}
+/* }}} */
+
+/* {{{ proto wxTextAttrUnits wxTextAttrDimension::GetUnits() */
+PHP_METHOD(php_wxTextAttrDimension, GetUnits)
+{
+    #ifdef USE_WXPHP_DEBUG
+    php_printf("Invoking wxTextAttrDimension::GetUnits\n");
+    php_printf("===========================================\n");
+    #endif
+
+    zo_wxTextAttrDimension* current_object;
+    wxphp_object_type current_object_type;
+    wxTextAttrDimension_php* native_object;
+    void* argument_native_object = NULL;
+
+    //Other variables used thru the code
+    zval dummy;
+    ZVAL_NULL(&dummy);
+    bool already_called = false;
+    wxPHPObjectReferences* references;
+    int arguments_received = ZEND_NUM_ARGS();
+    bool return_is_user_initialized = false;
+
+    //Get native object of the php object that called the method
+    if(getThis() != NULL)
+    {
+        current_object = Z_wxTextAttrDimension_P(getThis());
+
+        if(current_object->native_object == NULL)
+        {
+            zend_error(
+                E_ERROR,
+                "Failed to get the native object for "
+                "wxTextAttrDimension::GetUnits call\n"
+            );
+
+            return;
+        }
+        else
+        {
+            native_object = current_object->native_object;
+            current_object_type = current_object->object_type;
+
+            bool reference_type_found = false;
+
+            if(current_object_type == PHP_WXTEXTATTRDIMENSION_TYPE){
+                references = &((wxTextAttrDimension_php*)native_object)->references;
+                reference_type_found = true;
+            }
+        }
+    }
+    #ifdef USE_WXPHP_DEBUG
+    else
+    {
+        php_printf("Processing the method call as static\n");
+    }
+    #endif
+
+    //Parameters for overload 0
+    bool overload0_called = false;
+
+    
+    //Overload 0
+    overload0:
+    if(!already_called && arguments_received == 0)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Parameters received %d\n", arguments_received);
+        php_printf("Parsing parameters with '' ()\n");
+        #endif
+
+        overload0_called = true;
+        already_called = true;
+    }
+
+    
+    if(overload0_called)
+    {
+        switch(arguments_received)
+        {
+            case 0:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing RETURN_LONG(wxTextAttrDimension::GetUnits())\n\n");
+                #endif
+
+                RETVAL_LONG(((wxTextAttrDimension_php*)native_object)->GetUnits());
+
+
+                return;
+                break;
+            }
+        }
+    }
+
+    
+    //In case wrong type/count of parameters was passed
+    if(!already_called)
+    {
+        zend_error(
+            E_ERROR,
+            "Wrong type or count of parameters passed to: "
+            "wxTextAttrDimension::GetUnits\n"
+        );
+    }
+}
+/* }}} */
+
+/* {{{ proto  wxTextAttrDimension::SetUnits(wxTextAttrUnits units) */
+PHP_METHOD(php_wxTextAttrDimension, SetUnits)
+{
+    #ifdef USE_WXPHP_DEBUG
+    php_printf("Invoking wxTextAttrDimension::SetUnits\n");
+    php_printf("===========================================\n");
+    #endif
+
+    zo_wxTextAttrDimension* current_object;
+    wxphp_object_type current_object_type;
+    wxTextAttrDimension_php* native_object;
+    void* argument_native_object = NULL;
+
+    //Other variables used thru the code
+    zval dummy;
+    ZVAL_NULL(&dummy);
+    bool already_called = false;
+    wxPHPObjectReferences* references;
+    int arguments_received = ZEND_NUM_ARGS();
+    bool return_is_user_initialized = false;
+
+    //Get native object of the php object that called the method
+    if(getThis() != NULL)
+    {
+        current_object = Z_wxTextAttrDimension_P(getThis());
+
+        if(current_object->native_object == NULL)
+        {
+            zend_error(
+                E_ERROR,
+                "Failed to get the native object for "
+                "wxTextAttrDimension::SetUnits call\n"
+            );
+
+            return;
+        }
+        else
+        {
+            native_object = current_object->native_object;
+            current_object_type = current_object->object_type;
+
+            bool reference_type_found = false;
+
+            if(current_object_type == PHP_WXTEXTATTRDIMENSION_TYPE){
+                references = &((wxTextAttrDimension_php*)native_object)->references;
+                reference_type_found = true;
+            }
+        }
+    }
+    #ifdef USE_WXPHP_DEBUG
+    else
+    {
+        php_printf("Processing the method call as static\n");
+    }
+    #endif
+
+    //Parameters for overload 0
+    long units0;
+    bool overload0_called = false;
+
+    
+    //Overload 0
+    overload0:
+    if(!already_called && arguments_received == 1)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Parameters received %d\n", arguments_received);
+        php_printf("Parsing parameters with 'l' (&units0)\n");
+        #endif
+
+        char parse_parameters_string[] = "l";
+        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &units0 ) == SUCCESS)
+        {
+            overload0_called = true;
+            already_called = true;
+        }
+    }
+
+    
+    if(overload0_called)
+    {
+        switch(arguments_received)
+        {
+            case 1:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing wxTextAttrDimension::SetUnits((wxTextAttrUnits) units0)\n\n");
+                #endif
+
+                ((wxTextAttrDimension_php*)native_object)->SetUnits((wxTextAttrUnits) units0);
+
+
+                return;
+                break;
+            }
+        }
+    }
+
+    
+    //In case wrong type/count of parameters was passed
+    if(!already_called)
+    {
+        zend_error(
+            E_ERROR,
+            "Wrong type or count of parameters passed to: "
+            "wxTextAttrDimension::SetUnits\n"
+        );
+    }
+}
+/* }}} */
+
+/* {{{ proto wxTextBoxAttrPosition wxTextAttrDimension::GetPosition() */
+PHP_METHOD(php_wxTextAttrDimension, GetPosition)
+{
+    #ifdef USE_WXPHP_DEBUG
+    php_printf("Invoking wxTextAttrDimension::GetPosition\n");
+    php_printf("===========================================\n");
+    #endif
+
+    zo_wxTextAttrDimension* current_object;
+    wxphp_object_type current_object_type;
+    wxTextAttrDimension_php* native_object;
+    void* argument_native_object = NULL;
+
+    //Other variables used thru the code
+    zval dummy;
+    ZVAL_NULL(&dummy);
+    bool already_called = false;
+    wxPHPObjectReferences* references;
+    int arguments_received = ZEND_NUM_ARGS();
+    bool return_is_user_initialized = false;
+
+    //Get native object of the php object that called the method
+    if(getThis() != NULL)
+    {
+        current_object = Z_wxTextAttrDimension_P(getThis());
+
+        if(current_object->native_object == NULL)
+        {
+            zend_error(
+                E_ERROR,
+                "Failed to get the native object for "
+                "wxTextAttrDimension::GetPosition call\n"
+            );
+
+            return;
+        }
+        else
+        {
+            native_object = current_object->native_object;
+            current_object_type = current_object->object_type;
+
+            bool reference_type_found = false;
+
+            if(current_object_type == PHP_WXTEXTATTRDIMENSION_TYPE){
+                references = &((wxTextAttrDimension_php*)native_object)->references;
+                reference_type_found = true;
+            }
+        }
+    }
+    #ifdef USE_WXPHP_DEBUG
+    else
+    {
+        php_printf("Processing the method call as static\n");
+    }
+    #endif
+
+    //Parameters for overload 0
+    bool overload0_called = false;
+
+    
+    //Overload 0
+    overload0:
+    if(!already_called && arguments_received == 0)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Parameters received %d\n", arguments_received);
+        php_printf("Parsing parameters with '' ()\n");
+        #endif
+
+        overload0_called = true;
+        already_called = true;
+    }
+
+    
+    if(overload0_called)
+    {
+        switch(arguments_received)
+        {
+            case 0:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing RETURN_LONG(wxTextAttrDimension::GetPosition())\n\n");
+                #endif
+
+                RETVAL_LONG(((wxTextAttrDimension_php*)native_object)->GetPosition());
+
+
+                return;
+                break;
+            }
+        }
+    }
+
+    
+    //In case wrong type/count of parameters was passed
+    if(!already_called)
+    {
+        zend_error(
+            E_ERROR,
+            "Wrong type or count of parameters passed to: "
+            "wxTextAttrDimension::GetPosition\n"
+        );
+    }
+}
+/* }}} */
+
+/* {{{ proto  wxTextAttrDimension::SetPosition(wxTextBoxAttrPosition pos) */
+PHP_METHOD(php_wxTextAttrDimension, SetPosition)
+{
+    #ifdef USE_WXPHP_DEBUG
+    php_printf("Invoking wxTextAttrDimension::SetPosition\n");
+    php_printf("===========================================\n");
+    #endif
+
+    zo_wxTextAttrDimension* current_object;
+    wxphp_object_type current_object_type;
+    wxTextAttrDimension_php* native_object;
+    void* argument_native_object = NULL;
+
+    //Other variables used thru the code
+    zval dummy;
+    ZVAL_NULL(&dummy);
+    bool already_called = false;
+    wxPHPObjectReferences* references;
+    int arguments_received = ZEND_NUM_ARGS();
+    bool return_is_user_initialized = false;
+
+    //Get native object of the php object that called the method
+    if(getThis() != NULL)
+    {
+        current_object = Z_wxTextAttrDimension_P(getThis());
+
+        if(current_object->native_object == NULL)
+        {
+            zend_error(
+                E_ERROR,
+                "Failed to get the native object for "
+                "wxTextAttrDimension::SetPosition call\n"
+            );
+
+            return;
+        }
+        else
+        {
+            native_object = current_object->native_object;
+            current_object_type = current_object->object_type;
+
+            bool reference_type_found = false;
+
+            if(current_object_type == PHP_WXTEXTATTRDIMENSION_TYPE){
+                references = &((wxTextAttrDimension_php*)native_object)->references;
+                reference_type_found = true;
+            }
+        }
+    }
+    #ifdef USE_WXPHP_DEBUG
+    else
+    {
+        php_printf("Processing the method call as static\n");
+    }
+    #endif
+
+    //Parameters for overload 0
+    long pos0;
+    bool overload0_called = false;
+
+    
+    //Overload 0
+    overload0:
+    if(!already_called && arguments_received == 1)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Parameters received %d\n", arguments_received);
+        php_printf("Parsing parameters with 'l' (&pos0)\n");
+        #endif
+
+        char parse_parameters_string[] = "l";
+        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &pos0 ) == SUCCESS)
+        {
+            overload0_called = true;
+            already_called = true;
+        }
+    }
+
+    
+    if(overload0_called)
+    {
+        switch(arguments_received)
+        {
+            case 1:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing wxTextAttrDimension::SetPosition((wxTextBoxAttrPosition) pos0)\n\n");
+                #endif
+
+                ((wxTextAttrDimension_php*)native_object)->SetPosition((wxTextBoxAttrPosition) pos0);
+
+
+                return;
+                break;
+            }
+        }
+    }
+
+    
+    //In case wrong type/count of parameters was passed
+    if(!already_called)
+    {
+        zend_error(
+            E_ERROR,
+            "Wrong type or count of parameters passed to: "
+            "wxTextAttrDimension::SetPosition\n"
+        );
+    }
+}
+/* }}} */
+
+/* {{{ proto bool wxTextAttrDimension::IsValid() */
+PHP_METHOD(php_wxTextAttrDimension, IsValid)
+{
+    #ifdef USE_WXPHP_DEBUG
+    php_printf("Invoking wxTextAttrDimension::IsValid\n");
+    php_printf("===========================================\n");
+    #endif
+
+    zo_wxTextAttrDimension* current_object;
+    wxphp_object_type current_object_type;
+    wxTextAttrDimension_php* native_object;
+    void* argument_native_object = NULL;
+
+    //Other variables used thru the code
+    zval dummy;
+    ZVAL_NULL(&dummy);
+    bool already_called = false;
+    wxPHPObjectReferences* references;
+    int arguments_received = ZEND_NUM_ARGS();
+    bool return_is_user_initialized = false;
+
+    //Get native object of the php object that called the method
+    if(getThis() != NULL)
+    {
+        current_object = Z_wxTextAttrDimension_P(getThis());
+
+        if(current_object->native_object == NULL)
+        {
+            zend_error(
+                E_ERROR,
+                "Failed to get the native object for "
+                "wxTextAttrDimension::IsValid call\n"
+            );
+
+            return;
+        }
+        else
+        {
+            native_object = current_object->native_object;
+            current_object_type = current_object->object_type;
+
+            bool reference_type_found = false;
+
+            if(current_object_type == PHP_WXTEXTATTRDIMENSION_TYPE){
+                references = &((wxTextAttrDimension_php*)native_object)->references;
+                reference_type_found = true;
+            }
+        }
+    }
+    #ifdef USE_WXPHP_DEBUG
+    else
+    {
+        php_printf("Processing the method call as static\n");
+    }
+    #endif
+
+    //Parameters for overload 0
+    bool overload0_called = false;
+
+    
+    //Overload 0
+    overload0:
+    if(!already_called && arguments_received == 0)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Parameters received %d\n", arguments_received);
+        php_printf("Parsing parameters with '' ()\n");
+        #endif
+
+        overload0_called = true;
+        already_called = true;
+    }
+
+    
+    if(overload0_called)
+    {
+        switch(arguments_received)
+        {
+            case 0:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing RETURN_BOOL(wxTextAttrDimension::IsValid())\n\n");
+                #endif
+
+                RETVAL_BOOL(((wxTextAttrDimension_php*)native_object)->IsValid());
+
+
+                return;
+                break;
+            }
+        }
+    }
+
+    
+    //In case wrong type/count of parameters was passed
+    if(!already_called)
+    {
+        zend_error(
+            E_ERROR,
+            "Wrong type or count of parameters passed to: "
+            "wxTextAttrDimension::IsValid\n"
+        );
+    }
+}
+/* }}} */
+
+/* {{{ proto  wxTextAttrDimension::SetValid(bool b) */
+PHP_METHOD(php_wxTextAttrDimension, SetValid)
+{
+    #ifdef USE_WXPHP_DEBUG
+    php_printf("Invoking wxTextAttrDimension::SetValid\n");
+    php_printf("===========================================\n");
+    #endif
+
+    zo_wxTextAttrDimension* current_object;
+    wxphp_object_type current_object_type;
+    wxTextAttrDimension_php* native_object;
+    void* argument_native_object = NULL;
+
+    //Other variables used thru the code
+    zval dummy;
+    ZVAL_NULL(&dummy);
+    bool already_called = false;
+    wxPHPObjectReferences* references;
+    int arguments_received = ZEND_NUM_ARGS();
+    bool return_is_user_initialized = false;
+
+    //Get native object of the php object that called the method
+    if(getThis() != NULL)
+    {
+        current_object = Z_wxTextAttrDimension_P(getThis());
+
+        if(current_object->native_object == NULL)
+        {
+            zend_error(
+                E_ERROR,
+                "Failed to get the native object for "
+                "wxTextAttrDimension::SetValid call\n"
+            );
+
+            return;
+        }
+        else
+        {
+            native_object = current_object->native_object;
+            current_object_type = current_object->object_type;
+
+            bool reference_type_found = false;
+
+            if(current_object_type == PHP_WXTEXTATTRDIMENSION_TYPE){
+                references = &((wxTextAttrDimension_php*)native_object)->references;
+                reference_type_found = true;
+            }
+        }
+    }
+    #ifdef USE_WXPHP_DEBUG
+    else
+    {
+        php_printf("Processing the method call as static\n");
+    }
+    #endif
+
+    //Parameters for overload 0
+    bool b0;
+    bool overload0_called = false;
+
+    
+    //Overload 0
+    overload0:
+    if(!already_called && arguments_received == 1)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Parameters received %d\n", arguments_received);
+        php_printf("Parsing parameters with 'b' (&b0)\n");
+        #endif
+
+        char parse_parameters_string[] = "b";
+        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &b0 ) == SUCCESS)
+        {
+            overload0_called = true;
+            already_called = true;
+        }
+    }
+
+    
+    if(overload0_called)
+    {
+        switch(arguments_received)
+        {
+            case 1:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing wxTextAttrDimension::SetValid(b0)\n\n");
+                #endif
+
+                ((wxTextAttrDimension_php*)native_object)->SetValid(b0);
+
+
+                return;
+                break;
+            }
+        }
+    }
+
+    
+    //In case wrong type/count of parameters was passed
+    if(!already_called)
+    {
+        zend_error(
+            E_ERROR,
+            "Wrong type or count of parameters passed to: "
+            "wxTextAttrDimension::SetValid\n"
+        );
+    }
+}
+/* }}} */
+
+/* {{{ proto int wxTextAttrDimension::GetFlags() */
+PHP_METHOD(php_wxTextAttrDimension, GetFlags)
+{
+    #ifdef USE_WXPHP_DEBUG
+    php_printf("Invoking wxTextAttrDimension::GetFlags\n");
+    php_printf("===========================================\n");
+    #endif
+
+    zo_wxTextAttrDimension* current_object;
+    wxphp_object_type current_object_type;
+    wxTextAttrDimension_php* native_object;
+    void* argument_native_object = NULL;
+
+    //Other variables used thru the code
+    zval dummy;
+    ZVAL_NULL(&dummy);
+    bool already_called = false;
+    wxPHPObjectReferences* references;
+    int arguments_received = ZEND_NUM_ARGS();
+    bool return_is_user_initialized = false;
+
+    //Get native object of the php object that called the method
+    if(getThis() != NULL)
+    {
+        current_object = Z_wxTextAttrDimension_P(getThis());
+
+        if(current_object->native_object == NULL)
+        {
+            zend_error(
+                E_ERROR,
+                "Failed to get the native object for "
+                "wxTextAttrDimension::GetFlags call\n"
+            );
+
+            return;
+        }
+        else
+        {
+            native_object = current_object->native_object;
+            current_object_type = current_object->object_type;
+
+            bool reference_type_found = false;
+
+            if(current_object_type == PHP_WXTEXTATTRDIMENSION_TYPE){
+                references = &((wxTextAttrDimension_php*)native_object)->references;
+                reference_type_found = true;
+            }
+        }
+    }
+    #ifdef USE_WXPHP_DEBUG
+    else
+    {
+        php_printf("Processing the method call as static\n");
+    }
+    #endif
+
+    //Parameters for overload 0
+    bool overload0_called = false;
+
+    
+    //Overload 0
+    overload0:
+    if(!already_called && arguments_received == 0)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Parameters received %d\n", arguments_received);
+        php_printf("Parsing parameters with '' ()\n");
+        #endif
+
+        overload0_called = true;
+        already_called = true;
+    }
+
+    
+    if(overload0_called)
+    {
+        switch(arguments_received)
+        {
+            case 0:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing RETURN_LONG(wxTextAttrDimension::GetFlags())\n\n");
+                #endif
+
+                RETVAL_LONG(((wxTextAttrDimension_php*)native_object)->GetFlags());
+
+
+                return;
+                break;
+            }
+        }
+    }
+
+    
+    //In case wrong type/count of parameters was passed
+    if(!already_called)
+    {
+        zend_error(
+            E_ERROR,
+            "Wrong type or count of parameters passed to: "
+            "wxTextAttrDimension::GetFlags\n"
+        );
+    }
+}
+/* }}} */
+
+/* {{{ proto  wxTextAttrDimension::SetFlags(int flags) */
+PHP_METHOD(php_wxTextAttrDimension, SetFlags)
+{
+    #ifdef USE_WXPHP_DEBUG
+    php_printf("Invoking wxTextAttrDimension::SetFlags\n");
+    php_printf("===========================================\n");
+    #endif
+
+    zo_wxTextAttrDimension* current_object;
+    wxphp_object_type current_object_type;
+    wxTextAttrDimension_php* native_object;
+    void* argument_native_object = NULL;
+
+    //Other variables used thru the code
+    zval dummy;
+    ZVAL_NULL(&dummy);
+    bool already_called = false;
+    wxPHPObjectReferences* references;
+    int arguments_received = ZEND_NUM_ARGS();
+    bool return_is_user_initialized = false;
+
+    //Get native object of the php object that called the method
+    if(getThis() != NULL)
+    {
+        current_object = Z_wxTextAttrDimension_P(getThis());
+
+        if(current_object->native_object == NULL)
+        {
+            zend_error(
+                E_ERROR,
+                "Failed to get the native object for "
+                "wxTextAttrDimension::SetFlags call\n"
+            );
+
+            return;
+        }
+        else
+        {
+            native_object = current_object->native_object;
+            current_object_type = current_object->object_type;
+
+            bool reference_type_found = false;
+
+            if(current_object_type == PHP_WXTEXTATTRDIMENSION_TYPE){
+                references = &((wxTextAttrDimension_php*)native_object)->references;
+                reference_type_found = true;
+            }
+        }
+    }
+    #ifdef USE_WXPHP_DEBUG
+    else
+    {
+        php_printf("Processing the method call as static\n");
+    }
+    #endif
+
+    //Parameters for overload 0
+    long flags0;
+    bool overload0_called = false;
+
+    
+    //Overload 0
+    overload0:
+    if(!already_called && arguments_received == 1)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Parameters received %d\n", arguments_received);
+        php_printf("Parsing parameters with 'l' (&flags0)\n");
+        #endif
+
+        char parse_parameters_string[] = "l";
+        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &flags0 ) == SUCCESS)
+        {
+            overload0_called = true;
+            already_called = true;
+        }
+    }
+
+    
+    if(overload0_called)
+    {
+        switch(arguments_received)
+        {
+            case 1:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing wxTextAttrDimension::SetFlags((wxTextAttrDimensionFlags) flags0)\n\n");
+                #endif
+
+                ((wxTextAttrDimension_php*)native_object)->SetFlags((wxTextAttrDimensionFlags) flags0);
+
+
+                return;
+                break;
+            }
+        }
+    }
+
+    
+    //In case wrong type/count of parameters was passed
+    if(!already_called)
+    {
+        zend_error(
+            E_ERROR,
+            "Wrong type or count of parameters passed to: "
+            "wxTextAttrDimension::SetFlags\n"
+        );
+    }
+}
+/* }}} */
+
+BEGIN_EXTERN_C()
+void php_wxTextAttrDimensions_free(void *object)
+{
+    zo_wxTextAttrDimensions* custom_object = (zo_wxTextAttrDimensions*) object;
+
+    #ifdef USE_WXPHP_DEBUG
+    php_printf(
+        "Calling php_wxTextAttrDimensions_free on %s at line %i\n",
+        zend_get_executed_filename(),
+        zend_get_executed_lineno()
+    );
+    php_printf("===========================================\n");
+    #endif
+
+    if(custom_object->native_object != NULL)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Pointer not null\n");
+        php_printf("Pointer address %x\n", (unsigned int)(size_t)custom_object->native_object);
+        #endif
+
+        if(custom_object->is_user_initialized)
+        {
+            #ifdef USE_WXPHP_DEBUG
+            php_printf("Deleting pointer with delete\n");
+            #endif
+
+            custom_object->native_object->UninitProperties();
+            delete custom_object->native_object;
+            custom_object->native_object = NULL;
+        }
+
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Deletion of wxTextAttrDimensions done\n");
+        php_printf("===========================================\n\n");
+        #endif
+    }
+    else
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Not user space initialized\n");
+        #endif
+    }
+
+    zend_object_std_dtor(&custom_object->zo);
+    efree(custom_object);
+}
+
+zend_object* php_wxTextAttrDimensions_new(zend_class_entry *class_type)
+{
+    #ifdef USE_WXPHP_DEBUG
+    php_printf(
+        "Calling php_wxTextAttrDimensions_new on %s at line %i\n",
+        zend_get_executed_filename(),
+        zend_get_executed_lineno()
+    );
+    php_printf("===========================================\n");
+    #endif
+
+    zo_wxTextAttrDimensions* custom_object;
+
+    custom_object = (zo_wxTextAttrDimensions*) ecalloc(
+        1,
+        sizeof(zo_wxTextAttrDimensions)
+        + zend_object_properties_size(class_type)
+    );
+
+    zend_object_std_init(&custom_object->zo, class_type);
+    object_properties_init(&custom_object->zo, class_type);
+
+    custom_object->zo.handlers = &wxphp_wxTextAttrDimensions_object_handlers;
+
+    custom_object->native_object = NULL;
+    custom_object->object_type = PHP_WXTEXTATTRDIMENSIONS_TYPE;
+    custom_object->is_user_initialized = 0;
+
+    return &custom_object->zo;
+}
+END_EXTERN_C()
+
+/* {{{ proto  wxTextAttrDimensions::wxTextAttrDimensions() */
+PHP_METHOD(php_wxTextAttrDimensions, __construct)
+{
+    #ifdef USE_WXPHP_DEBUG
+    php_printf("Invoking wxTextAttrDimensions::__construct\n");
+    php_printf("===========================================\n");
+    #endif
+
+    zo_wxTextAttrDimensions* current_object;
+    wxTextAttrDimensions_php* native_object;
+    void* argument_native_object = NULL;
+
+    //Other variables used thru the code
+    zval dummy;
+    ZVAL_NULL(&dummy);
+    bool already_called = false;
+    int arguments_received = ZEND_NUM_ARGS();
+
+
+    //Parameters for overload 0
+    bool overload0_called = false;
+
+    
+    //Overload 0
+    overload0:
+    if(!already_called && arguments_received == 0)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Parameters received %d\n", arguments_received);
+        php_printf("Parsing parameters with '' ()\n");
+        #endif
+
+        overload0_called = true;
+        already_called = true;
+    }
+
+    
+    if(overload0_called)
+    {
+        switch(arguments_received)
+        {
+            case 0:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing __construct()\n");
+                #endif
+
+                native_object = new wxTextAttrDimensions_php();
+
+                native_object->references.Initialize();
+                break;
+            }
+        }
+    }
+
+    
+    if(already_called)
+    {
+        native_object->phpObj = *getThis();
+
+        native_object->InitProperties();
+
+        current_object = Z_wxTextAttrDimensions_P(getThis());
+
+        current_object->native_object = native_object;
+
+        current_object->is_user_initialized = 1;
+    }
+    else
+    {
+        zend_error(
+            E_ERROR,
+            "Abstract class or wrong type/count of parameters "
+            "passed to: wxTextAttrDimensions::__construct\n"
+        );
+    }
+
+    #ifdef USE_WXPHP_DEBUG
+        php_printf("===========================================\n\n");
+    #endif
+}
+/* }}} */
+
+PHP_METHOD(php_wxTextAttrDimensions, __get)
+{
+    #ifdef USE_WXPHP_DEBUG
+    php_printf("Invoking wxTextAttrDimensions::__get\n");
+    php_printf("===========================================\n");
+    #endif
+
+    int arguments_received = ZEND_NUM_ARGS();
+    zo_wxTextAttrDimensions* current_object;
+    wxTextAttrDimensions_php* native_object;
+
+    char* name;
+    size_t name_len;
+
+    //Get native object of the php object that called the method
+    if (getThis() != NULL)
+    {
+        current_object = Z_wxTextAttrDimensions_P(getThis());
+
+        if(current_object->native_object == NULL)
+        {
+            zend_error(
+                E_ERROR,
+                "Failed to get the native object for "
+                "wxTextAttrDimensions::wxTextAttrDimensions call\n"
+            );
+
+            return;
+        }
+        else
+        {
+            native_object = current_object->native_object;
+        }
+    }
+    else
+    {
+        zend_error(E_ERROR, "Could not process __get call as static\n");
+    }
+
+    char parse_parameters_string[] = "s";
+
+    if(
+        zend_parse_parameters_ex(
+            ZEND_PARSE_PARAMS_QUIET,
+            arguments_received,
+            parse_parameters_string,
+            &name,
+            &name_len
+        ) == FAILURE
+    )
+    {
+        RETVAL_NULL();
+    }
+
+    #ifdef USE_WXPHP_DEBUG
+    php_printf("Property to get: %s\n", name);
+    php_printf("===========================================\n\n");
+    #endif
+
+    if(false){}
+    else if(strcmp("m_left", name) == 0)
+    {
+        object_init_ex(return_value, php_wxTextAttrDimension_entry);
+        Z_wxTextAttrDimensions_P(&return_value)->native_object = ((wxTextAttrDimension_php*) native_object->properties[0]);
+        return;
+    }
+    else if(strcmp("m_top", name) == 0)
+    {
+        object_init_ex(return_value, php_wxTextAttrDimension_entry);
+        Z_wxTextAttrDimensions_P(&return_value)->native_object = ((wxTextAttrDimension_php*) native_object->properties[1]);
+        return;
+    }
+    else if(strcmp("m_right", name) == 0)
+    {
+        object_init_ex(return_value, php_wxTextAttrDimension_entry);
+        Z_wxTextAttrDimensions_P(&return_value)->native_object = ((wxTextAttrDimension_php*) native_object->properties[2]);
+        return;
+    }
+    else if(strcmp("m_bottom", name) == 0)
+    {
+        object_init_ex(return_value, php_wxTextAttrDimension_entry);
+        Z_wxTextAttrDimensions_P(&return_value)->native_object = ((wxTextAttrDimension_php*) native_object->properties[3]);
+        return;
+    }
+    else
+    {
+        RETVAL_NULL();
+    }
+}
+/* {{{ proto  wxTextAttrDimensions::Reset() */
+PHP_METHOD(php_wxTextAttrDimensions, Reset)
+{
+    #ifdef USE_WXPHP_DEBUG
+    php_printf("Invoking wxTextAttrDimensions::Reset\n");
+    php_printf("===========================================\n");
+    #endif
+
+    zo_wxTextAttrDimensions* current_object;
+    wxphp_object_type current_object_type;
+    wxTextAttrDimensions_php* native_object;
+    void* argument_native_object = NULL;
+
+    //Other variables used thru the code
+    zval dummy;
+    ZVAL_NULL(&dummy);
+    bool already_called = false;
+    wxPHPObjectReferences* references;
+    int arguments_received = ZEND_NUM_ARGS();
+    bool return_is_user_initialized = false;
+
+    //Get native object of the php object that called the method
+    if(getThis() != NULL)
+    {
+        current_object = Z_wxTextAttrDimensions_P(getThis());
+
+        if(current_object->native_object == NULL)
+        {
+            zend_error(
+                E_ERROR,
+                "Failed to get the native object for "
+                "wxTextAttrDimensions::Reset call\n"
+            );
+
+            return;
+        }
+        else
+        {
+            native_object = current_object->native_object;
+            current_object_type = current_object->object_type;
+
+            bool reference_type_found = false;
+
+            if(current_object_type == PHP_WXTEXTATTRDIMENSIONS_TYPE){
+                references = &((wxTextAttrDimensions_php*)native_object)->references;
+                reference_type_found = true;
+            }
+        }
+    }
+    #ifdef USE_WXPHP_DEBUG
+    else
+    {
+        php_printf("Processing the method call as static\n");
+    }
+    #endif
+
+    //Parameters for overload 0
+    bool overload0_called = false;
+
+    
+    //Overload 0
+    overload0:
+    if(!already_called && arguments_received == 0)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Parameters received %d\n", arguments_received);
+        php_printf("Parsing parameters with '' ()\n");
+        #endif
+
+        overload0_called = true;
+        already_called = true;
+    }
+
+    
+    if(overload0_called)
+    {
+        switch(arguments_received)
+        {
+            case 0:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing wxTextAttrDimensions::Reset()\n\n");
+                #endif
+
+                ((wxTextAttrDimensions_php*)native_object)->Reset();
+
+
+                return;
+                break;
+            }
+        }
+    }
+
+    
+    //In case wrong type/count of parameters was passed
+    if(!already_called)
+    {
+        zend_error(
+            E_ERROR,
+            "Wrong type or count of parameters passed to: "
+            "wxTextAttrDimensions::Reset\n"
+        );
+    }
+}
+/* }}} */
+
+/* {{{ proto bool wxTextAttrDimensions::EqPartial(wxTextAttrDimensions dims, bool weakTest) */
+PHP_METHOD(php_wxTextAttrDimensions, EqPartial)
+{
+    #ifdef USE_WXPHP_DEBUG
+    php_printf("Invoking wxTextAttrDimensions::EqPartial\n");
+    php_printf("===========================================\n");
+    #endif
+
+    zo_wxTextAttrDimensions* current_object;
+    wxphp_object_type current_object_type;
+    wxTextAttrDimensions_php* native_object;
+    void* argument_native_object = NULL;
+
+    //Other variables used thru the code
+    zval dummy;
+    ZVAL_NULL(&dummy);
+    bool already_called = false;
+    wxPHPObjectReferences* references;
+    int arguments_received = ZEND_NUM_ARGS();
+    bool return_is_user_initialized = false;
+
+    //Get native object of the php object that called the method
+    if(getThis() != NULL)
+    {
+        current_object = Z_wxTextAttrDimensions_P(getThis());
+
+        if(current_object->native_object == NULL)
+        {
+            zend_error(
+                E_ERROR,
+                "Failed to get the native object for "
+                "wxTextAttrDimensions::EqPartial call\n"
+            );
+
+            return;
+        }
+        else
+        {
+            native_object = current_object->native_object;
+            current_object_type = current_object->object_type;
+
+            bool reference_type_found = false;
+
+            if(current_object_type == PHP_WXTEXTATTRDIMENSIONS_TYPE){
+                references = &((wxTextAttrDimensions_php*)native_object)->references;
+                reference_type_found = true;
+            }
+        }
+    }
+    #ifdef USE_WXPHP_DEBUG
+    else
+    {
+        php_printf("Processing the method call as static\n");
+    }
+    #endif
+
+    //Parameters for overload 0
+    zval* dims0;
+    wxTextAttrDimensions* object_pointer0_0 = 0;
+    bool weakTest0;
+    bool overload0_called = false;
+
+    
+    //Overload 0
+    overload0:
+    if(!already_called && arguments_received >= 1  && arguments_received <= 2)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Parameters received %d\n", arguments_received);
+        php_printf("Parsing parameters with 'O|b' (&dims0, php_wxTextAttrDimensions_entry, &weakTest0)\n");
+        #endif
+
+        char parse_parameters_string[] = "O|b";
+        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &dims0, php_wxTextAttrDimensions_entry, &weakTest0 ) == SUCCESS)
+        {
+            if(arguments_received >= 1){
+                if(Z_TYPE_P(dims0) == IS_OBJECT)
+                {
+                    wxphp_object_type argument_type = Z_wxTextAttrDimensions_P(dims0)->object_type;
+                    argument_native_object = (void*) Z_wxTextAttrDimensions_P(dims0)->native_object;
+                    object_pointer0_0 = (wxTextAttrDimensions*) argument_native_object;
+                    if (!object_pointer0_0 )
+                    {
+                        zend_error(E_ERROR, "Parameter 'dims' could not be retreived correctly.");
+                    }
+                }
+                else if(Z_TYPE_P(dims0) != IS_NULL)
+                {
+                    zend_error(E_ERROR, "Parameter 'dims' not null, could not be retreived correctly.");
+                }
+            }
+
+            overload0_called = true;
+            already_called = true;
+        }
+    }
+
+    
+    if(overload0_called)
+    {
+        switch(arguments_received)
+        {
+            case 1:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing RETURN_BOOL(wxTextAttrDimensions::EqPartial(*(wxTextAttrDimensions*) object_pointer0_0))\n\n");
+                #endif
+
+                RETVAL_BOOL(((wxTextAttrDimensions_php*)native_object)->EqPartial(*(wxTextAttrDimensions*) object_pointer0_0));
+
+                references->AddReference(dims0, "wxTextAttrDimensions::EqPartial at call 3 with 1 argument(s)");
+
+                return;
+                break;
+            }
+            case 2:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing RETURN_BOOL(wxTextAttrDimensions::EqPartial(*(wxTextAttrDimensions*) object_pointer0_0, weakTest0))\n\n");
+                #endif
+
+                RETVAL_BOOL(((wxTextAttrDimensions_php*)native_object)->EqPartial(*(wxTextAttrDimensions*) object_pointer0_0, weakTest0));
+
+                references->AddReference(dims0, "wxTextAttrDimensions::EqPartial at call 3 with 2 argument(s)");
+
+                return;
+                break;
+            }
+        }
+    }
+
+    
+    //In case wrong type/count of parameters was passed
+    if(!already_called)
+    {
+        zend_error(
+            E_ERROR,
+            "Wrong type or count of parameters passed to: "
+            "wxTextAttrDimensions::EqPartial\n"
+        );
+    }
+}
+/* }}} */
+
+/* {{{ proto bool wxTextAttrDimensions::Apply(wxTextAttrDimensions dims, wxTextAttrDimensions compareWith) */
+PHP_METHOD(php_wxTextAttrDimensions, Apply)
+{
+    #ifdef USE_WXPHP_DEBUG
+    php_printf("Invoking wxTextAttrDimensions::Apply\n");
+    php_printf("===========================================\n");
+    #endif
+
+    zo_wxTextAttrDimensions* current_object;
+    wxphp_object_type current_object_type;
+    wxTextAttrDimensions_php* native_object;
+    void* argument_native_object = NULL;
+
+    //Other variables used thru the code
+    zval dummy;
+    ZVAL_NULL(&dummy);
+    bool already_called = false;
+    wxPHPObjectReferences* references;
+    int arguments_received = ZEND_NUM_ARGS();
+    bool return_is_user_initialized = false;
+
+    //Get native object of the php object that called the method
+    if(getThis() != NULL)
+    {
+        current_object = Z_wxTextAttrDimensions_P(getThis());
+
+        if(current_object->native_object == NULL)
+        {
+            zend_error(
+                E_ERROR,
+                "Failed to get the native object for "
+                "wxTextAttrDimensions::Apply call\n"
+            );
+
+            return;
+        }
+        else
+        {
+            native_object = current_object->native_object;
+            current_object_type = current_object->object_type;
+
+            bool reference_type_found = false;
+
+            if(current_object_type == PHP_WXTEXTATTRDIMENSIONS_TYPE){
+                references = &((wxTextAttrDimensions_php*)native_object)->references;
+                reference_type_found = true;
+            }
+        }
+    }
+    #ifdef USE_WXPHP_DEBUG
+    else
+    {
+        php_printf("Processing the method call as static\n");
+    }
+    #endif
+
+    //Parameters for overload 0
+    zval* dims0;
+    wxTextAttrDimensions* object_pointer0_0 = 0;
+    zval* compareWith0;
+    wxTextAttrDimensions* object_pointer0_1 = 0;
+    bool overload0_called = false;
+
+    
+    //Overload 0
+    overload0:
+    if(!already_called && arguments_received >= 1  && arguments_received <= 2)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Parameters received %d\n", arguments_received);
+        php_printf("Parsing parameters with 'O|z' (&dims0, php_wxTextAttrDimensions_entry, &compareWith0)\n");
+        #endif
+
+        char parse_parameters_string[] = "O|z";
+        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &dims0, php_wxTextAttrDimensions_entry, &compareWith0 ) == SUCCESS)
+        {
+            if(arguments_received >= 1){
+                if(Z_TYPE_P(dims0) == IS_OBJECT)
+                {
+                    wxphp_object_type argument_type = Z_wxTextAttrDimensions_P(dims0)->object_type;
+                    argument_native_object = (void*) Z_wxTextAttrDimensions_P(dims0)->native_object;
+                    object_pointer0_0 = (wxTextAttrDimensions*) argument_native_object;
+                    if (!object_pointer0_0 )
+                    {
+                        zend_error(E_ERROR, "Parameter 'dims' could not be retreived correctly.");
+                    }
+                }
+                else if(Z_TYPE_P(dims0) != IS_NULL)
+                {
+                    zend_error(E_ERROR, "Parameter 'dims' not null, could not be retreived correctly.");
+                }
+            }
+
+            if(arguments_received >= 2){
+                if(Z_TYPE_P(compareWith0) == IS_OBJECT)
+                {
+                    wxphp_object_type argument_type = Z_wxTextAttrDimensions_P(compareWith0)->object_type;
+                    argument_native_object = (void*) Z_wxTextAttrDimensions_P(compareWith0)->native_object;
+                    object_pointer0_1 = (wxTextAttrDimensions*) argument_native_object;
+                    if (!object_pointer0_1 || (argument_type != PHP_WXTEXTATTRDIMENSIONS_TYPE))
+                    {
+                        zend_error(E_ERROR, "Parameter 'compareWith' could not be retreived correctly.");
+                    }
+                }
+                else if(Z_TYPE_P(compareWith0) != IS_NULL)
+                {
+                    zend_error(E_ERROR, "Parameter 'compareWith' not null, could not be retreived correctly.");
+                }
+            }
+
+            overload0_called = true;
+            already_called = true;
+        }
+    }
+
+    
+    if(overload0_called)
+    {
+        switch(arguments_received)
+        {
+            case 1:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing RETURN_BOOL(wxTextAttrDimensions::Apply(*(wxTextAttrDimensions*) object_pointer0_0))\n\n");
+                #endif
+
+                RETVAL_BOOL(((wxTextAttrDimensions_php*)native_object)->Apply(*(wxTextAttrDimensions*) object_pointer0_0));
+
+                references->AddReference(dims0, "wxTextAttrDimensions::Apply at call 3 with 1 argument(s)");
+
+                return;
+                break;
+            }
+            case 2:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing RETURN_BOOL(wxTextAttrDimensions::Apply(*(wxTextAttrDimensions*) object_pointer0_0, (const wxTextAttrDimensions*) object_pointer0_1))\n\n");
+                #endif
+
+                RETVAL_BOOL(((wxTextAttrDimensions_php*)native_object)->Apply(*(wxTextAttrDimensions*) object_pointer0_0, (const wxTextAttrDimensions*) object_pointer0_1));
+
+                references->AddReference(dims0, "wxTextAttrDimensions::Apply at call 3 with 2 argument(s)");
+                references->AddReference(compareWith0, "wxTextAttrDimensions::Apply at call 1 with 2 argument(s)");
+
+                return;
+                break;
+            }
+        }
+    }
+
+    
+    //In case wrong type/count of parameters was passed
+    if(!already_called)
+    {
+        zend_error(
+            E_ERROR,
+            "Wrong type or count of parameters passed to: "
+            "wxTextAttrDimensions::Apply\n"
+        );
+    }
+}
+/* }}} */
+
+/* {{{ proto  wxTextAttrDimensions::CollectCommonAttributes(wxTextAttrDimensions attr, wxTextAttrDimensions &clashingAttr, wxTextAttrDimensions &absentAttr) */
+PHP_METHOD(php_wxTextAttrDimensions, CollectCommonAttributes)
+{
+    #ifdef USE_WXPHP_DEBUG
+    php_printf("Invoking wxTextAttrDimensions::CollectCommonAttributes\n");
+    php_printf("===========================================\n");
+    #endif
+
+    zo_wxTextAttrDimensions* current_object;
+    wxphp_object_type current_object_type;
+    wxTextAttrDimensions_php* native_object;
+    void* argument_native_object = NULL;
+
+    //Other variables used thru the code
+    zval dummy;
+    ZVAL_NULL(&dummy);
+    bool already_called = false;
+    wxPHPObjectReferences* references;
+    int arguments_received = ZEND_NUM_ARGS();
+    bool return_is_user_initialized = false;
+
+    //Get native object of the php object that called the method
+    if(getThis() != NULL)
+    {
+        current_object = Z_wxTextAttrDimensions_P(getThis());
+
+        if(current_object->native_object == NULL)
+        {
+            zend_error(
+                E_ERROR,
+                "Failed to get the native object for "
+                "wxTextAttrDimensions::CollectCommonAttributes call\n"
+            );
+
+            return;
+        }
+        else
+        {
+            native_object = current_object->native_object;
+            current_object_type = current_object->object_type;
+
+            bool reference_type_found = false;
+
+            if(current_object_type == PHP_WXTEXTATTRDIMENSIONS_TYPE){
+                references = &((wxTextAttrDimensions_php*)native_object)->references;
+                reference_type_found = true;
+            }
+        }
+    }
+    #ifdef USE_WXPHP_DEBUG
+    else
+    {
+        php_printf("Processing the method call as static\n");
+    }
+    #endif
+
+    //Parameters for overload 0
+    zval* attr0;
+    wxTextAttrDimensions* object_pointer0_0 = 0;
+    zval* clashingAttr0;
+    wxTextAttrDimensions* object_pointer0_1 = 0;
+    zval* absentAttr0;
+    wxTextAttrDimensions* object_pointer0_2 = 0;
+    bool overload0_called = false;
+
+    
+    //Overload 0
+    overload0:
+    if(!already_called && arguments_received == 3)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Parameters received %d\n", arguments_received);
+        php_printf("Parsing parameters with 'OOO' (&attr0, php_wxTextAttrDimensions_entry, &clashingAttr0, php_wxTextAttrDimensions_entry, &absentAttr0, php_wxTextAttrDimensions_entry)\n");
+        #endif
+
+        char parse_parameters_string[] = "OOO";
+        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &attr0, php_wxTextAttrDimensions_entry, &clashingAttr0, php_wxTextAttrDimensions_entry, &absentAttr0, php_wxTextAttrDimensions_entry ) == SUCCESS)
+        {
+            if(arguments_received >= 1){
+                if(Z_TYPE_P(attr0) == IS_OBJECT)
+                {
+                    wxphp_object_type argument_type = Z_wxTextAttrDimensions_P(attr0)->object_type;
+                    argument_native_object = (void*) Z_wxTextAttrDimensions_P(attr0)->native_object;
+                    object_pointer0_0 = (wxTextAttrDimensions*) argument_native_object;
+                    if (!object_pointer0_0 )
+                    {
+                        zend_error(E_ERROR, "Parameter 'attr' could not be retreived correctly.");
+                    }
+                }
+                else if(Z_TYPE_P(attr0) != IS_NULL)
+                {
+                    zend_error(E_ERROR, "Parameter 'attr' not null, could not be retreived correctly.");
+                }
+            }
+
+            if(arguments_received >= 2){
+                if(Z_TYPE_P(clashingAttr0) == IS_OBJECT)
+                {
+                    wxphp_object_type argument_type = Z_wxTextAttrDimensions_P(clashingAttr0)->object_type;
+                    argument_native_object = (void*) Z_wxTextAttrDimensions_P(clashingAttr0)->native_object;
+                    object_pointer0_1 = (wxTextAttrDimensions*) argument_native_object;
+                    if (!object_pointer0_1 )
+                    {
+                        zend_error(E_ERROR, "Parameter 'clashingAttr' could not be retreived correctly.");
+                    }
+                }
+                else if(Z_TYPE_P(clashingAttr0) != IS_NULL)
+                {
+                    zend_error(E_ERROR, "Parameter 'clashingAttr' not null, could not be retreived correctly.");
+                }
+            }
+
+            if(arguments_received >= 3){
+                if(Z_TYPE_P(absentAttr0) == IS_OBJECT)
+                {
+                    wxphp_object_type argument_type = Z_wxTextAttrDimensions_P(absentAttr0)->object_type;
+                    argument_native_object = (void*) Z_wxTextAttrDimensions_P(absentAttr0)->native_object;
+                    object_pointer0_2 = (wxTextAttrDimensions*) argument_native_object;
+                    if (!object_pointer0_2 )
+                    {
+                        zend_error(E_ERROR, "Parameter 'absentAttr' could not be retreived correctly.");
+                    }
+                }
+                else if(Z_TYPE_P(absentAttr0) != IS_NULL)
+                {
+                    zend_error(E_ERROR, "Parameter 'absentAttr' not null, could not be retreived correctly.");
+                }
+            }
+
+            overload0_called = true;
+            already_called = true;
+        }
+    }
+
+    
+    if(overload0_called)
+    {
+        switch(arguments_received)
+        {
+            case 3:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing wxTextAttrDimensions::CollectCommonAttributes(*(wxTextAttrDimensions*) object_pointer0_0, *(wxTextAttrDimensions*) object_pointer0_1, *(wxTextAttrDimensions*) object_pointer0_2)\n\n");
+                #endif
+
+                ((wxTextAttrDimensions_php*)native_object)->CollectCommonAttributes(*(wxTextAttrDimensions*) object_pointer0_0, *(wxTextAttrDimensions*) object_pointer0_1, *(wxTextAttrDimensions*) object_pointer0_2);
+
+                references->AddReference(attr0, "wxTextAttrDimensions::CollectCommonAttributes at call 3 with 3 argument(s)");
+                references->AddReference(clashingAttr0, "wxTextAttrDimensions::CollectCommonAttributes at call 3 with 3 argument(s)");
+                references->AddReference(absentAttr0, "wxTextAttrDimensions::CollectCommonAttributes at call 3 with 3 argument(s)");
+
+                return;
+                break;
+            }
+        }
+    }
+
+    
+    //In case wrong type/count of parameters was passed
+    if(!already_called)
+    {
+        zend_error(
+            E_ERROR,
+            "Wrong type or count of parameters passed to: "
+            "wxTextAttrDimensions::CollectCommonAttributes\n"
+        );
+    }
+}
+/* }}} */
+
+/* {{{ proto bool wxTextAttrDimensions::RemoveStyle(wxTextAttrDimensions attr) */
+PHP_METHOD(php_wxTextAttrDimensions, RemoveStyle)
+{
+    #ifdef USE_WXPHP_DEBUG
+    php_printf("Invoking wxTextAttrDimensions::RemoveStyle\n");
+    php_printf("===========================================\n");
+    #endif
+
+    zo_wxTextAttrDimensions* current_object;
+    wxphp_object_type current_object_type;
+    wxTextAttrDimensions_php* native_object;
+    void* argument_native_object = NULL;
+
+    //Other variables used thru the code
+    zval dummy;
+    ZVAL_NULL(&dummy);
+    bool already_called = false;
+    wxPHPObjectReferences* references;
+    int arguments_received = ZEND_NUM_ARGS();
+    bool return_is_user_initialized = false;
+
+    //Get native object of the php object that called the method
+    if(getThis() != NULL)
+    {
+        current_object = Z_wxTextAttrDimensions_P(getThis());
+
+        if(current_object->native_object == NULL)
+        {
+            zend_error(
+                E_ERROR,
+                "Failed to get the native object for "
+                "wxTextAttrDimensions::RemoveStyle call\n"
+            );
+
+            return;
+        }
+        else
+        {
+            native_object = current_object->native_object;
+            current_object_type = current_object->object_type;
+
+            bool reference_type_found = false;
+
+            if(current_object_type == PHP_WXTEXTATTRDIMENSIONS_TYPE){
+                references = &((wxTextAttrDimensions_php*)native_object)->references;
+                reference_type_found = true;
+            }
+        }
+    }
+    #ifdef USE_WXPHP_DEBUG
+    else
+    {
+        php_printf("Processing the method call as static\n");
+    }
+    #endif
+
+    //Parameters for overload 0
+    zval* attr0;
+    wxTextAttrDimensions* object_pointer0_0 = 0;
+    bool overload0_called = false;
+
+    
+    //Overload 0
+    overload0:
+    if(!already_called && arguments_received == 1)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Parameters received %d\n", arguments_received);
+        php_printf("Parsing parameters with 'O' (&attr0, php_wxTextAttrDimensions_entry)\n");
+        #endif
+
+        char parse_parameters_string[] = "O";
+        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &attr0, php_wxTextAttrDimensions_entry ) == SUCCESS)
+        {
+            if(arguments_received >= 1){
+                if(Z_TYPE_P(attr0) == IS_OBJECT)
+                {
+                    wxphp_object_type argument_type = Z_wxTextAttrDimensions_P(attr0)->object_type;
+                    argument_native_object = (void*) Z_wxTextAttrDimensions_P(attr0)->native_object;
+                    object_pointer0_0 = (wxTextAttrDimensions*) argument_native_object;
+                    if (!object_pointer0_0 )
+                    {
+                        zend_error(E_ERROR, "Parameter 'attr' could not be retreived correctly.");
+                    }
+                }
+                else if(Z_TYPE_P(attr0) != IS_NULL)
+                {
+                    zend_error(E_ERROR, "Parameter 'attr' not null, could not be retreived correctly.");
+                }
+            }
+
+            overload0_called = true;
+            already_called = true;
+        }
+    }
+
+    
+    if(overload0_called)
+    {
+        switch(arguments_received)
+        {
+            case 1:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing RETURN_BOOL(wxTextAttrDimensions::RemoveStyle(*(wxTextAttrDimensions*) object_pointer0_0))\n\n");
+                #endif
+
+                RETVAL_BOOL(((wxTextAttrDimensions_php*)native_object)->RemoveStyle(*(wxTextAttrDimensions*) object_pointer0_0));
+
+                references->AddReference(attr0, "wxTextAttrDimensions::RemoveStyle at call 3 with 1 argument(s)");
+
+                return;
+                break;
+            }
+        }
+    }
+
+    
+    //In case wrong type/count of parameters was passed
+    if(!already_called)
+    {
+        zend_error(
+            E_ERROR,
+            "Wrong type or count of parameters passed to: "
+            "wxTextAttrDimensions::RemoveStyle\n"
+        );
+    }
+}
+/* }}} */
+
+/* {{{ proto wxTextAttrDimension wxTextAttrDimensions::GetLeft() */
+PHP_METHOD(php_wxTextAttrDimensions, GetLeft)
+{
+    #ifdef USE_WXPHP_DEBUG
+    php_printf("Invoking wxTextAttrDimensions::GetLeft\n");
+    php_printf("===========================================\n");
+    #endif
+
+    zo_wxTextAttrDimensions* current_object;
+    wxphp_object_type current_object_type;
+    wxTextAttrDimensions_php* native_object;
+    void* argument_native_object = NULL;
+
+    //Other variables used thru the code
+    zval dummy;
+    ZVAL_NULL(&dummy);
+    bool already_called = false;
+    wxPHPObjectReferences* references;
+    int arguments_received = ZEND_NUM_ARGS();
+    bool return_is_user_initialized = false;
+
+    //Get native object of the php object that called the method
+    if(getThis() != NULL)
+    {
+        current_object = Z_wxTextAttrDimensions_P(getThis());
+
+        if(current_object->native_object == NULL)
+        {
+            zend_error(
+                E_ERROR,
+                "Failed to get the native object for "
+                "wxTextAttrDimensions::GetLeft call\n"
+            );
+
+            return;
+        }
+        else
+        {
+            native_object = current_object->native_object;
+            current_object_type = current_object->object_type;
+
+            bool reference_type_found = false;
+
+            if(current_object_type == PHP_WXTEXTATTRDIMENSIONS_TYPE){
+                references = &((wxTextAttrDimensions_php*)native_object)->references;
+                reference_type_found = true;
+            }
+        }
+    }
+    #ifdef USE_WXPHP_DEBUG
+    else
+    {
+        php_printf("Processing the method call as static\n");
+    }
+    #endif
+
+    //Parameters for overload 0
+    bool overload0_called = false;
+
+    //Parameters for overload 1
+    bool overload1_called = false;
+
+    
+    //Overload 0
+    overload0:
+    if(!already_called && arguments_received == 0)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Parameters received %d\n", arguments_received);
+        php_printf("Parsing parameters with '' ()\n");
+        #endif
+
+        overload0_called = true;
+        already_called = true;
+    }
+
+    //Overload 1
+    overload1:
+    if(!already_called && arguments_received == 0)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Parameters received %d\n", arguments_received);
+        php_printf("Parsing parameters with '' ()\n");
+        #endif
+
+        overload1_called = true;
+        already_called = true;
+    }
+
+    
+    if(overload0_called)
+    {
+        switch(arguments_received)
+        {
+            case 0:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing wxTextAttrDimensions::GetLeft() to return object reference\n\n");
+                #endif
+
+                wxTextAttrDimension_php* value_to_return0;
+                value_to_return0 = (wxTextAttrDimension_php*) &((wxTextAttrDimensions_php*)native_object)->GetLeft();
+
+                if(value_to_return0->references.IsUserInitialized()){
+                    if(!Z_ISNULL(value_to_return0->phpObj)){
+                        ZVAL_COPY_VALUE(return_value, &value_to_return0->phpObj);
+                        zval_add_ref(&value_to_return0->phpObj);
+                        return_is_user_initialized = true;
+                    }
+                    else{
+                        zend_error(E_ERROR, "Could not retreive original zval.");
+                    }
+                }
+                else{
+                    object_init_ex(return_value,php_wxTextAttrDimension_entry);
+                    Z_wxTextAttrDimension_P(return_value)->native_object = (wxTextAttrDimension_php*) value_to_return0;
+                }
+
+                if((void*)value_to_return0 != (void*)native_object && return_is_user_initialized){ //Prevent adding references to it self
+                    references->AddReference(return_value, "wxTextAttrDimensions::GetLeft at call 6 with 0 argument(s)");
+                }
+
+
+                return;
+                break;
+            }
+        }
+    }
+
+    if(overload1_called)
+    {
+        switch(arguments_received)
+        {
+            case 0:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing wxTextAttrDimensions::GetLeft() to return object reference\n\n");
+                #endif
+
+                wxTextAttrDimension_php* value_to_return0;
+                value_to_return0 = (wxTextAttrDimension_php*) &((wxTextAttrDimensions_php*)native_object)->GetLeft();
+
+                if(value_to_return0->references.IsUserInitialized()){
+                    if(!Z_ISNULL(value_to_return0->phpObj)){
+                        ZVAL_COPY_VALUE(return_value, &value_to_return0->phpObj);
+                        zval_add_ref(&value_to_return0->phpObj);
+                        return_is_user_initialized = true;
+                    }
+                    else{
+                        zend_error(E_ERROR, "Could not retreive original zval.");
+                    }
+                }
+                else{
+                    object_init_ex(return_value,php_wxTextAttrDimension_entry);
+                    Z_wxTextAttrDimension_P(return_value)->native_object = (wxTextAttrDimension_php*) value_to_return0;
+                }
+
+                if((void*)value_to_return0 != (void*)native_object && return_is_user_initialized){ //Prevent adding references to it self
+                    references->AddReference(return_value, "wxTextAttrDimensions::GetLeft at call 6 with 0 argument(s)");
+                }
+
+
+                return;
+                break;
+            }
+        }
+    }
+
+    
+    //In case wrong type/count of parameters was passed
+    if(!already_called)
+    {
+        zend_error(
+            E_ERROR,
+            "Wrong type or count of parameters passed to: "
+            "wxTextAttrDimensions::GetLeft\n"
+        );
+    }
+}
+/* }}} */
+
+/* {{{ proto wxTextAttrDimension wxTextAttrDimensions::GetRight() */
+PHP_METHOD(php_wxTextAttrDimensions, GetRight)
+{
+    #ifdef USE_WXPHP_DEBUG
+    php_printf("Invoking wxTextAttrDimensions::GetRight\n");
+    php_printf("===========================================\n");
+    #endif
+
+    zo_wxTextAttrDimensions* current_object;
+    wxphp_object_type current_object_type;
+    wxTextAttrDimensions_php* native_object;
+    void* argument_native_object = NULL;
+
+    //Other variables used thru the code
+    zval dummy;
+    ZVAL_NULL(&dummy);
+    bool already_called = false;
+    wxPHPObjectReferences* references;
+    int arguments_received = ZEND_NUM_ARGS();
+    bool return_is_user_initialized = false;
+
+    //Get native object of the php object that called the method
+    if(getThis() != NULL)
+    {
+        current_object = Z_wxTextAttrDimensions_P(getThis());
+
+        if(current_object->native_object == NULL)
+        {
+            zend_error(
+                E_ERROR,
+                "Failed to get the native object for "
+                "wxTextAttrDimensions::GetRight call\n"
+            );
+
+            return;
+        }
+        else
+        {
+            native_object = current_object->native_object;
+            current_object_type = current_object->object_type;
+
+            bool reference_type_found = false;
+
+            if(current_object_type == PHP_WXTEXTATTRDIMENSIONS_TYPE){
+                references = &((wxTextAttrDimensions_php*)native_object)->references;
+                reference_type_found = true;
+            }
+        }
+    }
+    #ifdef USE_WXPHP_DEBUG
+    else
+    {
+        php_printf("Processing the method call as static\n");
+    }
+    #endif
+
+    //Parameters for overload 0
+    bool overload0_called = false;
+
+    //Parameters for overload 1
+    bool overload1_called = false;
+
+    
+    //Overload 0
+    overload0:
+    if(!already_called && arguments_received == 0)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Parameters received %d\n", arguments_received);
+        php_printf("Parsing parameters with '' ()\n");
+        #endif
+
+        overload0_called = true;
+        already_called = true;
+    }
+
+    //Overload 1
+    overload1:
+    if(!already_called && arguments_received == 0)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Parameters received %d\n", arguments_received);
+        php_printf("Parsing parameters with '' ()\n");
+        #endif
+
+        overload1_called = true;
+        already_called = true;
+    }
+
+    
+    if(overload0_called)
+    {
+        switch(arguments_received)
+        {
+            case 0:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing wxTextAttrDimensions::GetRight() to return object reference\n\n");
+                #endif
+
+                wxTextAttrDimension_php* value_to_return0;
+                value_to_return0 = (wxTextAttrDimension_php*) &((wxTextAttrDimensions_php*)native_object)->GetRight();
+
+                if(value_to_return0->references.IsUserInitialized()){
+                    if(!Z_ISNULL(value_to_return0->phpObj)){
+                        ZVAL_COPY_VALUE(return_value, &value_to_return0->phpObj);
+                        zval_add_ref(&value_to_return0->phpObj);
+                        return_is_user_initialized = true;
+                    }
+                    else{
+                        zend_error(E_ERROR, "Could not retreive original zval.");
+                    }
+                }
+                else{
+                    object_init_ex(return_value,php_wxTextAttrDimension_entry);
+                    Z_wxTextAttrDimension_P(return_value)->native_object = (wxTextAttrDimension_php*) value_to_return0;
+                }
+
+                if((void*)value_to_return0 != (void*)native_object && return_is_user_initialized){ //Prevent adding references to it self
+                    references->AddReference(return_value, "wxTextAttrDimensions::GetRight at call 6 with 0 argument(s)");
+                }
+
+
+                return;
+                break;
+            }
+        }
+    }
+
+    if(overload1_called)
+    {
+        switch(arguments_received)
+        {
+            case 0:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing wxTextAttrDimensions::GetRight() to return object reference\n\n");
+                #endif
+
+                wxTextAttrDimension_php* value_to_return0;
+                value_to_return0 = (wxTextAttrDimension_php*) &((wxTextAttrDimensions_php*)native_object)->GetRight();
+
+                if(value_to_return0->references.IsUserInitialized()){
+                    if(!Z_ISNULL(value_to_return0->phpObj)){
+                        ZVAL_COPY_VALUE(return_value, &value_to_return0->phpObj);
+                        zval_add_ref(&value_to_return0->phpObj);
+                        return_is_user_initialized = true;
+                    }
+                    else{
+                        zend_error(E_ERROR, "Could not retreive original zval.");
+                    }
+                }
+                else{
+                    object_init_ex(return_value,php_wxTextAttrDimension_entry);
+                    Z_wxTextAttrDimension_P(return_value)->native_object = (wxTextAttrDimension_php*) value_to_return0;
+                }
+
+                if((void*)value_to_return0 != (void*)native_object && return_is_user_initialized){ //Prevent adding references to it self
+                    references->AddReference(return_value, "wxTextAttrDimensions::GetRight at call 6 with 0 argument(s)");
+                }
+
+
+                return;
+                break;
+            }
+        }
+    }
+
+    
+    //In case wrong type/count of parameters was passed
+    if(!already_called)
+    {
+        zend_error(
+            E_ERROR,
+            "Wrong type or count of parameters passed to: "
+            "wxTextAttrDimensions::GetRight\n"
+        );
+    }
+}
+/* }}} */
+
+/* {{{ proto wxTextAttrDimension wxTextAttrDimensions::GetTop() */
+PHP_METHOD(php_wxTextAttrDimensions, GetTop)
+{
+    #ifdef USE_WXPHP_DEBUG
+    php_printf("Invoking wxTextAttrDimensions::GetTop\n");
+    php_printf("===========================================\n");
+    #endif
+
+    zo_wxTextAttrDimensions* current_object;
+    wxphp_object_type current_object_type;
+    wxTextAttrDimensions_php* native_object;
+    void* argument_native_object = NULL;
+
+    //Other variables used thru the code
+    zval dummy;
+    ZVAL_NULL(&dummy);
+    bool already_called = false;
+    wxPHPObjectReferences* references;
+    int arguments_received = ZEND_NUM_ARGS();
+    bool return_is_user_initialized = false;
+
+    //Get native object of the php object that called the method
+    if(getThis() != NULL)
+    {
+        current_object = Z_wxTextAttrDimensions_P(getThis());
+
+        if(current_object->native_object == NULL)
+        {
+            zend_error(
+                E_ERROR,
+                "Failed to get the native object for "
+                "wxTextAttrDimensions::GetTop call\n"
+            );
+
+            return;
+        }
+        else
+        {
+            native_object = current_object->native_object;
+            current_object_type = current_object->object_type;
+
+            bool reference_type_found = false;
+
+            if(current_object_type == PHP_WXTEXTATTRDIMENSIONS_TYPE){
+                references = &((wxTextAttrDimensions_php*)native_object)->references;
+                reference_type_found = true;
+            }
+        }
+    }
+    #ifdef USE_WXPHP_DEBUG
+    else
+    {
+        php_printf("Processing the method call as static\n");
+    }
+    #endif
+
+    //Parameters for overload 0
+    bool overload0_called = false;
+
+    //Parameters for overload 1
+    bool overload1_called = false;
+
+    
+    //Overload 0
+    overload0:
+    if(!already_called && arguments_received == 0)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Parameters received %d\n", arguments_received);
+        php_printf("Parsing parameters with '' ()\n");
+        #endif
+
+        overload0_called = true;
+        already_called = true;
+    }
+
+    //Overload 1
+    overload1:
+    if(!already_called && arguments_received == 0)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Parameters received %d\n", arguments_received);
+        php_printf("Parsing parameters with '' ()\n");
+        #endif
+
+        overload1_called = true;
+        already_called = true;
+    }
+
+    
+    if(overload0_called)
+    {
+        switch(arguments_received)
+        {
+            case 0:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing wxTextAttrDimensions::GetTop() to return object reference\n\n");
+                #endif
+
+                wxTextAttrDimension_php* value_to_return0;
+                value_to_return0 = (wxTextAttrDimension_php*) &((wxTextAttrDimensions_php*)native_object)->GetTop();
+
+                if(value_to_return0->references.IsUserInitialized()){
+                    if(!Z_ISNULL(value_to_return0->phpObj)){
+                        ZVAL_COPY_VALUE(return_value, &value_to_return0->phpObj);
+                        zval_add_ref(&value_to_return0->phpObj);
+                        return_is_user_initialized = true;
+                    }
+                    else{
+                        zend_error(E_ERROR, "Could not retreive original zval.");
+                    }
+                }
+                else{
+                    object_init_ex(return_value,php_wxTextAttrDimension_entry);
+                    Z_wxTextAttrDimension_P(return_value)->native_object = (wxTextAttrDimension_php*) value_to_return0;
+                }
+
+                if((void*)value_to_return0 != (void*)native_object && return_is_user_initialized){ //Prevent adding references to it self
+                    references->AddReference(return_value, "wxTextAttrDimensions::GetTop at call 6 with 0 argument(s)");
+                }
+
+
+                return;
+                break;
+            }
+        }
+    }
+
+    if(overload1_called)
+    {
+        switch(arguments_received)
+        {
+            case 0:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing wxTextAttrDimensions::GetTop() to return object reference\n\n");
+                #endif
+
+                wxTextAttrDimension_php* value_to_return0;
+                value_to_return0 = (wxTextAttrDimension_php*) &((wxTextAttrDimensions_php*)native_object)->GetTop();
+
+                if(value_to_return0->references.IsUserInitialized()){
+                    if(!Z_ISNULL(value_to_return0->phpObj)){
+                        ZVAL_COPY_VALUE(return_value, &value_to_return0->phpObj);
+                        zval_add_ref(&value_to_return0->phpObj);
+                        return_is_user_initialized = true;
+                    }
+                    else{
+                        zend_error(E_ERROR, "Could not retreive original zval.");
+                    }
+                }
+                else{
+                    object_init_ex(return_value,php_wxTextAttrDimension_entry);
+                    Z_wxTextAttrDimension_P(return_value)->native_object = (wxTextAttrDimension_php*) value_to_return0;
+                }
+
+                if((void*)value_to_return0 != (void*)native_object && return_is_user_initialized){ //Prevent adding references to it self
+                    references->AddReference(return_value, "wxTextAttrDimensions::GetTop at call 6 with 0 argument(s)");
+                }
+
+
+                return;
+                break;
+            }
+        }
+    }
+
+    
+    //In case wrong type/count of parameters was passed
+    if(!already_called)
+    {
+        zend_error(
+            E_ERROR,
+            "Wrong type or count of parameters passed to: "
+            "wxTextAttrDimensions::GetTop\n"
+        );
+    }
+}
+/* }}} */
+
+/* {{{ proto wxTextAttrDimension wxTextAttrDimensions::GetBottom() */
+PHP_METHOD(php_wxTextAttrDimensions, GetBottom)
+{
+    #ifdef USE_WXPHP_DEBUG
+    php_printf("Invoking wxTextAttrDimensions::GetBottom\n");
+    php_printf("===========================================\n");
+    #endif
+
+    zo_wxTextAttrDimensions* current_object;
+    wxphp_object_type current_object_type;
+    wxTextAttrDimensions_php* native_object;
+    void* argument_native_object = NULL;
+
+    //Other variables used thru the code
+    zval dummy;
+    ZVAL_NULL(&dummy);
+    bool already_called = false;
+    wxPHPObjectReferences* references;
+    int arguments_received = ZEND_NUM_ARGS();
+    bool return_is_user_initialized = false;
+
+    //Get native object of the php object that called the method
+    if(getThis() != NULL)
+    {
+        current_object = Z_wxTextAttrDimensions_P(getThis());
+
+        if(current_object->native_object == NULL)
+        {
+            zend_error(
+                E_ERROR,
+                "Failed to get the native object for "
+                "wxTextAttrDimensions::GetBottom call\n"
+            );
+
+            return;
+        }
+        else
+        {
+            native_object = current_object->native_object;
+            current_object_type = current_object->object_type;
+
+            bool reference_type_found = false;
+
+            if(current_object_type == PHP_WXTEXTATTRDIMENSIONS_TYPE){
+                references = &((wxTextAttrDimensions_php*)native_object)->references;
+                reference_type_found = true;
+            }
+        }
+    }
+    #ifdef USE_WXPHP_DEBUG
+    else
+    {
+        php_printf("Processing the method call as static\n");
+    }
+    #endif
+
+    //Parameters for overload 0
+    bool overload0_called = false;
+
+    //Parameters for overload 1
+    bool overload1_called = false;
+
+    
+    //Overload 0
+    overload0:
+    if(!already_called && arguments_received == 0)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Parameters received %d\n", arguments_received);
+        php_printf("Parsing parameters with '' ()\n");
+        #endif
+
+        overload0_called = true;
+        already_called = true;
+    }
+
+    //Overload 1
+    overload1:
+    if(!already_called && arguments_received == 0)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Parameters received %d\n", arguments_received);
+        php_printf("Parsing parameters with '' ()\n");
+        #endif
+
+        overload1_called = true;
+        already_called = true;
+    }
+
+    
+    if(overload0_called)
+    {
+        switch(arguments_received)
+        {
+            case 0:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing wxTextAttrDimensions::GetBottom() to return object reference\n\n");
+                #endif
+
+                wxTextAttrDimension_php* value_to_return0;
+                value_to_return0 = (wxTextAttrDimension_php*) &((wxTextAttrDimensions_php*)native_object)->GetBottom();
+
+                if(value_to_return0->references.IsUserInitialized()){
+                    if(!Z_ISNULL(value_to_return0->phpObj)){
+                        ZVAL_COPY_VALUE(return_value, &value_to_return0->phpObj);
+                        zval_add_ref(&value_to_return0->phpObj);
+                        return_is_user_initialized = true;
+                    }
+                    else{
+                        zend_error(E_ERROR, "Could not retreive original zval.");
+                    }
+                }
+                else{
+                    object_init_ex(return_value,php_wxTextAttrDimension_entry);
+                    Z_wxTextAttrDimension_P(return_value)->native_object = (wxTextAttrDimension_php*) value_to_return0;
+                }
+
+                if((void*)value_to_return0 != (void*)native_object && return_is_user_initialized){ //Prevent adding references to it self
+                    references->AddReference(return_value, "wxTextAttrDimensions::GetBottom at call 6 with 0 argument(s)");
+                }
+
+
+                return;
+                break;
+            }
+        }
+    }
+
+    if(overload1_called)
+    {
+        switch(arguments_received)
+        {
+            case 0:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing wxTextAttrDimensions::GetBottom() to return object reference\n\n");
+                #endif
+
+                wxTextAttrDimension_php* value_to_return0;
+                value_to_return0 = (wxTextAttrDimension_php*) &((wxTextAttrDimensions_php*)native_object)->GetBottom();
+
+                if(value_to_return0->references.IsUserInitialized()){
+                    if(!Z_ISNULL(value_to_return0->phpObj)){
+                        ZVAL_COPY_VALUE(return_value, &value_to_return0->phpObj);
+                        zval_add_ref(&value_to_return0->phpObj);
+                        return_is_user_initialized = true;
+                    }
+                    else{
+                        zend_error(E_ERROR, "Could not retreive original zval.");
+                    }
+                }
+                else{
+                    object_init_ex(return_value,php_wxTextAttrDimension_entry);
+                    Z_wxTextAttrDimension_P(return_value)->native_object = (wxTextAttrDimension_php*) value_to_return0;
+                }
+
+                if((void*)value_to_return0 != (void*)native_object && return_is_user_initialized){ //Prevent adding references to it self
+                    references->AddReference(return_value, "wxTextAttrDimensions::GetBottom at call 6 with 0 argument(s)");
+                }
+
+
+                return;
+                break;
+            }
+        }
+    }
+
+    
+    //In case wrong type/count of parameters was passed
+    if(!already_called)
+    {
+        zend_error(
+            E_ERROR,
+            "Wrong type or count of parameters passed to: "
+            "wxTextAttrDimensions::GetBottom\n"
+        );
+    }
+}
+/* }}} */
+
+/* {{{ proto bool wxTextAttrDimensions::IsValid() */
+PHP_METHOD(php_wxTextAttrDimensions, IsValid)
+{
+    #ifdef USE_WXPHP_DEBUG
+    php_printf("Invoking wxTextAttrDimensions::IsValid\n");
+    php_printf("===========================================\n");
+    #endif
+
+    zo_wxTextAttrDimensions* current_object;
+    wxphp_object_type current_object_type;
+    wxTextAttrDimensions_php* native_object;
+    void* argument_native_object = NULL;
+
+    //Other variables used thru the code
+    zval dummy;
+    ZVAL_NULL(&dummy);
+    bool already_called = false;
+    wxPHPObjectReferences* references;
+    int arguments_received = ZEND_NUM_ARGS();
+    bool return_is_user_initialized = false;
+
+    //Get native object of the php object that called the method
+    if(getThis() != NULL)
+    {
+        current_object = Z_wxTextAttrDimensions_P(getThis());
+
+        if(current_object->native_object == NULL)
+        {
+            zend_error(
+                E_ERROR,
+                "Failed to get the native object for "
+                "wxTextAttrDimensions::IsValid call\n"
+            );
+
+            return;
+        }
+        else
+        {
+            native_object = current_object->native_object;
+            current_object_type = current_object->object_type;
+
+            bool reference_type_found = false;
+
+            if(current_object_type == PHP_WXTEXTATTRDIMENSIONS_TYPE){
+                references = &((wxTextAttrDimensions_php*)native_object)->references;
+                reference_type_found = true;
+            }
+        }
+    }
+    #ifdef USE_WXPHP_DEBUG
+    else
+    {
+        php_printf("Processing the method call as static\n");
+    }
+    #endif
+
+    //Parameters for overload 0
+    bool overload0_called = false;
+
+    
+    //Overload 0
+    overload0:
+    if(!already_called && arguments_received == 0)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Parameters received %d\n", arguments_received);
+        php_printf("Parsing parameters with '' ()\n");
+        #endif
+
+        overload0_called = true;
+        already_called = true;
+    }
+
+    
+    if(overload0_called)
+    {
+        switch(arguments_received)
+        {
+            case 0:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing RETURN_BOOL(wxTextAttrDimensions::IsValid())\n\n");
+                #endif
+
+                RETVAL_BOOL(((wxTextAttrDimensions_php*)native_object)->IsValid());
+
+
+                return;
+                break;
+            }
+        }
+    }
+
+    
+    //In case wrong type/count of parameters was passed
+    if(!already_called)
+    {
+        zend_error(
+            E_ERROR,
+            "Wrong type or count of parameters passed to: "
+            "wxTextAttrDimensions::IsValid\n"
+        );
+    }
+}
+/* }}} */
+
+BEGIN_EXTERN_C()
+void php_wxTextAttrSize_free(void *object)
+{
+    zo_wxTextAttrSize* custom_object = (zo_wxTextAttrSize*) object;
+
+    #ifdef USE_WXPHP_DEBUG
+    php_printf(
+        "Calling php_wxTextAttrSize_free on %s at line %i\n",
+        zend_get_executed_filename(),
+        zend_get_executed_lineno()
+    );
+    php_printf("===========================================\n");
+    #endif
+
+    if(custom_object->native_object != NULL)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Pointer not null\n");
+        php_printf("Pointer address %x\n", (unsigned int)(size_t)custom_object->native_object);
+        #endif
+
+        if(custom_object->is_user_initialized)
+        {
+            #ifdef USE_WXPHP_DEBUG
+            php_printf("Deleting pointer with delete\n");
+            #endif
+
+            custom_object->native_object->UninitProperties();
+            delete custom_object->native_object;
+            custom_object->native_object = NULL;
+        }
+
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Deletion of wxTextAttrSize done\n");
+        php_printf("===========================================\n\n");
+        #endif
+    }
+    else
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Not user space initialized\n");
+        #endif
+    }
+
+    zend_object_std_dtor(&custom_object->zo);
+    efree(custom_object);
+}
+
+zend_object* php_wxTextAttrSize_new(zend_class_entry *class_type)
+{
+    #ifdef USE_WXPHP_DEBUG
+    php_printf(
+        "Calling php_wxTextAttrSize_new on %s at line %i\n",
+        zend_get_executed_filename(),
+        zend_get_executed_lineno()
+    );
+    php_printf("===========================================\n");
+    #endif
+
+    zo_wxTextAttrSize* custom_object;
+
+    custom_object = (zo_wxTextAttrSize*) ecalloc(
+        1,
+        sizeof(zo_wxTextAttrSize)
+        + zend_object_properties_size(class_type)
+    );
+
+    zend_object_std_init(&custom_object->zo, class_type);
+    object_properties_init(&custom_object->zo, class_type);
+
+    custom_object->zo.handlers = &wxphp_wxTextAttrSize_object_handlers;
+
+    custom_object->native_object = NULL;
+    custom_object->object_type = PHP_WXTEXTATTRSIZE_TYPE;
+    custom_object->is_user_initialized = 0;
+
+    return &custom_object->zo;
+}
+END_EXTERN_C()
+
+/* {{{ proto  wxTextAttrSize::wxTextAttrSize() */
+PHP_METHOD(php_wxTextAttrSize, __construct)
+{
+    #ifdef USE_WXPHP_DEBUG
+    php_printf("Invoking wxTextAttrSize::__construct\n");
+    php_printf("===========================================\n");
+    #endif
+
+    zo_wxTextAttrSize* current_object;
+    wxTextAttrSize_php* native_object;
+    void* argument_native_object = NULL;
+
+    //Other variables used thru the code
+    zval dummy;
+    ZVAL_NULL(&dummy);
+    bool already_called = false;
+    int arguments_received = ZEND_NUM_ARGS();
+
+
+    //Parameters for overload 0
+    bool overload0_called = false;
+
+    
+    //Overload 0
+    overload0:
+    if(!already_called && arguments_received == 0)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Parameters received %d\n", arguments_received);
+        php_printf("Parsing parameters with '' ()\n");
+        #endif
+
+        overload0_called = true;
+        already_called = true;
+    }
+
+    
+    if(overload0_called)
+    {
+        switch(arguments_received)
+        {
+            case 0:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing __construct()\n");
+                #endif
+
+                native_object = new wxTextAttrSize_php();
+
+                native_object->references.Initialize();
+                break;
+            }
+        }
+    }
+
+    
+    if(already_called)
+    {
+        native_object->phpObj = *getThis();
+
+        native_object->InitProperties();
+
+        current_object = Z_wxTextAttrSize_P(getThis());
+
+        current_object->native_object = native_object;
+
+        current_object->is_user_initialized = 1;
+    }
+    else
+    {
+        zend_error(
+            E_ERROR,
+            "Abstract class or wrong type/count of parameters "
+            "passed to: wxTextAttrSize::__construct\n"
+        );
+    }
+
+    #ifdef USE_WXPHP_DEBUG
+        php_printf("===========================================\n\n");
+    #endif
+}
+/* }}} */
+
+PHP_METHOD(php_wxTextAttrSize, __get)
+{
+    #ifdef USE_WXPHP_DEBUG
+    php_printf("Invoking wxTextAttrSize::__get\n");
+    php_printf("===========================================\n");
+    #endif
+
+    int arguments_received = ZEND_NUM_ARGS();
+    zo_wxTextAttrSize* current_object;
+    wxTextAttrSize_php* native_object;
+
+    char* name;
+    size_t name_len;
+
+    //Get native object of the php object that called the method
+    if (getThis() != NULL)
+    {
+        current_object = Z_wxTextAttrSize_P(getThis());
+
+        if(current_object->native_object == NULL)
+        {
+            zend_error(
+                E_ERROR,
+                "Failed to get the native object for "
+                "wxTextAttrSize::wxTextAttrSize call\n"
+            );
+
+            return;
+        }
+        else
+        {
+            native_object = current_object->native_object;
+        }
+    }
+    else
+    {
+        zend_error(E_ERROR, "Could not process __get call as static\n");
+    }
+
+    char parse_parameters_string[] = "s";
+
+    if(
+        zend_parse_parameters_ex(
+            ZEND_PARSE_PARAMS_QUIET,
+            arguments_received,
+            parse_parameters_string,
+            &name,
+            &name_len
+        ) == FAILURE
+    )
+    {
+        RETVAL_NULL();
+    }
+
+    #ifdef USE_WXPHP_DEBUG
+    php_printf("Property to get: %s\n", name);
+    php_printf("===========================================\n\n");
+    #endif
+
+    if(false){}
+    else if(strcmp("m_width", name) == 0)
+    {
+        object_init_ex(return_value, php_wxTextAttrDimension_entry);
+        Z_wxTextAttrSize_P(&return_value)->native_object = ((wxTextAttrDimension_php*) native_object->properties[0]);
+        return;
+    }
+    else if(strcmp("m_height", name) == 0)
+    {
+        object_init_ex(return_value, php_wxTextAttrDimension_entry);
+        Z_wxTextAttrSize_P(&return_value)->native_object = ((wxTextAttrDimension_php*) native_object->properties[1]);
+        return;
+    }
+    else
+    {
+        RETVAL_NULL();
+    }
+}
+/* {{{ proto  wxTextAttrSize::Reset() */
+PHP_METHOD(php_wxTextAttrSize, Reset)
+{
+    #ifdef USE_WXPHP_DEBUG
+    php_printf("Invoking wxTextAttrSize::Reset\n");
+    php_printf("===========================================\n");
+    #endif
+
+    zo_wxTextAttrSize* current_object;
+    wxphp_object_type current_object_type;
+    wxTextAttrSize_php* native_object;
+    void* argument_native_object = NULL;
+
+    //Other variables used thru the code
+    zval dummy;
+    ZVAL_NULL(&dummy);
+    bool already_called = false;
+    wxPHPObjectReferences* references;
+    int arguments_received = ZEND_NUM_ARGS();
+    bool return_is_user_initialized = false;
+
+    //Get native object of the php object that called the method
+    if(getThis() != NULL)
+    {
+        current_object = Z_wxTextAttrSize_P(getThis());
+
+        if(current_object->native_object == NULL)
+        {
+            zend_error(
+                E_ERROR,
+                "Failed to get the native object for "
+                "wxTextAttrSize::Reset call\n"
+            );
+
+            return;
+        }
+        else
+        {
+            native_object = current_object->native_object;
+            current_object_type = current_object->object_type;
+
+            bool reference_type_found = false;
+
+            if(current_object_type == PHP_WXTEXTATTRSIZE_TYPE){
+                references = &((wxTextAttrSize_php*)native_object)->references;
+                reference_type_found = true;
+            }
+        }
+    }
+    #ifdef USE_WXPHP_DEBUG
+    else
+    {
+        php_printf("Processing the method call as static\n");
+    }
+    #endif
+
+    //Parameters for overload 0
+    bool overload0_called = false;
+
+    
+    //Overload 0
+    overload0:
+    if(!already_called && arguments_received == 0)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Parameters received %d\n", arguments_received);
+        php_printf("Parsing parameters with '' ()\n");
+        #endif
+
+        overload0_called = true;
+        already_called = true;
+    }
+
+    
+    if(overload0_called)
+    {
+        switch(arguments_received)
+        {
+            case 0:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing wxTextAttrSize::Reset()\n\n");
+                #endif
+
+                ((wxTextAttrSize_php*)native_object)->Reset();
+
+
+                return;
+                break;
+            }
+        }
+    }
+
+    
+    //In case wrong type/count of parameters was passed
+    if(!already_called)
+    {
+        zend_error(
+            E_ERROR,
+            "Wrong type or count of parameters passed to: "
+            "wxTextAttrSize::Reset\n"
+        );
+    }
+}
+/* }}} */
+
+/* {{{ proto bool wxTextAttrSize::EqPartial(wxTextAttrSize size, bool weakTest) */
+PHP_METHOD(php_wxTextAttrSize, EqPartial)
+{
+    #ifdef USE_WXPHP_DEBUG
+    php_printf("Invoking wxTextAttrSize::EqPartial\n");
+    php_printf("===========================================\n");
+    #endif
+
+    zo_wxTextAttrSize* current_object;
+    wxphp_object_type current_object_type;
+    wxTextAttrSize_php* native_object;
+    void* argument_native_object = NULL;
+
+    //Other variables used thru the code
+    zval dummy;
+    ZVAL_NULL(&dummy);
+    bool already_called = false;
+    wxPHPObjectReferences* references;
+    int arguments_received = ZEND_NUM_ARGS();
+    bool return_is_user_initialized = false;
+
+    //Get native object of the php object that called the method
+    if(getThis() != NULL)
+    {
+        current_object = Z_wxTextAttrSize_P(getThis());
+
+        if(current_object->native_object == NULL)
+        {
+            zend_error(
+                E_ERROR,
+                "Failed to get the native object for "
+                "wxTextAttrSize::EqPartial call\n"
+            );
+
+            return;
+        }
+        else
+        {
+            native_object = current_object->native_object;
+            current_object_type = current_object->object_type;
+
+            bool reference_type_found = false;
+
+            if(current_object_type == PHP_WXTEXTATTRSIZE_TYPE){
+                references = &((wxTextAttrSize_php*)native_object)->references;
+                reference_type_found = true;
+            }
+        }
+    }
+    #ifdef USE_WXPHP_DEBUG
+    else
+    {
+        php_printf("Processing the method call as static\n");
+    }
+    #endif
+
+    //Parameters for overload 0
+    zval* size0;
+    wxTextAttrSize* object_pointer0_0 = 0;
+    bool weakTest0;
+    bool overload0_called = false;
+
+    
+    //Overload 0
+    overload0:
+    if(!already_called && arguments_received >= 1  && arguments_received <= 2)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Parameters received %d\n", arguments_received);
+        php_printf("Parsing parameters with 'O|b' (&size0, php_wxTextAttrSize_entry, &weakTest0)\n");
+        #endif
+
+        char parse_parameters_string[] = "O|b";
+        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &size0, php_wxTextAttrSize_entry, &weakTest0 ) == SUCCESS)
+        {
+            if(arguments_received >= 1){
+                if(Z_TYPE_P(size0) == IS_OBJECT)
+                {
+                    wxphp_object_type argument_type = Z_wxTextAttrSize_P(size0)->object_type;
+                    argument_native_object = (void*) Z_wxTextAttrSize_P(size0)->native_object;
+                    object_pointer0_0 = (wxTextAttrSize*) argument_native_object;
+                    if (!object_pointer0_0 )
+                    {
+                        zend_error(E_ERROR, "Parameter 'size' could not be retreived correctly.");
+                    }
+                }
+                else if(Z_TYPE_P(size0) != IS_NULL)
+                {
+                    zend_error(E_ERROR, "Parameter 'size' not null, could not be retreived correctly.");
+                }
+            }
+
+            overload0_called = true;
+            already_called = true;
+        }
+    }
+
+    
+    if(overload0_called)
+    {
+        switch(arguments_received)
+        {
+            case 1:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing RETURN_BOOL(wxTextAttrSize::EqPartial(*(wxTextAttrSize*) object_pointer0_0))\n\n");
+                #endif
+
+                RETVAL_BOOL(((wxTextAttrSize_php*)native_object)->EqPartial(*(wxTextAttrSize*) object_pointer0_0));
+
+                references->AddReference(size0, "wxTextAttrSize::EqPartial at call 3 with 1 argument(s)");
+
+                return;
+                break;
+            }
+            case 2:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing RETURN_BOOL(wxTextAttrSize::EqPartial(*(wxTextAttrSize*) object_pointer0_0, weakTest0))\n\n");
+                #endif
+
+                RETVAL_BOOL(((wxTextAttrSize_php*)native_object)->EqPartial(*(wxTextAttrSize*) object_pointer0_0, weakTest0));
+
+                references->AddReference(size0, "wxTextAttrSize::EqPartial at call 3 with 2 argument(s)");
+
+                return;
+                break;
+            }
+        }
+    }
+
+    
+    //In case wrong type/count of parameters was passed
+    if(!already_called)
+    {
+        zend_error(
+            E_ERROR,
+            "Wrong type or count of parameters passed to: "
+            "wxTextAttrSize::EqPartial\n"
+        );
+    }
+}
+/* }}} */
+
+/* {{{ proto bool wxTextAttrSize::Apply(wxTextAttrSize dims, wxTextAttrSize compareWith) */
+PHP_METHOD(php_wxTextAttrSize, Apply)
+{
+    #ifdef USE_WXPHP_DEBUG
+    php_printf("Invoking wxTextAttrSize::Apply\n");
+    php_printf("===========================================\n");
+    #endif
+
+    zo_wxTextAttrSize* current_object;
+    wxphp_object_type current_object_type;
+    wxTextAttrSize_php* native_object;
+    void* argument_native_object = NULL;
+
+    //Other variables used thru the code
+    zval dummy;
+    ZVAL_NULL(&dummy);
+    bool already_called = false;
+    wxPHPObjectReferences* references;
+    int arguments_received = ZEND_NUM_ARGS();
+    bool return_is_user_initialized = false;
+
+    //Get native object of the php object that called the method
+    if(getThis() != NULL)
+    {
+        current_object = Z_wxTextAttrSize_P(getThis());
+
+        if(current_object->native_object == NULL)
+        {
+            zend_error(
+                E_ERROR,
+                "Failed to get the native object for "
+                "wxTextAttrSize::Apply call\n"
+            );
+
+            return;
+        }
+        else
+        {
+            native_object = current_object->native_object;
+            current_object_type = current_object->object_type;
+
+            bool reference_type_found = false;
+
+            if(current_object_type == PHP_WXTEXTATTRSIZE_TYPE){
+                references = &((wxTextAttrSize_php*)native_object)->references;
+                reference_type_found = true;
+            }
+        }
+    }
+    #ifdef USE_WXPHP_DEBUG
+    else
+    {
+        php_printf("Processing the method call as static\n");
+    }
+    #endif
+
+    //Parameters for overload 0
+    zval* dims0;
+    wxTextAttrSize* object_pointer0_0 = 0;
+    zval* compareWith0;
+    wxTextAttrSize* object_pointer0_1 = 0;
+    bool overload0_called = false;
+
+    
+    //Overload 0
+    overload0:
+    if(!already_called && arguments_received >= 1  && arguments_received <= 2)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Parameters received %d\n", arguments_received);
+        php_printf("Parsing parameters with 'O|z' (&dims0, php_wxTextAttrSize_entry, &compareWith0)\n");
+        #endif
+
+        char parse_parameters_string[] = "O|z";
+        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &dims0, php_wxTextAttrSize_entry, &compareWith0 ) == SUCCESS)
+        {
+            if(arguments_received >= 1){
+                if(Z_TYPE_P(dims0) == IS_OBJECT)
+                {
+                    wxphp_object_type argument_type = Z_wxTextAttrSize_P(dims0)->object_type;
+                    argument_native_object = (void*) Z_wxTextAttrSize_P(dims0)->native_object;
+                    object_pointer0_0 = (wxTextAttrSize*) argument_native_object;
+                    if (!object_pointer0_0 )
+                    {
+                        zend_error(E_ERROR, "Parameter 'dims' could not be retreived correctly.");
+                    }
+                }
+                else if(Z_TYPE_P(dims0) != IS_NULL)
+                {
+                    zend_error(E_ERROR, "Parameter 'dims' not null, could not be retreived correctly.");
+                }
+            }
+
+            if(arguments_received >= 2){
+                if(Z_TYPE_P(compareWith0) == IS_OBJECT)
+                {
+                    wxphp_object_type argument_type = Z_wxTextAttrSize_P(compareWith0)->object_type;
+                    argument_native_object = (void*) Z_wxTextAttrSize_P(compareWith0)->native_object;
+                    object_pointer0_1 = (wxTextAttrSize*) argument_native_object;
+                    if (!object_pointer0_1 || (argument_type != PHP_WXTEXTATTRSIZE_TYPE))
+                    {
+                        zend_error(E_ERROR, "Parameter 'compareWith' could not be retreived correctly.");
+                    }
+                }
+                else if(Z_TYPE_P(compareWith0) != IS_NULL)
+                {
+                    zend_error(E_ERROR, "Parameter 'compareWith' not null, could not be retreived correctly.");
+                }
+            }
+
+            overload0_called = true;
+            already_called = true;
+        }
+    }
+
+    
+    if(overload0_called)
+    {
+        switch(arguments_received)
+        {
+            case 1:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing RETURN_BOOL(wxTextAttrSize::Apply(*(wxTextAttrSize*) object_pointer0_0))\n\n");
+                #endif
+
+                RETVAL_BOOL(((wxTextAttrSize_php*)native_object)->Apply(*(wxTextAttrSize*) object_pointer0_0));
+
+                references->AddReference(dims0, "wxTextAttrSize::Apply at call 3 with 1 argument(s)");
+
+                return;
+                break;
+            }
+            case 2:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing RETURN_BOOL(wxTextAttrSize::Apply(*(wxTextAttrSize*) object_pointer0_0, (const wxTextAttrSize*) object_pointer0_1))\n\n");
+                #endif
+
+                RETVAL_BOOL(((wxTextAttrSize_php*)native_object)->Apply(*(wxTextAttrSize*) object_pointer0_0, (const wxTextAttrSize*) object_pointer0_1));
+
+                references->AddReference(dims0, "wxTextAttrSize::Apply at call 3 with 2 argument(s)");
+                references->AddReference(compareWith0, "wxTextAttrSize::Apply at call 1 with 2 argument(s)");
+
+                return;
+                break;
+            }
+        }
+    }
+
+    
+    //In case wrong type/count of parameters was passed
+    if(!already_called)
+    {
+        zend_error(
+            E_ERROR,
+            "Wrong type or count of parameters passed to: "
+            "wxTextAttrSize::Apply\n"
+        );
+    }
+}
+/* }}} */
+
+/* {{{ proto  wxTextAttrSize::CollectCommonAttributes(wxTextAttrSize attr, wxTextAttrSize &clashingAttr, wxTextAttrSize &absentAttr) */
+PHP_METHOD(php_wxTextAttrSize, CollectCommonAttributes)
+{
+    #ifdef USE_WXPHP_DEBUG
+    php_printf("Invoking wxTextAttrSize::CollectCommonAttributes\n");
+    php_printf("===========================================\n");
+    #endif
+
+    zo_wxTextAttrSize* current_object;
+    wxphp_object_type current_object_type;
+    wxTextAttrSize_php* native_object;
+    void* argument_native_object = NULL;
+
+    //Other variables used thru the code
+    zval dummy;
+    ZVAL_NULL(&dummy);
+    bool already_called = false;
+    wxPHPObjectReferences* references;
+    int arguments_received = ZEND_NUM_ARGS();
+    bool return_is_user_initialized = false;
+
+    //Get native object of the php object that called the method
+    if(getThis() != NULL)
+    {
+        current_object = Z_wxTextAttrSize_P(getThis());
+
+        if(current_object->native_object == NULL)
+        {
+            zend_error(
+                E_ERROR,
+                "Failed to get the native object for "
+                "wxTextAttrSize::CollectCommonAttributes call\n"
+            );
+
+            return;
+        }
+        else
+        {
+            native_object = current_object->native_object;
+            current_object_type = current_object->object_type;
+
+            bool reference_type_found = false;
+
+            if(current_object_type == PHP_WXTEXTATTRSIZE_TYPE){
+                references = &((wxTextAttrSize_php*)native_object)->references;
+                reference_type_found = true;
+            }
+        }
+    }
+    #ifdef USE_WXPHP_DEBUG
+    else
+    {
+        php_printf("Processing the method call as static\n");
+    }
+    #endif
+
+    //Parameters for overload 0
+    zval* attr0;
+    wxTextAttrSize* object_pointer0_0 = 0;
+    zval* clashingAttr0;
+    wxTextAttrSize* object_pointer0_1 = 0;
+    zval* absentAttr0;
+    wxTextAttrSize* object_pointer0_2 = 0;
+    bool overload0_called = false;
+
+    
+    //Overload 0
+    overload0:
+    if(!already_called && arguments_received == 3)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Parameters received %d\n", arguments_received);
+        php_printf("Parsing parameters with 'OOO' (&attr0, php_wxTextAttrSize_entry, &clashingAttr0, php_wxTextAttrSize_entry, &absentAttr0, php_wxTextAttrSize_entry)\n");
+        #endif
+
+        char parse_parameters_string[] = "OOO";
+        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &attr0, php_wxTextAttrSize_entry, &clashingAttr0, php_wxTextAttrSize_entry, &absentAttr0, php_wxTextAttrSize_entry ) == SUCCESS)
+        {
+            if(arguments_received >= 1){
+                if(Z_TYPE_P(attr0) == IS_OBJECT)
+                {
+                    wxphp_object_type argument_type = Z_wxTextAttrSize_P(attr0)->object_type;
+                    argument_native_object = (void*) Z_wxTextAttrSize_P(attr0)->native_object;
+                    object_pointer0_0 = (wxTextAttrSize*) argument_native_object;
+                    if (!object_pointer0_0 )
+                    {
+                        zend_error(E_ERROR, "Parameter 'attr' could not be retreived correctly.");
+                    }
+                }
+                else if(Z_TYPE_P(attr0) != IS_NULL)
+                {
+                    zend_error(E_ERROR, "Parameter 'attr' not null, could not be retreived correctly.");
+                }
+            }
+
+            if(arguments_received >= 2){
+                if(Z_TYPE_P(clashingAttr0) == IS_OBJECT)
+                {
+                    wxphp_object_type argument_type = Z_wxTextAttrSize_P(clashingAttr0)->object_type;
+                    argument_native_object = (void*) Z_wxTextAttrSize_P(clashingAttr0)->native_object;
+                    object_pointer0_1 = (wxTextAttrSize*) argument_native_object;
+                    if (!object_pointer0_1 )
+                    {
+                        zend_error(E_ERROR, "Parameter 'clashingAttr' could not be retreived correctly.");
+                    }
+                }
+                else if(Z_TYPE_P(clashingAttr0) != IS_NULL)
+                {
+                    zend_error(E_ERROR, "Parameter 'clashingAttr' not null, could not be retreived correctly.");
+                }
+            }
+
+            if(arguments_received >= 3){
+                if(Z_TYPE_P(absentAttr0) == IS_OBJECT)
+                {
+                    wxphp_object_type argument_type = Z_wxTextAttrSize_P(absentAttr0)->object_type;
+                    argument_native_object = (void*) Z_wxTextAttrSize_P(absentAttr0)->native_object;
+                    object_pointer0_2 = (wxTextAttrSize*) argument_native_object;
+                    if (!object_pointer0_2 )
+                    {
+                        zend_error(E_ERROR, "Parameter 'absentAttr' could not be retreived correctly.");
+                    }
+                }
+                else if(Z_TYPE_P(absentAttr0) != IS_NULL)
+                {
+                    zend_error(E_ERROR, "Parameter 'absentAttr' not null, could not be retreived correctly.");
+                }
+            }
+
+            overload0_called = true;
+            already_called = true;
+        }
+    }
+
+    
+    if(overload0_called)
+    {
+        switch(arguments_received)
+        {
+            case 3:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing wxTextAttrSize::CollectCommonAttributes(*(wxTextAttrSize*) object_pointer0_0, *(wxTextAttrSize*) object_pointer0_1, *(wxTextAttrSize*) object_pointer0_2)\n\n");
+                #endif
+
+                ((wxTextAttrSize_php*)native_object)->CollectCommonAttributes(*(wxTextAttrSize*) object_pointer0_0, *(wxTextAttrSize*) object_pointer0_1, *(wxTextAttrSize*) object_pointer0_2);
+
+                references->AddReference(attr0, "wxTextAttrSize::CollectCommonAttributes at call 3 with 3 argument(s)");
+                references->AddReference(clashingAttr0, "wxTextAttrSize::CollectCommonAttributes at call 3 with 3 argument(s)");
+                references->AddReference(absentAttr0, "wxTextAttrSize::CollectCommonAttributes at call 3 with 3 argument(s)");
+
+                return;
+                break;
+            }
+        }
+    }
+
+    
+    //In case wrong type/count of parameters was passed
+    if(!already_called)
+    {
+        zend_error(
+            E_ERROR,
+            "Wrong type or count of parameters passed to: "
+            "wxTextAttrSize::CollectCommonAttributes\n"
+        );
+    }
+}
+/* }}} */
+
+/* {{{ proto bool wxTextAttrSize::RemoveStyle(wxTextAttrSize attr) */
+PHP_METHOD(php_wxTextAttrSize, RemoveStyle)
+{
+    #ifdef USE_WXPHP_DEBUG
+    php_printf("Invoking wxTextAttrSize::RemoveStyle\n");
+    php_printf("===========================================\n");
+    #endif
+
+    zo_wxTextAttrSize* current_object;
+    wxphp_object_type current_object_type;
+    wxTextAttrSize_php* native_object;
+    void* argument_native_object = NULL;
+
+    //Other variables used thru the code
+    zval dummy;
+    ZVAL_NULL(&dummy);
+    bool already_called = false;
+    wxPHPObjectReferences* references;
+    int arguments_received = ZEND_NUM_ARGS();
+    bool return_is_user_initialized = false;
+
+    //Get native object of the php object that called the method
+    if(getThis() != NULL)
+    {
+        current_object = Z_wxTextAttrSize_P(getThis());
+
+        if(current_object->native_object == NULL)
+        {
+            zend_error(
+                E_ERROR,
+                "Failed to get the native object for "
+                "wxTextAttrSize::RemoveStyle call\n"
+            );
+
+            return;
+        }
+        else
+        {
+            native_object = current_object->native_object;
+            current_object_type = current_object->object_type;
+
+            bool reference_type_found = false;
+
+            if(current_object_type == PHP_WXTEXTATTRSIZE_TYPE){
+                references = &((wxTextAttrSize_php*)native_object)->references;
+                reference_type_found = true;
+            }
+        }
+    }
+    #ifdef USE_WXPHP_DEBUG
+    else
+    {
+        php_printf("Processing the method call as static\n");
+    }
+    #endif
+
+    //Parameters for overload 0
+    zval* attr0;
+    wxTextAttrSize* object_pointer0_0 = 0;
+    bool overload0_called = false;
+
+    
+    //Overload 0
+    overload0:
+    if(!already_called && arguments_received == 1)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Parameters received %d\n", arguments_received);
+        php_printf("Parsing parameters with 'O' (&attr0, php_wxTextAttrSize_entry)\n");
+        #endif
+
+        char parse_parameters_string[] = "O";
+        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &attr0, php_wxTextAttrSize_entry ) == SUCCESS)
+        {
+            if(arguments_received >= 1){
+                if(Z_TYPE_P(attr0) == IS_OBJECT)
+                {
+                    wxphp_object_type argument_type = Z_wxTextAttrSize_P(attr0)->object_type;
+                    argument_native_object = (void*) Z_wxTextAttrSize_P(attr0)->native_object;
+                    object_pointer0_0 = (wxTextAttrSize*) argument_native_object;
+                    if (!object_pointer0_0 )
+                    {
+                        zend_error(E_ERROR, "Parameter 'attr' could not be retreived correctly.");
+                    }
+                }
+                else if(Z_TYPE_P(attr0) != IS_NULL)
+                {
+                    zend_error(E_ERROR, "Parameter 'attr' not null, could not be retreived correctly.");
+                }
+            }
+
+            overload0_called = true;
+            already_called = true;
+        }
+    }
+
+    
+    if(overload0_called)
+    {
+        switch(arguments_received)
+        {
+            case 1:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing RETURN_BOOL(wxTextAttrSize::RemoveStyle(*(wxTextAttrSize*) object_pointer0_0))\n\n");
+                #endif
+
+                RETVAL_BOOL(((wxTextAttrSize_php*)native_object)->RemoveStyle(*(wxTextAttrSize*) object_pointer0_0));
+
+                references->AddReference(attr0, "wxTextAttrSize::RemoveStyle at call 3 with 1 argument(s)");
+
+                return;
+                break;
+            }
+        }
+    }
+
+    
+    //In case wrong type/count of parameters was passed
+    if(!already_called)
+    {
+        zend_error(
+            E_ERROR,
+            "Wrong type or count of parameters passed to: "
+            "wxTextAttrSize::RemoveStyle\n"
+        );
+    }
+}
+/* }}} */
+
+/* {{{ proto wxTextAttrDimension wxTextAttrSize::GetWidth() */
+PHP_METHOD(php_wxTextAttrSize, GetWidth)
+{
+    #ifdef USE_WXPHP_DEBUG
+    php_printf("Invoking wxTextAttrSize::GetWidth\n");
+    php_printf("===========================================\n");
+    #endif
+
+    zo_wxTextAttrSize* current_object;
+    wxphp_object_type current_object_type;
+    wxTextAttrSize_php* native_object;
+    void* argument_native_object = NULL;
+
+    //Other variables used thru the code
+    zval dummy;
+    ZVAL_NULL(&dummy);
+    bool already_called = false;
+    wxPHPObjectReferences* references;
+    int arguments_received = ZEND_NUM_ARGS();
+    bool return_is_user_initialized = false;
+
+    //Get native object of the php object that called the method
+    if(getThis() != NULL)
+    {
+        current_object = Z_wxTextAttrSize_P(getThis());
+
+        if(current_object->native_object == NULL)
+        {
+            zend_error(
+                E_ERROR,
+                "Failed to get the native object for "
+                "wxTextAttrSize::GetWidth call\n"
+            );
+
+            return;
+        }
+        else
+        {
+            native_object = current_object->native_object;
+            current_object_type = current_object->object_type;
+
+            bool reference_type_found = false;
+
+            if(current_object_type == PHP_WXTEXTATTRSIZE_TYPE){
+                references = &((wxTextAttrSize_php*)native_object)->references;
+                reference_type_found = true;
+            }
+        }
+    }
+    #ifdef USE_WXPHP_DEBUG
+    else
+    {
+        php_printf("Processing the method call as static\n");
+    }
+    #endif
+
+    //Parameters for overload 0
+    bool overload0_called = false;
+
+    //Parameters for overload 1
+    bool overload1_called = false;
+
+    
+    //Overload 0
+    overload0:
+    if(!already_called && arguments_received == 0)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Parameters received %d\n", arguments_received);
+        php_printf("Parsing parameters with '' ()\n");
+        #endif
+
+        overload0_called = true;
+        already_called = true;
+    }
+
+    //Overload 1
+    overload1:
+    if(!already_called && arguments_received == 0)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Parameters received %d\n", arguments_received);
+        php_printf("Parsing parameters with '' ()\n");
+        #endif
+
+        overload1_called = true;
+        already_called = true;
+    }
+
+    
+    if(overload0_called)
+    {
+        switch(arguments_received)
+        {
+            case 0:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing wxTextAttrSize::GetWidth() to return object reference\n\n");
+                #endif
+
+                wxTextAttrDimension_php* value_to_return0;
+                value_to_return0 = (wxTextAttrDimension_php*) &((wxTextAttrSize_php*)native_object)->GetWidth();
+
+                if(value_to_return0->references.IsUserInitialized()){
+                    if(!Z_ISNULL(value_to_return0->phpObj)){
+                        ZVAL_COPY_VALUE(return_value, &value_to_return0->phpObj);
+                        zval_add_ref(&value_to_return0->phpObj);
+                        return_is_user_initialized = true;
+                    }
+                    else{
+                        zend_error(E_ERROR, "Could not retreive original zval.");
+                    }
+                }
+                else{
+                    object_init_ex(return_value,php_wxTextAttrDimension_entry);
+                    Z_wxTextAttrDimension_P(return_value)->native_object = (wxTextAttrDimension_php*) value_to_return0;
+                }
+
+                if((void*)value_to_return0 != (void*)native_object && return_is_user_initialized){ //Prevent adding references to it self
+                    references->AddReference(return_value, "wxTextAttrSize::GetWidth at call 6 with 0 argument(s)");
+                }
+
+
+                return;
+                break;
+            }
+        }
+    }
+
+    if(overload1_called)
+    {
+        switch(arguments_received)
+        {
+            case 0:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing wxTextAttrSize::GetWidth() to return object reference\n\n");
+                #endif
+
+                wxTextAttrDimension_php* value_to_return0;
+                value_to_return0 = (wxTextAttrDimension_php*) &((wxTextAttrSize_php*)native_object)->GetWidth();
+
+                if(value_to_return0->references.IsUserInitialized()){
+                    if(!Z_ISNULL(value_to_return0->phpObj)){
+                        ZVAL_COPY_VALUE(return_value, &value_to_return0->phpObj);
+                        zval_add_ref(&value_to_return0->phpObj);
+                        return_is_user_initialized = true;
+                    }
+                    else{
+                        zend_error(E_ERROR, "Could not retreive original zval.");
+                    }
+                }
+                else{
+                    object_init_ex(return_value,php_wxTextAttrDimension_entry);
+                    Z_wxTextAttrDimension_P(return_value)->native_object = (wxTextAttrDimension_php*) value_to_return0;
+                }
+
+                if((void*)value_to_return0 != (void*)native_object && return_is_user_initialized){ //Prevent adding references to it self
+                    references->AddReference(return_value, "wxTextAttrSize::GetWidth at call 6 with 0 argument(s)");
+                }
+
+
+                return;
+                break;
+            }
+        }
+    }
+
+    
+    //In case wrong type/count of parameters was passed
+    if(!already_called)
+    {
+        zend_error(
+            E_ERROR,
+            "Wrong type or count of parameters passed to: "
+            "wxTextAttrSize::GetWidth\n"
+        );
+    }
+}
+/* }}} */
+
+/* {{{ proto  wxTextAttrSize::SetWidth(int value, int flags) */
+PHP_METHOD(php_wxTextAttrSize, SetWidth)
+{
+    #ifdef USE_WXPHP_DEBUG
+    php_printf("Invoking wxTextAttrSize::SetWidth\n");
+    php_printf("===========================================\n");
+    #endif
+
+    zo_wxTextAttrSize* current_object;
+    wxphp_object_type current_object_type;
+    wxTextAttrSize_php* native_object;
+    void* argument_native_object = NULL;
+
+    //Other variables used thru the code
+    zval dummy;
+    ZVAL_NULL(&dummy);
+    bool already_called = false;
+    wxPHPObjectReferences* references;
+    int arguments_received = ZEND_NUM_ARGS();
+    bool return_is_user_initialized = false;
+
+    //Get native object of the php object that called the method
+    if(getThis() != NULL)
+    {
+        current_object = Z_wxTextAttrSize_P(getThis());
+
+        if(current_object->native_object == NULL)
+        {
+            zend_error(
+                E_ERROR,
+                "Failed to get the native object for "
+                "wxTextAttrSize::SetWidth call\n"
+            );
+
+            return;
+        }
+        else
+        {
+            native_object = current_object->native_object;
+            current_object_type = current_object->object_type;
+
+            bool reference_type_found = false;
+
+            if(current_object_type == PHP_WXTEXTATTRSIZE_TYPE){
+                references = &((wxTextAttrSize_php*)native_object)->references;
+                reference_type_found = true;
+            }
+        }
+    }
+    #ifdef USE_WXPHP_DEBUG
+    else
+    {
+        php_printf("Processing the method call as static\n");
+    }
+    #endif
+
+    //Parameters for overload 0
+    long value0;
+    long flags0;
+    bool overload0_called = false;
+
+    //Parameters for overload 1
+    long value1;
+    long units1;
+    bool overload1_called = false;
+
+    //Parameters for overload 2
+    zval* dim2;
+    wxTextAttrDimension* object_pointer2_0 = 0;
+    bool overload2_called = false;
+
+    
+    //Overload 0
+    overload0:
+    if(!already_called && arguments_received == 2)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Parameters received %d\n", arguments_received);
+        php_printf("Parsing parameters with 'll' (&value0, &flags0)\n");
+        #endif
+
+        char parse_parameters_string[] = "ll";
+        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &value0, &flags0 ) == SUCCESS)
+        {
+            overload0_called = true;
+            already_called = true;
+        }
+    }
+
+    //Overload 1
+    overload1:
+    if(!already_called && arguments_received == 2)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Parameters received %d\n", arguments_received);
+        php_printf("Parsing parameters with 'll' (&value1, &units1)\n");
+        #endif
+
+        char parse_parameters_string[] = "ll";
+        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &value1, &units1 ) == SUCCESS)
+        {
+            overload1_called = true;
+            already_called = true;
+        }
+    }
+
+    //Overload 2
+    overload2:
+    if(!already_called && arguments_received == 1)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Parameters received %d\n", arguments_received);
+        php_printf("Parsing parameters with 'O' (&dim2, php_wxTextAttrDimension_entry)\n");
+        #endif
+
+        char parse_parameters_string[] = "O";
+        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &dim2, php_wxTextAttrDimension_entry ) == SUCCESS)
+        {
+            if(arguments_received >= 1){
+                if(Z_TYPE_P(dim2) == IS_OBJECT)
+                {
+                    wxphp_object_type argument_type = Z_wxTextAttrDimension_P(dim2)->object_type;
+                    argument_native_object = (void*) Z_wxTextAttrDimension_P(dim2)->native_object;
+                    object_pointer2_0 = (wxTextAttrDimension*) argument_native_object;
+                    if (!object_pointer2_0 )
+                    {
+                        zend_error(E_ERROR, "Parameter 'dim' could not be retreived correctly.");
+                    }
+                }
+                else if(Z_TYPE_P(dim2) != IS_NULL)
+                {
+                    zend_error(E_ERROR, "Parameter 'dim' not null, could not be retreived correctly.");
+                }
+            }
+
+            overload2_called = true;
+            already_called = true;
+        }
+    }
+
+    
+    if(overload0_called)
+    {
+        switch(arguments_received)
+        {
+            case 2:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing wxTextAttrSize::SetWidth((int) value0, (wxTextAttrDimensionFlags) flags0)\n\n");
+                #endif
+
+                ((wxTextAttrSize_php*)native_object)->SetWidth((int) value0, (wxTextAttrDimensionFlags) flags0);
+
+
+                return;
+                break;
+            }
+        }
+    }
+
+    if(overload1_called)
+    {
+        switch(arguments_received)
+        {
+            case 2:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing wxTextAttrSize::SetWidth((int) value1, (wxTextAttrUnits) units1)\n\n");
+                #endif
+
+                ((wxTextAttrSize_php*)native_object)->SetWidth((int) value1, (wxTextAttrUnits) units1);
+
+
+                return;
+                break;
+            }
+        }
+    }
+
+    if(overload2_called)
+    {
+        switch(arguments_received)
+        {
+            case 1:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing wxTextAttrSize::SetWidth(*(wxTextAttrDimension*) object_pointer2_0)\n\n");
+                #endif
+
+                ((wxTextAttrSize_php*)native_object)->SetWidth(*(wxTextAttrDimension*) object_pointer2_0);
+
+                references->AddReference(dim2, "wxTextAttrSize::SetWidth at call 3 with 1 argument(s)");
+
+                return;
+                break;
+            }
+        }
+    }
+
+    
+    //In case wrong type/count of parameters was passed
+    if(!already_called)
+    {
+        zend_error(
+            E_ERROR,
+            "Wrong type or count of parameters passed to: "
+            "wxTextAttrSize::SetWidth\n"
+        );
+    }
+}
+/* }}} */
+
+/* {{{ proto wxTextAttrDimension wxTextAttrSize::GetHeight() */
+PHP_METHOD(php_wxTextAttrSize, GetHeight)
+{
+    #ifdef USE_WXPHP_DEBUG
+    php_printf("Invoking wxTextAttrSize::GetHeight\n");
+    php_printf("===========================================\n");
+    #endif
+
+    zo_wxTextAttrSize* current_object;
+    wxphp_object_type current_object_type;
+    wxTextAttrSize_php* native_object;
+    void* argument_native_object = NULL;
+
+    //Other variables used thru the code
+    zval dummy;
+    ZVAL_NULL(&dummy);
+    bool already_called = false;
+    wxPHPObjectReferences* references;
+    int arguments_received = ZEND_NUM_ARGS();
+    bool return_is_user_initialized = false;
+
+    //Get native object of the php object that called the method
+    if(getThis() != NULL)
+    {
+        current_object = Z_wxTextAttrSize_P(getThis());
+
+        if(current_object->native_object == NULL)
+        {
+            zend_error(
+                E_ERROR,
+                "Failed to get the native object for "
+                "wxTextAttrSize::GetHeight call\n"
+            );
+
+            return;
+        }
+        else
+        {
+            native_object = current_object->native_object;
+            current_object_type = current_object->object_type;
+
+            bool reference_type_found = false;
+
+            if(current_object_type == PHP_WXTEXTATTRSIZE_TYPE){
+                references = &((wxTextAttrSize_php*)native_object)->references;
+                reference_type_found = true;
+            }
+        }
+    }
+    #ifdef USE_WXPHP_DEBUG
+    else
+    {
+        php_printf("Processing the method call as static\n");
+    }
+    #endif
+
+    //Parameters for overload 0
+    bool overload0_called = false;
+
+    //Parameters for overload 1
+    bool overload1_called = false;
+
+    
+    //Overload 0
+    overload0:
+    if(!already_called && arguments_received == 0)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Parameters received %d\n", arguments_received);
+        php_printf("Parsing parameters with '' ()\n");
+        #endif
+
+        overload0_called = true;
+        already_called = true;
+    }
+
+    //Overload 1
+    overload1:
+    if(!already_called && arguments_received == 0)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Parameters received %d\n", arguments_received);
+        php_printf("Parsing parameters with '' ()\n");
+        #endif
+
+        overload1_called = true;
+        already_called = true;
+    }
+
+    
+    if(overload0_called)
+    {
+        switch(arguments_received)
+        {
+            case 0:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing wxTextAttrSize::GetHeight() to return object reference\n\n");
+                #endif
+
+                wxTextAttrDimension_php* value_to_return0;
+                value_to_return0 = (wxTextAttrDimension_php*) &((wxTextAttrSize_php*)native_object)->GetHeight();
+
+                if(value_to_return0->references.IsUserInitialized()){
+                    if(!Z_ISNULL(value_to_return0->phpObj)){
+                        ZVAL_COPY_VALUE(return_value, &value_to_return0->phpObj);
+                        zval_add_ref(&value_to_return0->phpObj);
+                        return_is_user_initialized = true;
+                    }
+                    else{
+                        zend_error(E_ERROR, "Could not retreive original zval.");
+                    }
+                }
+                else{
+                    object_init_ex(return_value,php_wxTextAttrDimension_entry);
+                    Z_wxTextAttrDimension_P(return_value)->native_object = (wxTextAttrDimension_php*) value_to_return0;
+                }
+
+                if((void*)value_to_return0 != (void*)native_object && return_is_user_initialized){ //Prevent adding references to it self
+                    references->AddReference(return_value, "wxTextAttrSize::GetHeight at call 6 with 0 argument(s)");
+                }
+
+
+                return;
+                break;
+            }
+        }
+    }
+
+    if(overload1_called)
+    {
+        switch(arguments_received)
+        {
+            case 0:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing wxTextAttrSize::GetHeight() to return object reference\n\n");
+                #endif
+
+                wxTextAttrDimension_php* value_to_return0;
+                value_to_return0 = (wxTextAttrDimension_php*) &((wxTextAttrSize_php*)native_object)->GetHeight();
+
+                if(value_to_return0->references.IsUserInitialized()){
+                    if(!Z_ISNULL(value_to_return0->phpObj)){
+                        ZVAL_COPY_VALUE(return_value, &value_to_return0->phpObj);
+                        zval_add_ref(&value_to_return0->phpObj);
+                        return_is_user_initialized = true;
+                    }
+                    else{
+                        zend_error(E_ERROR, "Could not retreive original zval.");
+                    }
+                }
+                else{
+                    object_init_ex(return_value,php_wxTextAttrDimension_entry);
+                    Z_wxTextAttrDimension_P(return_value)->native_object = (wxTextAttrDimension_php*) value_to_return0;
+                }
+
+                if((void*)value_to_return0 != (void*)native_object && return_is_user_initialized){ //Prevent adding references to it self
+                    references->AddReference(return_value, "wxTextAttrSize::GetHeight at call 6 with 0 argument(s)");
+                }
+
+
+                return;
+                break;
+            }
+        }
+    }
+
+    
+    //In case wrong type/count of parameters was passed
+    if(!already_called)
+    {
+        zend_error(
+            E_ERROR,
+            "Wrong type or count of parameters passed to: "
+            "wxTextAttrSize::GetHeight\n"
+        );
+    }
+}
+/* }}} */
+
+/* {{{ proto  wxTextAttrSize::SetHeight(int value, int flags) */
+PHP_METHOD(php_wxTextAttrSize, SetHeight)
+{
+    #ifdef USE_WXPHP_DEBUG
+    php_printf("Invoking wxTextAttrSize::SetHeight\n");
+    php_printf("===========================================\n");
+    #endif
+
+    zo_wxTextAttrSize* current_object;
+    wxphp_object_type current_object_type;
+    wxTextAttrSize_php* native_object;
+    void* argument_native_object = NULL;
+
+    //Other variables used thru the code
+    zval dummy;
+    ZVAL_NULL(&dummy);
+    bool already_called = false;
+    wxPHPObjectReferences* references;
+    int arguments_received = ZEND_NUM_ARGS();
+    bool return_is_user_initialized = false;
+
+    //Get native object of the php object that called the method
+    if(getThis() != NULL)
+    {
+        current_object = Z_wxTextAttrSize_P(getThis());
+
+        if(current_object->native_object == NULL)
+        {
+            zend_error(
+                E_ERROR,
+                "Failed to get the native object for "
+                "wxTextAttrSize::SetHeight call\n"
+            );
+
+            return;
+        }
+        else
+        {
+            native_object = current_object->native_object;
+            current_object_type = current_object->object_type;
+
+            bool reference_type_found = false;
+
+            if(current_object_type == PHP_WXTEXTATTRSIZE_TYPE){
+                references = &((wxTextAttrSize_php*)native_object)->references;
+                reference_type_found = true;
+            }
+        }
+    }
+    #ifdef USE_WXPHP_DEBUG
+    else
+    {
+        php_printf("Processing the method call as static\n");
+    }
+    #endif
+
+    //Parameters for overload 0
+    long value0;
+    long flags0;
+    bool overload0_called = false;
+
+    //Parameters for overload 1
+    long value1;
+    long units1;
+    bool overload1_called = false;
+
+    //Parameters for overload 2
+    zval* dim2;
+    wxTextAttrDimension* object_pointer2_0 = 0;
+    bool overload2_called = false;
+
+    
+    //Overload 0
+    overload0:
+    if(!already_called && arguments_received == 2)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Parameters received %d\n", arguments_received);
+        php_printf("Parsing parameters with 'll' (&value0, &flags0)\n");
+        #endif
+
+        char parse_parameters_string[] = "ll";
+        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &value0, &flags0 ) == SUCCESS)
+        {
+            overload0_called = true;
+            already_called = true;
+        }
+    }
+
+    //Overload 1
+    overload1:
+    if(!already_called && arguments_received == 2)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Parameters received %d\n", arguments_received);
+        php_printf("Parsing parameters with 'll' (&value1, &units1)\n");
+        #endif
+
+        char parse_parameters_string[] = "ll";
+        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &value1, &units1 ) == SUCCESS)
+        {
+            overload1_called = true;
+            already_called = true;
+        }
+    }
+
+    //Overload 2
+    overload2:
+    if(!already_called && arguments_received == 1)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Parameters received %d\n", arguments_received);
+        php_printf("Parsing parameters with 'O' (&dim2, php_wxTextAttrDimension_entry)\n");
+        #endif
+
+        char parse_parameters_string[] = "O";
+        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &dim2, php_wxTextAttrDimension_entry ) == SUCCESS)
+        {
+            if(arguments_received >= 1){
+                if(Z_TYPE_P(dim2) == IS_OBJECT)
+                {
+                    wxphp_object_type argument_type = Z_wxTextAttrDimension_P(dim2)->object_type;
+                    argument_native_object = (void*) Z_wxTextAttrDimension_P(dim2)->native_object;
+                    object_pointer2_0 = (wxTextAttrDimension*) argument_native_object;
+                    if (!object_pointer2_0 )
+                    {
+                        zend_error(E_ERROR, "Parameter 'dim' could not be retreived correctly.");
+                    }
+                }
+                else if(Z_TYPE_P(dim2) != IS_NULL)
+                {
+                    zend_error(E_ERROR, "Parameter 'dim' not null, could not be retreived correctly.");
+                }
+            }
+
+            overload2_called = true;
+            already_called = true;
+        }
+    }
+
+    
+    if(overload0_called)
+    {
+        switch(arguments_received)
+        {
+            case 2:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing wxTextAttrSize::SetHeight((int) value0, (wxTextAttrDimensionFlags) flags0)\n\n");
+                #endif
+
+                ((wxTextAttrSize_php*)native_object)->SetHeight((int) value0, (wxTextAttrDimensionFlags) flags0);
+
+
+                return;
+                break;
+            }
+        }
+    }
+
+    if(overload1_called)
+    {
+        switch(arguments_received)
+        {
+            case 2:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing wxTextAttrSize::SetHeight((int) value1, (wxTextAttrUnits) units1)\n\n");
+                #endif
+
+                ((wxTextAttrSize_php*)native_object)->SetHeight((int) value1, (wxTextAttrUnits) units1);
+
+
+                return;
+                break;
+            }
+        }
+    }
+
+    if(overload2_called)
+    {
+        switch(arguments_received)
+        {
+            case 1:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing wxTextAttrSize::SetHeight(*(wxTextAttrDimension*) object_pointer2_0)\n\n");
+                #endif
+
+                ((wxTextAttrSize_php*)native_object)->SetHeight(*(wxTextAttrDimension*) object_pointer2_0);
+
+                references->AddReference(dim2, "wxTextAttrSize::SetHeight at call 3 with 1 argument(s)");
+
+                return;
+                break;
+            }
+        }
+    }
+
+    
+    //In case wrong type/count of parameters was passed
+    if(!already_called)
+    {
+        zend_error(
+            E_ERROR,
+            "Wrong type or count of parameters passed to: "
+            "wxTextAttrSize::SetHeight\n"
+        );
+    }
+}
+/* }}} */
+
+/* {{{ proto bool wxTextAttrSize::IsValid() */
+PHP_METHOD(php_wxTextAttrSize, IsValid)
+{
+    #ifdef USE_WXPHP_DEBUG
+    php_printf("Invoking wxTextAttrSize::IsValid\n");
+    php_printf("===========================================\n");
+    #endif
+
+    zo_wxTextAttrSize* current_object;
+    wxphp_object_type current_object_type;
+    wxTextAttrSize_php* native_object;
+    void* argument_native_object = NULL;
+
+    //Other variables used thru the code
+    zval dummy;
+    ZVAL_NULL(&dummy);
+    bool already_called = false;
+    wxPHPObjectReferences* references;
+    int arguments_received = ZEND_NUM_ARGS();
+    bool return_is_user_initialized = false;
+
+    //Get native object of the php object that called the method
+    if(getThis() != NULL)
+    {
+        current_object = Z_wxTextAttrSize_P(getThis());
+
+        if(current_object->native_object == NULL)
+        {
+            zend_error(
+                E_ERROR,
+                "Failed to get the native object for "
+                "wxTextAttrSize::IsValid call\n"
+            );
+
+            return;
+        }
+        else
+        {
+            native_object = current_object->native_object;
+            current_object_type = current_object->object_type;
+
+            bool reference_type_found = false;
+
+            if(current_object_type == PHP_WXTEXTATTRSIZE_TYPE){
+                references = &((wxTextAttrSize_php*)native_object)->references;
+                reference_type_found = true;
+            }
+        }
+    }
+    #ifdef USE_WXPHP_DEBUG
+    else
+    {
+        php_printf("Processing the method call as static\n");
+    }
+    #endif
+
+    //Parameters for overload 0
+    bool overload0_called = false;
+
+    
+    //Overload 0
+    overload0:
+    if(!already_called && arguments_received == 0)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Parameters received %d\n", arguments_received);
+        php_printf("Parsing parameters with '' ()\n");
+        #endif
+
+        overload0_called = true;
+        already_called = true;
+    }
+
+    
+    if(overload0_called)
+    {
+        switch(arguments_received)
+        {
+            case 0:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing RETURN_BOOL(wxTextAttrSize::IsValid())\n\n");
+                #endif
+
+                RETVAL_BOOL(((wxTextAttrSize_php*)native_object)->IsValid());
+
+
+                return;
+                break;
+            }
+        }
+    }
+
+    
+    //In case wrong type/count of parameters was passed
+    if(!already_called)
+    {
+        zend_error(
+            E_ERROR,
+            "Wrong type or count of parameters passed to: "
+            "wxTextAttrSize::IsValid\n"
+        );
+    }
+}
+/* }}} */
+
+BEGIN_EXTERN_C()
+void php_wxTextAttrDimensionConverter_free(void *object)
+{
+    zo_wxTextAttrDimensionConverter* custom_object = (zo_wxTextAttrDimensionConverter*) object;
+
+    #ifdef USE_WXPHP_DEBUG
+    php_printf(
+        "Calling php_wxTextAttrDimensionConverter_free on %s at line %i\n",
+        zend_get_executed_filename(),
+        zend_get_executed_lineno()
+    );
+    php_printf("===========================================\n");
+    #endif
+
+    if(custom_object->native_object != NULL)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Pointer not null\n");
+        php_printf("Pointer address %x\n", (unsigned int)(size_t)custom_object->native_object);
+        #endif
+
+        if(custom_object->is_user_initialized)
+        {
+            #ifdef USE_WXPHP_DEBUG
+            php_printf("Deleting pointer with delete\n");
+            #endif
+
+            custom_object->native_object->UninitProperties();
+            delete custom_object->native_object;
+            custom_object->native_object = NULL;
+        }
+
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Deletion of wxTextAttrDimensionConverter done\n");
+        php_printf("===========================================\n\n");
+        #endif
+    }
+    else
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Not user space initialized\n");
+        #endif
+    }
+
+    zend_object_std_dtor(&custom_object->zo);
+    efree(custom_object);
+}
+
+zend_object* php_wxTextAttrDimensionConverter_new(zend_class_entry *class_type)
+{
+    #ifdef USE_WXPHP_DEBUG
+    php_printf(
+        "Calling php_wxTextAttrDimensionConverter_new on %s at line %i\n",
+        zend_get_executed_filename(),
+        zend_get_executed_lineno()
+    );
+    php_printf("===========================================\n");
+    #endif
+
+    zo_wxTextAttrDimensionConverter* custom_object;
+
+    custom_object = (zo_wxTextAttrDimensionConverter*) ecalloc(
+        1,
+        sizeof(zo_wxTextAttrDimensionConverter)
+        + zend_object_properties_size(class_type)
+    );
+
+    zend_object_std_init(&custom_object->zo, class_type);
+    object_properties_init(&custom_object->zo, class_type);
+
+    custom_object->zo.handlers = &wxphp_wxTextAttrDimensionConverter_object_handlers;
+
+    custom_object->native_object = NULL;
+    custom_object->object_type = PHP_WXTEXTATTRDIMENSIONCONVERTER_TYPE;
+    custom_object->is_user_initialized = 0;
+
+    return &custom_object->zo;
+}
+END_EXTERN_C()
+
+/* {{{ proto  wxTextAttrDimensionConverter::wxTextAttrDimensionConverter(wxDC &dc, float scale, wxSize parentSize) */
+PHP_METHOD(php_wxTextAttrDimensionConverter, __construct)
+{
+    #ifdef USE_WXPHP_DEBUG
+    php_printf("Invoking wxTextAttrDimensionConverter::__construct\n");
+    php_printf("===========================================\n");
+    #endif
+
+    zo_wxTextAttrDimensionConverter* current_object;
+    wxTextAttrDimensionConverter_php* native_object;
+    void* argument_native_object = NULL;
+
+    //Other variables used thru the code
+    zval dummy;
+    ZVAL_NULL(&dummy);
+    bool already_called = false;
+    int arguments_received = ZEND_NUM_ARGS();
+
+
+    //Parameters for overload 0
+    zval* dc0;
+    wxDC* object_pointer0_0 = 0;
+    double scale0;
+    zval* parentSize0;
+    wxSize* object_pointer0_2 = 0;
+    bool overload0_called = false;
+
+    //Parameters for overload 1
+    long ppi1;
+    double scale1;
+    zval* parentSize1;
+    wxSize* object_pointer1_2 = 0;
+    bool overload1_called = false;
+
+    
+    //Overload 0
+    overload0:
+    if(!already_called && arguments_received >= 1  && arguments_received <= 3)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Parameters received %d\n", arguments_received);
+        php_printf("Parsing parameters with 'o|dO' (&dc0, &scale0, &parentSize0, php_wxSize_entry)\n");
+        #endif
+
+        char parse_parameters_string[] = "o|dO";
+        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &dc0, &scale0, &parentSize0, php_wxSize_entry ) == SUCCESS)
+        {
+            if(arguments_received >= 1){
+                if(Z_TYPE_P(dc0) == IS_OBJECT)
+                {
+                    wxphp_object_type argument_type = Z_wxDC_P(dc0)->object_type;
+                    argument_native_object = (void*) Z_wxDC_P(dc0)->native_object;
+                    object_pointer0_0 = (wxDC*) argument_native_object;
+                    if (!object_pointer0_0 || (argument_type != PHP_WXDC_TYPE && argument_type != PHP_WXWINDOWDC_TYPE && argument_type != PHP_WXCLIENTDC_TYPE && argument_type != PHP_WXPAINTDC_TYPE && argument_type != PHP_WXSCREENDC_TYPE && argument_type != PHP_WXPOSTSCRIPTDC_TYPE && argument_type != PHP_WXPRINTERDC_TYPE && argument_type != PHP_WXMEMORYDC_TYPE && argument_type != PHP_WXBUFFEREDDC_TYPE && argument_type != PHP_WXBUFFEREDPAINTDC_TYPE && argument_type != PHP_WXAUTOBUFFEREDPAINTDC_TYPE && argument_type != PHP_WXMIRRORDC_TYPE))
+                    {
+                        goto overload1;
+                    }
+                }
+                else if(Z_TYPE_P(dc0) != IS_NULL)
+                {
+                    goto overload1;
+                }
+            }
+
+            if(arguments_received >= 3){
+                if(Z_TYPE_P(parentSize0) == IS_OBJECT)
+                {
+                    wxphp_object_type argument_type = Z_wxSize_P(parentSize0)->object_type;
+                    argument_native_object = (void*) Z_wxSize_P(parentSize0)->native_object;
+                    object_pointer0_2 = (wxSize*) argument_native_object;
+                    if (!object_pointer0_2 )
+                    {
+                        goto overload1;
+                    }
+                }
+                else if(Z_TYPE_P(parentSize0) != IS_NULL)
+                {
+                    goto overload1;
+                }
+            }
+
+            overload0_called = true;
+            already_called = true;
+        }
+    }
+
+    //Overload 1
+    overload1:
+    if(!already_called && arguments_received >= 1  && arguments_received <= 3)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Parameters received %d\n", arguments_received);
+        php_printf("Parsing parameters with 'l|dO' (&ppi1, &scale1, &parentSize1, php_wxSize_entry)\n");
+        #endif
+
+        char parse_parameters_string[] = "l|dO";
+        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &ppi1, &scale1, &parentSize1, php_wxSize_entry ) == SUCCESS)
+        {
+            if(arguments_received >= 3){
+                if(Z_TYPE_P(parentSize1) == IS_OBJECT)
+                {
+                    wxphp_object_type argument_type = Z_wxSize_P(parentSize1)->object_type;
+                    argument_native_object = (void*) Z_wxSize_P(parentSize1)->native_object;
+                    object_pointer1_2 = (wxSize*) argument_native_object;
+                    if (!object_pointer1_2 )
+                    {
+                        zend_error(E_ERROR, "Parameter 'parentSize' could not be retreived correctly.");
+                    }
+                }
+                else if(Z_TYPE_P(parentSize1) != IS_NULL)
+                {
+                    zend_error(E_ERROR, "Parameter 'parentSize' not null, could not be retreived correctly.");
+                }
+            }
+
+            overload1_called = true;
+            already_called = true;
+        }
+    }
+
+    
+    if(overload0_called)
+    {
+        switch(arguments_received)
+        {
+            case 1:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing __construct(*(wxDC*) object_pointer0_0)\n");
+                #endif
+
+                native_object = new wxTextAttrDimensionConverter_php(*(wxDC*) object_pointer0_0);
+
+                native_object->references.Initialize();
+                ((wxTextAttrDimensionConverter_php*) native_object)->references.AddReference(dc0, "wxTextAttrDimensionConverter::wxTextAttrDimensionConverter at call 4 with 1 argument(s)");
+                break;
+            }
+            case 2:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing __construct(*(wxDC*) object_pointer0_0, scale0)\n");
+                #endif
+
+                native_object = new wxTextAttrDimensionConverter_php(*(wxDC*) object_pointer0_0, scale0);
+
+                native_object->references.Initialize();
+                ((wxTextAttrDimensionConverter_php*) native_object)->references.AddReference(dc0, "wxTextAttrDimensionConverter::wxTextAttrDimensionConverter at call 4 with 2 argument(s)");
+                break;
+            }
+            case 3:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing __construct(*(wxDC*) object_pointer0_0, scale0, *(wxSize*) object_pointer0_2)\n");
+                #endif
+
+                native_object = new wxTextAttrDimensionConverter_php(*(wxDC*) object_pointer0_0, scale0, *(wxSize*) object_pointer0_2);
+
+                native_object->references.Initialize();
+                ((wxTextAttrDimensionConverter_php*) native_object)->references.AddReference(dc0, "wxTextAttrDimensionConverter::wxTextAttrDimensionConverter at call 4 with 3 argument(s)");
+                ((wxTextAttrDimensionConverter_php*) native_object)->references.AddReference(parentSize0, "wxTextAttrDimensionConverter::wxTextAttrDimensionConverter at call 4 with 3 argument(s)");
+                break;
+            }
+        }
+    }
+
+    if(overload1_called)
+    {
+        switch(arguments_received)
+        {
+            case 1:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing __construct((int) ppi1)\n");
+                #endif
+
+                native_object = new wxTextAttrDimensionConverter_php((int) ppi1);
+
+                native_object->references.Initialize();
+                break;
+            }
+            case 2:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing __construct((int) ppi1, scale1)\n");
+                #endif
+
+                native_object = new wxTextAttrDimensionConverter_php((int) ppi1, scale1);
+
+                native_object->references.Initialize();
+                break;
+            }
+            case 3:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing __construct((int) ppi1, scale1, *(wxSize*) object_pointer1_2)\n");
+                #endif
+
+                native_object = new wxTextAttrDimensionConverter_php((int) ppi1, scale1, *(wxSize*) object_pointer1_2);
+
+                native_object->references.Initialize();
+                ((wxTextAttrDimensionConverter_php*) native_object)->references.AddReference(parentSize1, "wxTextAttrDimensionConverter::wxTextAttrDimensionConverter at call 4 with 3 argument(s)");
+                break;
+            }
+        }
+    }
+
+    
+    if(already_called)
+    {
+        native_object->phpObj = *getThis();
+
+        native_object->InitProperties();
+
+        current_object = Z_wxTextAttrDimensionConverter_P(getThis());
+
+        current_object->native_object = native_object;
+
+        current_object->is_user_initialized = 1;
+    }
+    else
+    {
+        zend_error(
+            E_ERROR,
+            "Abstract class or wrong type/count of parameters "
+            "passed to: wxTextAttrDimensionConverter::__construct\n"
+        );
+    }
+
+    #ifdef USE_WXPHP_DEBUG
+        php_printf("===========================================\n\n");
+    #endif
+}
+/* }}} */
+
+PHP_METHOD(php_wxTextAttrDimensionConverter, __get)
+{
+    #ifdef USE_WXPHP_DEBUG
+    php_printf("Invoking wxTextAttrDimensionConverter::__get\n");
+    php_printf("===========================================\n");
+    #endif
+
+    int arguments_received = ZEND_NUM_ARGS();
+    zo_wxTextAttrDimensionConverter* current_object;
+    wxTextAttrDimensionConverter_php* native_object;
+
+    char* name;
+    size_t name_len;
+
+    //Get native object of the php object that called the method
+    if (getThis() != NULL)
+    {
+        current_object = Z_wxTextAttrDimensionConverter_P(getThis());
+
+        if(current_object->native_object == NULL)
+        {
+            zend_error(
+                E_ERROR,
+                "Failed to get the native object for "
+                "wxTextAttrDimensionConverter::wxTextAttrDimensionConverter call\n"
+            );
+
+            return;
+        }
+        else
+        {
+            native_object = current_object->native_object;
+        }
+    }
+    else
+    {
+        zend_error(E_ERROR, "Could not process __get call as static\n");
+    }
+
+    char parse_parameters_string[] = "s";
+
+    if(
+        zend_parse_parameters_ex(
+            ZEND_PARSE_PARAMS_QUIET,
+            arguments_received,
+            parse_parameters_string,
+            &name,
+            &name_len
+        ) == FAILURE
+    )
+    {
+        RETVAL_NULL();
+    }
+
+    #ifdef USE_WXPHP_DEBUG
+    php_printf("Property to get: %s\n", name);
+    php_printf("===========================================\n\n");
+    #endif
+
+    if(false){}
+    else if(strcmp("m_ppi", name) == 0)
+    {
+        RETVAL_LONG(*((int*) native_object->properties[0]));
+    }
+    else if(strcmp("m_scale", name) == 0)
+    {
+        RETVAL_DOUBLE(*((double*) native_object->properties[1]));
+    }
+    else if(strcmp("m_parentSize", name) == 0)
+    {
+        object_init_ex(return_value, php_wxSize_entry);
+        Z_wxTextAttrDimensionConverter_P(&return_value)->native_object = ((wxSize_php*) native_object->properties[2]);
+        return;
+    }
+    else
+    {
+        RETVAL_NULL();
+    }
+}
+/* {{{ proto int wxTextAttrDimensionConverter::GetPixels(wxTextAttrDimension dim, int direction) */
+PHP_METHOD(php_wxTextAttrDimensionConverter, GetPixels)
+{
+    #ifdef USE_WXPHP_DEBUG
+    php_printf("Invoking wxTextAttrDimensionConverter::GetPixels\n");
+    php_printf("===========================================\n");
+    #endif
+
+    zo_wxTextAttrDimensionConverter* current_object;
+    wxphp_object_type current_object_type;
+    wxTextAttrDimensionConverter_php* native_object;
+    void* argument_native_object = NULL;
+
+    //Other variables used thru the code
+    zval dummy;
+    ZVAL_NULL(&dummy);
+    bool already_called = false;
+    wxPHPObjectReferences* references;
+    int arguments_received = ZEND_NUM_ARGS();
+    bool return_is_user_initialized = false;
+
+    //Get native object of the php object that called the method
+    if(getThis() != NULL)
+    {
+        current_object = Z_wxTextAttrDimensionConverter_P(getThis());
+
+        if(current_object->native_object == NULL)
+        {
+            zend_error(
+                E_ERROR,
+                "Failed to get the native object for "
+                "wxTextAttrDimensionConverter::GetPixels call\n"
+            );
+
+            return;
+        }
+        else
+        {
+            native_object = current_object->native_object;
+            current_object_type = current_object->object_type;
+
+            bool reference_type_found = false;
+
+            if(current_object_type == PHP_WXTEXTATTRDIMENSIONCONVERTER_TYPE){
+                references = &((wxTextAttrDimensionConverter_php*)native_object)->references;
+                reference_type_found = true;
+            }
+        }
+    }
+    #ifdef USE_WXPHP_DEBUG
+    else
+    {
+        php_printf("Processing the method call as static\n");
+    }
+    #endif
+
+    //Parameters for overload 0
+    zval* dim0;
+    wxTextAttrDimension* object_pointer0_0 = 0;
+    long direction0;
+    bool overload0_called = false;
+
+    
+    //Overload 0
+    overload0:
+    if(!already_called && arguments_received >= 1  && arguments_received <= 2)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Parameters received %d\n", arguments_received);
+        php_printf("Parsing parameters with 'O|l' (&dim0, php_wxTextAttrDimension_entry, &direction0)\n");
+        #endif
+
+        char parse_parameters_string[] = "O|l";
+        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &dim0, php_wxTextAttrDimension_entry, &direction0 ) == SUCCESS)
+        {
+            if(arguments_received >= 1){
+                if(Z_TYPE_P(dim0) == IS_OBJECT)
+                {
+                    wxphp_object_type argument_type = Z_wxTextAttrDimension_P(dim0)->object_type;
+                    argument_native_object = (void*) Z_wxTextAttrDimension_P(dim0)->native_object;
+                    object_pointer0_0 = (wxTextAttrDimension*) argument_native_object;
+                    if (!object_pointer0_0 )
+                    {
+                        zend_error(E_ERROR, "Parameter 'dim' could not be retreived correctly.");
+                    }
+                }
+                else if(Z_TYPE_P(dim0) != IS_NULL)
+                {
+                    zend_error(E_ERROR, "Parameter 'dim' not null, could not be retreived correctly.");
+                }
+            }
+
+            overload0_called = true;
+            already_called = true;
+        }
+    }
+
+    
+    if(overload0_called)
+    {
+        switch(arguments_received)
+        {
+            case 1:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing RETURN_LONG(wxTextAttrDimensionConverter::GetPixels(*(wxTextAttrDimension*) object_pointer0_0))\n\n");
+                #endif
+
+                RETVAL_LONG(((wxTextAttrDimensionConverter_php*)native_object)->GetPixels(*(wxTextAttrDimension*) object_pointer0_0));
+
+                references->AddReference(dim0, "wxTextAttrDimensionConverter::GetPixels at call 3 with 1 argument(s)");
+
+                return;
+                break;
+            }
+            case 2:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing RETURN_LONG(wxTextAttrDimensionConverter::GetPixels(*(wxTextAttrDimension*) object_pointer0_0, (int) direction0))\n\n");
+                #endif
+
+                RETVAL_LONG(((wxTextAttrDimensionConverter_php*)native_object)->GetPixels(*(wxTextAttrDimension*) object_pointer0_0, (int) direction0));
+
+                references->AddReference(dim0, "wxTextAttrDimensionConverter::GetPixels at call 3 with 2 argument(s)");
+
+                return;
+                break;
+            }
+        }
+    }
+
+    
+    //In case wrong type/count of parameters was passed
+    if(!already_called)
+    {
+        zend_error(
+            E_ERROR,
+            "Wrong type or count of parameters passed to: "
+            "wxTextAttrDimensionConverter::GetPixels\n"
+        );
+    }
+}
+/* }}} */
+
+/* {{{ proto int wxTextAttrDimensionConverter::GetTenthsMM(wxTextAttrDimension dim) */
+PHP_METHOD(php_wxTextAttrDimensionConverter, GetTenthsMM)
+{
+    #ifdef USE_WXPHP_DEBUG
+    php_printf("Invoking wxTextAttrDimensionConverter::GetTenthsMM\n");
+    php_printf("===========================================\n");
+    #endif
+
+    zo_wxTextAttrDimensionConverter* current_object;
+    wxphp_object_type current_object_type;
+    wxTextAttrDimensionConverter_php* native_object;
+    void* argument_native_object = NULL;
+
+    //Other variables used thru the code
+    zval dummy;
+    ZVAL_NULL(&dummy);
+    bool already_called = false;
+    wxPHPObjectReferences* references;
+    int arguments_received = ZEND_NUM_ARGS();
+    bool return_is_user_initialized = false;
+
+    //Get native object of the php object that called the method
+    if(getThis() != NULL)
+    {
+        current_object = Z_wxTextAttrDimensionConverter_P(getThis());
+
+        if(current_object->native_object == NULL)
+        {
+            zend_error(
+                E_ERROR,
+                "Failed to get the native object for "
+                "wxTextAttrDimensionConverter::GetTenthsMM call\n"
+            );
+
+            return;
+        }
+        else
+        {
+            native_object = current_object->native_object;
+            current_object_type = current_object->object_type;
+
+            bool reference_type_found = false;
+
+            if(current_object_type == PHP_WXTEXTATTRDIMENSIONCONVERTER_TYPE){
+                references = &((wxTextAttrDimensionConverter_php*)native_object)->references;
+                reference_type_found = true;
+            }
+        }
+    }
+    #ifdef USE_WXPHP_DEBUG
+    else
+    {
+        php_printf("Processing the method call as static\n");
+    }
+    #endif
+
+    //Parameters for overload 0
+    zval* dim0;
+    wxTextAttrDimension* object_pointer0_0 = 0;
+    bool overload0_called = false;
+
+    
+    //Overload 0
+    overload0:
+    if(!already_called && arguments_received == 1)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Parameters received %d\n", arguments_received);
+        php_printf("Parsing parameters with 'O' (&dim0, php_wxTextAttrDimension_entry)\n");
+        #endif
+
+        char parse_parameters_string[] = "O";
+        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &dim0, php_wxTextAttrDimension_entry ) == SUCCESS)
+        {
+            if(arguments_received >= 1){
+                if(Z_TYPE_P(dim0) == IS_OBJECT)
+                {
+                    wxphp_object_type argument_type = Z_wxTextAttrDimension_P(dim0)->object_type;
+                    argument_native_object = (void*) Z_wxTextAttrDimension_P(dim0)->native_object;
+                    object_pointer0_0 = (wxTextAttrDimension*) argument_native_object;
+                    if (!object_pointer0_0 )
+                    {
+                        zend_error(E_ERROR, "Parameter 'dim' could not be retreived correctly.");
+                    }
+                }
+                else if(Z_TYPE_P(dim0) != IS_NULL)
+                {
+                    zend_error(E_ERROR, "Parameter 'dim' not null, could not be retreived correctly.");
+                }
+            }
+
+            overload0_called = true;
+            already_called = true;
+        }
+    }
+
+    
+    if(overload0_called)
+    {
+        switch(arguments_received)
+        {
+            case 1:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing RETURN_LONG(wxTextAttrDimensionConverter::GetTenthsMM(*(wxTextAttrDimension*) object_pointer0_0))\n\n");
+                #endif
+
+                RETVAL_LONG(((wxTextAttrDimensionConverter_php*)native_object)->GetTenthsMM(*(wxTextAttrDimension*) object_pointer0_0));
+
+                references->AddReference(dim0, "wxTextAttrDimensionConverter::GetTenthsMM at call 3 with 1 argument(s)");
+
+                return;
+                break;
+            }
+        }
+    }
+
+    
+    //In case wrong type/count of parameters was passed
+    if(!already_called)
+    {
+        zend_error(
+            E_ERROR,
+            "Wrong type or count of parameters passed to: "
+            "wxTextAttrDimensionConverter::GetTenthsMM\n"
+        );
+    }
+}
+/* }}} */
+
+/* {{{ proto int wxTextAttrDimensionConverter::ConvertTenthsMMToPixels(int units) */
+PHP_METHOD(php_wxTextAttrDimensionConverter, ConvertTenthsMMToPixels)
+{
+    #ifdef USE_WXPHP_DEBUG
+    php_printf("Invoking wxTextAttrDimensionConverter::ConvertTenthsMMToPixels\n");
+    php_printf("===========================================\n");
+    #endif
+
+    zo_wxTextAttrDimensionConverter* current_object;
+    wxphp_object_type current_object_type;
+    wxTextAttrDimensionConverter_php* native_object;
+    void* argument_native_object = NULL;
+
+    //Other variables used thru the code
+    zval dummy;
+    ZVAL_NULL(&dummy);
+    bool already_called = false;
+    wxPHPObjectReferences* references;
+    int arguments_received = ZEND_NUM_ARGS();
+    bool return_is_user_initialized = false;
+
+    //Get native object of the php object that called the method
+    if(getThis() != NULL)
+    {
+        current_object = Z_wxTextAttrDimensionConverter_P(getThis());
+
+        if(current_object->native_object == NULL)
+        {
+            zend_error(
+                E_ERROR,
+                "Failed to get the native object for "
+                "wxTextAttrDimensionConverter::ConvertTenthsMMToPixels call\n"
+            );
+
+            return;
+        }
+        else
+        {
+            native_object = current_object->native_object;
+            current_object_type = current_object->object_type;
+
+            bool reference_type_found = false;
+
+            if(current_object_type == PHP_WXTEXTATTRDIMENSIONCONVERTER_TYPE){
+                references = &((wxTextAttrDimensionConverter_php*)native_object)->references;
+                reference_type_found = true;
+            }
+        }
+    }
+    #ifdef USE_WXPHP_DEBUG
+    else
+    {
+        php_printf("Processing the method call as static\n");
+    }
+    #endif
+
+    //Parameters for overload 0
+    long units0;
+    bool overload0_called = false;
+
+    
+    //Overload 0
+    overload0:
+    if(!already_called && arguments_received == 1)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Parameters received %d\n", arguments_received);
+        php_printf("Parsing parameters with 'l' (&units0)\n");
+        #endif
+
+        char parse_parameters_string[] = "l";
+        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &units0 ) == SUCCESS)
+        {
+            overload0_called = true;
+            already_called = true;
+        }
+    }
+
+    
+    if(overload0_called)
+    {
+        switch(arguments_received)
+        {
+            case 1:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing RETURN_LONG(wxTextAttrDimensionConverter::ConvertTenthsMMToPixels((int) units0))\n\n");
+                #endif
+
+                RETVAL_LONG(((wxTextAttrDimensionConverter_php*)native_object)->ConvertTenthsMMToPixels((int) units0));
+
+
+                return;
+                break;
+            }
+        }
+    }
+
+    
+    //In case wrong type/count of parameters was passed
+    if(!already_called)
+    {
+        zend_error(
+            E_ERROR,
+            "Wrong type or count of parameters passed to: "
+            "wxTextAttrDimensionConverter::ConvertTenthsMMToPixels\n"
+        );
+    }
+}
+/* }}} */
+
+/* {{{ proto int wxTextAttrDimensionConverter::ConvertPixelsToTenthsMM(int pixels) */
+PHP_METHOD(php_wxTextAttrDimensionConverter, ConvertPixelsToTenthsMM)
+{
+    #ifdef USE_WXPHP_DEBUG
+    php_printf("Invoking wxTextAttrDimensionConverter::ConvertPixelsToTenthsMM\n");
+    php_printf("===========================================\n");
+    #endif
+
+    zo_wxTextAttrDimensionConverter* current_object;
+    wxphp_object_type current_object_type;
+    wxTextAttrDimensionConverter_php* native_object;
+    void* argument_native_object = NULL;
+
+    //Other variables used thru the code
+    zval dummy;
+    ZVAL_NULL(&dummy);
+    bool already_called = false;
+    wxPHPObjectReferences* references;
+    int arguments_received = ZEND_NUM_ARGS();
+    bool return_is_user_initialized = false;
+
+    //Get native object of the php object that called the method
+    if(getThis() != NULL)
+    {
+        current_object = Z_wxTextAttrDimensionConverter_P(getThis());
+
+        if(current_object->native_object == NULL)
+        {
+            zend_error(
+                E_ERROR,
+                "Failed to get the native object for "
+                "wxTextAttrDimensionConverter::ConvertPixelsToTenthsMM call\n"
+            );
+
+            return;
+        }
+        else
+        {
+            native_object = current_object->native_object;
+            current_object_type = current_object->object_type;
+
+            bool reference_type_found = false;
+
+            if(current_object_type == PHP_WXTEXTATTRDIMENSIONCONVERTER_TYPE){
+                references = &((wxTextAttrDimensionConverter_php*)native_object)->references;
+                reference_type_found = true;
+            }
+        }
+    }
+    #ifdef USE_WXPHP_DEBUG
+    else
+    {
+        php_printf("Processing the method call as static\n");
+    }
+    #endif
+
+    //Parameters for overload 0
+    long pixels0;
+    bool overload0_called = false;
+
+    
+    //Overload 0
+    overload0:
+    if(!already_called && arguments_received == 1)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Parameters received %d\n", arguments_received);
+        php_printf("Parsing parameters with 'l' (&pixels0)\n");
+        #endif
+
+        char parse_parameters_string[] = "l";
+        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &pixels0 ) == SUCCESS)
+        {
+            overload0_called = true;
+            already_called = true;
+        }
+    }
+
+    
+    if(overload0_called)
+    {
+        switch(arguments_received)
+        {
+            case 1:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing RETURN_LONG(wxTextAttrDimensionConverter::ConvertPixelsToTenthsMM((int) pixels0))\n\n");
+                #endif
+
+                RETVAL_LONG(((wxTextAttrDimensionConverter_php*)native_object)->ConvertPixelsToTenthsMM((int) pixels0));
+
+
+                return;
+                break;
+            }
+        }
+    }
+
+    
+    //In case wrong type/count of parameters was passed
+    if(!already_called)
+    {
+        zend_error(
+            E_ERROR,
+            "Wrong type or count of parameters passed to: "
+            "wxTextAttrDimensionConverter::ConvertPixelsToTenthsMM\n"
+        );
+    }
+}
+/* }}} */
+
+BEGIN_EXTERN_C()
+void php_wxTextAttrBorder_free(void *object)
+{
+    zo_wxTextAttrBorder* custom_object = (zo_wxTextAttrBorder*) object;
+
+    #ifdef USE_WXPHP_DEBUG
+    php_printf(
+        "Calling php_wxTextAttrBorder_free on %s at line %i\n",
+        zend_get_executed_filename(),
+        zend_get_executed_lineno()
+    );
+    php_printf("===========================================\n");
+    #endif
+
+    if(custom_object->native_object != NULL)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Pointer not null\n");
+        php_printf("Pointer address %x\n", (unsigned int)(size_t)custom_object->native_object);
+        #endif
+
+        if(custom_object->is_user_initialized)
+        {
+            #ifdef USE_WXPHP_DEBUG
+            php_printf("Deleting pointer with delete\n");
+            #endif
+
+            custom_object->native_object->UninitProperties();
+            delete custom_object->native_object;
+            custom_object->native_object = NULL;
+        }
+
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Deletion of wxTextAttrBorder done\n");
+        php_printf("===========================================\n\n");
+        #endif
+    }
+    else
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Not user space initialized\n");
+        #endif
+    }
+
+    zend_object_std_dtor(&custom_object->zo);
+    efree(custom_object);
+}
+
+zend_object* php_wxTextAttrBorder_new(zend_class_entry *class_type)
+{
+    #ifdef USE_WXPHP_DEBUG
+    php_printf(
+        "Calling php_wxTextAttrBorder_new on %s at line %i\n",
+        zend_get_executed_filename(),
+        zend_get_executed_lineno()
+    );
+    php_printf("===========================================\n");
+    #endif
+
+    zo_wxTextAttrBorder* custom_object;
+
+    custom_object = (zo_wxTextAttrBorder*) ecalloc(
+        1,
+        sizeof(zo_wxTextAttrBorder)
+        + zend_object_properties_size(class_type)
+    );
+
+    zend_object_std_init(&custom_object->zo, class_type);
+    object_properties_init(&custom_object->zo, class_type);
+
+    custom_object->zo.handlers = &wxphp_wxTextAttrBorder_object_handlers;
+
+    custom_object->native_object = NULL;
+    custom_object->object_type = PHP_WXTEXTATTRBORDER_TYPE;
+    custom_object->is_user_initialized = 0;
+
+    return &custom_object->zo;
+}
+END_EXTERN_C()
+
+/* {{{ proto  wxTextAttrBorder::wxTextAttrBorder() */
+PHP_METHOD(php_wxTextAttrBorder, __construct)
+{
+    #ifdef USE_WXPHP_DEBUG
+    php_printf("Invoking wxTextAttrBorder::__construct\n");
+    php_printf("===========================================\n");
+    #endif
+
+    zo_wxTextAttrBorder* current_object;
+    wxTextAttrBorder_php* native_object;
+    void* argument_native_object = NULL;
+
+    //Other variables used thru the code
+    zval dummy;
+    ZVAL_NULL(&dummy);
+    bool already_called = false;
+    int arguments_received = ZEND_NUM_ARGS();
+
+
+    //Parameters for overload 0
+    bool overload0_called = false;
+
+    
+    //Overload 0
+    overload0:
+    if(!already_called && arguments_received == 0)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Parameters received %d\n", arguments_received);
+        php_printf("Parsing parameters with '' ()\n");
+        #endif
+
+        overload0_called = true;
+        already_called = true;
+    }
+
+    
+    if(overload0_called)
+    {
+        switch(arguments_received)
+        {
+            case 0:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing __construct()\n");
+                #endif
+
+                native_object = new wxTextAttrBorder_php();
+
+                native_object->references.Initialize();
+                break;
+            }
+        }
+    }
+
+    
+    if(already_called)
+    {
+        native_object->phpObj = *getThis();
+
+        native_object->InitProperties();
+
+        current_object = Z_wxTextAttrBorder_P(getThis());
+
+        current_object->native_object = native_object;
+
+        current_object->is_user_initialized = 1;
+    }
+    else
+    {
+        zend_error(
+            E_ERROR,
+            "Abstract class or wrong type/count of parameters "
+            "passed to: wxTextAttrBorder::__construct\n"
+        );
+    }
+
+    #ifdef USE_WXPHP_DEBUG
+        php_printf("===========================================\n\n");
+    #endif
+}
+/* }}} */
+
+PHP_METHOD(php_wxTextAttrBorder, __get)
+{
+    #ifdef USE_WXPHP_DEBUG
+    php_printf("Invoking wxTextAttrBorder::__get\n");
+    php_printf("===========================================\n");
+    #endif
+
+    int arguments_received = ZEND_NUM_ARGS();
+    zo_wxTextAttrBorder* current_object;
+    wxTextAttrBorder_php* native_object;
+
+    char* name;
+    size_t name_len;
+
+    //Get native object of the php object that called the method
+    if (getThis() != NULL)
+    {
+        current_object = Z_wxTextAttrBorder_P(getThis());
+
+        if(current_object->native_object == NULL)
+        {
+            zend_error(
+                E_ERROR,
+                "Failed to get the native object for "
+                "wxTextAttrBorder::wxTextAttrBorder call\n"
+            );
+
+            return;
+        }
+        else
+        {
+            native_object = current_object->native_object;
+        }
+    }
+    else
+    {
+        zend_error(E_ERROR, "Could not process __get call as static\n");
+    }
+
+    char parse_parameters_string[] = "s";
+
+    if(
+        zend_parse_parameters_ex(
+            ZEND_PARSE_PARAMS_QUIET,
+            arguments_received,
+            parse_parameters_string,
+            &name,
+            &name_len
+        ) == FAILURE
+    )
+    {
+        RETVAL_NULL();
+    }
+
+    #ifdef USE_WXPHP_DEBUG
+    php_printf("Property to get: %s\n", name);
+    php_printf("===========================================\n\n");
+    #endif
+
+    if(false){}
+    else if(strcmp("m_borderStyle", name) == 0)
+    {
+        RETVAL_LONG(*((int*) native_object->properties[0]));
+    }
+    else if(strcmp("m_borderColour", name) == 0)
+    {
+        RETVAL_LONG(*((unsigned long*) native_object->properties[1]));
+    }
+    else if(strcmp("m_borderWidth", name) == 0)
+    {
+        object_init_ex(return_value, php_wxTextAttrDimension_entry);
+        Z_wxTextAttrBorder_P(&return_value)->native_object = ((wxTextAttrDimension_php*) native_object->properties[2]);
+        return;
+    }
+    else if(strcmp("m_flags", name) == 0)
+    {
+        RETVAL_LONG(*((int*) native_object->properties[3]));
+    }
+    else
+    {
+        RETVAL_NULL();
+    }
+}
+/* {{{ proto  wxTextAttrBorder::Reset() */
+PHP_METHOD(php_wxTextAttrBorder, Reset)
+{
+    #ifdef USE_WXPHP_DEBUG
+    php_printf("Invoking wxTextAttrBorder::Reset\n");
+    php_printf("===========================================\n");
+    #endif
+
+    zo_wxTextAttrBorder* current_object;
+    wxphp_object_type current_object_type;
+    wxTextAttrBorder_php* native_object;
+    void* argument_native_object = NULL;
+
+    //Other variables used thru the code
+    zval dummy;
+    ZVAL_NULL(&dummy);
+    bool already_called = false;
+    wxPHPObjectReferences* references;
+    int arguments_received = ZEND_NUM_ARGS();
+    bool return_is_user_initialized = false;
+
+    //Get native object of the php object that called the method
+    if(getThis() != NULL)
+    {
+        current_object = Z_wxTextAttrBorder_P(getThis());
+
+        if(current_object->native_object == NULL)
+        {
+            zend_error(
+                E_ERROR,
+                "Failed to get the native object for "
+                "wxTextAttrBorder::Reset call\n"
+            );
+
+            return;
+        }
+        else
+        {
+            native_object = current_object->native_object;
+            current_object_type = current_object->object_type;
+
+            bool reference_type_found = false;
+
+            if(current_object_type == PHP_WXTEXTATTRBORDER_TYPE){
+                references = &((wxTextAttrBorder_php*)native_object)->references;
+                reference_type_found = true;
+            }
+        }
+    }
+    #ifdef USE_WXPHP_DEBUG
+    else
+    {
+        php_printf("Processing the method call as static\n");
+    }
+    #endif
+
+    //Parameters for overload 0
+    bool overload0_called = false;
+
+    
+    //Overload 0
+    overload0:
+    if(!already_called && arguments_received == 0)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Parameters received %d\n", arguments_received);
+        php_printf("Parsing parameters with '' ()\n");
+        #endif
+
+        overload0_called = true;
+        already_called = true;
+    }
+
+    
+    if(overload0_called)
+    {
+        switch(arguments_received)
+        {
+            case 0:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing wxTextAttrBorder::Reset()\n\n");
+                #endif
+
+                ((wxTextAttrBorder_php*)native_object)->Reset();
+
+
+                return;
+                break;
+            }
+        }
+    }
+
+    
+    //In case wrong type/count of parameters was passed
+    if(!already_called)
+    {
+        zend_error(
+            E_ERROR,
+            "Wrong type or count of parameters passed to: "
+            "wxTextAttrBorder::Reset\n"
+        );
+    }
+}
+/* }}} */
+
+/* {{{ proto bool wxTextAttrBorder::EqPartial(wxTextAttrBorder border, bool weakTest) */
+PHP_METHOD(php_wxTextAttrBorder, EqPartial)
+{
+    #ifdef USE_WXPHP_DEBUG
+    php_printf("Invoking wxTextAttrBorder::EqPartial\n");
+    php_printf("===========================================\n");
+    #endif
+
+    zo_wxTextAttrBorder* current_object;
+    wxphp_object_type current_object_type;
+    wxTextAttrBorder_php* native_object;
+    void* argument_native_object = NULL;
+
+    //Other variables used thru the code
+    zval dummy;
+    ZVAL_NULL(&dummy);
+    bool already_called = false;
+    wxPHPObjectReferences* references;
+    int arguments_received = ZEND_NUM_ARGS();
+    bool return_is_user_initialized = false;
+
+    //Get native object of the php object that called the method
+    if(getThis() != NULL)
+    {
+        current_object = Z_wxTextAttrBorder_P(getThis());
+
+        if(current_object->native_object == NULL)
+        {
+            zend_error(
+                E_ERROR,
+                "Failed to get the native object for "
+                "wxTextAttrBorder::EqPartial call\n"
+            );
+
+            return;
+        }
+        else
+        {
+            native_object = current_object->native_object;
+            current_object_type = current_object->object_type;
+
+            bool reference_type_found = false;
+
+            if(current_object_type == PHP_WXTEXTATTRBORDER_TYPE){
+                references = &((wxTextAttrBorder_php*)native_object)->references;
+                reference_type_found = true;
+            }
+        }
+    }
+    #ifdef USE_WXPHP_DEBUG
+    else
+    {
+        php_printf("Processing the method call as static\n");
+    }
+    #endif
+
+    //Parameters for overload 0
+    zval* border0;
+    wxTextAttrBorder* object_pointer0_0 = 0;
+    bool weakTest0;
+    bool overload0_called = false;
+
+    
+    //Overload 0
+    overload0:
+    if(!already_called && arguments_received >= 1  && arguments_received <= 2)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Parameters received %d\n", arguments_received);
+        php_printf("Parsing parameters with 'O|b' (&border0, php_wxTextAttrBorder_entry, &weakTest0)\n");
+        #endif
+
+        char parse_parameters_string[] = "O|b";
+        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &border0, php_wxTextAttrBorder_entry, &weakTest0 ) == SUCCESS)
+        {
+            if(arguments_received >= 1){
+                if(Z_TYPE_P(border0) == IS_OBJECT)
+                {
+                    wxphp_object_type argument_type = Z_wxTextAttrBorder_P(border0)->object_type;
+                    argument_native_object = (void*) Z_wxTextAttrBorder_P(border0)->native_object;
+                    object_pointer0_0 = (wxTextAttrBorder*) argument_native_object;
+                    if (!object_pointer0_0 )
+                    {
+                        zend_error(E_ERROR, "Parameter 'border' could not be retreived correctly.");
+                    }
+                }
+                else if(Z_TYPE_P(border0) != IS_NULL)
+                {
+                    zend_error(E_ERROR, "Parameter 'border' not null, could not be retreived correctly.");
+                }
+            }
+
+            overload0_called = true;
+            already_called = true;
+        }
+    }
+
+    
+    if(overload0_called)
+    {
+        switch(arguments_received)
+        {
+            case 1:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing RETURN_BOOL(wxTextAttrBorder::EqPartial(*(wxTextAttrBorder*) object_pointer0_0))\n\n");
+                #endif
+
+                RETVAL_BOOL(((wxTextAttrBorder_php*)native_object)->EqPartial(*(wxTextAttrBorder*) object_pointer0_0));
+
+                references->AddReference(border0, "wxTextAttrBorder::EqPartial at call 3 with 1 argument(s)");
+
+                return;
+                break;
+            }
+            case 2:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing RETURN_BOOL(wxTextAttrBorder::EqPartial(*(wxTextAttrBorder*) object_pointer0_0, weakTest0))\n\n");
+                #endif
+
+                RETVAL_BOOL(((wxTextAttrBorder_php*)native_object)->EqPartial(*(wxTextAttrBorder*) object_pointer0_0, weakTest0));
+
+                references->AddReference(border0, "wxTextAttrBorder::EqPartial at call 3 with 2 argument(s)");
+
+                return;
+                break;
+            }
+        }
+    }
+
+    
+    //In case wrong type/count of parameters was passed
+    if(!already_called)
+    {
+        zend_error(
+            E_ERROR,
+            "Wrong type or count of parameters passed to: "
+            "wxTextAttrBorder::EqPartial\n"
+        );
+    }
+}
+/* }}} */
+
+/* {{{ proto bool wxTextAttrBorder::Apply(wxTextAttrBorder border, wxTextAttrBorder compareWith) */
+PHP_METHOD(php_wxTextAttrBorder, Apply)
+{
+    #ifdef USE_WXPHP_DEBUG
+    php_printf("Invoking wxTextAttrBorder::Apply\n");
+    php_printf("===========================================\n");
+    #endif
+
+    zo_wxTextAttrBorder* current_object;
+    wxphp_object_type current_object_type;
+    wxTextAttrBorder_php* native_object;
+    void* argument_native_object = NULL;
+
+    //Other variables used thru the code
+    zval dummy;
+    ZVAL_NULL(&dummy);
+    bool already_called = false;
+    wxPHPObjectReferences* references;
+    int arguments_received = ZEND_NUM_ARGS();
+    bool return_is_user_initialized = false;
+
+    //Get native object of the php object that called the method
+    if(getThis() != NULL)
+    {
+        current_object = Z_wxTextAttrBorder_P(getThis());
+
+        if(current_object->native_object == NULL)
+        {
+            zend_error(
+                E_ERROR,
+                "Failed to get the native object for "
+                "wxTextAttrBorder::Apply call\n"
+            );
+
+            return;
+        }
+        else
+        {
+            native_object = current_object->native_object;
+            current_object_type = current_object->object_type;
+
+            bool reference_type_found = false;
+
+            if(current_object_type == PHP_WXTEXTATTRBORDER_TYPE){
+                references = &((wxTextAttrBorder_php*)native_object)->references;
+                reference_type_found = true;
+            }
+        }
+    }
+    #ifdef USE_WXPHP_DEBUG
+    else
+    {
+        php_printf("Processing the method call as static\n");
+    }
+    #endif
+
+    //Parameters for overload 0
+    zval* border0;
+    wxTextAttrBorder* object_pointer0_0 = 0;
+    zval* compareWith0;
+    wxTextAttrBorder* object_pointer0_1 = 0;
+    bool overload0_called = false;
+
+    
+    //Overload 0
+    overload0:
+    if(!already_called && arguments_received >= 1  && arguments_received <= 2)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Parameters received %d\n", arguments_received);
+        php_printf("Parsing parameters with 'O|z' (&border0, php_wxTextAttrBorder_entry, &compareWith0)\n");
+        #endif
+
+        char parse_parameters_string[] = "O|z";
+        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &border0, php_wxTextAttrBorder_entry, &compareWith0 ) == SUCCESS)
+        {
+            if(arguments_received >= 1){
+                if(Z_TYPE_P(border0) == IS_OBJECT)
+                {
+                    wxphp_object_type argument_type = Z_wxTextAttrBorder_P(border0)->object_type;
+                    argument_native_object = (void*) Z_wxTextAttrBorder_P(border0)->native_object;
+                    object_pointer0_0 = (wxTextAttrBorder*) argument_native_object;
+                    if (!object_pointer0_0 )
+                    {
+                        zend_error(E_ERROR, "Parameter 'border' could not be retreived correctly.");
+                    }
+                }
+                else if(Z_TYPE_P(border0) != IS_NULL)
+                {
+                    zend_error(E_ERROR, "Parameter 'border' not null, could not be retreived correctly.");
+                }
+            }
+
+            if(arguments_received >= 2){
+                if(Z_TYPE_P(compareWith0) == IS_OBJECT)
+                {
+                    wxphp_object_type argument_type = Z_wxTextAttrBorder_P(compareWith0)->object_type;
+                    argument_native_object = (void*) Z_wxTextAttrBorder_P(compareWith0)->native_object;
+                    object_pointer0_1 = (wxTextAttrBorder*) argument_native_object;
+                    if (!object_pointer0_1 || (argument_type != PHP_WXTEXTATTRBORDER_TYPE))
+                    {
+                        zend_error(E_ERROR, "Parameter 'compareWith' could not be retreived correctly.");
+                    }
+                }
+                else if(Z_TYPE_P(compareWith0) != IS_NULL)
+                {
+                    zend_error(E_ERROR, "Parameter 'compareWith' not null, could not be retreived correctly.");
+                }
+            }
+
+            overload0_called = true;
+            already_called = true;
+        }
+    }
+
+    
+    if(overload0_called)
+    {
+        switch(arguments_received)
+        {
+            case 1:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing RETURN_BOOL(wxTextAttrBorder::Apply(*(wxTextAttrBorder*) object_pointer0_0))\n\n");
+                #endif
+
+                RETVAL_BOOL(((wxTextAttrBorder_php*)native_object)->Apply(*(wxTextAttrBorder*) object_pointer0_0));
+
+                references->AddReference(border0, "wxTextAttrBorder::Apply at call 3 with 1 argument(s)");
+
+                return;
+                break;
+            }
+            case 2:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing RETURN_BOOL(wxTextAttrBorder::Apply(*(wxTextAttrBorder*) object_pointer0_0, (const wxTextAttrBorder*) object_pointer0_1))\n\n");
+                #endif
+
+                RETVAL_BOOL(((wxTextAttrBorder_php*)native_object)->Apply(*(wxTextAttrBorder*) object_pointer0_0, (const wxTextAttrBorder*) object_pointer0_1));
+
+                references->AddReference(border0, "wxTextAttrBorder::Apply at call 3 with 2 argument(s)");
+                references->AddReference(compareWith0, "wxTextAttrBorder::Apply at call 1 with 2 argument(s)");
+
+                return;
+                break;
+            }
+        }
+    }
+
+    
+    //In case wrong type/count of parameters was passed
+    if(!already_called)
+    {
+        zend_error(
+            E_ERROR,
+            "Wrong type or count of parameters passed to: "
+            "wxTextAttrBorder::Apply\n"
+        );
+    }
+}
+/* }}} */
+
+/* {{{ proto bool wxTextAttrBorder::RemoveStyle(wxTextAttrBorder attr) */
+PHP_METHOD(php_wxTextAttrBorder, RemoveStyle)
+{
+    #ifdef USE_WXPHP_DEBUG
+    php_printf("Invoking wxTextAttrBorder::RemoveStyle\n");
+    php_printf("===========================================\n");
+    #endif
+
+    zo_wxTextAttrBorder* current_object;
+    wxphp_object_type current_object_type;
+    wxTextAttrBorder_php* native_object;
+    void* argument_native_object = NULL;
+
+    //Other variables used thru the code
+    zval dummy;
+    ZVAL_NULL(&dummy);
+    bool already_called = false;
+    wxPHPObjectReferences* references;
+    int arguments_received = ZEND_NUM_ARGS();
+    bool return_is_user_initialized = false;
+
+    //Get native object of the php object that called the method
+    if(getThis() != NULL)
+    {
+        current_object = Z_wxTextAttrBorder_P(getThis());
+
+        if(current_object->native_object == NULL)
+        {
+            zend_error(
+                E_ERROR,
+                "Failed to get the native object for "
+                "wxTextAttrBorder::RemoveStyle call\n"
+            );
+
+            return;
+        }
+        else
+        {
+            native_object = current_object->native_object;
+            current_object_type = current_object->object_type;
+
+            bool reference_type_found = false;
+
+            if(current_object_type == PHP_WXTEXTATTRBORDER_TYPE){
+                references = &((wxTextAttrBorder_php*)native_object)->references;
+                reference_type_found = true;
+            }
+        }
+    }
+    #ifdef USE_WXPHP_DEBUG
+    else
+    {
+        php_printf("Processing the method call as static\n");
+    }
+    #endif
+
+    //Parameters for overload 0
+    zval* attr0;
+    wxTextAttrBorder* object_pointer0_0 = 0;
+    bool overload0_called = false;
+
+    
+    //Overload 0
+    overload0:
+    if(!already_called && arguments_received == 1)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Parameters received %d\n", arguments_received);
+        php_printf("Parsing parameters with 'O' (&attr0, php_wxTextAttrBorder_entry)\n");
+        #endif
+
+        char parse_parameters_string[] = "O";
+        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &attr0, php_wxTextAttrBorder_entry ) == SUCCESS)
+        {
+            if(arguments_received >= 1){
+                if(Z_TYPE_P(attr0) == IS_OBJECT)
+                {
+                    wxphp_object_type argument_type = Z_wxTextAttrBorder_P(attr0)->object_type;
+                    argument_native_object = (void*) Z_wxTextAttrBorder_P(attr0)->native_object;
+                    object_pointer0_0 = (wxTextAttrBorder*) argument_native_object;
+                    if (!object_pointer0_0 )
+                    {
+                        zend_error(E_ERROR, "Parameter 'attr' could not be retreived correctly.");
+                    }
+                }
+                else if(Z_TYPE_P(attr0) != IS_NULL)
+                {
+                    zend_error(E_ERROR, "Parameter 'attr' not null, could not be retreived correctly.");
+                }
+            }
+
+            overload0_called = true;
+            already_called = true;
+        }
+    }
+
+    
+    if(overload0_called)
+    {
+        switch(arguments_received)
+        {
+            case 1:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing RETURN_BOOL(wxTextAttrBorder::RemoveStyle(*(wxTextAttrBorder*) object_pointer0_0))\n\n");
+                #endif
+
+                RETVAL_BOOL(((wxTextAttrBorder_php*)native_object)->RemoveStyle(*(wxTextAttrBorder*) object_pointer0_0));
+
+                references->AddReference(attr0, "wxTextAttrBorder::RemoveStyle at call 3 with 1 argument(s)");
+
+                return;
+                break;
+            }
+        }
+    }
+
+    
+    //In case wrong type/count of parameters was passed
+    if(!already_called)
+    {
+        zend_error(
+            E_ERROR,
+            "Wrong type or count of parameters passed to: "
+            "wxTextAttrBorder::RemoveStyle\n"
+        );
+    }
+}
+/* }}} */
+
+/* {{{ proto  wxTextAttrBorder::CollectCommonAttributes(wxTextAttrBorder attr, wxTextAttrBorder &clashingAttr, wxTextAttrBorder &absentAttr) */
+PHP_METHOD(php_wxTextAttrBorder, CollectCommonAttributes)
+{
+    #ifdef USE_WXPHP_DEBUG
+    php_printf("Invoking wxTextAttrBorder::CollectCommonAttributes\n");
+    php_printf("===========================================\n");
+    #endif
+
+    zo_wxTextAttrBorder* current_object;
+    wxphp_object_type current_object_type;
+    wxTextAttrBorder_php* native_object;
+    void* argument_native_object = NULL;
+
+    //Other variables used thru the code
+    zval dummy;
+    ZVAL_NULL(&dummy);
+    bool already_called = false;
+    wxPHPObjectReferences* references;
+    int arguments_received = ZEND_NUM_ARGS();
+    bool return_is_user_initialized = false;
+
+    //Get native object of the php object that called the method
+    if(getThis() != NULL)
+    {
+        current_object = Z_wxTextAttrBorder_P(getThis());
+
+        if(current_object->native_object == NULL)
+        {
+            zend_error(
+                E_ERROR,
+                "Failed to get the native object for "
+                "wxTextAttrBorder::CollectCommonAttributes call\n"
+            );
+
+            return;
+        }
+        else
+        {
+            native_object = current_object->native_object;
+            current_object_type = current_object->object_type;
+
+            bool reference_type_found = false;
+
+            if(current_object_type == PHP_WXTEXTATTRBORDER_TYPE){
+                references = &((wxTextAttrBorder_php*)native_object)->references;
+                reference_type_found = true;
+            }
+        }
+    }
+    #ifdef USE_WXPHP_DEBUG
+    else
+    {
+        php_printf("Processing the method call as static\n");
+    }
+    #endif
+
+    //Parameters for overload 0
+    zval* attr0;
+    wxTextAttrBorder* object_pointer0_0 = 0;
+    zval* clashingAttr0;
+    wxTextAttrBorder* object_pointer0_1 = 0;
+    zval* absentAttr0;
+    wxTextAttrBorder* object_pointer0_2 = 0;
+    bool overload0_called = false;
+
+    
+    //Overload 0
+    overload0:
+    if(!already_called && arguments_received == 3)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Parameters received %d\n", arguments_received);
+        php_printf("Parsing parameters with 'OOO' (&attr0, php_wxTextAttrBorder_entry, &clashingAttr0, php_wxTextAttrBorder_entry, &absentAttr0, php_wxTextAttrBorder_entry)\n");
+        #endif
+
+        char parse_parameters_string[] = "OOO";
+        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &attr0, php_wxTextAttrBorder_entry, &clashingAttr0, php_wxTextAttrBorder_entry, &absentAttr0, php_wxTextAttrBorder_entry ) == SUCCESS)
+        {
+            if(arguments_received >= 1){
+                if(Z_TYPE_P(attr0) == IS_OBJECT)
+                {
+                    wxphp_object_type argument_type = Z_wxTextAttrBorder_P(attr0)->object_type;
+                    argument_native_object = (void*) Z_wxTextAttrBorder_P(attr0)->native_object;
+                    object_pointer0_0 = (wxTextAttrBorder*) argument_native_object;
+                    if (!object_pointer0_0 )
+                    {
+                        zend_error(E_ERROR, "Parameter 'attr' could not be retreived correctly.");
+                    }
+                }
+                else if(Z_TYPE_P(attr0) != IS_NULL)
+                {
+                    zend_error(E_ERROR, "Parameter 'attr' not null, could not be retreived correctly.");
+                }
+            }
+
+            if(arguments_received >= 2){
+                if(Z_TYPE_P(clashingAttr0) == IS_OBJECT)
+                {
+                    wxphp_object_type argument_type = Z_wxTextAttrBorder_P(clashingAttr0)->object_type;
+                    argument_native_object = (void*) Z_wxTextAttrBorder_P(clashingAttr0)->native_object;
+                    object_pointer0_1 = (wxTextAttrBorder*) argument_native_object;
+                    if (!object_pointer0_1 )
+                    {
+                        zend_error(E_ERROR, "Parameter 'clashingAttr' could not be retreived correctly.");
+                    }
+                }
+                else if(Z_TYPE_P(clashingAttr0) != IS_NULL)
+                {
+                    zend_error(E_ERROR, "Parameter 'clashingAttr' not null, could not be retreived correctly.");
+                }
+            }
+
+            if(arguments_received >= 3){
+                if(Z_TYPE_P(absentAttr0) == IS_OBJECT)
+                {
+                    wxphp_object_type argument_type = Z_wxTextAttrBorder_P(absentAttr0)->object_type;
+                    argument_native_object = (void*) Z_wxTextAttrBorder_P(absentAttr0)->native_object;
+                    object_pointer0_2 = (wxTextAttrBorder*) argument_native_object;
+                    if (!object_pointer0_2 )
+                    {
+                        zend_error(E_ERROR, "Parameter 'absentAttr' could not be retreived correctly.");
+                    }
+                }
+                else if(Z_TYPE_P(absentAttr0) != IS_NULL)
+                {
+                    zend_error(E_ERROR, "Parameter 'absentAttr' not null, could not be retreived correctly.");
+                }
+            }
+
+            overload0_called = true;
+            already_called = true;
+        }
+    }
+
+    
+    if(overload0_called)
+    {
+        switch(arguments_received)
+        {
+            case 3:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing wxTextAttrBorder::CollectCommonAttributes(*(wxTextAttrBorder*) object_pointer0_0, *(wxTextAttrBorder*) object_pointer0_1, *(wxTextAttrBorder*) object_pointer0_2)\n\n");
+                #endif
+
+                ((wxTextAttrBorder_php*)native_object)->CollectCommonAttributes(*(wxTextAttrBorder*) object_pointer0_0, *(wxTextAttrBorder*) object_pointer0_1, *(wxTextAttrBorder*) object_pointer0_2);
+
+                references->AddReference(attr0, "wxTextAttrBorder::CollectCommonAttributes at call 3 with 3 argument(s)");
+                references->AddReference(clashingAttr0, "wxTextAttrBorder::CollectCommonAttributes at call 3 with 3 argument(s)");
+                references->AddReference(absentAttr0, "wxTextAttrBorder::CollectCommonAttributes at call 3 with 3 argument(s)");
+
+                return;
+                break;
+            }
+        }
+    }
+
+    
+    //In case wrong type/count of parameters was passed
+    if(!already_called)
+    {
+        zend_error(
+            E_ERROR,
+            "Wrong type or count of parameters passed to: "
+            "wxTextAttrBorder::CollectCommonAttributes\n"
+        );
+    }
+}
+/* }}} */
+
+/* {{{ proto  wxTextAttrBorder::SetStyle(int style) */
+PHP_METHOD(php_wxTextAttrBorder, SetStyle)
+{
+    #ifdef USE_WXPHP_DEBUG
+    php_printf("Invoking wxTextAttrBorder::SetStyle\n");
+    php_printf("===========================================\n");
+    #endif
+
+    zo_wxTextAttrBorder* current_object;
+    wxphp_object_type current_object_type;
+    wxTextAttrBorder_php* native_object;
+    void* argument_native_object = NULL;
+
+    //Other variables used thru the code
+    zval dummy;
+    ZVAL_NULL(&dummy);
+    bool already_called = false;
+    wxPHPObjectReferences* references;
+    int arguments_received = ZEND_NUM_ARGS();
+    bool return_is_user_initialized = false;
+
+    //Get native object of the php object that called the method
+    if(getThis() != NULL)
+    {
+        current_object = Z_wxTextAttrBorder_P(getThis());
+
+        if(current_object->native_object == NULL)
+        {
+            zend_error(
+                E_ERROR,
+                "Failed to get the native object for "
+                "wxTextAttrBorder::SetStyle call\n"
+            );
+
+            return;
+        }
+        else
+        {
+            native_object = current_object->native_object;
+            current_object_type = current_object->object_type;
+
+            bool reference_type_found = false;
+
+            if(current_object_type == PHP_WXTEXTATTRBORDER_TYPE){
+                references = &((wxTextAttrBorder_php*)native_object)->references;
+                reference_type_found = true;
+            }
+        }
+    }
+    #ifdef USE_WXPHP_DEBUG
+    else
+    {
+        php_printf("Processing the method call as static\n");
+    }
+    #endif
+
+    //Parameters for overload 0
+    long style0;
+    bool overload0_called = false;
+
+    
+    //Overload 0
+    overload0:
+    if(!already_called && arguments_received == 1)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Parameters received %d\n", arguments_received);
+        php_printf("Parsing parameters with 'l' (&style0)\n");
+        #endif
+
+        char parse_parameters_string[] = "l";
+        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &style0 ) == SUCCESS)
+        {
+            overload0_called = true;
+            already_called = true;
+        }
+    }
+
+    
+    if(overload0_called)
+    {
+        switch(arguments_received)
+        {
+            case 1:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing wxTextAttrBorder::SetStyle((int) style0)\n\n");
+                #endif
+
+                ((wxTextAttrBorder_php*)native_object)->SetStyle((int) style0);
+
+
+                return;
+                break;
+            }
+        }
+    }
+
+    
+    //In case wrong type/count of parameters was passed
+    if(!already_called)
+    {
+        zend_error(
+            E_ERROR,
+            "Wrong type or count of parameters passed to: "
+            "wxTextAttrBorder::SetStyle\n"
+        );
+    }
+}
+/* }}} */
+
+/* {{{ proto int wxTextAttrBorder::GetStyle() */
+PHP_METHOD(php_wxTextAttrBorder, GetStyle)
+{
+    #ifdef USE_WXPHP_DEBUG
+    php_printf("Invoking wxTextAttrBorder::GetStyle\n");
+    php_printf("===========================================\n");
+    #endif
+
+    zo_wxTextAttrBorder* current_object;
+    wxphp_object_type current_object_type;
+    wxTextAttrBorder_php* native_object;
+    void* argument_native_object = NULL;
+
+    //Other variables used thru the code
+    zval dummy;
+    ZVAL_NULL(&dummy);
+    bool already_called = false;
+    wxPHPObjectReferences* references;
+    int arguments_received = ZEND_NUM_ARGS();
+    bool return_is_user_initialized = false;
+
+    //Get native object of the php object that called the method
+    if(getThis() != NULL)
+    {
+        current_object = Z_wxTextAttrBorder_P(getThis());
+
+        if(current_object->native_object == NULL)
+        {
+            zend_error(
+                E_ERROR,
+                "Failed to get the native object for "
+                "wxTextAttrBorder::GetStyle call\n"
+            );
+
+            return;
+        }
+        else
+        {
+            native_object = current_object->native_object;
+            current_object_type = current_object->object_type;
+
+            bool reference_type_found = false;
+
+            if(current_object_type == PHP_WXTEXTATTRBORDER_TYPE){
+                references = &((wxTextAttrBorder_php*)native_object)->references;
+                reference_type_found = true;
+            }
+        }
+    }
+    #ifdef USE_WXPHP_DEBUG
+    else
+    {
+        php_printf("Processing the method call as static\n");
+    }
+    #endif
+
+    //Parameters for overload 0
+    bool overload0_called = false;
+
+    
+    //Overload 0
+    overload0:
+    if(!already_called && arguments_received == 0)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Parameters received %d\n", arguments_received);
+        php_printf("Parsing parameters with '' ()\n");
+        #endif
+
+        overload0_called = true;
+        already_called = true;
+    }
+
+    
+    if(overload0_called)
+    {
+        switch(arguments_received)
+        {
+            case 0:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing RETURN_LONG(wxTextAttrBorder::GetStyle())\n\n");
+                #endif
+
+                RETVAL_LONG(((wxTextAttrBorder_php*)native_object)->GetStyle());
+
+
+                return;
+                break;
+            }
+        }
+    }
+
+    
+    //In case wrong type/count of parameters was passed
+    if(!already_called)
+    {
+        zend_error(
+            E_ERROR,
+            "Wrong type or count of parameters passed to: "
+            "wxTextAttrBorder::GetStyle\n"
+        );
+    }
+}
+/* }}} */
+
+/* {{{ proto  wxTextAttrBorder::SetColour(int colour) */
+PHP_METHOD(php_wxTextAttrBorder, SetColour)
+{
+    #ifdef USE_WXPHP_DEBUG
+    php_printf("Invoking wxTextAttrBorder::SetColour\n");
+    php_printf("===========================================\n");
+    #endif
+
+    zo_wxTextAttrBorder* current_object;
+    wxphp_object_type current_object_type;
+    wxTextAttrBorder_php* native_object;
+    void* argument_native_object = NULL;
+
+    //Other variables used thru the code
+    zval dummy;
+    ZVAL_NULL(&dummy);
+    bool already_called = false;
+    wxPHPObjectReferences* references;
+    int arguments_received = ZEND_NUM_ARGS();
+    bool return_is_user_initialized = false;
+
+    //Get native object of the php object that called the method
+    if(getThis() != NULL)
+    {
+        current_object = Z_wxTextAttrBorder_P(getThis());
+
+        if(current_object->native_object == NULL)
+        {
+            zend_error(
+                E_ERROR,
+                "Failed to get the native object for "
+                "wxTextAttrBorder::SetColour call\n"
+            );
+
+            return;
+        }
+        else
+        {
+            native_object = current_object->native_object;
+            current_object_type = current_object->object_type;
+
+            bool reference_type_found = false;
+
+            if(current_object_type == PHP_WXTEXTATTRBORDER_TYPE){
+                references = &((wxTextAttrBorder_php*)native_object)->references;
+                reference_type_found = true;
+            }
+        }
+    }
+    #ifdef USE_WXPHP_DEBUG
+    else
+    {
+        php_printf("Processing the method call as static\n");
+    }
+    #endif
+
+    //Parameters for overload 0
+    long colour0;
+    bool overload0_called = false;
+
+    //Parameters for overload 1
+    zval* colour1;
+    wxColour* object_pointer1_0 = 0;
+    bool overload1_called = false;
+
+    
+    //Overload 0
+    overload0:
+    if(!already_called && arguments_received == 1)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Parameters received %d\n", arguments_received);
+        php_printf("Parsing parameters with 'l' (&colour0)\n");
+        #endif
+
+        char parse_parameters_string[] = "l";
+        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &colour0 ) == SUCCESS)
+        {
+            overload0_called = true;
+            already_called = true;
+        }
+    }
+
+    //Overload 1
+    overload1:
+    if(!already_called && arguments_received == 1)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Parameters received %d\n", arguments_received);
+        php_printf("Parsing parameters with 'O' (&colour1, php_wxColour_entry)\n");
+        #endif
+
+        char parse_parameters_string[] = "O";
+        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &colour1, php_wxColour_entry ) == SUCCESS)
+        {
+            if(arguments_received >= 1){
+                if(Z_TYPE_P(colour1) == IS_OBJECT)
+                {
+                    wxphp_object_type argument_type = Z_wxColour_P(colour1)->object_type;
+                    argument_native_object = (void*) Z_wxColour_P(colour1)->native_object;
+                    object_pointer1_0 = (wxColour*) argument_native_object;
+                    if (!object_pointer1_0 )
+                    {
+                        zend_error(E_ERROR, "Parameter 'colour' could not be retreived correctly.");
+                    }
+                }
+                else if(Z_TYPE_P(colour1) != IS_NULL)
+                {
+                    zend_error(E_ERROR, "Parameter 'colour' not null, could not be retreived correctly.");
+                }
+            }
+
+            overload1_called = true;
+            already_called = true;
+        }
+    }
+
+    
+    if(overload0_called)
+    {
+        switch(arguments_received)
+        {
+            case 1:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing wxTextAttrBorder::SetColour((unsigned long) colour0)\n\n");
+                #endif
+
+                ((wxTextAttrBorder_php*)native_object)->SetColour((unsigned long) colour0);
+
+
+                return;
+                break;
+            }
+        }
+    }
+
+    if(overload1_called)
+    {
+        switch(arguments_received)
+        {
+            case 1:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing wxTextAttrBorder::SetColour(*(wxColour*) object_pointer1_0)\n\n");
+                #endif
+
+                ((wxTextAttrBorder_php*)native_object)->SetColour(*(wxColour*) object_pointer1_0);
+
+                references->AddReference(colour1, "wxTextAttrBorder::SetColour at call 3 with 1 argument(s)");
+
+                return;
+                break;
+            }
+        }
+    }
+
+    
+    //In case wrong type/count of parameters was passed
+    if(!already_called)
+    {
+        zend_error(
+            E_ERROR,
+            "Wrong type or count of parameters passed to: "
+            "wxTextAttrBorder::SetColour\n"
+        );
+    }
+}
+/* }}} */
+
+/* {{{ proto int wxTextAttrBorder::GetColourLong() */
+PHP_METHOD(php_wxTextAttrBorder, GetColourLong)
+{
+    #ifdef USE_WXPHP_DEBUG
+    php_printf("Invoking wxTextAttrBorder::GetColourLong\n");
+    php_printf("===========================================\n");
+    #endif
+
+    zo_wxTextAttrBorder* current_object;
+    wxphp_object_type current_object_type;
+    wxTextAttrBorder_php* native_object;
+    void* argument_native_object = NULL;
+
+    //Other variables used thru the code
+    zval dummy;
+    ZVAL_NULL(&dummy);
+    bool already_called = false;
+    wxPHPObjectReferences* references;
+    int arguments_received = ZEND_NUM_ARGS();
+    bool return_is_user_initialized = false;
+
+    //Get native object of the php object that called the method
+    if(getThis() != NULL)
+    {
+        current_object = Z_wxTextAttrBorder_P(getThis());
+
+        if(current_object->native_object == NULL)
+        {
+            zend_error(
+                E_ERROR,
+                "Failed to get the native object for "
+                "wxTextAttrBorder::GetColourLong call\n"
+            );
+
+            return;
+        }
+        else
+        {
+            native_object = current_object->native_object;
+            current_object_type = current_object->object_type;
+
+            bool reference_type_found = false;
+
+            if(current_object_type == PHP_WXTEXTATTRBORDER_TYPE){
+                references = &((wxTextAttrBorder_php*)native_object)->references;
+                reference_type_found = true;
+            }
+        }
+    }
+    #ifdef USE_WXPHP_DEBUG
+    else
+    {
+        php_printf("Processing the method call as static\n");
+    }
+    #endif
+
+    //Parameters for overload 0
+    bool overload0_called = false;
+
+    
+    //Overload 0
+    overload0:
+    if(!already_called && arguments_received == 0)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Parameters received %d\n", arguments_received);
+        php_printf("Parsing parameters with '' ()\n");
+        #endif
+
+        overload0_called = true;
+        already_called = true;
+    }
+
+    
+    if(overload0_called)
+    {
+        switch(arguments_received)
+        {
+            case 0:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing RETURN_LONG(wxTextAttrBorder::GetColourLong())\n\n");
+                #endif
+
+                RETVAL_LONG(((wxTextAttrBorder_php*)native_object)->GetColourLong());
+
+
+                return;
+                break;
+            }
+        }
+    }
+
+    
+    //In case wrong type/count of parameters was passed
+    if(!already_called)
+    {
+        zend_error(
+            E_ERROR,
+            "Wrong type or count of parameters passed to: "
+            "wxTextAttrBorder::GetColourLong\n"
+        );
+    }
+}
+/* }}} */
+
+/* {{{ proto wxColour wxTextAttrBorder::GetColour() */
+PHP_METHOD(php_wxTextAttrBorder, GetColour)
+{
+    #ifdef USE_WXPHP_DEBUG
+    php_printf("Invoking wxTextAttrBorder::GetColour\n");
+    php_printf("===========================================\n");
+    #endif
+
+    zo_wxTextAttrBorder* current_object;
+    wxphp_object_type current_object_type;
+    wxTextAttrBorder_php* native_object;
+    void* argument_native_object = NULL;
+
+    //Other variables used thru the code
+    zval dummy;
+    ZVAL_NULL(&dummy);
+    bool already_called = false;
+    wxPHPObjectReferences* references;
+    int arguments_received = ZEND_NUM_ARGS();
+    bool return_is_user_initialized = false;
+
+    //Get native object of the php object that called the method
+    if(getThis() != NULL)
+    {
+        current_object = Z_wxTextAttrBorder_P(getThis());
+
+        if(current_object->native_object == NULL)
+        {
+            zend_error(
+                E_ERROR,
+                "Failed to get the native object for "
+                "wxTextAttrBorder::GetColour call\n"
+            );
+
+            return;
+        }
+        else
+        {
+            native_object = current_object->native_object;
+            current_object_type = current_object->object_type;
+
+            bool reference_type_found = false;
+
+            if(current_object_type == PHP_WXTEXTATTRBORDER_TYPE){
+                references = &((wxTextAttrBorder_php*)native_object)->references;
+                reference_type_found = true;
+            }
+        }
+    }
+    #ifdef USE_WXPHP_DEBUG
+    else
+    {
+        php_printf("Processing the method call as static\n");
+    }
+    #endif
+
+    //Parameters for overload 0
+    bool overload0_called = false;
+
+    
+    //Overload 0
+    overload0:
+    if(!already_called && arguments_received == 0)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Parameters received %d\n", arguments_received);
+        php_printf("Parsing parameters with '' ()\n");
+        #endif
+
+        overload0_called = true;
+        already_called = true;
+    }
+
+    
+    if(overload0_called)
+    {
+        switch(arguments_received)
+        {
+            case 0:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing wxTextAttrBorder::GetColour() to return new object\n\n");
+                #endif
+
+                wxColour value_to_return0;
+                value_to_return0 = ((wxTextAttrBorder_php*)native_object)->GetColour();
+                ((wxRefCounter *) value_to_return0.GetRefData())->IncRef();
+                void* ptr = safe_emalloc(1, sizeof(wxColour_php), 0);
+                memcpy(ptr, (void*) &value_to_return0, sizeof(wxColour));
+                object_init_ex(return_value, php_wxColour_entry);
+                ((wxColour_php*)ptr)->phpObj = *return_value;
+                zo_wxColour* zo0 = Z_wxColour_P(return_value);
+                zo0->native_object = (wxColour_php*) ptr;
+
+
+                return;
+                break;
+            }
+        }
+    }
+
+    
+    //In case wrong type/count of parameters was passed
+    if(!already_called)
+    {
+        zend_error(
+            E_ERROR,
+            "Wrong type or count of parameters passed to: "
+            "wxTextAttrBorder::GetColour\n"
+        );
+    }
+}
+/* }}} */
+
+/* {{{ proto wxTextAttrDimension wxTextAttrBorder::GetWidth() */
+PHP_METHOD(php_wxTextAttrBorder, GetWidth)
+{
+    #ifdef USE_WXPHP_DEBUG
+    php_printf("Invoking wxTextAttrBorder::GetWidth\n");
+    php_printf("===========================================\n");
+    #endif
+
+    zo_wxTextAttrBorder* current_object;
+    wxphp_object_type current_object_type;
+    wxTextAttrBorder_php* native_object;
+    void* argument_native_object = NULL;
+
+    //Other variables used thru the code
+    zval dummy;
+    ZVAL_NULL(&dummy);
+    bool already_called = false;
+    wxPHPObjectReferences* references;
+    int arguments_received = ZEND_NUM_ARGS();
+    bool return_is_user_initialized = false;
+
+    //Get native object of the php object that called the method
+    if(getThis() != NULL)
+    {
+        current_object = Z_wxTextAttrBorder_P(getThis());
+
+        if(current_object->native_object == NULL)
+        {
+            zend_error(
+                E_ERROR,
+                "Failed to get the native object for "
+                "wxTextAttrBorder::GetWidth call\n"
+            );
+
+            return;
+        }
+        else
+        {
+            native_object = current_object->native_object;
+            current_object_type = current_object->object_type;
+
+            bool reference_type_found = false;
+
+            if(current_object_type == PHP_WXTEXTATTRBORDER_TYPE){
+                references = &((wxTextAttrBorder_php*)native_object)->references;
+                reference_type_found = true;
+            }
+        }
+    }
+    #ifdef USE_WXPHP_DEBUG
+    else
+    {
+        php_printf("Processing the method call as static\n");
+    }
+    #endif
+
+    //Parameters for overload 0
+    bool overload0_called = false;
+
+    //Parameters for overload 1
+    bool overload1_called = false;
+
+    
+    //Overload 0
+    overload0:
+    if(!already_called && arguments_received == 0)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Parameters received %d\n", arguments_received);
+        php_printf("Parsing parameters with '' ()\n");
+        #endif
+
+        overload0_called = true;
+        already_called = true;
+    }
+
+    //Overload 1
+    overload1:
+    if(!already_called && arguments_received == 0)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Parameters received %d\n", arguments_received);
+        php_printf("Parsing parameters with '' ()\n");
+        #endif
+
+        overload1_called = true;
+        already_called = true;
+    }
+
+    
+    if(overload0_called)
+    {
+        switch(arguments_received)
+        {
+            case 0:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing wxTextAttrBorder::GetWidth() to return object reference\n\n");
+                #endif
+
+                wxTextAttrDimension_php* value_to_return0;
+                value_to_return0 = (wxTextAttrDimension_php*) &((wxTextAttrBorder_php*)native_object)->GetWidth();
+
+                if(value_to_return0->references.IsUserInitialized()){
+                    if(!Z_ISNULL(value_to_return0->phpObj)){
+                        ZVAL_COPY_VALUE(return_value, &value_to_return0->phpObj);
+                        zval_add_ref(&value_to_return0->phpObj);
+                        return_is_user_initialized = true;
+                    }
+                    else{
+                        zend_error(E_ERROR, "Could not retreive original zval.");
+                    }
+                }
+                else{
+                    object_init_ex(return_value,php_wxTextAttrDimension_entry);
+                    Z_wxTextAttrDimension_P(return_value)->native_object = (wxTextAttrDimension_php*) value_to_return0;
+                }
+
+                if((void*)value_to_return0 != (void*)native_object && return_is_user_initialized){ //Prevent adding references to it self
+                    references->AddReference(return_value, "wxTextAttrBorder::GetWidth at call 6 with 0 argument(s)");
+                }
+
+
+                return;
+                break;
+            }
+        }
+    }
+
+    if(overload1_called)
+    {
+        switch(arguments_received)
+        {
+            case 0:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing wxTextAttrBorder::GetWidth() to return object reference\n\n");
+                #endif
+
+                wxTextAttrDimension_php* value_to_return0;
+                value_to_return0 = (wxTextAttrDimension_php*) &((wxTextAttrBorder_php*)native_object)->GetWidth();
+
+                if(value_to_return0->references.IsUserInitialized()){
+                    if(!Z_ISNULL(value_to_return0->phpObj)){
+                        ZVAL_COPY_VALUE(return_value, &value_to_return0->phpObj);
+                        zval_add_ref(&value_to_return0->phpObj);
+                        return_is_user_initialized = true;
+                    }
+                    else{
+                        zend_error(E_ERROR, "Could not retreive original zval.");
+                    }
+                }
+                else{
+                    object_init_ex(return_value,php_wxTextAttrDimension_entry);
+                    Z_wxTextAttrDimension_P(return_value)->native_object = (wxTextAttrDimension_php*) value_to_return0;
+                }
+
+                if((void*)value_to_return0 != (void*)native_object && return_is_user_initialized){ //Prevent adding references to it self
+                    references->AddReference(return_value, "wxTextAttrBorder::GetWidth at call 6 with 0 argument(s)");
+                }
+
+
+                return;
+                break;
+            }
+        }
+    }
+
+    
+    //In case wrong type/count of parameters was passed
+    if(!already_called)
+    {
+        zend_error(
+            E_ERROR,
+            "Wrong type or count of parameters passed to: "
+            "wxTextAttrBorder::GetWidth\n"
+        );
+    }
+}
+/* }}} */
+
+/* {{{ proto  wxTextAttrBorder::SetWidth(wxTextAttrDimension width) */
+PHP_METHOD(php_wxTextAttrBorder, SetWidth)
+{
+    #ifdef USE_WXPHP_DEBUG
+    php_printf("Invoking wxTextAttrBorder::SetWidth\n");
+    php_printf("===========================================\n");
+    #endif
+
+    zo_wxTextAttrBorder* current_object;
+    wxphp_object_type current_object_type;
+    wxTextAttrBorder_php* native_object;
+    void* argument_native_object = NULL;
+
+    //Other variables used thru the code
+    zval dummy;
+    ZVAL_NULL(&dummy);
+    bool already_called = false;
+    wxPHPObjectReferences* references;
+    int arguments_received = ZEND_NUM_ARGS();
+    bool return_is_user_initialized = false;
+
+    //Get native object of the php object that called the method
+    if(getThis() != NULL)
+    {
+        current_object = Z_wxTextAttrBorder_P(getThis());
+
+        if(current_object->native_object == NULL)
+        {
+            zend_error(
+                E_ERROR,
+                "Failed to get the native object for "
+                "wxTextAttrBorder::SetWidth call\n"
+            );
+
+            return;
+        }
+        else
+        {
+            native_object = current_object->native_object;
+            current_object_type = current_object->object_type;
+
+            bool reference_type_found = false;
+
+            if(current_object_type == PHP_WXTEXTATTRBORDER_TYPE){
+                references = &((wxTextAttrBorder_php*)native_object)->references;
+                reference_type_found = true;
+            }
+        }
+    }
+    #ifdef USE_WXPHP_DEBUG
+    else
+    {
+        php_printf("Processing the method call as static\n");
+    }
+    #endif
+
+    //Parameters for overload 0
+    zval* width0;
+    wxTextAttrDimension* object_pointer0_0 = 0;
+    bool overload0_called = false;
+
+    //Parameters for overload 1
+    long value1;
+    long units1;
+    bool overload1_called = false;
+
+    
+    //Overload 0
+    overload0:
+    if(!already_called && arguments_received == 1)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Parameters received %d\n", arguments_received);
+        php_printf("Parsing parameters with 'O' (&width0, php_wxTextAttrDimension_entry)\n");
+        #endif
+
+        char parse_parameters_string[] = "O";
+        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &width0, php_wxTextAttrDimension_entry ) == SUCCESS)
+        {
+            if(arguments_received >= 1){
+                if(Z_TYPE_P(width0) == IS_OBJECT)
+                {
+                    wxphp_object_type argument_type = Z_wxTextAttrDimension_P(width0)->object_type;
+                    argument_native_object = (void*) Z_wxTextAttrDimension_P(width0)->native_object;
+                    object_pointer0_0 = (wxTextAttrDimension*) argument_native_object;
+                    if (!object_pointer0_0 )
+                    {
+                        goto overload1;
+                    }
+                }
+                else if(Z_TYPE_P(width0) != IS_NULL)
+                {
+                    goto overload1;
+                }
+            }
+
+            overload0_called = true;
+            already_called = true;
+        }
+    }
+
+    //Overload 1
+    overload1:
+    if(!already_called && arguments_received >= 1  && arguments_received <= 2)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Parameters received %d\n", arguments_received);
+        php_printf("Parsing parameters with 'l|l' (&value1, &units1)\n");
+        #endif
+
+        char parse_parameters_string[] = "l|l";
+        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &value1, &units1 ) == SUCCESS)
+        {
+            overload1_called = true;
+            already_called = true;
+        }
+    }
+
+    
+    if(overload0_called)
+    {
+        switch(arguments_received)
+        {
+            case 1:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing wxTextAttrBorder::SetWidth(*(wxTextAttrDimension*) object_pointer0_0)\n\n");
+                #endif
+
+                ((wxTextAttrBorder_php*)native_object)->SetWidth(*(wxTextAttrDimension*) object_pointer0_0);
+
+                references->AddReference(width0, "wxTextAttrBorder::SetWidth at call 3 with 1 argument(s)");
+
+                return;
+                break;
+            }
+        }
+    }
+
+    if(overload1_called)
+    {
+        switch(arguments_received)
+        {
+            case 1:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing wxTextAttrBorder::SetWidth((int) value1)\n\n");
+                #endif
+
+                ((wxTextAttrBorder_php*)native_object)->SetWidth((int) value1);
+
+
+                return;
+                break;
+            }
+            case 2:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing wxTextAttrBorder::SetWidth((int) value1, (wxTextAttrUnits) units1)\n\n");
+                #endif
+
+                ((wxTextAttrBorder_php*)native_object)->SetWidth((int) value1, (wxTextAttrUnits) units1);
+
+
+                return;
+                break;
+            }
+        }
+    }
+
+    
+    //In case wrong type/count of parameters was passed
+    if(!already_called)
+    {
+        zend_error(
+            E_ERROR,
+            "Wrong type or count of parameters passed to: "
+            "wxTextAttrBorder::SetWidth\n"
+        );
+    }
+}
+/* }}} */
+
+/* {{{ proto bool wxTextAttrBorder::HasStyle() */
+PHP_METHOD(php_wxTextAttrBorder, HasStyle)
+{
+    #ifdef USE_WXPHP_DEBUG
+    php_printf("Invoking wxTextAttrBorder::HasStyle\n");
+    php_printf("===========================================\n");
+    #endif
+
+    zo_wxTextAttrBorder* current_object;
+    wxphp_object_type current_object_type;
+    wxTextAttrBorder_php* native_object;
+    void* argument_native_object = NULL;
+
+    //Other variables used thru the code
+    zval dummy;
+    ZVAL_NULL(&dummy);
+    bool already_called = false;
+    wxPHPObjectReferences* references;
+    int arguments_received = ZEND_NUM_ARGS();
+    bool return_is_user_initialized = false;
+
+    //Get native object of the php object that called the method
+    if(getThis() != NULL)
+    {
+        current_object = Z_wxTextAttrBorder_P(getThis());
+
+        if(current_object->native_object == NULL)
+        {
+            zend_error(
+                E_ERROR,
+                "Failed to get the native object for "
+                "wxTextAttrBorder::HasStyle call\n"
+            );
+
+            return;
+        }
+        else
+        {
+            native_object = current_object->native_object;
+            current_object_type = current_object->object_type;
+
+            bool reference_type_found = false;
+
+            if(current_object_type == PHP_WXTEXTATTRBORDER_TYPE){
+                references = &((wxTextAttrBorder_php*)native_object)->references;
+                reference_type_found = true;
+            }
+        }
+    }
+    #ifdef USE_WXPHP_DEBUG
+    else
+    {
+        php_printf("Processing the method call as static\n");
+    }
+    #endif
+
+    //Parameters for overload 0
+    bool overload0_called = false;
+
+    
+    //Overload 0
+    overload0:
+    if(!already_called && arguments_received == 0)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Parameters received %d\n", arguments_received);
+        php_printf("Parsing parameters with '' ()\n");
+        #endif
+
+        overload0_called = true;
+        already_called = true;
+    }
+
+    
+    if(overload0_called)
+    {
+        switch(arguments_received)
+        {
+            case 0:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing RETURN_BOOL(wxTextAttrBorder::HasStyle())\n\n");
+                #endif
+
+                RETVAL_BOOL(((wxTextAttrBorder_php*)native_object)->HasStyle());
+
+
+                return;
+                break;
+            }
+        }
+    }
+
+    
+    //In case wrong type/count of parameters was passed
+    if(!already_called)
+    {
+        zend_error(
+            E_ERROR,
+            "Wrong type or count of parameters passed to: "
+            "wxTextAttrBorder::HasStyle\n"
+        );
+    }
+}
+/* }}} */
+
+/* {{{ proto bool wxTextAttrBorder::HasColour() */
+PHP_METHOD(php_wxTextAttrBorder, HasColour)
+{
+    #ifdef USE_WXPHP_DEBUG
+    php_printf("Invoking wxTextAttrBorder::HasColour\n");
+    php_printf("===========================================\n");
+    #endif
+
+    zo_wxTextAttrBorder* current_object;
+    wxphp_object_type current_object_type;
+    wxTextAttrBorder_php* native_object;
+    void* argument_native_object = NULL;
+
+    //Other variables used thru the code
+    zval dummy;
+    ZVAL_NULL(&dummy);
+    bool already_called = false;
+    wxPHPObjectReferences* references;
+    int arguments_received = ZEND_NUM_ARGS();
+    bool return_is_user_initialized = false;
+
+    //Get native object of the php object that called the method
+    if(getThis() != NULL)
+    {
+        current_object = Z_wxTextAttrBorder_P(getThis());
+
+        if(current_object->native_object == NULL)
+        {
+            zend_error(
+                E_ERROR,
+                "Failed to get the native object for "
+                "wxTextAttrBorder::HasColour call\n"
+            );
+
+            return;
+        }
+        else
+        {
+            native_object = current_object->native_object;
+            current_object_type = current_object->object_type;
+
+            bool reference_type_found = false;
+
+            if(current_object_type == PHP_WXTEXTATTRBORDER_TYPE){
+                references = &((wxTextAttrBorder_php*)native_object)->references;
+                reference_type_found = true;
+            }
+        }
+    }
+    #ifdef USE_WXPHP_DEBUG
+    else
+    {
+        php_printf("Processing the method call as static\n");
+    }
+    #endif
+
+    //Parameters for overload 0
+    bool overload0_called = false;
+
+    
+    //Overload 0
+    overload0:
+    if(!already_called && arguments_received == 0)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Parameters received %d\n", arguments_received);
+        php_printf("Parsing parameters with '' ()\n");
+        #endif
+
+        overload0_called = true;
+        already_called = true;
+    }
+
+    
+    if(overload0_called)
+    {
+        switch(arguments_received)
+        {
+            case 0:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing RETURN_BOOL(wxTextAttrBorder::HasColour())\n\n");
+                #endif
+
+                RETVAL_BOOL(((wxTextAttrBorder_php*)native_object)->HasColour());
+
+
+                return;
+                break;
+            }
+        }
+    }
+
+    
+    //In case wrong type/count of parameters was passed
+    if(!already_called)
+    {
+        zend_error(
+            E_ERROR,
+            "Wrong type or count of parameters passed to: "
+            "wxTextAttrBorder::HasColour\n"
+        );
+    }
+}
+/* }}} */
+
+/* {{{ proto bool wxTextAttrBorder::HasWidth() */
+PHP_METHOD(php_wxTextAttrBorder, HasWidth)
+{
+    #ifdef USE_WXPHP_DEBUG
+    php_printf("Invoking wxTextAttrBorder::HasWidth\n");
+    php_printf("===========================================\n");
+    #endif
+
+    zo_wxTextAttrBorder* current_object;
+    wxphp_object_type current_object_type;
+    wxTextAttrBorder_php* native_object;
+    void* argument_native_object = NULL;
+
+    //Other variables used thru the code
+    zval dummy;
+    ZVAL_NULL(&dummy);
+    bool already_called = false;
+    wxPHPObjectReferences* references;
+    int arguments_received = ZEND_NUM_ARGS();
+    bool return_is_user_initialized = false;
+
+    //Get native object of the php object that called the method
+    if(getThis() != NULL)
+    {
+        current_object = Z_wxTextAttrBorder_P(getThis());
+
+        if(current_object->native_object == NULL)
+        {
+            zend_error(
+                E_ERROR,
+                "Failed to get the native object for "
+                "wxTextAttrBorder::HasWidth call\n"
+            );
+
+            return;
+        }
+        else
+        {
+            native_object = current_object->native_object;
+            current_object_type = current_object->object_type;
+
+            bool reference_type_found = false;
+
+            if(current_object_type == PHP_WXTEXTATTRBORDER_TYPE){
+                references = &((wxTextAttrBorder_php*)native_object)->references;
+                reference_type_found = true;
+            }
+        }
+    }
+    #ifdef USE_WXPHP_DEBUG
+    else
+    {
+        php_printf("Processing the method call as static\n");
+    }
+    #endif
+
+    //Parameters for overload 0
+    bool overload0_called = false;
+
+    
+    //Overload 0
+    overload0:
+    if(!already_called && arguments_received == 0)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Parameters received %d\n", arguments_received);
+        php_printf("Parsing parameters with '' ()\n");
+        #endif
+
+        overload0_called = true;
+        already_called = true;
+    }
+
+    
+    if(overload0_called)
+    {
+        switch(arguments_received)
+        {
+            case 0:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing RETURN_BOOL(wxTextAttrBorder::HasWidth())\n\n");
+                #endif
+
+                RETVAL_BOOL(((wxTextAttrBorder_php*)native_object)->HasWidth());
+
+
+                return;
+                break;
+            }
+        }
+    }
+
+    
+    //In case wrong type/count of parameters was passed
+    if(!already_called)
+    {
+        zend_error(
+            E_ERROR,
+            "Wrong type or count of parameters passed to: "
+            "wxTextAttrBorder::HasWidth\n"
+        );
+    }
+}
+/* }}} */
+
+/* {{{ proto bool wxTextAttrBorder::IsValid() */
+PHP_METHOD(php_wxTextAttrBorder, IsValid)
+{
+    #ifdef USE_WXPHP_DEBUG
+    php_printf("Invoking wxTextAttrBorder::IsValid\n");
+    php_printf("===========================================\n");
+    #endif
+
+    zo_wxTextAttrBorder* current_object;
+    wxphp_object_type current_object_type;
+    wxTextAttrBorder_php* native_object;
+    void* argument_native_object = NULL;
+
+    //Other variables used thru the code
+    zval dummy;
+    ZVAL_NULL(&dummy);
+    bool already_called = false;
+    wxPHPObjectReferences* references;
+    int arguments_received = ZEND_NUM_ARGS();
+    bool return_is_user_initialized = false;
+
+    //Get native object of the php object that called the method
+    if(getThis() != NULL)
+    {
+        current_object = Z_wxTextAttrBorder_P(getThis());
+
+        if(current_object->native_object == NULL)
+        {
+            zend_error(
+                E_ERROR,
+                "Failed to get the native object for "
+                "wxTextAttrBorder::IsValid call\n"
+            );
+
+            return;
+        }
+        else
+        {
+            native_object = current_object->native_object;
+            current_object_type = current_object->object_type;
+
+            bool reference_type_found = false;
+
+            if(current_object_type == PHP_WXTEXTATTRBORDER_TYPE){
+                references = &((wxTextAttrBorder_php*)native_object)->references;
+                reference_type_found = true;
+            }
+        }
+    }
+    #ifdef USE_WXPHP_DEBUG
+    else
+    {
+        php_printf("Processing the method call as static\n");
+    }
+    #endif
+
+    //Parameters for overload 0
+    bool overload0_called = false;
+
+    
+    //Overload 0
+    overload0:
+    if(!already_called && arguments_received == 0)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Parameters received %d\n", arguments_received);
+        php_printf("Parsing parameters with '' ()\n");
+        #endif
+
+        overload0_called = true;
+        already_called = true;
+    }
+
+    
+    if(overload0_called)
+    {
+        switch(arguments_received)
+        {
+            case 0:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing RETURN_BOOL(wxTextAttrBorder::IsValid())\n\n");
+                #endif
+
+                RETVAL_BOOL(((wxTextAttrBorder_php*)native_object)->IsValid());
+
+
+                return;
+                break;
+            }
+        }
+    }
+
+    
+    //In case wrong type/count of parameters was passed
+    if(!already_called)
+    {
+        zend_error(
+            E_ERROR,
+            "Wrong type or count of parameters passed to: "
+            "wxTextAttrBorder::IsValid\n"
+        );
+    }
+}
+/* }}} */
+
+/* {{{ proto bool wxTextAttrBorder::IsDefault() */
+PHP_METHOD(php_wxTextAttrBorder, IsDefault)
+{
+    #ifdef USE_WXPHP_DEBUG
+    php_printf("Invoking wxTextAttrBorder::IsDefault\n");
+    php_printf("===========================================\n");
+    #endif
+
+    zo_wxTextAttrBorder* current_object;
+    wxphp_object_type current_object_type;
+    wxTextAttrBorder_php* native_object;
+    void* argument_native_object = NULL;
+
+    //Other variables used thru the code
+    zval dummy;
+    ZVAL_NULL(&dummy);
+    bool already_called = false;
+    wxPHPObjectReferences* references;
+    int arguments_received = ZEND_NUM_ARGS();
+    bool return_is_user_initialized = false;
+
+    //Get native object of the php object that called the method
+    if(getThis() != NULL)
+    {
+        current_object = Z_wxTextAttrBorder_P(getThis());
+
+        if(current_object->native_object == NULL)
+        {
+            zend_error(
+                E_ERROR,
+                "Failed to get the native object for "
+                "wxTextAttrBorder::IsDefault call\n"
+            );
+
+            return;
+        }
+        else
+        {
+            native_object = current_object->native_object;
+            current_object_type = current_object->object_type;
+
+            bool reference_type_found = false;
+
+            if(current_object_type == PHP_WXTEXTATTRBORDER_TYPE){
+                references = &((wxTextAttrBorder_php*)native_object)->references;
+                reference_type_found = true;
+            }
+        }
+    }
+    #ifdef USE_WXPHP_DEBUG
+    else
+    {
+        php_printf("Processing the method call as static\n");
+    }
+    #endif
+
+    //Parameters for overload 0
+    bool overload0_called = false;
+
+    
+    //Overload 0
+    overload0:
+    if(!already_called && arguments_received == 0)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Parameters received %d\n", arguments_received);
+        php_printf("Parsing parameters with '' ()\n");
+        #endif
+
+        overload0_called = true;
+        already_called = true;
+    }
+
+    
+    if(overload0_called)
+    {
+        switch(arguments_received)
+        {
+            case 0:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing RETURN_BOOL(wxTextAttrBorder::IsDefault())\n\n");
+                #endif
+
+                RETVAL_BOOL(((wxTextAttrBorder_php*)native_object)->IsDefault());
+
+
+                return;
+                break;
+            }
+        }
+    }
+
+    
+    //In case wrong type/count of parameters was passed
+    if(!already_called)
+    {
+        zend_error(
+            E_ERROR,
+            "Wrong type or count of parameters passed to: "
+            "wxTextAttrBorder::IsDefault\n"
+        );
+    }
+}
+/* }}} */
+
+/* {{{ proto  wxTextAttrBorder::MakeValid() */
+PHP_METHOD(php_wxTextAttrBorder, MakeValid)
+{
+    #ifdef USE_WXPHP_DEBUG
+    php_printf("Invoking wxTextAttrBorder::MakeValid\n");
+    php_printf("===========================================\n");
+    #endif
+
+    zo_wxTextAttrBorder* current_object;
+    wxphp_object_type current_object_type;
+    wxTextAttrBorder_php* native_object;
+    void* argument_native_object = NULL;
+
+    //Other variables used thru the code
+    zval dummy;
+    ZVAL_NULL(&dummy);
+    bool already_called = false;
+    wxPHPObjectReferences* references;
+    int arguments_received = ZEND_NUM_ARGS();
+    bool return_is_user_initialized = false;
+
+    //Get native object of the php object that called the method
+    if(getThis() != NULL)
+    {
+        current_object = Z_wxTextAttrBorder_P(getThis());
+
+        if(current_object->native_object == NULL)
+        {
+            zend_error(
+                E_ERROR,
+                "Failed to get the native object for "
+                "wxTextAttrBorder::MakeValid call\n"
+            );
+
+            return;
+        }
+        else
+        {
+            native_object = current_object->native_object;
+            current_object_type = current_object->object_type;
+
+            bool reference_type_found = false;
+
+            if(current_object_type == PHP_WXTEXTATTRBORDER_TYPE){
+                references = &((wxTextAttrBorder_php*)native_object)->references;
+                reference_type_found = true;
+            }
+        }
+    }
+    #ifdef USE_WXPHP_DEBUG
+    else
+    {
+        php_printf("Processing the method call as static\n");
+    }
+    #endif
+
+    //Parameters for overload 0
+    bool overload0_called = false;
+
+    
+    //Overload 0
+    overload0:
+    if(!already_called && arguments_received == 0)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Parameters received %d\n", arguments_received);
+        php_printf("Parsing parameters with '' ()\n");
+        #endif
+
+        overload0_called = true;
+        already_called = true;
+    }
+
+    
+    if(overload0_called)
+    {
+        switch(arguments_received)
+        {
+            case 0:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing wxTextAttrBorder::MakeValid()\n\n");
+                #endif
+
+                ((wxTextAttrBorder_php*)native_object)->MakeValid();
+
+
+                return;
+                break;
+            }
+        }
+    }
+
+    
+    //In case wrong type/count of parameters was passed
+    if(!already_called)
+    {
+        zend_error(
+            E_ERROR,
+            "Wrong type or count of parameters passed to: "
+            "wxTextAttrBorder::MakeValid\n"
+        );
+    }
+}
+/* }}} */
+
+/* {{{ proto int wxTextAttrBorder::GetFlags() */
+PHP_METHOD(php_wxTextAttrBorder, GetFlags)
+{
+    #ifdef USE_WXPHP_DEBUG
+    php_printf("Invoking wxTextAttrBorder::GetFlags\n");
+    php_printf("===========================================\n");
+    #endif
+
+    zo_wxTextAttrBorder* current_object;
+    wxphp_object_type current_object_type;
+    wxTextAttrBorder_php* native_object;
+    void* argument_native_object = NULL;
+
+    //Other variables used thru the code
+    zval dummy;
+    ZVAL_NULL(&dummy);
+    bool already_called = false;
+    wxPHPObjectReferences* references;
+    int arguments_received = ZEND_NUM_ARGS();
+    bool return_is_user_initialized = false;
+
+    //Get native object of the php object that called the method
+    if(getThis() != NULL)
+    {
+        current_object = Z_wxTextAttrBorder_P(getThis());
+
+        if(current_object->native_object == NULL)
+        {
+            zend_error(
+                E_ERROR,
+                "Failed to get the native object for "
+                "wxTextAttrBorder::GetFlags call\n"
+            );
+
+            return;
+        }
+        else
+        {
+            native_object = current_object->native_object;
+            current_object_type = current_object->object_type;
+
+            bool reference_type_found = false;
+
+            if(current_object_type == PHP_WXTEXTATTRBORDER_TYPE){
+                references = &((wxTextAttrBorder_php*)native_object)->references;
+                reference_type_found = true;
+            }
+        }
+    }
+    #ifdef USE_WXPHP_DEBUG
+    else
+    {
+        php_printf("Processing the method call as static\n");
+    }
+    #endif
+
+    //Parameters for overload 0
+    bool overload0_called = false;
+
+    
+    //Overload 0
+    overload0:
+    if(!already_called && arguments_received == 0)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Parameters received %d\n", arguments_received);
+        php_printf("Parsing parameters with '' ()\n");
+        #endif
+
+        overload0_called = true;
+        already_called = true;
+    }
+
+    
+    if(overload0_called)
+    {
+        switch(arguments_received)
+        {
+            case 0:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing RETURN_LONG(wxTextAttrBorder::GetFlags())\n\n");
+                #endif
+
+                RETVAL_LONG(((wxTextAttrBorder_php*)native_object)->GetFlags());
+
+
+                return;
+                break;
+            }
+        }
+    }
+
+    
+    //In case wrong type/count of parameters was passed
+    if(!already_called)
+    {
+        zend_error(
+            E_ERROR,
+            "Wrong type or count of parameters passed to: "
+            "wxTextAttrBorder::GetFlags\n"
+        );
+    }
+}
+/* }}} */
+
+/* {{{ proto  wxTextAttrBorder::SetFlags(int flags) */
+PHP_METHOD(php_wxTextAttrBorder, SetFlags)
+{
+    #ifdef USE_WXPHP_DEBUG
+    php_printf("Invoking wxTextAttrBorder::SetFlags\n");
+    php_printf("===========================================\n");
+    #endif
+
+    zo_wxTextAttrBorder* current_object;
+    wxphp_object_type current_object_type;
+    wxTextAttrBorder_php* native_object;
+    void* argument_native_object = NULL;
+
+    //Other variables used thru the code
+    zval dummy;
+    ZVAL_NULL(&dummy);
+    bool already_called = false;
+    wxPHPObjectReferences* references;
+    int arguments_received = ZEND_NUM_ARGS();
+    bool return_is_user_initialized = false;
+
+    //Get native object of the php object that called the method
+    if(getThis() != NULL)
+    {
+        current_object = Z_wxTextAttrBorder_P(getThis());
+
+        if(current_object->native_object == NULL)
+        {
+            zend_error(
+                E_ERROR,
+                "Failed to get the native object for "
+                "wxTextAttrBorder::SetFlags call\n"
+            );
+
+            return;
+        }
+        else
+        {
+            native_object = current_object->native_object;
+            current_object_type = current_object->object_type;
+
+            bool reference_type_found = false;
+
+            if(current_object_type == PHP_WXTEXTATTRBORDER_TYPE){
+                references = &((wxTextAttrBorder_php*)native_object)->references;
+                reference_type_found = true;
+            }
+        }
+    }
+    #ifdef USE_WXPHP_DEBUG
+    else
+    {
+        php_printf("Processing the method call as static\n");
+    }
+    #endif
+
+    //Parameters for overload 0
+    long flags0;
+    bool overload0_called = false;
+
+    
+    //Overload 0
+    overload0:
+    if(!already_called && arguments_received == 1)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Parameters received %d\n", arguments_received);
+        php_printf("Parsing parameters with 'l' (&flags0)\n");
+        #endif
+
+        char parse_parameters_string[] = "l";
+        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &flags0 ) == SUCCESS)
+        {
+            overload0_called = true;
+            already_called = true;
+        }
+    }
+
+    
+    if(overload0_called)
+    {
+        switch(arguments_received)
+        {
+            case 1:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing wxTextAttrBorder::SetFlags((int) flags0)\n\n");
+                #endif
+
+                ((wxTextAttrBorder_php*)native_object)->SetFlags((int) flags0);
+
+
+                return;
+                break;
+            }
+        }
+    }
+
+    
+    //In case wrong type/count of parameters was passed
+    if(!already_called)
+    {
+        zend_error(
+            E_ERROR,
+            "Wrong type or count of parameters passed to: "
+            "wxTextAttrBorder::SetFlags\n"
+        );
+    }
+}
+/* }}} */
+
+/* {{{ proto  wxTextAttrBorder::AddFlag(int flag) */
+PHP_METHOD(php_wxTextAttrBorder, AddFlag)
+{
+    #ifdef USE_WXPHP_DEBUG
+    php_printf("Invoking wxTextAttrBorder::AddFlag\n");
+    php_printf("===========================================\n");
+    #endif
+
+    zo_wxTextAttrBorder* current_object;
+    wxphp_object_type current_object_type;
+    wxTextAttrBorder_php* native_object;
+    void* argument_native_object = NULL;
+
+    //Other variables used thru the code
+    zval dummy;
+    ZVAL_NULL(&dummy);
+    bool already_called = false;
+    wxPHPObjectReferences* references;
+    int arguments_received = ZEND_NUM_ARGS();
+    bool return_is_user_initialized = false;
+
+    //Get native object of the php object that called the method
+    if(getThis() != NULL)
+    {
+        current_object = Z_wxTextAttrBorder_P(getThis());
+
+        if(current_object->native_object == NULL)
+        {
+            zend_error(
+                E_ERROR,
+                "Failed to get the native object for "
+                "wxTextAttrBorder::AddFlag call\n"
+            );
+
+            return;
+        }
+        else
+        {
+            native_object = current_object->native_object;
+            current_object_type = current_object->object_type;
+
+            bool reference_type_found = false;
+
+            if(current_object_type == PHP_WXTEXTATTRBORDER_TYPE){
+                references = &((wxTextAttrBorder_php*)native_object)->references;
+                reference_type_found = true;
+            }
+        }
+    }
+    #ifdef USE_WXPHP_DEBUG
+    else
+    {
+        php_printf("Processing the method call as static\n");
+    }
+    #endif
+
+    //Parameters for overload 0
+    long flag0;
+    bool overload0_called = false;
+
+    
+    //Overload 0
+    overload0:
+    if(!already_called && arguments_received == 1)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Parameters received %d\n", arguments_received);
+        php_printf("Parsing parameters with 'l' (&flag0)\n");
+        #endif
+
+        char parse_parameters_string[] = "l";
+        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &flag0 ) == SUCCESS)
+        {
+            overload0_called = true;
+            already_called = true;
+        }
+    }
+
+    
+    if(overload0_called)
+    {
+        switch(arguments_received)
+        {
+            case 1:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing wxTextAttrBorder::AddFlag((int) flag0)\n\n");
+                #endif
+
+                ((wxTextAttrBorder_php*)native_object)->AddFlag((int) flag0);
+
+
+                return;
+                break;
+            }
+        }
+    }
+
+    
+    //In case wrong type/count of parameters was passed
+    if(!already_called)
+    {
+        zend_error(
+            E_ERROR,
+            "Wrong type or count of parameters passed to: "
+            "wxTextAttrBorder::AddFlag\n"
+        );
+    }
+}
+/* }}} */
+
+/* {{{ proto  wxTextAttrBorder::RemoveFlag(int flag) */
+PHP_METHOD(php_wxTextAttrBorder, RemoveFlag)
+{
+    #ifdef USE_WXPHP_DEBUG
+    php_printf("Invoking wxTextAttrBorder::RemoveFlag\n");
+    php_printf("===========================================\n");
+    #endif
+
+    zo_wxTextAttrBorder* current_object;
+    wxphp_object_type current_object_type;
+    wxTextAttrBorder_php* native_object;
+    void* argument_native_object = NULL;
+
+    //Other variables used thru the code
+    zval dummy;
+    ZVAL_NULL(&dummy);
+    bool already_called = false;
+    wxPHPObjectReferences* references;
+    int arguments_received = ZEND_NUM_ARGS();
+    bool return_is_user_initialized = false;
+
+    //Get native object of the php object that called the method
+    if(getThis() != NULL)
+    {
+        current_object = Z_wxTextAttrBorder_P(getThis());
+
+        if(current_object->native_object == NULL)
+        {
+            zend_error(
+                E_ERROR,
+                "Failed to get the native object for "
+                "wxTextAttrBorder::RemoveFlag call\n"
+            );
+
+            return;
+        }
+        else
+        {
+            native_object = current_object->native_object;
+            current_object_type = current_object->object_type;
+
+            bool reference_type_found = false;
+
+            if(current_object_type == PHP_WXTEXTATTRBORDER_TYPE){
+                references = &((wxTextAttrBorder_php*)native_object)->references;
+                reference_type_found = true;
+            }
+        }
+    }
+    #ifdef USE_WXPHP_DEBUG
+    else
+    {
+        php_printf("Processing the method call as static\n");
+    }
+    #endif
+
+    //Parameters for overload 0
+    long flag0;
+    bool overload0_called = false;
+
+    
+    //Overload 0
+    overload0:
+    if(!already_called && arguments_received == 1)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Parameters received %d\n", arguments_received);
+        php_printf("Parsing parameters with 'l' (&flag0)\n");
+        #endif
+
+        char parse_parameters_string[] = "l";
+        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &flag0 ) == SUCCESS)
+        {
+            overload0_called = true;
+            already_called = true;
+        }
+    }
+
+    
+    if(overload0_called)
+    {
+        switch(arguments_received)
+        {
+            case 1:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing wxTextAttrBorder::RemoveFlag((int) flag0)\n\n");
+                #endif
+
+                ((wxTextAttrBorder_php*)native_object)->RemoveFlag((int) flag0);
+
+
+                return;
+                break;
+            }
+        }
+    }
+
+    
+    //In case wrong type/count of parameters was passed
+    if(!already_called)
+    {
+        zend_error(
+            E_ERROR,
+            "Wrong type or count of parameters passed to: "
+            "wxTextAttrBorder::RemoveFlag\n"
+        );
+    }
+}
+/* }}} */
+
+BEGIN_EXTERN_C()
+void php_wxTextAttrBorders_free(void *object)
+{
+    zo_wxTextAttrBorders* custom_object = (zo_wxTextAttrBorders*) object;
+
+    #ifdef USE_WXPHP_DEBUG
+    php_printf(
+        "Calling php_wxTextAttrBorders_free on %s at line %i\n",
+        zend_get_executed_filename(),
+        zend_get_executed_lineno()
+    );
+    php_printf("===========================================\n");
+    #endif
+
+    if(custom_object->native_object != NULL)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Pointer not null\n");
+        php_printf("Pointer address %x\n", (unsigned int)(size_t)custom_object->native_object);
+        #endif
+
+        if(custom_object->is_user_initialized)
+        {
+            #ifdef USE_WXPHP_DEBUG
+            php_printf("Deleting pointer with delete\n");
+            #endif
+
+            custom_object->native_object->UninitProperties();
+            delete custom_object->native_object;
+            custom_object->native_object = NULL;
+        }
+
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Deletion of wxTextAttrBorders done\n");
+        php_printf("===========================================\n\n");
+        #endif
+    }
+    else
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Not user space initialized\n");
+        #endif
+    }
+
+    zend_object_std_dtor(&custom_object->zo);
+    efree(custom_object);
+}
+
+zend_object* php_wxTextAttrBorders_new(zend_class_entry *class_type)
+{
+    #ifdef USE_WXPHP_DEBUG
+    php_printf(
+        "Calling php_wxTextAttrBorders_new on %s at line %i\n",
+        zend_get_executed_filename(),
+        zend_get_executed_lineno()
+    );
+    php_printf("===========================================\n");
+    #endif
+
+    zo_wxTextAttrBorders* custom_object;
+
+    custom_object = (zo_wxTextAttrBorders*) ecalloc(
+        1,
+        sizeof(zo_wxTextAttrBorders)
+        + zend_object_properties_size(class_type)
+    );
+
+    zend_object_std_init(&custom_object->zo, class_type);
+    object_properties_init(&custom_object->zo, class_type);
+
+    custom_object->zo.handlers = &wxphp_wxTextAttrBorders_object_handlers;
+
+    custom_object->native_object = NULL;
+    custom_object->object_type = PHP_WXTEXTATTRBORDERS_TYPE;
+    custom_object->is_user_initialized = 0;
+
+    return &custom_object->zo;
+}
+END_EXTERN_C()
+
+/* {{{ proto  wxTextAttrBorders::wxTextAttrBorders() */
+PHP_METHOD(php_wxTextAttrBorders, __construct)
+{
+    #ifdef USE_WXPHP_DEBUG
+    php_printf("Invoking wxTextAttrBorders::__construct\n");
+    php_printf("===========================================\n");
+    #endif
+
+    zo_wxTextAttrBorders* current_object;
+    wxTextAttrBorders_php* native_object;
+    void* argument_native_object = NULL;
+
+    //Other variables used thru the code
+    zval dummy;
+    ZVAL_NULL(&dummy);
+    bool already_called = false;
+    int arguments_received = ZEND_NUM_ARGS();
+
+
+    //Parameters for overload 0
+    bool overload0_called = false;
+
+    
+    //Overload 0
+    overload0:
+    if(!already_called && arguments_received == 0)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Parameters received %d\n", arguments_received);
+        php_printf("Parsing parameters with '' ()\n");
+        #endif
+
+        overload0_called = true;
+        already_called = true;
+    }
+
+    
+    if(overload0_called)
+    {
+        switch(arguments_received)
+        {
+            case 0:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing __construct()\n");
+                #endif
+
+                native_object = new wxTextAttrBorders_php();
+
+                native_object->references.Initialize();
+                break;
+            }
+        }
+    }
+
+    
+    if(already_called)
+    {
+        native_object->phpObj = *getThis();
+
+        native_object->InitProperties();
+
+        current_object = Z_wxTextAttrBorders_P(getThis());
+
+        current_object->native_object = native_object;
+
+        current_object->is_user_initialized = 1;
+    }
+    else
+    {
+        zend_error(
+            E_ERROR,
+            "Abstract class or wrong type/count of parameters "
+            "passed to: wxTextAttrBorders::__construct\n"
+        );
+    }
+
+    #ifdef USE_WXPHP_DEBUG
+        php_printf("===========================================\n\n");
+    #endif
+}
+/* }}} */
+
+PHP_METHOD(php_wxTextAttrBorders, __get)
+{
+    #ifdef USE_WXPHP_DEBUG
+    php_printf("Invoking wxTextAttrBorders::__get\n");
+    php_printf("===========================================\n");
+    #endif
+
+    int arguments_received = ZEND_NUM_ARGS();
+    zo_wxTextAttrBorders* current_object;
+    wxTextAttrBorders_php* native_object;
+
+    char* name;
+    size_t name_len;
+
+    //Get native object of the php object that called the method
+    if (getThis() != NULL)
+    {
+        current_object = Z_wxTextAttrBorders_P(getThis());
+
+        if(current_object->native_object == NULL)
+        {
+            zend_error(
+                E_ERROR,
+                "Failed to get the native object for "
+                "wxTextAttrBorders::wxTextAttrBorders call\n"
+            );
+
+            return;
+        }
+        else
+        {
+            native_object = current_object->native_object;
+        }
+    }
+    else
+    {
+        zend_error(E_ERROR, "Could not process __get call as static\n");
+    }
+
+    char parse_parameters_string[] = "s";
+
+    if(
+        zend_parse_parameters_ex(
+            ZEND_PARSE_PARAMS_QUIET,
+            arguments_received,
+            parse_parameters_string,
+            &name,
+            &name_len
+        ) == FAILURE
+    )
+    {
+        RETVAL_NULL();
+    }
+
+    #ifdef USE_WXPHP_DEBUG
+    php_printf("Property to get: %s\n", name);
+    php_printf("===========================================\n\n");
+    #endif
+
+    if(false){}
+    else if(strcmp("m_left", name) == 0)
+    {
+        object_init_ex(return_value, php_wxTextAttrBorder_entry);
+        Z_wxTextAttrBorders_P(&return_value)->native_object = ((wxTextAttrBorder_php*) native_object->properties[0]);
+        return;
+    }
+    else if(strcmp("m_right", name) == 0)
+    {
+        object_init_ex(return_value, php_wxTextAttrBorder_entry);
+        Z_wxTextAttrBorders_P(&return_value)->native_object = ((wxTextAttrBorder_php*) native_object->properties[1]);
+        return;
+    }
+    else if(strcmp("m_top", name) == 0)
+    {
+        object_init_ex(return_value, php_wxTextAttrBorder_entry);
+        Z_wxTextAttrBorders_P(&return_value)->native_object = ((wxTextAttrBorder_php*) native_object->properties[2]);
+        return;
+    }
+    else if(strcmp("m_bottom", name) == 0)
+    {
+        object_init_ex(return_value, php_wxTextAttrBorder_entry);
+        Z_wxTextAttrBorders_P(&return_value)->native_object = ((wxTextAttrBorder_php*) native_object->properties[3]);
+        return;
+    }
+    else
+    {
+        RETVAL_NULL();
+    }
+}
+/* {{{ proto  wxTextAttrBorders::SetStyle(int style) */
+PHP_METHOD(php_wxTextAttrBorders, SetStyle)
+{
+    #ifdef USE_WXPHP_DEBUG
+    php_printf("Invoking wxTextAttrBorders::SetStyle\n");
+    php_printf("===========================================\n");
+    #endif
+
+    zo_wxTextAttrBorders* current_object;
+    wxphp_object_type current_object_type;
+    wxTextAttrBorders_php* native_object;
+    void* argument_native_object = NULL;
+
+    //Other variables used thru the code
+    zval dummy;
+    ZVAL_NULL(&dummy);
+    bool already_called = false;
+    wxPHPObjectReferences* references;
+    int arguments_received = ZEND_NUM_ARGS();
+    bool return_is_user_initialized = false;
+
+    //Get native object of the php object that called the method
+    if(getThis() != NULL)
+    {
+        current_object = Z_wxTextAttrBorders_P(getThis());
+
+        if(current_object->native_object == NULL)
+        {
+            zend_error(
+                E_ERROR,
+                "Failed to get the native object for "
+                "wxTextAttrBorders::SetStyle call\n"
+            );
+
+            return;
+        }
+        else
+        {
+            native_object = current_object->native_object;
+            current_object_type = current_object->object_type;
+
+            bool reference_type_found = false;
+
+            if(current_object_type == PHP_WXTEXTATTRBORDERS_TYPE){
+                references = &((wxTextAttrBorders_php*)native_object)->references;
+                reference_type_found = true;
+            }
+        }
+    }
+    #ifdef USE_WXPHP_DEBUG
+    else
+    {
+        php_printf("Processing the method call as static\n");
+    }
+    #endif
+
+    //Parameters for overload 0
+    long style0;
+    bool overload0_called = false;
+
+    
+    //Overload 0
+    overload0:
+    if(!already_called && arguments_received == 1)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Parameters received %d\n", arguments_received);
+        php_printf("Parsing parameters with 'l' (&style0)\n");
+        #endif
+
+        char parse_parameters_string[] = "l";
+        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &style0 ) == SUCCESS)
+        {
+            overload0_called = true;
+            already_called = true;
+        }
+    }
+
+    
+    if(overload0_called)
+    {
+        switch(arguments_received)
+        {
+            case 1:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing wxTextAttrBorders::SetStyle((int) style0)\n\n");
+                #endif
+
+                ((wxTextAttrBorders_php*)native_object)->SetStyle((int) style0);
+
+
+                return;
+                break;
+            }
+        }
+    }
+
+    
+    //In case wrong type/count of parameters was passed
+    if(!already_called)
+    {
+        zend_error(
+            E_ERROR,
+            "Wrong type or count of parameters passed to: "
+            "wxTextAttrBorders::SetStyle\n"
+        );
+    }
+}
+/* }}} */
+
+/* {{{ proto  wxTextAttrBorders::SetColour(int colour) */
+PHP_METHOD(php_wxTextAttrBorders, SetColour)
+{
+    #ifdef USE_WXPHP_DEBUG
+    php_printf("Invoking wxTextAttrBorders::SetColour\n");
+    php_printf("===========================================\n");
+    #endif
+
+    zo_wxTextAttrBorders* current_object;
+    wxphp_object_type current_object_type;
+    wxTextAttrBorders_php* native_object;
+    void* argument_native_object = NULL;
+
+    //Other variables used thru the code
+    zval dummy;
+    ZVAL_NULL(&dummy);
+    bool already_called = false;
+    wxPHPObjectReferences* references;
+    int arguments_received = ZEND_NUM_ARGS();
+    bool return_is_user_initialized = false;
+
+    //Get native object of the php object that called the method
+    if(getThis() != NULL)
+    {
+        current_object = Z_wxTextAttrBorders_P(getThis());
+
+        if(current_object->native_object == NULL)
+        {
+            zend_error(
+                E_ERROR,
+                "Failed to get the native object for "
+                "wxTextAttrBorders::SetColour call\n"
+            );
+
+            return;
+        }
+        else
+        {
+            native_object = current_object->native_object;
+            current_object_type = current_object->object_type;
+
+            bool reference_type_found = false;
+
+            if(current_object_type == PHP_WXTEXTATTRBORDERS_TYPE){
+                references = &((wxTextAttrBorders_php*)native_object)->references;
+                reference_type_found = true;
+            }
+        }
+    }
+    #ifdef USE_WXPHP_DEBUG
+    else
+    {
+        php_printf("Processing the method call as static\n");
+    }
+    #endif
+
+    //Parameters for overload 0
+    long colour0;
+    bool overload0_called = false;
+
+    //Parameters for overload 1
+    zval* colour1;
+    wxColour* object_pointer1_0 = 0;
+    bool overload1_called = false;
+
+    
+    //Overload 0
+    overload0:
+    if(!already_called && arguments_received == 1)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Parameters received %d\n", arguments_received);
+        php_printf("Parsing parameters with 'l' (&colour0)\n");
+        #endif
+
+        char parse_parameters_string[] = "l";
+        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &colour0 ) == SUCCESS)
+        {
+            overload0_called = true;
+            already_called = true;
+        }
+    }
+
+    //Overload 1
+    overload1:
+    if(!already_called && arguments_received == 1)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Parameters received %d\n", arguments_received);
+        php_printf("Parsing parameters with 'O' (&colour1, php_wxColour_entry)\n");
+        #endif
+
+        char parse_parameters_string[] = "O";
+        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &colour1, php_wxColour_entry ) == SUCCESS)
+        {
+            if(arguments_received >= 1){
+                if(Z_TYPE_P(colour1) == IS_OBJECT)
+                {
+                    wxphp_object_type argument_type = Z_wxColour_P(colour1)->object_type;
+                    argument_native_object = (void*) Z_wxColour_P(colour1)->native_object;
+                    object_pointer1_0 = (wxColour*) argument_native_object;
+                    if (!object_pointer1_0 )
+                    {
+                        zend_error(E_ERROR, "Parameter 'colour' could not be retreived correctly.");
+                    }
+                }
+                else if(Z_TYPE_P(colour1) != IS_NULL)
+                {
+                    zend_error(E_ERROR, "Parameter 'colour' not null, could not be retreived correctly.");
+                }
+            }
+
+            overload1_called = true;
+            already_called = true;
+        }
+    }
+
+    
+    if(overload0_called)
+    {
+        switch(arguments_received)
+        {
+            case 1:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing wxTextAttrBorders::SetColour((unsigned long) colour0)\n\n");
+                #endif
+
+                ((wxTextAttrBorders_php*)native_object)->SetColour((unsigned long) colour0);
+
+
+                return;
+                break;
+            }
+        }
+    }
+
+    if(overload1_called)
+    {
+        switch(arguments_received)
+        {
+            case 1:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing wxTextAttrBorders::SetColour(*(wxColour*) object_pointer1_0)\n\n");
+                #endif
+
+                ((wxTextAttrBorders_php*)native_object)->SetColour(*(wxColour*) object_pointer1_0);
+
+                references->AddReference(colour1, "wxTextAttrBorders::SetColour at call 3 with 1 argument(s)");
+
+                return;
+                break;
+            }
+        }
+    }
+
+    
+    //In case wrong type/count of parameters was passed
+    if(!already_called)
+    {
+        zend_error(
+            E_ERROR,
+            "Wrong type or count of parameters passed to: "
+            "wxTextAttrBorders::SetColour\n"
+        );
+    }
+}
+/* }}} */
+
+/* {{{ proto  wxTextAttrBorders::SetWidth(wxTextAttrDimension width) */
+PHP_METHOD(php_wxTextAttrBorders, SetWidth)
+{
+    #ifdef USE_WXPHP_DEBUG
+    php_printf("Invoking wxTextAttrBorders::SetWidth\n");
+    php_printf("===========================================\n");
+    #endif
+
+    zo_wxTextAttrBorders* current_object;
+    wxphp_object_type current_object_type;
+    wxTextAttrBorders_php* native_object;
+    void* argument_native_object = NULL;
+
+    //Other variables used thru the code
+    zval dummy;
+    ZVAL_NULL(&dummy);
+    bool already_called = false;
+    wxPHPObjectReferences* references;
+    int arguments_received = ZEND_NUM_ARGS();
+    bool return_is_user_initialized = false;
+
+    //Get native object of the php object that called the method
+    if(getThis() != NULL)
+    {
+        current_object = Z_wxTextAttrBorders_P(getThis());
+
+        if(current_object->native_object == NULL)
+        {
+            zend_error(
+                E_ERROR,
+                "Failed to get the native object for "
+                "wxTextAttrBorders::SetWidth call\n"
+            );
+
+            return;
+        }
+        else
+        {
+            native_object = current_object->native_object;
+            current_object_type = current_object->object_type;
+
+            bool reference_type_found = false;
+
+            if(current_object_type == PHP_WXTEXTATTRBORDERS_TYPE){
+                references = &((wxTextAttrBorders_php*)native_object)->references;
+                reference_type_found = true;
+            }
+        }
+    }
+    #ifdef USE_WXPHP_DEBUG
+    else
+    {
+        php_printf("Processing the method call as static\n");
+    }
+    #endif
+
+    //Parameters for overload 0
+    zval* width0;
+    wxTextAttrDimension* object_pointer0_0 = 0;
+    bool overload0_called = false;
+
+    //Parameters for overload 1
+    long value1;
+    long units1;
+    bool overload1_called = false;
+
+    
+    //Overload 0
+    overload0:
+    if(!already_called && arguments_received == 1)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Parameters received %d\n", arguments_received);
+        php_printf("Parsing parameters with 'O' (&width0, php_wxTextAttrDimension_entry)\n");
+        #endif
+
+        char parse_parameters_string[] = "O";
+        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &width0, php_wxTextAttrDimension_entry ) == SUCCESS)
+        {
+            if(arguments_received >= 1){
+                if(Z_TYPE_P(width0) == IS_OBJECT)
+                {
+                    wxphp_object_type argument_type = Z_wxTextAttrDimension_P(width0)->object_type;
+                    argument_native_object = (void*) Z_wxTextAttrDimension_P(width0)->native_object;
+                    object_pointer0_0 = (wxTextAttrDimension*) argument_native_object;
+                    if (!object_pointer0_0 )
+                    {
+                        goto overload1;
+                    }
+                }
+                else if(Z_TYPE_P(width0) != IS_NULL)
+                {
+                    goto overload1;
+                }
+            }
+
+            overload0_called = true;
+            already_called = true;
+        }
+    }
+
+    //Overload 1
+    overload1:
+    if(!already_called && arguments_received >= 1  && arguments_received <= 2)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Parameters received %d\n", arguments_received);
+        php_printf("Parsing parameters with 'l|l' (&value1, &units1)\n");
+        #endif
+
+        char parse_parameters_string[] = "l|l";
+        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &value1, &units1 ) == SUCCESS)
+        {
+            overload1_called = true;
+            already_called = true;
+        }
+    }
+
+    
+    if(overload0_called)
+    {
+        switch(arguments_received)
+        {
+            case 1:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing wxTextAttrBorders::SetWidth(*(wxTextAttrDimension*) object_pointer0_0)\n\n");
+                #endif
+
+                ((wxTextAttrBorders_php*)native_object)->SetWidth(*(wxTextAttrDimension*) object_pointer0_0);
+
+                references->AddReference(width0, "wxTextAttrBorders::SetWidth at call 3 with 1 argument(s)");
+
+                return;
+                break;
+            }
+        }
+    }
+
+    if(overload1_called)
+    {
+        switch(arguments_received)
+        {
+            case 1:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing wxTextAttrBorders::SetWidth((int) value1)\n\n");
+                #endif
+
+                ((wxTextAttrBorders_php*)native_object)->SetWidth((int) value1);
+
+
+                return;
+                break;
+            }
+            case 2:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing wxTextAttrBorders::SetWidth((int) value1, (wxTextAttrUnits) units1)\n\n");
+                #endif
+
+                ((wxTextAttrBorders_php*)native_object)->SetWidth((int) value1, (wxTextAttrUnits) units1);
+
+
+                return;
+                break;
+            }
+        }
+    }
+
+    
+    //In case wrong type/count of parameters was passed
+    if(!already_called)
+    {
+        zend_error(
+            E_ERROR,
+            "Wrong type or count of parameters passed to: "
+            "wxTextAttrBorders::SetWidth\n"
+        );
+    }
+}
+/* }}} */
+
+/* {{{ proto  wxTextAttrBorders::Reset() */
+PHP_METHOD(php_wxTextAttrBorders, Reset)
+{
+    #ifdef USE_WXPHP_DEBUG
+    php_printf("Invoking wxTextAttrBorders::Reset\n");
+    php_printf("===========================================\n");
+    #endif
+
+    zo_wxTextAttrBorders* current_object;
+    wxphp_object_type current_object_type;
+    wxTextAttrBorders_php* native_object;
+    void* argument_native_object = NULL;
+
+    //Other variables used thru the code
+    zval dummy;
+    ZVAL_NULL(&dummy);
+    bool already_called = false;
+    wxPHPObjectReferences* references;
+    int arguments_received = ZEND_NUM_ARGS();
+    bool return_is_user_initialized = false;
+
+    //Get native object of the php object that called the method
+    if(getThis() != NULL)
+    {
+        current_object = Z_wxTextAttrBorders_P(getThis());
+
+        if(current_object->native_object == NULL)
+        {
+            zend_error(
+                E_ERROR,
+                "Failed to get the native object for "
+                "wxTextAttrBorders::Reset call\n"
+            );
+
+            return;
+        }
+        else
+        {
+            native_object = current_object->native_object;
+            current_object_type = current_object->object_type;
+
+            bool reference_type_found = false;
+
+            if(current_object_type == PHP_WXTEXTATTRBORDERS_TYPE){
+                references = &((wxTextAttrBorders_php*)native_object)->references;
+                reference_type_found = true;
+            }
+        }
+    }
+    #ifdef USE_WXPHP_DEBUG
+    else
+    {
+        php_printf("Processing the method call as static\n");
+    }
+    #endif
+
+    //Parameters for overload 0
+    bool overload0_called = false;
+
+    
+    //Overload 0
+    overload0:
+    if(!already_called && arguments_received == 0)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Parameters received %d\n", arguments_received);
+        php_printf("Parsing parameters with '' ()\n");
+        #endif
+
+        overload0_called = true;
+        already_called = true;
+    }
+
+    
+    if(overload0_called)
+    {
+        switch(arguments_received)
+        {
+            case 0:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing wxTextAttrBorders::Reset()\n\n");
+                #endif
+
+                ((wxTextAttrBorders_php*)native_object)->Reset();
+
+
+                return;
+                break;
+            }
+        }
+    }
+
+    
+    //In case wrong type/count of parameters was passed
+    if(!already_called)
+    {
+        zend_error(
+            E_ERROR,
+            "Wrong type or count of parameters passed to: "
+            "wxTextAttrBorders::Reset\n"
+        );
+    }
+}
+/* }}} */
+
+/* {{{ proto bool wxTextAttrBorders::EqPartial(wxTextAttrBorders borders, bool weakTest) */
+PHP_METHOD(php_wxTextAttrBorders, EqPartial)
+{
+    #ifdef USE_WXPHP_DEBUG
+    php_printf("Invoking wxTextAttrBorders::EqPartial\n");
+    php_printf("===========================================\n");
+    #endif
+
+    zo_wxTextAttrBorders* current_object;
+    wxphp_object_type current_object_type;
+    wxTextAttrBorders_php* native_object;
+    void* argument_native_object = NULL;
+
+    //Other variables used thru the code
+    zval dummy;
+    ZVAL_NULL(&dummy);
+    bool already_called = false;
+    wxPHPObjectReferences* references;
+    int arguments_received = ZEND_NUM_ARGS();
+    bool return_is_user_initialized = false;
+
+    //Get native object of the php object that called the method
+    if(getThis() != NULL)
+    {
+        current_object = Z_wxTextAttrBorders_P(getThis());
+
+        if(current_object->native_object == NULL)
+        {
+            zend_error(
+                E_ERROR,
+                "Failed to get the native object for "
+                "wxTextAttrBorders::EqPartial call\n"
+            );
+
+            return;
+        }
+        else
+        {
+            native_object = current_object->native_object;
+            current_object_type = current_object->object_type;
+
+            bool reference_type_found = false;
+
+            if(current_object_type == PHP_WXTEXTATTRBORDERS_TYPE){
+                references = &((wxTextAttrBorders_php*)native_object)->references;
+                reference_type_found = true;
+            }
+        }
+    }
+    #ifdef USE_WXPHP_DEBUG
+    else
+    {
+        php_printf("Processing the method call as static\n");
+    }
+    #endif
+
+    //Parameters for overload 0
+    zval* borders0;
+    wxTextAttrBorders* object_pointer0_0 = 0;
+    bool weakTest0;
+    bool overload0_called = false;
+
+    
+    //Overload 0
+    overload0:
+    if(!already_called && arguments_received >= 1  && arguments_received <= 2)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Parameters received %d\n", arguments_received);
+        php_printf("Parsing parameters with 'O|b' (&borders0, php_wxTextAttrBorders_entry, &weakTest0)\n");
+        #endif
+
+        char parse_parameters_string[] = "O|b";
+        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &borders0, php_wxTextAttrBorders_entry, &weakTest0 ) == SUCCESS)
+        {
+            if(arguments_received >= 1){
+                if(Z_TYPE_P(borders0) == IS_OBJECT)
+                {
+                    wxphp_object_type argument_type = Z_wxTextAttrBorders_P(borders0)->object_type;
+                    argument_native_object = (void*) Z_wxTextAttrBorders_P(borders0)->native_object;
+                    object_pointer0_0 = (wxTextAttrBorders*) argument_native_object;
+                    if (!object_pointer0_0 )
+                    {
+                        zend_error(E_ERROR, "Parameter 'borders' could not be retreived correctly.");
+                    }
+                }
+                else if(Z_TYPE_P(borders0) != IS_NULL)
+                {
+                    zend_error(E_ERROR, "Parameter 'borders' not null, could not be retreived correctly.");
+                }
+            }
+
+            overload0_called = true;
+            already_called = true;
+        }
+    }
+
+    
+    if(overload0_called)
+    {
+        switch(arguments_received)
+        {
+            case 1:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing RETURN_BOOL(wxTextAttrBorders::EqPartial(*(wxTextAttrBorders*) object_pointer0_0))\n\n");
+                #endif
+
+                RETVAL_BOOL(((wxTextAttrBorders_php*)native_object)->EqPartial(*(wxTextAttrBorders*) object_pointer0_0));
+
+                references->AddReference(borders0, "wxTextAttrBorders::EqPartial at call 3 with 1 argument(s)");
+
+                return;
+                break;
+            }
+            case 2:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing RETURN_BOOL(wxTextAttrBorders::EqPartial(*(wxTextAttrBorders*) object_pointer0_0, weakTest0))\n\n");
+                #endif
+
+                RETVAL_BOOL(((wxTextAttrBorders_php*)native_object)->EqPartial(*(wxTextAttrBorders*) object_pointer0_0, weakTest0));
+
+                references->AddReference(borders0, "wxTextAttrBorders::EqPartial at call 3 with 2 argument(s)");
+
+                return;
+                break;
+            }
+        }
+    }
+
+    
+    //In case wrong type/count of parameters was passed
+    if(!already_called)
+    {
+        zend_error(
+            E_ERROR,
+            "Wrong type or count of parameters passed to: "
+            "wxTextAttrBorders::EqPartial\n"
+        );
+    }
+}
+/* }}} */
+
+/* {{{ proto bool wxTextAttrBorders::Apply(wxTextAttrBorders borders, wxTextAttrBorders compareWith) */
+PHP_METHOD(php_wxTextAttrBorders, Apply)
+{
+    #ifdef USE_WXPHP_DEBUG
+    php_printf("Invoking wxTextAttrBorders::Apply\n");
+    php_printf("===========================================\n");
+    #endif
+
+    zo_wxTextAttrBorders* current_object;
+    wxphp_object_type current_object_type;
+    wxTextAttrBorders_php* native_object;
+    void* argument_native_object = NULL;
+
+    //Other variables used thru the code
+    zval dummy;
+    ZVAL_NULL(&dummy);
+    bool already_called = false;
+    wxPHPObjectReferences* references;
+    int arguments_received = ZEND_NUM_ARGS();
+    bool return_is_user_initialized = false;
+
+    //Get native object of the php object that called the method
+    if(getThis() != NULL)
+    {
+        current_object = Z_wxTextAttrBorders_P(getThis());
+
+        if(current_object->native_object == NULL)
+        {
+            zend_error(
+                E_ERROR,
+                "Failed to get the native object for "
+                "wxTextAttrBorders::Apply call\n"
+            );
+
+            return;
+        }
+        else
+        {
+            native_object = current_object->native_object;
+            current_object_type = current_object->object_type;
+
+            bool reference_type_found = false;
+
+            if(current_object_type == PHP_WXTEXTATTRBORDERS_TYPE){
+                references = &((wxTextAttrBorders_php*)native_object)->references;
+                reference_type_found = true;
+            }
+        }
+    }
+    #ifdef USE_WXPHP_DEBUG
+    else
+    {
+        php_printf("Processing the method call as static\n");
+    }
+    #endif
+
+    //Parameters for overload 0
+    zval* borders0;
+    wxTextAttrBorders* object_pointer0_0 = 0;
+    zval* compareWith0;
+    wxTextAttrBorders* object_pointer0_1 = 0;
+    bool overload0_called = false;
+
+    
+    //Overload 0
+    overload0:
+    if(!already_called && arguments_received >= 1  && arguments_received <= 2)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Parameters received %d\n", arguments_received);
+        php_printf("Parsing parameters with 'O|z' (&borders0, php_wxTextAttrBorders_entry, &compareWith0)\n");
+        #endif
+
+        char parse_parameters_string[] = "O|z";
+        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &borders0, php_wxTextAttrBorders_entry, &compareWith0 ) == SUCCESS)
+        {
+            if(arguments_received >= 1){
+                if(Z_TYPE_P(borders0) == IS_OBJECT)
+                {
+                    wxphp_object_type argument_type = Z_wxTextAttrBorders_P(borders0)->object_type;
+                    argument_native_object = (void*) Z_wxTextAttrBorders_P(borders0)->native_object;
+                    object_pointer0_0 = (wxTextAttrBorders*) argument_native_object;
+                    if (!object_pointer0_0 )
+                    {
+                        zend_error(E_ERROR, "Parameter 'borders' could not be retreived correctly.");
+                    }
+                }
+                else if(Z_TYPE_P(borders0) != IS_NULL)
+                {
+                    zend_error(E_ERROR, "Parameter 'borders' not null, could not be retreived correctly.");
+                }
+            }
+
+            if(arguments_received >= 2){
+                if(Z_TYPE_P(compareWith0) == IS_OBJECT)
+                {
+                    wxphp_object_type argument_type = Z_wxTextAttrBorders_P(compareWith0)->object_type;
+                    argument_native_object = (void*) Z_wxTextAttrBorders_P(compareWith0)->native_object;
+                    object_pointer0_1 = (wxTextAttrBorders*) argument_native_object;
+                    if (!object_pointer0_1 || (argument_type != PHP_WXTEXTATTRBORDERS_TYPE))
+                    {
+                        zend_error(E_ERROR, "Parameter 'compareWith' could not be retreived correctly.");
+                    }
+                }
+                else if(Z_TYPE_P(compareWith0) != IS_NULL)
+                {
+                    zend_error(E_ERROR, "Parameter 'compareWith' not null, could not be retreived correctly.");
+                }
+            }
+
+            overload0_called = true;
+            already_called = true;
+        }
+    }
+
+    
+    if(overload0_called)
+    {
+        switch(arguments_received)
+        {
+            case 1:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing RETURN_BOOL(wxTextAttrBorders::Apply(*(wxTextAttrBorders*) object_pointer0_0))\n\n");
+                #endif
+
+                RETVAL_BOOL(((wxTextAttrBorders_php*)native_object)->Apply(*(wxTextAttrBorders*) object_pointer0_0));
+
+                references->AddReference(borders0, "wxTextAttrBorders::Apply at call 3 with 1 argument(s)");
+
+                return;
+                break;
+            }
+            case 2:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing RETURN_BOOL(wxTextAttrBorders::Apply(*(wxTextAttrBorders*) object_pointer0_0, (const wxTextAttrBorders*) object_pointer0_1))\n\n");
+                #endif
+
+                RETVAL_BOOL(((wxTextAttrBorders_php*)native_object)->Apply(*(wxTextAttrBorders*) object_pointer0_0, (const wxTextAttrBorders*) object_pointer0_1));
+
+                references->AddReference(borders0, "wxTextAttrBorders::Apply at call 3 with 2 argument(s)");
+                references->AddReference(compareWith0, "wxTextAttrBorders::Apply at call 1 with 2 argument(s)");
+
+                return;
+                break;
+            }
+        }
+    }
+
+    
+    //In case wrong type/count of parameters was passed
+    if(!already_called)
+    {
+        zend_error(
+            E_ERROR,
+            "Wrong type or count of parameters passed to: "
+            "wxTextAttrBorders::Apply\n"
+        );
+    }
+}
+/* }}} */
+
+/* {{{ proto bool wxTextAttrBorders::RemoveStyle(wxTextAttrBorders attr) */
+PHP_METHOD(php_wxTextAttrBorders, RemoveStyle)
+{
+    #ifdef USE_WXPHP_DEBUG
+    php_printf("Invoking wxTextAttrBorders::RemoveStyle\n");
+    php_printf("===========================================\n");
+    #endif
+
+    zo_wxTextAttrBorders* current_object;
+    wxphp_object_type current_object_type;
+    wxTextAttrBorders_php* native_object;
+    void* argument_native_object = NULL;
+
+    //Other variables used thru the code
+    zval dummy;
+    ZVAL_NULL(&dummy);
+    bool already_called = false;
+    wxPHPObjectReferences* references;
+    int arguments_received = ZEND_NUM_ARGS();
+    bool return_is_user_initialized = false;
+
+    //Get native object of the php object that called the method
+    if(getThis() != NULL)
+    {
+        current_object = Z_wxTextAttrBorders_P(getThis());
+
+        if(current_object->native_object == NULL)
+        {
+            zend_error(
+                E_ERROR,
+                "Failed to get the native object for "
+                "wxTextAttrBorders::RemoveStyle call\n"
+            );
+
+            return;
+        }
+        else
+        {
+            native_object = current_object->native_object;
+            current_object_type = current_object->object_type;
+
+            bool reference_type_found = false;
+
+            if(current_object_type == PHP_WXTEXTATTRBORDERS_TYPE){
+                references = &((wxTextAttrBorders_php*)native_object)->references;
+                reference_type_found = true;
+            }
+        }
+    }
+    #ifdef USE_WXPHP_DEBUG
+    else
+    {
+        php_printf("Processing the method call as static\n");
+    }
+    #endif
+
+    //Parameters for overload 0
+    zval* attr0;
+    wxTextAttrBorders* object_pointer0_0 = 0;
+    bool overload0_called = false;
+
+    
+    //Overload 0
+    overload0:
+    if(!already_called && arguments_received == 1)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Parameters received %d\n", arguments_received);
+        php_printf("Parsing parameters with 'O' (&attr0, php_wxTextAttrBorders_entry)\n");
+        #endif
+
+        char parse_parameters_string[] = "O";
+        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &attr0, php_wxTextAttrBorders_entry ) == SUCCESS)
+        {
+            if(arguments_received >= 1){
+                if(Z_TYPE_P(attr0) == IS_OBJECT)
+                {
+                    wxphp_object_type argument_type = Z_wxTextAttrBorders_P(attr0)->object_type;
+                    argument_native_object = (void*) Z_wxTextAttrBorders_P(attr0)->native_object;
+                    object_pointer0_0 = (wxTextAttrBorders*) argument_native_object;
+                    if (!object_pointer0_0 )
+                    {
+                        zend_error(E_ERROR, "Parameter 'attr' could not be retreived correctly.");
+                    }
+                }
+                else if(Z_TYPE_P(attr0) != IS_NULL)
+                {
+                    zend_error(E_ERROR, "Parameter 'attr' not null, could not be retreived correctly.");
+                }
+            }
+
+            overload0_called = true;
+            already_called = true;
+        }
+    }
+
+    
+    if(overload0_called)
+    {
+        switch(arguments_received)
+        {
+            case 1:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing RETURN_BOOL(wxTextAttrBorders::RemoveStyle(*(wxTextAttrBorders*) object_pointer0_0))\n\n");
+                #endif
+
+                RETVAL_BOOL(((wxTextAttrBorders_php*)native_object)->RemoveStyle(*(wxTextAttrBorders*) object_pointer0_0));
+
+                references->AddReference(attr0, "wxTextAttrBorders::RemoveStyle at call 3 with 1 argument(s)");
+
+                return;
+                break;
+            }
+        }
+    }
+
+    
+    //In case wrong type/count of parameters was passed
+    if(!already_called)
+    {
+        zend_error(
+            E_ERROR,
+            "Wrong type or count of parameters passed to: "
+            "wxTextAttrBorders::RemoveStyle\n"
+        );
+    }
+}
+/* }}} */
+
+/* {{{ proto  wxTextAttrBorders::CollectCommonAttributes(wxTextAttrBorders attr, wxTextAttrBorders &clashingAttr, wxTextAttrBorders &absentAttr) */
+PHP_METHOD(php_wxTextAttrBorders, CollectCommonAttributes)
+{
+    #ifdef USE_WXPHP_DEBUG
+    php_printf("Invoking wxTextAttrBorders::CollectCommonAttributes\n");
+    php_printf("===========================================\n");
+    #endif
+
+    zo_wxTextAttrBorders* current_object;
+    wxphp_object_type current_object_type;
+    wxTextAttrBorders_php* native_object;
+    void* argument_native_object = NULL;
+
+    //Other variables used thru the code
+    zval dummy;
+    ZVAL_NULL(&dummy);
+    bool already_called = false;
+    wxPHPObjectReferences* references;
+    int arguments_received = ZEND_NUM_ARGS();
+    bool return_is_user_initialized = false;
+
+    //Get native object of the php object that called the method
+    if(getThis() != NULL)
+    {
+        current_object = Z_wxTextAttrBorders_P(getThis());
+
+        if(current_object->native_object == NULL)
+        {
+            zend_error(
+                E_ERROR,
+                "Failed to get the native object for "
+                "wxTextAttrBorders::CollectCommonAttributes call\n"
+            );
+
+            return;
+        }
+        else
+        {
+            native_object = current_object->native_object;
+            current_object_type = current_object->object_type;
+
+            bool reference_type_found = false;
+
+            if(current_object_type == PHP_WXTEXTATTRBORDERS_TYPE){
+                references = &((wxTextAttrBorders_php*)native_object)->references;
+                reference_type_found = true;
+            }
+        }
+    }
+    #ifdef USE_WXPHP_DEBUG
+    else
+    {
+        php_printf("Processing the method call as static\n");
+    }
+    #endif
+
+    //Parameters for overload 0
+    zval* attr0;
+    wxTextAttrBorders* object_pointer0_0 = 0;
+    zval* clashingAttr0;
+    wxTextAttrBorders* object_pointer0_1 = 0;
+    zval* absentAttr0;
+    wxTextAttrBorders* object_pointer0_2 = 0;
+    bool overload0_called = false;
+
+    
+    //Overload 0
+    overload0:
+    if(!already_called && arguments_received == 3)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Parameters received %d\n", arguments_received);
+        php_printf("Parsing parameters with 'OOO' (&attr0, php_wxTextAttrBorders_entry, &clashingAttr0, php_wxTextAttrBorders_entry, &absentAttr0, php_wxTextAttrBorders_entry)\n");
+        #endif
+
+        char parse_parameters_string[] = "OOO";
+        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &attr0, php_wxTextAttrBorders_entry, &clashingAttr0, php_wxTextAttrBorders_entry, &absentAttr0, php_wxTextAttrBorders_entry ) == SUCCESS)
+        {
+            if(arguments_received >= 1){
+                if(Z_TYPE_P(attr0) == IS_OBJECT)
+                {
+                    wxphp_object_type argument_type = Z_wxTextAttrBorders_P(attr0)->object_type;
+                    argument_native_object = (void*) Z_wxTextAttrBorders_P(attr0)->native_object;
+                    object_pointer0_0 = (wxTextAttrBorders*) argument_native_object;
+                    if (!object_pointer0_0 )
+                    {
+                        zend_error(E_ERROR, "Parameter 'attr' could not be retreived correctly.");
+                    }
+                }
+                else if(Z_TYPE_P(attr0) != IS_NULL)
+                {
+                    zend_error(E_ERROR, "Parameter 'attr' not null, could not be retreived correctly.");
+                }
+            }
+
+            if(arguments_received >= 2){
+                if(Z_TYPE_P(clashingAttr0) == IS_OBJECT)
+                {
+                    wxphp_object_type argument_type = Z_wxTextAttrBorders_P(clashingAttr0)->object_type;
+                    argument_native_object = (void*) Z_wxTextAttrBorders_P(clashingAttr0)->native_object;
+                    object_pointer0_1 = (wxTextAttrBorders*) argument_native_object;
+                    if (!object_pointer0_1 )
+                    {
+                        zend_error(E_ERROR, "Parameter 'clashingAttr' could not be retreived correctly.");
+                    }
+                }
+                else if(Z_TYPE_P(clashingAttr0) != IS_NULL)
+                {
+                    zend_error(E_ERROR, "Parameter 'clashingAttr' not null, could not be retreived correctly.");
+                }
+            }
+
+            if(arguments_received >= 3){
+                if(Z_TYPE_P(absentAttr0) == IS_OBJECT)
+                {
+                    wxphp_object_type argument_type = Z_wxTextAttrBorders_P(absentAttr0)->object_type;
+                    argument_native_object = (void*) Z_wxTextAttrBorders_P(absentAttr0)->native_object;
+                    object_pointer0_2 = (wxTextAttrBorders*) argument_native_object;
+                    if (!object_pointer0_2 )
+                    {
+                        zend_error(E_ERROR, "Parameter 'absentAttr' could not be retreived correctly.");
+                    }
+                }
+                else if(Z_TYPE_P(absentAttr0) != IS_NULL)
+                {
+                    zend_error(E_ERROR, "Parameter 'absentAttr' not null, could not be retreived correctly.");
+                }
+            }
+
+            overload0_called = true;
+            already_called = true;
+        }
+    }
+
+    
+    if(overload0_called)
+    {
+        switch(arguments_received)
+        {
+            case 3:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing wxTextAttrBorders::CollectCommonAttributes(*(wxTextAttrBorders*) object_pointer0_0, *(wxTextAttrBorders*) object_pointer0_1, *(wxTextAttrBorders*) object_pointer0_2)\n\n");
+                #endif
+
+                ((wxTextAttrBorders_php*)native_object)->CollectCommonAttributes(*(wxTextAttrBorders*) object_pointer0_0, *(wxTextAttrBorders*) object_pointer0_1, *(wxTextAttrBorders*) object_pointer0_2);
+
+                references->AddReference(attr0, "wxTextAttrBorders::CollectCommonAttributes at call 3 with 3 argument(s)");
+                references->AddReference(clashingAttr0, "wxTextAttrBorders::CollectCommonAttributes at call 3 with 3 argument(s)");
+                references->AddReference(absentAttr0, "wxTextAttrBorders::CollectCommonAttributes at call 3 with 3 argument(s)");
+
+                return;
+                break;
+            }
+        }
+    }
+
+    
+    //In case wrong type/count of parameters was passed
+    if(!already_called)
+    {
+        zend_error(
+            E_ERROR,
+            "Wrong type or count of parameters passed to: "
+            "wxTextAttrBorders::CollectCommonAttributes\n"
+        );
+    }
+}
+/* }}} */
+
+/* {{{ proto bool wxTextAttrBorders::IsValid() */
+PHP_METHOD(php_wxTextAttrBorders, IsValid)
+{
+    #ifdef USE_WXPHP_DEBUG
+    php_printf("Invoking wxTextAttrBorders::IsValid\n");
+    php_printf("===========================================\n");
+    #endif
+
+    zo_wxTextAttrBorders* current_object;
+    wxphp_object_type current_object_type;
+    wxTextAttrBorders_php* native_object;
+    void* argument_native_object = NULL;
+
+    //Other variables used thru the code
+    zval dummy;
+    ZVAL_NULL(&dummy);
+    bool already_called = false;
+    wxPHPObjectReferences* references;
+    int arguments_received = ZEND_NUM_ARGS();
+    bool return_is_user_initialized = false;
+
+    //Get native object of the php object that called the method
+    if(getThis() != NULL)
+    {
+        current_object = Z_wxTextAttrBorders_P(getThis());
+
+        if(current_object->native_object == NULL)
+        {
+            zend_error(
+                E_ERROR,
+                "Failed to get the native object for "
+                "wxTextAttrBorders::IsValid call\n"
+            );
+
+            return;
+        }
+        else
+        {
+            native_object = current_object->native_object;
+            current_object_type = current_object->object_type;
+
+            bool reference_type_found = false;
+
+            if(current_object_type == PHP_WXTEXTATTRBORDERS_TYPE){
+                references = &((wxTextAttrBorders_php*)native_object)->references;
+                reference_type_found = true;
+            }
+        }
+    }
+    #ifdef USE_WXPHP_DEBUG
+    else
+    {
+        php_printf("Processing the method call as static\n");
+    }
+    #endif
+
+    //Parameters for overload 0
+    bool overload0_called = false;
+
+    
+    //Overload 0
+    overload0:
+    if(!already_called && arguments_received == 0)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Parameters received %d\n", arguments_received);
+        php_printf("Parsing parameters with '' ()\n");
+        #endif
+
+        overload0_called = true;
+        already_called = true;
+    }
+
+    
+    if(overload0_called)
+    {
+        switch(arguments_received)
+        {
+            case 0:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing RETURN_BOOL(wxTextAttrBorders::IsValid())\n\n");
+                #endif
+
+                RETVAL_BOOL(((wxTextAttrBorders_php*)native_object)->IsValid());
+
+
+                return;
+                break;
+            }
+        }
+    }
+
+    
+    //In case wrong type/count of parameters was passed
+    if(!already_called)
+    {
+        zend_error(
+            E_ERROR,
+            "Wrong type or count of parameters passed to: "
+            "wxTextAttrBorders::IsValid\n"
+        );
+    }
+}
+/* }}} */
+
+/* {{{ proto wxTextAttrBorder wxTextAttrBorders::GetLeft() */
+PHP_METHOD(php_wxTextAttrBorders, GetLeft)
+{
+    #ifdef USE_WXPHP_DEBUG
+    php_printf("Invoking wxTextAttrBorders::GetLeft\n");
+    php_printf("===========================================\n");
+    #endif
+
+    zo_wxTextAttrBorders* current_object;
+    wxphp_object_type current_object_type;
+    wxTextAttrBorders_php* native_object;
+    void* argument_native_object = NULL;
+
+    //Other variables used thru the code
+    zval dummy;
+    ZVAL_NULL(&dummy);
+    bool already_called = false;
+    wxPHPObjectReferences* references;
+    int arguments_received = ZEND_NUM_ARGS();
+    bool return_is_user_initialized = false;
+
+    //Get native object of the php object that called the method
+    if(getThis() != NULL)
+    {
+        current_object = Z_wxTextAttrBorders_P(getThis());
+
+        if(current_object->native_object == NULL)
+        {
+            zend_error(
+                E_ERROR,
+                "Failed to get the native object for "
+                "wxTextAttrBorders::GetLeft call\n"
+            );
+
+            return;
+        }
+        else
+        {
+            native_object = current_object->native_object;
+            current_object_type = current_object->object_type;
+
+            bool reference_type_found = false;
+
+            if(current_object_type == PHP_WXTEXTATTRBORDERS_TYPE){
+                references = &((wxTextAttrBorders_php*)native_object)->references;
+                reference_type_found = true;
+            }
+        }
+    }
+    #ifdef USE_WXPHP_DEBUG
+    else
+    {
+        php_printf("Processing the method call as static\n");
+    }
+    #endif
+
+    //Parameters for overload 0
+    bool overload0_called = false;
+
+    //Parameters for overload 1
+    bool overload1_called = false;
+
+    
+    //Overload 0
+    overload0:
+    if(!already_called && arguments_received == 0)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Parameters received %d\n", arguments_received);
+        php_printf("Parsing parameters with '' ()\n");
+        #endif
+
+        overload0_called = true;
+        already_called = true;
+    }
+
+    //Overload 1
+    overload1:
+    if(!already_called && arguments_received == 0)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Parameters received %d\n", arguments_received);
+        php_printf("Parsing parameters with '' ()\n");
+        #endif
+
+        overload1_called = true;
+        already_called = true;
+    }
+
+    
+    if(overload0_called)
+    {
+        switch(arguments_received)
+        {
+            case 0:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing wxTextAttrBorders::GetLeft() to return object reference\n\n");
+                #endif
+
+                wxTextAttrBorder_php* value_to_return0;
+                value_to_return0 = (wxTextAttrBorder_php*) &((wxTextAttrBorders_php*)native_object)->GetLeft();
+
+                if(value_to_return0->references.IsUserInitialized()){
+                    if(!Z_ISNULL(value_to_return0->phpObj)){
+                        ZVAL_COPY_VALUE(return_value, &value_to_return0->phpObj);
+                        zval_add_ref(&value_to_return0->phpObj);
+                        return_is_user_initialized = true;
+                    }
+                    else{
+                        zend_error(E_ERROR, "Could not retreive original zval.");
+                    }
+                }
+                else{
+                    object_init_ex(return_value,php_wxTextAttrBorder_entry);
+                    Z_wxTextAttrBorder_P(return_value)->native_object = (wxTextAttrBorder_php*) value_to_return0;
+                }
+
+                if((void*)value_to_return0 != (void*)native_object && return_is_user_initialized){ //Prevent adding references to it self
+                    references->AddReference(return_value, "wxTextAttrBorders::GetLeft at call 6 with 0 argument(s)");
+                }
+
+
+                return;
+                break;
+            }
+        }
+    }
+
+    if(overload1_called)
+    {
+        switch(arguments_received)
+        {
+            case 0:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing wxTextAttrBorders::GetLeft() to return object reference\n\n");
+                #endif
+
+                wxTextAttrBorder_php* value_to_return0;
+                value_to_return0 = (wxTextAttrBorder_php*) &((wxTextAttrBorders_php*)native_object)->GetLeft();
+
+                if(value_to_return0->references.IsUserInitialized()){
+                    if(!Z_ISNULL(value_to_return0->phpObj)){
+                        ZVAL_COPY_VALUE(return_value, &value_to_return0->phpObj);
+                        zval_add_ref(&value_to_return0->phpObj);
+                        return_is_user_initialized = true;
+                    }
+                    else{
+                        zend_error(E_ERROR, "Could not retreive original zval.");
+                    }
+                }
+                else{
+                    object_init_ex(return_value,php_wxTextAttrBorder_entry);
+                    Z_wxTextAttrBorder_P(return_value)->native_object = (wxTextAttrBorder_php*) value_to_return0;
+                }
+
+                if((void*)value_to_return0 != (void*)native_object && return_is_user_initialized){ //Prevent adding references to it self
+                    references->AddReference(return_value, "wxTextAttrBorders::GetLeft at call 6 with 0 argument(s)");
+                }
+
+
+                return;
+                break;
+            }
+        }
+    }
+
+    
+    //In case wrong type/count of parameters was passed
+    if(!already_called)
+    {
+        zend_error(
+            E_ERROR,
+            "Wrong type or count of parameters passed to: "
+            "wxTextAttrBorders::GetLeft\n"
+        );
+    }
+}
+/* }}} */
+
+/* {{{ proto wxTextAttrBorder wxTextAttrBorders::GetRight() */
+PHP_METHOD(php_wxTextAttrBorders, GetRight)
+{
+    #ifdef USE_WXPHP_DEBUG
+    php_printf("Invoking wxTextAttrBorders::GetRight\n");
+    php_printf("===========================================\n");
+    #endif
+
+    zo_wxTextAttrBorders* current_object;
+    wxphp_object_type current_object_type;
+    wxTextAttrBorders_php* native_object;
+    void* argument_native_object = NULL;
+
+    //Other variables used thru the code
+    zval dummy;
+    ZVAL_NULL(&dummy);
+    bool already_called = false;
+    wxPHPObjectReferences* references;
+    int arguments_received = ZEND_NUM_ARGS();
+    bool return_is_user_initialized = false;
+
+    //Get native object of the php object that called the method
+    if(getThis() != NULL)
+    {
+        current_object = Z_wxTextAttrBorders_P(getThis());
+
+        if(current_object->native_object == NULL)
+        {
+            zend_error(
+                E_ERROR,
+                "Failed to get the native object for "
+                "wxTextAttrBorders::GetRight call\n"
+            );
+
+            return;
+        }
+        else
+        {
+            native_object = current_object->native_object;
+            current_object_type = current_object->object_type;
+
+            bool reference_type_found = false;
+
+            if(current_object_type == PHP_WXTEXTATTRBORDERS_TYPE){
+                references = &((wxTextAttrBorders_php*)native_object)->references;
+                reference_type_found = true;
+            }
+        }
+    }
+    #ifdef USE_WXPHP_DEBUG
+    else
+    {
+        php_printf("Processing the method call as static\n");
+    }
+    #endif
+
+    //Parameters for overload 0
+    bool overload0_called = false;
+
+    //Parameters for overload 1
+    bool overload1_called = false;
+
+    
+    //Overload 0
+    overload0:
+    if(!already_called && arguments_received == 0)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Parameters received %d\n", arguments_received);
+        php_printf("Parsing parameters with '' ()\n");
+        #endif
+
+        overload0_called = true;
+        already_called = true;
+    }
+
+    //Overload 1
+    overload1:
+    if(!already_called && arguments_received == 0)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Parameters received %d\n", arguments_received);
+        php_printf("Parsing parameters with '' ()\n");
+        #endif
+
+        overload1_called = true;
+        already_called = true;
+    }
+
+    
+    if(overload0_called)
+    {
+        switch(arguments_received)
+        {
+            case 0:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing wxTextAttrBorders::GetRight() to return object reference\n\n");
+                #endif
+
+                wxTextAttrBorder_php* value_to_return0;
+                value_to_return0 = (wxTextAttrBorder_php*) &((wxTextAttrBorders_php*)native_object)->GetRight();
+
+                if(value_to_return0->references.IsUserInitialized()){
+                    if(!Z_ISNULL(value_to_return0->phpObj)){
+                        ZVAL_COPY_VALUE(return_value, &value_to_return0->phpObj);
+                        zval_add_ref(&value_to_return0->phpObj);
+                        return_is_user_initialized = true;
+                    }
+                    else{
+                        zend_error(E_ERROR, "Could not retreive original zval.");
+                    }
+                }
+                else{
+                    object_init_ex(return_value,php_wxTextAttrBorder_entry);
+                    Z_wxTextAttrBorder_P(return_value)->native_object = (wxTextAttrBorder_php*) value_to_return0;
+                }
+
+                if((void*)value_to_return0 != (void*)native_object && return_is_user_initialized){ //Prevent adding references to it self
+                    references->AddReference(return_value, "wxTextAttrBorders::GetRight at call 6 with 0 argument(s)");
+                }
+
+
+                return;
+                break;
+            }
+        }
+    }
+
+    if(overload1_called)
+    {
+        switch(arguments_received)
+        {
+            case 0:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing wxTextAttrBorders::GetRight() to return object reference\n\n");
+                #endif
+
+                wxTextAttrBorder_php* value_to_return0;
+                value_to_return0 = (wxTextAttrBorder_php*) &((wxTextAttrBorders_php*)native_object)->GetRight();
+
+                if(value_to_return0->references.IsUserInitialized()){
+                    if(!Z_ISNULL(value_to_return0->phpObj)){
+                        ZVAL_COPY_VALUE(return_value, &value_to_return0->phpObj);
+                        zval_add_ref(&value_to_return0->phpObj);
+                        return_is_user_initialized = true;
+                    }
+                    else{
+                        zend_error(E_ERROR, "Could not retreive original zval.");
+                    }
+                }
+                else{
+                    object_init_ex(return_value,php_wxTextAttrBorder_entry);
+                    Z_wxTextAttrBorder_P(return_value)->native_object = (wxTextAttrBorder_php*) value_to_return0;
+                }
+
+                if((void*)value_to_return0 != (void*)native_object && return_is_user_initialized){ //Prevent adding references to it self
+                    references->AddReference(return_value, "wxTextAttrBorders::GetRight at call 6 with 0 argument(s)");
+                }
+
+
+                return;
+                break;
+            }
+        }
+    }
+
+    
+    //In case wrong type/count of parameters was passed
+    if(!already_called)
+    {
+        zend_error(
+            E_ERROR,
+            "Wrong type or count of parameters passed to: "
+            "wxTextAttrBorders::GetRight\n"
+        );
+    }
+}
+/* }}} */
+
+/* {{{ proto wxTextAttrBorder wxTextAttrBorders::GetTop() */
+PHP_METHOD(php_wxTextAttrBorders, GetTop)
+{
+    #ifdef USE_WXPHP_DEBUG
+    php_printf("Invoking wxTextAttrBorders::GetTop\n");
+    php_printf("===========================================\n");
+    #endif
+
+    zo_wxTextAttrBorders* current_object;
+    wxphp_object_type current_object_type;
+    wxTextAttrBorders_php* native_object;
+    void* argument_native_object = NULL;
+
+    //Other variables used thru the code
+    zval dummy;
+    ZVAL_NULL(&dummy);
+    bool already_called = false;
+    wxPHPObjectReferences* references;
+    int arguments_received = ZEND_NUM_ARGS();
+    bool return_is_user_initialized = false;
+
+    //Get native object of the php object that called the method
+    if(getThis() != NULL)
+    {
+        current_object = Z_wxTextAttrBorders_P(getThis());
+
+        if(current_object->native_object == NULL)
+        {
+            zend_error(
+                E_ERROR,
+                "Failed to get the native object for "
+                "wxTextAttrBorders::GetTop call\n"
+            );
+
+            return;
+        }
+        else
+        {
+            native_object = current_object->native_object;
+            current_object_type = current_object->object_type;
+
+            bool reference_type_found = false;
+
+            if(current_object_type == PHP_WXTEXTATTRBORDERS_TYPE){
+                references = &((wxTextAttrBorders_php*)native_object)->references;
+                reference_type_found = true;
+            }
+        }
+    }
+    #ifdef USE_WXPHP_DEBUG
+    else
+    {
+        php_printf("Processing the method call as static\n");
+    }
+    #endif
+
+    //Parameters for overload 0
+    bool overload0_called = false;
+
+    //Parameters for overload 1
+    bool overload1_called = false;
+
+    
+    //Overload 0
+    overload0:
+    if(!already_called && arguments_received == 0)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Parameters received %d\n", arguments_received);
+        php_printf("Parsing parameters with '' ()\n");
+        #endif
+
+        overload0_called = true;
+        already_called = true;
+    }
+
+    //Overload 1
+    overload1:
+    if(!already_called && arguments_received == 0)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Parameters received %d\n", arguments_received);
+        php_printf("Parsing parameters with '' ()\n");
+        #endif
+
+        overload1_called = true;
+        already_called = true;
+    }
+
+    
+    if(overload0_called)
+    {
+        switch(arguments_received)
+        {
+            case 0:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing wxTextAttrBorders::GetTop() to return object reference\n\n");
+                #endif
+
+                wxTextAttrBorder_php* value_to_return0;
+                value_to_return0 = (wxTextAttrBorder_php*) &((wxTextAttrBorders_php*)native_object)->GetTop();
+
+                if(value_to_return0->references.IsUserInitialized()){
+                    if(!Z_ISNULL(value_to_return0->phpObj)){
+                        ZVAL_COPY_VALUE(return_value, &value_to_return0->phpObj);
+                        zval_add_ref(&value_to_return0->phpObj);
+                        return_is_user_initialized = true;
+                    }
+                    else{
+                        zend_error(E_ERROR, "Could not retreive original zval.");
+                    }
+                }
+                else{
+                    object_init_ex(return_value,php_wxTextAttrBorder_entry);
+                    Z_wxTextAttrBorder_P(return_value)->native_object = (wxTextAttrBorder_php*) value_to_return0;
+                }
+
+                if((void*)value_to_return0 != (void*)native_object && return_is_user_initialized){ //Prevent adding references to it self
+                    references->AddReference(return_value, "wxTextAttrBorders::GetTop at call 6 with 0 argument(s)");
+                }
+
+
+                return;
+                break;
+            }
+        }
+    }
+
+    if(overload1_called)
+    {
+        switch(arguments_received)
+        {
+            case 0:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing wxTextAttrBorders::GetTop() to return object reference\n\n");
+                #endif
+
+                wxTextAttrBorder_php* value_to_return0;
+                value_to_return0 = (wxTextAttrBorder_php*) &((wxTextAttrBorders_php*)native_object)->GetTop();
+
+                if(value_to_return0->references.IsUserInitialized()){
+                    if(!Z_ISNULL(value_to_return0->phpObj)){
+                        ZVAL_COPY_VALUE(return_value, &value_to_return0->phpObj);
+                        zval_add_ref(&value_to_return0->phpObj);
+                        return_is_user_initialized = true;
+                    }
+                    else{
+                        zend_error(E_ERROR, "Could not retreive original zval.");
+                    }
+                }
+                else{
+                    object_init_ex(return_value,php_wxTextAttrBorder_entry);
+                    Z_wxTextAttrBorder_P(return_value)->native_object = (wxTextAttrBorder_php*) value_to_return0;
+                }
+
+                if((void*)value_to_return0 != (void*)native_object && return_is_user_initialized){ //Prevent adding references to it self
+                    references->AddReference(return_value, "wxTextAttrBorders::GetTop at call 6 with 0 argument(s)");
+                }
+
+
+                return;
+                break;
+            }
+        }
+    }
+
+    
+    //In case wrong type/count of parameters was passed
+    if(!already_called)
+    {
+        zend_error(
+            E_ERROR,
+            "Wrong type or count of parameters passed to: "
+            "wxTextAttrBorders::GetTop\n"
+        );
+    }
+}
+/* }}} */
+
+/* {{{ proto wxTextAttrBorder wxTextAttrBorders::GetBottom() */
+PHP_METHOD(php_wxTextAttrBorders, GetBottom)
+{
+    #ifdef USE_WXPHP_DEBUG
+    php_printf("Invoking wxTextAttrBorders::GetBottom\n");
+    php_printf("===========================================\n");
+    #endif
+
+    zo_wxTextAttrBorders* current_object;
+    wxphp_object_type current_object_type;
+    wxTextAttrBorders_php* native_object;
+    void* argument_native_object = NULL;
+
+    //Other variables used thru the code
+    zval dummy;
+    ZVAL_NULL(&dummy);
+    bool already_called = false;
+    wxPHPObjectReferences* references;
+    int arguments_received = ZEND_NUM_ARGS();
+    bool return_is_user_initialized = false;
+
+    //Get native object of the php object that called the method
+    if(getThis() != NULL)
+    {
+        current_object = Z_wxTextAttrBorders_P(getThis());
+
+        if(current_object->native_object == NULL)
+        {
+            zend_error(
+                E_ERROR,
+                "Failed to get the native object for "
+                "wxTextAttrBorders::GetBottom call\n"
+            );
+
+            return;
+        }
+        else
+        {
+            native_object = current_object->native_object;
+            current_object_type = current_object->object_type;
+
+            bool reference_type_found = false;
+
+            if(current_object_type == PHP_WXTEXTATTRBORDERS_TYPE){
+                references = &((wxTextAttrBorders_php*)native_object)->references;
+                reference_type_found = true;
+            }
+        }
+    }
+    #ifdef USE_WXPHP_DEBUG
+    else
+    {
+        php_printf("Processing the method call as static\n");
+    }
+    #endif
+
+    //Parameters for overload 0
+    bool overload0_called = false;
+
+    //Parameters for overload 1
+    bool overload1_called = false;
+
+    
+    //Overload 0
+    overload0:
+    if(!already_called && arguments_received == 0)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Parameters received %d\n", arguments_received);
+        php_printf("Parsing parameters with '' ()\n");
+        #endif
+
+        overload0_called = true;
+        already_called = true;
+    }
+
+    //Overload 1
+    overload1:
+    if(!already_called && arguments_received == 0)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Parameters received %d\n", arguments_received);
+        php_printf("Parsing parameters with '' ()\n");
+        #endif
+
+        overload1_called = true;
+        already_called = true;
+    }
+
+    
+    if(overload0_called)
+    {
+        switch(arguments_received)
+        {
+            case 0:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing wxTextAttrBorders::GetBottom() to return object reference\n\n");
+                #endif
+
+                wxTextAttrBorder_php* value_to_return0;
+                value_to_return0 = (wxTextAttrBorder_php*) &((wxTextAttrBorders_php*)native_object)->GetBottom();
+
+                if(value_to_return0->references.IsUserInitialized()){
+                    if(!Z_ISNULL(value_to_return0->phpObj)){
+                        ZVAL_COPY_VALUE(return_value, &value_to_return0->phpObj);
+                        zval_add_ref(&value_to_return0->phpObj);
+                        return_is_user_initialized = true;
+                    }
+                    else{
+                        zend_error(E_ERROR, "Could not retreive original zval.");
+                    }
+                }
+                else{
+                    object_init_ex(return_value,php_wxTextAttrBorder_entry);
+                    Z_wxTextAttrBorder_P(return_value)->native_object = (wxTextAttrBorder_php*) value_to_return0;
+                }
+
+                if((void*)value_to_return0 != (void*)native_object && return_is_user_initialized){ //Prevent adding references to it self
+                    references->AddReference(return_value, "wxTextAttrBorders::GetBottom at call 6 with 0 argument(s)");
+                }
+
+
+                return;
+                break;
+            }
+        }
+    }
+
+    if(overload1_called)
+    {
+        switch(arguments_received)
+        {
+            case 0:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing wxTextAttrBorders::GetBottom() to return object reference\n\n");
+                #endif
+
+                wxTextAttrBorder_php* value_to_return0;
+                value_to_return0 = (wxTextAttrBorder_php*) &((wxTextAttrBorders_php*)native_object)->GetBottom();
+
+                if(value_to_return0->references.IsUserInitialized()){
+                    if(!Z_ISNULL(value_to_return0->phpObj)){
+                        ZVAL_COPY_VALUE(return_value, &value_to_return0->phpObj);
+                        zval_add_ref(&value_to_return0->phpObj);
+                        return_is_user_initialized = true;
+                    }
+                    else{
+                        zend_error(E_ERROR, "Could not retreive original zval.");
+                    }
+                }
+                else{
+                    object_init_ex(return_value,php_wxTextAttrBorder_entry);
+                    Z_wxTextAttrBorder_P(return_value)->native_object = (wxTextAttrBorder_php*) value_to_return0;
+                }
+
+                if((void*)value_to_return0 != (void*)native_object && return_is_user_initialized){ //Prevent adding references to it self
+                    references->AddReference(return_value, "wxTextAttrBorders::GetBottom at call 6 with 0 argument(s)");
+                }
+
+
+                return;
+                break;
+            }
+        }
+    }
+
+    
+    //In case wrong type/count of parameters was passed
+    if(!already_called)
+    {
+        zend_error(
+            E_ERROR,
+            "Wrong type or count of parameters passed to: "
+            "wxTextAttrBorders::GetBottom\n"
+        );
+    }
+}
+/* }}} */
+
+BEGIN_EXTERN_C()
+void php_wxTextBoxAttr_free(void *object)
+{
+    zo_wxTextBoxAttr* custom_object = (zo_wxTextBoxAttr*) object;
+
+    #ifdef USE_WXPHP_DEBUG
+    php_printf(
+        "Calling php_wxTextBoxAttr_free on %s at line %i\n",
+        zend_get_executed_filename(),
+        zend_get_executed_lineno()
+    );
+    php_printf("===========================================\n");
+    #endif
+
+    if(custom_object->native_object != NULL)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Pointer not null\n");
+        php_printf("Pointer address %x\n", (unsigned int)(size_t)custom_object->native_object);
+        #endif
+
+        if(custom_object->is_user_initialized)
+        {
+            #ifdef USE_WXPHP_DEBUG
+            php_printf("Deleting pointer with delete\n");
+            #endif
+
+            custom_object->native_object->UninitProperties();
+            delete custom_object->native_object;
+            custom_object->native_object = NULL;
+        }
+
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Deletion of wxTextBoxAttr done\n");
+        php_printf("===========================================\n\n");
+        #endif
+    }
+    else
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Not user space initialized\n");
+        #endif
+    }
+
+    zend_object_std_dtor(&custom_object->zo);
+    efree(custom_object);
+}
+
+zend_object* php_wxTextBoxAttr_new(zend_class_entry *class_type)
+{
+    #ifdef USE_WXPHP_DEBUG
+    php_printf(
+        "Calling php_wxTextBoxAttr_new on %s at line %i\n",
+        zend_get_executed_filename(),
+        zend_get_executed_lineno()
+    );
+    php_printf("===========================================\n");
+    #endif
+
+    zo_wxTextBoxAttr* custom_object;
+
+    custom_object = (zo_wxTextBoxAttr*) ecalloc(
+        1,
+        sizeof(zo_wxTextBoxAttr)
+        + zend_object_properties_size(class_type)
+    );
+
+    zend_object_std_init(&custom_object->zo, class_type);
+    object_properties_init(&custom_object->zo, class_type);
+
+    custom_object->zo.handlers = &wxphp_wxTextBoxAttr_object_handlers;
+
+    custom_object->native_object = NULL;
+    custom_object->object_type = PHP_WXTEXTBOXATTR_TYPE;
+    custom_object->is_user_initialized = 0;
+
+    return &custom_object->zo;
+}
+END_EXTERN_C()
+
+/* {{{ proto  wxTextBoxAttr::wxTextBoxAttr() */
+PHP_METHOD(php_wxTextBoxAttr, __construct)
+{
+    #ifdef USE_WXPHP_DEBUG
+    php_printf("Invoking wxTextBoxAttr::__construct\n");
+    php_printf("===========================================\n");
+    #endif
+
+    zo_wxTextBoxAttr* current_object;
+    wxTextBoxAttr_php* native_object;
+    void* argument_native_object = NULL;
+
+    //Other variables used thru the code
+    zval dummy;
+    ZVAL_NULL(&dummy);
+    bool already_called = false;
+    int arguments_received = ZEND_NUM_ARGS();
+
+
+    //Parameters for overload 0
+    bool overload0_called = false;
+
+    //Parameters for overload 1
+    zval* attr1;
+    wxTextBoxAttr* object_pointer1_0 = 0;
+    bool overload1_called = false;
+
+    
+    //Overload 0
+    overload0:
+    if(!already_called && arguments_received == 0)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Parameters received %d\n", arguments_received);
+        php_printf("Parsing parameters with '' ()\n");
+        #endif
+
+        overload0_called = true;
+        already_called = true;
+    }
+
+    //Overload 1
+    overload1:
+    if(!already_called && arguments_received == 1)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Parameters received %d\n", arguments_received);
+        php_printf("Parsing parameters with 'O' (&attr1, php_wxTextBoxAttr_entry)\n");
+        #endif
+
+        char parse_parameters_string[] = "O";
+        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &attr1, php_wxTextBoxAttr_entry ) == SUCCESS)
+        {
+            if(arguments_received >= 1){
+                if(Z_TYPE_P(attr1) == IS_OBJECT)
+                {
+                    wxphp_object_type argument_type = Z_wxTextBoxAttr_P(attr1)->object_type;
+                    argument_native_object = (void*) Z_wxTextBoxAttr_P(attr1)->native_object;
+                    object_pointer1_0 = (wxTextBoxAttr*) argument_native_object;
+                    if (!object_pointer1_0 )
+                    {
+                        zend_error(E_ERROR, "Parameter 'attr' could not be retreived correctly.");
+                    }
+                }
+                else if(Z_TYPE_P(attr1) != IS_NULL)
+                {
+                    zend_error(E_ERROR, "Parameter 'attr' not null, could not be retreived correctly.");
+                }
+            }
+
+            overload1_called = true;
+            already_called = true;
+        }
+    }
+
+    
+    if(overload0_called)
+    {
+        switch(arguments_received)
+        {
+            case 0:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing __construct()\n");
+                #endif
+
+                native_object = new wxTextBoxAttr_php();
+
+                native_object->references.Initialize();
+                break;
+            }
+        }
+    }
+
+    if(overload1_called)
+    {
+        switch(arguments_received)
+        {
+            case 1:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing __construct(*(wxTextBoxAttr*) object_pointer1_0)\n");
+                #endif
+
+                native_object = new wxTextBoxAttr_php(*(wxTextBoxAttr*) object_pointer1_0);
+
+                native_object->references.Initialize();
+                ((wxTextBoxAttr_php*) native_object)->references.AddReference(attr1, "wxTextBoxAttr::wxTextBoxAttr at call 4 with 1 argument(s)");
+                break;
+            }
+        }
+    }
+
+    
+    if(already_called)
+    {
+        native_object->phpObj = *getThis();
+
+        native_object->InitProperties();
+
+        current_object = Z_wxTextBoxAttr_P(getThis());
+
+        current_object->native_object = native_object;
+
+        current_object->is_user_initialized = 1;
+    }
+    else
+    {
+        zend_error(
+            E_ERROR,
+            "Abstract class or wrong type/count of parameters "
+            "passed to: wxTextBoxAttr::__construct\n"
+        );
+    }
+
+    #ifdef USE_WXPHP_DEBUG
+        php_printf("===========================================\n\n");
+    #endif
+}
+/* }}} */
+
+PHP_METHOD(php_wxTextBoxAttr, __get)
+{
+    #ifdef USE_WXPHP_DEBUG
+    php_printf("Invoking wxTextBoxAttr::__get\n");
+    php_printf("===========================================\n");
+    #endif
+
+    int arguments_received = ZEND_NUM_ARGS();
+    zo_wxTextBoxAttr* current_object;
+    wxTextBoxAttr_php* native_object;
+
+    char* name;
+    size_t name_len;
+
+    //Get native object of the php object that called the method
+    if (getThis() != NULL)
+    {
+        current_object = Z_wxTextBoxAttr_P(getThis());
+
+        if(current_object->native_object == NULL)
+        {
+            zend_error(
+                E_ERROR,
+                "Failed to get the native object for "
+                "wxTextBoxAttr::wxTextBoxAttr call\n"
+            );
+
+            return;
+        }
+        else
+        {
+            native_object = current_object->native_object;
+        }
+    }
+    else
+    {
+        zend_error(E_ERROR, "Could not process __get call as static\n");
+    }
+
+    char parse_parameters_string[] = "s";
+
+    if(
+        zend_parse_parameters_ex(
+            ZEND_PARSE_PARAMS_QUIET,
+            arguments_received,
+            parse_parameters_string,
+            &name,
+            &name_len
+        ) == FAILURE
+    )
+    {
+        RETVAL_NULL();
+    }
+
+    #ifdef USE_WXPHP_DEBUG
+    php_printf("Property to get: %s\n", name);
+    php_printf("===========================================\n\n");
+    #endif
+
+    if(false){}
+    else if(strcmp("m_flags", name) == 0)
+    {
+        RETVAL_LONG(*((int*) native_object->properties[0]));
+    }
+    else if(strcmp("m_margins", name) == 0)
+    {
+        object_init_ex(return_value, php_wxTextAttrDimensions_entry);
+        Z_wxTextBoxAttr_P(&return_value)->native_object = ((wxTextAttrDimensions_php*) native_object->properties[1]);
+        return;
+    }
+    else if(strcmp("m_padding", name) == 0)
+    {
+        object_init_ex(return_value, php_wxTextAttrDimensions_entry);
+        Z_wxTextBoxAttr_P(&return_value)->native_object = ((wxTextAttrDimensions_php*) native_object->properties[2]);
+        return;
+    }
+    else if(strcmp("m_position", name) == 0)
+    {
+        object_init_ex(return_value, php_wxTextAttrDimensions_entry);
+        Z_wxTextBoxAttr_P(&return_value)->native_object = ((wxTextAttrDimensions_php*) native_object->properties[3]);
+        return;
+    }
+    else if(strcmp("m_size", name) == 0)
+    {
+        object_init_ex(return_value, php_wxTextAttrSize_entry);
+        Z_wxTextBoxAttr_P(&return_value)->native_object = ((wxTextAttrSize_php*) native_object->properties[4]);
+        return;
+    }
+    else if(strcmp("m_minSize", name) == 0)
+    {
+        object_init_ex(return_value, php_wxTextAttrSize_entry);
+        Z_wxTextBoxAttr_P(&return_value)->native_object = ((wxTextAttrSize_php*) native_object->properties[5]);
+        return;
+    }
+    else if(strcmp("m_maxSize", name) == 0)
+    {
+        object_init_ex(return_value, php_wxTextAttrSize_entry);
+        Z_wxTextBoxAttr_P(&return_value)->native_object = ((wxTextAttrSize_php*) native_object->properties[6]);
+        return;
+    }
+    else if(strcmp("m_border", name) == 0)
+    {
+        object_init_ex(return_value, php_wxTextAttrBorders_entry);
+        Z_wxTextBoxAttr_P(&return_value)->native_object = ((wxTextAttrBorders_php*) native_object->properties[7]);
+        return;
+    }
+    else if(strcmp("m_outline", name) == 0)
+    {
+        object_init_ex(return_value, php_wxTextAttrBorders_entry);
+        Z_wxTextBoxAttr_P(&return_value)->native_object = ((wxTextAttrBorders_php*) native_object->properties[8]);
+        return;
+    }
+    else if(strcmp("m_floatMode", name) == 0)
+    {
+        RETVAL_LONG(*((wxTextBoxAttrFloatStyle*) native_object->properties[9]));
+    }
+    else if(strcmp("m_clearMode", name) == 0)
+    {
+        RETVAL_LONG(*((wxTextBoxAttrClearStyle*) native_object->properties[10]));
+    }
+    else if(strcmp("m_collapseMode", name) == 0)
+    {
+        RETVAL_LONG(*((wxTextBoxAttrCollapseMode*) native_object->properties[11]));
+    }
+    else if(strcmp("m_verticalAlignment", name) == 0)
+    {
+        RETVAL_LONG(*((wxTextBoxAttrVerticalAlignment*) native_object->properties[12]));
+    }
+    else if(strcmp("m_boxStyleName", name) == 0)
+    {
+        RETVAL_STRING((const char*) *((wxString*) native_object->properties[13]));
+    }
+    else
+    {
+        RETVAL_NULL();
+    }
+}
+/* {{{ proto  wxTextBoxAttr::Init() */
+PHP_METHOD(php_wxTextBoxAttr, Init)
+{
+    #ifdef USE_WXPHP_DEBUG
+    php_printf("Invoking wxTextBoxAttr::Init\n");
+    php_printf("===========================================\n");
+    #endif
+
+    zo_wxTextBoxAttr* current_object;
+    wxphp_object_type current_object_type;
+    wxTextBoxAttr_php* native_object;
+    void* argument_native_object = NULL;
+
+    //Other variables used thru the code
+    zval dummy;
+    ZVAL_NULL(&dummy);
+    bool already_called = false;
+    wxPHPObjectReferences* references;
+    int arguments_received = ZEND_NUM_ARGS();
+    bool return_is_user_initialized = false;
+
+    //Get native object of the php object that called the method
+    if(getThis() != NULL)
+    {
+        current_object = Z_wxTextBoxAttr_P(getThis());
+
+        if(current_object->native_object == NULL)
+        {
+            zend_error(
+                E_ERROR,
+                "Failed to get the native object for "
+                "wxTextBoxAttr::Init call\n"
+            );
+
+            return;
+        }
+        else
+        {
+            native_object = current_object->native_object;
+            current_object_type = current_object->object_type;
+
+            bool reference_type_found = false;
+
+            if(current_object_type == PHP_WXTEXTBOXATTR_TYPE){
+                references = &((wxTextBoxAttr_php*)native_object)->references;
+                reference_type_found = true;
+            }
+        }
+    }
+    #ifdef USE_WXPHP_DEBUG
+    else
+    {
+        php_printf("Processing the method call as static\n");
+    }
+    #endif
+
+    //Parameters for overload 0
+    bool overload0_called = false;
+
+    
+    //Overload 0
+    overload0:
+    if(!already_called && arguments_received == 0)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Parameters received %d\n", arguments_received);
+        php_printf("Parsing parameters with '' ()\n");
+        #endif
+
+        overload0_called = true;
+        already_called = true;
+    }
+
+    
+    if(overload0_called)
+    {
+        switch(arguments_received)
+        {
+            case 0:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing wxTextBoxAttr::Init()\n\n");
+                #endif
+
+                ((wxTextBoxAttr_php*)native_object)->Init();
+
+
+                return;
+                break;
+            }
+        }
+    }
+
+    
+    //In case wrong type/count of parameters was passed
+    if(!already_called)
+    {
+        zend_error(
+            E_ERROR,
+            "Wrong type or count of parameters passed to: "
+            "wxTextBoxAttr::Init\n"
+        );
+    }
+}
+/* }}} */
+
+/* {{{ proto  wxTextBoxAttr::Reset() */
+PHP_METHOD(php_wxTextBoxAttr, Reset)
+{
+    #ifdef USE_WXPHP_DEBUG
+    php_printf("Invoking wxTextBoxAttr::Reset\n");
+    php_printf("===========================================\n");
+    #endif
+
+    zo_wxTextBoxAttr* current_object;
+    wxphp_object_type current_object_type;
+    wxTextBoxAttr_php* native_object;
+    void* argument_native_object = NULL;
+
+    //Other variables used thru the code
+    zval dummy;
+    ZVAL_NULL(&dummy);
+    bool already_called = false;
+    wxPHPObjectReferences* references;
+    int arguments_received = ZEND_NUM_ARGS();
+    bool return_is_user_initialized = false;
+
+    //Get native object of the php object that called the method
+    if(getThis() != NULL)
+    {
+        current_object = Z_wxTextBoxAttr_P(getThis());
+
+        if(current_object->native_object == NULL)
+        {
+            zend_error(
+                E_ERROR,
+                "Failed to get the native object for "
+                "wxTextBoxAttr::Reset call\n"
+            );
+
+            return;
+        }
+        else
+        {
+            native_object = current_object->native_object;
+            current_object_type = current_object->object_type;
+
+            bool reference_type_found = false;
+
+            if(current_object_type == PHP_WXTEXTBOXATTR_TYPE){
+                references = &((wxTextBoxAttr_php*)native_object)->references;
+                reference_type_found = true;
+            }
+        }
+    }
+    #ifdef USE_WXPHP_DEBUG
+    else
+    {
+        php_printf("Processing the method call as static\n");
+    }
+    #endif
+
+    //Parameters for overload 0
+    bool overload0_called = false;
+
+    
+    //Overload 0
+    overload0:
+    if(!already_called && arguments_received == 0)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Parameters received %d\n", arguments_received);
+        php_printf("Parsing parameters with '' ()\n");
+        #endif
+
+        overload0_called = true;
+        already_called = true;
+    }
+
+    
+    if(overload0_called)
+    {
+        switch(arguments_received)
+        {
+            case 0:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing wxTextBoxAttr::Reset()\n\n");
+                #endif
+
+                ((wxTextBoxAttr_php*)native_object)->Reset();
+
+
+                return;
+                break;
+            }
+        }
+    }
+
+    
+    //In case wrong type/count of parameters was passed
+    if(!already_called)
+    {
+        zend_error(
+            E_ERROR,
+            "Wrong type or count of parameters passed to: "
+            "wxTextBoxAttr::Reset\n"
+        );
+    }
+}
+/* }}} */
+
+/* {{{ proto bool wxTextBoxAttr::EqPartial(wxTextBoxAttr attr, bool weakTest) */
+PHP_METHOD(php_wxTextBoxAttr, EqPartial)
+{
+    #ifdef USE_WXPHP_DEBUG
+    php_printf("Invoking wxTextBoxAttr::EqPartial\n");
+    php_printf("===========================================\n");
+    #endif
+
+    zo_wxTextBoxAttr* current_object;
+    wxphp_object_type current_object_type;
+    wxTextBoxAttr_php* native_object;
+    void* argument_native_object = NULL;
+
+    //Other variables used thru the code
+    zval dummy;
+    ZVAL_NULL(&dummy);
+    bool already_called = false;
+    wxPHPObjectReferences* references;
+    int arguments_received = ZEND_NUM_ARGS();
+    bool return_is_user_initialized = false;
+
+    //Get native object of the php object that called the method
+    if(getThis() != NULL)
+    {
+        current_object = Z_wxTextBoxAttr_P(getThis());
+
+        if(current_object->native_object == NULL)
+        {
+            zend_error(
+                E_ERROR,
+                "Failed to get the native object for "
+                "wxTextBoxAttr::EqPartial call\n"
+            );
+
+            return;
+        }
+        else
+        {
+            native_object = current_object->native_object;
+            current_object_type = current_object->object_type;
+
+            bool reference_type_found = false;
+
+            if(current_object_type == PHP_WXTEXTBOXATTR_TYPE){
+                references = &((wxTextBoxAttr_php*)native_object)->references;
+                reference_type_found = true;
+            }
+        }
+    }
+    #ifdef USE_WXPHP_DEBUG
+    else
+    {
+        php_printf("Processing the method call as static\n");
+    }
+    #endif
+
+    //Parameters for overload 0
+    zval* attr0;
+    wxTextBoxAttr* object_pointer0_0 = 0;
+    bool weakTest0;
+    bool overload0_called = false;
+
+    
+    //Overload 0
+    overload0:
+    if(!already_called && arguments_received >= 1  && arguments_received <= 2)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Parameters received %d\n", arguments_received);
+        php_printf("Parsing parameters with 'O|b' (&attr0, php_wxTextBoxAttr_entry, &weakTest0)\n");
+        #endif
+
+        char parse_parameters_string[] = "O|b";
+        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &attr0, php_wxTextBoxAttr_entry, &weakTest0 ) == SUCCESS)
+        {
+            if(arguments_received >= 1){
+                if(Z_TYPE_P(attr0) == IS_OBJECT)
+                {
+                    wxphp_object_type argument_type = Z_wxTextBoxAttr_P(attr0)->object_type;
+                    argument_native_object = (void*) Z_wxTextBoxAttr_P(attr0)->native_object;
+                    object_pointer0_0 = (wxTextBoxAttr*) argument_native_object;
+                    if (!object_pointer0_0 )
+                    {
+                        zend_error(E_ERROR, "Parameter 'attr' could not be retreived correctly.");
+                    }
+                }
+                else if(Z_TYPE_P(attr0) != IS_NULL)
+                {
+                    zend_error(E_ERROR, "Parameter 'attr' not null, could not be retreived correctly.");
+                }
+            }
+
+            overload0_called = true;
+            already_called = true;
+        }
+    }
+
+    
+    if(overload0_called)
+    {
+        switch(arguments_received)
+        {
+            case 1:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing RETURN_BOOL(wxTextBoxAttr::EqPartial(*(wxTextBoxAttr*) object_pointer0_0))\n\n");
+                #endif
+
+                RETVAL_BOOL(((wxTextBoxAttr_php*)native_object)->EqPartial(*(wxTextBoxAttr*) object_pointer0_0));
+
+                references->AddReference(attr0, "wxTextBoxAttr::EqPartial at call 3 with 1 argument(s)");
+
+                return;
+                break;
+            }
+            case 2:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing RETURN_BOOL(wxTextBoxAttr::EqPartial(*(wxTextBoxAttr*) object_pointer0_0, weakTest0))\n\n");
+                #endif
+
+                RETVAL_BOOL(((wxTextBoxAttr_php*)native_object)->EqPartial(*(wxTextBoxAttr*) object_pointer0_0, weakTest0));
+
+                references->AddReference(attr0, "wxTextBoxAttr::EqPartial at call 3 with 2 argument(s)");
+
+                return;
+                break;
+            }
+        }
+    }
+
+    
+    //In case wrong type/count of parameters was passed
+    if(!already_called)
+    {
+        zend_error(
+            E_ERROR,
+            "Wrong type or count of parameters passed to: "
+            "wxTextBoxAttr::EqPartial\n"
+        );
+    }
+}
+/* }}} */
+
+/* {{{ proto bool wxTextBoxAttr::Apply(wxTextBoxAttr style, wxTextBoxAttr compareWith) */
+PHP_METHOD(php_wxTextBoxAttr, Apply)
+{
+    #ifdef USE_WXPHP_DEBUG
+    php_printf("Invoking wxTextBoxAttr::Apply\n");
+    php_printf("===========================================\n");
+    #endif
+
+    zo_wxTextBoxAttr* current_object;
+    wxphp_object_type current_object_type;
+    wxTextBoxAttr_php* native_object;
+    void* argument_native_object = NULL;
+
+    //Other variables used thru the code
+    zval dummy;
+    ZVAL_NULL(&dummy);
+    bool already_called = false;
+    wxPHPObjectReferences* references;
+    int arguments_received = ZEND_NUM_ARGS();
+    bool return_is_user_initialized = false;
+
+    //Get native object of the php object that called the method
+    if(getThis() != NULL)
+    {
+        current_object = Z_wxTextBoxAttr_P(getThis());
+
+        if(current_object->native_object == NULL)
+        {
+            zend_error(
+                E_ERROR,
+                "Failed to get the native object for "
+                "wxTextBoxAttr::Apply call\n"
+            );
+
+            return;
+        }
+        else
+        {
+            native_object = current_object->native_object;
+            current_object_type = current_object->object_type;
+
+            bool reference_type_found = false;
+
+            if(current_object_type == PHP_WXTEXTBOXATTR_TYPE){
+                references = &((wxTextBoxAttr_php*)native_object)->references;
+                reference_type_found = true;
+            }
+        }
+    }
+    #ifdef USE_WXPHP_DEBUG
+    else
+    {
+        php_printf("Processing the method call as static\n");
+    }
+    #endif
+
+    //Parameters for overload 0
+    zval* style0;
+    wxTextBoxAttr* object_pointer0_0 = 0;
+    zval* compareWith0;
+    wxTextBoxAttr* object_pointer0_1 = 0;
+    bool overload0_called = false;
+
+    
+    //Overload 0
+    overload0:
+    if(!already_called && arguments_received >= 1  && arguments_received <= 2)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Parameters received %d\n", arguments_received);
+        php_printf("Parsing parameters with 'O|z' (&style0, php_wxTextBoxAttr_entry, &compareWith0)\n");
+        #endif
+
+        char parse_parameters_string[] = "O|z";
+        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &style0, php_wxTextBoxAttr_entry, &compareWith0 ) == SUCCESS)
+        {
+            if(arguments_received >= 1){
+                if(Z_TYPE_P(style0) == IS_OBJECT)
+                {
+                    wxphp_object_type argument_type = Z_wxTextBoxAttr_P(style0)->object_type;
+                    argument_native_object = (void*) Z_wxTextBoxAttr_P(style0)->native_object;
+                    object_pointer0_0 = (wxTextBoxAttr*) argument_native_object;
+                    if (!object_pointer0_0 )
+                    {
+                        zend_error(E_ERROR, "Parameter 'style' could not be retreived correctly.");
+                    }
+                }
+                else if(Z_TYPE_P(style0) != IS_NULL)
+                {
+                    zend_error(E_ERROR, "Parameter 'style' not null, could not be retreived correctly.");
+                }
+            }
+
+            if(arguments_received >= 2){
+                if(Z_TYPE_P(compareWith0) == IS_OBJECT)
+                {
+                    wxphp_object_type argument_type = Z_wxTextBoxAttr_P(compareWith0)->object_type;
+                    argument_native_object = (void*) Z_wxTextBoxAttr_P(compareWith0)->native_object;
+                    object_pointer0_1 = (wxTextBoxAttr*) argument_native_object;
+                    if (!object_pointer0_1 || (argument_type != PHP_WXTEXTBOXATTR_TYPE))
+                    {
+                        zend_error(E_ERROR, "Parameter 'compareWith' could not be retreived correctly.");
+                    }
+                }
+                else if(Z_TYPE_P(compareWith0) != IS_NULL)
+                {
+                    zend_error(E_ERROR, "Parameter 'compareWith' not null, could not be retreived correctly.");
+                }
+            }
+
+            overload0_called = true;
+            already_called = true;
+        }
+    }
+
+    
+    if(overload0_called)
+    {
+        switch(arguments_received)
+        {
+            case 1:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing RETURN_BOOL(wxTextBoxAttr::Apply(*(wxTextBoxAttr*) object_pointer0_0))\n\n");
+                #endif
+
+                RETVAL_BOOL(((wxTextBoxAttr_php*)native_object)->Apply(*(wxTextBoxAttr*) object_pointer0_0));
+
+                references->AddReference(style0, "wxTextBoxAttr::Apply at call 3 with 1 argument(s)");
+
+                return;
+                break;
+            }
+            case 2:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing RETURN_BOOL(wxTextBoxAttr::Apply(*(wxTextBoxAttr*) object_pointer0_0, (const wxTextBoxAttr*) object_pointer0_1))\n\n");
+                #endif
+
+                RETVAL_BOOL(((wxTextBoxAttr_php*)native_object)->Apply(*(wxTextBoxAttr*) object_pointer0_0, (const wxTextBoxAttr*) object_pointer0_1));
+
+                references->AddReference(style0, "wxTextBoxAttr::Apply at call 3 with 2 argument(s)");
+                references->AddReference(compareWith0, "wxTextBoxAttr::Apply at call 1 with 2 argument(s)");
+
+                return;
+                break;
+            }
+        }
+    }
+
+    
+    //In case wrong type/count of parameters was passed
+    if(!already_called)
+    {
+        zend_error(
+            E_ERROR,
+            "Wrong type or count of parameters passed to: "
+            "wxTextBoxAttr::Apply\n"
+        );
+    }
+}
+/* }}} */
+
+/* {{{ proto  wxTextBoxAttr::CollectCommonAttributes(wxTextBoxAttr attr, wxTextBoxAttr &clashingAttr, wxTextBoxAttr &absentAttr) */
+PHP_METHOD(php_wxTextBoxAttr, CollectCommonAttributes)
+{
+    #ifdef USE_WXPHP_DEBUG
+    php_printf("Invoking wxTextBoxAttr::CollectCommonAttributes\n");
+    php_printf("===========================================\n");
+    #endif
+
+    zo_wxTextBoxAttr* current_object;
+    wxphp_object_type current_object_type;
+    wxTextBoxAttr_php* native_object;
+    void* argument_native_object = NULL;
+
+    //Other variables used thru the code
+    zval dummy;
+    ZVAL_NULL(&dummy);
+    bool already_called = false;
+    wxPHPObjectReferences* references;
+    int arguments_received = ZEND_NUM_ARGS();
+    bool return_is_user_initialized = false;
+
+    //Get native object of the php object that called the method
+    if(getThis() != NULL)
+    {
+        current_object = Z_wxTextBoxAttr_P(getThis());
+
+        if(current_object->native_object == NULL)
+        {
+            zend_error(
+                E_ERROR,
+                "Failed to get the native object for "
+                "wxTextBoxAttr::CollectCommonAttributes call\n"
+            );
+
+            return;
+        }
+        else
+        {
+            native_object = current_object->native_object;
+            current_object_type = current_object->object_type;
+
+            bool reference_type_found = false;
+
+            if(current_object_type == PHP_WXTEXTBOXATTR_TYPE){
+                references = &((wxTextBoxAttr_php*)native_object)->references;
+                reference_type_found = true;
+            }
+        }
+    }
+    #ifdef USE_WXPHP_DEBUG
+    else
+    {
+        php_printf("Processing the method call as static\n");
+    }
+    #endif
+
+    //Parameters for overload 0
+    zval* attr0;
+    wxTextBoxAttr* object_pointer0_0 = 0;
+    zval* clashingAttr0;
+    wxTextBoxAttr* object_pointer0_1 = 0;
+    zval* absentAttr0;
+    wxTextBoxAttr* object_pointer0_2 = 0;
+    bool overload0_called = false;
+
+    
+    //Overload 0
+    overload0:
+    if(!already_called && arguments_received == 3)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Parameters received %d\n", arguments_received);
+        php_printf("Parsing parameters with 'OOO' (&attr0, php_wxTextBoxAttr_entry, &clashingAttr0, php_wxTextBoxAttr_entry, &absentAttr0, php_wxTextBoxAttr_entry)\n");
+        #endif
+
+        char parse_parameters_string[] = "OOO";
+        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &attr0, php_wxTextBoxAttr_entry, &clashingAttr0, php_wxTextBoxAttr_entry, &absentAttr0, php_wxTextBoxAttr_entry ) == SUCCESS)
+        {
+            if(arguments_received >= 1){
+                if(Z_TYPE_P(attr0) == IS_OBJECT)
+                {
+                    wxphp_object_type argument_type = Z_wxTextBoxAttr_P(attr0)->object_type;
+                    argument_native_object = (void*) Z_wxTextBoxAttr_P(attr0)->native_object;
+                    object_pointer0_0 = (wxTextBoxAttr*) argument_native_object;
+                    if (!object_pointer0_0 )
+                    {
+                        zend_error(E_ERROR, "Parameter 'attr' could not be retreived correctly.");
+                    }
+                }
+                else if(Z_TYPE_P(attr0) != IS_NULL)
+                {
+                    zend_error(E_ERROR, "Parameter 'attr' not null, could not be retreived correctly.");
+                }
+            }
+
+            if(arguments_received >= 2){
+                if(Z_TYPE_P(clashingAttr0) == IS_OBJECT)
+                {
+                    wxphp_object_type argument_type = Z_wxTextBoxAttr_P(clashingAttr0)->object_type;
+                    argument_native_object = (void*) Z_wxTextBoxAttr_P(clashingAttr0)->native_object;
+                    object_pointer0_1 = (wxTextBoxAttr*) argument_native_object;
+                    if (!object_pointer0_1 )
+                    {
+                        zend_error(E_ERROR, "Parameter 'clashingAttr' could not be retreived correctly.");
+                    }
+                }
+                else if(Z_TYPE_P(clashingAttr0) != IS_NULL)
+                {
+                    zend_error(E_ERROR, "Parameter 'clashingAttr' not null, could not be retreived correctly.");
+                }
+            }
+
+            if(arguments_received >= 3){
+                if(Z_TYPE_P(absentAttr0) == IS_OBJECT)
+                {
+                    wxphp_object_type argument_type = Z_wxTextBoxAttr_P(absentAttr0)->object_type;
+                    argument_native_object = (void*) Z_wxTextBoxAttr_P(absentAttr0)->native_object;
+                    object_pointer0_2 = (wxTextBoxAttr*) argument_native_object;
+                    if (!object_pointer0_2 )
+                    {
+                        zend_error(E_ERROR, "Parameter 'absentAttr' could not be retreived correctly.");
+                    }
+                }
+                else if(Z_TYPE_P(absentAttr0) != IS_NULL)
+                {
+                    zend_error(E_ERROR, "Parameter 'absentAttr' not null, could not be retreived correctly.");
+                }
+            }
+
+            overload0_called = true;
+            already_called = true;
+        }
+    }
+
+    
+    if(overload0_called)
+    {
+        switch(arguments_received)
+        {
+            case 3:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing wxTextBoxAttr::CollectCommonAttributes(*(wxTextBoxAttr*) object_pointer0_0, *(wxTextBoxAttr*) object_pointer0_1, *(wxTextBoxAttr*) object_pointer0_2)\n\n");
+                #endif
+
+                ((wxTextBoxAttr_php*)native_object)->CollectCommonAttributes(*(wxTextBoxAttr*) object_pointer0_0, *(wxTextBoxAttr*) object_pointer0_1, *(wxTextBoxAttr*) object_pointer0_2);
+
+                references->AddReference(attr0, "wxTextBoxAttr::CollectCommonAttributes at call 3 with 3 argument(s)");
+                references->AddReference(clashingAttr0, "wxTextBoxAttr::CollectCommonAttributes at call 3 with 3 argument(s)");
+                references->AddReference(absentAttr0, "wxTextBoxAttr::CollectCommonAttributes at call 3 with 3 argument(s)");
+
+                return;
+                break;
+            }
+        }
+    }
+
+    
+    //In case wrong type/count of parameters was passed
+    if(!already_called)
+    {
+        zend_error(
+            E_ERROR,
+            "Wrong type or count of parameters passed to: "
+            "wxTextBoxAttr::CollectCommonAttributes\n"
+        );
+    }
+}
+/* }}} */
+
+/* {{{ proto bool wxTextBoxAttr::RemoveStyle(wxTextBoxAttr attr) */
+PHP_METHOD(php_wxTextBoxAttr, RemoveStyle)
+{
+    #ifdef USE_WXPHP_DEBUG
+    php_printf("Invoking wxTextBoxAttr::RemoveStyle\n");
+    php_printf("===========================================\n");
+    #endif
+
+    zo_wxTextBoxAttr* current_object;
+    wxphp_object_type current_object_type;
+    wxTextBoxAttr_php* native_object;
+    void* argument_native_object = NULL;
+
+    //Other variables used thru the code
+    zval dummy;
+    ZVAL_NULL(&dummy);
+    bool already_called = false;
+    wxPHPObjectReferences* references;
+    int arguments_received = ZEND_NUM_ARGS();
+    bool return_is_user_initialized = false;
+
+    //Get native object of the php object that called the method
+    if(getThis() != NULL)
+    {
+        current_object = Z_wxTextBoxAttr_P(getThis());
+
+        if(current_object->native_object == NULL)
+        {
+            zend_error(
+                E_ERROR,
+                "Failed to get the native object for "
+                "wxTextBoxAttr::RemoveStyle call\n"
+            );
+
+            return;
+        }
+        else
+        {
+            native_object = current_object->native_object;
+            current_object_type = current_object->object_type;
+
+            bool reference_type_found = false;
+
+            if(current_object_type == PHP_WXTEXTBOXATTR_TYPE){
+                references = &((wxTextBoxAttr_php*)native_object)->references;
+                reference_type_found = true;
+            }
+        }
+    }
+    #ifdef USE_WXPHP_DEBUG
+    else
+    {
+        php_printf("Processing the method call as static\n");
+    }
+    #endif
+
+    //Parameters for overload 0
+    zval* attr0;
+    wxTextBoxAttr* object_pointer0_0 = 0;
+    bool overload0_called = false;
+
+    
+    //Overload 0
+    overload0:
+    if(!already_called && arguments_received == 1)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Parameters received %d\n", arguments_received);
+        php_printf("Parsing parameters with 'O' (&attr0, php_wxTextBoxAttr_entry)\n");
+        #endif
+
+        char parse_parameters_string[] = "O";
+        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &attr0, php_wxTextBoxAttr_entry ) == SUCCESS)
+        {
+            if(arguments_received >= 1){
+                if(Z_TYPE_P(attr0) == IS_OBJECT)
+                {
+                    wxphp_object_type argument_type = Z_wxTextBoxAttr_P(attr0)->object_type;
+                    argument_native_object = (void*) Z_wxTextBoxAttr_P(attr0)->native_object;
+                    object_pointer0_0 = (wxTextBoxAttr*) argument_native_object;
+                    if (!object_pointer0_0 )
+                    {
+                        zend_error(E_ERROR, "Parameter 'attr' could not be retreived correctly.");
+                    }
+                }
+                else if(Z_TYPE_P(attr0) != IS_NULL)
+                {
+                    zend_error(E_ERROR, "Parameter 'attr' not null, could not be retreived correctly.");
+                }
+            }
+
+            overload0_called = true;
+            already_called = true;
+        }
+    }
+
+    
+    if(overload0_called)
+    {
+        switch(arguments_received)
+        {
+            case 1:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing RETURN_BOOL(wxTextBoxAttr::RemoveStyle(*(wxTextBoxAttr*) object_pointer0_0))\n\n");
+                #endif
+
+                RETVAL_BOOL(((wxTextBoxAttr_php*)native_object)->RemoveStyle(*(wxTextBoxAttr*) object_pointer0_0));
+
+                references->AddReference(attr0, "wxTextBoxAttr::RemoveStyle at call 3 with 1 argument(s)");
+
+                return;
+                break;
+            }
+        }
+    }
+
+    
+    //In case wrong type/count of parameters was passed
+    if(!already_called)
+    {
+        zend_error(
+            E_ERROR,
+            "Wrong type or count of parameters passed to: "
+            "wxTextBoxAttr::RemoveStyle\n"
+        );
+    }
+}
+/* }}} */
+
+/* {{{ proto  wxTextBoxAttr::SetFlags(int flags) */
+PHP_METHOD(php_wxTextBoxAttr, SetFlags)
+{
+    #ifdef USE_WXPHP_DEBUG
+    php_printf("Invoking wxTextBoxAttr::SetFlags\n");
+    php_printf("===========================================\n");
+    #endif
+
+    zo_wxTextBoxAttr* current_object;
+    wxphp_object_type current_object_type;
+    wxTextBoxAttr_php* native_object;
+    void* argument_native_object = NULL;
+
+    //Other variables used thru the code
+    zval dummy;
+    ZVAL_NULL(&dummy);
+    bool already_called = false;
+    wxPHPObjectReferences* references;
+    int arguments_received = ZEND_NUM_ARGS();
+    bool return_is_user_initialized = false;
+
+    //Get native object of the php object that called the method
+    if(getThis() != NULL)
+    {
+        current_object = Z_wxTextBoxAttr_P(getThis());
+
+        if(current_object->native_object == NULL)
+        {
+            zend_error(
+                E_ERROR,
+                "Failed to get the native object for "
+                "wxTextBoxAttr::SetFlags call\n"
+            );
+
+            return;
+        }
+        else
+        {
+            native_object = current_object->native_object;
+            current_object_type = current_object->object_type;
+
+            bool reference_type_found = false;
+
+            if(current_object_type == PHP_WXTEXTBOXATTR_TYPE){
+                references = &((wxTextBoxAttr_php*)native_object)->references;
+                reference_type_found = true;
+            }
+        }
+    }
+    #ifdef USE_WXPHP_DEBUG
+    else
+    {
+        php_printf("Processing the method call as static\n");
+    }
+    #endif
+
+    //Parameters for overload 0
+    long flags0;
+    bool overload0_called = false;
+
+    
+    //Overload 0
+    overload0:
+    if(!already_called && arguments_received == 1)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Parameters received %d\n", arguments_received);
+        php_printf("Parsing parameters with 'l' (&flags0)\n");
+        #endif
+
+        char parse_parameters_string[] = "l";
+        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &flags0 ) == SUCCESS)
+        {
+            overload0_called = true;
+            already_called = true;
+        }
+    }
+
+    
+    if(overload0_called)
+    {
+        switch(arguments_received)
+        {
+            case 1:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing wxTextBoxAttr::SetFlags((int) flags0)\n\n");
+                #endif
+
+                ((wxTextBoxAttr_php*)native_object)->SetFlags((int) flags0);
+
+
+                return;
+                break;
+            }
+        }
+    }
+
+    
+    //In case wrong type/count of parameters was passed
+    if(!already_called)
+    {
+        zend_error(
+            E_ERROR,
+            "Wrong type or count of parameters passed to: "
+            "wxTextBoxAttr::SetFlags\n"
+        );
+    }
+}
+/* }}} */
+
+/* {{{ proto int wxTextBoxAttr::GetFlags() */
+PHP_METHOD(php_wxTextBoxAttr, GetFlags)
+{
+    #ifdef USE_WXPHP_DEBUG
+    php_printf("Invoking wxTextBoxAttr::GetFlags\n");
+    php_printf("===========================================\n");
+    #endif
+
+    zo_wxTextBoxAttr* current_object;
+    wxphp_object_type current_object_type;
+    wxTextBoxAttr_php* native_object;
+    void* argument_native_object = NULL;
+
+    //Other variables used thru the code
+    zval dummy;
+    ZVAL_NULL(&dummy);
+    bool already_called = false;
+    wxPHPObjectReferences* references;
+    int arguments_received = ZEND_NUM_ARGS();
+    bool return_is_user_initialized = false;
+
+    //Get native object of the php object that called the method
+    if(getThis() != NULL)
+    {
+        current_object = Z_wxTextBoxAttr_P(getThis());
+
+        if(current_object->native_object == NULL)
+        {
+            zend_error(
+                E_ERROR,
+                "Failed to get the native object for "
+                "wxTextBoxAttr::GetFlags call\n"
+            );
+
+            return;
+        }
+        else
+        {
+            native_object = current_object->native_object;
+            current_object_type = current_object->object_type;
+
+            bool reference_type_found = false;
+
+            if(current_object_type == PHP_WXTEXTBOXATTR_TYPE){
+                references = &((wxTextBoxAttr_php*)native_object)->references;
+                reference_type_found = true;
+            }
+        }
+    }
+    #ifdef USE_WXPHP_DEBUG
+    else
+    {
+        php_printf("Processing the method call as static\n");
+    }
+    #endif
+
+    //Parameters for overload 0
+    bool overload0_called = false;
+
+    
+    //Overload 0
+    overload0:
+    if(!already_called && arguments_received == 0)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Parameters received %d\n", arguments_received);
+        php_printf("Parsing parameters with '' ()\n");
+        #endif
+
+        overload0_called = true;
+        already_called = true;
+    }
+
+    
+    if(overload0_called)
+    {
+        switch(arguments_received)
+        {
+            case 0:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing RETURN_LONG(wxTextBoxAttr::GetFlags())\n\n");
+                #endif
+
+                RETVAL_LONG(((wxTextBoxAttr_php*)native_object)->GetFlags());
+
+
+                return;
+                break;
+            }
+        }
+    }
+
+    
+    //In case wrong type/count of parameters was passed
+    if(!already_called)
+    {
+        zend_error(
+            E_ERROR,
+            "Wrong type or count of parameters passed to: "
+            "wxTextBoxAttr::GetFlags\n"
+        );
+    }
+}
+/* }}} */
+
+/* {{{ proto bool wxTextBoxAttr::HasFlag(wxTextBoxAttrFlags flag) */
+PHP_METHOD(php_wxTextBoxAttr, HasFlag)
+{
+    #ifdef USE_WXPHP_DEBUG
+    php_printf("Invoking wxTextBoxAttr::HasFlag\n");
+    php_printf("===========================================\n");
+    #endif
+
+    zo_wxTextBoxAttr* current_object;
+    wxphp_object_type current_object_type;
+    wxTextBoxAttr_php* native_object;
+    void* argument_native_object = NULL;
+
+    //Other variables used thru the code
+    zval dummy;
+    ZVAL_NULL(&dummy);
+    bool already_called = false;
+    wxPHPObjectReferences* references;
+    int arguments_received = ZEND_NUM_ARGS();
+    bool return_is_user_initialized = false;
+
+    //Get native object of the php object that called the method
+    if(getThis() != NULL)
+    {
+        current_object = Z_wxTextBoxAttr_P(getThis());
+
+        if(current_object->native_object == NULL)
+        {
+            zend_error(
+                E_ERROR,
+                "Failed to get the native object for "
+                "wxTextBoxAttr::HasFlag call\n"
+            );
+
+            return;
+        }
+        else
+        {
+            native_object = current_object->native_object;
+            current_object_type = current_object->object_type;
+
+            bool reference_type_found = false;
+
+            if(current_object_type == PHP_WXTEXTBOXATTR_TYPE){
+                references = &((wxTextBoxAttr_php*)native_object)->references;
+                reference_type_found = true;
+            }
+        }
+    }
+    #ifdef USE_WXPHP_DEBUG
+    else
+    {
+        php_printf("Processing the method call as static\n");
+    }
+    #endif
+
+    //Parameters for overload 0
+    long flag0;
+    bool overload0_called = false;
+
+    
+    //Overload 0
+    overload0:
+    if(!already_called && arguments_received == 1)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Parameters received %d\n", arguments_received);
+        php_printf("Parsing parameters with 'l' (&flag0)\n");
+        #endif
+
+        char parse_parameters_string[] = "l";
+        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &flag0 ) == SUCCESS)
+        {
+            overload0_called = true;
+            already_called = true;
+        }
+    }
+
+    
+    if(overload0_called)
+    {
+        switch(arguments_received)
+        {
+            case 1:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing RETURN_BOOL(wxTextBoxAttr::HasFlag((wxTextBoxAttrFlags) flag0))\n\n");
+                #endif
+
+                RETVAL_BOOL(((wxTextBoxAttr_php*)native_object)->HasFlag((wxTextBoxAttrFlags) flag0));
+
+
+                return;
+                break;
+            }
+        }
+    }
+
+    
+    //In case wrong type/count of parameters was passed
+    if(!already_called)
+    {
+        zend_error(
+            E_ERROR,
+            "Wrong type or count of parameters passed to: "
+            "wxTextBoxAttr::HasFlag\n"
+        );
+    }
+}
+/* }}} */
+
+/* {{{ proto  wxTextBoxAttr::RemoveFlag(wxTextBoxAttrFlags flag) */
+PHP_METHOD(php_wxTextBoxAttr, RemoveFlag)
+{
+    #ifdef USE_WXPHP_DEBUG
+    php_printf("Invoking wxTextBoxAttr::RemoveFlag\n");
+    php_printf("===========================================\n");
+    #endif
+
+    zo_wxTextBoxAttr* current_object;
+    wxphp_object_type current_object_type;
+    wxTextBoxAttr_php* native_object;
+    void* argument_native_object = NULL;
+
+    //Other variables used thru the code
+    zval dummy;
+    ZVAL_NULL(&dummy);
+    bool already_called = false;
+    wxPHPObjectReferences* references;
+    int arguments_received = ZEND_NUM_ARGS();
+    bool return_is_user_initialized = false;
+
+    //Get native object of the php object that called the method
+    if(getThis() != NULL)
+    {
+        current_object = Z_wxTextBoxAttr_P(getThis());
+
+        if(current_object->native_object == NULL)
+        {
+            zend_error(
+                E_ERROR,
+                "Failed to get the native object for "
+                "wxTextBoxAttr::RemoveFlag call\n"
+            );
+
+            return;
+        }
+        else
+        {
+            native_object = current_object->native_object;
+            current_object_type = current_object->object_type;
+
+            bool reference_type_found = false;
+
+            if(current_object_type == PHP_WXTEXTBOXATTR_TYPE){
+                references = &((wxTextBoxAttr_php*)native_object)->references;
+                reference_type_found = true;
+            }
+        }
+    }
+    #ifdef USE_WXPHP_DEBUG
+    else
+    {
+        php_printf("Processing the method call as static\n");
+    }
+    #endif
+
+    //Parameters for overload 0
+    long flag0;
+    bool overload0_called = false;
+
+    
+    //Overload 0
+    overload0:
+    if(!already_called && arguments_received == 1)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Parameters received %d\n", arguments_received);
+        php_printf("Parsing parameters with 'l' (&flag0)\n");
+        #endif
+
+        char parse_parameters_string[] = "l";
+        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &flag0 ) == SUCCESS)
+        {
+            overload0_called = true;
+            already_called = true;
+        }
+    }
+
+    
+    if(overload0_called)
+    {
+        switch(arguments_received)
+        {
+            case 1:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing wxTextBoxAttr::RemoveFlag((wxTextBoxAttrFlags) flag0)\n\n");
+                #endif
+
+                ((wxTextBoxAttr_php*)native_object)->RemoveFlag((wxTextBoxAttrFlags) flag0);
+
+
+                return;
+                break;
+            }
+        }
+    }
+
+    
+    //In case wrong type/count of parameters was passed
+    if(!already_called)
+    {
+        zend_error(
+            E_ERROR,
+            "Wrong type or count of parameters passed to: "
+            "wxTextBoxAttr::RemoveFlag\n"
+        );
+    }
+}
+/* }}} */
+
+/* {{{ proto  wxTextBoxAttr::AddFlag(wxTextBoxAttrFlags flag) */
+PHP_METHOD(php_wxTextBoxAttr, AddFlag)
+{
+    #ifdef USE_WXPHP_DEBUG
+    php_printf("Invoking wxTextBoxAttr::AddFlag\n");
+    php_printf("===========================================\n");
+    #endif
+
+    zo_wxTextBoxAttr* current_object;
+    wxphp_object_type current_object_type;
+    wxTextBoxAttr_php* native_object;
+    void* argument_native_object = NULL;
+
+    //Other variables used thru the code
+    zval dummy;
+    ZVAL_NULL(&dummy);
+    bool already_called = false;
+    wxPHPObjectReferences* references;
+    int arguments_received = ZEND_NUM_ARGS();
+    bool return_is_user_initialized = false;
+
+    //Get native object of the php object that called the method
+    if(getThis() != NULL)
+    {
+        current_object = Z_wxTextBoxAttr_P(getThis());
+
+        if(current_object->native_object == NULL)
+        {
+            zend_error(
+                E_ERROR,
+                "Failed to get the native object for "
+                "wxTextBoxAttr::AddFlag call\n"
+            );
+
+            return;
+        }
+        else
+        {
+            native_object = current_object->native_object;
+            current_object_type = current_object->object_type;
+
+            bool reference_type_found = false;
+
+            if(current_object_type == PHP_WXTEXTBOXATTR_TYPE){
+                references = &((wxTextBoxAttr_php*)native_object)->references;
+                reference_type_found = true;
+            }
+        }
+    }
+    #ifdef USE_WXPHP_DEBUG
+    else
+    {
+        php_printf("Processing the method call as static\n");
+    }
+    #endif
+
+    //Parameters for overload 0
+    long flag0;
+    bool overload0_called = false;
+
+    
+    //Overload 0
+    overload0:
+    if(!already_called && arguments_received == 1)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Parameters received %d\n", arguments_received);
+        php_printf("Parsing parameters with 'l' (&flag0)\n");
+        #endif
+
+        char parse_parameters_string[] = "l";
+        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &flag0 ) == SUCCESS)
+        {
+            overload0_called = true;
+            already_called = true;
+        }
+    }
+
+    
+    if(overload0_called)
+    {
+        switch(arguments_received)
+        {
+            case 1:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing wxTextBoxAttr::AddFlag((wxTextBoxAttrFlags) flag0)\n\n");
+                #endif
+
+                ((wxTextBoxAttr_php*)native_object)->AddFlag((wxTextBoxAttrFlags) flag0);
+
+
+                return;
+                break;
+            }
+        }
+    }
+
+    
+    //In case wrong type/count of parameters was passed
+    if(!already_called)
+    {
+        zend_error(
+            E_ERROR,
+            "Wrong type or count of parameters passed to: "
+            "wxTextBoxAttr::AddFlag\n"
+        );
+    }
+}
+/* }}} */
+
+/* {{{ proto bool wxTextBoxAttr::IsDefault() */
+PHP_METHOD(php_wxTextBoxAttr, IsDefault)
+{
+    #ifdef USE_WXPHP_DEBUG
+    php_printf("Invoking wxTextBoxAttr::IsDefault\n");
+    php_printf("===========================================\n");
+    #endif
+
+    zo_wxTextBoxAttr* current_object;
+    wxphp_object_type current_object_type;
+    wxTextBoxAttr_php* native_object;
+    void* argument_native_object = NULL;
+
+    //Other variables used thru the code
+    zval dummy;
+    ZVAL_NULL(&dummy);
+    bool already_called = false;
+    wxPHPObjectReferences* references;
+    int arguments_received = ZEND_NUM_ARGS();
+    bool return_is_user_initialized = false;
+
+    //Get native object of the php object that called the method
+    if(getThis() != NULL)
+    {
+        current_object = Z_wxTextBoxAttr_P(getThis());
+
+        if(current_object->native_object == NULL)
+        {
+            zend_error(
+                E_ERROR,
+                "Failed to get the native object for "
+                "wxTextBoxAttr::IsDefault call\n"
+            );
+
+            return;
+        }
+        else
+        {
+            native_object = current_object->native_object;
+            current_object_type = current_object->object_type;
+
+            bool reference_type_found = false;
+
+            if(current_object_type == PHP_WXTEXTBOXATTR_TYPE){
+                references = &((wxTextBoxAttr_php*)native_object)->references;
+                reference_type_found = true;
+            }
+        }
+    }
+    #ifdef USE_WXPHP_DEBUG
+    else
+    {
+        php_printf("Processing the method call as static\n");
+    }
+    #endif
+
+    //Parameters for overload 0
+    bool overload0_called = false;
+
+    
+    //Overload 0
+    overload0:
+    if(!already_called && arguments_received == 0)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Parameters received %d\n", arguments_received);
+        php_printf("Parsing parameters with '' ()\n");
+        #endif
+
+        overload0_called = true;
+        already_called = true;
+    }
+
+    
+    if(overload0_called)
+    {
+        switch(arguments_received)
+        {
+            case 0:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing RETURN_BOOL(wxTextBoxAttr::IsDefault())\n\n");
+                #endif
+
+                RETVAL_BOOL(((wxTextBoxAttr_php*)native_object)->IsDefault());
+
+
+                return;
+                break;
+            }
+        }
+    }
+
+    
+    //In case wrong type/count of parameters was passed
+    if(!already_called)
+    {
+        zend_error(
+            E_ERROR,
+            "Wrong type or count of parameters passed to: "
+            "wxTextBoxAttr::IsDefault\n"
+        );
+    }
+}
+/* }}} */
+
+/* {{{ proto wxTextBoxAttrFloatStyle wxTextBoxAttr::GetFloatMode() */
+PHP_METHOD(php_wxTextBoxAttr, GetFloatMode)
+{
+    #ifdef USE_WXPHP_DEBUG
+    php_printf("Invoking wxTextBoxAttr::GetFloatMode\n");
+    php_printf("===========================================\n");
+    #endif
+
+    zo_wxTextBoxAttr* current_object;
+    wxphp_object_type current_object_type;
+    wxTextBoxAttr_php* native_object;
+    void* argument_native_object = NULL;
+
+    //Other variables used thru the code
+    zval dummy;
+    ZVAL_NULL(&dummy);
+    bool already_called = false;
+    wxPHPObjectReferences* references;
+    int arguments_received = ZEND_NUM_ARGS();
+    bool return_is_user_initialized = false;
+
+    //Get native object of the php object that called the method
+    if(getThis() != NULL)
+    {
+        current_object = Z_wxTextBoxAttr_P(getThis());
+
+        if(current_object->native_object == NULL)
+        {
+            zend_error(
+                E_ERROR,
+                "Failed to get the native object for "
+                "wxTextBoxAttr::GetFloatMode call\n"
+            );
+
+            return;
+        }
+        else
+        {
+            native_object = current_object->native_object;
+            current_object_type = current_object->object_type;
+
+            bool reference_type_found = false;
+
+            if(current_object_type == PHP_WXTEXTBOXATTR_TYPE){
+                references = &((wxTextBoxAttr_php*)native_object)->references;
+                reference_type_found = true;
+            }
+        }
+    }
+    #ifdef USE_WXPHP_DEBUG
+    else
+    {
+        php_printf("Processing the method call as static\n");
+    }
+    #endif
+
+    //Parameters for overload 0
+    bool overload0_called = false;
+
+    
+    //Overload 0
+    overload0:
+    if(!already_called && arguments_received == 0)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Parameters received %d\n", arguments_received);
+        php_printf("Parsing parameters with '' ()\n");
+        #endif
+
+        overload0_called = true;
+        already_called = true;
+    }
+
+    
+    if(overload0_called)
+    {
+        switch(arguments_received)
+        {
+            case 0:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing RETURN_LONG(wxTextBoxAttr::GetFloatMode())\n\n");
+                #endif
+
+                RETVAL_LONG(((wxTextBoxAttr_php*)native_object)->GetFloatMode());
+
+
+                return;
+                break;
+            }
+        }
+    }
+
+    
+    //In case wrong type/count of parameters was passed
+    if(!already_called)
+    {
+        zend_error(
+            E_ERROR,
+            "Wrong type or count of parameters passed to: "
+            "wxTextBoxAttr::GetFloatMode\n"
+        );
+    }
+}
+/* }}} */
+
+/* {{{ proto  wxTextBoxAttr::SetFloatMode(wxTextBoxAttrFloatStyle mode) */
+PHP_METHOD(php_wxTextBoxAttr, SetFloatMode)
+{
+    #ifdef USE_WXPHP_DEBUG
+    php_printf("Invoking wxTextBoxAttr::SetFloatMode\n");
+    php_printf("===========================================\n");
+    #endif
+
+    zo_wxTextBoxAttr* current_object;
+    wxphp_object_type current_object_type;
+    wxTextBoxAttr_php* native_object;
+    void* argument_native_object = NULL;
+
+    //Other variables used thru the code
+    zval dummy;
+    ZVAL_NULL(&dummy);
+    bool already_called = false;
+    wxPHPObjectReferences* references;
+    int arguments_received = ZEND_NUM_ARGS();
+    bool return_is_user_initialized = false;
+
+    //Get native object of the php object that called the method
+    if(getThis() != NULL)
+    {
+        current_object = Z_wxTextBoxAttr_P(getThis());
+
+        if(current_object->native_object == NULL)
+        {
+            zend_error(
+                E_ERROR,
+                "Failed to get the native object for "
+                "wxTextBoxAttr::SetFloatMode call\n"
+            );
+
+            return;
+        }
+        else
+        {
+            native_object = current_object->native_object;
+            current_object_type = current_object->object_type;
+
+            bool reference_type_found = false;
+
+            if(current_object_type == PHP_WXTEXTBOXATTR_TYPE){
+                references = &((wxTextBoxAttr_php*)native_object)->references;
+                reference_type_found = true;
+            }
+        }
+    }
+    #ifdef USE_WXPHP_DEBUG
+    else
+    {
+        php_printf("Processing the method call as static\n");
+    }
+    #endif
+
+    //Parameters for overload 0
+    long mode0;
+    bool overload0_called = false;
+
+    
+    //Overload 0
+    overload0:
+    if(!already_called && arguments_received == 1)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Parameters received %d\n", arguments_received);
+        php_printf("Parsing parameters with 'l' (&mode0)\n");
+        #endif
+
+        char parse_parameters_string[] = "l";
+        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &mode0 ) == SUCCESS)
+        {
+            overload0_called = true;
+            already_called = true;
+        }
+    }
+
+    
+    if(overload0_called)
+    {
+        switch(arguments_received)
+        {
+            case 1:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing wxTextBoxAttr::SetFloatMode((wxTextBoxAttrFloatStyle) mode0)\n\n");
+                #endif
+
+                ((wxTextBoxAttr_php*)native_object)->SetFloatMode((wxTextBoxAttrFloatStyle) mode0);
+
+
+                return;
+                break;
+            }
+        }
+    }
+
+    
+    //In case wrong type/count of parameters was passed
+    if(!already_called)
+    {
+        zend_error(
+            E_ERROR,
+            "Wrong type or count of parameters passed to: "
+            "wxTextBoxAttr::SetFloatMode\n"
+        );
+    }
+}
+/* }}} */
+
+/* {{{ proto bool wxTextBoxAttr::HasFloatMode() */
+PHP_METHOD(php_wxTextBoxAttr, HasFloatMode)
+{
+    #ifdef USE_WXPHP_DEBUG
+    php_printf("Invoking wxTextBoxAttr::HasFloatMode\n");
+    php_printf("===========================================\n");
+    #endif
+
+    zo_wxTextBoxAttr* current_object;
+    wxphp_object_type current_object_type;
+    wxTextBoxAttr_php* native_object;
+    void* argument_native_object = NULL;
+
+    //Other variables used thru the code
+    zval dummy;
+    ZVAL_NULL(&dummy);
+    bool already_called = false;
+    wxPHPObjectReferences* references;
+    int arguments_received = ZEND_NUM_ARGS();
+    bool return_is_user_initialized = false;
+
+    //Get native object of the php object that called the method
+    if(getThis() != NULL)
+    {
+        current_object = Z_wxTextBoxAttr_P(getThis());
+
+        if(current_object->native_object == NULL)
+        {
+            zend_error(
+                E_ERROR,
+                "Failed to get the native object for "
+                "wxTextBoxAttr::HasFloatMode call\n"
+            );
+
+            return;
+        }
+        else
+        {
+            native_object = current_object->native_object;
+            current_object_type = current_object->object_type;
+
+            bool reference_type_found = false;
+
+            if(current_object_type == PHP_WXTEXTBOXATTR_TYPE){
+                references = &((wxTextBoxAttr_php*)native_object)->references;
+                reference_type_found = true;
+            }
+        }
+    }
+    #ifdef USE_WXPHP_DEBUG
+    else
+    {
+        php_printf("Processing the method call as static\n");
+    }
+    #endif
+
+    //Parameters for overload 0
+    bool overload0_called = false;
+
+    
+    //Overload 0
+    overload0:
+    if(!already_called && arguments_received == 0)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Parameters received %d\n", arguments_received);
+        php_printf("Parsing parameters with '' ()\n");
+        #endif
+
+        overload0_called = true;
+        already_called = true;
+    }
+
+    
+    if(overload0_called)
+    {
+        switch(arguments_received)
+        {
+            case 0:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing RETURN_BOOL(wxTextBoxAttr::HasFloatMode())\n\n");
+                #endif
+
+                RETVAL_BOOL(((wxTextBoxAttr_php*)native_object)->HasFloatMode());
+
+
+                return;
+                break;
+            }
+        }
+    }
+
+    
+    //In case wrong type/count of parameters was passed
+    if(!already_called)
+    {
+        zend_error(
+            E_ERROR,
+            "Wrong type or count of parameters passed to: "
+            "wxTextBoxAttr::HasFloatMode\n"
+        );
+    }
+}
+/* }}} */
+
+/* {{{ proto bool wxTextBoxAttr::IsFloating() */
+PHP_METHOD(php_wxTextBoxAttr, IsFloating)
+{
+    #ifdef USE_WXPHP_DEBUG
+    php_printf("Invoking wxTextBoxAttr::IsFloating\n");
+    php_printf("===========================================\n");
+    #endif
+
+    zo_wxTextBoxAttr* current_object;
+    wxphp_object_type current_object_type;
+    wxTextBoxAttr_php* native_object;
+    void* argument_native_object = NULL;
+
+    //Other variables used thru the code
+    zval dummy;
+    ZVAL_NULL(&dummy);
+    bool already_called = false;
+    wxPHPObjectReferences* references;
+    int arguments_received = ZEND_NUM_ARGS();
+    bool return_is_user_initialized = false;
+
+    //Get native object of the php object that called the method
+    if(getThis() != NULL)
+    {
+        current_object = Z_wxTextBoxAttr_P(getThis());
+
+        if(current_object->native_object == NULL)
+        {
+            zend_error(
+                E_ERROR,
+                "Failed to get the native object for "
+                "wxTextBoxAttr::IsFloating call\n"
+            );
+
+            return;
+        }
+        else
+        {
+            native_object = current_object->native_object;
+            current_object_type = current_object->object_type;
+
+            bool reference_type_found = false;
+
+            if(current_object_type == PHP_WXTEXTBOXATTR_TYPE){
+                references = &((wxTextBoxAttr_php*)native_object)->references;
+                reference_type_found = true;
+            }
+        }
+    }
+    #ifdef USE_WXPHP_DEBUG
+    else
+    {
+        php_printf("Processing the method call as static\n");
+    }
+    #endif
+
+    //Parameters for overload 0
+    bool overload0_called = false;
+
+    
+    //Overload 0
+    overload0:
+    if(!already_called && arguments_received == 0)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Parameters received %d\n", arguments_received);
+        php_printf("Parsing parameters with '' ()\n");
+        #endif
+
+        overload0_called = true;
+        already_called = true;
+    }
+
+    
+    if(overload0_called)
+    {
+        switch(arguments_received)
+        {
+            case 0:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing RETURN_BOOL(wxTextBoxAttr::IsFloating())\n\n");
+                #endif
+
+                RETVAL_BOOL(((wxTextBoxAttr_php*)native_object)->IsFloating());
+
+
+                return;
+                break;
+            }
+        }
+    }
+
+    
+    //In case wrong type/count of parameters was passed
+    if(!already_called)
+    {
+        zend_error(
+            E_ERROR,
+            "Wrong type or count of parameters passed to: "
+            "wxTextBoxAttr::IsFloating\n"
+        );
+    }
+}
+/* }}} */
+
+/* {{{ proto wxTextBoxAttrClearStyle wxTextBoxAttr::GetClearMode() */
+PHP_METHOD(php_wxTextBoxAttr, GetClearMode)
+{
+    #ifdef USE_WXPHP_DEBUG
+    php_printf("Invoking wxTextBoxAttr::GetClearMode\n");
+    php_printf("===========================================\n");
+    #endif
+
+    zo_wxTextBoxAttr* current_object;
+    wxphp_object_type current_object_type;
+    wxTextBoxAttr_php* native_object;
+    void* argument_native_object = NULL;
+
+    //Other variables used thru the code
+    zval dummy;
+    ZVAL_NULL(&dummy);
+    bool already_called = false;
+    wxPHPObjectReferences* references;
+    int arguments_received = ZEND_NUM_ARGS();
+    bool return_is_user_initialized = false;
+
+    //Get native object of the php object that called the method
+    if(getThis() != NULL)
+    {
+        current_object = Z_wxTextBoxAttr_P(getThis());
+
+        if(current_object->native_object == NULL)
+        {
+            zend_error(
+                E_ERROR,
+                "Failed to get the native object for "
+                "wxTextBoxAttr::GetClearMode call\n"
+            );
+
+            return;
+        }
+        else
+        {
+            native_object = current_object->native_object;
+            current_object_type = current_object->object_type;
+
+            bool reference_type_found = false;
+
+            if(current_object_type == PHP_WXTEXTBOXATTR_TYPE){
+                references = &((wxTextBoxAttr_php*)native_object)->references;
+                reference_type_found = true;
+            }
+        }
+    }
+    #ifdef USE_WXPHP_DEBUG
+    else
+    {
+        php_printf("Processing the method call as static\n");
+    }
+    #endif
+
+    //Parameters for overload 0
+    bool overload0_called = false;
+
+    
+    //Overload 0
+    overload0:
+    if(!already_called && arguments_received == 0)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Parameters received %d\n", arguments_received);
+        php_printf("Parsing parameters with '' ()\n");
+        #endif
+
+        overload0_called = true;
+        already_called = true;
+    }
+
+    
+    if(overload0_called)
+    {
+        switch(arguments_received)
+        {
+            case 0:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing RETURN_LONG(wxTextBoxAttr::GetClearMode())\n\n");
+                #endif
+
+                RETVAL_LONG(((wxTextBoxAttr_php*)native_object)->GetClearMode());
+
+
+                return;
+                break;
+            }
+        }
+    }
+
+    
+    //In case wrong type/count of parameters was passed
+    if(!already_called)
+    {
+        zend_error(
+            E_ERROR,
+            "Wrong type or count of parameters passed to: "
+            "wxTextBoxAttr::GetClearMode\n"
+        );
+    }
+}
+/* }}} */
+
+/* {{{ proto  wxTextBoxAttr::SetClearMode(wxTextBoxAttrClearStyle mode) */
+PHP_METHOD(php_wxTextBoxAttr, SetClearMode)
+{
+    #ifdef USE_WXPHP_DEBUG
+    php_printf("Invoking wxTextBoxAttr::SetClearMode\n");
+    php_printf("===========================================\n");
+    #endif
+
+    zo_wxTextBoxAttr* current_object;
+    wxphp_object_type current_object_type;
+    wxTextBoxAttr_php* native_object;
+    void* argument_native_object = NULL;
+
+    //Other variables used thru the code
+    zval dummy;
+    ZVAL_NULL(&dummy);
+    bool already_called = false;
+    wxPHPObjectReferences* references;
+    int arguments_received = ZEND_NUM_ARGS();
+    bool return_is_user_initialized = false;
+
+    //Get native object of the php object that called the method
+    if(getThis() != NULL)
+    {
+        current_object = Z_wxTextBoxAttr_P(getThis());
+
+        if(current_object->native_object == NULL)
+        {
+            zend_error(
+                E_ERROR,
+                "Failed to get the native object for "
+                "wxTextBoxAttr::SetClearMode call\n"
+            );
+
+            return;
+        }
+        else
+        {
+            native_object = current_object->native_object;
+            current_object_type = current_object->object_type;
+
+            bool reference_type_found = false;
+
+            if(current_object_type == PHP_WXTEXTBOXATTR_TYPE){
+                references = &((wxTextBoxAttr_php*)native_object)->references;
+                reference_type_found = true;
+            }
+        }
+    }
+    #ifdef USE_WXPHP_DEBUG
+    else
+    {
+        php_printf("Processing the method call as static\n");
+    }
+    #endif
+
+    //Parameters for overload 0
+    long mode0;
+    bool overload0_called = false;
+
+    
+    //Overload 0
+    overload0:
+    if(!already_called && arguments_received == 1)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Parameters received %d\n", arguments_received);
+        php_printf("Parsing parameters with 'l' (&mode0)\n");
+        #endif
+
+        char parse_parameters_string[] = "l";
+        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &mode0 ) == SUCCESS)
+        {
+            overload0_called = true;
+            already_called = true;
+        }
+    }
+
+    
+    if(overload0_called)
+    {
+        switch(arguments_received)
+        {
+            case 1:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing wxTextBoxAttr::SetClearMode((wxTextBoxAttrClearStyle) mode0)\n\n");
+                #endif
+
+                ((wxTextBoxAttr_php*)native_object)->SetClearMode((wxTextBoxAttrClearStyle) mode0);
+
+
+                return;
+                break;
+            }
+        }
+    }
+
+    
+    //In case wrong type/count of parameters was passed
+    if(!already_called)
+    {
+        zend_error(
+            E_ERROR,
+            "Wrong type or count of parameters passed to: "
+            "wxTextBoxAttr::SetClearMode\n"
+        );
+    }
+}
+/* }}} */
+
+/* {{{ proto bool wxTextBoxAttr::HasClearMode() */
+PHP_METHOD(php_wxTextBoxAttr, HasClearMode)
+{
+    #ifdef USE_WXPHP_DEBUG
+    php_printf("Invoking wxTextBoxAttr::HasClearMode\n");
+    php_printf("===========================================\n");
+    #endif
+
+    zo_wxTextBoxAttr* current_object;
+    wxphp_object_type current_object_type;
+    wxTextBoxAttr_php* native_object;
+    void* argument_native_object = NULL;
+
+    //Other variables used thru the code
+    zval dummy;
+    ZVAL_NULL(&dummy);
+    bool already_called = false;
+    wxPHPObjectReferences* references;
+    int arguments_received = ZEND_NUM_ARGS();
+    bool return_is_user_initialized = false;
+
+    //Get native object of the php object that called the method
+    if(getThis() != NULL)
+    {
+        current_object = Z_wxTextBoxAttr_P(getThis());
+
+        if(current_object->native_object == NULL)
+        {
+            zend_error(
+                E_ERROR,
+                "Failed to get the native object for "
+                "wxTextBoxAttr::HasClearMode call\n"
+            );
+
+            return;
+        }
+        else
+        {
+            native_object = current_object->native_object;
+            current_object_type = current_object->object_type;
+
+            bool reference_type_found = false;
+
+            if(current_object_type == PHP_WXTEXTBOXATTR_TYPE){
+                references = &((wxTextBoxAttr_php*)native_object)->references;
+                reference_type_found = true;
+            }
+        }
+    }
+    #ifdef USE_WXPHP_DEBUG
+    else
+    {
+        php_printf("Processing the method call as static\n");
+    }
+    #endif
+
+    //Parameters for overload 0
+    bool overload0_called = false;
+
+    
+    //Overload 0
+    overload0:
+    if(!already_called && arguments_received == 0)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Parameters received %d\n", arguments_received);
+        php_printf("Parsing parameters with '' ()\n");
+        #endif
+
+        overload0_called = true;
+        already_called = true;
+    }
+
+    
+    if(overload0_called)
+    {
+        switch(arguments_received)
+        {
+            case 0:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing RETURN_BOOL(wxTextBoxAttr::HasClearMode())\n\n");
+                #endif
+
+                RETVAL_BOOL(((wxTextBoxAttr_php*)native_object)->HasClearMode());
+
+
+                return;
+                break;
+            }
+        }
+    }
+
+    
+    //In case wrong type/count of parameters was passed
+    if(!already_called)
+    {
+        zend_error(
+            E_ERROR,
+            "Wrong type or count of parameters passed to: "
+            "wxTextBoxAttr::HasClearMode\n"
+        );
+    }
+}
+/* }}} */
+
+/* {{{ proto wxTextBoxAttrCollapseMode wxTextBoxAttr::GetCollapseBorders() */
+PHP_METHOD(php_wxTextBoxAttr, GetCollapseBorders)
+{
+    #ifdef USE_WXPHP_DEBUG
+    php_printf("Invoking wxTextBoxAttr::GetCollapseBorders\n");
+    php_printf("===========================================\n");
+    #endif
+
+    zo_wxTextBoxAttr* current_object;
+    wxphp_object_type current_object_type;
+    wxTextBoxAttr_php* native_object;
+    void* argument_native_object = NULL;
+
+    //Other variables used thru the code
+    zval dummy;
+    ZVAL_NULL(&dummy);
+    bool already_called = false;
+    wxPHPObjectReferences* references;
+    int arguments_received = ZEND_NUM_ARGS();
+    bool return_is_user_initialized = false;
+
+    //Get native object of the php object that called the method
+    if(getThis() != NULL)
+    {
+        current_object = Z_wxTextBoxAttr_P(getThis());
+
+        if(current_object->native_object == NULL)
+        {
+            zend_error(
+                E_ERROR,
+                "Failed to get the native object for "
+                "wxTextBoxAttr::GetCollapseBorders call\n"
+            );
+
+            return;
+        }
+        else
+        {
+            native_object = current_object->native_object;
+            current_object_type = current_object->object_type;
+
+            bool reference_type_found = false;
+
+            if(current_object_type == PHP_WXTEXTBOXATTR_TYPE){
+                references = &((wxTextBoxAttr_php*)native_object)->references;
+                reference_type_found = true;
+            }
+        }
+    }
+    #ifdef USE_WXPHP_DEBUG
+    else
+    {
+        php_printf("Processing the method call as static\n");
+    }
+    #endif
+
+    //Parameters for overload 0
+    bool overload0_called = false;
+
+    
+    //Overload 0
+    overload0:
+    if(!already_called && arguments_received == 0)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Parameters received %d\n", arguments_received);
+        php_printf("Parsing parameters with '' ()\n");
+        #endif
+
+        overload0_called = true;
+        already_called = true;
+    }
+
+    
+    if(overload0_called)
+    {
+        switch(arguments_received)
+        {
+            case 0:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing RETURN_LONG(wxTextBoxAttr::GetCollapseBorders())\n\n");
+                #endif
+
+                RETVAL_LONG(((wxTextBoxAttr_php*)native_object)->GetCollapseBorders());
+
+
+                return;
+                break;
+            }
+        }
+    }
+
+    
+    //In case wrong type/count of parameters was passed
+    if(!already_called)
+    {
+        zend_error(
+            E_ERROR,
+            "Wrong type or count of parameters passed to: "
+            "wxTextBoxAttr::GetCollapseBorders\n"
+        );
+    }
+}
+/* }}} */
+
+/* {{{ proto  wxTextBoxAttr::SetCollapseBorders(wxTextBoxAttrCollapseMode collapse) */
+PHP_METHOD(php_wxTextBoxAttr, SetCollapseBorders)
+{
+    #ifdef USE_WXPHP_DEBUG
+    php_printf("Invoking wxTextBoxAttr::SetCollapseBorders\n");
+    php_printf("===========================================\n");
+    #endif
+
+    zo_wxTextBoxAttr* current_object;
+    wxphp_object_type current_object_type;
+    wxTextBoxAttr_php* native_object;
+    void* argument_native_object = NULL;
+
+    //Other variables used thru the code
+    zval dummy;
+    ZVAL_NULL(&dummy);
+    bool already_called = false;
+    wxPHPObjectReferences* references;
+    int arguments_received = ZEND_NUM_ARGS();
+    bool return_is_user_initialized = false;
+
+    //Get native object of the php object that called the method
+    if(getThis() != NULL)
+    {
+        current_object = Z_wxTextBoxAttr_P(getThis());
+
+        if(current_object->native_object == NULL)
+        {
+            zend_error(
+                E_ERROR,
+                "Failed to get the native object for "
+                "wxTextBoxAttr::SetCollapseBorders call\n"
+            );
+
+            return;
+        }
+        else
+        {
+            native_object = current_object->native_object;
+            current_object_type = current_object->object_type;
+
+            bool reference_type_found = false;
+
+            if(current_object_type == PHP_WXTEXTBOXATTR_TYPE){
+                references = &((wxTextBoxAttr_php*)native_object)->references;
+                reference_type_found = true;
+            }
+        }
+    }
+    #ifdef USE_WXPHP_DEBUG
+    else
+    {
+        php_printf("Processing the method call as static\n");
+    }
+    #endif
+
+    //Parameters for overload 0
+    long collapse0;
+    bool overload0_called = false;
+
+    
+    //Overload 0
+    overload0:
+    if(!already_called && arguments_received == 1)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Parameters received %d\n", arguments_received);
+        php_printf("Parsing parameters with 'l' (&collapse0)\n");
+        #endif
+
+        char parse_parameters_string[] = "l";
+        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &collapse0 ) == SUCCESS)
+        {
+            overload0_called = true;
+            already_called = true;
+        }
+    }
+
+    
+    if(overload0_called)
+    {
+        switch(arguments_received)
+        {
+            case 1:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing wxTextBoxAttr::SetCollapseBorders((wxTextBoxAttrCollapseMode) collapse0)\n\n");
+                #endif
+
+                ((wxTextBoxAttr_php*)native_object)->SetCollapseBorders((wxTextBoxAttrCollapseMode) collapse0);
+
+
+                return;
+                break;
+            }
+        }
+    }
+
+    
+    //In case wrong type/count of parameters was passed
+    if(!already_called)
+    {
+        zend_error(
+            E_ERROR,
+            "Wrong type or count of parameters passed to: "
+            "wxTextBoxAttr::SetCollapseBorders\n"
+        );
+    }
+}
+/* }}} */
+
+/* {{{ proto bool wxTextBoxAttr::HasCollapseBorders() */
+PHP_METHOD(php_wxTextBoxAttr, HasCollapseBorders)
+{
+    #ifdef USE_WXPHP_DEBUG
+    php_printf("Invoking wxTextBoxAttr::HasCollapseBorders\n");
+    php_printf("===========================================\n");
+    #endif
+
+    zo_wxTextBoxAttr* current_object;
+    wxphp_object_type current_object_type;
+    wxTextBoxAttr_php* native_object;
+    void* argument_native_object = NULL;
+
+    //Other variables used thru the code
+    zval dummy;
+    ZVAL_NULL(&dummy);
+    bool already_called = false;
+    wxPHPObjectReferences* references;
+    int arguments_received = ZEND_NUM_ARGS();
+    bool return_is_user_initialized = false;
+
+    //Get native object of the php object that called the method
+    if(getThis() != NULL)
+    {
+        current_object = Z_wxTextBoxAttr_P(getThis());
+
+        if(current_object->native_object == NULL)
+        {
+            zend_error(
+                E_ERROR,
+                "Failed to get the native object for "
+                "wxTextBoxAttr::HasCollapseBorders call\n"
+            );
+
+            return;
+        }
+        else
+        {
+            native_object = current_object->native_object;
+            current_object_type = current_object->object_type;
+
+            bool reference_type_found = false;
+
+            if(current_object_type == PHP_WXTEXTBOXATTR_TYPE){
+                references = &((wxTextBoxAttr_php*)native_object)->references;
+                reference_type_found = true;
+            }
+        }
+    }
+    #ifdef USE_WXPHP_DEBUG
+    else
+    {
+        php_printf("Processing the method call as static\n");
+    }
+    #endif
+
+    //Parameters for overload 0
+    bool overload0_called = false;
+
+    
+    //Overload 0
+    overload0:
+    if(!already_called && arguments_received == 0)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Parameters received %d\n", arguments_received);
+        php_printf("Parsing parameters with '' ()\n");
+        #endif
+
+        overload0_called = true;
+        already_called = true;
+    }
+
+    
+    if(overload0_called)
+    {
+        switch(arguments_received)
+        {
+            case 0:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing RETURN_BOOL(wxTextBoxAttr::HasCollapseBorders())\n\n");
+                #endif
+
+                RETVAL_BOOL(((wxTextBoxAttr_php*)native_object)->HasCollapseBorders());
+
+
+                return;
+                break;
+            }
+        }
+    }
+
+    
+    //In case wrong type/count of parameters was passed
+    if(!already_called)
+    {
+        zend_error(
+            E_ERROR,
+            "Wrong type or count of parameters passed to: "
+            "wxTextBoxAttr::HasCollapseBorders\n"
+        );
+    }
+}
+/* }}} */
+
+/* {{{ proto bool wxTextBoxAttr::HasWhitespaceMode() */
+PHP_METHOD(php_wxTextBoxAttr, HasWhitespaceMode)
+{
+    #ifdef USE_WXPHP_DEBUG
+    php_printf("Invoking wxTextBoxAttr::HasWhitespaceMode\n");
+    php_printf("===========================================\n");
+    #endif
+
+    zo_wxTextBoxAttr* current_object;
+    wxphp_object_type current_object_type;
+    wxTextBoxAttr_php* native_object;
+    void* argument_native_object = NULL;
+
+    //Other variables used thru the code
+    zval dummy;
+    ZVAL_NULL(&dummy);
+    bool already_called = false;
+    wxPHPObjectReferences* references;
+    int arguments_received = ZEND_NUM_ARGS();
+    bool return_is_user_initialized = false;
+
+    //Get native object of the php object that called the method
+    if(getThis() != NULL)
+    {
+        current_object = Z_wxTextBoxAttr_P(getThis());
+
+        if(current_object->native_object == NULL)
+        {
+            zend_error(
+                E_ERROR,
+                "Failed to get the native object for "
+                "wxTextBoxAttr::HasWhitespaceMode call\n"
+            );
+
+            return;
+        }
+        else
+        {
+            native_object = current_object->native_object;
+            current_object_type = current_object->object_type;
+
+            bool reference_type_found = false;
+
+            if(current_object_type == PHP_WXTEXTBOXATTR_TYPE){
+                references = &((wxTextBoxAttr_php*)native_object)->references;
+                reference_type_found = true;
+            }
+        }
+    }
+    #ifdef USE_WXPHP_DEBUG
+    else
+    {
+        php_printf("Processing the method call as static\n");
+    }
+    #endif
+
+    //Parameters for overload 0
+    bool overload0_called = false;
+
+    
+    //Overload 0
+    overload0:
+    if(!already_called && arguments_received == 0)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Parameters received %d\n", arguments_received);
+        php_printf("Parsing parameters with '' ()\n");
+        #endif
+
+        overload0_called = true;
+        already_called = true;
+    }
+
+    
+    if(overload0_called)
+    {
+        switch(arguments_received)
+        {
+            case 0:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing RETURN_BOOL(wxTextBoxAttr::HasWhitespaceMode())\n\n");
+                #endif
+
+                RETVAL_BOOL(((wxTextBoxAttr_php*)native_object)->HasWhitespaceMode());
+
+
+                return;
+                break;
+            }
+        }
+    }
+
+    
+    //In case wrong type/count of parameters was passed
+    if(!already_called)
+    {
+        zend_error(
+            E_ERROR,
+            "Wrong type or count of parameters passed to: "
+            "wxTextBoxAttr::HasWhitespaceMode\n"
+        );
+    }
+}
+/* }}} */
+
+/* {{{ proto bool wxTextBoxAttr::HasCornerRadius() */
+PHP_METHOD(php_wxTextBoxAttr, HasCornerRadius)
+{
+    #ifdef USE_WXPHP_DEBUG
+    php_printf("Invoking wxTextBoxAttr::HasCornerRadius\n");
+    php_printf("===========================================\n");
+    #endif
+
+    zo_wxTextBoxAttr* current_object;
+    wxphp_object_type current_object_type;
+    wxTextBoxAttr_php* native_object;
+    void* argument_native_object = NULL;
+
+    //Other variables used thru the code
+    zval dummy;
+    ZVAL_NULL(&dummy);
+    bool already_called = false;
+    wxPHPObjectReferences* references;
+    int arguments_received = ZEND_NUM_ARGS();
+    bool return_is_user_initialized = false;
+
+    //Get native object of the php object that called the method
+    if(getThis() != NULL)
+    {
+        current_object = Z_wxTextBoxAttr_P(getThis());
+
+        if(current_object->native_object == NULL)
+        {
+            zend_error(
+                E_ERROR,
+                "Failed to get the native object for "
+                "wxTextBoxAttr::HasCornerRadius call\n"
+            );
+
+            return;
+        }
+        else
+        {
+            native_object = current_object->native_object;
+            current_object_type = current_object->object_type;
+
+            bool reference_type_found = false;
+
+            if(current_object_type == PHP_WXTEXTBOXATTR_TYPE){
+                references = &((wxTextBoxAttr_php*)native_object)->references;
+                reference_type_found = true;
+            }
+        }
+    }
+    #ifdef USE_WXPHP_DEBUG
+    else
+    {
+        php_printf("Processing the method call as static\n");
+    }
+    #endif
+
+    //Parameters for overload 0
+    bool overload0_called = false;
+
+    
+    //Overload 0
+    overload0:
+    if(!already_called && arguments_received == 0)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Parameters received %d\n", arguments_received);
+        php_printf("Parsing parameters with '' ()\n");
+        #endif
+
+        overload0_called = true;
+        already_called = true;
+    }
+
+    
+    if(overload0_called)
+    {
+        switch(arguments_received)
+        {
+            case 0:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing RETURN_BOOL(wxTextBoxAttr::HasCornerRadius())\n\n");
+                #endif
+
+                RETVAL_BOOL(((wxTextBoxAttr_php*)native_object)->HasCornerRadius());
+
+
+                return;
+                break;
+            }
+        }
+    }
+
+    
+    //In case wrong type/count of parameters was passed
+    if(!already_called)
+    {
+        zend_error(
+            E_ERROR,
+            "Wrong type or count of parameters passed to: "
+            "wxTextBoxAttr::HasCornerRadius\n"
+        );
+    }
+}
+/* }}} */
+
+/* {{{ proto wxTextAttrDimension wxTextBoxAttr::GetCornerRadius() */
+PHP_METHOD(php_wxTextBoxAttr, GetCornerRadius)
+{
+    #ifdef USE_WXPHP_DEBUG
+    php_printf("Invoking wxTextBoxAttr::GetCornerRadius\n");
+    php_printf("===========================================\n");
+    #endif
+
+    zo_wxTextBoxAttr* current_object;
+    wxphp_object_type current_object_type;
+    wxTextBoxAttr_php* native_object;
+    void* argument_native_object = NULL;
+
+    //Other variables used thru the code
+    zval dummy;
+    ZVAL_NULL(&dummy);
+    bool already_called = false;
+    wxPHPObjectReferences* references;
+    int arguments_received = ZEND_NUM_ARGS();
+    bool return_is_user_initialized = false;
+
+    //Get native object of the php object that called the method
+    if(getThis() != NULL)
+    {
+        current_object = Z_wxTextBoxAttr_P(getThis());
+
+        if(current_object->native_object == NULL)
+        {
+            zend_error(
+                E_ERROR,
+                "Failed to get the native object for "
+                "wxTextBoxAttr::GetCornerRadius call\n"
+            );
+
+            return;
+        }
+        else
+        {
+            native_object = current_object->native_object;
+            current_object_type = current_object->object_type;
+
+            bool reference_type_found = false;
+
+            if(current_object_type == PHP_WXTEXTBOXATTR_TYPE){
+                references = &((wxTextBoxAttr_php*)native_object)->references;
+                reference_type_found = true;
+            }
+        }
+    }
+    #ifdef USE_WXPHP_DEBUG
+    else
+    {
+        php_printf("Processing the method call as static\n");
+    }
+    #endif
+
+    //Parameters for overload 0
+    bool overload0_called = false;
+
+    //Parameters for overload 1
+    bool overload1_called = false;
+
+    
+    //Overload 0
+    overload0:
+    if(!already_called && arguments_received == 0)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Parameters received %d\n", arguments_received);
+        php_printf("Parsing parameters with '' ()\n");
+        #endif
+
+        overload0_called = true;
+        already_called = true;
+    }
+
+    //Overload 1
+    overload1:
+    if(!already_called && arguments_received == 0)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Parameters received %d\n", arguments_received);
+        php_printf("Parsing parameters with '' ()\n");
+        #endif
+
+        overload1_called = true;
+        already_called = true;
+    }
+
+    
+    if(overload0_called)
+    {
+        switch(arguments_received)
+        {
+            case 0:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing wxTextBoxAttr::GetCornerRadius() to return object reference\n\n");
+                #endif
+
+                wxTextAttrDimension_php* value_to_return0;
+                value_to_return0 = (wxTextAttrDimension_php*) &((wxTextBoxAttr_php*)native_object)->GetCornerRadius();
+
+                if(value_to_return0->references.IsUserInitialized()){
+                    if(!Z_ISNULL(value_to_return0->phpObj)){
+                        ZVAL_COPY_VALUE(return_value, &value_to_return0->phpObj);
+                        zval_add_ref(&value_to_return0->phpObj);
+                        return_is_user_initialized = true;
+                    }
+                    else{
+                        zend_error(E_ERROR, "Could not retreive original zval.");
+                    }
+                }
+                else{
+                    object_init_ex(return_value,php_wxTextAttrDimension_entry);
+                    Z_wxTextAttrDimension_P(return_value)->native_object = (wxTextAttrDimension_php*) value_to_return0;
+                }
+
+                if((void*)value_to_return0 != (void*)native_object && return_is_user_initialized){ //Prevent adding references to it self
+                    references->AddReference(return_value, "wxTextBoxAttr::GetCornerRadius at call 6 with 0 argument(s)");
+                }
+
+
+                return;
+                break;
+            }
+        }
+    }
+
+    if(overload1_called)
+    {
+        switch(arguments_received)
+        {
+            case 0:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing wxTextBoxAttr::GetCornerRadius() to return object reference\n\n");
+                #endif
+
+                wxTextAttrDimension_php* value_to_return0;
+                value_to_return0 = (wxTextAttrDimension_php*) &((wxTextBoxAttr_php*)native_object)->GetCornerRadius();
+
+                if(value_to_return0->references.IsUserInitialized()){
+                    if(!Z_ISNULL(value_to_return0->phpObj)){
+                        ZVAL_COPY_VALUE(return_value, &value_to_return0->phpObj);
+                        zval_add_ref(&value_to_return0->phpObj);
+                        return_is_user_initialized = true;
+                    }
+                    else{
+                        zend_error(E_ERROR, "Could not retreive original zval.");
+                    }
+                }
+                else{
+                    object_init_ex(return_value,php_wxTextAttrDimension_entry);
+                    Z_wxTextAttrDimension_P(return_value)->native_object = (wxTextAttrDimension_php*) value_to_return0;
+                }
+
+                if((void*)value_to_return0 != (void*)native_object && return_is_user_initialized){ //Prevent adding references to it self
+                    references->AddReference(return_value, "wxTextBoxAttr::GetCornerRadius at call 6 with 0 argument(s)");
+                }
+
+
+                return;
+                break;
+            }
+        }
+    }
+
+    
+    //In case wrong type/count of parameters was passed
+    if(!already_called)
+    {
+        zend_error(
+            E_ERROR,
+            "Wrong type or count of parameters passed to: "
+            "wxTextBoxAttr::GetCornerRadius\n"
+        );
+    }
+}
+/* }}} */
+
+/* {{{ proto  wxTextBoxAttr::SetCornerRadius(wxTextAttrDimension dim) */
+PHP_METHOD(php_wxTextBoxAttr, SetCornerRadius)
+{
+    #ifdef USE_WXPHP_DEBUG
+    php_printf("Invoking wxTextBoxAttr::SetCornerRadius\n");
+    php_printf("===========================================\n");
+    #endif
+
+    zo_wxTextBoxAttr* current_object;
+    wxphp_object_type current_object_type;
+    wxTextBoxAttr_php* native_object;
+    void* argument_native_object = NULL;
+
+    //Other variables used thru the code
+    zval dummy;
+    ZVAL_NULL(&dummy);
+    bool already_called = false;
+    wxPHPObjectReferences* references;
+    int arguments_received = ZEND_NUM_ARGS();
+    bool return_is_user_initialized = false;
+
+    //Get native object of the php object that called the method
+    if(getThis() != NULL)
+    {
+        current_object = Z_wxTextBoxAttr_P(getThis());
+
+        if(current_object->native_object == NULL)
+        {
+            zend_error(
+                E_ERROR,
+                "Failed to get the native object for "
+                "wxTextBoxAttr::SetCornerRadius call\n"
+            );
+
+            return;
+        }
+        else
+        {
+            native_object = current_object->native_object;
+            current_object_type = current_object->object_type;
+
+            bool reference_type_found = false;
+
+            if(current_object_type == PHP_WXTEXTBOXATTR_TYPE){
+                references = &((wxTextBoxAttr_php*)native_object)->references;
+                reference_type_found = true;
+            }
+        }
+    }
+    #ifdef USE_WXPHP_DEBUG
+    else
+    {
+        php_printf("Processing the method call as static\n");
+    }
+    #endif
+
+    //Parameters for overload 0
+    zval* dim0;
+    wxTextAttrDimension* object_pointer0_0 = 0;
+    bool overload0_called = false;
+
+    
+    //Overload 0
+    overload0:
+    if(!already_called && arguments_received == 1)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Parameters received %d\n", arguments_received);
+        php_printf("Parsing parameters with 'O' (&dim0, php_wxTextAttrDimension_entry)\n");
+        #endif
+
+        char parse_parameters_string[] = "O";
+        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &dim0, php_wxTextAttrDimension_entry ) == SUCCESS)
+        {
+            if(arguments_received >= 1){
+                if(Z_TYPE_P(dim0) == IS_OBJECT)
+                {
+                    wxphp_object_type argument_type = Z_wxTextAttrDimension_P(dim0)->object_type;
+                    argument_native_object = (void*) Z_wxTextAttrDimension_P(dim0)->native_object;
+                    object_pointer0_0 = (wxTextAttrDimension*) argument_native_object;
+                    if (!object_pointer0_0 )
+                    {
+                        zend_error(E_ERROR, "Parameter 'dim' could not be retreived correctly.");
+                    }
+                }
+                else if(Z_TYPE_P(dim0) != IS_NULL)
+                {
+                    zend_error(E_ERROR, "Parameter 'dim' not null, could not be retreived correctly.");
+                }
+            }
+
+            overload0_called = true;
+            already_called = true;
+        }
+    }
+
+    
+    if(overload0_called)
+    {
+        switch(arguments_received)
+        {
+            case 1:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing wxTextBoxAttr::SetCornerRadius(*(wxTextAttrDimension*) object_pointer0_0)\n\n");
+                #endif
+
+                ((wxTextBoxAttr_php*)native_object)->SetCornerRadius(*(wxTextAttrDimension*) object_pointer0_0);
+
+                references->AddReference(dim0, "wxTextBoxAttr::SetCornerRadius at call 3 with 1 argument(s)");
+
+                return;
+                break;
+            }
+        }
+    }
+
+    
+    //In case wrong type/count of parameters was passed
+    if(!already_called)
+    {
+        zend_error(
+            E_ERROR,
+            "Wrong type or count of parameters passed to: "
+            "wxTextBoxAttr::SetCornerRadius\n"
+        );
+    }
+}
+/* }}} */
+
+/* {{{ proto wxTextBoxAttrVerticalAlignment wxTextBoxAttr::GetVerticalAlignment() */
+PHP_METHOD(php_wxTextBoxAttr, GetVerticalAlignment)
+{
+    #ifdef USE_WXPHP_DEBUG
+    php_printf("Invoking wxTextBoxAttr::GetVerticalAlignment\n");
+    php_printf("===========================================\n");
+    #endif
+
+    zo_wxTextBoxAttr* current_object;
+    wxphp_object_type current_object_type;
+    wxTextBoxAttr_php* native_object;
+    void* argument_native_object = NULL;
+
+    //Other variables used thru the code
+    zval dummy;
+    ZVAL_NULL(&dummy);
+    bool already_called = false;
+    wxPHPObjectReferences* references;
+    int arguments_received = ZEND_NUM_ARGS();
+    bool return_is_user_initialized = false;
+
+    //Get native object of the php object that called the method
+    if(getThis() != NULL)
+    {
+        current_object = Z_wxTextBoxAttr_P(getThis());
+
+        if(current_object->native_object == NULL)
+        {
+            zend_error(
+                E_ERROR,
+                "Failed to get the native object for "
+                "wxTextBoxAttr::GetVerticalAlignment call\n"
+            );
+
+            return;
+        }
+        else
+        {
+            native_object = current_object->native_object;
+            current_object_type = current_object->object_type;
+
+            bool reference_type_found = false;
+
+            if(current_object_type == PHP_WXTEXTBOXATTR_TYPE){
+                references = &((wxTextBoxAttr_php*)native_object)->references;
+                reference_type_found = true;
+            }
+        }
+    }
+    #ifdef USE_WXPHP_DEBUG
+    else
+    {
+        php_printf("Processing the method call as static\n");
+    }
+    #endif
+
+    //Parameters for overload 0
+    bool overload0_called = false;
+
+    
+    //Overload 0
+    overload0:
+    if(!already_called && arguments_received == 0)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Parameters received %d\n", arguments_received);
+        php_printf("Parsing parameters with '' ()\n");
+        #endif
+
+        overload0_called = true;
+        already_called = true;
+    }
+
+    
+    if(overload0_called)
+    {
+        switch(arguments_received)
+        {
+            case 0:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing RETURN_LONG(wxTextBoxAttr::GetVerticalAlignment())\n\n");
+                #endif
+
+                RETVAL_LONG(((wxTextBoxAttr_php*)native_object)->GetVerticalAlignment());
+
+
+                return;
+                break;
+            }
+        }
+    }
+
+    
+    //In case wrong type/count of parameters was passed
+    if(!already_called)
+    {
+        zend_error(
+            E_ERROR,
+            "Wrong type or count of parameters passed to: "
+            "wxTextBoxAttr::GetVerticalAlignment\n"
+        );
+    }
+}
+/* }}} */
+
+/* {{{ proto  wxTextBoxAttr::SetVerticalAlignment(wxTextBoxAttrVerticalAlignment verticalAlignment) */
+PHP_METHOD(php_wxTextBoxAttr, SetVerticalAlignment)
+{
+    #ifdef USE_WXPHP_DEBUG
+    php_printf("Invoking wxTextBoxAttr::SetVerticalAlignment\n");
+    php_printf("===========================================\n");
+    #endif
+
+    zo_wxTextBoxAttr* current_object;
+    wxphp_object_type current_object_type;
+    wxTextBoxAttr_php* native_object;
+    void* argument_native_object = NULL;
+
+    //Other variables used thru the code
+    zval dummy;
+    ZVAL_NULL(&dummy);
+    bool already_called = false;
+    wxPHPObjectReferences* references;
+    int arguments_received = ZEND_NUM_ARGS();
+    bool return_is_user_initialized = false;
+
+    //Get native object of the php object that called the method
+    if(getThis() != NULL)
+    {
+        current_object = Z_wxTextBoxAttr_P(getThis());
+
+        if(current_object->native_object == NULL)
+        {
+            zend_error(
+                E_ERROR,
+                "Failed to get the native object for "
+                "wxTextBoxAttr::SetVerticalAlignment call\n"
+            );
+
+            return;
+        }
+        else
+        {
+            native_object = current_object->native_object;
+            current_object_type = current_object->object_type;
+
+            bool reference_type_found = false;
+
+            if(current_object_type == PHP_WXTEXTBOXATTR_TYPE){
+                references = &((wxTextBoxAttr_php*)native_object)->references;
+                reference_type_found = true;
+            }
+        }
+    }
+    #ifdef USE_WXPHP_DEBUG
+    else
+    {
+        php_printf("Processing the method call as static\n");
+    }
+    #endif
+
+    //Parameters for overload 0
+    long verticalAlignment0;
+    bool overload0_called = false;
+
+    
+    //Overload 0
+    overload0:
+    if(!already_called && arguments_received == 1)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Parameters received %d\n", arguments_received);
+        php_printf("Parsing parameters with 'l' (&verticalAlignment0)\n");
+        #endif
+
+        char parse_parameters_string[] = "l";
+        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &verticalAlignment0 ) == SUCCESS)
+        {
+            overload0_called = true;
+            already_called = true;
+        }
+    }
+
+    
+    if(overload0_called)
+    {
+        switch(arguments_received)
+        {
+            case 1:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing wxTextBoxAttr::SetVerticalAlignment((wxTextBoxAttrVerticalAlignment) verticalAlignment0)\n\n");
+                #endif
+
+                ((wxTextBoxAttr_php*)native_object)->SetVerticalAlignment((wxTextBoxAttrVerticalAlignment) verticalAlignment0);
+
+
+                return;
+                break;
+            }
+        }
+    }
+
+    
+    //In case wrong type/count of parameters was passed
+    if(!already_called)
+    {
+        zend_error(
+            E_ERROR,
+            "Wrong type or count of parameters passed to: "
+            "wxTextBoxAttr::SetVerticalAlignment\n"
+        );
+    }
+}
+/* }}} */
+
+/* {{{ proto bool wxTextBoxAttr::HasVerticalAlignment() */
+PHP_METHOD(php_wxTextBoxAttr, HasVerticalAlignment)
+{
+    #ifdef USE_WXPHP_DEBUG
+    php_printf("Invoking wxTextBoxAttr::HasVerticalAlignment\n");
+    php_printf("===========================================\n");
+    #endif
+
+    zo_wxTextBoxAttr* current_object;
+    wxphp_object_type current_object_type;
+    wxTextBoxAttr_php* native_object;
+    void* argument_native_object = NULL;
+
+    //Other variables used thru the code
+    zval dummy;
+    ZVAL_NULL(&dummy);
+    bool already_called = false;
+    wxPHPObjectReferences* references;
+    int arguments_received = ZEND_NUM_ARGS();
+    bool return_is_user_initialized = false;
+
+    //Get native object of the php object that called the method
+    if(getThis() != NULL)
+    {
+        current_object = Z_wxTextBoxAttr_P(getThis());
+
+        if(current_object->native_object == NULL)
+        {
+            zend_error(
+                E_ERROR,
+                "Failed to get the native object for "
+                "wxTextBoxAttr::HasVerticalAlignment call\n"
+            );
+
+            return;
+        }
+        else
+        {
+            native_object = current_object->native_object;
+            current_object_type = current_object->object_type;
+
+            bool reference_type_found = false;
+
+            if(current_object_type == PHP_WXTEXTBOXATTR_TYPE){
+                references = &((wxTextBoxAttr_php*)native_object)->references;
+                reference_type_found = true;
+            }
+        }
+    }
+    #ifdef USE_WXPHP_DEBUG
+    else
+    {
+        php_printf("Processing the method call as static\n");
+    }
+    #endif
+
+    //Parameters for overload 0
+    bool overload0_called = false;
+
+    
+    //Overload 0
+    overload0:
+    if(!already_called && arguments_received == 0)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Parameters received %d\n", arguments_received);
+        php_printf("Parsing parameters with '' ()\n");
+        #endif
+
+        overload0_called = true;
+        already_called = true;
+    }
+
+    
+    if(overload0_called)
+    {
+        switch(arguments_received)
+        {
+            case 0:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing RETURN_BOOL(wxTextBoxAttr::HasVerticalAlignment())\n\n");
+                #endif
+
+                RETVAL_BOOL(((wxTextBoxAttr_php*)native_object)->HasVerticalAlignment());
+
+
+                return;
+                break;
+            }
+        }
+    }
+
+    
+    //In case wrong type/count of parameters was passed
+    if(!already_called)
+    {
+        zend_error(
+            E_ERROR,
+            "Wrong type or count of parameters passed to: "
+            "wxTextBoxAttr::HasVerticalAlignment\n"
+        );
+    }
+}
+/* }}} */
+
+/* {{{ proto wxTextAttrDimensions wxTextBoxAttr::GetMargins() */
+PHP_METHOD(php_wxTextBoxAttr, GetMargins)
+{
+    #ifdef USE_WXPHP_DEBUG
+    php_printf("Invoking wxTextBoxAttr::GetMargins\n");
+    php_printf("===========================================\n");
+    #endif
+
+    zo_wxTextBoxAttr* current_object;
+    wxphp_object_type current_object_type;
+    wxTextBoxAttr_php* native_object;
+    void* argument_native_object = NULL;
+
+    //Other variables used thru the code
+    zval dummy;
+    ZVAL_NULL(&dummy);
+    bool already_called = false;
+    wxPHPObjectReferences* references;
+    int arguments_received = ZEND_NUM_ARGS();
+    bool return_is_user_initialized = false;
+
+    //Get native object of the php object that called the method
+    if(getThis() != NULL)
+    {
+        current_object = Z_wxTextBoxAttr_P(getThis());
+
+        if(current_object->native_object == NULL)
+        {
+            zend_error(
+                E_ERROR,
+                "Failed to get the native object for "
+                "wxTextBoxAttr::GetMargins call\n"
+            );
+
+            return;
+        }
+        else
+        {
+            native_object = current_object->native_object;
+            current_object_type = current_object->object_type;
+
+            bool reference_type_found = false;
+
+            if(current_object_type == PHP_WXTEXTBOXATTR_TYPE){
+                references = &((wxTextBoxAttr_php*)native_object)->references;
+                reference_type_found = true;
+            }
+        }
+    }
+    #ifdef USE_WXPHP_DEBUG
+    else
+    {
+        php_printf("Processing the method call as static\n");
+    }
+    #endif
+
+    //Parameters for overload 0
+    bool overload0_called = false;
+
+    //Parameters for overload 1
+    bool overload1_called = false;
+
+    
+    //Overload 0
+    overload0:
+    if(!already_called && arguments_received == 0)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Parameters received %d\n", arguments_received);
+        php_printf("Parsing parameters with '' ()\n");
+        #endif
+
+        overload0_called = true;
+        already_called = true;
+    }
+
+    //Overload 1
+    overload1:
+    if(!already_called && arguments_received == 0)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Parameters received %d\n", arguments_received);
+        php_printf("Parsing parameters with '' ()\n");
+        #endif
+
+        overload1_called = true;
+        already_called = true;
+    }
+
+    
+    if(overload0_called)
+    {
+        switch(arguments_received)
+        {
+            case 0:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing wxTextBoxAttr::GetMargins() to return object reference\n\n");
+                #endif
+
+                wxTextAttrDimensions_php* value_to_return0;
+                value_to_return0 = (wxTextAttrDimensions_php*) &((wxTextBoxAttr_php*)native_object)->GetMargins();
+
+                if(value_to_return0->references.IsUserInitialized()){
+                    if(!Z_ISNULL(value_to_return0->phpObj)){
+                        ZVAL_COPY_VALUE(return_value, &value_to_return0->phpObj);
+                        zval_add_ref(&value_to_return0->phpObj);
+                        return_is_user_initialized = true;
+                    }
+                    else{
+                        zend_error(E_ERROR, "Could not retreive original zval.");
+                    }
+                }
+                else{
+                    object_init_ex(return_value,php_wxTextAttrDimensions_entry);
+                    Z_wxTextAttrDimensions_P(return_value)->native_object = (wxTextAttrDimensions_php*) value_to_return0;
+                }
+
+                if((void*)value_to_return0 != (void*)native_object && return_is_user_initialized){ //Prevent adding references to it self
+                    references->AddReference(return_value, "wxTextBoxAttr::GetMargins at call 6 with 0 argument(s)");
+                }
+
+
+                return;
+                break;
+            }
+        }
+    }
+
+    if(overload1_called)
+    {
+        switch(arguments_received)
+        {
+            case 0:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing wxTextBoxAttr::GetMargins() to return object reference\n\n");
+                #endif
+
+                wxTextAttrDimensions_php* value_to_return0;
+                value_to_return0 = (wxTextAttrDimensions_php*) &((wxTextBoxAttr_php*)native_object)->GetMargins();
+
+                if(value_to_return0->references.IsUserInitialized()){
+                    if(!Z_ISNULL(value_to_return0->phpObj)){
+                        ZVAL_COPY_VALUE(return_value, &value_to_return0->phpObj);
+                        zval_add_ref(&value_to_return0->phpObj);
+                        return_is_user_initialized = true;
+                    }
+                    else{
+                        zend_error(E_ERROR, "Could not retreive original zval.");
+                    }
+                }
+                else{
+                    object_init_ex(return_value,php_wxTextAttrDimensions_entry);
+                    Z_wxTextAttrDimensions_P(return_value)->native_object = (wxTextAttrDimensions_php*) value_to_return0;
+                }
+
+                if((void*)value_to_return0 != (void*)native_object && return_is_user_initialized){ //Prevent adding references to it self
+                    references->AddReference(return_value, "wxTextBoxAttr::GetMargins at call 6 with 0 argument(s)");
+                }
+
+
+                return;
+                break;
+            }
+        }
+    }
+
+    
+    //In case wrong type/count of parameters was passed
+    if(!already_called)
+    {
+        zend_error(
+            E_ERROR,
+            "Wrong type or count of parameters passed to: "
+            "wxTextBoxAttr::GetMargins\n"
+        );
+    }
+}
+/* }}} */
+
+/* {{{ proto wxTextAttrDimension wxTextBoxAttr::GetLeftMargin() */
+PHP_METHOD(php_wxTextBoxAttr, GetLeftMargin)
+{
+    #ifdef USE_WXPHP_DEBUG
+    php_printf("Invoking wxTextBoxAttr::GetLeftMargin\n");
+    php_printf("===========================================\n");
+    #endif
+
+    zo_wxTextBoxAttr* current_object;
+    wxphp_object_type current_object_type;
+    wxTextBoxAttr_php* native_object;
+    void* argument_native_object = NULL;
+
+    //Other variables used thru the code
+    zval dummy;
+    ZVAL_NULL(&dummy);
+    bool already_called = false;
+    wxPHPObjectReferences* references;
+    int arguments_received = ZEND_NUM_ARGS();
+    bool return_is_user_initialized = false;
+
+    //Get native object of the php object that called the method
+    if(getThis() != NULL)
+    {
+        current_object = Z_wxTextBoxAttr_P(getThis());
+
+        if(current_object->native_object == NULL)
+        {
+            zend_error(
+                E_ERROR,
+                "Failed to get the native object for "
+                "wxTextBoxAttr::GetLeftMargin call\n"
+            );
+
+            return;
+        }
+        else
+        {
+            native_object = current_object->native_object;
+            current_object_type = current_object->object_type;
+
+            bool reference_type_found = false;
+
+            if(current_object_type == PHP_WXTEXTBOXATTR_TYPE){
+                references = &((wxTextBoxAttr_php*)native_object)->references;
+                reference_type_found = true;
+            }
+        }
+    }
+    #ifdef USE_WXPHP_DEBUG
+    else
+    {
+        php_printf("Processing the method call as static\n");
+    }
+    #endif
+
+    //Parameters for overload 0
+    bool overload0_called = false;
+
+    //Parameters for overload 1
+    bool overload1_called = false;
+
+    
+    //Overload 0
+    overload0:
+    if(!already_called && arguments_received == 0)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Parameters received %d\n", arguments_received);
+        php_printf("Parsing parameters with '' ()\n");
+        #endif
+
+        overload0_called = true;
+        already_called = true;
+    }
+
+    //Overload 1
+    overload1:
+    if(!already_called && arguments_received == 0)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Parameters received %d\n", arguments_received);
+        php_printf("Parsing parameters with '' ()\n");
+        #endif
+
+        overload1_called = true;
+        already_called = true;
+    }
+
+    
+    if(overload0_called)
+    {
+        switch(arguments_received)
+        {
+            case 0:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing wxTextBoxAttr::GetLeftMargin() to return object reference\n\n");
+                #endif
+
+                wxTextAttrDimension_php* value_to_return0;
+                value_to_return0 = (wxTextAttrDimension_php*) &((wxTextBoxAttr_php*)native_object)->GetLeftMargin();
+
+                if(value_to_return0->references.IsUserInitialized()){
+                    if(!Z_ISNULL(value_to_return0->phpObj)){
+                        ZVAL_COPY_VALUE(return_value, &value_to_return0->phpObj);
+                        zval_add_ref(&value_to_return0->phpObj);
+                        return_is_user_initialized = true;
+                    }
+                    else{
+                        zend_error(E_ERROR, "Could not retreive original zval.");
+                    }
+                }
+                else{
+                    object_init_ex(return_value,php_wxTextAttrDimension_entry);
+                    Z_wxTextAttrDimension_P(return_value)->native_object = (wxTextAttrDimension_php*) value_to_return0;
+                }
+
+                if((void*)value_to_return0 != (void*)native_object && return_is_user_initialized){ //Prevent adding references to it self
+                    references->AddReference(return_value, "wxTextBoxAttr::GetLeftMargin at call 6 with 0 argument(s)");
+                }
+
+
+                return;
+                break;
+            }
+        }
+    }
+
+    if(overload1_called)
+    {
+        switch(arguments_received)
+        {
+            case 0:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing wxTextBoxAttr::GetLeftMargin() to return object reference\n\n");
+                #endif
+
+                wxTextAttrDimension_php* value_to_return0;
+                value_to_return0 = (wxTextAttrDimension_php*) &((wxTextBoxAttr_php*)native_object)->GetLeftMargin();
+
+                if(value_to_return0->references.IsUserInitialized()){
+                    if(!Z_ISNULL(value_to_return0->phpObj)){
+                        ZVAL_COPY_VALUE(return_value, &value_to_return0->phpObj);
+                        zval_add_ref(&value_to_return0->phpObj);
+                        return_is_user_initialized = true;
+                    }
+                    else{
+                        zend_error(E_ERROR, "Could not retreive original zval.");
+                    }
+                }
+                else{
+                    object_init_ex(return_value,php_wxTextAttrDimension_entry);
+                    Z_wxTextAttrDimension_P(return_value)->native_object = (wxTextAttrDimension_php*) value_to_return0;
+                }
+
+                if((void*)value_to_return0 != (void*)native_object && return_is_user_initialized){ //Prevent adding references to it self
+                    references->AddReference(return_value, "wxTextBoxAttr::GetLeftMargin at call 6 with 0 argument(s)");
+                }
+
+
+                return;
+                break;
+            }
+        }
+    }
+
+    
+    //In case wrong type/count of parameters was passed
+    if(!already_called)
+    {
+        zend_error(
+            E_ERROR,
+            "Wrong type or count of parameters passed to: "
+            "wxTextBoxAttr::GetLeftMargin\n"
+        );
+    }
+}
+/* }}} */
+
+/* {{{ proto wxTextAttrDimension wxTextBoxAttr::GetRightMargin() */
+PHP_METHOD(php_wxTextBoxAttr, GetRightMargin)
+{
+    #ifdef USE_WXPHP_DEBUG
+    php_printf("Invoking wxTextBoxAttr::GetRightMargin\n");
+    php_printf("===========================================\n");
+    #endif
+
+    zo_wxTextBoxAttr* current_object;
+    wxphp_object_type current_object_type;
+    wxTextBoxAttr_php* native_object;
+    void* argument_native_object = NULL;
+
+    //Other variables used thru the code
+    zval dummy;
+    ZVAL_NULL(&dummy);
+    bool already_called = false;
+    wxPHPObjectReferences* references;
+    int arguments_received = ZEND_NUM_ARGS();
+    bool return_is_user_initialized = false;
+
+    //Get native object of the php object that called the method
+    if(getThis() != NULL)
+    {
+        current_object = Z_wxTextBoxAttr_P(getThis());
+
+        if(current_object->native_object == NULL)
+        {
+            zend_error(
+                E_ERROR,
+                "Failed to get the native object for "
+                "wxTextBoxAttr::GetRightMargin call\n"
+            );
+
+            return;
+        }
+        else
+        {
+            native_object = current_object->native_object;
+            current_object_type = current_object->object_type;
+
+            bool reference_type_found = false;
+
+            if(current_object_type == PHP_WXTEXTBOXATTR_TYPE){
+                references = &((wxTextBoxAttr_php*)native_object)->references;
+                reference_type_found = true;
+            }
+        }
+    }
+    #ifdef USE_WXPHP_DEBUG
+    else
+    {
+        php_printf("Processing the method call as static\n");
+    }
+    #endif
+
+    //Parameters for overload 0
+    bool overload0_called = false;
+
+    //Parameters for overload 1
+    bool overload1_called = false;
+
+    
+    //Overload 0
+    overload0:
+    if(!already_called && arguments_received == 0)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Parameters received %d\n", arguments_received);
+        php_printf("Parsing parameters with '' ()\n");
+        #endif
+
+        overload0_called = true;
+        already_called = true;
+    }
+
+    //Overload 1
+    overload1:
+    if(!already_called && arguments_received == 0)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Parameters received %d\n", arguments_received);
+        php_printf("Parsing parameters with '' ()\n");
+        #endif
+
+        overload1_called = true;
+        already_called = true;
+    }
+
+    
+    if(overload0_called)
+    {
+        switch(arguments_received)
+        {
+            case 0:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing wxTextBoxAttr::GetRightMargin() to return object reference\n\n");
+                #endif
+
+                wxTextAttrDimension_php* value_to_return0;
+                value_to_return0 = (wxTextAttrDimension_php*) &((wxTextBoxAttr_php*)native_object)->GetRightMargin();
+
+                if(value_to_return0->references.IsUserInitialized()){
+                    if(!Z_ISNULL(value_to_return0->phpObj)){
+                        ZVAL_COPY_VALUE(return_value, &value_to_return0->phpObj);
+                        zval_add_ref(&value_to_return0->phpObj);
+                        return_is_user_initialized = true;
+                    }
+                    else{
+                        zend_error(E_ERROR, "Could not retreive original zval.");
+                    }
+                }
+                else{
+                    object_init_ex(return_value,php_wxTextAttrDimension_entry);
+                    Z_wxTextAttrDimension_P(return_value)->native_object = (wxTextAttrDimension_php*) value_to_return0;
+                }
+
+                if((void*)value_to_return0 != (void*)native_object && return_is_user_initialized){ //Prevent adding references to it self
+                    references->AddReference(return_value, "wxTextBoxAttr::GetRightMargin at call 6 with 0 argument(s)");
+                }
+
+
+                return;
+                break;
+            }
+        }
+    }
+
+    if(overload1_called)
+    {
+        switch(arguments_received)
+        {
+            case 0:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing wxTextBoxAttr::GetRightMargin() to return object reference\n\n");
+                #endif
+
+                wxTextAttrDimension_php* value_to_return0;
+                value_to_return0 = (wxTextAttrDimension_php*) &((wxTextBoxAttr_php*)native_object)->GetRightMargin();
+
+                if(value_to_return0->references.IsUserInitialized()){
+                    if(!Z_ISNULL(value_to_return0->phpObj)){
+                        ZVAL_COPY_VALUE(return_value, &value_to_return0->phpObj);
+                        zval_add_ref(&value_to_return0->phpObj);
+                        return_is_user_initialized = true;
+                    }
+                    else{
+                        zend_error(E_ERROR, "Could not retreive original zval.");
+                    }
+                }
+                else{
+                    object_init_ex(return_value,php_wxTextAttrDimension_entry);
+                    Z_wxTextAttrDimension_P(return_value)->native_object = (wxTextAttrDimension_php*) value_to_return0;
+                }
+
+                if((void*)value_to_return0 != (void*)native_object && return_is_user_initialized){ //Prevent adding references to it self
+                    references->AddReference(return_value, "wxTextBoxAttr::GetRightMargin at call 6 with 0 argument(s)");
+                }
+
+
+                return;
+                break;
+            }
+        }
+    }
+
+    
+    //In case wrong type/count of parameters was passed
+    if(!already_called)
+    {
+        zend_error(
+            E_ERROR,
+            "Wrong type or count of parameters passed to: "
+            "wxTextBoxAttr::GetRightMargin\n"
+        );
+    }
+}
+/* }}} */
+
+/* {{{ proto wxTextAttrDimension wxTextBoxAttr::GetTopMargin() */
+PHP_METHOD(php_wxTextBoxAttr, GetTopMargin)
+{
+    #ifdef USE_WXPHP_DEBUG
+    php_printf("Invoking wxTextBoxAttr::GetTopMargin\n");
+    php_printf("===========================================\n");
+    #endif
+
+    zo_wxTextBoxAttr* current_object;
+    wxphp_object_type current_object_type;
+    wxTextBoxAttr_php* native_object;
+    void* argument_native_object = NULL;
+
+    //Other variables used thru the code
+    zval dummy;
+    ZVAL_NULL(&dummy);
+    bool already_called = false;
+    wxPHPObjectReferences* references;
+    int arguments_received = ZEND_NUM_ARGS();
+    bool return_is_user_initialized = false;
+
+    //Get native object of the php object that called the method
+    if(getThis() != NULL)
+    {
+        current_object = Z_wxTextBoxAttr_P(getThis());
+
+        if(current_object->native_object == NULL)
+        {
+            zend_error(
+                E_ERROR,
+                "Failed to get the native object for "
+                "wxTextBoxAttr::GetTopMargin call\n"
+            );
+
+            return;
+        }
+        else
+        {
+            native_object = current_object->native_object;
+            current_object_type = current_object->object_type;
+
+            bool reference_type_found = false;
+
+            if(current_object_type == PHP_WXTEXTBOXATTR_TYPE){
+                references = &((wxTextBoxAttr_php*)native_object)->references;
+                reference_type_found = true;
+            }
+        }
+    }
+    #ifdef USE_WXPHP_DEBUG
+    else
+    {
+        php_printf("Processing the method call as static\n");
+    }
+    #endif
+
+    //Parameters for overload 0
+    bool overload0_called = false;
+
+    //Parameters for overload 1
+    bool overload1_called = false;
+
+    
+    //Overload 0
+    overload0:
+    if(!already_called && arguments_received == 0)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Parameters received %d\n", arguments_received);
+        php_printf("Parsing parameters with '' ()\n");
+        #endif
+
+        overload0_called = true;
+        already_called = true;
+    }
+
+    //Overload 1
+    overload1:
+    if(!already_called && arguments_received == 0)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Parameters received %d\n", arguments_received);
+        php_printf("Parsing parameters with '' ()\n");
+        #endif
+
+        overload1_called = true;
+        already_called = true;
+    }
+
+    
+    if(overload0_called)
+    {
+        switch(arguments_received)
+        {
+            case 0:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing wxTextBoxAttr::GetTopMargin() to return object reference\n\n");
+                #endif
+
+                wxTextAttrDimension_php* value_to_return0;
+                value_to_return0 = (wxTextAttrDimension_php*) &((wxTextBoxAttr_php*)native_object)->GetTopMargin();
+
+                if(value_to_return0->references.IsUserInitialized()){
+                    if(!Z_ISNULL(value_to_return0->phpObj)){
+                        ZVAL_COPY_VALUE(return_value, &value_to_return0->phpObj);
+                        zval_add_ref(&value_to_return0->phpObj);
+                        return_is_user_initialized = true;
+                    }
+                    else{
+                        zend_error(E_ERROR, "Could not retreive original zval.");
+                    }
+                }
+                else{
+                    object_init_ex(return_value,php_wxTextAttrDimension_entry);
+                    Z_wxTextAttrDimension_P(return_value)->native_object = (wxTextAttrDimension_php*) value_to_return0;
+                }
+
+                if((void*)value_to_return0 != (void*)native_object && return_is_user_initialized){ //Prevent adding references to it self
+                    references->AddReference(return_value, "wxTextBoxAttr::GetTopMargin at call 6 with 0 argument(s)");
+                }
+
+
+                return;
+                break;
+            }
+        }
+    }
+
+    if(overload1_called)
+    {
+        switch(arguments_received)
+        {
+            case 0:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing wxTextBoxAttr::GetTopMargin() to return object reference\n\n");
+                #endif
+
+                wxTextAttrDimension_php* value_to_return0;
+                value_to_return0 = (wxTextAttrDimension_php*) &((wxTextBoxAttr_php*)native_object)->GetTopMargin();
+
+                if(value_to_return0->references.IsUserInitialized()){
+                    if(!Z_ISNULL(value_to_return0->phpObj)){
+                        ZVAL_COPY_VALUE(return_value, &value_to_return0->phpObj);
+                        zval_add_ref(&value_to_return0->phpObj);
+                        return_is_user_initialized = true;
+                    }
+                    else{
+                        zend_error(E_ERROR, "Could not retreive original zval.");
+                    }
+                }
+                else{
+                    object_init_ex(return_value,php_wxTextAttrDimension_entry);
+                    Z_wxTextAttrDimension_P(return_value)->native_object = (wxTextAttrDimension_php*) value_to_return0;
+                }
+
+                if((void*)value_to_return0 != (void*)native_object && return_is_user_initialized){ //Prevent adding references to it self
+                    references->AddReference(return_value, "wxTextBoxAttr::GetTopMargin at call 6 with 0 argument(s)");
+                }
+
+
+                return;
+                break;
+            }
+        }
+    }
+
+    
+    //In case wrong type/count of parameters was passed
+    if(!already_called)
+    {
+        zend_error(
+            E_ERROR,
+            "Wrong type or count of parameters passed to: "
+            "wxTextBoxAttr::GetTopMargin\n"
+        );
+    }
+}
+/* }}} */
+
+/* {{{ proto wxTextAttrDimension wxTextBoxAttr::GetBottomMargin() */
+PHP_METHOD(php_wxTextBoxAttr, GetBottomMargin)
+{
+    #ifdef USE_WXPHP_DEBUG
+    php_printf("Invoking wxTextBoxAttr::GetBottomMargin\n");
+    php_printf("===========================================\n");
+    #endif
+
+    zo_wxTextBoxAttr* current_object;
+    wxphp_object_type current_object_type;
+    wxTextBoxAttr_php* native_object;
+    void* argument_native_object = NULL;
+
+    //Other variables used thru the code
+    zval dummy;
+    ZVAL_NULL(&dummy);
+    bool already_called = false;
+    wxPHPObjectReferences* references;
+    int arguments_received = ZEND_NUM_ARGS();
+    bool return_is_user_initialized = false;
+
+    //Get native object of the php object that called the method
+    if(getThis() != NULL)
+    {
+        current_object = Z_wxTextBoxAttr_P(getThis());
+
+        if(current_object->native_object == NULL)
+        {
+            zend_error(
+                E_ERROR,
+                "Failed to get the native object for "
+                "wxTextBoxAttr::GetBottomMargin call\n"
+            );
+
+            return;
+        }
+        else
+        {
+            native_object = current_object->native_object;
+            current_object_type = current_object->object_type;
+
+            bool reference_type_found = false;
+
+            if(current_object_type == PHP_WXTEXTBOXATTR_TYPE){
+                references = &((wxTextBoxAttr_php*)native_object)->references;
+                reference_type_found = true;
+            }
+        }
+    }
+    #ifdef USE_WXPHP_DEBUG
+    else
+    {
+        php_printf("Processing the method call as static\n");
+    }
+    #endif
+
+    //Parameters for overload 0
+    bool overload0_called = false;
+
+    //Parameters for overload 1
+    bool overload1_called = false;
+
+    
+    //Overload 0
+    overload0:
+    if(!already_called && arguments_received == 0)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Parameters received %d\n", arguments_received);
+        php_printf("Parsing parameters with '' ()\n");
+        #endif
+
+        overload0_called = true;
+        already_called = true;
+    }
+
+    //Overload 1
+    overload1:
+    if(!already_called && arguments_received == 0)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Parameters received %d\n", arguments_received);
+        php_printf("Parsing parameters with '' ()\n");
+        #endif
+
+        overload1_called = true;
+        already_called = true;
+    }
+
+    
+    if(overload0_called)
+    {
+        switch(arguments_received)
+        {
+            case 0:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing wxTextBoxAttr::GetBottomMargin() to return object reference\n\n");
+                #endif
+
+                wxTextAttrDimension_php* value_to_return0;
+                value_to_return0 = (wxTextAttrDimension_php*) &((wxTextBoxAttr_php*)native_object)->GetBottomMargin();
+
+                if(value_to_return0->references.IsUserInitialized()){
+                    if(!Z_ISNULL(value_to_return0->phpObj)){
+                        ZVAL_COPY_VALUE(return_value, &value_to_return0->phpObj);
+                        zval_add_ref(&value_to_return0->phpObj);
+                        return_is_user_initialized = true;
+                    }
+                    else{
+                        zend_error(E_ERROR, "Could not retreive original zval.");
+                    }
+                }
+                else{
+                    object_init_ex(return_value,php_wxTextAttrDimension_entry);
+                    Z_wxTextAttrDimension_P(return_value)->native_object = (wxTextAttrDimension_php*) value_to_return0;
+                }
+
+                if((void*)value_to_return0 != (void*)native_object && return_is_user_initialized){ //Prevent adding references to it self
+                    references->AddReference(return_value, "wxTextBoxAttr::GetBottomMargin at call 6 with 0 argument(s)");
+                }
+
+
+                return;
+                break;
+            }
+        }
+    }
+
+    if(overload1_called)
+    {
+        switch(arguments_received)
+        {
+            case 0:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing wxTextBoxAttr::GetBottomMargin() to return object reference\n\n");
+                #endif
+
+                wxTextAttrDimension_php* value_to_return0;
+                value_to_return0 = (wxTextAttrDimension_php*) &((wxTextBoxAttr_php*)native_object)->GetBottomMargin();
+
+                if(value_to_return0->references.IsUserInitialized()){
+                    if(!Z_ISNULL(value_to_return0->phpObj)){
+                        ZVAL_COPY_VALUE(return_value, &value_to_return0->phpObj);
+                        zval_add_ref(&value_to_return0->phpObj);
+                        return_is_user_initialized = true;
+                    }
+                    else{
+                        zend_error(E_ERROR, "Could not retreive original zval.");
+                    }
+                }
+                else{
+                    object_init_ex(return_value,php_wxTextAttrDimension_entry);
+                    Z_wxTextAttrDimension_P(return_value)->native_object = (wxTextAttrDimension_php*) value_to_return0;
+                }
+
+                if((void*)value_to_return0 != (void*)native_object && return_is_user_initialized){ //Prevent adding references to it self
+                    references->AddReference(return_value, "wxTextBoxAttr::GetBottomMargin at call 6 with 0 argument(s)");
+                }
+
+
+                return;
+                break;
+            }
+        }
+    }
+
+    
+    //In case wrong type/count of parameters was passed
+    if(!already_called)
+    {
+        zend_error(
+            E_ERROR,
+            "Wrong type or count of parameters passed to: "
+            "wxTextBoxAttr::GetBottomMargin\n"
+        );
+    }
+}
+/* }}} */
+
+/* {{{ proto wxTextAttrDimensions wxTextBoxAttr::GetPosition() */
+PHP_METHOD(php_wxTextBoxAttr, GetPosition)
+{
+    #ifdef USE_WXPHP_DEBUG
+    php_printf("Invoking wxTextBoxAttr::GetPosition\n");
+    php_printf("===========================================\n");
+    #endif
+
+    zo_wxTextBoxAttr* current_object;
+    wxphp_object_type current_object_type;
+    wxTextBoxAttr_php* native_object;
+    void* argument_native_object = NULL;
+
+    //Other variables used thru the code
+    zval dummy;
+    ZVAL_NULL(&dummy);
+    bool already_called = false;
+    wxPHPObjectReferences* references;
+    int arguments_received = ZEND_NUM_ARGS();
+    bool return_is_user_initialized = false;
+
+    //Get native object of the php object that called the method
+    if(getThis() != NULL)
+    {
+        current_object = Z_wxTextBoxAttr_P(getThis());
+
+        if(current_object->native_object == NULL)
+        {
+            zend_error(
+                E_ERROR,
+                "Failed to get the native object for "
+                "wxTextBoxAttr::GetPosition call\n"
+            );
+
+            return;
+        }
+        else
+        {
+            native_object = current_object->native_object;
+            current_object_type = current_object->object_type;
+
+            bool reference_type_found = false;
+
+            if(current_object_type == PHP_WXTEXTBOXATTR_TYPE){
+                references = &((wxTextBoxAttr_php*)native_object)->references;
+                reference_type_found = true;
+            }
+        }
+    }
+    #ifdef USE_WXPHP_DEBUG
+    else
+    {
+        php_printf("Processing the method call as static\n");
+    }
+    #endif
+
+    //Parameters for overload 0
+    bool overload0_called = false;
+
+    //Parameters for overload 1
+    bool overload1_called = false;
+
+    
+    //Overload 0
+    overload0:
+    if(!already_called && arguments_received == 0)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Parameters received %d\n", arguments_received);
+        php_printf("Parsing parameters with '' ()\n");
+        #endif
+
+        overload0_called = true;
+        already_called = true;
+    }
+
+    //Overload 1
+    overload1:
+    if(!already_called && arguments_received == 0)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Parameters received %d\n", arguments_received);
+        php_printf("Parsing parameters with '' ()\n");
+        #endif
+
+        overload1_called = true;
+        already_called = true;
+    }
+
+    
+    if(overload0_called)
+    {
+        switch(arguments_received)
+        {
+            case 0:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing wxTextBoxAttr::GetPosition() to return object reference\n\n");
+                #endif
+
+                wxTextAttrDimensions_php* value_to_return0;
+                value_to_return0 = (wxTextAttrDimensions_php*) &((wxTextBoxAttr_php*)native_object)->GetPosition();
+
+                if(value_to_return0->references.IsUserInitialized()){
+                    if(!Z_ISNULL(value_to_return0->phpObj)){
+                        ZVAL_COPY_VALUE(return_value, &value_to_return0->phpObj);
+                        zval_add_ref(&value_to_return0->phpObj);
+                        return_is_user_initialized = true;
+                    }
+                    else{
+                        zend_error(E_ERROR, "Could not retreive original zval.");
+                    }
+                }
+                else{
+                    object_init_ex(return_value,php_wxTextAttrDimensions_entry);
+                    Z_wxTextAttrDimensions_P(return_value)->native_object = (wxTextAttrDimensions_php*) value_to_return0;
+                }
+
+                if((void*)value_to_return0 != (void*)native_object && return_is_user_initialized){ //Prevent adding references to it self
+                    references->AddReference(return_value, "wxTextBoxAttr::GetPosition at call 6 with 0 argument(s)");
+                }
+
+
+                return;
+                break;
+            }
+        }
+    }
+
+    if(overload1_called)
+    {
+        switch(arguments_received)
+        {
+            case 0:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing wxTextBoxAttr::GetPosition() to return object reference\n\n");
+                #endif
+
+                wxTextAttrDimensions_php* value_to_return0;
+                value_to_return0 = (wxTextAttrDimensions_php*) &((wxTextBoxAttr_php*)native_object)->GetPosition();
+
+                if(value_to_return0->references.IsUserInitialized()){
+                    if(!Z_ISNULL(value_to_return0->phpObj)){
+                        ZVAL_COPY_VALUE(return_value, &value_to_return0->phpObj);
+                        zval_add_ref(&value_to_return0->phpObj);
+                        return_is_user_initialized = true;
+                    }
+                    else{
+                        zend_error(E_ERROR, "Could not retreive original zval.");
+                    }
+                }
+                else{
+                    object_init_ex(return_value,php_wxTextAttrDimensions_entry);
+                    Z_wxTextAttrDimensions_P(return_value)->native_object = (wxTextAttrDimensions_php*) value_to_return0;
+                }
+
+                if((void*)value_to_return0 != (void*)native_object && return_is_user_initialized){ //Prevent adding references to it self
+                    references->AddReference(return_value, "wxTextBoxAttr::GetPosition at call 6 with 0 argument(s)");
+                }
+
+
+                return;
+                break;
+            }
+        }
+    }
+
+    
+    //In case wrong type/count of parameters was passed
+    if(!already_called)
+    {
+        zend_error(
+            E_ERROR,
+            "Wrong type or count of parameters passed to: "
+            "wxTextBoxAttr::GetPosition\n"
+        );
+    }
+}
+/* }}} */
+
+/* {{{ proto wxTextAttrDimension wxTextBoxAttr::GetLeft() */
+PHP_METHOD(php_wxTextBoxAttr, GetLeft)
+{
+    #ifdef USE_WXPHP_DEBUG
+    php_printf("Invoking wxTextBoxAttr::GetLeft\n");
+    php_printf("===========================================\n");
+    #endif
+
+    zo_wxTextBoxAttr* current_object;
+    wxphp_object_type current_object_type;
+    wxTextBoxAttr_php* native_object;
+    void* argument_native_object = NULL;
+
+    //Other variables used thru the code
+    zval dummy;
+    ZVAL_NULL(&dummy);
+    bool already_called = false;
+    wxPHPObjectReferences* references;
+    int arguments_received = ZEND_NUM_ARGS();
+    bool return_is_user_initialized = false;
+
+    //Get native object of the php object that called the method
+    if(getThis() != NULL)
+    {
+        current_object = Z_wxTextBoxAttr_P(getThis());
+
+        if(current_object->native_object == NULL)
+        {
+            zend_error(
+                E_ERROR,
+                "Failed to get the native object for "
+                "wxTextBoxAttr::GetLeft call\n"
+            );
+
+            return;
+        }
+        else
+        {
+            native_object = current_object->native_object;
+            current_object_type = current_object->object_type;
+
+            bool reference_type_found = false;
+
+            if(current_object_type == PHP_WXTEXTBOXATTR_TYPE){
+                references = &((wxTextBoxAttr_php*)native_object)->references;
+                reference_type_found = true;
+            }
+        }
+    }
+    #ifdef USE_WXPHP_DEBUG
+    else
+    {
+        php_printf("Processing the method call as static\n");
+    }
+    #endif
+
+    //Parameters for overload 0
+    bool overload0_called = false;
+
+    //Parameters for overload 1
+    bool overload1_called = false;
+
+    
+    //Overload 0
+    overload0:
+    if(!already_called && arguments_received == 0)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Parameters received %d\n", arguments_received);
+        php_printf("Parsing parameters with '' ()\n");
+        #endif
+
+        overload0_called = true;
+        already_called = true;
+    }
+
+    //Overload 1
+    overload1:
+    if(!already_called && arguments_received == 0)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Parameters received %d\n", arguments_received);
+        php_printf("Parsing parameters with '' ()\n");
+        #endif
+
+        overload1_called = true;
+        already_called = true;
+    }
+
+    
+    if(overload0_called)
+    {
+        switch(arguments_received)
+        {
+            case 0:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing wxTextBoxAttr::GetLeft() to return object reference\n\n");
+                #endif
+
+                wxTextAttrDimension_php* value_to_return0;
+                value_to_return0 = (wxTextAttrDimension_php*) &((wxTextBoxAttr_php*)native_object)->GetLeft();
+
+                if(value_to_return0->references.IsUserInitialized()){
+                    if(!Z_ISNULL(value_to_return0->phpObj)){
+                        ZVAL_COPY_VALUE(return_value, &value_to_return0->phpObj);
+                        zval_add_ref(&value_to_return0->phpObj);
+                        return_is_user_initialized = true;
+                    }
+                    else{
+                        zend_error(E_ERROR, "Could not retreive original zval.");
+                    }
+                }
+                else{
+                    object_init_ex(return_value,php_wxTextAttrDimension_entry);
+                    Z_wxTextAttrDimension_P(return_value)->native_object = (wxTextAttrDimension_php*) value_to_return0;
+                }
+
+                if((void*)value_to_return0 != (void*)native_object && return_is_user_initialized){ //Prevent adding references to it self
+                    references->AddReference(return_value, "wxTextBoxAttr::GetLeft at call 6 with 0 argument(s)");
+                }
+
+
+                return;
+                break;
+            }
+        }
+    }
+
+    if(overload1_called)
+    {
+        switch(arguments_received)
+        {
+            case 0:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing wxTextBoxAttr::GetLeft() to return object reference\n\n");
+                #endif
+
+                wxTextAttrDimension_php* value_to_return0;
+                value_to_return0 = (wxTextAttrDimension_php*) &((wxTextBoxAttr_php*)native_object)->GetLeft();
+
+                if(value_to_return0->references.IsUserInitialized()){
+                    if(!Z_ISNULL(value_to_return0->phpObj)){
+                        ZVAL_COPY_VALUE(return_value, &value_to_return0->phpObj);
+                        zval_add_ref(&value_to_return0->phpObj);
+                        return_is_user_initialized = true;
+                    }
+                    else{
+                        zend_error(E_ERROR, "Could not retreive original zval.");
+                    }
+                }
+                else{
+                    object_init_ex(return_value,php_wxTextAttrDimension_entry);
+                    Z_wxTextAttrDimension_P(return_value)->native_object = (wxTextAttrDimension_php*) value_to_return0;
+                }
+
+                if((void*)value_to_return0 != (void*)native_object && return_is_user_initialized){ //Prevent adding references to it self
+                    references->AddReference(return_value, "wxTextBoxAttr::GetLeft at call 6 with 0 argument(s)");
+                }
+
+
+                return;
+                break;
+            }
+        }
+    }
+
+    
+    //In case wrong type/count of parameters was passed
+    if(!already_called)
+    {
+        zend_error(
+            E_ERROR,
+            "Wrong type or count of parameters passed to: "
+            "wxTextBoxAttr::GetLeft\n"
+        );
+    }
+}
+/* }}} */
+
+/* {{{ proto wxTextAttrDimension wxTextBoxAttr::GetRight() */
+PHP_METHOD(php_wxTextBoxAttr, GetRight)
+{
+    #ifdef USE_WXPHP_DEBUG
+    php_printf("Invoking wxTextBoxAttr::GetRight\n");
+    php_printf("===========================================\n");
+    #endif
+
+    zo_wxTextBoxAttr* current_object;
+    wxphp_object_type current_object_type;
+    wxTextBoxAttr_php* native_object;
+    void* argument_native_object = NULL;
+
+    //Other variables used thru the code
+    zval dummy;
+    ZVAL_NULL(&dummy);
+    bool already_called = false;
+    wxPHPObjectReferences* references;
+    int arguments_received = ZEND_NUM_ARGS();
+    bool return_is_user_initialized = false;
+
+    //Get native object of the php object that called the method
+    if(getThis() != NULL)
+    {
+        current_object = Z_wxTextBoxAttr_P(getThis());
+
+        if(current_object->native_object == NULL)
+        {
+            zend_error(
+                E_ERROR,
+                "Failed to get the native object for "
+                "wxTextBoxAttr::GetRight call\n"
+            );
+
+            return;
+        }
+        else
+        {
+            native_object = current_object->native_object;
+            current_object_type = current_object->object_type;
+
+            bool reference_type_found = false;
+
+            if(current_object_type == PHP_WXTEXTBOXATTR_TYPE){
+                references = &((wxTextBoxAttr_php*)native_object)->references;
+                reference_type_found = true;
+            }
+        }
+    }
+    #ifdef USE_WXPHP_DEBUG
+    else
+    {
+        php_printf("Processing the method call as static\n");
+    }
+    #endif
+
+    //Parameters for overload 0
+    bool overload0_called = false;
+
+    //Parameters for overload 1
+    bool overload1_called = false;
+
+    
+    //Overload 0
+    overload0:
+    if(!already_called && arguments_received == 0)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Parameters received %d\n", arguments_received);
+        php_printf("Parsing parameters with '' ()\n");
+        #endif
+
+        overload0_called = true;
+        already_called = true;
+    }
+
+    //Overload 1
+    overload1:
+    if(!already_called && arguments_received == 0)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Parameters received %d\n", arguments_received);
+        php_printf("Parsing parameters with '' ()\n");
+        #endif
+
+        overload1_called = true;
+        already_called = true;
+    }
+
+    
+    if(overload0_called)
+    {
+        switch(arguments_received)
+        {
+            case 0:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing wxTextBoxAttr::GetRight() to return object reference\n\n");
+                #endif
+
+                wxTextAttrDimension_php* value_to_return0;
+                value_to_return0 = (wxTextAttrDimension_php*) &((wxTextBoxAttr_php*)native_object)->GetRight();
+
+                if(value_to_return0->references.IsUserInitialized()){
+                    if(!Z_ISNULL(value_to_return0->phpObj)){
+                        ZVAL_COPY_VALUE(return_value, &value_to_return0->phpObj);
+                        zval_add_ref(&value_to_return0->phpObj);
+                        return_is_user_initialized = true;
+                    }
+                    else{
+                        zend_error(E_ERROR, "Could not retreive original zval.");
+                    }
+                }
+                else{
+                    object_init_ex(return_value,php_wxTextAttrDimension_entry);
+                    Z_wxTextAttrDimension_P(return_value)->native_object = (wxTextAttrDimension_php*) value_to_return0;
+                }
+
+                if((void*)value_to_return0 != (void*)native_object && return_is_user_initialized){ //Prevent adding references to it self
+                    references->AddReference(return_value, "wxTextBoxAttr::GetRight at call 6 with 0 argument(s)");
+                }
+
+
+                return;
+                break;
+            }
+        }
+    }
+
+    if(overload1_called)
+    {
+        switch(arguments_received)
+        {
+            case 0:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing wxTextBoxAttr::GetRight() to return object reference\n\n");
+                #endif
+
+                wxTextAttrDimension_php* value_to_return0;
+                value_to_return0 = (wxTextAttrDimension_php*) &((wxTextBoxAttr_php*)native_object)->GetRight();
+
+                if(value_to_return0->references.IsUserInitialized()){
+                    if(!Z_ISNULL(value_to_return0->phpObj)){
+                        ZVAL_COPY_VALUE(return_value, &value_to_return0->phpObj);
+                        zval_add_ref(&value_to_return0->phpObj);
+                        return_is_user_initialized = true;
+                    }
+                    else{
+                        zend_error(E_ERROR, "Could not retreive original zval.");
+                    }
+                }
+                else{
+                    object_init_ex(return_value,php_wxTextAttrDimension_entry);
+                    Z_wxTextAttrDimension_P(return_value)->native_object = (wxTextAttrDimension_php*) value_to_return0;
+                }
+
+                if((void*)value_to_return0 != (void*)native_object && return_is_user_initialized){ //Prevent adding references to it self
+                    references->AddReference(return_value, "wxTextBoxAttr::GetRight at call 6 with 0 argument(s)");
+                }
+
+
+                return;
+                break;
+            }
+        }
+    }
+
+    
+    //In case wrong type/count of parameters was passed
+    if(!already_called)
+    {
+        zend_error(
+            E_ERROR,
+            "Wrong type or count of parameters passed to: "
+            "wxTextBoxAttr::GetRight\n"
+        );
+    }
+}
+/* }}} */
+
+/* {{{ proto wxTextAttrDimension wxTextBoxAttr::GetTop() */
+PHP_METHOD(php_wxTextBoxAttr, GetTop)
+{
+    #ifdef USE_WXPHP_DEBUG
+    php_printf("Invoking wxTextBoxAttr::GetTop\n");
+    php_printf("===========================================\n");
+    #endif
+
+    zo_wxTextBoxAttr* current_object;
+    wxphp_object_type current_object_type;
+    wxTextBoxAttr_php* native_object;
+    void* argument_native_object = NULL;
+
+    //Other variables used thru the code
+    zval dummy;
+    ZVAL_NULL(&dummy);
+    bool already_called = false;
+    wxPHPObjectReferences* references;
+    int arguments_received = ZEND_NUM_ARGS();
+    bool return_is_user_initialized = false;
+
+    //Get native object of the php object that called the method
+    if(getThis() != NULL)
+    {
+        current_object = Z_wxTextBoxAttr_P(getThis());
+
+        if(current_object->native_object == NULL)
+        {
+            zend_error(
+                E_ERROR,
+                "Failed to get the native object for "
+                "wxTextBoxAttr::GetTop call\n"
+            );
+
+            return;
+        }
+        else
+        {
+            native_object = current_object->native_object;
+            current_object_type = current_object->object_type;
+
+            bool reference_type_found = false;
+
+            if(current_object_type == PHP_WXTEXTBOXATTR_TYPE){
+                references = &((wxTextBoxAttr_php*)native_object)->references;
+                reference_type_found = true;
+            }
+        }
+    }
+    #ifdef USE_WXPHP_DEBUG
+    else
+    {
+        php_printf("Processing the method call as static\n");
+    }
+    #endif
+
+    //Parameters for overload 0
+    bool overload0_called = false;
+
+    //Parameters for overload 1
+    bool overload1_called = false;
+
+    
+    //Overload 0
+    overload0:
+    if(!already_called && arguments_received == 0)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Parameters received %d\n", arguments_received);
+        php_printf("Parsing parameters with '' ()\n");
+        #endif
+
+        overload0_called = true;
+        already_called = true;
+    }
+
+    //Overload 1
+    overload1:
+    if(!already_called && arguments_received == 0)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Parameters received %d\n", arguments_received);
+        php_printf("Parsing parameters with '' ()\n");
+        #endif
+
+        overload1_called = true;
+        already_called = true;
+    }
+
+    
+    if(overload0_called)
+    {
+        switch(arguments_received)
+        {
+            case 0:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing wxTextBoxAttr::GetTop() to return object reference\n\n");
+                #endif
+
+                wxTextAttrDimension_php* value_to_return0;
+                value_to_return0 = (wxTextAttrDimension_php*) &((wxTextBoxAttr_php*)native_object)->GetTop();
+
+                if(value_to_return0->references.IsUserInitialized()){
+                    if(!Z_ISNULL(value_to_return0->phpObj)){
+                        ZVAL_COPY_VALUE(return_value, &value_to_return0->phpObj);
+                        zval_add_ref(&value_to_return0->phpObj);
+                        return_is_user_initialized = true;
+                    }
+                    else{
+                        zend_error(E_ERROR, "Could not retreive original zval.");
+                    }
+                }
+                else{
+                    object_init_ex(return_value,php_wxTextAttrDimension_entry);
+                    Z_wxTextAttrDimension_P(return_value)->native_object = (wxTextAttrDimension_php*) value_to_return0;
+                }
+
+                if((void*)value_to_return0 != (void*)native_object && return_is_user_initialized){ //Prevent adding references to it self
+                    references->AddReference(return_value, "wxTextBoxAttr::GetTop at call 6 with 0 argument(s)");
+                }
+
+
+                return;
+                break;
+            }
+        }
+    }
+
+    if(overload1_called)
+    {
+        switch(arguments_received)
+        {
+            case 0:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing wxTextBoxAttr::GetTop() to return object reference\n\n");
+                #endif
+
+                wxTextAttrDimension_php* value_to_return0;
+                value_to_return0 = (wxTextAttrDimension_php*) &((wxTextBoxAttr_php*)native_object)->GetTop();
+
+                if(value_to_return0->references.IsUserInitialized()){
+                    if(!Z_ISNULL(value_to_return0->phpObj)){
+                        ZVAL_COPY_VALUE(return_value, &value_to_return0->phpObj);
+                        zval_add_ref(&value_to_return0->phpObj);
+                        return_is_user_initialized = true;
+                    }
+                    else{
+                        zend_error(E_ERROR, "Could not retreive original zval.");
+                    }
+                }
+                else{
+                    object_init_ex(return_value,php_wxTextAttrDimension_entry);
+                    Z_wxTextAttrDimension_P(return_value)->native_object = (wxTextAttrDimension_php*) value_to_return0;
+                }
+
+                if((void*)value_to_return0 != (void*)native_object && return_is_user_initialized){ //Prevent adding references to it self
+                    references->AddReference(return_value, "wxTextBoxAttr::GetTop at call 6 with 0 argument(s)");
+                }
+
+
+                return;
+                break;
+            }
+        }
+    }
+
+    
+    //In case wrong type/count of parameters was passed
+    if(!already_called)
+    {
+        zend_error(
+            E_ERROR,
+            "Wrong type or count of parameters passed to: "
+            "wxTextBoxAttr::GetTop\n"
+        );
+    }
+}
+/* }}} */
+
+/* {{{ proto wxTextAttrDimension wxTextBoxAttr::GetBottom() */
+PHP_METHOD(php_wxTextBoxAttr, GetBottom)
+{
+    #ifdef USE_WXPHP_DEBUG
+    php_printf("Invoking wxTextBoxAttr::GetBottom\n");
+    php_printf("===========================================\n");
+    #endif
+
+    zo_wxTextBoxAttr* current_object;
+    wxphp_object_type current_object_type;
+    wxTextBoxAttr_php* native_object;
+    void* argument_native_object = NULL;
+
+    //Other variables used thru the code
+    zval dummy;
+    ZVAL_NULL(&dummy);
+    bool already_called = false;
+    wxPHPObjectReferences* references;
+    int arguments_received = ZEND_NUM_ARGS();
+    bool return_is_user_initialized = false;
+
+    //Get native object of the php object that called the method
+    if(getThis() != NULL)
+    {
+        current_object = Z_wxTextBoxAttr_P(getThis());
+
+        if(current_object->native_object == NULL)
+        {
+            zend_error(
+                E_ERROR,
+                "Failed to get the native object for "
+                "wxTextBoxAttr::GetBottom call\n"
+            );
+
+            return;
+        }
+        else
+        {
+            native_object = current_object->native_object;
+            current_object_type = current_object->object_type;
+
+            bool reference_type_found = false;
+
+            if(current_object_type == PHP_WXTEXTBOXATTR_TYPE){
+                references = &((wxTextBoxAttr_php*)native_object)->references;
+                reference_type_found = true;
+            }
+        }
+    }
+    #ifdef USE_WXPHP_DEBUG
+    else
+    {
+        php_printf("Processing the method call as static\n");
+    }
+    #endif
+
+    //Parameters for overload 0
+    bool overload0_called = false;
+
+    //Parameters for overload 1
+    bool overload1_called = false;
+
+    
+    //Overload 0
+    overload0:
+    if(!already_called && arguments_received == 0)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Parameters received %d\n", arguments_received);
+        php_printf("Parsing parameters with '' ()\n");
+        #endif
+
+        overload0_called = true;
+        already_called = true;
+    }
+
+    //Overload 1
+    overload1:
+    if(!already_called && arguments_received == 0)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Parameters received %d\n", arguments_received);
+        php_printf("Parsing parameters with '' ()\n");
+        #endif
+
+        overload1_called = true;
+        already_called = true;
+    }
+
+    
+    if(overload0_called)
+    {
+        switch(arguments_received)
+        {
+            case 0:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing wxTextBoxAttr::GetBottom() to return object reference\n\n");
+                #endif
+
+                wxTextAttrDimension_php* value_to_return0;
+                value_to_return0 = (wxTextAttrDimension_php*) &((wxTextBoxAttr_php*)native_object)->GetBottom();
+
+                if(value_to_return0->references.IsUserInitialized()){
+                    if(!Z_ISNULL(value_to_return0->phpObj)){
+                        ZVAL_COPY_VALUE(return_value, &value_to_return0->phpObj);
+                        zval_add_ref(&value_to_return0->phpObj);
+                        return_is_user_initialized = true;
+                    }
+                    else{
+                        zend_error(E_ERROR, "Could not retreive original zval.");
+                    }
+                }
+                else{
+                    object_init_ex(return_value,php_wxTextAttrDimension_entry);
+                    Z_wxTextAttrDimension_P(return_value)->native_object = (wxTextAttrDimension_php*) value_to_return0;
+                }
+
+                if((void*)value_to_return0 != (void*)native_object && return_is_user_initialized){ //Prevent adding references to it self
+                    references->AddReference(return_value, "wxTextBoxAttr::GetBottom at call 6 with 0 argument(s)");
+                }
+
+
+                return;
+                break;
+            }
+        }
+    }
+
+    if(overload1_called)
+    {
+        switch(arguments_received)
+        {
+            case 0:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing wxTextBoxAttr::GetBottom() to return object reference\n\n");
+                #endif
+
+                wxTextAttrDimension_php* value_to_return0;
+                value_to_return0 = (wxTextAttrDimension_php*) &((wxTextBoxAttr_php*)native_object)->GetBottom();
+
+                if(value_to_return0->references.IsUserInitialized()){
+                    if(!Z_ISNULL(value_to_return0->phpObj)){
+                        ZVAL_COPY_VALUE(return_value, &value_to_return0->phpObj);
+                        zval_add_ref(&value_to_return0->phpObj);
+                        return_is_user_initialized = true;
+                    }
+                    else{
+                        zend_error(E_ERROR, "Could not retreive original zval.");
+                    }
+                }
+                else{
+                    object_init_ex(return_value,php_wxTextAttrDimension_entry);
+                    Z_wxTextAttrDimension_P(return_value)->native_object = (wxTextAttrDimension_php*) value_to_return0;
+                }
+
+                if((void*)value_to_return0 != (void*)native_object && return_is_user_initialized){ //Prevent adding references to it self
+                    references->AddReference(return_value, "wxTextBoxAttr::GetBottom at call 6 with 0 argument(s)");
+                }
+
+
+                return;
+                break;
+            }
+        }
+    }
+
+    
+    //In case wrong type/count of parameters was passed
+    if(!already_called)
+    {
+        zend_error(
+            E_ERROR,
+            "Wrong type or count of parameters passed to: "
+            "wxTextBoxAttr::GetBottom\n"
+        );
+    }
+}
+/* }}} */
+
+/* {{{ proto wxTextAttrDimensions wxTextBoxAttr::GetPadding() */
+PHP_METHOD(php_wxTextBoxAttr, GetPadding)
+{
+    #ifdef USE_WXPHP_DEBUG
+    php_printf("Invoking wxTextBoxAttr::GetPadding\n");
+    php_printf("===========================================\n");
+    #endif
+
+    zo_wxTextBoxAttr* current_object;
+    wxphp_object_type current_object_type;
+    wxTextBoxAttr_php* native_object;
+    void* argument_native_object = NULL;
+
+    //Other variables used thru the code
+    zval dummy;
+    ZVAL_NULL(&dummy);
+    bool already_called = false;
+    wxPHPObjectReferences* references;
+    int arguments_received = ZEND_NUM_ARGS();
+    bool return_is_user_initialized = false;
+
+    //Get native object of the php object that called the method
+    if(getThis() != NULL)
+    {
+        current_object = Z_wxTextBoxAttr_P(getThis());
+
+        if(current_object->native_object == NULL)
+        {
+            zend_error(
+                E_ERROR,
+                "Failed to get the native object for "
+                "wxTextBoxAttr::GetPadding call\n"
+            );
+
+            return;
+        }
+        else
+        {
+            native_object = current_object->native_object;
+            current_object_type = current_object->object_type;
+
+            bool reference_type_found = false;
+
+            if(current_object_type == PHP_WXTEXTBOXATTR_TYPE){
+                references = &((wxTextBoxAttr_php*)native_object)->references;
+                reference_type_found = true;
+            }
+        }
+    }
+    #ifdef USE_WXPHP_DEBUG
+    else
+    {
+        php_printf("Processing the method call as static\n");
+    }
+    #endif
+
+    //Parameters for overload 0
+    bool overload0_called = false;
+
+    //Parameters for overload 1
+    bool overload1_called = false;
+
+    
+    //Overload 0
+    overload0:
+    if(!already_called && arguments_received == 0)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Parameters received %d\n", arguments_received);
+        php_printf("Parsing parameters with '' ()\n");
+        #endif
+
+        overload0_called = true;
+        already_called = true;
+    }
+
+    //Overload 1
+    overload1:
+    if(!already_called && arguments_received == 0)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Parameters received %d\n", arguments_received);
+        php_printf("Parsing parameters with '' ()\n");
+        #endif
+
+        overload1_called = true;
+        already_called = true;
+    }
+
+    
+    if(overload0_called)
+    {
+        switch(arguments_received)
+        {
+            case 0:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing wxTextBoxAttr::GetPadding() to return object reference\n\n");
+                #endif
+
+                wxTextAttrDimensions_php* value_to_return0;
+                value_to_return0 = (wxTextAttrDimensions_php*) &((wxTextBoxAttr_php*)native_object)->GetPadding();
+
+                if(value_to_return0->references.IsUserInitialized()){
+                    if(!Z_ISNULL(value_to_return0->phpObj)){
+                        ZVAL_COPY_VALUE(return_value, &value_to_return0->phpObj);
+                        zval_add_ref(&value_to_return0->phpObj);
+                        return_is_user_initialized = true;
+                    }
+                    else{
+                        zend_error(E_ERROR, "Could not retreive original zval.");
+                    }
+                }
+                else{
+                    object_init_ex(return_value,php_wxTextAttrDimensions_entry);
+                    Z_wxTextAttrDimensions_P(return_value)->native_object = (wxTextAttrDimensions_php*) value_to_return0;
+                }
+
+                if((void*)value_to_return0 != (void*)native_object && return_is_user_initialized){ //Prevent adding references to it self
+                    references->AddReference(return_value, "wxTextBoxAttr::GetPadding at call 6 with 0 argument(s)");
+                }
+
+
+                return;
+                break;
+            }
+        }
+    }
+
+    if(overload1_called)
+    {
+        switch(arguments_received)
+        {
+            case 0:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing wxTextBoxAttr::GetPadding() to return object reference\n\n");
+                #endif
+
+                wxTextAttrDimensions_php* value_to_return0;
+                value_to_return0 = (wxTextAttrDimensions_php*) &((wxTextBoxAttr_php*)native_object)->GetPadding();
+
+                if(value_to_return0->references.IsUserInitialized()){
+                    if(!Z_ISNULL(value_to_return0->phpObj)){
+                        ZVAL_COPY_VALUE(return_value, &value_to_return0->phpObj);
+                        zval_add_ref(&value_to_return0->phpObj);
+                        return_is_user_initialized = true;
+                    }
+                    else{
+                        zend_error(E_ERROR, "Could not retreive original zval.");
+                    }
+                }
+                else{
+                    object_init_ex(return_value,php_wxTextAttrDimensions_entry);
+                    Z_wxTextAttrDimensions_P(return_value)->native_object = (wxTextAttrDimensions_php*) value_to_return0;
+                }
+
+                if((void*)value_to_return0 != (void*)native_object && return_is_user_initialized){ //Prevent adding references to it self
+                    references->AddReference(return_value, "wxTextBoxAttr::GetPadding at call 6 with 0 argument(s)");
+                }
+
+
+                return;
+                break;
+            }
+        }
+    }
+
+    
+    //In case wrong type/count of parameters was passed
+    if(!already_called)
+    {
+        zend_error(
+            E_ERROR,
+            "Wrong type or count of parameters passed to: "
+            "wxTextBoxAttr::GetPadding\n"
+        );
+    }
+}
+/* }}} */
+
+/* {{{ proto wxTextAttrDimension wxTextBoxAttr::GetLeftPadding() */
+PHP_METHOD(php_wxTextBoxAttr, GetLeftPadding)
+{
+    #ifdef USE_WXPHP_DEBUG
+    php_printf("Invoking wxTextBoxAttr::GetLeftPadding\n");
+    php_printf("===========================================\n");
+    #endif
+
+    zo_wxTextBoxAttr* current_object;
+    wxphp_object_type current_object_type;
+    wxTextBoxAttr_php* native_object;
+    void* argument_native_object = NULL;
+
+    //Other variables used thru the code
+    zval dummy;
+    ZVAL_NULL(&dummy);
+    bool already_called = false;
+    wxPHPObjectReferences* references;
+    int arguments_received = ZEND_NUM_ARGS();
+    bool return_is_user_initialized = false;
+
+    //Get native object of the php object that called the method
+    if(getThis() != NULL)
+    {
+        current_object = Z_wxTextBoxAttr_P(getThis());
+
+        if(current_object->native_object == NULL)
+        {
+            zend_error(
+                E_ERROR,
+                "Failed to get the native object for "
+                "wxTextBoxAttr::GetLeftPadding call\n"
+            );
+
+            return;
+        }
+        else
+        {
+            native_object = current_object->native_object;
+            current_object_type = current_object->object_type;
+
+            bool reference_type_found = false;
+
+            if(current_object_type == PHP_WXTEXTBOXATTR_TYPE){
+                references = &((wxTextBoxAttr_php*)native_object)->references;
+                reference_type_found = true;
+            }
+        }
+    }
+    #ifdef USE_WXPHP_DEBUG
+    else
+    {
+        php_printf("Processing the method call as static\n");
+    }
+    #endif
+
+    //Parameters for overload 0
+    bool overload0_called = false;
+
+    //Parameters for overload 1
+    bool overload1_called = false;
+
+    
+    //Overload 0
+    overload0:
+    if(!already_called && arguments_received == 0)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Parameters received %d\n", arguments_received);
+        php_printf("Parsing parameters with '' ()\n");
+        #endif
+
+        overload0_called = true;
+        already_called = true;
+    }
+
+    //Overload 1
+    overload1:
+    if(!already_called && arguments_received == 0)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Parameters received %d\n", arguments_received);
+        php_printf("Parsing parameters with '' ()\n");
+        #endif
+
+        overload1_called = true;
+        already_called = true;
+    }
+
+    
+    if(overload0_called)
+    {
+        switch(arguments_received)
+        {
+            case 0:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing wxTextBoxAttr::GetLeftPadding() to return object reference\n\n");
+                #endif
+
+                wxTextAttrDimension_php* value_to_return0;
+                value_to_return0 = (wxTextAttrDimension_php*) &((wxTextBoxAttr_php*)native_object)->GetLeftPadding();
+
+                if(value_to_return0->references.IsUserInitialized()){
+                    if(!Z_ISNULL(value_to_return0->phpObj)){
+                        ZVAL_COPY_VALUE(return_value, &value_to_return0->phpObj);
+                        zval_add_ref(&value_to_return0->phpObj);
+                        return_is_user_initialized = true;
+                    }
+                    else{
+                        zend_error(E_ERROR, "Could not retreive original zval.");
+                    }
+                }
+                else{
+                    object_init_ex(return_value,php_wxTextAttrDimension_entry);
+                    Z_wxTextAttrDimension_P(return_value)->native_object = (wxTextAttrDimension_php*) value_to_return0;
+                }
+
+                if((void*)value_to_return0 != (void*)native_object && return_is_user_initialized){ //Prevent adding references to it self
+                    references->AddReference(return_value, "wxTextBoxAttr::GetLeftPadding at call 6 with 0 argument(s)");
+                }
+
+
+                return;
+                break;
+            }
+        }
+    }
+
+    if(overload1_called)
+    {
+        switch(arguments_received)
+        {
+            case 0:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing wxTextBoxAttr::GetLeftPadding() to return object reference\n\n");
+                #endif
+
+                wxTextAttrDimension_php* value_to_return0;
+                value_to_return0 = (wxTextAttrDimension_php*) &((wxTextBoxAttr_php*)native_object)->GetLeftPadding();
+
+                if(value_to_return0->references.IsUserInitialized()){
+                    if(!Z_ISNULL(value_to_return0->phpObj)){
+                        ZVAL_COPY_VALUE(return_value, &value_to_return0->phpObj);
+                        zval_add_ref(&value_to_return0->phpObj);
+                        return_is_user_initialized = true;
+                    }
+                    else{
+                        zend_error(E_ERROR, "Could not retreive original zval.");
+                    }
+                }
+                else{
+                    object_init_ex(return_value,php_wxTextAttrDimension_entry);
+                    Z_wxTextAttrDimension_P(return_value)->native_object = (wxTextAttrDimension_php*) value_to_return0;
+                }
+
+                if((void*)value_to_return0 != (void*)native_object && return_is_user_initialized){ //Prevent adding references to it self
+                    references->AddReference(return_value, "wxTextBoxAttr::GetLeftPadding at call 6 with 0 argument(s)");
+                }
+
+
+                return;
+                break;
+            }
+        }
+    }
+
+    
+    //In case wrong type/count of parameters was passed
+    if(!already_called)
+    {
+        zend_error(
+            E_ERROR,
+            "Wrong type or count of parameters passed to: "
+            "wxTextBoxAttr::GetLeftPadding\n"
+        );
+    }
+}
+/* }}} */
+
+/* {{{ proto wxTextAttrDimension wxTextBoxAttr::GetRightPadding() */
+PHP_METHOD(php_wxTextBoxAttr, GetRightPadding)
+{
+    #ifdef USE_WXPHP_DEBUG
+    php_printf("Invoking wxTextBoxAttr::GetRightPadding\n");
+    php_printf("===========================================\n");
+    #endif
+
+    zo_wxTextBoxAttr* current_object;
+    wxphp_object_type current_object_type;
+    wxTextBoxAttr_php* native_object;
+    void* argument_native_object = NULL;
+
+    //Other variables used thru the code
+    zval dummy;
+    ZVAL_NULL(&dummy);
+    bool already_called = false;
+    wxPHPObjectReferences* references;
+    int arguments_received = ZEND_NUM_ARGS();
+    bool return_is_user_initialized = false;
+
+    //Get native object of the php object that called the method
+    if(getThis() != NULL)
+    {
+        current_object = Z_wxTextBoxAttr_P(getThis());
+
+        if(current_object->native_object == NULL)
+        {
+            zend_error(
+                E_ERROR,
+                "Failed to get the native object for "
+                "wxTextBoxAttr::GetRightPadding call\n"
+            );
+
+            return;
+        }
+        else
+        {
+            native_object = current_object->native_object;
+            current_object_type = current_object->object_type;
+
+            bool reference_type_found = false;
+
+            if(current_object_type == PHP_WXTEXTBOXATTR_TYPE){
+                references = &((wxTextBoxAttr_php*)native_object)->references;
+                reference_type_found = true;
+            }
+        }
+    }
+    #ifdef USE_WXPHP_DEBUG
+    else
+    {
+        php_printf("Processing the method call as static\n");
+    }
+    #endif
+
+    //Parameters for overload 0
+    bool overload0_called = false;
+
+    //Parameters for overload 1
+    bool overload1_called = false;
+
+    
+    //Overload 0
+    overload0:
+    if(!already_called && arguments_received == 0)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Parameters received %d\n", arguments_received);
+        php_printf("Parsing parameters with '' ()\n");
+        #endif
+
+        overload0_called = true;
+        already_called = true;
+    }
+
+    //Overload 1
+    overload1:
+    if(!already_called && arguments_received == 0)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Parameters received %d\n", arguments_received);
+        php_printf("Parsing parameters with '' ()\n");
+        #endif
+
+        overload1_called = true;
+        already_called = true;
+    }
+
+    
+    if(overload0_called)
+    {
+        switch(arguments_received)
+        {
+            case 0:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing wxTextBoxAttr::GetRightPadding() to return object reference\n\n");
+                #endif
+
+                wxTextAttrDimension_php* value_to_return0;
+                value_to_return0 = (wxTextAttrDimension_php*) &((wxTextBoxAttr_php*)native_object)->GetRightPadding();
+
+                if(value_to_return0->references.IsUserInitialized()){
+                    if(!Z_ISNULL(value_to_return0->phpObj)){
+                        ZVAL_COPY_VALUE(return_value, &value_to_return0->phpObj);
+                        zval_add_ref(&value_to_return0->phpObj);
+                        return_is_user_initialized = true;
+                    }
+                    else{
+                        zend_error(E_ERROR, "Could not retreive original zval.");
+                    }
+                }
+                else{
+                    object_init_ex(return_value,php_wxTextAttrDimension_entry);
+                    Z_wxTextAttrDimension_P(return_value)->native_object = (wxTextAttrDimension_php*) value_to_return0;
+                }
+
+                if((void*)value_to_return0 != (void*)native_object && return_is_user_initialized){ //Prevent adding references to it self
+                    references->AddReference(return_value, "wxTextBoxAttr::GetRightPadding at call 6 with 0 argument(s)");
+                }
+
+
+                return;
+                break;
+            }
+        }
+    }
+
+    if(overload1_called)
+    {
+        switch(arguments_received)
+        {
+            case 0:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing wxTextBoxAttr::GetRightPadding() to return object reference\n\n");
+                #endif
+
+                wxTextAttrDimension_php* value_to_return0;
+                value_to_return0 = (wxTextAttrDimension_php*) &((wxTextBoxAttr_php*)native_object)->GetRightPadding();
+
+                if(value_to_return0->references.IsUserInitialized()){
+                    if(!Z_ISNULL(value_to_return0->phpObj)){
+                        ZVAL_COPY_VALUE(return_value, &value_to_return0->phpObj);
+                        zval_add_ref(&value_to_return0->phpObj);
+                        return_is_user_initialized = true;
+                    }
+                    else{
+                        zend_error(E_ERROR, "Could not retreive original zval.");
+                    }
+                }
+                else{
+                    object_init_ex(return_value,php_wxTextAttrDimension_entry);
+                    Z_wxTextAttrDimension_P(return_value)->native_object = (wxTextAttrDimension_php*) value_to_return0;
+                }
+
+                if((void*)value_to_return0 != (void*)native_object && return_is_user_initialized){ //Prevent adding references to it self
+                    references->AddReference(return_value, "wxTextBoxAttr::GetRightPadding at call 6 with 0 argument(s)");
+                }
+
+
+                return;
+                break;
+            }
+        }
+    }
+
+    
+    //In case wrong type/count of parameters was passed
+    if(!already_called)
+    {
+        zend_error(
+            E_ERROR,
+            "Wrong type or count of parameters passed to: "
+            "wxTextBoxAttr::GetRightPadding\n"
+        );
+    }
+}
+/* }}} */
+
+/* {{{ proto wxTextAttrDimension wxTextBoxAttr::GetTopPadding() */
+PHP_METHOD(php_wxTextBoxAttr, GetTopPadding)
+{
+    #ifdef USE_WXPHP_DEBUG
+    php_printf("Invoking wxTextBoxAttr::GetTopPadding\n");
+    php_printf("===========================================\n");
+    #endif
+
+    zo_wxTextBoxAttr* current_object;
+    wxphp_object_type current_object_type;
+    wxTextBoxAttr_php* native_object;
+    void* argument_native_object = NULL;
+
+    //Other variables used thru the code
+    zval dummy;
+    ZVAL_NULL(&dummy);
+    bool already_called = false;
+    wxPHPObjectReferences* references;
+    int arguments_received = ZEND_NUM_ARGS();
+    bool return_is_user_initialized = false;
+
+    //Get native object of the php object that called the method
+    if(getThis() != NULL)
+    {
+        current_object = Z_wxTextBoxAttr_P(getThis());
+
+        if(current_object->native_object == NULL)
+        {
+            zend_error(
+                E_ERROR,
+                "Failed to get the native object for "
+                "wxTextBoxAttr::GetTopPadding call\n"
+            );
+
+            return;
+        }
+        else
+        {
+            native_object = current_object->native_object;
+            current_object_type = current_object->object_type;
+
+            bool reference_type_found = false;
+
+            if(current_object_type == PHP_WXTEXTBOXATTR_TYPE){
+                references = &((wxTextBoxAttr_php*)native_object)->references;
+                reference_type_found = true;
+            }
+        }
+    }
+    #ifdef USE_WXPHP_DEBUG
+    else
+    {
+        php_printf("Processing the method call as static\n");
+    }
+    #endif
+
+    //Parameters for overload 0
+    bool overload0_called = false;
+
+    //Parameters for overload 1
+    bool overload1_called = false;
+
+    
+    //Overload 0
+    overload0:
+    if(!already_called && arguments_received == 0)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Parameters received %d\n", arguments_received);
+        php_printf("Parsing parameters with '' ()\n");
+        #endif
+
+        overload0_called = true;
+        already_called = true;
+    }
+
+    //Overload 1
+    overload1:
+    if(!already_called && arguments_received == 0)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Parameters received %d\n", arguments_received);
+        php_printf("Parsing parameters with '' ()\n");
+        #endif
+
+        overload1_called = true;
+        already_called = true;
+    }
+
+    
+    if(overload0_called)
+    {
+        switch(arguments_received)
+        {
+            case 0:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing wxTextBoxAttr::GetTopPadding() to return object reference\n\n");
+                #endif
+
+                wxTextAttrDimension_php* value_to_return0;
+                value_to_return0 = (wxTextAttrDimension_php*) &((wxTextBoxAttr_php*)native_object)->GetTopPadding();
+
+                if(value_to_return0->references.IsUserInitialized()){
+                    if(!Z_ISNULL(value_to_return0->phpObj)){
+                        ZVAL_COPY_VALUE(return_value, &value_to_return0->phpObj);
+                        zval_add_ref(&value_to_return0->phpObj);
+                        return_is_user_initialized = true;
+                    }
+                    else{
+                        zend_error(E_ERROR, "Could not retreive original zval.");
+                    }
+                }
+                else{
+                    object_init_ex(return_value,php_wxTextAttrDimension_entry);
+                    Z_wxTextAttrDimension_P(return_value)->native_object = (wxTextAttrDimension_php*) value_to_return0;
+                }
+
+                if((void*)value_to_return0 != (void*)native_object && return_is_user_initialized){ //Prevent adding references to it self
+                    references->AddReference(return_value, "wxTextBoxAttr::GetTopPadding at call 6 with 0 argument(s)");
+                }
+
+
+                return;
+                break;
+            }
+        }
+    }
+
+    if(overload1_called)
+    {
+        switch(arguments_received)
+        {
+            case 0:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing wxTextBoxAttr::GetTopPadding() to return object reference\n\n");
+                #endif
+
+                wxTextAttrDimension_php* value_to_return0;
+                value_to_return0 = (wxTextAttrDimension_php*) &((wxTextBoxAttr_php*)native_object)->GetTopPadding();
+
+                if(value_to_return0->references.IsUserInitialized()){
+                    if(!Z_ISNULL(value_to_return0->phpObj)){
+                        ZVAL_COPY_VALUE(return_value, &value_to_return0->phpObj);
+                        zval_add_ref(&value_to_return0->phpObj);
+                        return_is_user_initialized = true;
+                    }
+                    else{
+                        zend_error(E_ERROR, "Could not retreive original zval.");
+                    }
+                }
+                else{
+                    object_init_ex(return_value,php_wxTextAttrDimension_entry);
+                    Z_wxTextAttrDimension_P(return_value)->native_object = (wxTextAttrDimension_php*) value_to_return0;
+                }
+
+                if((void*)value_to_return0 != (void*)native_object && return_is_user_initialized){ //Prevent adding references to it self
+                    references->AddReference(return_value, "wxTextBoxAttr::GetTopPadding at call 6 with 0 argument(s)");
+                }
+
+
+                return;
+                break;
+            }
+        }
+    }
+
+    
+    //In case wrong type/count of parameters was passed
+    if(!already_called)
+    {
+        zend_error(
+            E_ERROR,
+            "Wrong type or count of parameters passed to: "
+            "wxTextBoxAttr::GetTopPadding\n"
+        );
+    }
+}
+/* }}} */
+
+/* {{{ proto wxTextAttrDimension wxTextBoxAttr::GetBottomPadding() */
+PHP_METHOD(php_wxTextBoxAttr, GetBottomPadding)
+{
+    #ifdef USE_WXPHP_DEBUG
+    php_printf("Invoking wxTextBoxAttr::GetBottomPadding\n");
+    php_printf("===========================================\n");
+    #endif
+
+    zo_wxTextBoxAttr* current_object;
+    wxphp_object_type current_object_type;
+    wxTextBoxAttr_php* native_object;
+    void* argument_native_object = NULL;
+
+    //Other variables used thru the code
+    zval dummy;
+    ZVAL_NULL(&dummy);
+    bool already_called = false;
+    wxPHPObjectReferences* references;
+    int arguments_received = ZEND_NUM_ARGS();
+    bool return_is_user_initialized = false;
+
+    //Get native object of the php object that called the method
+    if(getThis() != NULL)
+    {
+        current_object = Z_wxTextBoxAttr_P(getThis());
+
+        if(current_object->native_object == NULL)
+        {
+            zend_error(
+                E_ERROR,
+                "Failed to get the native object for "
+                "wxTextBoxAttr::GetBottomPadding call\n"
+            );
+
+            return;
+        }
+        else
+        {
+            native_object = current_object->native_object;
+            current_object_type = current_object->object_type;
+
+            bool reference_type_found = false;
+
+            if(current_object_type == PHP_WXTEXTBOXATTR_TYPE){
+                references = &((wxTextBoxAttr_php*)native_object)->references;
+                reference_type_found = true;
+            }
+        }
+    }
+    #ifdef USE_WXPHP_DEBUG
+    else
+    {
+        php_printf("Processing the method call as static\n");
+    }
+    #endif
+
+    //Parameters for overload 0
+    bool overload0_called = false;
+
+    //Parameters for overload 1
+    bool overload1_called = false;
+
+    
+    //Overload 0
+    overload0:
+    if(!already_called && arguments_received == 0)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Parameters received %d\n", arguments_received);
+        php_printf("Parsing parameters with '' ()\n");
+        #endif
+
+        overload0_called = true;
+        already_called = true;
+    }
+
+    //Overload 1
+    overload1:
+    if(!already_called && arguments_received == 0)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Parameters received %d\n", arguments_received);
+        php_printf("Parsing parameters with '' ()\n");
+        #endif
+
+        overload1_called = true;
+        already_called = true;
+    }
+
+    
+    if(overload0_called)
+    {
+        switch(arguments_received)
+        {
+            case 0:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing wxTextBoxAttr::GetBottomPadding() to return object reference\n\n");
+                #endif
+
+                wxTextAttrDimension_php* value_to_return0;
+                value_to_return0 = (wxTextAttrDimension_php*) &((wxTextBoxAttr_php*)native_object)->GetBottomPadding();
+
+                if(value_to_return0->references.IsUserInitialized()){
+                    if(!Z_ISNULL(value_to_return0->phpObj)){
+                        ZVAL_COPY_VALUE(return_value, &value_to_return0->phpObj);
+                        zval_add_ref(&value_to_return0->phpObj);
+                        return_is_user_initialized = true;
+                    }
+                    else{
+                        zend_error(E_ERROR, "Could not retreive original zval.");
+                    }
+                }
+                else{
+                    object_init_ex(return_value,php_wxTextAttrDimension_entry);
+                    Z_wxTextAttrDimension_P(return_value)->native_object = (wxTextAttrDimension_php*) value_to_return0;
+                }
+
+                if((void*)value_to_return0 != (void*)native_object && return_is_user_initialized){ //Prevent adding references to it self
+                    references->AddReference(return_value, "wxTextBoxAttr::GetBottomPadding at call 6 with 0 argument(s)");
+                }
+
+
+                return;
+                break;
+            }
+        }
+    }
+
+    if(overload1_called)
+    {
+        switch(arguments_received)
+        {
+            case 0:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing wxTextBoxAttr::GetBottomPadding() to return object reference\n\n");
+                #endif
+
+                wxTextAttrDimension_php* value_to_return0;
+                value_to_return0 = (wxTextAttrDimension_php*) &((wxTextBoxAttr_php*)native_object)->GetBottomPadding();
+
+                if(value_to_return0->references.IsUserInitialized()){
+                    if(!Z_ISNULL(value_to_return0->phpObj)){
+                        ZVAL_COPY_VALUE(return_value, &value_to_return0->phpObj);
+                        zval_add_ref(&value_to_return0->phpObj);
+                        return_is_user_initialized = true;
+                    }
+                    else{
+                        zend_error(E_ERROR, "Could not retreive original zval.");
+                    }
+                }
+                else{
+                    object_init_ex(return_value,php_wxTextAttrDimension_entry);
+                    Z_wxTextAttrDimension_P(return_value)->native_object = (wxTextAttrDimension_php*) value_to_return0;
+                }
+
+                if((void*)value_to_return0 != (void*)native_object && return_is_user_initialized){ //Prevent adding references to it self
+                    references->AddReference(return_value, "wxTextBoxAttr::GetBottomPadding at call 6 with 0 argument(s)");
+                }
+
+
+                return;
+                break;
+            }
+        }
+    }
+
+    
+    //In case wrong type/count of parameters was passed
+    if(!already_called)
+    {
+        zend_error(
+            E_ERROR,
+            "Wrong type or count of parameters passed to: "
+            "wxTextBoxAttr::GetBottomPadding\n"
+        );
+    }
+}
+/* }}} */
+
+/* {{{ proto wxTextAttrBorders wxTextBoxAttr::GetBorder() */
+PHP_METHOD(php_wxTextBoxAttr, GetBorder)
+{
+    #ifdef USE_WXPHP_DEBUG
+    php_printf("Invoking wxTextBoxAttr::GetBorder\n");
+    php_printf("===========================================\n");
+    #endif
+
+    zo_wxTextBoxAttr* current_object;
+    wxphp_object_type current_object_type;
+    wxTextBoxAttr_php* native_object;
+    void* argument_native_object = NULL;
+
+    //Other variables used thru the code
+    zval dummy;
+    ZVAL_NULL(&dummy);
+    bool already_called = false;
+    wxPHPObjectReferences* references;
+    int arguments_received = ZEND_NUM_ARGS();
+    bool return_is_user_initialized = false;
+
+    //Get native object of the php object that called the method
+    if(getThis() != NULL)
+    {
+        current_object = Z_wxTextBoxAttr_P(getThis());
+
+        if(current_object->native_object == NULL)
+        {
+            zend_error(
+                E_ERROR,
+                "Failed to get the native object for "
+                "wxTextBoxAttr::GetBorder call\n"
+            );
+
+            return;
+        }
+        else
+        {
+            native_object = current_object->native_object;
+            current_object_type = current_object->object_type;
+
+            bool reference_type_found = false;
+
+            if(current_object_type == PHP_WXTEXTBOXATTR_TYPE){
+                references = &((wxTextBoxAttr_php*)native_object)->references;
+                reference_type_found = true;
+            }
+        }
+    }
+    #ifdef USE_WXPHP_DEBUG
+    else
+    {
+        php_printf("Processing the method call as static\n");
+    }
+    #endif
+
+    //Parameters for overload 0
+    bool overload0_called = false;
+
+    //Parameters for overload 1
+    bool overload1_called = false;
+
+    
+    //Overload 0
+    overload0:
+    if(!already_called && arguments_received == 0)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Parameters received %d\n", arguments_received);
+        php_printf("Parsing parameters with '' ()\n");
+        #endif
+
+        overload0_called = true;
+        already_called = true;
+    }
+
+    //Overload 1
+    overload1:
+    if(!already_called && arguments_received == 0)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Parameters received %d\n", arguments_received);
+        php_printf("Parsing parameters with '' ()\n");
+        #endif
+
+        overload1_called = true;
+        already_called = true;
+    }
+
+    
+    if(overload0_called)
+    {
+        switch(arguments_received)
+        {
+            case 0:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing wxTextBoxAttr::GetBorder() to return object reference\n\n");
+                #endif
+
+                wxTextAttrBorders_php* value_to_return0;
+                value_to_return0 = (wxTextAttrBorders_php*) &((wxTextBoxAttr_php*)native_object)->GetBorder();
+
+                if(value_to_return0->references.IsUserInitialized()){
+                    if(!Z_ISNULL(value_to_return0->phpObj)){
+                        ZVAL_COPY_VALUE(return_value, &value_to_return0->phpObj);
+                        zval_add_ref(&value_to_return0->phpObj);
+                        return_is_user_initialized = true;
+                    }
+                    else{
+                        zend_error(E_ERROR, "Could not retreive original zval.");
+                    }
+                }
+                else{
+                    object_init_ex(return_value,php_wxTextAttrBorders_entry);
+                    Z_wxTextAttrBorders_P(return_value)->native_object = (wxTextAttrBorders_php*) value_to_return0;
+                }
+
+                if((void*)value_to_return0 != (void*)native_object && return_is_user_initialized){ //Prevent adding references to it self
+                    references->AddReference(return_value, "wxTextBoxAttr::GetBorder at call 6 with 0 argument(s)");
+                }
+
+
+                return;
+                break;
+            }
+        }
+    }
+
+    if(overload1_called)
+    {
+        switch(arguments_received)
+        {
+            case 0:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing wxTextBoxAttr::GetBorder() to return object reference\n\n");
+                #endif
+
+                wxTextAttrBorders_php* value_to_return0;
+                value_to_return0 = (wxTextAttrBorders_php*) &((wxTextBoxAttr_php*)native_object)->GetBorder();
+
+                if(value_to_return0->references.IsUserInitialized()){
+                    if(!Z_ISNULL(value_to_return0->phpObj)){
+                        ZVAL_COPY_VALUE(return_value, &value_to_return0->phpObj);
+                        zval_add_ref(&value_to_return0->phpObj);
+                        return_is_user_initialized = true;
+                    }
+                    else{
+                        zend_error(E_ERROR, "Could not retreive original zval.");
+                    }
+                }
+                else{
+                    object_init_ex(return_value,php_wxTextAttrBorders_entry);
+                    Z_wxTextAttrBorders_P(return_value)->native_object = (wxTextAttrBorders_php*) value_to_return0;
+                }
+
+                if((void*)value_to_return0 != (void*)native_object && return_is_user_initialized){ //Prevent adding references to it self
+                    references->AddReference(return_value, "wxTextBoxAttr::GetBorder at call 6 with 0 argument(s)");
+                }
+
+
+                return;
+                break;
+            }
+        }
+    }
+
+    
+    //In case wrong type/count of parameters was passed
+    if(!already_called)
+    {
+        zend_error(
+            E_ERROR,
+            "Wrong type or count of parameters passed to: "
+            "wxTextBoxAttr::GetBorder\n"
+        );
+    }
+}
+/* }}} */
+
+/* {{{ proto wxTextAttrBorder wxTextBoxAttr::GetLeftBorder() */
+PHP_METHOD(php_wxTextBoxAttr, GetLeftBorder)
+{
+    #ifdef USE_WXPHP_DEBUG
+    php_printf("Invoking wxTextBoxAttr::GetLeftBorder\n");
+    php_printf("===========================================\n");
+    #endif
+
+    zo_wxTextBoxAttr* current_object;
+    wxphp_object_type current_object_type;
+    wxTextBoxAttr_php* native_object;
+    void* argument_native_object = NULL;
+
+    //Other variables used thru the code
+    zval dummy;
+    ZVAL_NULL(&dummy);
+    bool already_called = false;
+    wxPHPObjectReferences* references;
+    int arguments_received = ZEND_NUM_ARGS();
+    bool return_is_user_initialized = false;
+
+    //Get native object of the php object that called the method
+    if(getThis() != NULL)
+    {
+        current_object = Z_wxTextBoxAttr_P(getThis());
+
+        if(current_object->native_object == NULL)
+        {
+            zend_error(
+                E_ERROR,
+                "Failed to get the native object for "
+                "wxTextBoxAttr::GetLeftBorder call\n"
+            );
+
+            return;
+        }
+        else
+        {
+            native_object = current_object->native_object;
+            current_object_type = current_object->object_type;
+
+            bool reference_type_found = false;
+
+            if(current_object_type == PHP_WXTEXTBOXATTR_TYPE){
+                references = &((wxTextBoxAttr_php*)native_object)->references;
+                reference_type_found = true;
+            }
+        }
+    }
+    #ifdef USE_WXPHP_DEBUG
+    else
+    {
+        php_printf("Processing the method call as static\n");
+    }
+    #endif
+
+    //Parameters for overload 0
+    bool overload0_called = false;
+
+    //Parameters for overload 1
+    bool overload1_called = false;
+
+    
+    //Overload 0
+    overload0:
+    if(!already_called && arguments_received == 0)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Parameters received %d\n", arguments_received);
+        php_printf("Parsing parameters with '' ()\n");
+        #endif
+
+        overload0_called = true;
+        already_called = true;
+    }
+
+    //Overload 1
+    overload1:
+    if(!already_called && arguments_received == 0)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Parameters received %d\n", arguments_received);
+        php_printf("Parsing parameters with '' ()\n");
+        #endif
+
+        overload1_called = true;
+        already_called = true;
+    }
+
+    
+    if(overload0_called)
+    {
+        switch(arguments_received)
+        {
+            case 0:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing wxTextBoxAttr::GetLeftBorder() to return object reference\n\n");
+                #endif
+
+                wxTextAttrBorder_php* value_to_return0;
+                value_to_return0 = (wxTextAttrBorder_php*) &((wxTextBoxAttr_php*)native_object)->GetLeftBorder();
+
+                if(value_to_return0->references.IsUserInitialized()){
+                    if(!Z_ISNULL(value_to_return0->phpObj)){
+                        ZVAL_COPY_VALUE(return_value, &value_to_return0->phpObj);
+                        zval_add_ref(&value_to_return0->phpObj);
+                        return_is_user_initialized = true;
+                    }
+                    else{
+                        zend_error(E_ERROR, "Could not retreive original zval.");
+                    }
+                }
+                else{
+                    object_init_ex(return_value,php_wxTextAttrBorder_entry);
+                    Z_wxTextAttrBorder_P(return_value)->native_object = (wxTextAttrBorder_php*) value_to_return0;
+                }
+
+                if((void*)value_to_return0 != (void*)native_object && return_is_user_initialized){ //Prevent adding references to it self
+                    references->AddReference(return_value, "wxTextBoxAttr::GetLeftBorder at call 6 with 0 argument(s)");
+                }
+
+
+                return;
+                break;
+            }
+        }
+    }
+
+    if(overload1_called)
+    {
+        switch(arguments_received)
+        {
+            case 0:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing wxTextBoxAttr::GetLeftBorder() to return object reference\n\n");
+                #endif
+
+                wxTextAttrBorder_php* value_to_return0;
+                value_to_return0 = (wxTextAttrBorder_php*) &((wxTextBoxAttr_php*)native_object)->GetLeftBorder();
+
+                if(value_to_return0->references.IsUserInitialized()){
+                    if(!Z_ISNULL(value_to_return0->phpObj)){
+                        ZVAL_COPY_VALUE(return_value, &value_to_return0->phpObj);
+                        zval_add_ref(&value_to_return0->phpObj);
+                        return_is_user_initialized = true;
+                    }
+                    else{
+                        zend_error(E_ERROR, "Could not retreive original zval.");
+                    }
+                }
+                else{
+                    object_init_ex(return_value,php_wxTextAttrBorder_entry);
+                    Z_wxTextAttrBorder_P(return_value)->native_object = (wxTextAttrBorder_php*) value_to_return0;
+                }
+
+                if((void*)value_to_return0 != (void*)native_object && return_is_user_initialized){ //Prevent adding references to it self
+                    references->AddReference(return_value, "wxTextBoxAttr::GetLeftBorder at call 6 with 0 argument(s)");
+                }
+
+
+                return;
+                break;
+            }
+        }
+    }
+
+    
+    //In case wrong type/count of parameters was passed
+    if(!already_called)
+    {
+        zend_error(
+            E_ERROR,
+            "Wrong type or count of parameters passed to: "
+            "wxTextBoxAttr::GetLeftBorder\n"
+        );
+    }
+}
+/* }}} */
+
+/* {{{ proto wxTextAttrBorder wxTextBoxAttr::GetTopBorder() */
+PHP_METHOD(php_wxTextBoxAttr, GetTopBorder)
+{
+    #ifdef USE_WXPHP_DEBUG
+    php_printf("Invoking wxTextBoxAttr::GetTopBorder\n");
+    php_printf("===========================================\n");
+    #endif
+
+    zo_wxTextBoxAttr* current_object;
+    wxphp_object_type current_object_type;
+    wxTextBoxAttr_php* native_object;
+    void* argument_native_object = NULL;
+
+    //Other variables used thru the code
+    zval dummy;
+    ZVAL_NULL(&dummy);
+    bool already_called = false;
+    wxPHPObjectReferences* references;
+    int arguments_received = ZEND_NUM_ARGS();
+    bool return_is_user_initialized = false;
+
+    //Get native object of the php object that called the method
+    if(getThis() != NULL)
+    {
+        current_object = Z_wxTextBoxAttr_P(getThis());
+
+        if(current_object->native_object == NULL)
+        {
+            zend_error(
+                E_ERROR,
+                "Failed to get the native object for "
+                "wxTextBoxAttr::GetTopBorder call\n"
+            );
+
+            return;
+        }
+        else
+        {
+            native_object = current_object->native_object;
+            current_object_type = current_object->object_type;
+
+            bool reference_type_found = false;
+
+            if(current_object_type == PHP_WXTEXTBOXATTR_TYPE){
+                references = &((wxTextBoxAttr_php*)native_object)->references;
+                reference_type_found = true;
+            }
+        }
+    }
+    #ifdef USE_WXPHP_DEBUG
+    else
+    {
+        php_printf("Processing the method call as static\n");
+    }
+    #endif
+
+    //Parameters for overload 0
+    bool overload0_called = false;
+
+    //Parameters for overload 1
+    bool overload1_called = false;
+
+    
+    //Overload 0
+    overload0:
+    if(!already_called && arguments_received == 0)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Parameters received %d\n", arguments_received);
+        php_printf("Parsing parameters with '' ()\n");
+        #endif
+
+        overload0_called = true;
+        already_called = true;
+    }
+
+    //Overload 1
+    overload1:
+    if(!already_called && arguments_received == 0)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Parameters received %d\n", arguments_received);
+        php_printf("Parsing parameters with '' ()\n");
+        #endif
+
+        overload1_called = true;
+        already_called = true;
+    }
+
+    
+    if(overload0_called)
+    {
+        switch(arguments_received)
+        {
+            case 0:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing wxTextBoxAttr::GetTopBorder() to return object reference\n\n");
+                #endif
+
+                wxTextAttrBorder_php* value_to_return0;
+                value_to_return0 = (wxTextAttrBorder_php*) &((wxTextBoxAttr_php*)native_object)->GetTopBorder();
+
+                if(value_to_return0->references.IsUserInitialized()){
+                    if(!Z_ISNULL(value_to_return0->phpObj)){
+                        ZVAL_COPY_VALUE(return_value, &value_to_return0->phpObj);
+                        zval_add_ref(&value_to_return0->phpObj);
+                        return_is_user_initialized = true;
+                    }
+                    else{
+                        zend_error(E_ERROR, "Could not retreive original zval.");
+                    }
+                }
+                else{
+                    object_init_ex(return_value,php_wxTextAttrBorder_entry);
+                    Z_wxTextAttrBorder_P(return_value)->native_object = (wxTextAttrBorder_php*) value_to_return0;
+                }
+
+                if((void*)value_to_return0 != (void*)native_object && return_is_user_initialized){ //Prevent adding references to it self
+                    references->AddReference(return_value, "wxTextBoxAttr::GetTopBorder at call 6 with 0 argument(s)");
+                }
+
+
+                return;
+                break;
+            }
+        }
+    }
+
+    if(overload1_called)
+    {
+        switch(arguments_received)
+        {
+            case 0:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing wxTextBoxAttr::GetTopBorder() to return object reference\n\n");
+                #endif
+
+                wxTextAttrBorder_php* value_to_return0;
+                value_to_return0 = (wxTextAttrBorder_php*) &((wxTextBoxAttr_php*)native_object)->GetTopBorder();
+
+                if(value_to_return0->references.IsUserInitialized()){
+                    if(!Z_ISNULL(value_to_return0->phpObj)){
+                        ZVAL_COPY_VALUE(return_value, &value_to_return0->phpObj);
+                        zval_add_ref(&value_to_return0->phpObj);
+                        return_is_user_initialized = true;
+                    }
+                    else{
+                        zend_error(E_ERROR, "Could not retreive original zval.");
+                    }
+                }
+                else{
+                    object_init_ex(return_value,php_wxTextAttrBorder_entry);
+                    Z_wxTextAttrBorder_P(return_value)->native_object = (wxTextAttrBorder_php*) value_to_return0;
+                }
+
+                if((void*)value_to_return0 != (void*)native_object && return_is_user_initialized){ //Prevent adding references to it self
+                    references->AddReference(return_value, "wxTextBoxAttr::GetTopBorder at call 6 with 0 argument(s)");
+                }
+
+
+                return;
+                break;
+            }
+        }
+    }
+
+    
+    //In case wrong type/count of parameters was passed
+    if(!already_called)
+    {
+        zend_error(
+            E_ERROR,
+            "Wrong type or count of parameters passed to: "
+            "wxTextBoxAttr::GetTopBorder\n"
+        );
+    }
+}
+/* }}} */
+
+/* {{{ proto wxTextAttrBorder wxTextBoxAttr::GetRightBorder() */
+PHP_METHOD(php_wxTextBoxAttr, GetRightBorder)
+{
+    #ifdef USE_WXPHP_DEBUG
+    php_printf("Invoking wxTextBoxAttr::GetRightBorder\n");
+    php_printf("===========================================\n");
+    #endif
+
+    zo_wxTextBoxAttr* current_object;
+    wxphp_object_type current_object_type;
+    wxTextBoxAttr_php* native_object;
+    void* argument_native_object = NULL;
+
+    //Other variables used thru the code
+    zval dummy;
+    ZVAL_NULL(&dummy);
+    bool already_called = false;
+    wxPHPObjectReferences* references;
+    int arguments_received = ZEND_NUM_ARGS();
+    bool return_is_user_initialized = false;
+
+    //Get native object of the php object that called the method
+    if(getThis() != NULL)
+    {
+        current_object = Z_wxTextBoxAttr_P(getThis());
+
+        if(current_object->native_object == NULL)
+        {
+            zend_error(
+                E_ERROR,
+                "Failed to get the native object for "
+                "wxTextBoxAttr::GetRightBorder call\n"
+            );
+
+            return;
+        }
+        else
+        {
+            native_object = current_object->native_object;
+            current_object_type = current_object->object_type;
+
+            bool reference_type_found = false;
+
+            if(current_object_type == PHP_WXTEXTBOXATTR_TYPE){
+                references = &((wxTextBoxAttr_php*)native_object)->references;
+                reference_type_found = true;
+            }
+        }
+    }
+    #ifdef USE_WXPHP_DEBUG
+    else
+    {
+        php_printf("Processing the method call as static\n");
+    }
+    #endif
+
+    //Parameters for overload 0
+    bool overload0_called = false;
+
+    //Parameters for overload 1
+    bool overload1_called = false;
+
+    
+    //Overload 0
+    overload0:
+    if(!already_called && arguments_received == 0)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Parameters received %d\n", arguments_received);
+        php_printf("Parsing parameters with '' ()\n");
+        #endif
+
+        overload0_called = true;
+        already_called = true;
+    }
+
+    //Overload 1
+    overload1:
+    if(!already_called && arguments_received == 0)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Parameters received %d\n", arguments_received);
+        php_printf("Parsing parameters with '' ()\n");
+        #endif
+
+        overload1_called = true;
+        already_called = true;
+    }
+
+    
+    if(overload0_called)
+    {
+        switch(arguments_received)
+        {
+            case 0:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing wxTextBoxAttr::GetRightBorder() to return object reference\n\n");
+                #endif
+
+                wxTextAttrBorder_php* value_to_return0;
+                value_to_return0 = (wxTextAttrBorder_php*) &((wxTextBoxAttr_php*)native_object)->GetRightBorder();
+
+                if(value_to_return0->references.IsUserInitialized()){
+                    if(!Z_ISNULL(value_to_return0->phpObj)){
+                        ZVAL_COPY_VALUE(return_value, &value_to_return0->phpObj);
+                        zval_add_ref(&value_to_return0->phpObj);
+                        return_is_user_initialized = true;
+                    }
+                    else{
+                        zend_error(E_ERROR, "Could not retreive original zval.");
+                    }
+                }
+                else{
+                    object_init_ex(return_value,php_wxTextAttrBorder_entry);
+                    Z_wxTextAttrBorder_P(return_value)->native_object = (wxTextAttrBorder_php*) value_to_return0;
+                }
+
+                if((void*)value_to_return0 != (void*)native_object && return_is_user_initialized){ //Prevent adding references to it self
+                    references->AddReference(return_value, "wxTextBoxAttr::GetRightBorder at call 6 with 0 argument(s)");
+                }
+
+
+                return;
+                break;
+            }
+        }
+    }
+
+    if(overload1_called)
+    {
+        switch(arguments_received)
+        {
+            case 0:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing wxTextBoxAttr::GetRightBorder() to return object reference\n\n");
+                #endif
+
+                wxTextAttrBorder_php* value_to_return0;
+                value_to_return0 = (wxTextAttrBorder_php*) &((wxTextBoxAttr_php*)native_object)->GetRightBorder();
+
+                if(value_to_return0->references.IsUserInitialized()){
+                    if(!Z_ISNULL(value_to_return0->phpObj)){
+                        ZVAL_COPY_VALUE(return_value, &value_to_return0->phpObj);
+                        zval_add_ref(&value_to_return0->phpObj);
+                        return_is_user_initialized = true;
+                    }
+                    else{
+                        zend_error(E_ERROR, "Could not retreive original zval.");
+                    }
+                }
+                else{
+                    object_init_ex(return_value,php_wxTextAttrBorder_entry);
+                    Z_wxTextAttrBorder_P(return_value)->native_object = (wxTextAttrBorder_php*) value_to_return0;
+                }
+
+                if((void*)value_to_return0 != (void*)native_object && return_is_user_initialized){ //Prevent adding references to it self
+                    references->AddReference(return_value, "wxTextBoxAttr::GetRightBorder at call 6 with 0 argument(s)");
+                }
+
+
+                return;
+                break;
+            }
+        }
+    }
+
+    
+    //In case wrong type/count of parameters was passed
+    if(!already_called)
+    {
+        zend_error(
+            E_ERROR,
+            "Wrong type or count of parameters passed to: "
+            "wxTextBoxAttr::GetRightBorder\n"
+        );
+    }
+}
+/* }}} */
+
+/* {{{ proto wxTextAttrBorder wxTextBoxAttr::GetBottomBorder() */
+PHP_METHOD(php_wxTextBoxAttr, GetBottomBorder)
+{
+    #ifdef USE_WXPHP_DEBUG
+    php_printf("Invoking wxTextBoxAttr::GetBottomBorder\n");
+    php_printf("===========================================\n");
+    #endif
+
+    zo_wxTextBoxAttr* current_object;
+    wxphp_object_type current_object_type;
+    wxTextBoxAttr_php* native_object;
+    void* argument_native_object = NULL;
+
+    //Other variables used thru the code
+    zval dummy;
+    ZVAL_NULL(&dummy);
+    bool already_called = false;
+    wxPHPObjectReferences* references;
+    int arguments_received = ZEND_NUM_ARGS();
+    bool return_is_user_initialized = false;
+
+    //Get native object of the php object that called the method
+    if(getThis() != NULL)
+    {
+        current_object = Z_wxTextBoxAttr_P(getThis());
+
+        if(current_object->native_object == NULL)
+        {
+            zend_error(
+                E_ERROR,
+                "Failed to get the native object for "
+                "wxTextBoxAttr::GetBottomBorder call\n"
+            );
+
+            return;
+        }
+        else
+        {
+            native_object = current_object->native_object;
+            current_object_type = current_object->object_type;
+
+            bool reference_type_found = false;
+
+            if(current_object_type == PHP_WXTEXTBOXATTR_TYPE){
+                references = &((wxTextBoxAttr_php*)native_object)->references;
+                reference_type_found = true;
+            }
+        }
+    }
+    #ifdef USE_WXPHP_DEBUG
+    else
+    {
+        php_printf("Processing the method call as static\n");
+    }
+    #endif
+
+    //Parameters for overload 0
+    bool overload0_called = false;
+
+    //Parameters for overload 1
+    bool overload1_called = false;
+
+    
+    //Overload 0
+    overload0:
+    if(!already_called && arguments_received == 0)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Parameters received %d\n", arguments_received);
+        php_printf("Parsing parameters with '' ()\n");
+        #endif
+
+        overload0_called = true;
+        already_called = true;
+    }
+
+    //Overload 1
+    overload1:
+    if(!already_called && arguments_received == 0)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Parameters received %d\n", arguments_received);
+        php_printf("Parsing parameters with '' ()\n");
+        #endif
+
+        overload1_called = true;
+        already_called = true;
+    }
+
+    
+    if(overload0_called)
+    {
+        switch(arguments_received)
+        {
+            case 0:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing wxTextBoxAttr::GetBottomBorder() to return object reference\n\n");
+                #endif
+
+                wxTextAttrBorder_php* value_to_return0;
+                value_to_return0 = (wxTextAttrBorder_php*) &((wxTextBoxAttr_php*)native_object)->GetBottomBorder();
+
+                if(value_to_return0->references.IsUserInitialized()){
+                    if(!Z_ISNULL(value_to_return0->phpObj)){
+                        ZVAL_COPY_VALUE(return_value, &value_to_return0->phpObj);
+                        zval_add_ref(&value_to_return0->phpObj);
+                        return_is_user_initialized = true;
+                    }
+                    else{
+                        zend_error(E_ERROR, "Could not retreive original zval.");
+                    }
+                }
+                else{
+                    object_init_ex(return_value,php_wxTextAttrBorder_entry);
+                    Z_wxTextAttrBorder_P(return_value)->native_object = (wxTextAttrBorder_php*) value_to_return0;
+                }
+
+                if((void*)value_to_return0 != (void*)native_object && return_is_user_initialized){ //Prevent adding references to it self
+                    references->AddReference(return_value, "wxTextBoxAttr::GetBottomBorder at call 6 with 0 argument(s)");
+                }
+
+
+                return;
+                break;
+            }
+        }
+    }
+
+    if(overload1_called)
+    {
+        switch(arguments_received)
+        {
+            case 0:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing wxTextBoxAttr::GetBottomBorder() to return object reference\n\n");
+                #endif
+
+                wxTextAttrBorder_php* value_to_return0;
+                value_to_return0 = (wxTextAttrBorder_php*) &((wxTextBoxAttr_php*)native_object)->GetBottomBorder();
+
+                if(value_to_return0->references.IsUserInitialized()){
+                    if(!Z_ISNULL(value_to_return0->phpObj)){
+                        ZVAL_COPY_VALUE(return_value, &value_to_return0->phpObj);
+                        zval_add_ref(&value_to_return0->phpObj);
+                        return_is_user_initialized = true;
+                    }
+                    else{
+                        zend_error(E_ERROR, "Could not retreive original zval.");
+                    }
+                }
+                else{
+                    object_init_ex(return_value,php_wxTextAttrBorder_entry);
+                    Z_wxTextAttrBorder_P(return_value)->native_object = (wxTextAttrBorder_php*) value_to_return0;
+                }
+
+                if((void*)value_to_return0 != (void*)native_object && return_is_user_initialized){ //Prevent adding references to it self
+                    references->AddReference(return_value, "wxTextBoxAttr::GetBottomBorder at call 6 with 0 argument(s)");
+                }
+
+
+                return;
+                break;
+            }
+        }
+    }
+
+    
+    //In case wrong type/count of parameters was passed
+    if(!already_called)
+    {
+        zend_error(
+            E_ERROR,
+            "Wrong type or count of parameters passed to: "
+            "wxTextBoxAttr::GetBottomBorder\n"
+        );
+    }
+}
+/* }}} */
+
+/* {{{ proto wxTextAttrBorders wxTextBoxAttr::GetOutline() */
+PHP_METHOD(php_wxTextBoxAttr, GetOutline)
+{
+    #ifdef USE_WXPHP_DEBUG
+    php_printf("Invoking wxTextBoxAttr::GetOutline\n");
+    php_printf("===========================================\n");
+    #endif
+
+    zo_wxTextBoxAttr* current_object;
+    wxphp_object_type current_object_type;
+    wxTextBoxAttr_php* native_object;
+    void* argument_native_object = NULL;
+
+    //Other variables used thru the code
+    zval dummy;
+    ZVAL_NULL(&dummy);
+    bool already_called = false;
+    wxPHPObjectReferences* references;
+    int arguments_received = ZEND_NUM_ARGS();
+    bool return_is_user_initialized = false;
+
+    //Get native object of the php object that called the method
+    if(getThis() != NULL)
+    {
+        current_object = Z_wxTextBoxAttr_P(getThis());
+
+        if(current_object->native_object == NULL)
+        {
+            zend_error(
+                E_ERROR,
+                "Failed to get the native object for "
+                "wxTextBoxAttr::GetOutline call\n"
+            );
+
+            return;
+        }
+        else
+        {
+            native_object = current_object->native_object;
+            current_object_type = current_object->object_type;
+
+            bool reference_type_found = false;
+
+            if(current_object_type == PHP_WXTEXTBOXATTR_TYPE){
+                references = &((wxTextBoxAttr_php*)native_object)->references;
+                reference_type_found = true;
+            }
+        }
+    }
+    #ifdef USE_WXPHP_DEBUG
+    else
+    {
+        php_printf("Processing the method call as static\n");
+    }
+    #endif
+
+    //Parameters for overload 0
+    bool overload0_called = false;
+
+    //Parameters for overload 1
+    bool overload1_called = false;
+
+    
+    //Overload 0
+    overload0:
+    if(!already_called && arguments_received == 0)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Parameters received %d\n", arguments_received);
+        php_printf("Parsing parameters with '' ()\n");
+        #endif
+
+        overload0_called = true;
+        already_called = true;
+    }
+
+    //Overload 1
+    overload1:
+    if(!already_called && arguments_received == 0)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Parameters received %d\n", arguments_received);
+        php_printf("Parsing parameters with '' ()\n");
+        #endif
+
+        overload1_called = true;
+        already_called = true;
+    }
+
+    
+    if(overload0_called)
+    {
+        switch(arguments_received)
+        {
+            case 0:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing wxTextBoxAttr::GetOutline() to return object reference\n\n");
+                #endif
+
+                wxTextAttrBorders_php* value_to_return0;
+                value_to_return0 = (wxTextAttrBorders_php*) &((wxTextBoxAttr_php*)native_object)->GetOutline();
+
+                if(value_to_return0->references.IsUserInitialized()){
+                    if(!Z_ISNULL(value_to_return0->phpObj)){
+                        ZVAL_COPY_VALUE(return_value, &value_to_return0->phpObj);
+                        zval_add_ref(&value_to_return0->phpObj);
+                        return_is_user_initialized = true;
+                    }
+                    else{
+                        zend_error(E_ERROR, "Could not retreive original zval.");
+                    }
+                }
+                else{
+                    object_init_ex(return_value,php_wxTextAttrBorders_entry);
+                    Z_wxTextAttrBorders_P(return_value)->native_object = (wxTextAttrBorders_php*) value_to_return0;
+                }
+
+                if((void*)value_to_return0 != (void*)native_object && return_is_user_initialized){ //Prevent adding references to it self
+                    references->AddReference(return_value, "wxTextBoxAttr::GetOutline at call 6 with 0 argument(s)");
+                }
+
+
+                return;
+                break;
+            }
+        }
+    }
+
+    if(overload1_called)
+    {
+        switch(arguments_received)
+        {
+            case 0:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing wxTextBoxAttr::GetOutline() to return object reference\n\n");
+                #endif
+
+                wxTextAttrBorders_php* value_to_return0;
+                value_to_return0 = (wxTextAttrBorders_php*) &((wxTextBoxAttr_php*)native_object)->GetOutline();
+
+                if(value_to_return0->references.IsUserInitialized()){
+                    if(!Z_ISNULL(value_to_return0->phpObj)){
+                        ZVAL_COPY_VALUE(return_value, &value_to_return0->phpObj);
+                        zval_add_ref(&value_to_return0->phpObj);
+                        return_is_user_initialized = true;
+                    }
+                    else{
+                        zend_error(E_ERROR, "Could not retreive original zval.");
+                    }
+                }
+                else{
+                    object_init_ex(return_value,php_wxTextAttrBorders_entry);
+                    Z_wxTextAttrBorders_P(return_value)->native_object = (wxTextAttrBorders_php*) value_to_return0;
+                }
+
+                if((void*)value_to_return0 != (void*)native_object && return_is_user_initialized){ //Prevent adding references to it self
+                    references->AddReference(return_value, "wxTextBoxAttr::GetOutline at call 6 with 0 argument(s)");
+                }
+
+
+                return;
+                break;
+            }
+        }
+    }
+
+    
+    //In case wrong type/count of parameters was passed
+    if(!already_called)
+    {
+        zend_error(
+            E_ERROR,
+            "Wrong type or count of parameters passed to: "
+            "wxTextBoxAttr::GetOutline\n"
+        );
+    }
+}
+/* }}} */
+
+/* {{{ proto wxTextAttrBorder wxTextBoxAttr::GetLeftOutline() */
+PHP_METHOD(php_wxTextBoxAttr, GetLeftOutline)
+{
+    #ifdef USE_WXPHP_DEBUG
+    php_printf("Invoking wxTextBoxAttr::GetLeftOutline\n");
+    php_printf("===========================================\n");
+    #endif
+
+    zo_wxTextBoxAttr* current_object;
+    wxphp_object_type current_object_type;
+    wxTextBoxAttr_php* native_object;
+    void* argument_native_object = NULL;
+
+    //Other variables used thru the code
+    zval dummy;
+    ZVAL_NULL(&dummy);
+    bool already_called = false;
+    wxPHPObjectReferences* references;
+    int arguments_received = ZEND_NUM_ARGS();
+    bool return_is_user_initialized = false;
+
+    //Get native object of the php object that called the method
+    if(getThis() != NULL)
+    {
+        current_object = Z_wxTextBoxAttr_P(getThis());
+
+        if(current_object->native_object == NULL)
+        {
+            zend_error(
+                E_ERROR,
+                "Failed to get the native object for "
+                "wxTextBoxAttr::GetLeftOutline call\n"
+            );
+
+            return;
+        }
+        else
+        {
+            native_object = current_object->native_object;
+            current_object_type = current_object->object_type;
+
+            bool reference_type_found = false;
+
+            if(current_object_type == PHP_WXTEXTBOXATTR_TYPE){
+                references = &((wxTextBoxAttr_php*)native_object)->references;
+                reference_type_found = true;
+            }
+        }
+    }
+    #ifdef USE_WXPHP_DEBUG
+    else
+    {
+        php_printf("Processing the method call as static\n");
+    }
+    #endif
+
+    //Parameters for overload 0
+    bool overload0_called = false;
+
+    //Parameters for overload 1
+    bool overload1_called = false;
+
+    
+    //Overload 0
+    overload0:
+    if(!already_called && arguments_received == 0)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Parameters received %d\n", arguments_received);
+        php_printf("Parsing parameters with '' ()\n");
+        #endif
+
+        overload0_called = true;
+        already_called = true;
+    }
+
+    //Overload 1
+    overload1:
+    if(!already_called && arguments_received == 0)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Parameters received %d\n", arguments_received);
+        php_printf("Parsing parameters with '' ()\n");
+        #endif
+
+        overload1_called = true;
+        already_called = true;
+    }
+
+    
+    if(overload0_called)
+    {
+        switch(arguments_received)
+        {
+            case 0:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing wxTextBoxAttr::GetLeftOutline() to return object reference\n\n");
+                #endif
+
+                wxTextAttrBorder_php* value_to_return0;
+                value_to_return0 = (wxTextAttrBorder_php*) &((wxTextBoxAttr_php*)native_object)->GetLeftOutline();
+
+                if(value_to_return0->references.IsUserInitialized()){
+                    if(!Z_ISNULL(value_to_return0->phpObj)){
+                        ZVAL_COPY_VALUE(return_value, &value_to_return0->phpObj);
+                        zval_add_ref(&value_to_return0->phpObj);
+                        return_is_user_initialized = true;
+                    }
+                    else{
+                        zend_error(E_ERROR, "Could not retreive original zval.");
+                    }
+                }
+                else{
+                    object_init_ex(return_value,php_wxTextAttrBorder_entry);
+                    Z_wxTextAttrBorder_P(return_value)->native_object = (wxTextAttrBorder_php*) value_to_return0;
+                }
+
+                if((void*)value_to_return0 != (void*)native_object && return_is_user_initialized){ //Prevent adding references to it self
+                    references->AddReference(return_value, "wxTextBoxAttr::GetLeftOutline at call 6 with 0 argument(s)");
+                }
+
+
+                return;
+                break;
+            }
+        }
+    }
+
+    if(overload1_called)
+    {
+        switch(arguments_received)
+        {
+            case 0:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing wxTextBoxAttr::GetLeftOutline() to return object reference\n\n");
+                #endif
+
+                wxTextAttrBorder_php* value_to_return0;
+                value_to_return0 = (wxTextAttrBorder_php*) &((wxTextBoxAttr_php*)native_object)->GetLeftOutline();
+
+                if(value_to_return0->references.IsUserInitialized()){
+                    if(!Z_ISNULL(value_to_return0->phpObj)){
+                        ZVAL_COPY_VALUE(return_value, &value_to_return0->phpObj);
+                        zval_add_ref(&value_to_return0->phpObj);
+                        return_is_user_initialized = true;
+                    }
+                    else{
+                        zend_error(E_ERROR, "Could not retreive original zval.");
+                    }
+                }
+                else{
+                    object_init_ex(return_value,php_wxTextAttrBorder_entry);
+                    Z_wxTextAttrBorder_P(return_value)->native_object = (wxTextAttrBorder_php*) value_to_return0;
+                }
+
+                if((void*)value_to_return0 != (void*)native_object && return_is_user_initialized){ //Prevent adding references to it self
+                    references->AddReference(return_value, "wxTextBoxAttr::GetLeftOutline at call 6 with 0 argument(s)");
+                }
+
+
+                return;
+                break;
+            }
+        }
+    }
+
+    
+    //In case wrong type/count of parameters was passed
+    if(!already_called)
+    {
+        zend_error(
+            E_ERROR,
+            "Wrong type or count of parameters passed to: "
+            "wxTextBoxAttr::GetLeftOutline\n"
+        );
+    }
+}
+/* }}} */
+
+/* {{{ proto wxTextAttrBorder wxTextBoxAttr::GetTopOutline() */
+PHP_METHOD(php_wxTextBoxAttr, GetTopOutline)
+{
+    #ifdef USE_WXPHP_DEBUG
+    php_printf("Invoking wxTextBoxAttr::GetTopOutline\n");
+    php_printf("===========================================\n");
+    #endif
+
+    zo_wxTextBoxAttr* current_object;
+    wxphp_object_type current_object_type;
+    wxTextBoxAttr_php* native_object;
+    void* argument_native_object = NULL;
+
+    //Other variables used thru the code
+    zval dummy;
+    ZVAL_NULL(&dummy);
+    bool already_called = false;
+    wxPHPObjectReferences* references;
+    int arguments_received = ZEND_NUM_ARGS();
+    bool return_is_user_initialized = false;
+
+    //Get native object of the php object that called the method
+    if(getThis() != NULL)
+    {
+        current_object = Z_wxTextBoxAttr_P(getThis());
+
+        if(current_object->native_object == NULL)
+        {
+            zend_error(
+                E_ERROR,
+                "Failed to get the native object for "
+                "wxTextBoxAttr::GetTopOutline call\n"
+            );
+
+            return;
+        }
+        else
+        {
+            native_object = current_object->native_object;
+            current_object_type = current_object->object_type;
+
+            bool reference_type_found = false;
+
+            if(current_object_type == PHP_WXTEXTBOXATTR_TYPE){
+                references = &((wxTextBoxAttr_php*)native_object)->references;
+                reference_type_found = true;
+            }
+        }
+    }
+    #ifdef USE_WXPHP_DEBUG
+    else
+    {
+        php_printf("Processing the method call as static\n");
+    }
+    #endif
+
+    //Parameters for overload 0
+    bool overload0_called = false;
+
+    //Parameters for overload 1
+    bool overload1_called = false;
+
+    
+    //Overload 0
+    overload0:
+    if(!already_called && arguments_received == 0)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Parameters received %d\n", arguments_received);
+        php_printf("Parsing parameters with '' ()\n");
+        #endif
+
+        overload0_called = true;
+        already_called = true;
+    }
+
+    //Overload 1
+    overload1:
+    if(!already_called && arguments_received == 0)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Parameters received %d\n", arguments_received);
+        php_printf("Parsing parameters with '' ()\n");
+        #endif
+
+        overload1_called = true;
+        already_called = true;
+    }
+
+    
+    if(overload0_called)
+    {
+        switch(arguments_received)
+        {
+            case 0:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing wxTextBoxAttr::GetTopOutline() to return object reference\n\n");
+                #endif
+
+                wxTextAttrBorder_php* value_to_return0;
+                value_to_return0 = (wxTextAttrBorder_php*) &((wxTextBoxAttr_php*)native_object)->GetTopOutline();
+
+                if(value_to_return0->references.IsUserInitialized()){
+                    if(!Z_ISNULL(value_to_return0->phpObj)){
+                        ZVAL_COPY_VALUE(return_value, &value_to_return0->phpObj);
+                        zval_add_ref(&value_to_return0->phpObj);
+                        return_is_user_initialized = true;
+                    }
+                    else{
+                        zend_error(E_ERROR, "Could not retreive original zval.");
+                    }
+                }
+                else{
+                    object_init_ex(return_value,php_wxTextAttrBorder_entry);
+                    Z_wxTextAttrBorder_P(return_value)->native_object = (wxTextAttrBorder_php*) value_to_return0;
+                }
+
+                if((void*)value_to_return0 != (void*)native_object && return_is_user_initialized){ //Prevent adding references to it self
+                    references->AddReference(return_value, "wxTextBoxAttr::GetTopOutline at call 6 with 0 argument(s)");
+                }
+
+
+                return;
+                break;
+            }
+        }
+    }
+
+    if(overload1_called)
+    {
+        switch(arguments_received)
+        {
+            case 0:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing wxTextBoxAttr::GetTopOutline() to return object reference\n\n");
+                #endif
+
+                wxTextAttrBorder_php* value_to_return0;
+                value_to_return0 = (wxTextAttrBorder_php*) &((wxTextBoxAttr_php*)native_object)->GetTopOutline();
+
+                if(value_to_return0->references.IsUserInitialized()){
+                    if(!Z_ISNULL(value_to_return0->phpObj)){
+                        ZVAL_COPY_VALUE(return_value, &value_to_return0->phpObj);
+                        zval_add_ref(&value_to_return0->phpObj);
+                        return_is_user_initialized = true;
+                    }
+                    else{
+                        zend_error(E_ERROR, "Could not retreive original zval.");
+                    }
+                }
+                else{
+                    object_init_ex(return_value,php_wxTextAttrBorder_entry);
+                    Z_wxTextAttrBorder_P(return_value)->native_object = (wxTextAttrBorder_php*) value_to_return0;
+                }
+
+                if((void*)value_to_return0 != (void*)native_object && return_is_user_initialized){ //Prevent adding references to it self
+                    references->AddReference(return_value, "wxTextBoxAttr::GetTopOutline at call 6 with 0 argument(s)");
+                }
+
+
+                return;
+                break;
+            }
+        }
+    }
+
+    
+    //In case wrong type/count of parameters was passed
+    if(!already_called)
+    {
+        zend_error(
+            E_ERROR,
+            "Wrong type or count of parameters passed to: "
+            "wxTextBoxAttr::GetTopOutline\n"
+        );
+    }
+}
+/* }}} */
+
+/* {{{ proto wxTextAttrBorder wxTextBoxAttr::GetRightOutline() */
+PHP_METHOD(php_wxTextBoxAttr, GetRightOutline)
+{
+    #ifdef USE_WXPHP_DEBUG
+    php_printf("Invoking wxTextBoxAttr::GetRightOutline\n");
+    php_printf("===========================================\n");
+    #endif
+
+    zo_wxTextBoxAttr* current_object;
+    wxphp_object_type current_object_type;
+    wxTextBoxAttr_php* native_object;
+    void* argument_native_object = NULL;
+
+    //Other variables used thru the code
+    zval dummy;
+    ZVAL_NULL(&dummy);
+    bool already_called = false;
+    wxPHPObjectReferences* references;
+    int arguments_received = ZEND_NUM_ARGS();
+    bool return_is_user_initialized = false;
+
+    //Get native object of the php object that called the method
+    if(getThis() != NULL)
+    {
+        current_object = Z_wxTextBoxAttr_P(getThis());
+
+        if(current_object->native_object == NULL)
+        {
+            zend_error(
+                E_ERROR,
+                "Failed to get the native object for "
+                "wxTextBoxAttr::GetRightOutline call\n"
+            );
+
+            return;
+        }
+        else
+        {
+            native_object = current_object->native_object;
+            current_object_type = current_object->object_type;
+
+            bool reference_type_found = false;
+
+            if(current_object_type == PHP_WXTEXTBOXATTR_TYPE){
+                references = &((wxTextBoxAttr_php*)native_object)->references;
+                reference_type_found = true;
+            }
+        }
+    }
+    #ifdef USE_WXPHP_DEBUG
+    else
+    {
+        php_printf("Processing the method call as static\n");
+    }
+    #endif
+
+    //Parameters for overload 0
+    bool overload0_called = false;
+
+    //Parameters for overload 1
+    bool overload1_called = false;
+
+    
+    //Overload 0
+    overload0:
+    if(!already_called && arguments_received == 0)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Parameters received %d\n", arguments_received);
+        php_printf("Parsing parameters with '' ()\n");
+        #endif
+
+        overload0_called = true;
+        already_called = true;
+    }
+
+    //Overload 1
+    overload1:
+    if(!already_called && arguments_received == 0)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Parameters received %d\n", arguments_received);
+        php_printf("Parsing parameters with '' ()\n");
+        #endif
+
+        overload1_called = true;
+        already_called = true;
+    }
+
+    
+    if(overload0_called)
+    {
+        switch(arguments_received)
+        {
+            case 0:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing wxTextBoxAttr::GetRightOutline() to return object reference\n\n");
+                #endif
+
+                wxTextAttrBorder_php* value_to_return0;
+                value_to_return0 = (wxTextAttrBorder_php*) &((wxTextBoxAttr_php*)native_object)->GetRightOutline();
+
+                if(value_to_return0->references.IsUserInitialized()){
+                    if(!Z_ISNULL(value_to_return0->phpObj)){
+                        ZVAL_COPY_VALUE(return_value, &value_to_return0->phpObj);
+                        zval_add_ref(&value_to_return0->phpObj);
+                        return_is_user_initialized = true;
+                    }
+                    else{
+                        zend_error(E_ERROR, "Could not retreive original zval.");
+                    }
+                }
+                else{
+                    object_init_ex(return_value,php_wxTextAttrBorder_entry);
+                    Z_wxTextAttrBorder_P(return_value)->native_object = (wxTextAttrBorder_php*) value_to_return0;
+                }
+
+                if((void*)value_to_return0 != (void*)native_object && return_is_user_initialized){ //Prevent adding references to it self
+                    references->AddReference(return_value, "wxTextBoxAttr::GetRightOutline at call 6 with 0 argument(s)");
+                }
+
+
+                return;
+                break;
+            }
+        }
+    }
+
+    if(overload1_called)
+    {
+        switch(arguments_received)
+        {
+            case 0:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing wxTextBoxAttr::GetRightOutline() to return object reference\n\n");
+                #endif
+
+                wxTextAttrBorder_php* value_to_return0;
+                value_to_return0 = (wxTextAttrBorder_php*) &((wxTextBoxAttr_php*)native_object)->GetRightOutline();
+
+                if(value_to_return0->references.IsUserInitialized()){
+                    if(!Z_ISNULL(value_to_return0->phpObj)){
+                        ZVAL_COPY_VALUE(return_value, &value_to_return0->phpObj);
+                        zval_add_ref(&value_to_return0->phpObj);
+                        return_is_user_initialized = true;
+                    }
+                    else{
+                        zend_error(E_ERROR, "Could not retreive original zval.");
+                    }
+                }
+                else{
+                    object_init_ex(return_value,php_wxTextAttrBorder_entry);
+                    Z_wxTextAttrBorder_P(return_value)->native_object = (wxTextAttrBorder_php*) value_to_return0;
+                }
+
+                if((void*)value_to_return0 != (void*)native_object && return_is_user_initialized){ //Prevent adding references to it self
+                    references->AddReference(return_value, "wxTextBoxAttr::GetRightOutline at call 6 with 0 argument(s)");
+                }
+
+
+                return;
+                break;
+            }
+        }
+    }
+
+    
+    //In case wrong type/count of parameters was passed
+    if(!already_called)
+    {
+        zend_error(
+            E_ERROR,
+            "Wrong type or count of parameters passed to: "
+            "wxTextBoxAttr::GetRightOutline\n"
+        );
+    }
+}
+/* }}} */
+
+/* {{{ proto wxTextAttrBorder wxTextBoxAttr::GetBottomOutline() */
+PHP_METHOD(php_wxTextBoxAttr, GetBottomOutline)
+{
+    #ifdef USE_WXPHP_DEBUG
+    php_printf("Invoking wxTextBoxAttr::GetBottomOutline\n");
+    php_printf("===========================================\n");
+    #endif
+
+    zo_wxTextBoxAttr* current_object;
+    wxphp_object_type current_object_type;
+    wxTextBoxAttr_php* native_object;
+    void* argument_native_object = NULL;
+
+    //Other variables used thru the code
+    zval dummy;
+    ZVAL_NULL(&dummy);
+    bool already_called = false;
+    wxPHPObjectReferences* references;
+    int arguments_received = ZEND_NUM_ARGS();
+    bool return_is_user_initialized = false;
+
+    //Get native object of the php object that called the method
+    if(getThis() != NULL)
+    {
+        current_object = Z_wxTextBoxAttr_P(getThis());
+
+        if(current_object->native_object == NULL)
+        {
+            zend_error(
+                E_ERROR,
+                "Failed to get the native object for "
+                "wxTextBoxAttr::GetBottomOutline call\n"
+            );
+
+            return;
+        }
+        else
+        {
+            native_object = current_object->native_object;
+            current_object_type = current_object->object_type;
+
+            bool reference_type_found = false;
+
+            if(current_object_type == PHP_WXTEXTBOXATTR_TYPE){
+                references = &((wxTextBoxAttr_php*)native_object)->references;
+                reference_type_found = true;
+            }
+        }
+    }
+    #ifdef USE_WXPHP_DEBUG
+    else
+    {
+        php_printf("Processing the method call as static\n");
+    }
+    #endif
+
+    //Parameters for overload 0
+    bool overload0_called = false;
+
+    //Parameters for overload 1
+    bool overload1_called = false;
+
+    
+    //Overload 0
+    overload0:
+    if(!already_called && arguments_received == 0)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Parameters received %d\n", arguments_received);
+        php_printf("Parsing parameters with '' ()\n");
+        #endif
+
+        overload0_called = true;
+        already_called = true;
+    }
+
+    //Overload 1
+    overload1:
+    if(!already_called && arguments_received == 0)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Parameters received %d\n", arguments_received);
+        php_printf("Parsing parameters with '' ()\n");
+        #endif
+
+        overload1_called = true;
+        already_called = true;
+    }
+
+    
+    if(overload0_called)
+    {
+        switch(arguments_received)
+        {
+            case 0:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing wxTextBoxAttr::GetBottomOutline() to return object reference\n\n");
+                #endif
+
+                wxTextAttrBorder_php* value_to_return0;
+                value_to_return0 = (wxTextAttrBorder_php*) &((wxTextBoxAttr_php*)native_object)->GetBottomOutline();
+
+                if(value_to_return0->references.IsUserInitialized()){
+                    if(!Z_ISNULL(value_to_return0->phpObj)){
+                        ZVAL_COPY_VALUE(return_value, &value_to_return0->phpObj);
+                        zval_add_ref(&value_to_return0->phpObj);
+                        return_is_user_initialized = true;
+                    }
+                    else{
+                        zend_error(E_ERROR, "Could not retreive original zval.");
+                    }
+                }
+                else{
+                    object_init_ex(return_value,php_wxTextAttrBorder_entry);
+                    Z_wxTextAttrBorder_P(return_value)->native_object = (wxTextAttrBorder_php*) value_to_return0;
+                }
+
+                if((void*)value_to_return0 != (void*)native_object && return_is_user_initialized){ //Prevent adding references to it self
+                    references->AddReference(return_value, "wxTextBoxAttr::GetBottomOutline at call 6 with 0 argument(s)");
+                }
+
+
+                return;
+                break;
+            }
+        }
+    }
+
+    if(overload1_called)
+    {
+        switch(arguments_received)
+        {
+            case 0:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing wxTextBoxAttr::GetBottomOutline() to return object reference\n\n");
+                #endif
+
+                wxTextAttrBorder_php* value_to_return0;
+                value_to_return0 = (wxTextAttrBorder_php*) &((wxTextBoxAttr_php*)native_object)->GetBottomOutline();
+
+                if(value_to_return0->references.IsUserInitialized()){
+                    if(!Z_ISNULL(value_to_return0->phpObj)){
+                        ZVAL_COPY_VALUE(return_value, &value_to_return0->phpObj);
+                        zval_add_ref(&value_to_return0->phpObj);
+                        return_is_user_initialized = true;
+                    }
+                    else{
+                        zend_error(E_ERROR, "Could not retreive original zval.");
+                    }
+                }
+                else{
+                    object_init_ex(return_value,php_wxTextAttrBorder_entry);
+                    Z_wxTextAttrBorder_P(return_value)->native_object = (wxTextAttrBorder_php*) value_to_return0;
+                }
+
+                if((void*)value_to_return0 != (void*)native_object && return_is_user_initialized){ //Prevent adding references to it self
+                    references->AddReference(return_value, "wxTextBoxAttr::GetBottomOutline at call 6 with 0 argument(s)");
+                }
+
+
+                return;
+                break;
+            }
+        }
+    }
+
+    
+    //In case wrong type/count of parameters was passed
+    if(!already_called)
+    {
+        zend_error(
+            E_ERROR,
+            "Wrong type or count of parameters passed to: "
+            "wxTextBoxAttr::GetBottomOutline\n"
+        );
+    }
+}
+/* }}} */
+
+/* {{{ proto wxTextAttrSize wxTextBoxAttr::GetSize() */
+PHP_METHOD(php_wxTextBoxAttr, GetSize)
+{
+    #ifdef USE_WXPHP_DEBUG
+    php_printf("Invoking wxTextBoxAttr::GetSize\n");
+    php_printf("===========================================\n");
+    #endif
+
+    zo_wxTextBoxAttr* current_object;
+    wxphp_object_type current_object_type;
+    wxTextBoxAttr_php* native_object;
+    void* argument_native_object = NULL;
+
+    //Other variables used thru the code
+    zval dummy;
+    ZVAL_NULL(&dummy);
+    bool already_called = false;
+    wxPHPObjectReferences* references;
+    int arguments_received = ZEND_NUM_ARGS();
+    bool return_is_user_initialized = false;
+
+    //Get native object of the php object that called the method
+    if(getThis() != NULL)
+    {
+        current_object = Z_wxTextBoxAttr_P(getThis());
+
+        if(current_object->native_object == NULL)
+        {
+            zend_error(
+                E_ERROR,
+                "Failed to get the native object for "
+                "wxTextBoxAttr::GetSize call\n"
+            );
+
+            return;
+        }
+        else
+        {
+            native_object = current_object->native_object;
+            current_object_type = current_object->object_type;
+
+            bool reference_type_found = false;
+
+            if(current_object_type == PHP_WXTEXTBOXATTR_TYPE){
+                references = &((wxTextBoxAttr_php*)native_object)->references;
+                reference_type_found = true;
+            }
+        }
+    }
+    #ifdef USE_WXPHP_DEBUG
+    else
+    {
+        php_printf("Processing the method call as static\n");
+    }
+    #endif
+
+    //Parameters for overload 0
+    bool overload0_called = false;
+
+    //Parameters for overload 1
+    bool overload1_called = false;
+
+    
+    //Overload 0
+    overload0:
+    if(!already_called && arguments_received == 0)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Parameters received %d\n", arguments_received);
+        php_printf("Parsing parameters with '' ()\n");
+        #endif
+
+        overload0_called = true;
+        already_called = true;
+    }
+
+    //Overload 1
+    overload1:
+    if(!already_called && arguments_received == 0)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Parameters received %d\n", arguments_received);
+        php_printf("Parsing parameters with '' ()\n");
+        #endif
+
+        overload1_called = true;
+        already_called = true;
+    }
+
+    
+    if(overload0_called)
+    {
+        switch(arguments_received)
+        {
+            case 0:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing wxTextBoxAttr::GetSize() to return object reference\n\n");
+                #endif
+
+                wxTextAttrSize_php* value_to_return0;
+                value_to_return0 = (wxTextAttrSize_php*) &((wxTextBoxAttr_php*)native_object)->GetSize();
+
+                if(value_to_return0->references.IsUserInitialized()){
+                    if(!Z_ISNULL(value_to_return0->phpObj)){
+                        ZVAL_COPY_VALUE(return_value, &value_to_return0->phpObj);
+                        zval_add_ref(&value_to_return0->phpObj);
+                        return_is_user_initialized = true;
+                    }
+                    else{
+                        zend_error(E_ERROR, "Could not retreive original zval.");
+                    }
+                }
+                else{
+                    object_init_ex(return_value,php_wxTextAttrSize_entry);
+                    Z_wxTextAttrSize_P(return_value)->native_object = (wxTextAttrSize_php*) value_to_return0;
+                }
+
+                if((void*)value_to_return0 != (void*)native_object && return_is_user_initialized){ //Prevent adding references to it self
+                    references->AddReference(return_value, "wxTextBoxAttr::GetSize at call 6 with 0 argument(s)");
+                }
+
+
+                return;
+                break;
+            }
+        }
+    }
+
+    if(overload1_called)
+    {
+        switch(arguments_received)
+        {
+            case 0:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing wxTextBoxAttr::GetSize() to return object reference\n\n");
+                #endif
+
+                wxTextAttrSize_php* value_to_return0;
+                value_to_return0 = (wxTextAttrSize_php*) &((wxTextBoxAttr_php*)native_object)->GetSize();
+
+                if(value_to_return0->references.IsUserInitialized()){
+                    if(!Z_ISNULL(value_to_return0->phpObj)){
+                        ZVAL_COPY_VALUE(return_value, &value_to_return0->phpObj);
+                        zval_add_ref(&value_to_return0->phpObj);
+                        return_is_user_initialized = true;
+                    }
+                    else{
+                        zend_error(E_ERROR, "Could not retreive original zval.");
+                    }
+                }
+                else{
+                    object_init_ex(return_value,php_wxTextAttrSize_entry);
+                    Z_wxTextAttrSize_P(return_value)->native_object = (wxTextAttrSize_php*) value_to_return0;
+                }
+
+                if((void*)value_to_return0 != (void*)native_object && return_is_user_initialized){ //Prevent adding references to it self
+                    references->AddReference(return_value, "wxTextBoxAttr::GetSize at call 6 with 0 argument(s)");
+                }
+
+
+                return;
+                break;
+            }
+        }
+    }
+
+    
+    //In case wrong type/count of parameters was passed
+    if(!already_called)
+    {
+        zend_error(
+            E_ERROR,
+            "Wrong type or count of parameters passed to: "
+            "wxTextBoxAttr::GetSize\n"
+        );
+    }
+}
+/* }}} */
+
+/* {{{ proto wxTextAttrSize wxTextBoxAttr::GetMinSize() */
+PHP_METHOD(php_wxTextBoxAttr, GetMinSize)
+{
+    #ifdef USE_WXPHP_DEBUG
+    php_printf("Invoking wxTextBoxAttr::GetMinSize\n");
+    php_printf("===========================================\n");
+    #endif
+
+    zo_wxTextBoxAttr* current_object;
+    wxphp_object_type current_object_type;
+    wxTextBoxAttr_php* native_object;
+    void* argument_native_object = NULL;
+
+    //Other variables used thru the code
+    zval dummy;
+    ZVAL_NULL(&dummy);
+    bool already_called = false;
+    wxPHPObjectReferences* references;
+    int arguments_received = ZEND_NUM_ARGS();
+    bool return_is_user_initialized = false;
+
+    //Get native object of the php object that called the method
+    if(getThis() != NULL)
+    {
+        current_object = Z_wxTextBoxAttr_P(getThis());
+
+        if(current_object->native_object == NULL)
+        {
+            zend_error(
+                E_ERROR,
+                "Failed to get the native object for "
+                "wxTextBoxAttr::GetMinSize call\n"
+            );
+
+            return;
+        }
+        else
+        {
+            native_object = current_object->native_object;
+            current_object_type = current_object->object_type;
+
+            bool reference_type_found = false;
+
+            if(current_object_type == PHP_WXTEXTBOXATTR_TYPE){
+                references = &((wxTextBoxAttr_php*)native_object)->references;
+                reference_type_found = true;
+            }
+        }
+    }
+    #ifdef USE_WXPHP_DEBUG
+    else
+    {
+        php_printf("Processing the method call as static\n");
+    }
+    #endif
+
+    //Parameters for overload 0
+    bool overload0_called = false;
+
+    //Parameters for overload 1
+    bool overload1_called = false;
+
+    
+    //Overload 0
+    overload0:
+    if(!already_called && arguments_received == 0)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Parameters received %d\n", arguments_received);
+        php_printf("Parsing parameters with '' ()\n");
+        #endif
+
+        overload0_called = true;
+        already_called = true;
+    }
+
+    //Overload 1
+    overload1:
+    if(!already_called && arguments_received == 0)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Parameters received %d\n", arguments_received);
+        php_printf("Parsing parameters with '' ()\n");
+        #endif
+
+        overload1_called = true;
+        already_called = true;
+    }
+
+    
+    if(overload0_called)
+    {
+        switch(arguments_received)
+        {
+            case 0:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing wxTextBoxAttr::GetMinSize() to return object reference\n\n");
+                #endif
+
+                wxTextAttrSize_php* value_to_return0;
+                value_to_return0 = (wxTextAttrSize_php*) &((wxTextBoxAttr_php*)native_object)->GetMinSize();
+
+                if(value_to_return0->references.IsUserInitialized()){
+                    if(!Z_ISNULL(value_to_return0->phpObj)){
+                        ZVAL_COPY_VALUE(return_value, &value_to_return0->phpObj);
+                        zval_add_ref(&value_to_return0->phpObj);
+                        return_is_user_initialized = true;
+                    }
+                    else{
+                        zend_error(E_ERROR, "Could not retreive original zval.");
+                    }
+                }
+                else{
+                    object_init_ex(return_value,php_wxTextAttrSize_entry);
+                    Z_wxTextAttrSize_P(return_value)->native_object = (wxTextAttrSize_php*) value_to_return0;
+                }
+
+                if((void*)value_to_return0 != (void*)native_object && return_is_user_initialized){ //Prevent adding references to it self
+                    references->AddReference(return_value, "wxTextBoxAttr::GetMinSize at call 6 with 0 argument(s)");
+                }
+
+
+                return;
+                break;
+            }
+        }
+    }
+
+    if(overload1_called)
+    {
+        switch(arguments_received)
+        {
+            case 0:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing wxTextBoxAttr::GetMinSize() to return object reference\n\n");
+                #endif
+
+                wxTextAttrSize_php* value_to_return0;
+                value_to_return0 = (wxTextAttrSize_php*) &((wxTextBoxAttr_php*)native_object)->GetMinSize();
+
+                if(value_to_return0->references.IsUserInitialized()){
+                    if(!Z_ISNULL(value_to_return0->phpObj)){
+                        ZVAL_COPY_VALUE(return_value, &value_to_return0->phpObj);
+                        zval_add_ref(&value_to_return0->phpObj);
+                        return_is_user_initialized = true;
+                    }
+                    else{
+                        zend_error(E_ERROR, "Could not retreive original zval.");
+                    }
+                }
+                else{
+                    object_init_ex(return_value,php_wxTextAttrSize_entry);
+                    Z_wxTextAttrSize_P(return_value)->native_object = (wxTextAttrSize_php*) value_to_return0;
+                }
+
+                if((void*)value_to_return0 != (void*)native_object && return_is_user_initialized){ //Prevent adding references to it self
+                    references->AddReference(return_value, "wxTextBoxAttr::GetMinSize at call 6 with 0 argument(s)");
+                }
+
+
+                return;
+                break;
+            }
+        }
+    }
+
+    
+    //In case wrong type/count of parameters was passed
+    if(!already_called)
+    {
+        zend_error(
+            E_ERROR,
+            "Wrong type or count of parameters passed to: "
+            "wxTextBoxAttr::GetMinSize\n"
+        );
+    }
+}
+/* }}} */
+
+/* {{{ proto wxTextAttrSize wxTextBoxAttr::GetMaxSize() */
+PHP_METHOD(php_wxTextBoxAttr, GetMaxSize)
+{
+    #ifdef USE_WXPHP_DEBUG
+    php_printf("Invoking wxTextBoxAttr::GetMaxSize\n");
+    php_printf("===========================================\n");
+    #endif
+
+    zo_wxTextBoxAttr* current_object;
+    wxphp_object_type current_object_type;
+    wxTextBoxAttr_php* native_object;
+    void* argument_native_object = NULL;
+
+    //Other variables used thru the code
+    zval dummy;
+    ZVAL_NULL(&dummy);
+    bool already_called = false;
+    wxPHPObjectReferences* references;
+    int arguments_received = ZEND_NUM_ARGS();
+    bool return_is_user_initialized = false;
+
+    //Get native object of the php object that called the method
+    if(getThis() != NULL)
+    {
+        current_object = Z_wxTextBoxAttr_P(getThis());
+
+        if(current_object->native_object == NULL)
+        {
+            zend_error(
+                E_ERROR,
+                "Failed to get the native object for "
+                "wxTextBoxAttr::GetMaxSize call\n"
+            );
+
+            return;
+        }
+        else
+        {
+            native_object = current_object->native_object;
+            current_object_type = current_object->object_type;
+
+            bool reference_type_found = false;
+
+            if(current_object_type == PHP_WXTEXTBOXATTR_TYPE){
+                references = &((wxTextBoxAttr_php*)native_object)->references;
+                reference_type_found = true;
+            }
+        }
+    }
+    #ifdef USE_WXPHP_DEBUG
+    else
+    {
+        php_printf("Processing the method call as static\n");
+    }
+    #endif
+
+    //Parameters for overload 0
+    bool overload0_called = false;
+
+    //Parameters for overload 1
+    bool overload1_called = false;
+
+    
+    //Overload 0
+    overload0:
+    if(!already_called && arguments_received == 0)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Parameters received %d\n", arguments_received);
+        php_printf("Parsing parameters with '' ()\n");
+        #endif
+
+        overload0_called = true;
+        already_called = true;
+    }
+
+    //Overload 1
+    overload1:
+    if(!already_called && arguments_received == 0)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Parameters received %d\n", arguments_received);
+        php_printf("Parsing parameters with '' ()\n");
+        #endif
+
+        overload1_called = true;
+        already_called = true;
+    }
+
+    
+    if(overload0_called)
+    {
+        switch(arguments_received)
+        {
+            case 0:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing wxTextBoxAttr::GetMaxSize() to return object reference\n\n");
+                #endif
+
+                wxTextAttrSize_php* value_to_return0;
+                value_to_return0 = (wxTextAttrSize_php*) &((wxTextBoxAttr_php*)native_object)->GetMaxSize();
+
+                if(value_to_return0->references.IsUserInitialized()){
+                    if(!Z_ISNULL(value_to_return0->phpObj)){
+                        ZVAL_COPY_VALUE(return_value, &value_to_return0->phpObj);
+                        zval_add_ref(&value_to_return0->phpObj);
+                        return_is_user_initialized = true;
+                    }
+                    else{
+                        zend_error(E_ERROR, "Could not retreive original zval.");
+                    }
+                }
+                else{
+                    object_init_ex(return_value,php_wxTextAttrSize_entry);
+                    Z_wxTextAttrSize_P(return_value)->native_object = (wxTextAttrSize_php*) value_to_return0;
+                }
+
+                if((void*)value_to_return0 != (void*)native_object && return_is_user_initialized){ //Prevent adding references to it self
+                    references->AddReference(return_value, "wxTextBoxAttr::GetMaxSize at call 6 with 0 argument(s)");
+                }
+
+
+                return;
+                break;
+            }
+        }
+    }
+
+    if(overload1_called)
+    {
+        switch(arguments_received)
+        {
+            case 0:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing wxTextBoxAttr::GetMaxSize() to return object reference\n\n");
+                #endif
+
+                wxTextAttrSize_php* value_to_return0;
+                value_to_return0 = (wxTextAttrSize_php*) &((wxTextBoxAttr_php*)native_object)->GetMaxSize();
+
+                if(value_to_return0->references.IsUserInitialized()){
+                    if(!Z_ISNULL(value_to_return0->phpObj)){
+                        ZVAL_COPY_VALUE(return_value, &value_to_return0->phpObj);
+                        zval_add_ref(&value_to_return0->phpObj);
+                        return_is_user_initialized = true;
+                    }
+                    else{
+                        zend_error(E_ERROR, "Could not retreive original zval.");
+                    }
+                }
+                else{
+                    object_init_ex(return_value,php_wxTextAttrSize_entry);
+                    Z_wxTextAttrSize_P(return_value)->native_object = (wxTextAttrSize_php*) value_to_return0;
+                }
+
+                if((void*)value_to_return0 != (void*)native_object && return_is_user_initialized){ //Prevent adding references to it self
+                    references->AddReference(return_value, "wxTextBoxAttr::GetMaxSize at call 6 with 0 argument(s)");
+                }
+
+
+                return;
+                break;
+            }
+        }
+    }
+
+    
+    //In case wrong type/count of parameters was passed
+    if(!already_called)
+    {
+        zend_error(
+            E_ERROR,
+            "Wrong type or count of parameters passed to: "
+            "wxTextBoxAttr::GetMaxSize\n"
+        );
+    }
+}
+/* }}} */
+
+/* {{{ proto  wxTextBoxAttr::SetSize(wxTextAttrSize sz) */
+PHP_METHOD(php_wxTextBoxAttr, SetSize)
+{
+    #ifdef USE_WXPHP_DEBUG
+    php_printf("Invoking wxTextBoxAttr::SetSize\n");
+    php_printf("===========================================\n");
+    #endif
+
+    zo_wxTextBoxAttr* current_object;
+    wxphp_object_type current_object_type;
+    wxTextBoxAttr_php* native_object;
+    void* argument_native_object = NULL;
+
+    //Other variables used thru the code
+    zval dummy;
+    ZVAL_NULL(&dummy);
+    bool already_called = false;
+    wxPHPObjectReferences* references;
+    int arguments_received = ZEND_NUM_ARGS();
+    bool return_is_user_initialized = false;
+
+    //Get native object of the php object that called the method
+    if(getThis() != NULL)
+    {
+        current_object = Z_wxTextBoxAttr_P(getThis());
+
+        if(current_object->native_object == NULL)
+        {
+            zend_error(
+                E_ERROR,
+                "Failed to get the native object for "
+                "wxTextBoxAttr::SetSize call\n"
+            );
+
+            return;
+        }
+        else
+        {
+            native_object = current_object->native_object;
+            current_object_type = current_object->object_type;
+
+            bool reference_type_found = false;
+
+            if(current_object_type == PHP_WXTEXTBOXATTR_TYPE){
+                references = &((wxTextBoxAttr_php*)native_object)->references;
+                reference_type_found = true;
+            }
+        }
+    }
+    #ifdef USE_WXPHP_DEBUG
+    else
+    {
+        php_printf("Processing the method call as static\n");
+    }
+    #endif
+
+    //Parameters for overload 0
+    zval* sz0;
+    wxTextAttrSize* object_pointer0_0 = 0;
+    bool overload0_called = false;
+
+    
+    //Overload 0
+    overload0:
+    if(!already_called && arguments_received == 1)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Parameters received %d\n", arguments_received);
+        php_printf("Parsing parameters with 'O' (&sz0, php_wxTextAttrSize_entry)\n");
+        #endif
+
+        char parse_parameters_string[] = "O";
+        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &sz0, php_wxTextAttrSize_entry ) == SUCCESS)
+        {
+            if(arguments_received >= 1){
+                if(Z_TYPE_P(sz0) == IS_OBJECT)
+                {
+                    wxphp_object_type argument_type = Z_wxTextAttrSize_P(sz0)->object_type;
+                    argument_native_object = (void*) Z_wxTextAttrSize_P(sz0)->native_object;
+                    object_pointer0_0 = (wxTextAttrSize*) argument_native_object;
+                    if (!object_pointer0_0 )
+                    {
+                        zend_error(E_ERROR, "Parameter 'sz' could not be retreived correctly.");
+                    }
+                }
+                else if(Z_TYPE_P(sz0) != IS_NULL)
+                {
+                    zend_error(E_ERROR, "Parameter 'sz' not null, could not be retreived correctly.");
+                }
+            }
+
+            overload0_called = true;
+            already_called = true;
+        }
+    }
+
+    
+    if(overload0_called)
+    {
+        switch(arguments_received)
+        {
+            case 1:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing wxTextBoxAttr::SetSize(*(wxTextAttrSize*) object_pointer0_0)\n\n");
+                #endif
+
+                ((wxTextBoxAttr_php*)native_object)->SetSize(*(wxTextAttrSize*) object_pointer0_0);
+
+                references->AddReference(sz0, "wxTextBoxAttr::SetSize at call 3 with 1 argument(s)");
+
+                return;
+                break;
+            }
+        }
+    }
+
+    
+    //In case wrong type/count of parameters was passed
+    if(!already_called)
+    {
+        zend_error(
+            E_ERROR,
+            "Wrong type or count of parameters passed to: "
+            "wxTextBoxAttr::SetSize\n"
+        );
+    }
+}
+/* }}} */
+
+/* {{{ proto  wxTextBoxAttr::SetMinSize(wxTextAttrSize sz) */
+PHP_METHOD(php_wxTextBoxAttr, SetMinSize)
+{
+    #ifdef USE_WXPHP_DEBUG
+    php_printf("Invoking wxTextBoxAttr::SetMinSize\n");
+    php_printf("===========================================\n");
+    #endif
+
+    zo_wxTextBoxAttr* current_object;
+    wxphp_object_type current_object_type;
+    wxTextBoxAttr_php* native_object;
+    void* argument_native_object = NULL;
+
+    //Other variables used thru the code
+    zval dummy;
+    ZVAL_NULL(&dummy);
+    bool already_called = false;
+    wxPHPObjectReferences* references;
+    int arguments_received = ZEND_NUM_ARGS();
+    bool return_is_user_initialized = false;
+
+    //Get native object of the php object that called the method
+    if(getThis() != NULL)
+    {
+        current_object = Z_wxTextBoxAttr_P(getThis());
+
+        if(current_object->native_object == NULL)
+        {
+            zend_error(
+                E_ERROR,
+                "Failed to get the native object for "
+                "wxTextBoxAttr::SetMinSize call\n"
+            );
+
+            return;
+        }
+        else
+        {
+            native_object = current_object->native_object;
+            current_object_type = current_object->object_type;
+
+            bool reference_type_found = false;
+
+            if(current_object_type == PHP_WXTEXTBOXATTR_TYPE){
+                references = &((wxTextBoxAttr_php*)native_object)->references;
+                reference_type_found = true;
+            }
+        }
+    }
+    #ifdef USE_WXPHP_DEBUG
+    else
+    {
+        php_printf("Processing the method call as static\n");
+    }
+    #endif
+
+    //Parameters for overload 0
+    zval* sz0;
+    wxTextAttrSize* object_pointer0_0 = 0;
+    bool overload0_called = false;
+
+    
+    //Overload 0
+    overload0:
+    if(!already_called && arguments_received == 1)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Parameters received %d\n", arguments_received);
+        php_printf("Parsing parameters with 'O' (&sz0, php_wxTextAttrSize_entry)\n");
+        #endif
+
+        char parse_parameters_string[] = "O";
+        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &sz0, php_wxTextAttrSize_entry ) == SUCCESS)
+        {
+            if(arguments_received >= 1){
+                if(Z_TYPE_P(sz0) == IS_OBJECT)
+                {
+                    wxphp_object_type argument_type = Z_wxTextAttrSize_P(sz0)->object_type;
+                    argument_native_object = (void*) Z_wxTextAttrSize_P(sz0)->native_object;
+                    object_pointer0_0 = (wxTextAttrSize*) argument_native_object;
+                    if (!object_pointer0_0 )
+                    {
+                        zend_error(E_ERROR, "Parameter 'sz' could not be retreived correctly.");
+                    }
+                }
+                else if(Z_TYPE_P(sz0) != IS_NULL)
+                {
+                    zend_error(E_ERROR, "Parameter 'sz' not null, could not be retreived correctly.");
+                }
+            }
+
+            overload0_called = true;
+            already_called = true;
+        }
+    }
+
+    
+    if(overload0_called)
+    {
+        switch(arguments_received)
+        {
+            case 1:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing wxTextBoxAttr::SetMinSize(*(wxTextAttrSize*) object_pointer0_0)\n\n");
+                #endif
+
+                ((wxTextBoxAttr_php*)native_object)->SetMinSize(*(wxTextAttrSize*) object_pointer0_0);
+
+                references->AddReference(sz0, "wxTextBoxAttr::SetMinSize at call 3 with 1 argument(s)");
+
+                return;
+                break;
+            }
+        }
+    }
+
+    
+    //In case wrong type/count of parameters was passed
+    if(!already_called)
+    {
+        zend_error(
+            E_ERROR,
+            "Wrong type or count of parameters passed to: "
+            "wxTextBoxAttr::SetMinSize\n"
+        );
+    }
+}
+/* }}} */
+
+/* {{{ proto  wxTextBoxAttr::SetMaxSize(wxTextAttrSize sz) */
+PHP_METHOD(php_wxTextBoxAttr, SetMaxSize)
+{
+    #ifdef USE_WXPHP_DEBUG
+    php_printf("Invoking wxTextBoxAttr::SetMaxSize\n");
+    php_printf("===========================================\n");
+    #endif
+
+    zo_wxTextBoxAttr* current_object;
+    wxphp_object_type current_object_type;
+    wxTextBoxAttr_php* native_object;
+    void* argument_native_object = NULL;
+
+    //Other variables used thru the code
+    zval dummy;
+    ZVAL_NULL(&dummy);
+    bool already_called = false;
+    wxPHPObjectReferences* references;
+    int arguments_received = ZEND_NUM_ARGS();
+    bool return_is_user_initialized = false;
+
+    //Get native object of the php object that called the method
+    if(getThis() != NULL)
+    {
+        current_object = Z_wxTextBoxAttr_P(getThis());
+
+        if(current_object->native_object == NULL)
+        {
+            zend_error(
+                E_ERROR,
+                "Failed to get the native object for "
+                "wxTextBoxAttr::SetMaxSize call\n"
+            );
+
+            return;
+        }
+        else
+        {
+            native_object = current_object->native_object;
+            current_object_type = current_object->object_type;
+
+            bool reference_type_found = false;
+
+            if(current_object_type == PHP_WXTEXTBOXATTR_TYPE){
+                references = &((wxTextBoxAttr_php*)native_object)->references;
+                reference_type_found = true;
+            }
+        }
+    }
+    #ifdef USE_WXPHP_DEBUG
+    else
+    {
+        php_printf("Processing the method call as static\n");
+    }
+    #endif
+
+    //Parameters for overload 0
+    zval* sz0;
+    wxTextAttrSize* object_pointer0_0 = 0;
+    bool overload0_called = false;
+
+    
+    //Overload 0
+    overload0:
+    if(!already_called && arguments_received == 1)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Parameters received %d\n", arguments_received);
+        php_printf("Parsing parameters with 'O' (&sz0, php_wxTextAttrSize_entry)\n");
+        #endif
+
+        char parse_parameters_string[] = "O";
+        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &sz0, php_wxTextAttrSize_entry ) == SUCCESS)
+        {
+            if(arguments_received >= 1){
+                if(Z_TYPE_P(sz0) == IS_OBJECT)
+                {
+                    wxphp_object_type argument_type = Z_wxTextAttrSize_P(sz0)->object_type;
+                    argument_native_object = (void*) Z_wxTextAttrSize_P(sz0)->native_object;
+                    object_pointer0_0 = (wxTextAttrSize*) argument_native_object;
+                    if (!object_pointer0_0 )
+                    {
+                        zend_error(E_ERROR, "Parameter 'sz' could not be retreived correctly.");
+                    }
+                }
+                else if(Z_TYPE_P(sz0) != IS_NULL)
+                {
+                    zend_error(E_ERROR, "Parameter 'sz' not null, could not be retreived correctly.");
+                }
+            }
+
+            overload0_called = true;
+            already_called = true;
+        }
+    }
+
+    
+    if(overload0_called)
+    {
+        switch(arguments_received)
+        {
+            case 1:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing wxTextBoxAttr::SetMaxSize(*(wxTextAttrSize*) object_pointer0_0)\n\n");
+                #endif
+
+                ((wxTextBoxAttr_php*)native_object)->SetMaxSize(*(wxTextAttrSize*) object_pointer0_0);
+
+                references->AddReference(sz0, "wxTextBoxAttr::SetMaxSize at call 3 with 1 argument(s)");
+
+                return;
+                break;
+            }
+        }
+    }
+
+    
+    //In case wrong type/count of parameters was passed
+    if(!already_called)
+    {
+        zend_error(
+            E_ERROR,
+            "Wrong type or count of parameters passed to: "
+            "wxTextBoxAttr::SetMaxSize\n"
+        );
+    }
+}
+/* }}} */
+
+/* {{{ proto wxTextAttrDimension wxTextBoxAttr::GetWidth() */
+PHP_METHOD(php_wxTextBoxAttr, GetWidth)
+{
+    #ifdef USE_WXPHP_DEBUG
+    php_printf("Invoking wxTextBoxAttr::GetWidth\n");
+    php_printf("===========================================\n");
+    #endif
+
+    zo_wxTextBoxAttr* current_object;
+    wxphp_object_type current_object_type;
+    wxTextBoxAttr_php* native_object;
+    void* argument_native_object = NULL;
+
+    //Other variables used thru the code
+    zval dummy;
+    ZVAL_NULL(&dummy);
+    bool already_called = false;
+    wxPHPObjectReferences* references;
+    int arguments_received = ZEND_NUM_ARGS();
+    bool return_is_user_initialized = false;
+
+    //Get native object of the php object that called the method
+    if(getThis() != NULL)
+    {
+        current_object = Z_wxTextBoxAttr_P(getThis());
+
+        if(current_object->native_object == NULL)
+        {
+            zend_error(
+                E_ERROR,
+                "Failed to get the native object for "
+                "wxTextBoxAttr::GetWidth call\n"
+            );
+
+            return;
+        }
+        else
+        {
+            native_object = current_object->native_object;
+            current_object_type = current_object->object_type;
+
+            bool reference_type_found = false;
+
+            if(current_object_type == PHP_WXTEXTBOXATTR_TYPE){
+                references = &((wxTextBoxAttr_php*)native_object)->references;
+                reference_type_found = true;
+            }
+        }
+    }
+    #ifdef USE_WXPHP_DEBUG
+    else
+    {
+        php_printf("Processing the method call as static\n");
+    }
+    #endif
+
+    //Parameters for overload 0
+    bool overload0_called = false;
+
+    //Parameters for overload 1
+    bool overload1_called = false;
+
+    
+    //Overload 0
+    overload0:
+    if(!already_called && arguments_received == 0)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Parameters received %d\n", arguments_received);
+        php_printf("Parsing parameters with '' ()\n");
+        #endif
+
+        overload0_called = true;
+        already_called = true;
+    }
+
+    //Overload 1
+    overload1:
+    if(!already_called && arguments_received == 0)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Parameters received %d\n", arguments_received);
+        php_printf("Parsing parameters with '' ()\n");
+        #endif
+
+        overload1_called = true;
+        already_called = true;
+    }
+
+    
+    if(overload0_called)
+    {
+        switch(arguments_received)
+        {
+            case 0:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing wxTextBoxAttr::GetWidth() to return object reference\n\n");
+                #endif
+
+                wxTextAttrDimension_php* value_to_return0;
+                value_to_return0 = (wxTextAttrDimension_php*) &((wxTextBoxAttr_php*)native_object)->GetWidth();
+
+                if(value_to_return0->references.IsUserInitialized()){
+                    if(!Z_ISNULL(value_to_return0->phpObj)){
+                        ZVAL_COPY_VALUE(return_value, &value_to_return0->phpObj);
+                        zval_add_ref(&value_to_return0->phpObj);
+                        return_is_user_initialized = true;
+                    }
+                    else{
+                        zend_error(E_ERROR, "Could not retreive original zval.");
+                    }
+                }
+                else{
+                    object_init_ex(return_value,php_wxTextAttrDimension_entry);
+                    Z_wxTextAttrDimension_P(return_value)->native_object = (wxTextAttrDimension_php*) value_to_return0;
+                }
+
+                if((void*)value_to_return0 != (void*)native_object && return_is_user_initialized){ //Prevent adding references to it self
+                    references->AddReference(return_value, "wxTextBoxAttr::GetWidth at call 6 with 0 argument(s)");
+                }
+
+
+                return;
+                break;
+            }
+        }
+    }
+
+    if(overload1_called)
+    {
+        switch(arguments_received)
+        {
+            case 0:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing wxTextBoxAttr::GetWidth() to return object reference\n\n");
+                #endif
+
+                wxTextAttrDimension_php* value_to_return0;
+                value_to_return0 = (wxTextAttrDimension_php*) &((wxTextBoxAttr_php*)native_object)->GetWidth();
+
+                if(value_to_return0->references.IsUserInitialized()){
+                    if(!Z_ISNULL(value_to_return0->phpObj)){
+                        ZVAL_COPY_VALUE(return_value, &value_to_return0->phpObj);
+                        zval_add_ref(&value_to_return0->phpObj);
+                        return_is_user_initialized = true;
+                    }
+                    else{
+                        zend_error(E_ERROR, "Could not retreive original zval.");
+                    }
+                }
+                else{
+                    object_init_ex(return_value,php_wxTextAttrDimension_entry);
+                    Z_wxTextAttrDimension_P(return_value)->native_object = (wxTextAttrDimension_php*) value_to_return0;
+                }
+
+                if((void*)value_to_return0 != (void*)native_object && return_is_user_initialized){ //Prevent adding references to it self
+                    references->AddReference(return_value, "wxTextBoxAttr::GetWidth at call 6 with 0 argument(s)");
+                }
+
+
+                return;
+                break;
+            }
+        }
+    }
+
+    
+    //In case wrong type/count of parameters was passed
+    if(!already_called)
+    {
+        zend_error(
+            E_ERROR,
+            "Wrong type or count of parameters passed to: "
+            "wxTextBoxAttr::GetWidth\n"
+        );
+    }
+}
+/* }}} */
+
+/* {{{ proto wxTextAttrDimension wxTextBoxAttr::GetHeight() */
+PHP_METHOD(php_wxTextBoxAttr, GetHeight)
+{
+    #ifdef USE_WXPHP_DEBUG
+    php_printf("Invoking wxTextBoxAttr::GetHeight\n");
+    php_printf("===========================================\n");
+    #endif
+
+    zo_wxTextBoxAttr* current_object;
+    wxphp_object_type current_object_type;
+    wxTextBoxAttr_php* native_object;
+    void* argument_native_object = NULL;
+
+    //Other variables used thru the code
+    zval dummy;
+    ZVAL_NULL(&dummy);
+    bool already_called = false;
+    wxPHPObjectReferences* references;
+    int arguments_received = ZEND_NUM_ARGS();
+    bool return_is_user_initialized = false;
+
+    //Get native object of the php object that called the method
+    if(getThis() != NULL)
+    {
+        current_object = Z_wxTextBoxAttr_P(getThis());
+
+        if(current_object->native_object == NULL)
+        {
+            zend_error(
+                E_ERROR,
+                "Failed to get the native object for "
+                "wxTextBoxAttr::GetHeight call\n"
+            );
+
+            return;
+        }
+        else
+        {
+            native_object = current_object->native_object;
+            current_object_type = current_object->object_type;
+
+            bool reference_type_found = false;
+
+            if(current_object_type == PHP_WXTEXTBOXATTR_TYPE){
+                references = &((wxTextBoxAttr_php*)native_object)->references;
+                reference_type_found = true;
+            }
+        }
+    }
+    #ifdef USE_WXPHP_DEBUG
+    else
+    {
+        php_printf("Processing the method call as static\n");
+    }
+    #endif
+
+    //Parameters for overload 0
+    bool overload0_called = false;
+
+    //Parameters for overload 1
+    bool overload1_called = false;
+
+    
+    //Overload 0
+    overload0:
+    if(!already_called && arguments_received == 0)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Parameters received %d\n", arguments_received);
+        php_printf("Parsing parameters with '' ()\n");
+        #endif
+
+        overload0_called = true;
+        already_called = true;
+    }
+
+    //Overload 1
+    overload1:
+    if(!already_called && arguments_received == 0)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Parameters received %d\n", arguments_received);
+        php_printf("Parsing parameters with '' ()\n");
+        #endif
+
+        overload1_called = true;
+        already_called = true;
+    }
+
+    
+    if(overload0_called)
+    {
+        switch(arguments_received)
+        {
+            case 0:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing wxTextBoxAttr::GetHeight() to return object reference\n\n");
+                #endif
+
+                wxTextAttrDimension_php* value_to_return0;
+                value_to_return0 = (wxTextAttrDimension_php*) &((wxTextBoxAttr_php*)native_object)->GetHeight();
+
+                if(value_to_return0->references.IsUserInitialized()){
+                    if(!Z_ISNULL(value_to_return0->phpObj)){
+                        ZVAL_COPY_VALUE(return_value, &value_to_return0->phpObj);
+                        zval_add_ref(&value_to_return0->phpObj);
+                        return_is_user_initialized = true;
+                    }
+                    else{
+                        zend_error(E_ERROR, "Could not retreive original zval.");
+                    }
+                }
+                else{
+                    object_init_ex(return_value,php_wxTextAttrDimension_entry);
+                    Z_wxTextAttrDimension_P(return_value)->native_object = (wxTextAttrDimension_php*) value_to_return0;
+                }
+
+                if((void*)value_to_return0 != (void*)native_object && return_is_user_initialized){ //Prevent adding references to it self
+                    references->AddReference(return_value, "wxTextBoxAttr::GetHeight at call 6 with 0 argument(s)");
+                }
+
+
+                return;
+                break;
+            }
+        }
+    }
+
+    if(overload1_called)
+    {
+        switch(arguments_received)
+        {
+            case 0:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing wxTextBoxAttr::GetHeight() to return object reference\n\n");
+                #endif
+
+                wxTextAttrDimension_php* value_to_return0;
+                value_to_return0 = (wxTextAttrDimension_php*) &((wxTextBoxAttr_php*)native_object)->GetHeight();
+
+                if(value_to_return0->references.IsUserInitialized()){
+                    if(!Z_ISNULL(value_to_return0->phpObj)){
+                        ZVAL_COPY_VALUE(return_value, &value_to_return0->phpObj);
+                        zval_add_ref(&value_to_return0->phpObj);
+                        return_is_user_initialized = true;
+                    }
+                    else{
+                        zend_error(E_ERROR, "Could not retreive original zval.");
+                    }
+                }
+                else{
+                    object_init_ex(return_value,php_wxTextAttrDimension_entry);
+                    Z_wxTextAttrDimension_P(return_value)->native_object = (wxTextAttrDimension_php*) value_to_return0;
+                }
+
+                if((void*)value_to_return0 != (void*)native_object && return_is_user_initialized){ //Prevent adding references to it self
+                    references->AddReference(return_value, "wxTextBoxAttr::GetHeight at call 6 with 0 argument(s)");
+                }
+
+
+                return;
+                break;
+            }
+        }
+    }
+
+    
+    //In case wrong type/count of parameters was passed
+    if(!already_called)
+    {
+        zend_error(
+            E_ERROR,
+            "Wrong type or count of parameters passed to: "
+            "wxTextBoxAttr::GetHeight\n"
+        );
+    }
+}
+/* }}} */
+
+/* {{{ proto string wxTextBoxAttr::GetBoxStyleName() */
+PHP_METHOD(php_wxTextBoxAttr, GetBoxStyleName)
+{
+    #ifdef USE_WXPHP_DEBUG
+    php_printf("Invoking wxTextBoxAttr::GetBoxStyleName\n");
+    php_printf("===========================================\n");
+    #endif
+
+    zo_wxTextBoxAttr* current_object;
+    wxphp_object_type current_object_type;
+    wxTextBoxAttr_php* native_object;
+    void* argument_native_object = NULL;
+
+    //Other variables used thru the code
+    zval dummy;
+    ZVAL_NULL(&dummy);
+    bool already_called = false;
+    wxPHPObjectReferences* references;
+    int arguments_received = ZEND_NUM_ARGS();
+    bool return_is_user_initialized = false;
+
+    //Get native object of the php object that called the method
+    if(getThis() != NULL)
+    {
+        current_object = Z_wxTextBoxAttr_P(getThis());
+
+        if(current_object->native_object == NULL)
+        {
+            zend_error(
+                E_ERROR,
+                "Failed to get the native object for "
+                "wxTextBoxAttr::GetBoxStyleName call\n"
+            );
+
+            return;
+        }
+        else
+        {
+            native_object = current_object->native_object;
+            current_object_type = current_object->object_type;
+
+            bool reference_type_found = false;
+
+            if(current_object_type == PHP_WXTEXTBOXATTR_TYPE){
+                references = &((wxTextBoxAttr_php*)native_object)->references;
+                reference_type_found = true;
+            }
+        }
+    }
+    #ifdef USE_WXPHP_DEBUG
+    else
+    {
+        php_printf("Processing the method call as static\n");
+    }
+    #endif
+
+    //Parameters for overload 0
+    bool overload0_called = false;
+
+    
+    //Overload 0
+    overload0:
+    if(!already_called && arguments_received == 0)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Parameters received %d\n", arguments_received);
+        php_printf("Parsing parameters with '' ()\n");
+        #endif
+
+        overload0_called = true;
+        already_called = true;
+    }
+
+    
+    if(overload0_called)
+    {
+        switch(arguments_received)
+        {
+            case 0:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing RETURN_STRING(wxTextBoxAttr::GetBoxStyleName().fn_str(), 1)\n\n");
+                #endif
+
+                wxString value_to_return0;
+                value_to_return0 = ((wxTextBoxAttr_php*)native_object)->GetBoxStyleName();
+                RETVAL_STRING(value_to_return0.ToUTF8().data());
+
+
+                return;
+                break;
+            }
+        }
+    }
+
+    
+    //In case wrong type/count of parameters was passed
+    if(!already_called)
+    {
+        zend_error(
+            E_ERROR,
+            "Wrong type or count of parameters passed to: "
+            "wxTextBoxAttr::GetBoxStyleName\n"
+        );
+    }
+}
+/* }}} */
+
+/* {{{ proto  wxTextBoxAttr::SetBoxStyleName(string name) */
+PHP_METHOD(php_wxTextBoxAttr, SetBoxStyleName)
+{
+    #ifdef USE_WXPHP_DEBUG
+    php_printf("Invoking wxTextBoxAttr::SetBoxStyleName\n");
+    php_printf("===========================================\n");
+    #endif
+
+    zo_wxTextBoxAttr* current_object;
+    wxphp_object_type current_object_type;
+    wxTextBoxAttr_php* native_object;
+    void* argument_native_object = NULL;
+
+    //Other variables used thru the code
+    zval dummy;
+    ZVAL_NULL(&dummy);
+    bool already_called = false;
+    wxPHPObjectReferences* references;
+    int arguments_received = ZEND_NUM_ARGS();
+    bool return_is_user_initialized = false;
+
+    //Get native object of the php object that called the method
+    if(getThis() != NULL)
+    {
+        current_object = Z_wxTextBoxAttr_P(getThis());
+
+        if(current_object->native_object == NULL)
+        {
+            zend_error(
+                E_ERROR,
+                "Failed to get the native object for "
+                "wxTextBoxAttr::SetBoxStyleName call\n"
+            );
+
+            return;
+        }
+        else
+        {
+            native_object = current_object->native_object;
+            current_object_type = current_object->object_type;
+
+            bool reference_type_found = false;
+
+            if(current_object_type == PHP_WXTEXTBOXATTR_TYPE){
+                references = &((wxTextBoxAttr_php*)native_object)->references;
+                reference_type_found = true;
+            }
+        }
+    }
+    #ifdef USE_WXPHP_DEBUG
+    else
+    {
+        php_printf("Processing the method call as static\n");
+    }
+    #endif
+
+    //Parameters for overload 0
+    char* name0;
+    size_t name_len0;
+    bool overload0_called = false;
+
+    
+    //Overload 0
+    overload0:
+    if(!already_called && arguments_received == 1)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Parameters received %d\n", arguments_received);
+        php_printf("Parsing parameters with 's' (&name0, &name_len0)\n");
+        #endif
+
+        char parse_parameters_string[] = "s";
+        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &name0, &name_len0 ) == SUCCESS)
+        {
+            overload0_called = true;
+            already_called = true;
+        }
+    }
+
+    
+    if(overload0_called)
+    {
+        switch(arguments_received)
+        {
+            case 1:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing wxTextBoxAttr::SetBoxStyleName(wxString(name0, wxConvUTF8))\n\n");
+                #endif
+
+                ((wxTextBoxAttr_php*)native_object)->SetBoxStyleName(wxString(name0, wxConvUTF8));
+
+
+                return;
+                break;
+            }
+        }
+    }
+
+    
+    //In case wrong type/count of parameters was passed
+    if(!already_called)
+    {
+        zend_error(
+            E_ERROR,
+            "Wrong type or count of parameters passed to: "
+            "wxTextBoxAttr::SetBoxStyleName\n"
+        );
+    }
+}
+/* }}} */
+
+/* {{{ proto bool wxTextBoxAttr::HasBoxStyleName() */
+PHP_METHOD(php_wxTextBoxAttr, HasBoxStyleName)
+{
+    #ifdef USE_WXPHP_DEBUG
+    php_printf("Invoking wxTextBoxAttr::HasBoxStyleName\n");
+    php_printf("===========================================\n");
+    #endif
+
+    zo_wxTextBoxAttr* current_object;
+    wxphp_object_type current_object_type;
+    wxTextBoxAttr_php* native_object;
+    void* argument_native_object = NULL;
+
+    //Other variables used thru the code
+    zval dummy;
+    ZVAL_NULL(&dummy);
+    bool already_called = false;
+    wxPHPObjectReferences* references;
+    int arguments_received = ZEND_NUM_ARGS();
+    bool return_is_user_initialized = false;
+
+    //Get native object of the php object that called the method
+    if(getThis() != NULL)
+    {
+        current_object = Z_wxTextBoxAttr_P(getThis());
+
+        if(current_object->native_object == NULL)
+        {
+            zend_error(
+                E_ERROR,
+                "Failed to get the native object for "
+                "wxTextBoxAttr::HasBoxStyleName call\n"
+            );
+
+            return;
+        }
+        else
+        {
+            native_object = current_object->native_object;
+            current_object_type = current_object->object_type;
+
+            bool reference_type_found = false;
+
+            if(current_object_type == PHP_WXTEXTBOXATTR_TYPE){
+                references = &((wxTextBoxAttr_php*)native_object)->references;
+                reference_type_found = true;
+            }
+        }
+    }
+    #ifdef USE_WXPHP_DEBUG
+    else
+    {
+        php_printf("Processing the method call as static\n");
+    }
+    #endif
+
+    //Parameters for overload 0
+    bool overload0_called = false;
+
+    
+    //Overload 0
+    overload0:
+    if(!already_called && arguments_received == 0)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Parameters received %d\n", arguments_received);
+        php_printf("Parsing parameters with '' ()\n");
+        #endif
+
+        overload0_called = true;
+        already_called = true;
+    }
+
+    
+    if(overload0_called)
+    {
+        switch(arguments_received)
+        {
+            case 0:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing RETURN_BOOL(wxTextBoxAttr::HasBoxStyleName())\n\n");
+                #endif
+
+                RETVAL_BOOL(((wxTextBoxAttr_php*)native_object)->HasBoxStyleName());
+
+
+                return;
+                break;
+            }
+        }
+    }
+
+    
+    //In case wrong type/count of parameters was passed
+    if(!already_called)
+    {
+        zend_error(
+            E_ERROR,
+            "Wrong type or count of parameters passed to: "
+            "wxTextBoxAttr::HasBoxStyleName\n"
+        );
+    }
+}
+/* }}} */
+
+/* {{{ proto wxTextAttrShadow wxTextBoxAttr::GetShadow() */
+PHP_METHOD(php_wxTextBoxAttr, GetShadow)
+{
+    #ifdef USE_WXPHP_DEBUG
+    php_printf("Invoking wxTextBoxAttr::GetShadow\n");
+    php_printf("===========================================\n");
+    #endif
+
+    zo_wxTextBoxAttr* current_object;
+    wxphp_object_type current_object_type;
+    wxTextBoxAttr_php* native_object;
+    void* argument_native_object = NULL;
+
+    //Other variables used thru the code
+    zval dummy;
+    ZVAL_NULL(&dummy);
+    bool already_called = false;
+    wxPHPObjectReferences* references;
+    int arguments_received = ZEND_NUM_ARGS();
+    bool return_is_user_initialized = false;
+
+    //Get native object of the php object that called the method
+    if(getThis() != NULL)
+    {
+        current_object = Z_wxTextBoxAttr_P(getThis());
+
+        if(current_object->native_object == NULL)
+        {
+            zend_error(
+                E_ERROR,
+                "Failed to get the native object for "
+                "wxTextBoxAttr::GetShadow call\n"
+            );
+
+            return;
+        }
+        else
+        {
+            native_object = current_object->native_object;
+            current_object_type = current_object->object_type;
+
+            bool reference_type_found = false;
+
+            if(current_object_type == PHP_WXTEXTBOXATTR_TYPE){
+                references = &((wxTextBoxAttr_php*)native_object)->references;
+                reference_type_found = true;
+            }
+        }
+    }
+    #ifdef USE_WXPHP_DEBUG
+    else
+    {
+        php_printf("Processing the method call as static\n");
+    }
+    #endif
+
+    //Parameters for overload 0
+    bool overload0_called = false;
+
+    //Parameters for overload 1
+    bool overload1_called = false;
+
+    
+    //Overload 0
+    overload0:
+    if(!already_called && arguments_received == 0)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Parameters received %d\n", arguments_received);
+        php_printf("Parsing parameters with '' ()\n");
+        #endif
+
+        overload0_called = true;
+        already_called = true;
+    }
+
+    //Overload 1
+    overload1:
+    if(!already_called && arguments_received == 0)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Parameters received %d\n", arguments_received);
+        php_printf("Parsing parameters with '' ()\n");
+        #endif
+
+        overload1_called = true;
+        already_called = true;
+    }
+
+    
+    if(overload0_called)
+    {
+        switch(arguments_received)
+        {
+            case 0:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing wxTextBoxAttr::GetShadow() to return object reference\n\n");
+                #endif
+
+                wxTextAttrShadow_php* value_to_return0;
+                value_to_return0 = (wxTextAttrShadow_php*) &((wxTextBoxAttr_php*)native_object)->GetShadow();
+
+                if(value_to_return0->references.IsUserInitialized()){
+                    if(!Z_ISNULL(value_to_return0->phpObj)){
+                        ZVAL_COPY_VALUE(return_value, &value_to_return0->phpObj);
+                        zval_add_ref(&value_to_return0->phpObj);
+                        return_is_user_initialized = true;
+                    }
+                    else{
+                        zend_error(E_ERROR, "Could not retreive original zval.");
+                    }
+                }
+                else{
+                    object_init_ex(return_value,php_wxTextAttrShadow_entry);
+                    Z_wxTextAttrShadow_P(return_value)->native_object = (wxTextAttrShadow_php*) value_to_return0;
+                }
+
+                if((void*)value_to_return0 != (void*)native_object && return_is_user_initialized){ //Prevent adding references to it self
+                    references->AddReference(return_value, "wxTextBoxAttr::GetShadow at call 6 with 0 argument(s)");
+                }
+
+
+                return;
+                break;
+            }
+        }
+    }
+
+    if(overload1_called)
+    {
+        switch(arguments_received)
+        {
+            case 0:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing wxTextBoxAttr::GetShadow() to return object reference\n\n");
+                #endif
+
+                wxTextAttrShadow_php* value_to_return0;
+                value_to_return0 = (wxTextAttrShadow_php*) &((wxTextBoxAttr_php*)native_object)->GetShadow();
+
+                if(value_to_return0->references.IsUserInitialized()){
+                    if(!Z_ISNULL(value_to_return0->phpObj)){
+                        ZVAL_COPY_VALUE(return_value, &value_to_return0->phpObj);
+                        zval_add_ref(&value_to_return0->phpObj);
+                        return_is_user_initialized = true;
+                    }
+                    else{
+                        zend_error(E_ERROR, "Could not retreive original zval.");
+                    }
+                }
+                else{
+                    object_init_ex(return_value,php_wxTextAttrShadow_entry);
+                    Z_wxTextAttrShadow_P(return_value)->native_object = (wxTextAttrShadow_php*) value_to_return0;
+                }
+
+                if((void*)value_to_return0 != (void*)native_object && return_is_user_initialized){ //Prevent adding references to it self
+                    references->AddReference(return_value, "wxTextBoxAttr::GetShadow at call 6 with 0 argument(s)");
+                }
+
+
+                return;
+                break;
+            }
+        }
+    }
+
+    
+    //In case wrong type/count of parameters was passed
+    if(!already_called)
+    {
+        zend_error(
+            E_ERROR,
+            "Wrong type or count of parameters passed to: "
+            "wxTextBoxAttr::GetShadow\n"
+        );
+    }
+}
+/* }}} */
+
+BEGIN_EXTERN_C()
 void php_wxTextAttr_free(void *object)
 {
     zo_wxTextAttr* custom_object = (zo_wxTextAttr*) object;
