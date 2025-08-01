@@ -1434,7 +1434,7 @@ PHP_METHOD(php_wxFileSystem, AddHandler)
                     wxphp_object_type argument_type = Z_wxFileSystemHandler_P(handler0)->object_type;
                     argument_native_object = (void*) Z_wxFileSystemHandler_P(handler0)->native_object;
                     object_pointer0_0 = (wxFileSystemHandler*) argument_native_object;
-                    if (!object_pointer0_0 || (argument_type != PHP_WXFILESYSTEMHANDLER_TYPE))
+                    if (!object_pointer0_0 || (argument_type != PHP_WXFILESYSTEMHANDLER_TYPE && argument_type != PHP_WXARCHIVEFSHANDLER_TYPE && argument_type != PHP_WXFILTERFSHANDLER_TYPE && argument_type != PHP_WXINTERNETFSHANDLER_TYPE))
                     {
                         zend_error(E_ERROR, "Parameter 'handler' could not be retreived correctly.");
                     }
@@ -1701,6 +1701,18 @@ PHP_METHOD(php_wxFileSystemHandler, FindFirst)
                 references = &((wxFileSystemHandler_php*)native_object)->references;
                 reference_type_found = true;
             }
+            if((current_object_type == PHP_WXARCHIVEFSHANDLER_TYPE) && (!reference_type_found)){
+                references = &((wxArchiveFSHandler_php*)native_object)->references;
+                reference_type_found = true;
+            }
+            if((current_object_type == PHP_WXFILTERFSHANDLER_TYPE) && (!reference_type_found)){
+                references = &((wxFilterFSHandler_php*)native_object)->references;
+                reference_type_found = true;
+            }
+            if((current_object_type == PHP_WXINTERNETFSHANDLER_TYPE) && (!reference_type_found)){
+                references = &((wxInternetFSHandler_php*)native_object)->references;
+                reference_type_found = true;
+            }
         }
     }
     #ifdef USE_WXPHP_DEBUG
@@ -1831,6 +1843,18 @@ PHP_METHOD(php_wxFileSystemHandler, FindNext)
                 references = &((wxFileSystemHandler_php*)native_object)->references;
                 reference_type_found = true;
             }
+            if((current_object_type == PHP_WXARCHIVEFSHANDLER_TYPE) && (!reference_type_found)){
+                references = &((wxArchiveFSHandler_php*)native_object)->references;
+                reference_type_found = true;
+            }
+            if((current_object_type == PHP_WXFILTERFSHANDLER_TYPE) && (!reference_type_found)){
+                references = &((wxFilterFSHandler_php*)native_object)->references;
+                reference_type_found = true;
+            }
+            if((current_object_type == PHP_WXINTERNETFSHANDLER_TYPE) && (!reference_type_found)){
+                references = &((wxInternetFSHandler_php*)native_object)->references;
+                reference_type_found = true;
+            }
         }
     }
     #ifdef USE_WXPHP_DEBUG
@@ -1938,6 +1962,18 @@ PHP_METHOD(php_wxFileSystemHandler, GetMimeTypeFromExt)
 
             if(current_object_type == PHP_WXFILESYSTEMHANDLER_TYPE){
                 references = &((wxFileSystemHandler_php*)native_object)->references;
+                reference_type_found = true;
+            }
+            if((current_object_type == PHP_WXARCHIVEFSHANDLER_TYPE) && (!reference_type_found)){
+                references = &((wxArchiveFSHandler_php*)native_object)->references;
+                reference_type_found = true;
+            }
+            if((current_object_type == PHP_WXFILTERFSHANDLER_TYPE) && (!reference_type_found)){
+                references = &((wxFilterFSHandler_php*)native_object)->references;
+                reference_type_found = true;
+            }
+            if((current_object_type == PHP_WXINTERNETFSHANDLER_TYPE) && (!reference_type_found)){
+                references = &((wxInternetFSHandler_php*)native_object)->references;
                 reference_type_found = true;
             }
         }

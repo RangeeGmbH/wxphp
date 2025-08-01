@@ -2200,6 +2200,10 @@ PHP_METHOD(php_wxStreamBase, Reset)
                 references = &((wxFileOutputStream_php*)native_object)->references;
                 reference_type_found = true;
             }
+            if((current_object_type == PHP_WXTEMPFFILEOUTPUTSTREAM_TYPE) && (!reference_type_found)){
+                references = &((wxTempFFileOutputStream_php*)native_object)->references;
+                reference_type_found = true;
+            }
         }
     }
     #ifdef USE_WXPHP_DEBUG
@@ -2356,6 +2360,10 @@ PHP_METHOD(php_wxStreamBase, IsSeekable)
                 references = &((wxFileOutputStream_php*)native_object)->references;
                 reference_type_found = true;
             }
+            if((current_object_type == PHP_WXTEMPFFILEOUTPUTSTREAM_TYPE) && (!reference_type_found)){
+                references = &((wxTempFFileOutputStream_php*)native_object)->references;
+                reference_type_found = true;
+            }
         }
     }
     #ifdef USE_WXPHP_DEBUG
@@ -2493,6 +2501,10 @@ PHP_METHOD(php_wxStreamBase, IsOk)
             }
             if((current_object_type == PHP_WXFILEOUTPUTSTREAM_TYPE) && (!reference_type_found)){
                 references = &((wxFileOutputStream_php*)native_object)->references;
+                reference_type_found = true;
+            }
+            if((current_object_type == PHP_WXTEMPFFILEOUTPUTSTREAM_TYPE) && (!reference_type_found)){
+                references = &((wxTempFFileOutputStream_php*)native_object)->references;
                 reference_type_found = true;
             }
         }
@@ -2634,6 +2646,10 @@ PHP_METHOD(php_wxStreamBase, GetSize)
                 references = &((wxFileOutputStream_php*)native_object)->references;
                 reference_type_found = true;
             }
+            if((current_object_type == PHP_WXTEMPFFILEOUTPUTSTREAM_TYPE) && (!reference_type_found)){
+                references = &((wxTempFFileOutputStream_php*)native_object)->references;
+                reference_type_found = true;
+            }
         }
     }
     #ifdef USE_WXPHP_DEBUG
@@ -2773,6 +2789,10 @@ PHP_METHOD(php_wxStreamBase, GetLength)
                 references = &((wxFileOutputStream_php*)native_object)->references;
                 reference_type_found = true;
             }
+            if((current_object_type == PHP_WXTEMPFFILEOUTPUTSTREAM_TYPE) && (!reference_type_found)){
+                references = &((wxTempFFileOutputStream_php*)native_object)->references;
+                reference_type_found = true;
+            }
         }
     }
     #ifdef USE_WXPHP_DEBUG
@@ -2910,6 +2930,10 @@ PHP_METHOD(php_wxStreamBase, GetLastError)
             }
             if((current_object_type == PHP_WXFILEOUTPUTSTREAM_TYPE) && (!reference_type_found)){
                 references = &((wxFileOutputStream_php*)native_object)->references;
+                reference_type_found = true;
+            }
+            if((current_object_type == PHP_WXTEMPFFILEOUTPUTSTREAM_TYPE) && (!reference_type_found)){
+                references = &((wxTempFFileOutputStream_php*)native_object)->references;
                 reference_type_found = true;
             }
         }
@@ -3376,6 +3400,10 @@ PHP_METHOD(php_wxOutputStream, Write)
                 references = &((wxFileStream_php*)native_object)->references;
                 reference_type_found = true;
             }
+            if((current_object_type == PHP_WXTEMPFFILEOUTPUTSTREAM_TYPE) && (!reference_type_found)){
+                references = &((wxTempFFileOutputStream_php*)native_object)->references;
+                reference_type_found = true;
+            }
         }
     }
     #ifdef USE_WXPHP_DEBUG
@@ -3605,6 +3633,10 @@ PHP_METHOD(php_wxOutputStream, TellO)
                 references = &((wxFileStream_php*)native_object)->references;
                 reference_type_found = true;
             }
+            if((current_object_type == PHP_WXTEMPFFILEOUTPUTSTREAM_TYPE) && (!reference_type_found)){
+                references = &((wxTempFFileOutputStream_php*)native_object)->references;
+                reference_type_found = true;
+            }
         }
     }
     #ifdef USE_WXPHP_DEBUG
@@ -3726,6 +3758,10 @@ PHP_METHOD(php_wxOutputStream, SeekO)
             }
             if((current_object_type == PHP_WXFILESTREAM_TYPE) && (!reference_type_found)){
                 references = &((wxFileStream_php*)native_object)->references;
+                reference_type_found = true;
+            }
+            if((current_object_type == PHP_WXTEMPFFILEOUTPUTSTREAM_TYPE) && (!reference_type_found)){
+                references = &((wxTempFFileOutputStream_php*)native_object)->references;
                 reference_type_found = true;
             }
         }
@@ -3869,6 +3905,10 @@ PHP_METHOD(php_wxOutputStream, PutC)
                 references = &((wxFileStream_php*)native_object)->references;
                 reference_type_found = true;
             }
+            if((current_object_type == PHP_WXTEMPFFILEOUTPUTSTREAM_TYPE) && (!reference_type_found)){
+                references = &((wxTempFFileOutputStream_php*)native_object)->references;
+                reference_type_found = true;
+            }
         }
     }
     #ifdef USE_WXPHP_DEBUG
@@ -3997,6 +4037,10 @@ PHP_METHOD(php_wxOutputStream, Close)
                 references = &((wxFileStream_php*)native_object)->references;
                 reference_type_found = true;
             }
+            if((current_object_type == PHP_WXTEMPFFILEOUTPUTSTREAM_TYPE) && (!reference_type_found)){
+                references = &((wxTempFFileOutputStream_php*)native_object)->references;
+                reference_type_found = true;
+            }
         }
     }
     #ifdef USE_WXPHP_DEBUG
@@ -4118,6 +4162,10 @@ PHP_METHOD(php_wxOutputStream, LastWrite)
             }
             if((current_object_type == PHP_WXFILESTREAM_TYPE) && (!reference_type_found)){
                 references = &((wxFileStream_php*)native_object)->references;
+                reference_type_found = true;
+            }
+            if((current_object_type == PHP_WXTEMPFFILEOUTPUTSTREAM_TYPE) && (!reference_type_found)){
+                references = &((wxTempFFileOutputStream_php*)native_object)->references;
                 reference_type_found = true;
             }
         }
@@ -4879,7 +4927,7 @@ PHP_METHOD(php_wxInputStream, Read)
                     wxphp_object_type argument_type = Z_wxOutputStream_P(stream_out0)->object_type;
                     argument_native_object = (void*) Z_wxOutputStream_P(stream_out0)->native_object;
                     object_pointer0_0 = (wxOutputStream*) argument_native_object;
-                    if (!object_pointer0_0 || (argument_type != PHP_WXOUTPUTSTREAM_TYPE && argument_type != PHP_WXFFILEOUTPUTSTREAM_TYPE && argument_type != PHP_WXFFILESTREAM_TYPE && argument_type != PHP_WXFILEOUTPUTSTREAM_TYPE && argument_type != PHP_WXFILESTREAM_TYPE))
+                    if (!object_pointer0_0 || (argument_type != PHP_WXOUTPUTSTREAM_TYPE && argument_type != PHP_WXFFILEOUTPUTSTREAM_TYPE && argument_type != PHP_WXFFILESTREAM_TYPE && argument_type != PHP_WXFILEOUTPUTSTREAM_TYPE && argument_type != PHP_WXFILESTREAM_TYPE && argument_type != PHP_WXTEMPFFILEOUTPUTSTREAM_TYPE))
                     {
                         goto overload1;
                     }
