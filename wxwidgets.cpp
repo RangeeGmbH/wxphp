@@ -1020,6 +1020,28 @@ zend_class_entry* php_wxScrolled_entry;
 zend_object_handlers wxphp_wxScrolled_object_handlers;
 zend_class_entry* php_wxTimerEvent_entry;
 zend_object_handlers wxphp_wxTimerEvent_object_handlers;
+zend_class_entry* php_wxWebAuthChallenge_entry;
+zend_object_handlers wxphp_wxWebAuthChallenge_object_handlers;
+zend_class_entry* php_wxWebCredentials_entry;
+zend_object_handlers wxphp_wxWebCredentials_object_handlers;
+zend_class_entry* php_wxWebRequest_entry;
+zend_object_handlers wxphp_wxWebRequest_object_handlers;
+zend_class_entry* php_wxWebRequestEvent_entry;
+zend_object_handlers wxphp_wxWebRequestEvent_object_handlers;
+zend_class_entry* php_wxWebResponse_entry;
+zend_object_handlers wxphp_wxWebResponse_object_handlers;
+zend_class_entry* php_wxWebSession_entry;
+zend_object_handlers wxphp_wxWebSession_object_handlers;
+zend_class_entry* php_wxWebViewFactory_entry;
+zend_object_handlers wxphp_wxWebViewFactory_object_handlers;
+zend_class_entry* php_wxWebViewFSHandler_entry;
+zend_object_handlers wxphp_wxWebViewFSHandler_object_handlers;
+zend_class_entry* php_wxArrayStringProperty_entry;
+zend_object_handlers wxphp_wxArrayStringProperty_object_handlers;
+zend_class_entry* php_wxView_entry;
+zend_object_handlers wxphp_wxView_object_handlers;
+zend_class_entry* php_wxVisualAttributes_entry;
+zend_object_handlers wxphp_wxVisualAttributes_object_handlers;
 
 
 /**
@@ -2418,6 +2440,12 @@ PHP_MINIT_FUNCTION(php_wxWidgets)
     php_wxDataObject_entry->create_object = php_wxDataObject_new;
     wxPHP_PREPARE_OBJECT_HANDLERS(wxDataObject)
 
+    char PHP_wxWebViewHandler_name[] = "wxWebViewHandler";
+    INIT_CLASS_ENTRY(ce, PHP_wxWebViewHandler_name, php_wxWebViewHandler_functions);
+    php_wxWebViewHandler_entry = zend_register_internal_class(&ce);
+    php_wxWebViewHandler_entry->create_object = php_wxWebViewHandler_new;
+    wxPHP_PREPARE_OBJECT_HANDLERS(wxWebViewHandler)
+
     char PHP_wxKeyboardState_name[] = "wxKeyboardState";
     INIT_CLASS_ENTRY(ce, PHP_wxKeyboardState_name, php_wxKeyboardState_functions);
     php_wxKeyboardState_entry = zend_register_internal_class(&ce);
@@ -2465,12 +2493,6 @@ PHP_MINIT_FUNCTION(php_wxWidgets)
     php_wxHeaderColumn_entry = zend_register_internal_class(&ce);
     php_wxHeaderColumn_entry->create_object = php_wxHeaderColumn_new;
     wxPHP_PREPARE_OBJECT_HANDLERS(wxHeaderColumn)
-
-    char PHP_wxWebViewHandler_name[] = "wxWebViewHandler";
-    INIT_CLASS_ENTRY(ce, PHP_wxWebViewHandler_name, php_wxWebViewHandler_functions);
-    php_wxWebViewHandler_entry = zend_register_internal_class(&ce);
-    php_wxWebViewHandler_entry->create_object = php_wxWebViewHandler_new;
-    wxPHP_PREPARE_OBJECT_HANDLERS(wxWebViewHandler)
 
     char PHP_wxScrolled_name[] = "wxScrolled";
     INIT_CLASS_ENTRY(ce, PHP_wxScrolled_name, php_wxScrolled_functions);
@@ -3083,6 +3105,48 @@ PHP_MINIT_FUNCTION(php_wxWidgets)
     php_wxURI_entry = zend_register_internal_class(&ce);
     php_wxURI_entry->create_object = php_wxURI_new;
     wxPHP_PREPARE_OBJECT_HANDLERS(wxURI)
+
+    char PHP_wxWebAuthChallenge_name[] = "wxWebAuthChallenge";
+    INIT_CLASS_ENTRY(ce, PHP_wxWebAuthChallenge_name, php_wxWebAuthChallenge_functions);
+    php_wxWebAuthChallenge_entry = zend_register_internal_class(&ce);
+    php_wxWebAuthChallenge_entry->create_object = php_wxWebAuthChallenge_new;
+    wxPHP_PREPARE_OBJECT_HANDLERS(wxWebAuthChallenge)
+
+    char PHP_wxWebCredentials_name[] = "wxWebCredentials";
+    INIT_CLASS_ENTRY(ce, PHP_wxWebCredentials_name, php_wxWebCredentials_functions);
+    php_wxWebCredentials_entry = zend_register_internal_class(&ce);
+    php_wxWebCredentials_entry->create_object = php_wxWebCredentials_new;
+    wxPHP_PREPARE_OBJECT_HANDLERS(wxWebCredentials)
+
+    char PHP_wxWebRequest_name[] = "wxWebRequest";
+    INIT_CLASS_ENTRY(ce, PHP_wxWebRequest_name, php_wxWebRequest_functions);
+    php_wxWebRequest_entry = zend_register_internal_class(&ce);
+    php_wxWebRequest_entry->create_object = php_wxWebRequest_new;
+    wxPHP_PREPARE_OBJECT_HANDLERS(wxWebRequest)
+
+    char PHP_wxWebResponse_name[] = "wxWebResponse";
+    INIT_CLASS_ENTRY(ce, PHP_wxWebResponse_name, php_wxWebResponse_functions);
+    php_wxWebResponse_entry = zend_register_internal_class(&ce);
+    php_wxWebResponse_entry->create_object = php_wxWebResponse_new;
+    wxPHP_PREPARE_OBJECT_HANDLERS(wxWebResponse)
+
+    char PHP_wxWebSession_name[] = "wxWebSession";
+    INIT_CLASS_ENTRY(ce, PHP_wxWebSession_name, php_wxWebSession_functions);
+    php_wxWebSession_entry = zend_register_internal_class(&ce);
+    php_wxWebSession_entry->create_object = php_wxWebSession_new;
+    wxPHP_PREPARE_OBJECT_HANDLERS(wxWebSession)
+
+    char PHP_wxArrayStringProperty_name[] = "wxArrayStringProperty";
+    INIT_CLASS_ENTRY(ce, PHP_wxArrayStringProperty_name, php_wxArrayStringProperty_functions);
+    php_wxArrayStringProperty_entry = zend_register_internal_class(&ce);
+    php_wxArrayStringProperty_entry->create_object = php_wxArrayStringProperty_new;
+    wxPHP_PREPARE_OBJECT_HANDLERS(wxArrayStringProperty)
+
+    char PHP_wxVisualAttributes_name[] = "wxVisualAttributes";
+    INIT_CLASS_ENTRY(ce, PHP_wxVisualAttributes_name, php_wxVisualAttributes_functions);
+    php_wxVisualAttributes_entry = zend_register_internal_class(&ce);
+    php_wxVisualAttributes_entry->create_object = php_wxVisualAttributes_new;
+    wxPHP_PREPARE_OBJECT_HANDLERS(wxVisualAttributes)
 
     char PHP_wxEvtHandler_name[] = "wxEvtHandler";
     INIT_CLASS_ENTRY(ce, PHP_wxEvtHandler_name, php_wxEvtHandler_functions);
@@ -5225,6 +5289,30 @@ PHP_MINIT_FUNCTION(php_wxWidgets)
     php_wxTimerEvent_entry = zend_register_internal_class_ex(&ce, php_wxEvent_entry);
     php_wxTimerEvent_entry->create_object = php_wxTimerEvent_new;
     wxPHP_PREPARE_OBJECT_HANDLERS(wxTimerEvent)
+
+    char PHP_wxWebRequestEvent_name[] = "wxWebRequestEvent";
+    INIT_CLASS_ENTRY(ce, PHP_wxWebRequestEvent_name, php_wxWebRequestEvent_functions);
+    php_wxWebRequestEvent_entry = zend_register_internal_class_ex(&ce, php_wxEvent_entry);
+    php_wxWebRequestEvent_entry->create_object = php_wxWebRequestEvent_new;
+    wxPHP_PREPARE_OBJECT_HANDLERS(wxWebRequestEvent)
+
+    char PHP_wxWebViewFactory_name[] = "wxWebViewFactory";
+    INIT_CLASS_ENTRY(ce, PHP_wxWebViewFactory_name, php_wxWebViewFactory_functions);
+    php_wxWebViewFactory_entry = zend_register_internal_class_ex(&ce, php_wxObject_entry);
+    php_wxWebViewFactory_entry->create_object = php_wxWebViewFactory_new;
+    wxPHP_PREPARE_OBJECT_HANDLERS(wxWebViewFactory)
+
+    char PHP_wxWebViewFSHandler_name[] = "wxWebViewFSHandler";
+    INIT_CLASS_ENTRY(ce, PHP_wxWebViewFSHandler_name, php_wxWebViewFSHandler_functions);
+    php_wxWebViewFSHandler_entry = zend_register_internal_class_ex(&ce, php_wxWebViewHandler_entry);
+    php_wxWebViewFSHandler_entry->create_object = php_wxWebViewFSHandler_new;
+    wxPHP_PREPARE_OBJECT_HANDLERS(wxWebViewFSHandler)
+
+    char PHP_wxView_name[] = "wxView";
+    INIT_CLASS_ENTRY(ce, PHP_wxView_name, php_wxView_functions);
+    php_wxView_entry = zend_register_internal_class_ex(&ce, php_wxEvtHandler_entry);
+    php_wxView_entry->create_object = php_wxView_new;
+    wxPHP_PREPARE_OBJECT_HANDLERS(wxView)
 
 
     //Variables found on consts.json
