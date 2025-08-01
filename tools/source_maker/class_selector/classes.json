@@ -219085,5 +219085,73 @@
 				]
 			}
 		]
-	}
+	},
+	 "wxTimerEvent": {
+        "_implements": [
+            "wxEvent"
+        ],
+        "wxTimerEvent": [
+            {
+                "return_type": "",
+                "brief_description": "",
+                "constant": false,
+                "virtual": false,
+                "pure_virtual": false,
+                "static": false,
+                "protected": false,
+                "parameters_type": [
+                    "wxTimer&"
+                ],
+                "parameters_is_array": [
+                    false
+                ],
+                "parameters_extra": [
+                    false
+                ],
+                "parameters_name": [
+                    "timer"
+                ],
+                "parameters_required": [
+                    true
+                ],
+                "parameters_default_value": [
+                    null
+                ]
+            }
+        ],
+        "GetInterval": [
+            {
+                "return_type": "int",
+                "brief_description": "",
+                "constant": true,
+                "virtual": false,
+                "pure_virtual": false,
+                "static": false,
+                "protected": false,
+                "parameters_type": [],
+                "parameters_is_array": [],
+                "parameters_extra": [],
+                "parameters_name": [],
+                "parameters_required": [],
+                "parameters_default_value": []
+            }
+        ],
+        "GetTimer": [
+            {
+                "return_type": "wxTimer&",
+                "brief_description": "",
+                "constant": true,
+                "virtual": false,
+                "pure_virtual": false,
+                "static": false,
+                "protected": false,
+                "parameters_type": [],
+                "parameters_is_array": [],
+                "parameters_extra": [],
+                "parameters_name": [],
+                "parameters_required": [],
+                "parameters_default_value": []
+            }
+        ]
+    }
 }

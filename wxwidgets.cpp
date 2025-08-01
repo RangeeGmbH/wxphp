@@ -1018,6 +1018,8 @@ zend_class_entry* php_wxMediaEvent_entry;
 zend_object_handlers wxphp_wxMediaEvent_object_handlers;
 zend_class_entry* php_wxScrolled_entry;
 zend_object_handlers wxphp_wxScrolled_object_handlers;
+zend_class_entry* php_wxTimerEvent_entry;
+zend_object_handlers wxphp_wxTimerEvent_object_handlers;
 
 
 /**
@@ -5217,6 +5219,12 @@ PHP_MINIT_FUNCTION(php_wxWidgets)
     php_wxMediaEvent_entry = zend_register_internal_class_ex(&ce, php_wxNotifyEvent_entry);
     php_wxMediaEvent_entry->create_object = php_wxMediaEvent_new;
     wxPHP_PREPARE_OBJECT_HANDLERS(wxMediaEvent)
+
+    char PHP_wxTimerEvent_name[] = "wxTimerEvent";
+    INIT_CLASS_ENTRY(ce, PHP_wxTimerEvent_name, php_wxTimerEvent_functions);
+    php_wxTimerEvent_entry = zend_register_internal_class_ex(&ce, php_wxEvent_entry);
+    php_wxTimerEvent_entry->create_object = php_wxTimerEvent_new;
+    wxPHP_PREPARE_OBJECT_HANDLERS(wxTimerEvent)
 
 
     //Variables found on consts.json
