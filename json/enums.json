@@ -3163,5 +3163,28 @@
 			"wxZLIB_GZIP",
 			"wxZLIB_AUTO"
 		]
+	},
+	{
+		"wxWebAuthChallenge": {
+			"Source": [
+				"Source_Server",
+				"Source_Proxy"
+			]
+		},
+		"wxWebRequest": {
+			"State": [
+				"State_Idle",
+				"State_Unauthorized",
+				"State_Active",
+				"State_Completed",
+				"State_Failed",
+				"State_Cancelled"
+			],
+			"Storage": [
+				"Storage_Memory",
+				"Storage_File",
+				"Storage_None"
+			]
+		}
 	}
 ]

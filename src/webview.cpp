@@ -440,6 +440,507 @@ PHP_METHOD(php_wxWebViewHistoryItem, GetTitle)
 /* }}} */
 
 BEGIN_EXTERN_C()
+void php_wxWebViewFactory_free(void *object)
+{
+    zo_wxWebViewFactory* custom_object = (zo_wxWebViewFactory*) object;
+
+    #ifdef USE_WXPHP_DEBUG
+    php_printf(
+        "Calling php_wxWebViewFactory_free on %s at line %i\n",
+        zend_get_executed_filename(),
+        zend_get_executed_lineno()
+    );
+    php_printf("===========================================\n");
+    #endif
+
+    if(custom_object->native_object != NULL)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Pointer not null\n");
+        php_printf("Pointer address %x\n", (unsigned int)(size_t)custom_object->native_object);
+        #endif
+
+        if(custom_object->is_user_initialized)
+        {
+            #ifdef USE_WXPHP_DEBUG
+            php_printf("Deleting pointer with delete\n");
+            #endif
+
+            delete custom_object->native_object;
+            custom_object->native_object = NULL;
+        }
+
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Deletion of wxWebViewFactory done\n");
+        php_printf("===========================================\n\n");
+        #endif
+    }
+    else
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Not user space initialized\n");
+        #endif
+    }
+
+    zend_object_std_dtor(&custom_object->zo);
+    efree(custom_object);
+}
+
+zend_object* php_wxWebViewFactory_new(zend_class_entry *class_type)
+{
+    #ifdef USE_WXPHP_DEBUG
+    php_printf(
+        "Calling php_wxWebViewFactory_new on %s at line %i\n",
+        zend_get_executed_filename(),
+        zend_get_executed_lineno()
+    );
+    php_printf("===========================================\n");
+    #endif
+
+    zo_wxWebViewFactory* custom_object;
+
+    custom_object = (zo_wxWebViewFactory*) ecalloc(
+        1,
+        sizeof(zo_wxWebViewFactory)
+        + zend_object_properties_size(class_type)
+    );
+
+    zend_object_std_init(&custom_object->zo, class_type);
+    object_properties_init(&custom_object->zo, class_type);
+
+    custom_object->zo.handlers = &wxphp_wxWebViewFactory_object_handlers;
+
+    custom_object->native_object = NULL;
+    custom_object->object_type = PHP_WXWEBVIEWFACTORY_TYPE;
+    custom_object->is_user_initialized = 0;
+
+    return &custom_object->zo;
+}
+END_EXTERN_C()
+
+/* {{{ proto wxWebView wxWebViewFactory::Create() */
+wxWebView* wxWebViewFactory_php::Create()
+{
+    static zend_function* cached_function = NULL;
+    static bool is_php_user_space_implemented = true;
+
+    #ifdef USE_WXPHP_DEBUG
+    php_printf("Invoking virtual wxWebViewFactory::Create\n");
+    php_printf("===========================================\n");
+    #endif
+
+    zval* params[1];
+    zval arguments[1];
+
+    zval function_return_value;
+    zval function_name;
+    ZVAL_STRING(&function_name, "Create");
+    char* temp_string;
+    void* return_object;
+    int function_called;
+
+    //Parameters for conversion
+    
+
+    #ifdef USE_WXPHP_DEBUG
+    php_printf("Trying to call user defined method '%s'", "Create");
+
+    if (this->phpObj.value.obj->ce == NULL) {
+    php_printf(" on NULL!\n");
+    } else {
+    php_printf(" on %s\n", ZSTR_VAL(this->phpObj.value.obj->ce->name));
+    }
+    #endif
+
+    if(is_php_user_space_implemented)
+    {
+        function_called = wxphp_call_method(
+            (zval*)&this->phpObj,
+            NULL,
+            &cached_function,
+            "Create",
+            6,
+            &function_return_value,
+            0,
+            params
+        );
+    }
+    else
+    {
+        function_called = FAILURE;
+    }
+
+    
+
+    if(function_called == FAILURE)
+    {
+        is_php_user_space_implemented = false;
+
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Invocation of user defined method failed\n");
+        #endif
+
+        wxMessageBox(
+            "Failed to call virtual method "
+                "'wxWebViewFactory::Create'!",
+            "Error",
+            wxOK|wxICON_ERROR
+        );
+    }
+
+    #ifdef USE_WXPHP_DEBUG
+    php_printf("Returning userspace value.\n");
+    #endif
+
+    if(Z_TYPE(function_return_value) == IS_OBJECT)
+    {
+        return_object = (void*) Z_wxWebView_P(&function_return_value)->native_object;
+    }
+
+    //Threat it as a normal object on the calling function and not a php user space intiialized one
+    Z_wxWebView_P(&function_return_value)->is_user_initialized = 0;
+    wxWebView_php* var = (wxWebView_php*) return_object;
+    var->references.UnInitialize();
+
+    return (wxWebView*) return_object;
+
+}
+/* }}} */
+
+/* {{{ proto wxWebView wxWebViewFactory::Create() */
+wxWebView* wxWebViewFactory_php::Create(wxWindow* parent, wxWindowID id, const wxString& url, const wxPoint& pos, const wxSize& size, long style, const wxString& name)
+{
+    static zend_function* cached_function = NULL;
+    static bool is_php_user_space_implemented = true;
+
+    #ifdef USE_WXPHP_DEBUG
+    php_printf("Invoking virtual wxWebViewFactory::Create\n");
+    php_printf("===========================================\n");
+    #endif
+
+    zval* params[7];
+    zval arguments[7];
+
+    zval function_return_value;
+    zval function_name;
+    ZVAL_STRING(&function_name, "Create");
+    char* temp_string;
+    void* return_object;
+    int function_called;
+
+    //Parameters for conversion
+    object_init_ex(&arguments[0], php_wxWindow_entry);
+    Z_wxWindow_P(&arguments[0])->native_object = (wxWindow_php*) &parent;
+    ZVAL_LONG(&arguments[1], id);
+    ZVAL_STRING(&arguments[2], url.ToUTF8().data());
+    object_init_ex(&arguments[3], php_wxPoint_entry);
+    Z_wxPoint_P(&arguments[3])->native_object = (wxPoint_php*) &pos;
+    object_init_ex(&arguments[4], php_wxSize_entry);
+    Z_wxSize_P(&arguments[4])->native_object = (wxSize_php*) &size;
+    ZVAL_LONG(&arguments[5], style);
+    ZVAL_STRING(&arguments[6], name.ToUTF8().data());
+    
+    for(int i=0; i<7; i++)
+    {
+        params[i] = &arguments[i];
+    }
+
+    #ifdef USE_WXPHP_DEBUG
+    php_printf("Trying to call user defined method '%s'", "Create");
+
+    if (this->phpObj.value.obj->ce == NULL) {
+    php_printf(" on NULL!\n");
+    } else {
+    php_printf(" on %s\n", ZSTR_VAL(this->phpObj.value.obj->ce->name));
+    }
+    #endif
+
+    if(is_php_user_space_implemented)
+    {
+        function_called = wxphp_call_method(
+            (zval*)&this->phpObj,
+            NULL,
+            &cached_function,
+            "Create",
+            6,
+            &function_return_value,
+            7,
+            params
+        );
+    }
+    else
+    {
+        function_called = FAILURE;
+    }
+
+    
+    //Delete already used parameters from memory
+    for(int i=0; i<7; i++)
+    {
+        zval_ptr_dtor(&arguments[i]);
+    }
+
+    if(function_called == FAILURE)
+    {
+        is_php_user_space_implemented = false;
+
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Invocation of user defined method failed\n");
+        #endif
+
+        wxMessageBox(
+            "Failed to call virtual method "
+                "'wxWebViewFactory::Create'!",
+            "Error",
+            wxOK|wxICON_ERROR
+        );
+    }
+
+    #ifdef USE_WXPHP_DEBUG
+    php_printf("Returning userspace value.\n");
+    #endif
+
+    if(Z_TYPE(function_return_value) == IS_OBJECT)
+    {
+        return_object = (void*) Z_wxWebView_P(&function_return_value)->native_object;
+    }
+
+    //Threat it as a normal object on the calling function and not a php user space intiialized one
+    Z_wxWebView_P(&function_return_value)->is_user_initialized = 0;
+    wxWebView_php* var = (wxWebView_php*) return_object;
+    var->references.UnInitialize();
+
+    return (wxWebView*) return_object;
+
+}
+/* }}} */
+
+/* {{{ proto bool wxWebViewFactory::IsAvailable() */
+PHP_METHOD(php_wxWebViewFactory, IsAvailable)
+{
+    #ifdef USE_WXPHP_DEBUG
+    php_printf("Invoking wxWebViewFactory::IsAvailable\n");
+    php_printf("===========================================\n");
+    #endif
+
+    zo_wxWebViewFactory* current_object;
+    wxphp_object_type current_object_type;
+    wxWebViewFactory_php* native_object;
+    void* argument_native_object = NULL;
+
+    //Other variables used thru the code
+    zval dummy;
+    ZVAL_NULL(&dummy);
+    bool already_called = false;
+    wxPHPObjectReferences* references;
+    int arguments_received = ZEND_NUM_ARGS();
+    bool return_is_user_initialized = false;
+
+    //Get native object of the php object that called the method
+    if(getThis() != NULL)
+    {
+        current_object = Z_wxWebViewFactory_P(getThis());
+
+        if(current_object->native_object == NULL)
+        {
+            zend_error(
+                E_ERROR,
+                "Failed to get the native object for "
+                "wxWebViewFactory::IsAvailable call\n"
+            );
+
+            return;
+        }
+        else
+        {
+            native_object = current_object->native_object;
+            current_object_type = current_object->object_type;
+
+            bool reference_type_found = false;
+
+            if(current_object_type == PHP_WXWEBVIEWFACTORY_TYPE){
+                references = &((wxWebViewFactory_php*)native_object)->references;
+                reference_type_found = true;
+            }
+        }
+    }
+    #ifdef USE_WXPHP_DEBUG
+    else
+    {
+        php_printf("Processing the method call as static\n");
+    }
+    #endif
+
+    //Parameters for overload 0
+    bool overload0_called = false;
+
+    
+    //Overload 0
+    overload0:
+    if(!already_called && arguments_received == 0)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Parameters received %d\n", arguments_received);
+        php_printf("Parsing parameters with '' ()\n");
+        #endif
+
+        overload0_called = true;
+        already_called = true;
+    }
+
+    
+    if(overload0_called)
+    {
+        switch(arguments_received)
+        {
+            case 0:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing RETURN_BOOL(wxWebViewFactory::IsAvailable())\n\n");
+                #endif
+
+                if(current_object_type == PHP_WXWEBVIEWFACTORY_TYPE)
+                {
+                    RETVAL_BOOL(((wxWebViewFactory_php*)native_object)->IsAvailable());
+                }
+
+
+                return;
+                break;
+            }
+        }
+    }
+
+    
+    //In case wrong type/count of parameters was passed
+    if(!already_called)
+    {
+        zend_error(
+            E_ERROR,
+            "Wrong type or count of parameters passed to: "
+            "wxWebViewFactory::IsAvailable\n"
+        );
+    }
+}
+/* }}} */
+
+/* {{{ proto wxVersionInfo wxWebViewFactory::GetVersionInfo() */
+PHP_METHOD(php_wxWebViewFactory, GetVersionInfo)
+{
+    #ifdef USE_WXPHP_DEBUG
+    php_printf("Invoking wxWebViewFactory::GetVersionInfo\n");
+    php_printf("===========================================\n");
+    #endif
+
+    zo_wxWebViewFactory* current_object;
+    wxphp_object_type current_object_type;
+    wxWebViewFactory_php* native_object;
+    void* argument_native_object = NULL;
+
+    //Other variables used thru the code
+    zval dummy;
+    ZVAL_NULL(&dummy);
+    bool already_called = false;
+    wxPHPObjectReferences* references;
+    int arguments_received = ZEND_NUM_ARGS();
+    bool return_is_user_initialized = false;
+
+    //Get native object of the php object that called the method
+    if(getThis() != NULL)
+    {
+        current_object = Z_wxWebViewFactory_P(getThis());
+
+        if(current_object->native_object == NULL)
+        {
+            zend_error(
+                E_ERROR,
+                "Failed to get the native object for "
+                "wxWebViewFactory::GetVersionInfo call\n"
+            );
+
+            return;
+        }
+        else
+        {
+            native_object = current_object->native_object;
+            current_object_type = current_object->object_type;
+
+            bool reference_type_found = false;
+
+            if(current_object_type == PHP_WXWEBVIEWFACTORY_TYPE){
+                references = &((wxWebViewFactory_php*)native_object)->references;
+                reference_type_found = true;
+            }
+        }
+    }
+    #ifdef USE_WXPHP_DEBUG
+    else
+    {
+        php_printf("Processing the method call as static\n");
+    }
+    #endif
+
+    //Parameters for overload 0
+    bool overload0_called = false;
+
+    
+    //Overload 0
+    overload0:
+    if(!already_called && arguments_received == 0)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Parameters received %d\n", arguments_received);
+        php_printf("Parsing parameters with '' ()\n");
+        #endif
+
+        overload0_called = true;
+        already_called = true;
+    }
+
+    
+    if(overload0_called)
+    {
+        switch(arguments_received)
+        {
+            case 0:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing wxWebViewFactory::GetVersionInfo() to return new object\n\n");
+                #endif
+
+                wxVersionInfo value_to_return0;
+                if(current_object_type == PHP_WXWEBVIEWFACTORY_TYPE)
+                {
+                    value_to_return0 = ((wxWebViewFactory_php*)native_object)->GetVersionInfo();
+                    void* ptr = safe_emalloc(1, sizeof(wxVersionInfo_php), 0);
+                    memcpy(ptr, (void*) &value_to_return0, sizeof(wxVersionInfo));
+                    object_init_ex(return_value, php_wxVersionInfo_entry);
+                    ((wxVersionInfo_php*)ptr)->phpObj = *return_value;
+                    zo_wxVersionInfo* zo0 = Z_wxVersionInfo_P(return_value);
+                    zo0->native_object = (wxVersionInfo_php*) ptr;
+                }
+
+
+                return;
+                break;
+            }
+        }
+    }
+
+    
+    //In case wrong type/count of parameters was passed
+    if(!already_called)
+    {
+        zend_error(
+            E_ERROR,
+            "Wrong type or count of parameters passed to: "
+            "wxWebViewFactory::GetVersionInfo\n"
+        );
+    }
+}
+/* }}} */
+
+BEGIN_EXTERN_C()
 void php_wxWebViewHandler_free(void *object)
 {
     zo_wxWebViewHandler* custom_object = (zo_wxWebViewHandler*) object;
@@ -656,6 +1157,10 @@ PHP_METHOD(php_wxWebViewHandler, GetName)
             }
             if((current_object_type == PHP_WXWEBVIEWARCHIVEHANDLER_TYPE) && (!reference_type_found)){
                 references = &((wxWebViewArchiveHandler_php*)native_object)->references;
+                reference_type_found = true;
+            }
+            if((current_object_type == PHP_WXWEBVIEWFSHANDLER_TYPE) && (!reference_type_found)){
+                references = &((wxWebViewFSHandler_php*)native_object)->references;
                 reference_type_found = true;
             }
         }
@@ -1116,6 +1621,308 @@ PHP_METHOD(php_wxWebViewArchiveHandler, GetFile)
             E_ERROR,
             "Wrong type or count of parameters passed to: "
             "wxWebViewArchiveHandler::GetFile\n"
+        );
+    }
+}
+/* }}} */
+
+BEGIN_EXTERN_C()
+void php_wxWebViewFSHandler_free(void *object)
+{
+    zo_wxWebViewFSHandler* custom_object = (zo_wxWebViewFSHandler*) object;
+
+    #ifdef USE_WXPHP_DEBUG
+    php_printf(
+        "Calling php_wxWebViewFSHandler_free on %s at line %i\n",
+        zend_get_executed_filename(),
+        zend_get_executed_lineno()
+    );
+    php_printf("===========================================\n");
+    #endif
+
+    if(custom_object->native_object != NULL)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Pointer not null\n");
+        php_printf("Pointer address %x\n", (unsigned int)(size_t)custom_object->native_object);
+        #endif
+
+        if(custom_object->is_user_initialized)
+        {
+            #ifdef USE_WXPHP_DEBUG
+            php_printf("Deleting pointer with delete\n");
+            #endif
+
+            delete custom_object->native_object;
+            custom_object->native_object = NULL;
+        }
+
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Deletion of wxWebViewFSHandler done\n");
+        php_printf("===========================================\n\n");
+        #endif
+    }
+    else
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Not user space initialized\n");
+        #endif
+    }
+
+    zend_object_std_dtor(&custom_object->zo);
+    efree(custom_object);
+}
+
+zend_object* php_wxWebViewFSHandler_new(zend_class_entry *class_type)
+{
+    #ifdef USE_WXPHP_DEBUG
+    php_printf(
+        "Calling php_wxWebViewFSHandler_new on %s at line %i\n",
+        zend_get_executed_filename(),
+        zend_get_executed_lineno()
+    );
+    php_printf("===========================================\n");
+    #endif
+
+    zo_wxWebViewFSHandler* custom_object;
+
+    custom_object = (zo_wxWebViewFSHandler*) ecalloc(
+        1,
+        sizeof(zo_wxWebViewFSHandler)
+        + zend_object_properties_size(class_type)
+    );
+
+    zend_object_std_init(&custom_object->zo, class_type);
+    object_properties_init(&custom_object->zo, class_type);
+
+    custom_object->zo.handlers = &wxphp_wxWebViewFSHandler_object_handlers;
+
+    custom_object->native_object = NULL;
+    custom_object->object_type = PHP_WXWEBVIEWFSHANDLER_TYPE;
+    custom_object->is_user_initialized = 0;
+
+    return &custom_object->zo;
+}
+END_EXTERN_C()
+
+/* {{{ proto  wxWebViewFSHandler::wxWebViewFSHandler(string scheme) */
+PHP_METHOD(php_wxWebViewFSHandler, __construct)
+{
+    #ifdef USE_WXPHP_DEBUG
+    php_printf("Invoking wxWebViewFSHandler::__construct\n");
+    php_printf("===========================================\n");
+    #endif
+
+    zo_wxWebViewFSHandler* current_object;
+    wxWebViewFSHandler_php* native_object;
+    void* argument_native_object = NULL;
+
+    //Other variables used thru the code
+    zval dummy;
+    ZVAL_NULL(&dummy);
+    bool already_called = false;
+    int arguments_received = ZEND_NUM_ARGS();
+
+
+    //Parameters for overload 0
+    char* scheme0;
+    size_t scheme_len0;
+    bool overload0_called = false;
+
+    
+    //Overload 0
+    overload0:
+    if(!already_called && arguments_received == 1)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Parameters received %d\n", arguments_received);
+        php_printf("Parsing parameters with 's' (&scheme0, &scheme_len0)\n");
+        #endif
+
+        char parse_parameters_string[] = "s";
+        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &scheme0, &scheme_len0 ) == SUCCESS)
+        {
+            overload0_called = true;
+            already_called = true;
+        }
+    }
+
+    
+    if(overload0_called)
+    {
+        switch(arguments_received)
+        {
+            case 1:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing __construct(wxString(scheme0, wxConvUTF8))\n");
+                #endif
+
+                native_object = new wxWebViewFSHandler_php(wxString(scheme0, wxConvUTF8));
+
+                native_object->references.Initialize();
+                break;
+            }
+        }
+    }
+
+    
+    if(already_called)
+    {
+        native_object->phpObj = *getThis();
+
+
+        current_object = Z_wxWebViewFSHandler_P(getThis());
+
+        current_object->native_object = native_object;
+
+        current_object->is_user_initialized = 1;
+    }
+    else
+    {
+        zend_error(
+            E_ERROR,
+            "Abstract class or wrong type/count of parameters "
+            "passed to: wxWebViewFSHandler::__construct\n"
+        );
+    }
+
+    #ifdef USE_WXPHP_DEBUG
+        php_printf("===========================================\n\n");
+    #endif
+}
+/* }}} */
+
+/* {{{ proto wxFSFile wxWebViewFSHandler::GetFile(string uri) */
+PHP_METHOD(php_wxWebViewFSHandler, GetFile)
+{
+    #ifdef USE_WXPHP_DEBUG
+    php_printf("Invoking wxWebViewFSHandler::GetFile\n");
+    php_printf("===========================================\n");
+    #endif
+
+    zo_wxWebViewFSHandler* current_object;
+    wxphp_object_type current_object_type;
+    wxWebViewFSHandler_php* native_object;
+    void* argument_native_object = NULL;
+
+    //Other variables used thru the code
+    zval dummy;
+    ZVAL_NULL(&dummy);
+    bool already_called = false;
+    wxPHPObjectReferences* references;
+    int arguments_received = ZEND_NUM_ARGS();
+    bool return_is_user_initialized = false;
+
+    //Get native object of the php object that called the method
+    if(getThis() != NULL)
+    {
+        current_object = Z_wxWebViewFSHandler_P(getThis());
+
+        if(current_object->native_object == NULL)
+        {
+            zend_error(
+                E_ERROR,
+                "Failed to get the native object for "
+                "wxWebViewFSHandler::GetFile call\n"
+            );
+
+            return;
+        }
+        else
+        {
+            native_object = current_object->native_object;
+            current_object_type = current_object->object_type;
+
+            bool reference_type_found = false;
+
+            if(current_object_type == PHP_WXWEBVIEWFSHANDLER_TYPE){
+                references = &((wxWebViewFSHandler_php*)native_object)->references;
+                reference_type_found = true;
+            }
+        }
+    }
+    #ifdef USE_WXPHP_DEBUG
+    else
+    {
+        php_printf("Processing the method call as static\n");
+    }
+    #endif
+
+    //Parameters for overload 0
+    char* uri0;
+    size_t uri_len0;
+    bool overload0_called = false;
+
+    
+    //Overload 0
+    overload0:
+    if(!already_called && arguments_received == 1)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Parameters received %d\n", arguments_received);
+        php_printf("Parsing parameters with 's' (&uri0, &uri_len0)\n");
+        #endif
+
+        char parse_parameters_string[] = "s";
+        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &uri0, &uri_len0 ) == SUCCESS)
+        {
+            overload0_called = true;
+            already_called = true;
+        }
+    }
+
+    
+    if(overload0_called)
+    {
+        switch(arguments_received)
+        {
+            case 1:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing wxWebViewFSHandler::GetFile(wxString(uri0, wxConvUTF8)) to return object pointer\n\n");
+                #endif
+
+                wxFSFile_php* value_to_return1;
+                value_to_return1 = (wxFSFile_php*) ((wxWebViewFSHandler_php*)native_object)->GetFile(wxString(uri0, wxConvUTF8));
+
+                if(value_to_return1 == NULL){
+                    RETVAL_NULL();
+                }
+                else if(value_to_return1->references.IsUserInitialized()){
+                    if(!Z_ISNULL(value_to_return1->phpObj)){
+                        ZVAL_COPY_VALUE(return_value, &value_to_return1->phpObj);
+                        zval_add_ref(&value_to_return1->phpObj);
+                        return_is_user_initialized = true;
+                    }
+                    else{
+                        zend_error(E_ERROR, "Could not retreive original zval.");
+                    }
+                }
+                else{
+                    object_init_ex(return_value, php_wxFSFile_entry);
+                    Z_wxFSFile_P(return_value)->native_object = (wxFSFile_php*) value_to_return1;
+                }
+
+                if(Z_TYPE_P(return_value) != IS_NULL && (void*)value_to_return1 != (void*)native_object && return_is_user_initialized){
+                    references->AddReference(return_value, "wxWebViewFSHandler::GetFile at call 5 with 1 argument(s)");
+                }
+
+
+                return;
+                break;
+            }
+        }
+    }
+
+    
+    //In case wrong type/count of parameters was passed
+    if(!already_called)
+    {
+        zend_error(
+            E_ERROR,
+            "Wrong type or count of parameters passed to: "
+            "wxWebViewFSHandler::GetFile\n"
         );
     }
 }
