@@ -41,7 +41,6 @@
 #include "ribbon.h"
 #include "richtext.h"
 #include "rtti.h"
-#include "smartpointers.h"
 #include "stc.h"
 #include "streams.h"
 #include "threading.h"
@@ -2752,14 +2751,6 @@ PHP_METHOD(php_wxGridCellEditor, PaintBackground)
                 references = &((wxGridCellNumberEditor_php*)native_object)->references;
                 reference_type_found = true;
             }
-            if((current_object_type == PHP_WXGRIDCELLACTIVATABLEEDITOR_TYPE) && (!reference_type_found)){
-                references = &((wxGridCellActivatableEditor_php*)native_object)->references;
-                reference_type_found = true;
-            }
-            if((current_object_type == PHP_WXGRIDCELLDATEEDITOR_TYPE) && (!reference_type_found)){
-                references = &((wxGridCellDateEditor_php*)native_object)->references;
-                reference_type_found = true;
-            }
         }
     }
     #ifdef USE_WXPHP_DEBUG
@@ -2885,14 +2876,6 @@ PHP_METHOD(php_wxGridCellEditor, PaintBackground)
                 else if(current_object_type == PHP_WXGRIDCELLNUMBEREDITOR_TYPE)
                 {
                     ((wxGridCellNumberEditor_php*)native_object)->PaintBackground(*(wxDC*) object_pointer0_0, *(wxRect*) object_pointer0_1, *(wxGridCellAttr*) object_pointer0_2);
-                }
-                else if(current_object_type == PHP_WXGRIDCELLACTIVATABLEEDITOR_TYPE)
-                {
-                    ((wxGridCellActivatableEditor_php*)native_object)->PaintBackground(*(wxDC*) object_pointer0_0, *(wxRect*) object_pointer0_1, *(wxGridCellAttr*) object_pointer0_2);
-                }
-                else if(current_object_type == PHP_WXGRIDCELLDATEEDITOR_TYPE)
-                {
-                    ((wxGridCellDateEditor_php*)native_object)->PaintBackground(*(wxDC*) object_pointer0_0, *(wxRect*) object_pointer0_1, *(wxGridCellAttr*) object_pointer0_2);
                 }
                 else if(current_object_type == PHP_WXGRIDCELLEDITOR_TYPE)
                 {
@@ -3368,14 +3351,6 @@ PHP_METHOD(php_wxGridCellEditor, Destroy)
                 references = &((wxGridCellNumberEditor_php*)native_object)->references;
                 reference_type_found = true;
             }
-            if((current_object_type == PHP_WXGRIDCELLACTIVATABLEEDITOR_TYPE) && (!reference_type_found)){
-                references = &((wxGridCellActivatableEditor_php*)native_object)->references;
-                reference_type_found = true;
-            }
-            if((current_object_type == PHP_WXGRIDCELLDATEEDITOR_TYPE) && (!reference_type_found)){
-                references = &((wxGridCellDateEditor_php*)native_object)->references;
-                reference_type_found = true;
-            }
         }
     }
     #ifdef USE_WXPHP_DEBUG
@@ -3440,14 +3415,6 @@ PHP_METHOD(php_wxGridCellEditor, Destroy)
                 else if(current_object_type == PHP_WXGRIDCELLNUMBEREDITOR_TYPE)
                 {
                     ((wxGridCellNumberEditor_php*)native_object)->Destroy();
-                }
-                else if(current_object_type == PHP_WXGRIDCELLACTIVATABLEEDITOR_TYPE)
-                {
-                    ((wxGridCellActivatableEditor_php*)native_object)->Destroy();
-                }
-                else if(current_object_type == PHP_WXGRIDCELLDATEEDITOR_TYPE)
-                {
-                    ((wxGridCellDateEditor_php*)native_object)->Destroy();
                 }
                 else if(current_object_type == PHP_WXGRIDCELLEDITOR_TYPE)
                 {
@@ -3645,14 +3612,6 @@ PHP_METHOD(php_wxGridCellEditor, HandleReturn)
                 references = &((wxGridCellNumberEditor_php*)native_object)->references;
                 reference_type_found = true;
             }
-            if((current_object_type == PHP_WXGRIDCELLACTIVATABLEEDITOR_TYPE) && (!reference_type_found)){
-                references = &((wxGridCellActivatableEditor_php*)native_object)->references;
-                reference_type_found = true;
-            }
-            if((current_object_type == PHP_WXGRIDCELLDATEEDITOR_TYPE) && (!reference_type_found)){
-                references = &((wxGridCellDateEditor_php*)native_object)->references;
-                reference_type_found = true;
-            }
         }
     }
     #ifdef USE_WXPHP_DEBUG
@@ -3740,14 +3699,6 @@ PHP_METHOD(php_wxGridCellEditor, HandleReturn)
                 else if(current_object_type == PHP_WXGRIDCELLNUMBEREDITOR_TYPE)
                 {
                     ((wxGridCellNumberEditor_php*)native_object)->HandleReturn(*(wxKeyEvent*) object_pointer0_0);
-                }
-                else if(current_object_type == PHP_WXGRIDCELLACTIVATABLEEDITOR_TYPE)
-                {
-                    ((wxGridCellActivatableEditor_php*)native_object)->HandleReturn(*(wxKeyEvent*) object_pointer0_0);
-                }
-                else if(current_object_type == PHP_WXGRIDCELLDATEEDITOR_TYPE)
-                {
-                    ((wxGridCellDateEditor_php*)native_object)->HandleReturn(*(wxKeyEvent*) object_pointer0_0);
                 }
                 else if(current_object_type == PHP_WXGRIDCELLEDITOR_TYPE)
                 {
@@ -3851,14 +3802,6 @@ PHP_METHOD(php_wxGridCellEditor, IsCreated)
                 references = &((wxGridCellNumberEditor_php*)native_object)->references;
                 reference_type_found = true;
             }
-            if((current_object_type == PHP_WXGRIDCELLACTIVATABLEEDITOR_TYPE) && (!reference_type_found)){
-                references = &((wxGridCellActivatableEditor_php*)native_object)->references;
-                reference_type_found = true;
-            }
-            if((current_object_type == PHP_WXGRIDCELLDATEEDITOR_TYPE) && (!reference_type_found)){
-                references = &((wxGridCellDateEditor_php*)native_object)->references;
-                reference_type_found = true;
-            }
         }
     }
     #ifdef USE_WXPHP_DEBUG
@@ -3923,14 +3866,6 @@ PHP_METHOD(php_wxGridCellEditor, IsCreated)
                 else if(current_object_type == PHP_WXGRIDCELLNUMBEREDITOR_TYPE)
                 {
                     RETVAL_BOOL(((wxGridCellNumberEditor_php*)native_object)->IsCreated());
-                }
-                else if(current_object_type == PHP_WXGRIDCELLACTIVATABLEEDITOR_TYPE)
-                {
-                    RETVAL_BOOL(((wxGridCellActivatableEditor_php*)native_object)->IsCreated());
-                }
-                else if(current_object_type == PHP_WXGRIDCELLDATEEDITOR_TYPE)
-                {
-                    RETVAL_BOOL(((wxGridCellDateEditor_php*)native_object)->IsCreated());
                 }
                 else if(current_object_type == PHP_WXGRIDCELLEDITOR_TYPE)
                 {
@@ -4033,14 +3968,6 @@ PHP_METHOD(php_wxGridCellEditor, SetSize)
                 references = &((wxGridCellNumberEditor_php*)native_object)->references;
                 reference_type_found = true;
             }
-            if((current_object_type == PHP_WXGRIDCELLACTIVATABLEEDITOR_TYPE) && (!reference_type_found)){
-                references = &((wxGridCellActivatableEditor_php*)native_object)->references;
-                reference_type_found = true;
-            }
-            if((current_object_type == PHP_WXGRIDCELLDATEEDITOR_TYPE) && (!reference_type_found)){
-                references = &((wxGridCellDateEditor_php*)native_object)->references;
-                reference_type_found = true;
-            }
         }
     }
     #ifdef USE_WXPHP_DEBUG
@@ -4128,14 +4055,6 @@ PHP_METHOD(php_wxGridCellEditor, SetSize)
                 else if(current_object_type == PHP_WXGRIDCELLNUMBEREDITOR_TYPE)
                 {
                     ((wxGridCellNumberEditor_php*)native_object)->SetSize(*(wxRect*) object_pointer0_0);
-                }
-                else if(current_object_type == PHP_WXGRIDCELLACTIVATABLEEDITOR_TYPE)
-                {
-                    ((wxGridCellActivatableEditor_php*)native_object)->SetSize(*(wxRect*) object_pointer0_0);
-                }
-                else if(current_object_type == PHP_WXGRIDCELLDATEEDITOR_TYPE)
-                {
-                    ((wxGridCellDateEditor_php*)native_object)->SetSize(*(wxRect*) object_pointer0_0);
                 }
                 else if(current_object_type == PHP_WXGRIDCELLEDITOR_TYPE)
                 {
@@ -4319,14 +4238,6 @@ PHP_METHOD(php_wxGridCellEditor, Show)
                 references = &((wxGridCellNumberEditor_php*)native_object)->references;
                 reference_type_found = true;
             }
-            if((current_object_type == PHP_WXGRIDCELLACTIVATABLEEDITOR_TYPE) && (!reference_type_found)){
-                references = &((wxGridCellActivatableEditor_php*)native_object)->references;
-                reference_type_found = true;
-            }
-            if((current_object_type == PHP_WXGRIDCELLDATEEDITOR_TYPE) && (!reference_type_found)){
-                references = &((wxGridCellDateEditor_php*)native_object)->references;
-                reference_type_found = true;
-            }
         }
     }
     #ifdef USE_WXPHP_DEBUG
@@ -4416,14 +4327,6 @@ PHP_METHOD(php_wxGridCellEditor, Show)
                 {
                     ((wxGridCellNumberEditor_php*)native_object)->Show(show0);
                 }
-                else if(current_object_type == PHP_WXGRIDCELLACTIVATABLEEDITOR_TYPE)
-                {
-                    ((wxGridCellActivatableEditor_php*)native_object)->Show(show0);
-                }
-                else if(current_object_type == PHP_WXGRIDCELLDATEEDITOR_TYPE)
-                {
-                    ((wxGridCellDateEditor_php*)native_object)->Show(show0);
-                }
                 else if(current_object_type == PHP_WXGRIDCELLEDITOR_TYPE)
                 {
                     ((wxGridCellEditor_php*)native_object)->Show(show0);
@@ -4466,14 +4369,6 @@ PHP_METHOD(php_wxGridCellEditor, Show)
                 else if(current_object_type == PHP_WXGRIDCELLNUMBEREDITOR_TYPE)
                 {
                     ((wxGridCellNumberEditor_php*)native_object)->Show(show0, (wxGridCellAttr*) object_pointer0_1);
-                }
-                else if(current_object_type == PHP_WXGRIDCELLACTIVATABLEEDITOR_TYPE)
-                {
-                    ((wxGridCellActivatableEditor_php*)native_object)->Show(show0, (wxGridCellAttr*) object_pointer0_1);
-                }
-                else if(current_object_type == PHP_WXGRIDCELLDATEEDITOR_TYPE)
-                {
-                    ((wxGridCellDateEditor_php*)native_object)->Show(show0, (wxGridCellAttr*) object_pointer0_1);
                 }
                 else if(current_object_type == PHP_WXGRIDCELLEDITOR_TYPE)
                 {
@@ -4577,14 +4472,6 @@ PHP_METHOD(php_wxGridCellEditor, StartingClick)
                 references = &((wxGridCellNumberEditor_php*)native_object)->references;
                 reference_type_found = true;
             }
-            if((current_object_type == PHP_WXGRIDCELLACTIVATABLEEDITOR_TYPE) && (!reference_type_found)){
-                references = &((wxGridCellActivatableEditor_php*)native_object)->references;
-                reference_type_found = true;
-            }
-            if((current_object_type == PHP_WXGRIDCELLDATEEDITOR_TYPE) && (!reference_type_found)){
-                references = &((wxGridCellDateEditor_php*)native_object)->references;
-                reference_type_found = true;
-            }
         }
     }
     #ifdef USE_WXPHP_DEBUG
@@ -4649,14 +4536,6 @@ PHP_METHOD(php_wxGridCellEditor, StartingClick)
                 else if(current_object_type == PHP_WXGRIDCELLNUMBEREDITOR_TYPE)
                 {
                     ((wxGridCellNumberEditor_php*)native_object)->StartingClick();
-                }
-                else if(current_object_type == PHP_WXGRIDCELLACTIVATABLEEDITOR_TYPE)
-                {
-                    ((wxGridCellActivatableEditor_php*)native_object)->StartingClick();
-                }
-                else if(current_object_type == PHP_WXGRIDCELLDATEEDITOR_TYPE)
-                {
-                    ((wxGridCellDateEditor_php*)native_object)->StartingClick();
                 }
                 else if(current_object_type == PHP_WXGRIDCELLEDITOR_TYPE)
                 {
@@ -4759,14 +4638,6 @@ PHP_METHOD(php_wxGridCellEditor, StartingKey)
                 references = &((wxGridCellNumberEditor_php*)native_object)->references;
                 reference_type_found = true;
             }
-            if((current_object_type == PHP_WXGRIDCELLACTIVATABLEEDITOR_TYPE) && (!reference_type_found)){
-                references = &((wxGridCellActivatableEditor_php*)native_object)->references;
-                reference_type_found = true;
-            }
-            if((current_object_type == PHP_WXGRIDCELLDATEEDITOR_TYPE) && (!reference_type_found)){
-                references = &((wxGridCellDateEditor_php*)native_object)->references;
-                reference_type_found = true;
-            }
         }
     }
     #ifdef USE_WXPHP_DEBUG
@@ -4854,14 +4725,6 @@ PHP_METHOD(php_wxGridCellEditor, StartingKey)
                 else if(current_object_type == PHP_WXGRIDCELLNUMBEREDITOR_TYPE)
                 {
                     ((wxGridCellNumberEditor_php*)native_object)->StartingKey(*(wxKeyEvent*) object_pointer0_0);
-                }
-                else if(current_object_type == PHP_WXGRIDCELLACTIVATABLEEDITOR_TYPE)
-                {
-                    ((wxGridCellActivatableEditor_php*)native_object)->StartingKey(*(wxKeyEvent*) object_pointer0_0);
-                }
-                else if(current_object_type == PHP_WXGRIDCELLDATEEDITOR_TYPE)
-                {
-                    ((wxGridCellDateEditor_php*)native_object)->StartingKey(*(wxKeyEvent*) object_pointer0_0);
                 }
                 else if(current_object_type == PHP_WXGRIDCELLEDITOR_TYPE)
                 {
@@ -9217,7 +9080,7 @@ PHP_METHOD(php_wxGridCellAttr, SetEditor)
                     wxphp_object_type argument_type = Z_wxGridCellEditor_P(editor0)->object_type;
                     argument_native_object = (void*) Z_wxGridCellEditor_P(editor0)->native_object;
                     object_pointer0_0 = (wxGridCellEditor*) argument_native_object;
-                    if (!object_pointer0_0 || (argument_type != PHP_WXGRIDCELLEDITOR_TYPE && argument_type != PHP_WXGRIDCELLBOOLEDITOR_TYPE && argument_type != PHP_WXGRIDCELLCHOICEEDITOR_TYPE && argument_type != PHP_WXGRIDCELLENUMEDITOR_TYPE && argument_type != PHP_WXGRIDCELLTEXTEDITOR_TYPE && argument_type != PHP_WXGRIDCELLAUTOWRAPSTRINGEDITOR_TYPE && argument_type != PHP_WXGRIDCELLFLOATEDITOR_TYPE && argument_type != PHP_WXGRIDCELLNUMBEREDITOR_TYPE && argument_type != PHP_WXGRIDCELLACTIVATABLEEDITOR_TYPE && argument_type != PHP_WXGRIDCELLDATEEDITOR_TYPE))
+                    if (!object_pointer0_0 || (argument_type != PHP_WXGRIDCELLEDITOR_TYPE && argument_type != PHP_WXGRIDCELLBOOLEDITOR_TYPE && argument_type != PHP_WXGRIDCELLCHOICEEDITOR_TYPE && argument_type != PHP_WXGRIDCELLENUMEDITOR_TYPE && argument_type != PHP_WXGRIDCELLTEXTEDITOR_TYPE && argument_type != PHP_WXGRIDCELLAUTOWRAPSTRINGEDITOR_TYPE && argument_type != PHP_WXGRIDCELLFLOATEDITOR_TYPE && argument_type != PHP_WXGRIDCELLNUMBEREDITOR_TYPE))
                     {
                         zend_error(E_ERROR, "Parameter 'editor' could not be retreived correctly.");
                     }
@@ -9603,7 +9466,7 @@ PHP_METHOD(php_wxGridCellAttr, SetRenderer)
                     wxphp_object_type argument_type = Z_wxGridCellRenderer_P(renderer0)->object_type;
                     argument_native_object = (void*) Z_wxGridCellRenderer_P(renderer0)->native_object;
                     object_pointer0_0 = (wxGridCellRenderer*) argument_native_object;
-                    if (!object_pointer0_0 || (argument_type != PHP_WXGRIDCELLRENDERER_TYPE && argument_type != PHP_WXGRIDCELLBOOLRENDERER_TYPE && argument_type != PHP_WXGRIDCELLSTRINGRENDERER_TYPE && argument_type != PHP_WXGRIDCELLDATETIMERENDERER_TYPE && argument_type != PHP_WXGRIDCELLAUTOWRAPSTRINGRENDERER_TYPE && argument_type != PHP_WXGRIDCELLENUMRENDERER_TYPE && argument_type != PHP_WXGRIDCELLFLOATRENDERER_TYPE && argument_type != PHP_WXGRIDCELLNUMBERRENDERER_TYPE && argument_type != PHP_WXGRIDCELLDATERENDERER_TYPE))
+                    if (!object_pointer0_0 || (argument_type != PHP_WXGRIDCELLRENDERER_TYPE && argument_type != PHP_WXGRIDCELLBOOLRENDERER_TYPE && argument_type != PHP_WXGRIDCELLSTRINGRENDERER_TYPE && argument_type != PHP_WXGRIDCELLDATETIMERENDERER_TYPE && argument_type != PHP_WXGRIDCELLAUTOWRAPSTRINGRENDERER_TYPE && argument_type != PHP_WXGRIDCELLENUMRENDERER_TYPE && argument_type != PHP_WXGRIDCELLFLOATRENDERER_TYPE && argument_type != PHP_WXGRIDCELLNUMBERRENDERER_TYPE))
                     {
                         zend_error(E_ERROR, "Parameter 'renderer' could not be retreived correctly.");
                     }
@@ -10129,10 +9992,6 @@ PHP_METHOD(php_wxGridTableBase, AppendCols)
                 references = &((wxGridTableBase_php*)native_object)->references;
                 reference_type_found = true;
             }
-            if((current_object_type == PHP_WXGRIDSTRINGTABLE_TYPE) && (!reference_type_found)){
-                references = &((wxGridStringTable_php*)native_object)->references;
-                reference_type_found = true;
-            }
         }
     }
     #ifdef USE_WXPHP_DEBUG
@@ -10255,10 +10114,6 @@ PHP_METHOD(php_wxGridTableBase, AppendRows)
 
             if(current_object_type == PHP_WXGRIDTABLEBASE_TYPE){
                 references = &((wxGridTableBase_php*)native_object)->references;
-                reference_type_found = true;
-            }
-            if((current_object_type == PHP_WXGRIDSTRINGTABLE_TYPE) && (!reference_type_found)){
-                references = &((wxGridStringTable_php*)native_object)->references;
                 reference_type_found = true;
             }
         }
@@ -10385,10 +10240,6 @@ PHP_METHOD(php_wxGridTableBase, CanGetValueAs)
                 references = &((wxGridTableBase_php*)native_object)->references;
                 reference_type_found = true;
             }
-            if((current_object_type == PHP_WXGRIDSTRINGTABLE_TYPE) && (!reference_type_found)){
-                references = &((wxGridStringTable_php*)native_object)->references;
-                reference_type_found = true;
-            }
         }
     }
     #ifdef USE_WXPHP_DEBUG
@@ -10504,10 +10355,6 @@ PHP_METHOD(php_wxGridTableBase, CanHaveAttributes)
                 references = &((wxGridTableBase_php*)native_object)->references;
                 reference_type_found = true;
             }
-            if((current_object_type == PHP_WXGRIDSTRINGTABLE_TYPE) && (!reference_type_found)){
-                references = &((wxGridStringTable_php*)native_object)->references;
-                reference_type_found = true;
-            }
         }
     }
     #ifdef USE_WXPHP_DEBUG
@@ -10613,10 +10460,6 @@ PHP_METHOD(php_wxGridTableBase, CanSetValueAs)
 
             if(current_object_type == PHP_WXGRIDTABLEBASE_TYPE){
                 references = &((wxGridTableBase_php*)native_object)->references;
-                reference_type_found = true;
-            }
-            if((current_object_type == PHP_WXGRIDSTRINGTABLE_TYPE) && (!reference_type_found)){
-                references = &((wxGridStringTable_php*)native_object)->references;
                 reference_type_found = true;
             }
         }
@@ -10734,10 +10577,6 @@ PHP_METHOD(php_wxGridTableBase, Clear)
                 references = &((wxGridTableBase_php*)native_object)->references;
                 reference_type_found = true;
             }
-            if((current_object_type == PHP_WXGRIDSTRINGTABLE_TYPE) && (!reference_type_found)){
-                references = &((wxGridStringTable_php*)native_object)->references;
-                reference_type_found = true;
-            }
         }
     }
     #ifdef USE_WXPHP_DEBUG
@@ -10843,10 +10682,6 @@ PHP_METHOD(php_wxGridTableBase, DeleteCols)
 
             if(current_object_type == PHP_WXGRIDTABLEBASE_TYPE){
                 references = &((wxGridTableBase_php*)native_object)->references;
-                reference_type_found = true;
-            }
-            if((current_object_type == PHP_WXGRIDSTRINGTABLE_TYPE) && (!reference_type_found)){
-                references = &((wxGridStringTable_php*)native_object)->references;
                 reference_type_found = true;
             }
         }
@@ -10986,10 +10821,6 @@ PHP_METHOD(php_wxGridTableBase, DeleteRows)
                 references = &((wxGridTableBase_php*)native_object)->references;
                 reference_type_found = true;
             }
-            if((current_object_type == PHP_WXGRIDSTRINGTABLE_TYPE) && (!reference_type_found)){
-                references = &((wxGridStringTable_php*)native_object)->references;
-                reference_type_found = true;
-            }
         }
     }
     #ifdef USE_WXPHP_DEBUG
@@ -11125,10 +10956,6 @@ PHP_METHOD(php_wxGridTableBase, GetAttr)
 
             if(current_object_type == PHP_WXGRIDTABLEBASE_TYPE){
                 references = &((wxGridTableBase_php*)native_object)->references;
-                reference_type_found = true;
-            }
-            if((current_object_type == PHP_WXGRIDSTRINGTABLE_TYPE) && (!reference_type_found)){
-                references = &((wxGridStringTable_php*)native_object)->references;
                 reference_type_found = true;
             }
         }
@@ -11268,10 +11095,6 @@ PHP_METHOD(php_wxGridTableBase, GetAttrProvider)
                 references = &((wxGridTableBase_php*)native_object)->references;
                 reference_type_found = true;
             }
-            if((current_object_type == PHP_WXGRIDSTRINGTABLE_TYPE) && (!reference_type_found)){
-                references = &((wxGridStringTable_php*)native_object)->references;
-                reference_type_found = true;
-            }
         }
     }
     #ifdef USE_WXPHP_DEBUG
@@ -11402,10 +11225,6 @@ PHP_METHOD(php_wxGridTableBase, GetColLabelValue)
                 references = &((wxGridTableBase_php*)native_object)->references;
                 reference_type_found = true;
             }
-            if((current_object_type == PHP_WXGRIDSTRINGTABLE_TYPE) && (!reference_type_found)){
-                references = &((wxGridStringTable_php*)native_object)->references;
-                reference_type_found = true;
-            }
         }
     }
     #ifdef USE_WXPHP_DEBUG
@@ -11518,10 +11337,6 @@ PHP_METHOD(php_wxGridTableBase, GetColsCount)
 
             if(current_object_type == PHP_WXGRIDTABLEBASE_TYPE){
                 references = &((wxGridTableBase_php*)native_object)->references;
-                reference_type_found = true;
-            }
-            if((current_object_type == PHP_WXGRIDSTRINGTABLE_TYPE) && (!reference_type_found)){
-                references = &((wxGridStringTable_php*)native_object)->references;
                 reference_type_found = true;
             }
         }
@@ -11791,10 +11606,6 @@ PHP_METHOD(php_wxGridTableBase, GetRowLabelValue)
                 references = &((wxGridTableBase_php*)native_object)->references;
                 reference_type_found = true;
             }
-            if((current_object_type == PHP_WXGRIDSTRINGTABLE_TYPE) && (!reference_type_found)){
-                references = &((wxGridStringTable_php*)native_object)->references;
-                reference_type_found = true;
-            }
         }
     }
     #ifdef USE_WXPHP_DEBUG
@@ -11909,10 +11720,6 @@ PHP_METHOD(php_wxGridTableBase, GetRowsCount)
                 references = &((wxGridTableBase_php*)native_object)->references;
                 reference_type_found = true;
             }
-            if((current_object_type == PHP_WXGRIDSTRINGTABLE_TYPE) && (!reference_type_found)){
-                references = &((wxGridStringTable_php*)native_object)->references;
-                reference_type_found = true;
-            }
         }
     }
     #ifdef USE_WXPHP_DEBUG
@@ -12018,10 +11825,6 @@ PHP_METHOD(php_wxGridTableBase, GetTypeName)
 
             if(current_object_type == PHP_WXGRIDTABLEBASE_TYPE){
                 references = &((wxGridTableBase_php*)native_object)->references;
-                reference_type_found = true;
-            }
-            if((current_object_type == PHP_WXGRIDSTRINGTABLE_TYPE) && (!reference_type_found)){
-                references = &((wxGridStringTable_php*)native_object)->references;
                 reference_type_found = true;
             }
         }
@@ -12230,10 +12033,6 @@ PHP_METHOD(php_wxGridTableBase, GetValueAsBool)
                 references = &((wxGridTableBase_php*)native_object)->references;
                 reference_type_found = true;
             }
-            if((current_object_type == PHP_WXGRIDSTRINGTABLE_TYPE) && (!reference_type_found)){
-                references = &((wxGridStringTable_php*)native_object)->references;
-                reference_type_found = true;
-            }
         }
     }
     #ifdef USE_WXPHP_DEBUG
@@ -12345,10 +12144,6 @@ PHP_METHOD(php_wxGridTableBase, GetValueAsCustom)
 
             if(current_object_type == PHP_WXGRIDTABLEBASE_TYPE){
                 references = &((wxGridTableBase_php*)native_object)->references;
-                reference_type_found = true;
-            }
-            if((current_object_type == PHP_WXGRIDSTRINGTABLE_TYPE) && (!reference_type_found)){
-                references = &((wxGridStringTable_php*)native_object)->references;
                 reference_type_found = true;
             }
         }
@@ -12466,10 +12261,6 @@ PHP_METHOD(php_wxGridTableBase, GetValueAsDouble)
                 references = &((wxGridTableBase_php*)native_object)->references;
                 reference_type_found = true;
             }
-            if((current_object_type == PHP_WXGRIDSTRINGTABLE_TYPE) && (!reference_type_found)){
-                references = &((wxGridStringTable_php*)native_object)->references;
-                reference_type_found = true;
-            }
         }
     }
     #ifdef USE_WXPHP_DEBUG
@@ -12583,10 +12374,6 @@ PHP_METHOD(php_wxGridTableBase, GetValueAsLong)
                 references = &((wxGridTableBase_php*)native_object)->references;
                 reference_type_found = true;
             }
-            if((current_object_type == PHP_WXGRIDSTRINGTABLE_TYPE) && (!reference_type_found)){
-                references = &((wxGridStringTable_php*)native_object)->references;
-                reference_type_found = true;
-            }
         }
     }
     #ifdef USE_WXPHP_DEBUG
@@ -12698,10 +12485,6 @@ PHP_METHOD(php_wxGridTableBase, GetView)
 
             if(current_object_type == PHP_WXGRIDTABLEBASE_TYPE){
                 references = &((wxGridTableBase_php*)native_object)->references;
-                reference_type_found = true;
-            }
-            if((current_object_type == PHP_WXGRIDSTRINGTABLE_TYPE) && (!reference_type_found)){
-                references = &((wxGridStringTable_php*)native_object)->references;
                 reference_type_found = true;
             }
         }
@@ -12832,10 +12615,6 @@ PHP_METHOD(php_wxGridTableBase, InsertCols)
 
             if(current_object_type == PHP_WXGRIDTABLEBASE_TYPE){
                 references = &((wxGridTableBase_php*)native_object)->references;
-                reference_type_found = true;
-            }
-            if((current_object_type == PHP_WXGRIDSTRINGTABLE_TYPE) && (!reference_type_found)){
-                references = &((wxGridStringTable_php*)native_object)->references;
                 reference_type_found = true;
             }
         }
@@ -12975,10 +12754,6 @@ PHP_METHOD(php_wxGridTableBase, InsertRows)
                 references = &((wxGridTableBase_php*)native_object)->references;
                 reference_type_found = true;
             }
-            if((current_object_type == PHP_WXGRIDSTRINGTABLE_TYPE) && (!reference_type_found)){
-                references = &((wxGridStringTable_php*)native_object)->references;
-                reference_type_found = true;
-            }
         }
     }
     #ifdef USE_WXPHP_DEBUG
@@ -13116,10 +12891,6 @@ PHP_METHOD(php_wxGridTableBase, IsEmpty)
                 references = &((wxGridTableBase_php*)native_object)->references;
                 reference_type_found = true;
             }
-            if((current_object_type == PHP_WXGRIDSTRINGTABLE_TYPE) && (!reference_type_found)){
-                references = &((wxGridStringTable_php*)native_object)->references;
-                reference_type_found = true;
-            }
         }
     }
     #ifdef USE_WXPHP_DEBUG
@@ -13251,10 +13022,6 @@ PHP_METHOD(php_wxGridTableBase, IsEmptyCell)
                 references = &((wxGridTableBase_php*)native_object)->references;
                 reference_type_found = true;
             }
-            if((current_object_type == PHP_WXGRIDSTRINGTABLE_TYPE) && (!reference_type_found)){
-                references = &((wxGridStringTable_php*)native_object)->references;
-                reference_type_found = true;
-            }
         }
     }
     #ifdef USE_WXPHP_DEBUG
@@ -13366,10 +13133,6 @@ PHP_METHOD(php_wxGridTableBase, SetAttr)
 
             if(current_object_type == PHP_WXGRIDTABLEBASE_TYPE){
                 references = &((wxGridTableBase_php*)native_object)->references;
-                reference_type_found = true;
-            }
-            if((current_object_type == PHP_WXGRIDSTRINGTABLE_TYPE) && (!reference_type_found)){
-                references = &((wxGridStringTable_php*)native_object)->references;
                 reference_type_found = true;
             }
         }
@@ -13505,10 +13268,6 @@ PHP_METHOD(php_wxGridTableBase, SetAttrProvider)
                 references = &((wxGridTableBase_php*)native_object)->references;
                 reference_type_found = true;
             }
-            if((current_object_type == PHP_WXGRIDSTRINGTABLE_TYPE) && (!reference_type_found)){
-                references = &((wxGridStringTable_php*)native_object)->references;
-                reference_type_found = true;
-            }
         }
     }
     #ifdef USE_WXPHP_DEBUG
@@ -13638,10 +13397,6 @@ PHP_METHOD(php_wxGridTableBase, SetColAttr)
 
             if(current_object_type == PHP_WXGRIDTABLEBASE_TYPE){
                 references = &((wxGridTableBase_php*)native_object)->references;
-                reference_type_found = true;
-            }
-            if((current_object_type == PHP_WXGRIDSTRINGTABLE_TYPE) && (!reference_type_found)){
-                references = &((wxGridStringTable_php*)native_object)->references;
                 reference_type_found = true;
             }
         }
@@ -13776,10 +13531,6 @@ PHP_METHOD(php_wxGridTableBase, SetColLabelValue)
                 references = &((wxGridTableBase_php*)native_object)->references;
                 reference_type_found = true;
             }
-            if((current_object_type == PHP_WXGRIDSTRINGTABLE_TYPE) && (!reference_type_found)){
-                references = &((wxGridStringTable_php*)native_object)->references;
-                reference_type_found = true;
-            }
         }
     }
     #ifdef USE_WXPHP_DEBUG
@@ -13892,10 +13643,6 @@ PHP_METHOD(php_wxGridTableBase, SetRowAttr)
 
             if(current_object_type == PHP_WXGRIDTABLEBASE_TYPE){
                 references = &((wxGridTableBase_php*)native_object)->references;
-                reference_type_found = true;
-            }
-            if((current_object_type == PHP_WXGRIDSTRINGTABLE_TYPE) && (!reference_type_found)){
-                references = &((wxGridStringTable_php*)native_object)->references;
                 reference_type_found = true;
             }
         }
@@ -14028,10 +13775,6 @@ PHP_METHOD(php_wxGridTableBase, SetRowLabelValue)
 
             if(current_object_type == PHP_WXGRIDTABLEBASE_TYPE){
                 references = &((wxGridTableBase_php*)native_object)->references;
-                reference_type_found = true;
-            }
-            if((current_object_type == PHP_WXGRIDSTRINGTABLE_TYPE) && (!reference_type_found)){
-                references = &((wxGridStringTable_php*)native_object)->references;
                 reference_type_found = true;
             }
         }
@@ -14240,10 +13983,6 @@ PHP_METHOD(php_wxGridTableBase, SetValueAsBool)
                 references = &((wxGridTableBase_php*)native_object)->references;
                 reference_type_found = true;
             }
-            if((current_object_type == PHP_WXGRIDSTRINGTABLE_TYPE) && (!reference_type_found)){
-                references = &((wxGridStringTable_php*)native_object)->references;
-                reference_type_found = true;
-            }
         }
     }
     #ifdef USE_WXPHP_DEBUG
@@ -14356,10 +14095,6 @@ PHP_METHOD(php_wxGridTableBase, SetValueAsCustom)
 
             if(current_object_type == PHP_WXGRIDTABLEBASE_TYPE){
                 references = &((wxGridTableBase_php*)native_object)->references;
-                reference_type_found = true;
-            }
-            if((current_object_type == PHP_WXGRIDSTRINGTABLE_TYPE) && (!reference_type_found)){
-                references = &((wxGridStringTable_php*)native_object)->references;
                 reference_type_found = true;
             }
         }
@@ -14484,10 +14219,6 @@ PHP_METHOD(php_wxGridTableBase, SetValueAsDouble)
                 references = &((wxGridTableBase_php*)native_object)->references;
                 reference_type_found = true;
             }
-            if((current_object_type == PHP_WXGRIDSTRINGTABLE_TYPE) && (!reference_type_found)){
-                references = &((wxGridStringTable_php*)native_object)->references;
-                reference_type_found = true;
-            }
         }
     }
     #ifdef USE_WXPHP_DEBUG
@@ -14602,10 +14333,6 @@ PHP_METHOD(php_wxGridTableBase, SetValueAsLong)
                 references = &((wxGridTableBase_php*)native_object)->references;
                 reference_type_found = true;
             }
-            if((current_object_type == PHP_WXGRIDSTRINGTABLE_TYPE) && (!reference_type_found)){
-                references = &((wxGridStringTable_php*)native_object)->references;
-                reference_type_found = true;
-            }
         }
     }
     #ifdef USE_WXPHP_DEBUG
@@ -14718,10 +14445,6 @@ PHP_METHOD(php_wxGridTableBase, SetView)
 
             if(current_object_type == PHP_WXGRIDTABLEBASE_TYPE){
                 references = &((wxGridTableBase_php*)native_object)->references;
-                reference_type_found = true;
-            }
-            if((current_object_type == PHP_WXGRIDSTRINGTABLE_TYPE) && (!reference_type_found)){
-                references = &((wxGridStringTable_php*)native_object)->references;
                 reference_type_found = true;
             }
         }
@@ -18238,7 +17961,7 @@ PHP_METHOD(php_wxGrid, Create)
                     wxphp_object_type argument_type = Z_wxWindow_P(parent0)->object_type;
                     argument_native_object = (void*) Z_wxWindow_P(parent0)->native_object;
                     object_pointer0_0 = (wxWindow*) argument_native_object;
-                    if (!object_pointer0_0 || (argument_type != PHP_WXWINDOW_TYPE && argument_type != PHP_WXNONOWNEDWINDOW_TYPE && argument_type != PHP_WXTOPLEVELWINDOW_TYPE && argument_type != PHP_WXFRAME_TYPE && argument_type != PHP_WXSPLASHSCREEN_TYPE && argument_type != PHP_WXMDICHILDFRAME_TYPE && argument_type != PHP_WXMDIPARENTFRAME_TYPE && argument_type != PHP_WXMINIFRAME_TYPE && argument_type != PHP_WXPREVIEWFRAME_TYPE && argument_type != PHP_WXHTMLHELPDIALOG_TYPE && argument_type != PHP_WXHTMLHELPFRAME_TYPE && argument_type != PHP_WXAUIFLOATINGFRAME_TYPE && argument_type != PHP_WXAUIMDIPARENTFRAME_TYPE && argument_type != PHP_WXDIALOG_TYPE && argument_type != PHP_WXTEXTENTRYDIALOG_TYPE && argument_type != PHP_WXPASSWORDENTRYDIALOG_TYPE && argument_type != PHP_WXMESSAGEDIALOG_TYPE && argument_type != PHP_WXFINDREPLACEDIALOG_TYPE && argument_type != PHP_WXDIRDIALOG_TYPE && argument_type != PHP_WXSYMBOLPICKERDIALOG_TYPE && argument_type != PHP_WXPROPERTYSHEETDIALOG_TYPE && argument_type != PHP_WXWIZARD_TYPE && argument_type != PHP_WXPROGRESSDIALOG_TYPE && argument_type != PHP_WXCOLOURDIALOG_TYPE && argument_type != PHP_WXFILEDIALOG_TYPE && argument_type != PHP_WXFONTDIALOG_TYPE && argument_type != PHP_WXSINGLECHOICEDIALOG_TYPE && argument_type != PHP_WXGENERICPROGRESSDIALOG_TYPE && argument_type != PHP_WXNUMBERENTRYDIALOG_TYPE && argument_type != PHP_WXPGARRAYEDITORDIALOG_TYPE && argument_type != PHP_WXPGARRAYSTRINGEDITORDIALOG_TYPE && argument_type != PHP_WXPRINTABORTDIALOG_TYPE && argument_type != PHP_WXPOPUPWINDOW_TYPE && argument_type != PHP_WXPOPUPTRANSIENTWINDOW_TYPE && argument_type != PHP_WXCONTROL_TYPE && argument_type != PHP_WXSTATUSBAR_TYPE && argument_type != PHP_WXANYBUTTON_TYPE && argument_type != PHP_WXBUTTON_TYPE && argument_type != PHP_WXBITMAPBUTTON_TYPE && argument_type != PHP_WXTOGGLEBUTTON_TYPE && argument_type != PHP_WXBITMAPTOGGLEBUTTON_TYPE && argument_type != PHP_WXTREECTRL_TYPE && argument_type != PHP_WXCONTROLWITHITEMS_TYPE && argument_type != PHP_WXLISTBOX_TYPE && argument_type != PHP_WXCHECKLISTBOX_TYPE && argument_type != PHP_WXREARRANGELIST_TYPE && argument_type != PHP_WXCHOICE_TYPE && argument_type != PHP_WXBOOKCTRLBASE_TYPE && argument_type != PHP_WXAUINOTEBOOK_TYPE && argument_type != PHP_WXAUIMDICLIENTWINDOW_TYPE && argument_type != PHP_WXLISTBOOK_TYPE && argument_type != PHP_WXCHOICEBOOK_TYPE && argument_type != PHP_WXNOTEBOOK_TYPE && argument_type != PHP_WXTREEBOOK_TYPE && argument_type != PHP_WXTOOLBOOK_TYPE && argument_type != PHP_WXANIMATIONCTRL_TYPE && argument_type != PHP_WXSTYLEDTEXTCTRL_TYPE && argument_type != PHP_WXSCROLLBAR_TYPE && argument_type != PHP_WXSTATICTEXT_TYPE && argument_type != PHP_WXSTATICLINE_TYPE && argument_type != PHP_WXSTATICBOX_TYPE && argument_type != PHP_WXSTATICBITMAP_TYPE && argument_type != PHP_WXCHECKBOX_TYPE && argument_type != PHP_WXTEXTCTRL_TYPE && argument_type != PHP_WXSEARCHCTRL_TYPE && argument_type != PHP_WXCOMBOBOX_TYPE && argument_type != PHP_WXBITMAPCOMBOBOX_TYPE && argument_type != PHP_WXAUITOOLBAR_TYPE && argument_type != PHP_WXLISTCTRL_TYPE && argument_type != PHP_WXLISTVIEW_TYPE && argument_type != PHP_WXRADIOBOX_TYPE && argument_type != PHP_WXRADIOBUTTON_TYPE && argument_type != PHP_WXSLIDER_TYPE && argument_type != PHP_WXSPINCTRL_TYPE && argument_type != PHP_WXSPINBUTTON_TYPE && argument_type != PHP_WXGAUGE_TYPE && argument_type != PHP_WXHYPERLINKCTRL_TYPE && argument_type != PHP_WXSPINCTRLDOUBLE_TYPE && argument_type != PHP_WXGENERICDIRCTRL_TYPE && argument_type != PHP_WXCALENDARCTRL_TYPE && argument_type != PHP_WXPICKERBASE_TYPE && argument_type != PHP_WXCOLOURPICKERCTRL_TYPE && argument_type != PHP_WXFONTPICKERCTRL_TYPE && argument_type != PHP_WXFILEPICKERCTRL_TYPE && argument_type != PHP_WXDIRPICKERCTRL_TYPE && argument_type != PHP_WXTIMEPICKERCTRL_TYPE && argument_type != PHP_WXTOOLBAR_TYPE && argument_type != PHP_WXDATEPICKERCTRL_TYPE && argument_type != PHP_WXCOLLAPSIBLEPANE_TYPE && argument_type != PHP_WXCOMBOCTRL_TYPE && argument_type != PHP_WXDATAVIEWCTRL_TYPE && argument_type != PHP_WXDATAVIEWLISTCTRL_TYPE && argument_type != PHP_WXDATAVIEWTREECTRL_TYPE && argument_type != PHP_WXHEADERCTRL_TYPE && argument_type != PHP_WXHEADERCTRLSIMPLE_TYPE && argument_type != PHP_WXFILECTRL_TYPE && argument_type != PHP_WXINFOBAR_TYPE && argument_type != PHP_WXRIBBONCONTROL_TYPE && argument_type != PHP_WXRIBBONBAR_TYPE && argument_type != PHP_WXRIBBONBUTTONBAR_TYPE && argument_type != PHP_WXRIBBONGALLERY_TYPE && argument_type != PHP_WXRIBBONPAGE_TYPE && argument_type != PHP_WXRIBBONPANEL_TYPE && argument_type != PHP_WXRIBBONTOOLBAR_TYPE && argument_type != PHP_WXWEBVIEW_TYPE && argument_type != PHP_WXMEDIACTRL_TYPE && argument_type != PHP_WXSPLITTERWINDOW_TYPE && argument_type != PHP_WXPANEL_TYPE && argument_type != PHP_WXSCROLLEDWINDOW_TYPE && argument_type != PHP_WXHTMLWINDOW_TYPE && argument_type != PHP_WXGRID_TYPE && argument_type != PHP_WXPREVIEWCANVAS_TYPE && argument_type != PHP_WXWIZARDPAGE_TYPE && argument_type != PHP_WXWIZARDPAGESIMPLE_TYPE && argument_type != PHP_WXEDITABLELISTBOX_TYPE && argument_type != PHP_WXHSCROLLEDWINDOW_TYPE && argument_type != PHP_WXPREVIEWCONTROLBAR_TYPE && argument_type != PHP_WXAUIMDICHILDFRAME_TYPE && argument_type != PHP_WXMENUBAR_TYPE && argument_type != PHP_WXBANNERWINDOW_TYPE && argument_type != PHP_WXMDICLIENTWINDOW_TYPE && argument_type != PHP_WXTREELISTCTRL_TYPE && argument_type != PHP_WXSASHWINDOW_TYPE && argument_type != PHP_WXSASHLAYOUTWINDOW_TYPE && argument_type != PHP_WXHTMLHELPWINDOW_TYPE && argument_type != PHP_WXTIPWINDOW_TYPE))
+                    if (!object_pointer0_0 || (argument_type != PHP_WXWINDOW_TYPE && argument_type != PHP_WXNONOWNEDWINDOW_TYPE && argument_type != PHP_WXTOPLEVELWINDOW_TYPE && argument_type != PHP_WXFRAME_TYPE && argument_type != PHP_WXSPLASHSCREEN_TYPE && argument_type != PHP_WXMDICHILDFRAME_TYPE && argument_type != PHP_WXMDIPARENTFRAME_TYPE && argument_type != PHP_WXMINIFRAME_TYPE && argument_type != PHP_WXPREVIEWFRAME_TYPE && argument_type != PHP_WXHTMLHELPDIALOG_TYPE && argument_type != PHP_WXHTMLHELPFRAME_TYPE && argument_type != PHP_WXDIALOG_TYPE && argument_type != PHP_WXTEXTENTRYDIALOG_TYPE && argument_type != PHP_WXPASSWORDENTRYDIALOG_TYPE && argument_type != PHP_WXMESSAGEDIALOG_TYPE && argument_type != PHP_WXFINDREPLACEDIALOG_TYPE && argument_type != PHP_WXDIRDIALOG_TYPE && argument_type != PHP_WXSYMBOLPICKERDIALOG_TYPE && argument_type != PHP_WXPROPERTYSHEETDIALOG_TYPE && argument_type != PHP_WXWIZARD_TYPE && argument_type != PHP_WXPROGRESSDIALOG_TYPE && argument_type != PHP_WXCOLOURDIALOG_TYPE && argument_type != PHP_WXFILEDIALOG_TYPE && argument_type != PHP_WXFONTDIALOG_TYPE && argument_type != PHP_WXSINGLECHOICEDIALOG_TYPE && argument_type != PHP_WXGENERICPROGRESSDIALOG_TYPE && argument_type != PHP_WXPOPUPWINDOW_TYPE && argument_type != PHP_WXPOPUPTRANSIENTWINDOW_TYPE && argument_type != PHP_WXCONTROL_TYPE && argument_type != PHP_WXSTATUSBAR_TYPE && argument_type != PHP_WXANYBUTTON_TYPE && argument_type != PHP_WXBUTTON_TYPE && argument_type != PHP_WXBITMAPBUTTON_TYPE && argument_type != PHP_WXTOGGLEBUTTON_TYPE && argument_type != PHP_WXBITMAPTOGGLEBUTTON_TYPE && argument_type != PHP_WXTREECTRL_TYPE && argument_type != PHP_WXCONTROLWITHITEMS_TYPE && argument_type != PHP_WXLISTBOX_TYPE && argument_type != PHP_WXCHECKLISTBOX_TYPE && argument_type != PHP_WXREARRANGELIST_TYPE && argument_type != PHP_WXCHOICE_TYPE && argument_type != PHP_WXBOOKCTRLBASE_TYPE && argument_type != PHP_WXAUINOTEBOOK_TYPE && argument_type != PHP_WXLISTBOOK_TYPE && argument_type != PHP_WXCHOICEBOOK_TYPE && argument_type != PHP_WXNOTEBOOK_TYPE && argument_type != PHP_WXTREEBOOK_TYPE && argument_type != PHP_WXTOOLBOOK_TYPE && argument_type != PHP_WXANIMATIONCTRL_TYPE && argument_type != PHP_WXSTYLEDTEXTCTRL_TYPE && argument_type != PHP_WXSCROLLBAR_TYPE && argument_type != PHP_WXSTATICTEXT_TYPE && argument_type != PHP_WXSTATICLINE_TYPE && argument_type != PHP_WXSTATICBOX_TYPE && argument_type != PHP_WXSTATICBITMAP_TYPE && argument_type != PHP_WXCHECKBOX_TYPE && argument_type != PHP_WXTEXTCTRL_TYPE && argument_type != PHP_WXSEARCHCTRL_TYPE && argument_type != PHP_WXCOMBOBOX_TYPE && argument_type != PHP_WXBITMAPCOMBOBOX_TYPE && argument_type != PHP_WXAUITOOLBAR_TYPE && argument_type != PHP_WXLISTCTRL_TYPE && argument_type != PHP_WXLISTVIEW_TYPE && argument_type != PHP_WXRADIOBOX_TYPE && argument_type != PHP_WXRADIOBUTTON_TYPE && argument_type != PHP_WXSLIDER_TYPE && argument_type != PHP_WXSPINCTRL_TYPE && argument_type != PHP_WXSPINBUTTON_TYPE && argument_type != PHP_WXGAUGE_TYPE && argument_type != PHP_WXHYPERLINKCTRL_TYPE && argument_type != PHP_WXSPINCTRLDOUBLE_TYPE && argument_type != PHP_WXGENERICDIRCTRL_TYPE && argument_type != PHP_WXCALENDARCTRL_TYPE && argument_type != PHP_WXPICKERBASE_TYPE && argument_type != PHP_WXCOLOURPICKERCTRL_TYPE && argument_type != PHP_WXFONTPICKERCTRL_TYPE && argument_type != PHP_WXFILEPICKERCTRL_TYPE && argument_type != PHP_WXDIRPICKERCTRL_TYPE && argument_type != PHP_WXTIMEPICKERCTRL_TYPE && argument_type != PHP_WXTOOLBAR_TYPE && argument_type != PHP_WXDATEPICKERCTRL_TYPE && argument_type != PHP_WXCOLLAPSIBLEPANE_TYPE && argument_type != PHP_WXCOMBOCTRL_TYPE && argument_type != PHP_WXDATAVIEWCTRL_TYPE && argument_type != PHP_WXDATAVIEWLISTCTRL_TYPE && argument_type != PHP_WXDATAVIEWTREECTRL_TYPE && argument_type != PHP_WXHEADERCTRL_TYPE && argument_type != PHP_WXHEADERCTRLSIMPLE_TYPE && argument_type != PHP_WXFILECTRL_TYPE && argument_type != PHP_WXINFOBAR_TYPE && argument_type != PHP_WXRIBBONCONTROL_TYPE && argument_type != PHP_WXRIBBONBAR_TYPE && argument_type != PHP_WXRIBBONBUTTONBAR_TYPE && argument_type != PHP_WXRIBBONGALLERY_TYPE && argument_type != PHP_WXRIBBONPAGE_TYPE && argument_type != PHP_WXRIBBONPANEL_TYPE && argument_type != PHP_WXRIBBONTOOLBAR_TYPE && argument_type != PHP_WXWEBVIEW_TYPE && argument_type != PHP_WXMEDIACTRL_TYPE && argument_type != PHP_WXSPLITTERWINDOW_TYPE && argument_type != PHP_WXPANEL_TYPE && argument_type != PHP_WXSCROLLEDWINDOW_TYPE && argument_type != PHP_WXHTMLWINDOW_TYPE && argument_type != PHP_WXGRID_TYPE && argument_type != PHP_WXPREVIEWCANVAS_TYPE && argument_type != PHP_WXWIZARDPAGE_TYPE && argument_type != PHP_WXWIZARDPAGESIMPLE_TYPE && argument_type != PHP_WXEDITABLELISTBOX_TYPE && argument_type != PHP_WXHSCROLLEDWINDOW_TYPE && argument_type != PHP_WXPREVIEWCONTROLBAR_TYPE && argument_type != PHP_WXMENUBAR_TYPE && argument_type != PHP_WXBANNERWINDOW_TYPE && argument_type != PHP_WXMDICLIENTWINDOW_TYPE && argument_type != PHP_WXTREELISTCTRL_TYPE && argument_type != PHP_WXSASHWINDOW_TYPE && argument_type != PHP_WXSASHLAYOUTWINDOW_TYPE && argument_type != PHP_WXHTMLHELPWINDOW_TYPE))
                     {
                         zend_error(E_ERROR, "Parameter 'parent' could not be retreived correctly.");
                     }
@@ -32317,7 +32040,7 @@ PHP_METHOD(php_wxGrid, RegisterDataType)
                     wxphp_object_type argument_type = Z_wxGridCellRenderer_P(renderer0)->object_type;
                     argument_native_object = (void*) Z_wxGridCellRenderer_P(renderer0)->native_object;
                     object_pointer0_1 = (wxGridCellRenderer*) argument_native_object;
-                    if (!object_pointer0_1 || (argument_type != PHP_WXGRIDCELLRENDERER_TYPE && argument_type != PHP_WXGRIDCELLBOOLRENDERER_TYPE && argument_type != PHP_WXGRIDCELLSTRINGRENDERER_TYPE && argument_type != PHP_WXGRIDCELLDATETIMERENDERER_TYPE && argument_type != PHP_WXGRIDCELLAUTOWRAPSTRINGRENDERER_TYPE && argument_type != PHP_WXGRIDCELLENUMRENDERER_TYPE && argument_type != PHP_WXGRIDCELLFLOATRENDERER_TYPE && argument_type != PHP_WXGRIDCELLNUMBERRENDERER_TYPE && argument_type != PHP_WXGRIDCELLDATERENDERER_TYPE))
+                    if (!object_pointer0_1 || (argument_type != PHP_WXGRIDCELLRENDERER_TYPE && argument_type != PHP_WXGRIDCELLBOOLRENDERER_TYPE && argument_type != PHP_WXGRIDCELLSTRINGRENDERER_TYPE && argument_type != PHP_WXGRIDCELLDATETIMERENDERER_TYPE && argument_type != PHP_WXGRIDCELLAUTOWRAPSTRINGRENDERER_TYPE && argument_type != PHP_WXGRIDCELLENUMRENDERER_TYPE && argument_type != PHP_WXGRIDCELLFLOATRENDERER_TYPE && argument_type != PHP_WXGRIDCELLNUMBERRENDERER_TYPE))
                     {
                         zend_error(E_ERROR, "Parameter 'renderer' could not be retreived correctly.");
                     }
@@ -32334,7 +32057,7 @@ PHP_METHOD(php_wxGrid, RegisterDataType)
                     wxphp_object_type argument_type = Z_wxGridCellEditor_P(editor0)->object_type;
                     argument_native_object = (void*) Z_wxGridCellEditor_P(editor0)->native_object;
                     object_pointer0_2 = (wxGridCellEditor*) argument_native_object;
-                    if (!object_pointer0_2 || (argument_type != PHP_WXGRIDCELLEDITOR_TYPE && argument_type != PHP_WXGRIDCELLBOOLEDITOR_TYPE && argument_type != PHP_WXGRIDCELLCHOICEEDITOR_TYPE && argument_type != PHP_WXGRIDCELLENUMEDITOR_TYPE && argument_type != PHP_WXGRIDCELLTEXTEDITOR_TYPE && argument_type != PHP_WXGRIDCELLAUTOWRAPSTRINGEDITOR_TYPE && argument_type != PHP_WXGRIDCELLFLOATEDITOR_TYPE && argument_type != PHP_WXGRIDCELLNUMBEREDITOR_TYPE && argument_type != PHP_WXGRIDCELLACTIVATABLEEDITOR_TYPE && argument_type != PHP_WXGRIDCELLDATEEDITOR_TYPE))
+                    if (!object_pointer0_2 || (argument_type != PHP_WXGRIDCELLEDITOR_TYPE && argument_type != PHP_WXGRIDCELLBOOLEDITOR_TYPE && argument_type != PHP_WXGRIDCELLCHOICEEDITOR_TYPE && argument_type != PHP_WXGRIDCELLENUMEDITOR_TYPE && argument_type != PHP_WXGRIDCELLTEXTEDITOR_TYPE && argument_type != PHP_WXGRIDCELLAUTOWRAPSTRINGEDITOR_TYPE && argument_type != PHP_WXGRIDCELLFLOATEDITOR_TYPE && argument_type != PHP_WXGRIDCELLNUMBEREDITOR_TYPE))
                     {
                         zend_error(E_ERROR, "Parameter 'editor' could not be retreived correctly.");
                     }
@@ -33509,7 +33232,7 @@ PHP_METHOD(php_wxGrid, SetCellEditor)
                     wxphp_object_type argument_type = Z_wxGridCellEditor_P(editor0)->object_type;
                     argument_native_object = (void*) Z_wxGridCellEditor_P(editor0)->native_object;
                     object_pointer0_2 = (wxGridCellEditor*) argument_native_object;
-                    if (!object_pointer0_2 || (argument_type != PHP_WXGRIDCELLEDITOR_TYPE && argument_type != PHP_WXGRIDCELLBOOLEDITOR_TYPE && argument_type != PHP_WXGRIDCELLCHOICEEDITOR_TYPE && argument_type != PHP_WXGRIDCELLENUMEDITOR_TYPE && argument_type != PHP_WXGRIDCELLTEXTEDITOR_TYPE && argument_type != PHP_WXGRIDCELLAUTOWRAPSTRINGEDITOR_TYPE && argument_type != PHP_WXGRIDCELLFLOATEDITOR_TYPE && argument_type != PHP_WXGRIDCELLNUMBEREDITOR_TYPE && argument_type != PHP_WXGRIDCELLACTIVATABLEEDITOR_TYPE && argument_type != PHP_WXGRIDCELLDATEEDITOR_TYPE))
+                    if (!object_pointer0_2 || (argument_type != PHP_WXGRIDCELLEDITOR_TYPE && argument_type != PHP_WXGRIDCELLBOOLEDITOR_TYPE && argument_type != PHP_WXGRIDCELLCHOICEEDITOR_TYPE && argument_type != PHP_WXGRIDCELLENUMEDITOR_TYPE && argument_type != PHP_WXGRIDCELLTEXTEDITOR_TYPE && argument_type != PHP_WXGRIDCELLAUTOWRAPSTRINGEDITOR_TYPE && argument_type != PHP_WXGRIDCELLFLOATEDITOR_TYPE && argument_type != PHP_WXGRIDCELLNUMBEREDITOR_TYPE))
                     {
                         zend_error(E_ERROR, "Parameter 'editor' could not be retreived correctly.");
                     }
@@ -33775,7 +33498,7 @@ PHP_METHOD(php_wxGrid, SetCellRenderer)
                     wxphp_object_type argument_type = Z_wxGridCellRenderer_P(renderer0)->object_type;
                     argument_native_object = (void*) Z_wxGridCellRenderer_P(renderer0)->native_object;
                     object_pointer0_2 = (wxGridCellRenderer*) argument_native_object;
-                    if (!object_pointer0_2 || (argument_type != PHP_WXGRIDCELLRENDERER_TYPE && argument_type != PHP_WXGRIDCELLBOOLRENDERER_TYPE && argument_type != PHP_WXGRIDCELLSTRINGRENDERER_TYPE && argument_type != PHP_WXGRIDCELLDATETIMERENDERER_TYPE && argument_type != PHP_WXGRIDCELLAUTOWRAPSTRINGRENDERER_TYPE && argument_type != PHP_WXGRIDCELLENUMRENDERER_TYPE && argument_type != PHP_WXGRIDCELLFLOATRENDERER_TYPE && argument_type != PHP_WXGRIDCELLNUMBERRENDERER_TYPE && argument_type != PHP_WXGRIDCELLDATERENDERER_TYPE))
+                    if (!object_pointer0_2 || (argument_type != PHP_WXGRIDCELLRENDERER_TYPE && argument_type != PHP_WXGRIDCELLBOOLRENDERER_TYPE && argument_type != PHP_WXGRIDCELLSTRINGRENDERER_TYPE && argument_type != PHP_WXGRIDCELLDATETIMERENDERER_TYPE && argument_type != PHP_WXGRIDCELLAUTOWRAPSTRINGRENDERER_TYPE && argument_type != PHP_WXGRIDCELLENUMRENDERER_TYPE && argument_type != PHP_WXGRIDCELLFLOATRENDERER_TYPE && argument_type != PHP_WXGRIDCELLNUMBERRENDERER_TYPE))
                     {
                         zend_error(E_ERROR, "Parameter 'renderer' could not be retreived correctly.");
                     }
@@ -36602,7 +36325,7 @@ PHP_METHOD(php_wxGrid, SetDefaultEditor)
                     wxphp_object_type argument_type = Z_wxGridCellEditor_P(editor0)->object_type;
                     argument_native_object = (void*) Z_wxGridCellEditor_P(editor0)->native_object;
                     object_pointer0_0 = (wxGridCellEditor*) argument_native_object;
-                    if (!object_pointer0_0 || (argument_type != PHP_WXGRIDCELLEDITOR_TYPE && argument_type != PHP_WXGRIDCELLBOOLEDITOR_TYPE && argument_type != PHP_WXGRIDCELLCHOICEEDITOR_TYPE && argument_type != PHP_WXGRIDCELLENUMEDITOR_TYPE && argument_type != PHP_WXGRIDCELLTEXTEDITOR_TYPE && argument_type != PHP_WXGRIDCELLAUTOWRAPSTRINGEDITOR_TYPE && argument_type != PHP_WXGRIDCELLFLOATEDITOR_TYPE && argument_type != PHP_WXGRIDCELLNUMBEREDITOR_TYPE && argument_type != PHP_WXGRIDCELLACTIVATABLEEDITOR_TYPE && argument_type != PHP_WXGRIDCELLDATEEDITOR_TYPE))
+                    if (!object_pointer0_0 || (argument_type != PHP_WXGRIDCELLEDITOR_TYPE && argument_type != PHP_WXGRIDCELLBOOLEDITOR_TYPE && argument_type != PHP_WXGRIDCELLCHOICEEDITOR_TYPE && argument_type != PHP_WXGRIDCELLENUMEDITOR_TYPE && argument_type != PHP_WXGRIDCELLTEXTEDITOR_TYPE && argument_type != PHP_WXGRIDCELLAUTOWRAPSTRINGEDITOR_TYPE && argument_type != PHP_WXGRIDCELLFLOATEDITOR_TYPE && argument_type != PHP_WXGRIDCELLNUMBEREDITOR_TYPE))
                     {
                         zend_error(E_ERROR, "Parameter 'editor' could not be retreived correctly.");
                     }
@@ -36733,7 +36456,7 @@ PHP_METHOD(php_wxGrid, SetDefaultRenderer)
                     wxphp_object_type argument_type = Z_wxGridCellRenderer_P(renderer0)->object_type;
                     argument_native_object = (void*) Z_wxGridCellRenderer_P(renderer0)->native_object;
                     object_pointer0_0 = (wxGridCellRenderer*) argument_native_object;
-                    if (!object_pointer0_0 || (argument_type != PHP_WXGRIDCELLRENDERER_TYPE && argument_type != PHP_WXGRIDCELLBOOLRENDERER_TYPE && argument_type != PHP_WXGRIDCELLSTRINGRENDERER_TYPE && argument_type != PHP_WXGRIDCELLDATETIMERENDERER_TYPE && argument_type != PHP_WXGRIDCELLAUTOWRAPSTRINGRENDERER_TYPE && argument_type != PHP_WXGRIDCELLENUMRENDERER_TYPE && argument_type != PHP_WXGRIDCELLFLOATRENDERER_TYPE && argument_type != PHP_WXGRIDCELLNUMBERRENDERER_TYPE && argument_type != PHP_WXGRIDCELLDATERENDERER_TYPE))
+                    if (!object_pointer0_0 || (argument_type != PHP_WXGRIDCELLRENDERER_TYPE && argument_type != PHP_WXGRIDCELLBOOLRENDERER_TYPE && argument_type != PHP_WXGRIDCELLSTRINGRENDERER_TYPE && argument_type != PHP_WXGRIDCELLDATETIMERENDERER_TYPE && argument_type != PHP_WXGRIDCELLAUTOWRAPSTRINGRENDERER_TYPE && argument_type != PHP_WXGRIDCELLENUMRENDERER_TYPE && argument_type != PHP_WXGRIDCELLFLOATRENDERER_TYPE && argument_type != PHP_WXGRIDCELLNUMBERRENDERER_TYPE))
                     {
                         zend_error(E_ERROR, "Parameter 'renderer' could not be retreived correctly.");
                     }
@@ -39589,7 +39312,7 @@ PHP_METHOD(php_wxGrid, SetTable)
                     wxphp_object_type argument_type = Z_wxGridTableBase_P(table0)->object_type;
                     argument_native_object = (void*) Z_wxGridTableBase_P(table0)->native_object;
                     object_pointer0_0 = (wxGridTableBase*) argument_native_object;
-                    if (!object_pointer0_0 || (argument_type != PHP_WXGRIDTABLEBASE_TYPE && argument_type != PHP_WXGRIDSTRINGTABLE_TYPE))
+                    if (!object_pointer0_0 || (argument_type != PHP_WXGRIDTABLEBASE_TYPE))
                     {
                         zend_error(E_ERROR, "Parameter 'table' could not be retreived correctly.");
                     }
@@ -41079,7 +40802,7 @@ PHP_METHOD(php_wxGrid, __construct)
                     wxphp_object_type argument_type = Z_wxWindow_P(parent1)->object_type;
                     argument_native_object = (void*) Z_wxWindow_P(parent1)->native_object;
                     object_pointer1_0 = (wxWindow*) argument_native_object;
-                    if (!object_pointer1_0 || (argument_type != PHP_WXWINDOW_TYPE && argument_type != PHP_WXNONOWNEDWINDOW_TYPE && argument_type != PHP_WXTOPLEVELWINDOW_TYPE && argument_type != PHP_WXFRAME_TYPE && argument_type != PHP_WXSPLASHSCREEN_TYPE && argument_type != PHP_WXMDICHILDFRAME_TYPE && argument_type != PHP_WXMDIPARENTFRAME_TYPE && argument_type != PHP_WXMINIFRAME_TYPE && argument_type != PHP_WXPREVIEWFRAME_TYPE && argument_type != PHP_WXHTMLHELPDIALOG_TYPE && argument_type != PHP_WXHTMLHELPFRAME_TYPE && argument_type != PHP_WXAUIFLOATINGFRAME_TYPE && argument_type != PHP_WXAUIMDIPARENTFRAME_TYPE && argument_type != PHP_WXDIALOG_TYPE && argument_type != PHP_WXTEXTENTRYDIALOG_TYPE && argument_type != PHP_WXPASSWORDENTRYDIALOG_TYPE && argument_type != PHP_WXMESSAGEDIALOG_TYPE && argument_type != PHP_WXFINDREPLACEDIALOG_TYPE && argument_type != PHP_WXDIRDIALOG_TYPE && argument_type != PHP_WXSYMBOLPICKERDIALOG_TYPE && argument_type != PHP_WXPROPERTYSHEETDIALOG_TYPE && argument_type != PHP_WXWIZARD_TYPE && argument_type != PHP_WXPROGRESSDIALOG_TYPE && argument_type != PHP_WXCOLOURDIALOG_TYPE && argument_type != PHP_WXFILEDIALOG_TYPE && argument_type != PHP_WXFONTDIALOG_TYPE && argument_type != PHP_WXSINGLECHOICEDIALOG_TYPE && argument_type != PHP_WXGENERICPROGRESSDIALOG_TYPE && argument_type != PHP_WXNUMBERENTRYDIALOG_TYPE && argument_type != PHP_WXPGARRAYEDITORDIALOG_TYPE && argument_type != PHP_WXPGARRAYSTRINGEDITORDIALOG_TYPE && argument_type != PHP_WXPRINTABORTDIALOG_TYPE && argument_type != PHP_WXPOPUPWINDOW_TYPE && argument_type != PHP_WXPOPUPTRANSIENTWINDOW_TYPE && argument_type != PHP_WXCONTROL_TYPE && argument_type != PHP_WXSTATUSBAR_TYPE && argument_type != PHP_WXANYBUTTON_TYPE && argument_type != PHP_WXBUTTON_TYPE && argument_type != PHP_WXBITMAPBUTTON_TYPE && argument_type != PHP_WXTOGGLEBUTTON_TYPE && argument_type != PHP_WXBITMAPTOGGLEBUTTON_TYPE && argument_type != PHP_WXTREECTRL_TYPE && argument_type != PHP_WXCONTROLWITHITEMS_TYPE && argument_type != PHP_WXLISTBOX_TYPE && argument_type != PHP_WXCHECKLISTBOX_TYPE && argument_type != PHP_WXREARRANGELIST_TYPE && argument_type != PHP_WXCHOICE_TYPE && argument_type != PHP_WXBOOKCTRLBASE_TYPE && argument_type != PHP_WXAUINOTEBOOK_TYPE && argument_type != PHP_WXAUIMDICLIENTWINDOW_TYPE && argument_type != PHP_WXLISTBOOK_TYPE && argument_type != PHP_WXCHOICEBOOK_TYPE && argument_type != PHP_WXNOTEBOOK_TYPE && argument_type != PHP_WXTREEBOOK_TYPE && argument_type != PHP_WXTOOLBOOK_TYPE && argument_type != PHP_WXANIMATIONCTRL_TYPE && argument_type != PHP_WXSTYLEDTEXTCTRL_TYPE && argument_type != PHP_WXSCROLLBAR_TYPE && argument_type != PHP_WXSTATICTEXT_TYPE && argument_type != PHP_WXSTATICLINE_TYPE && argument_type != PHP_WXSTATICBOX_TYPE && argument_type != PHP_WXSTATICBITMAP_TYPE && argument_type != PHP_WXCHECKBOX_TYPE && argument_type != PHP_WXTEXTCTRL_TYPE && argument_type != PHP_WXSEARCHCTRL_TYPE && argument_type != PHP_WXCOMBOBOX_TYPE && argument_type != PHP_WXBITMAPCOMBOBOX_TYPE && argument_type != PHP_WXAUITOOLBAR_TYPE && argument_type != PHP_WXLISTCTRL_TYPE && argument_type != PHP_WXLISTVIEW_TYPE && argument_type != PHP_WXRADIOBOX_TYPE && argument_type != PHP_WXRADIOBUTTON_TYPE && argument_type != PHP_WXSLIDER_TYPE && argument_type != PHP_WXSPINCTRL_TYPE && argument_type != PHP_WXSPINBUTTON_TYPE && argument_type != PHP_WXGAUGE_TYPE && argument_type != PHP_WXHYPERLINKCTRL_TYPE && argument_type != PHP_WXSPINCTRLDOUBLE_TYPE && argument_type != PHP_WXGENERICDIRCTRL_TYPE && argument_type != PHP_WXCALENDARCTRL_TYPE && argument_type != PHP_WXPICKERBASE_TYPE && argument_type != PHP_WXCOLOURPICKERCTRL_TYPE && argument_type != PHP_WXFONTPICKERCTRL_TYPE && argument_type != PHP_WXFILEPICKERCTRL_TYPE && argument_type != PHP_WXDIRPICKERCTRL_TYPE && argument_type != PHP_WXTIMEPICKERCTRL_TYPE && argument_type != PHP_WXTOOLBAR_TYPE && argument_type != PHP_WXDATEPICKERCTRL_TYPE && argument_type != PHP_WXCOLLAPSIBLEPANE_TYPE && argument_type != PHP_WXCOMBOCTRL_TYPE && argument_type != PHP_WXDATAVIEWCTRL_TYPE && argument_type != PHP_WXDATAVIEWLISTCTRL_TYPE && argument_type != PHP_WXDATAVIEWTREECTRL_TYPE && argument_type != PHP_WXHEADERCTRL_TYPE && argument_type != PHP_WXHEADERCTRLSIMPLE_TYPE && argument_type != PHP_WXFILECTRL_TYPE && argument_type != PHP_WXINFOBAR_TYPE && argument_type != PHP_WXRIBBONCONTROL_TYPE && argument_type != PHP_WXRIBBONBAR_TYPE && argument_type != PHP_WXRIBBONBUTTONBAR_TYPE && argument_type != PHP_WXRIBBONGALLERY_TYPE && argument_type != PHP_WXRIBBONPAGE_TYPE && argument_type != PHP_WXRIBBONPANEL_TYPE && argument_type != PHP_WXRIBBONTOOLBAR_TYPE && argument_type != PHP_WXWEBVIEW_TYPE && argument_type != PHP_WXMEDIACTRL_TYPE && argument_type != PHP_WXSPLITTERWINDOW_TYPE && argument_type != PHP_WXPANEL_TYPE && argument_type != PHP_WXSCROLLEDWINDOW_TYPE && argument_type != PHP_WXHTMLWINDOW_TYPE && argument_type != PHP_WXGRID_TYPE && argument_type != PHP_WXPREVIEWCANVAS_TYPE && argument_type != PHP_WXWIZARDPAGE_TYPE && argument_type != PHP_WXWIZARDPAGESIMPLE_TYPE && argument_type != PHP_WXEDITABLELISTBOX_TYPE && argument_type != PHP_WXHSCROLLEDWINDOW_TYPE && argument_type != PHP_WXPREVIEWCONTROLBAR_TYPE && argument_type != PHP_WXAUIMDICHILDFRAME_TYPE && argument_type != PHP_WXMENUBAR_TYPE && argument_type != PHP_WXBANNERWINDOW_TYPE && argument_type != PHP_WXMDICLIENTWINDOW_TYPE && argument_type != PHP_WXTREELISTCTRL_TYPE && argument_type != PHP_WXSASHWINDOW_TYPE && argument_type != PHP_WXSASHLAYOUTWINDOW_TYPE && argument_type != PHP_WXHTMLHELPWINDOW_TYPE && argument_type != PHP_WXTIPWINDOW_TYPE))
+                    if (!object_pointer1_0 || (argument_type != PHP_WXWINDOW_TYPE && argument_type != PHP_WXNONOWNEDWINDOW_TYPE && argument_type != PHP_WXTOPLEVELWINDOW_TYPE && argument_type != PHP_WXFRAME_TYPE && argument_type != PHP_WXSPLASHSCREEN_TYPE && argument_type != PHP_WXMDICHILDFRAME_TYPE && argument_type != PHP_WXMDIPARENTFRAME_TYPE && argument_type != PHP_WXMINIFRAME_TYPE && argument_type != PHP_WXPREVIEWFRAME_TYPE && argument_type != PHP_WXHTMLHELPDIALOG_TYPE && argument_type != PHP_WXHTMLHELPFRAME_TYPE && argument_type != PHP_WXDIALOG_TYPE && argument_type != PHP_WXTEXTENTRYDIALOG_TYPE && argument_type != PHP_WXPASSWORDENTRYDIALOG_TYPE && argument_type != PHP_WXMESSAGEDIALOG_TYPE && argument_type != PHP_WXFINDREPLACEDIALOG_TYPE && argument_type != PHP_WXDIRDIALOG_TYPE && argument_type != PHP_WXSYMBOLPICKERDIALOG_TYPE && argument_type != PHP_WXPROPERTYSHEETDIALOG_TYPE && argument_type != PHP_WXWIZARD_TYPE && argument_type != PHP_WXPROGRESSDIALOG_TYPE && argument_type != PHP_WXCOLOURDIALOG_TYPE && argument_type != PHP_WXFILEDIALOG_TYPE && argument_type != PHP_WXFONTDIALOG_TYPE && argument_type != PHP_WXSINGLECHOICEDIALOG_TYPE && argument_type != PHP_WXGENERICPROGRESSDIALOG_TYPE && argument_type != PHP_WXPOPUPWINDOW_TYPE && argument_type != PHP_WXPOPUPTRANSIENTWINDOW_TYPE && argument_type != PHP_WXCONTROL_TYPE && argument_type != PHP_WXSTATUSBAR_TYPE && argument_type != PHP_WXANYBUTTON_TYPE && argument_type != PHP_WXBUTTON_TYPE && argument_type != PHP_WXBITMAPBUTTON_TYPE && argument_type != PHP_WXTOGGLEBUTTON_TYPE && argument_type != PHP_WXBITMAPTOGGLEBUTTON_TYPE && argument_type != PHP_WXTREECTRL_TYPE && argument_type != PHP_WXCONTROLWITHITEMS_TYPE && argument_type != PHP_WXLISTBOX_TYPE && argument_type != PHP_WXCHECKLISTBOX_TYPE && argument_type != PHP_WXREARRANGELIST_TYPE && argument_type != PHP_WXCHOICE_TYPE && argument_type != PHP_WXBOOKCTRLBASE_TYPE && argument_type != PHP_WXAUINOTEBOOK_TYPE && argument_type != PHP_WXLISTBOOK_TYPE && argument_type != PHP_WXCHOICEBOOK_TYPE && argument_type != PHP_WXNOTEBOOK_TYPE && argument_type != PHP_WXTREEBOOK_TYPE && argument_type != PHP_WXTOOLBOOK_TYPE && argument_type != PHP_WXANIMATIONCTRL_TYPE && argument_type != PHP_WXSTYLEDTEXTCTRL_TYPE && argument_type != PHP_WXSCROLLBAR_TYPE && argument_type != PHP_WXSTATICTEXT_TYPE && argument_type != PHP_WXSTATICLINE_TYPE && argument_type != PHP_WXSTATICBOX_TYPE && argument_type != PHP_WXSTATICBITMAP_TYPE && argument_type != PHP_WXCHECKBOX_TYPE && argument_type != PHP_WXTEXTCTRL_TYPE && argument_type != PHP_WXSEARCHCTRL_TYPE && argument_type != PHP_WXCOMBOBOX_TYPE && argument_type != PHP_WXBITMAPCOMBOBOX_TYPE && argument_type != PHP_WXAUITOOLBAR_TYPE && argument_type != PHP_WXLISTCTRL_TYPE && argument_type != PHP_WXLISTVIEW_TYPE && argument_type != PHP_WXRADIOBOX_TYPE && argument_type != PHP_WXRADIOBUTTON_TYPE && argument_type != PHP_WXSLIDER_TYPE && argument_type != PHP_WXSPINCTRL_TYPE && argument_type != PHP_WXSPINBUTTON_TYPE && argument_type != PHP_WXGAUGE_TYPE && argument_type != PHP_WXHYPERLINKCTRL_TYPE && argument_type != PHP_WXSPINCTRLDOUBLE_TYPE && argument_type != PHP_WXGENERICDIRCTRL_TYPE && argument_type != PHP_WXCALENDARCTRL_TYPE && argument_type != PHP_WXPICKERBASE_TYPE && argument_type != PHP_WXCOLOURPICKERCTRL_TYPE && argument_type != PHP_WXFONTPICKERCTRL_TYPE && argument_type != PHP_WXFILEPICKERCTRL_TYPE && argument_type != PHP_WXDIRPICKERCTRL_TYPE && argument_type != PHP_WXTIMEPICKERCTRL_TYPE && argument_type != PHP_WXTOOLBAR_TYPE && argument_type != PHP_WXDATEPICKERCTRL_TYPE && argument_type != PHP_WXCOLLAPSIBLEPANE_TYPE && argument_type != PHP_WXCOMBOCTRL_TYPE && argument_type != PHP_WXDATAVIEWCTRL_TYPE && argument_type != PHP_WXDATAVIEWLISTCTRL_TYPE && argument_type != PHP_WXDATAVIEWTREECTRL_TYPE && argument_type != PHP_WXHEADERCTRL_TYPE && argument_type != PHP_WXHEADERCTRLSIMPLE_TYPE && argument_type != PHP_WXFILECTRL_TYPE && argument_type != PHP_WXINFOBAR_TYPE && argument_type != PHP_WXRIBBONCONTROL_TYPE && argument_type != PHP_WXRIBBONBAR_TYPE && argument_type != PHP_WXRIBBONBUTTONBAR_TYPE && argument_type != PHP_WXRIBBONGALLERY_TYPE && argument_type != PHP_WXRIBBONPAGE_TYPE && argument_type != PHP_WXRIBBONPANEL_TYPE && argument_type != PHP_WXRIBBONTOOLBAR_TYPE && argument_type != PHP_WXWEBVIEW_TYPE && argument_type != PHP_WXMEDIACTRL_TYPE && argument_type != PHP_WXSPLITTERWINDOW_TYPE && argument_type != PHP_WXPANEL_TYPE && argument_type != PHP_WXSCROLLEDWINDOW_TYPE && argument_type != PHP_WXHTMLWINDOW_TYPE && argument_type != PHP_WXGRID_TYPE && argument_type != PHP_WXPREVIEWCANVAS_TYPE && argument_type != PHP_WXWIZARDPAGE_TYPE && argument_type != PHP_WXWIZARDPAGESIMPLE_TYPE && argument_type != PHP_WXEDITABLELISTBOX_TYPE && argument_type != PHP_WXHSCROLLEDWINDOW_TYPE && argument_type != PHP_WXPREVIEWCONTROLBAR_TYPE && argument_type != PHP_WXMENUBAR_TYPE && argument_type != PHP_WXBANNERWINDOW_TYPE && argument_type != PHP_WXMDICLIENTWINDOW_TYPE && argument_type != PHP_WXTREELISTCTRL_TYPE && argument_type != PHP_WXSASHWINDOW_TYPE && argument_type != PHP_WXSASHLAYOUTWINDOW_TYPE && argument_type != PHP_WXHTMLHELPWINDOW_TYPE))
                     {
                         zend_error(E_ERROR, "Parameter 'parent' could not be retreived correctly.");
                     }

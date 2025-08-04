@@ -41,7 +41,6 @@
 #include "ribbon.h"
 #include "richtext.h"
 #include "rtti.h"
-#include "smartpointers.h"
 #include "stc.h"
 #include "streams.h"
 #include "threading.h"
@@ -6440,7 +6439,7 @@ PHP_METHOD(php_wxXmlDocument, Save)
                     wxphp_object_type argument_type = Z_wxOutputStream_P(stream1)->object_type;
                     argument_native_object = (void*) Z_wxOutputStream_P(stream1)->native_object;
                     object_pointer1_0 = (wxOutputStream*) argument_native_object;
-                    if (!object_pointer1_0 || (argument_type != PHP_WXOUTPUTSTREAM_TYPE && argument_type != PHP_WXFFILEOUTPUTSTREAM_TYPE && argument_type != PHP_WXFFILESTREAM_TYPE && argument_type != PHP_WXFILEOUTPUTSTREAM_TYPE && argument_type != PHP_WXFILESTREAM_TYPE && argument_type != PHP_WXTEMPFFILEOUTPUTSTREAM_TYPE))
+                    if (!object_pointer1_0 || (argument_type != PHP_WXOUTPUTSTREAM_TYPE && argument_type != PHP_WXFFILEOUTPUTSTREAM_TYPE && argument_type != PHP_WXFFILESTREAM_TYPE && argument_type != PHP_WXFILEOUTPUTSTREAM_TYPE && argument_type != PHP_WXFILESTREAM_TYPE))
                     {
                         zend_error(E_ERROR, "Parameter 'stream' could not be retreived correctly.");
                     }

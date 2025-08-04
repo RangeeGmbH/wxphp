@@ -384,7 +384,6 @@
 #include <wx/webview.h>
 #include <wx/webviewarchivehandler.h>
 #include <wx/webviewfshandler.h>
-#include <wx/webrequest.h>
 #include <wx/windowptr.h>
 #include <wx/wupdlock.h>
 #include <wx/withimages.h>

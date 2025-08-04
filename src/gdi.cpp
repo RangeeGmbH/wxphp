@@ -41,7 +41,6 @@
 #include "ribbon.h"
 #include "richtext.h"
 #include "rtti.h"
-#include "smartpointers.h"
 #include "stc.h"
 #include "streams.h"
 #include "threading.h"
@@ -25686,42 +25685,6 @@ PHP_METHOD(php_wxImageHandler, CanRead)
                 references = &((wxImageHandler_php*)native_object)->references;
                 reference_type_found = true;
             }
-            if((current_object_type == PHP_WXGIFHANDLER_TYPE) && (!reference_type_found)){
-                references = &((wxGIFHandler_php*)native_object)->references;
-                reference_type_found = true;
-            }
-            if((current_object_type == PHP_WXIFFHANDLER_TYPE) && (!reference_type_found)){
-                references = &((wxIFFHandler_php*)native_object)->references;
-                reference_type_found = true;
-            }
-            if((current_object_type == PHP_WXJPEGHANDLER_TYPE) && (!reference_type_found)){
-                references = &((wxJPEGHandler_php*)native_object)->references;
-                reference_type_found = true;
-            }
-            if((current_object_type == PHP_WXPCXHANDLER_TYPE) && (!reference_type_found)){
-                references = &((wxPCXHandler_php*)native_object)->references;
-                reference_type_found = true;
-            }
-            if((current_object_type == PHP_WXPNGHANDLER_TYPE) && (!reference_type_found)){
-                references = &((wxPNGHandler_php*)native_object)->references;
-                reference_type_found = true;
-            }
-            if((current_object_type == PHP_WXPNMHANDLER_TYPE) && (!reference_type_found)){
-                references = &((wxPNMHandler_php*)native_object)->references;
-                reference_type_found = true;
-            }
-            if((current_object_type == PHP_WXTGAHANDLER_TYPE) && (!reference_type_found)){
-                references = &((wxTGAHandler_php*)native_object)->references;
-                reference_type_found = true;
-            }
-            if((current_object_type == PHP_WXTIFFHANDLER_TYPE) && (!reference_type_found)){
-                references = &((wxTIFFHandler_php*)native_object)->references;
-                reference_type_found = true;
-            }
-            if((current_object_type == PHP_WXXPMHANDLER_TYPE) && (!reference_type_found)){
-                references = &((wxXPMHandler_php*)native_object)->references;
-                reference_type_found = true;
-            }
         }
     }
     #ifdef USE_WXPHP_DEBUG
@@ -25804,43 +25767,7 @@ PHP_METHOD(php_wxImageHandler, CanRead)
                 php_printf("Executing RETURN_BOOL(wxImageHandler::CanRead(*(wxInputStream*) object_pointer0_0))\n\n");
                 #endif
 
-                if(current_object_type == PHP_WXGIFHANDLER_TYPE)
-                {
-                    RETVAL_BOOL(((wxGIFHandler_php*)native_object)->CanRead(*(wxInputStream*) object_pointer0_0));
-                }
-                else if(current_object_type == PHP_WXIFFHANDLER_TYPE)
-                {
-                    RETVAL_BOOL(((wxIFFHandler_php*)native_object)->CanRead(*(wxInputStream*) object_pointer0_0));
-                }
-                else if(current_object_type == PHP_WXJPEGHANDLER_TYPE)
-                {
-                    RETVAL_BOOL(((wxJPEGHandler_php*)native_object)->CanRead(*(wxInputStream*) object_pointer0_0));
-                }
-                else if(current_object_type == PHP_WXPCXHANDLER_TYPE)
-                {
-                    RETVAL_BOOL(((wxPCXHandler_php*)native_object)->CanRead(*(wxInputStream*) object_pointer0_0));
-                }
-                else if(current_object_type == PHP_WXPNGHANDLER_TYPE)
-                {
-                    RETVAL_BOOL(((wxPNGHandler_php*)native_object)->CanRead(*(wxInputStream*) object_pointer0_0));
-                }
-                else if(current_object_type == PHP_WXPNMHANDLER_TYPE)
-                {
-                    RETVAL_BOOL(((wxPNMHandler_php*)native_object)->CanRead(*(wxInputStream*) object_pointer0_0));
-                }
-                else if(current_object_type == PHP_WXTGAHANDLER_TYPE)
-                {
-                    RETVAL_BOOL(((wxTGAHandler_php*)native_object)->CanRead(*(wxInputStream*) object_pointer0_0));
-                }
-                else if(current_object_type == PHP_WXTIFFHANDLER_TYPE)
-                {
-                    RETVAL_BOOL(((wxTIFFHandler_php*)native_object)->CanRead(*(wxInputStream*) object_pointer0_0));
-                }
-                else if(current_object_type == PHP_WXXPMHANDLER_TYPE)
-                {
-                    RETVAL_BOOL(((wxXPMHandler_php*)native_object)->CanRead(*(wxInputStream*) object_pointer0_0));
-                }
-                else if(current_object_type == PHP_WXIMAGEHANDLER_TYPE)
+                if(current_object_type == PHP_WXIMAGEHANDLER_TYPE)
                 {
                     RETVAL_BOOL(((wxImageHandler_php*)native_object)->CanRead(*(wxInputStream*) object_pointer0_0));
                 }
@@ -25863,43 +25790,7 @@ PHP_METHOD(php_wxImageHandler, CanRead)
                 php_printf("Executing RETURN_BOOL(wxImageHandler::CanRead(wxString(filename1, wxConvUTF8)))\n\n");
                 #endif
 
-                if(current_object_type == PHP_WXGIFHANDLER_TYPE)
-                {
-                    RETVAL_BOOL(((wxGIFHandler_php*)native_object)->CanRead(wxString(filename1, wxConvUTF8)));
-                }
-                else if(current_object_type == PHP_WXIFFHANDLER_TYPE)
-                {
-                    RETVAL_BOOL(((wxIFFHandler_php*)native_object)->CanRead(wxString(filename1, wxConvUTF8)));
-                }
-                else if(current_object_type == PHP_WXJPEGHANDLER_TYPE)
-                {
-                    RETVAL_BOOL(((wxJPEGHandler_php*)native_object)->CanRead(wxString(filename1, wxConvUTF8)));
-                }
-                else if(current_object_type == PHP_WXPCXHANDLER_TYPE)
-                {
-                    RETVAL_BOOL(((wxPCXHandler_php*)native_object)->CanRead(wxString(filename1, wxConvUTF8)));
-                }
-                else if(current_object_type == PHP_WXPNGHANDLER_TYPE)
-                {
-                    RETVAL_BOOL(((wxPNGHandler_php*)native_object)->CanRead(wxString(filename1, wxConvUTF8)));
-                }
-                else if(current_object_type == PHP_WXPNMHANDLER_TYPE)
-                {
-                    RETVAL_BOOL(((wxPNMHandler_php*)native_object)->CanRead(wxString(filename1, wxConvUTF8)));
-                }
-                else if(current_object_type == PHP_WXTGAHANDLER_TYPE)
-                {
-                    RETVAL_BOOL(((wxTGAHandler_php*)native_object)->CanRead(wxString(filename1, wxConvUTF8)));
-                }
-                else if(current_object_type == PHP_WXTIFFHANDLER_TYPE)
-                {
-                    RETVAL_BOOL(((wxTIFFHandler_php*)native_object)->CanRead(wxString(filename1, wxConvUTF8)));
-                }
-                else if(current_object_type == PHP_WXXPMHANDLER_TYPE)
-                {
-                    RETVAL_BOOL(((wxXPMHandler_php*)native_object)->CanRead(wxString(filename1, wxConvUTF8)));
-                }
-                else if(current_object_type == PHP_WXIMAGEHANDLER_TYPE)
+                if(current_object_type == PHP_WXIMAGEHANDLER_TYPE)
                 {
                     RETVAL_BOOL(((wxImageHandler_php*)native_object)->CanRead(wxString(filename1, wxConvUTF8)));
                 }
@@ -25972,42 +25863,6 @@ PHP_METHOD(php_wxImageHandler, GetAltExtensions)
                 references = &((wxImageHandler_php*)native_object)->references;
                 reference_type_found = true;
             }
-            if((current_object_type == PHP_WXGIFHANDLER_TYPE) && (!reference_type_found)){
-                references = &((wxGIFHandler_php*)native_object)->references;
-                reference_type_found = true;
-            }
-            if((current_object_type == PHP_WXIFFHANDLER_TYPE) && (!reference_type_found)){
-                references = &((wxIFFHandler_php*)native_object)->references;
-                reference_type_found = true;
-            }
-            if((current_object_type == PHP_WXJPEGHANDLER_TYPE) && (!reference_type_found)){
-                references = &((wxJPEGHandler_php*)native_object)->references;
-                reference_type_found = true;
-            }
-            if((current_object_type == PHP_WXPCXHANDLER_TYPE) && (!reference_type_found)){
-                references = &((wxPCXHandler_php*)native_object)->references;
-                reference_type_found = true;
-            }
-            if((current_object_type == PHP_WXPNGHANDLER_TYPE) && (!reference_type_found)){
-                references = &((wxPNGHandler_php*)native_object)->references;
-                reference_type_found = true;
-            }
-            if((current_object_type == PHP_WXPNMHANDLER_TYPE) && (!reference_type_found)){
-                references = &((wxPNMHandler_php*)native_object)->references;
-                reference_type_found = true;
-            }
-            if((current_object_type == PHP_WXTGAHANDLER_TYPE) && (!reference_type_found)){
-                references = &((wxTGAHandler_php*)native_object)->references;
-                reference_type_found = true;
-            }
-            if((current_object_type == PHP_WXTIFFHANDLER_TYPE) && (!reference_type_found)){
-                references = &((wxTIFFHandler_php*)native_object)->references;
-                reference_type_found = true;
-            }
-            if((current_object_type == PHP_WXXPMHANDLER_TYPE) && (!reference_type_found)){
-                references = &((wxXPMHandler_php*)native_object)->references;
-                reference_type_found = true;
-            }
         }
     }
     #ifdef USE_WXPHP_DEBUG
@@ -26046,43 +25901,7 @@ PHP_METHOD(php_wxImageHandler, GetAltExtensions)
                 #endif
 
                 wxArrayString value_to_return0;
-                if(current_object_type == PHP_WXGIFHANDLER_TYPE)
-                {
-                    value_to_return0 = ((wxGIFHandler_php*)native_object)->GetAltExtensions();
-                }
-                else if(current_object_type == PHP_WXIFFHANDLER_TYPE)
-                {
-                    value_to_return0 = ((wxIFFHandler_php*)native_object)->GetAltExtensions();
-                }
-                else if(current_object_type == PHP_WXJPEGHANDLER_TYPE)
-                {
-                    value_to_return0 = ((wxJPEGHandler_php*)native_object)->GetAltExtensions();
-                }
-                else if(current_object_type == PHP_WXPCXHANDLER_TYPE)
-                {
-                    value_to_return0 = ((wxPCXHandler_php*)native_object)->GetAltExtensions();
-                }
-                else if(current_object_type == PHP_WXPNGHANDLER_TYPE)
-                {
-                    value_to_return0 = ((wxPNGHandler_php*)native_object)->GetAltExtensions();
-                }
-                else if(current_object_type == PHP_WXPNMHANDLER_TYPE)
-                {
-                    value_to_return0 = ((wxPNMHandler_php*)native_object)->GetAltExtensions();
-                }
-                else if(current_object_type == PHP_WXTGAHANDLER_TYPE)
-                {
-                    value_to_return0 = ((wxTGAHandler_php*)native_object)->GetAltExtensions();
-                }
-                else if(current_object_type == PHP_WXTIFFHANDLER_TYPE)
-                {
-                    value_to_return0 = ((wxTIFFHandler_php*)native_object)->GetAltExtensions();
-                }
-                else if(current_object_type == PHP_WXXPMHANDLER_TYPE)
-                {
-                    value_to_return0 = ((wxXPMHandler_php*)native_object)->GetAltExtensions();
-                }
-                else if(current_object_type == PHP_WXIMAGEHANDLER_TYPE)
+                if(current_object_type == PHP_WXIMAGEHANDLER_TYPE)
                 {
                     value_to_return0 = ((wxImageHandler_php*)native_object)->GetAltExtensions();
                 }
@@ -26160,42 +25979,6 @@ PHP_METHOD(php_wxImageHandler, GetExtension)
                 references = &((wxImageHandler_php*)native_object)->references;
                 reference_type_found = true;
             }
-            if((current_object_type == PHP_WXGIFHANDLER_TYPE) && (!reference_type_found)){
-                references = &((wxGIFHandler_php*)native_object)->references;
-                reference_type_found = true;
-            }
-            if((current_object_type == PHP_WXIFFHANDLER_TYPE) && (!reference_type_found)){
-                references = &((wxIFFHandler_php*)native_object)->references;
-                reference_type_found = true;
-            }
-            if((current_object_type == PHP_WXJPEGHANDLER_TYPE) && (!reference_type_found)){
-                references = &((wxJPEGHandler_php*)native_object)->references;
-                reference_type_found = true;
-            }
-            if((current_object_type == PHP_WXPCXHANDLER_TYPE) && (!reference_type_found)){
-                references = &((wxPCXHandler_php*)native_object)->references;
-                reference_type_found = true;
-            }
-            if((current_object_type == PHP_WXPNGHANDLER_TYPE) && (!reference_type_found)){
-                references = &((wxPNGHandler_php*)native_object)->references;
-                reference_type_found = true;
-            }
-            if((current_object_type == PHP_WXPNMHANDLER_TYPE) && (!reference_type_found)){
-                references = &((wxPNMHandler_php*)native_object)->references;
-                reference_type_found = true;
-            }
-            if((current_object_type == PHP_WXTGAHANDLER_TYPE) && (!reference_type_found)){
-                references = &((wxTGAHandler_php*)native_object)->references;
-                reference_type_found = true;
-            }
-            if((current_object_type == PHP_WXTIFFHANDLER_TYPE) && (!reference_type_found)){
-                references = &((wxTIFFHandler_php*)native_object)->references;
-                reference_type_found = true;
-            }
-            if((current_object_type == PHP_WXXPMHANDLER_TYPE) && (!reference_type_found)){
-                references = &((wxXPMHandler_php*)native_object)->references;
-                reference_type_found = true;
-            }
         }
     }
     #ifdef USE_WXPHP_DEBUG
@@ -26234,43 +26017,7 @@ PHP_METHOD(php_wxImageHandler, GetExtension)
                 #endif
 
                 wxString value_to_return0;
-                if(current_object_type == PHP_WXGIFHANDLER_TYPE)
-                {
-                    value_to_return0 = ((wxGIFHandler_php*)native_object)->GetExtension();
-                }
-                else if(current_object_type == PHP_WXIFFHANDLER_TYPE)
-                {
-                    value_to_return0 = ((wxIFFHandler_php*)native_object)->GetExtension();
-                }
-                else if(current_object_type == PHP_WXJPEGHANDLER_TYPE)
-                {
-                    value_to_return0 = ((wxJPEGHandler_php*)native_object)->GetExtension();
-                }
-                else if(current_object_type == PHP_WXPCXHANDLER_TYPE)
-                {
-                    value_to_return0 = ((wxPCXHandler_php*)native_object)->GetExtension();
-                }
-                else if(current_object_type == PHP_WXPNGHANDLER_TYPE)
-                {
-                    value_to_return0 = ((wxPNGHandler_php*)native_object)->GetExtension();
-                }
-                else if(current_object_type == PHP_WXPNMHANDLER_TYPE)
-                {
-                    value_to_return0 = ((wxPNMHandler_php*)native_object)->GetExtension();
-                }
-                else if(current_object_type == PHP_WXTGAHANDLER_TYPE)
-                {
-                    value_to_return0 = ((wxTGAHandler_php*)native_object)->GetExtension();
-                }
-                else if(current_object_type == PHP_WXTIFFHANDLER_TYPE)
-                {
-                    value_to_return0 = ((wxTIFFHandler_php*)native_object)->GetExtension();
-                }
-                else if(current_object_type == PHP_WXXPMHANDLER_TYPE)
-                {
-                    value_to_return0 = ((wxXPMHandler_php*)native_object)->GetExtension();
-                }
-                else if(current_object_type == PHP_WXIMAGEHANDLER_TYPE)
+                if(current_object_type == PHP_WXIMAGEHANDLER_TYPE)
                 {
                     value_to_return0 = ((wxImageHandler_php*)native_object)->GetExtension();
                 }
@@ -26344,42 +26091,6 @@ PHP_METHOD(php_wxImageHandler, GetImageCount)
                 references = &((wxImageHandler_php*)native_object)->references;
                 reference_type_found = true;
             }
-            if((current_object_type == PHP_WXGIFHANDLER_TYPE) && (!reference_type_found)){
-                references = &((wxGIFHandler_php*)native_object)->references;
-                reference_type_found = true;
-            }
-            if((current_object_type == PHP_WXIFFHANDLER_TYPE) && (!reference_type_found)){
-                references = &((wxIFFHandler_php*)native_object)->references;
-                reference_type_found = true;
-            }
-            if((current_object_type == PHP_WXJPEGHANDLER_TYPE) && (!reference_type_found)){
-                references = &((wxJPEGHandler_php*)native_object)->references;
-                reference_type_found = true;
-            }
-            if((current_object_type == PHP_WXPCXHANDLER_TYPE) && (!reference_type_found)){
-                references = &((wxPCXHandler_php*)native_object)->references;
-                reference_type_found = true;
-            }
-            if((current_object_type == PHP_WXPNGHANDLER_TYPE) && (!reference_type_found)){
-                references = &((wxPNGHandler_php*)native_object)->references;
-                reference_type_found = true;
-            }
-            if((current_object_type == PHP_WXPNMHANDLER_TYPE) && (!reference_type_found)){
-                references = &((wxPNMHandler_php*)native_object)->references;
-                reference_type_found = true;
-            }
-            if((current_object_type == PHP_WXTGAHANDLER_TYPE) && (!reference_type_found)){
-                references = &((wxTGAHandler_php*)native_object)->references;
-                reference_type_found = true;
-            }
-            if((current_object_type == PHP_WXTIFFHANDLER_TYPE) && (!reference_type_found)){
-                references = &((wxTIFFHandler_php*)native_object)->references;
-                reference_type_found = true;
-            }
-            if((current_object_type == PHP_WXXPMHANDLER_TYPE) && (!reference_type_found)){
-                references = &((wxXPMHandler_php*)native_object)->references;
-                reference_type_found = true;
-            }
         }
     }
     #ifdef USE_WXPHP_DEBUG
@@ -26440,43 +26151,7 @@ PHP_METHOD(php_wxImageHandler, GetImageCount)
                 php_printf("Executing RETURN_LONG(wxImageHandler::GetImageCount(*(wxInputStream*) object_pointer0_0))\n\n");
                 #endif
 
-                if(current_object_type == PHP_WXGIFHANDLER_TYPE)
-                {
-                    RETVAL_LONG(((wxGIFHandler_php*)native_object)->GetImageCount(*(wxInputStream*) object_pointer0_0));
-                }
-                else if(current_object_type == PHP_WXIFFHANDLER_TYPE)
-                {
-                    RETVAL_LONG(((wxIFFHandler_php*)native_object)->GetImageCount(*(wxInputStream*) object_pointer0_0));
-                }
-                else if(current_object_type == PHP_WXJPEGHANDLER_TYPE)
-                {
-                    RETVAL_LONG(((wxJPEGHandler_php*)native_object)->GetImageCount(*(wxInputStream*) object_pointer0_0));
-                }
-                else if(current_object_type == PHP_WXPCXHANDLER_TYPE)
-                {
-                    RETVAL_LONG(((wxPCXHandler_php*)native_object)->GetImageCount(*(wxInputStream*) object_pointer0_0));
-                }
-                else if(current_object_type == PHP_WXPNGHANDLER_TYPE)
-                {
-                    RETVAL_LONG(((wxPNGHandler_php*)native_object)->GetImageCount(*(wxInputStream*) object_pointer0_0));
-                }
-                else if(current_object_type == PHP_WXPNMHANDLER_TYPE)
-                {
-                    RETVAL_LONG(((wxPNMHandler_php*)native_object)->GetImageCount(*(wxInputStream*) object_pointer0_0));
-                }
-                else if(current_object_type == PHP_WXTGAHANDLER_TYPE)
-                {
-                    RETVAL_LONG(((wxTGAHandler_php*)native_object)->GetImageCount(*(wxInputStream*) object_pointer0_0));
-                }
-                else if(current_object_type == PHP_WXTIFFHANDLER_TYPE)
-                {
-                    RETVAL_LONG(((wxTIFFHandler_php*)native_object)->GetImageCount(*(wxInputStream*) object_pointer0_0));
-                }
-                else if(current_object_type == PHP_WXXPMHANDLER_TYPE)
-                {
-                    RETVAL_LONG(((wxXPMHandler_php*)native_object)->GetImageCount(*(wxInputStream*) object_pointer0_0));
-                }
-                else if(current_object_type == PHP_WXIMAGEHANDLER_TYPE)
+                if(current_object_type == PHP_WXIMAGEHANDLER_TYPE)
                 {
                     RETVAL_LONG(((wxImageHandler_php*)native_object)->GetImageCount(*(wxInputStream*) object_pointer0_0));
                 }
@@ -26550,42 +26225,6 @@ PHP_METHOD(php_wxImageHandler, GetMimeType)
                 references = &((wxImageHandler_php*)native_object)->references;
                 reference_type_found = true;
             }
-            if((current_object_type == PHP_WXGIFHANDLER_TYPE) && (!reference_type_found)){
-                references = &((wxGIFHandler_php*)native_object)->references;
-                reference_type_found = true;
-            }
-            if((current_object_type == PHP_WXIFFHANDLER_TYPE) && (!reference_type_found)){
-                references = &((wxIFFHandler_php*)native_object)->references;
-                reference_type_found = true;
-            }
-            if((current_object_type == PHP_WXJPEGHANDLER_TYPE) && (!reference_type_found)){
-                references = &((wxJPEGHandler_php*)native_object)->references;
-                reference_type_found = true;
-            }
-            if((current_object_type == PHP_WXPCXHANDLER_TYPE) && (!reference_type_found)){
-                references = &((wxPCXHandler_php*)native_object)->references;
-                reference_type_found = true;
-            }
-            if((current_object_type == PHP_WXPNGHANDLER_TYPE) && (!reference_type_found)){
-                references = &((wxPNGHandler_php*)native_object)->references;
-                reference_type_found = true;
-            }
-            if((current_object_type == PHP_WXPNMHANDLER_TYPE) && (!reference_type_found)){
-                references = &((wxPNMHandler_php*)native_object)->references;
-                reference_type_found = true;
-            }
-            if((current_object_type == PHP_WXTGAHANDLER_TYPE) && (!reference_type_found)){
-                references = &((wxTGAHandler_php*)native_object)->references;
-                reference_type_found = true;
-            }
-            if((current_object_type == PHP_WXTIFFHANDLER_TYPE) && (!reference_type_found)){
-                references = &((wxTIFFHandler_php*)native_object)->references;
-                reference_type_found = true;
-            }
-            if((current_object_type == PHP_WXXPMHANDLER_TYPE) && (!reference_type_found)){
-                references = &((wxXPMHandler_php*)native_object)->references;
-                reference_type_found = true;
-            }
         }
     }
     #ifdef USE_WXPHP_DEBUG
@@ -26624,43 +26263,7 @@ PHP_METHOD(php_wxImageHandler, GetMimeType)
                 #endif
 
                 wxString value_to_return0;
-                if(current_object_type == PHP_WXGIFHANDLER_TYPE)
-                {
-                    value_to_return0 = ((wxGIFHandler_php*)native_object)->GetMimeType();
-                }
-                else if(current_object_type == PHP_WXIFFHANDLER_TYPE)
-                {
-                    value_to_return0 = ((wxIFFHandler_php*)native_object)->GetMimeType();
-                }
-                else if(current_object_type == PHP_WXJPEGHANDLER_TYPE)
-                {
-                    value_to_return0 = ((wxJPEGHandler_php*)native_object)->GetMimeType();
-                }
-                else if(current_object_type == PHP_WXPCXHANDLER_TYPE)
-                {
-                    value_to_return0 = ((wxPCXHandler_php*)native_object)->GetMimeType();
-                }
-                else if(current_object_type == PHP_WXPNGHANDLER_TYPE)
-                {
-                    value_to_return0 = ((wxPNGHandler_php*)native_object)->GetMimeType();
-                }
-                else if(current_object_type == PHP_WXPNMHANDLER_TYPE)
-                {
-                    value_to_return0 = ((wxPNMHandler_php*)native_object)->GetMimeType();
-                }
-                else if(current_object_type == PHP_WXTGAHANDLER_TYPE)
-                {
-                    value_to_return0 = ((wxTGAHandler_php*)native_object)->GetMimeType();
-                }
-                else if(current_object_type == PHP_WXTIFFHANDLER_TYPE)
-                {
-                    value_to_return0 = ((wxTIFFHandler_php*)native_object)->GetMimeType();
-                }
-                else if(current_object_type == PHP_WXXPMHANDLER_TYPE)
-                {
-                    value_to_return0 = ((wxXPMHandler_php*)native_object)->GetMimeType();
-                }
-                else if(current_object_type == PHP_WXIMAGEHANDLER_TYPE)
+                if(current_object_type == PHP_WXIMAGEHANDLER_TYPE)
                 {
                     value_to_return0 = ((wxImageHandler_php*)native_object)->GetMimeType();
                 }
@@ -26734,42 +26337,6 @@ PHP_METHOD(php_wxImageHandler, GetName)
                 references = &((wxImageHandler_php*)native_object)->references;
                 reference_type_found = true;
             }
-            if((current_object_type == PHP_WXGIFHANDLER_TYPE) && (!reference_type_found)){
-                references = &((wxGIFHandler_php*)native_object)->references;
-                reference_type_found = true;
-            }
-            if((current_object_type == PHP_WXIFFHANDLER_TYPE) && (!reference_type_found)){
-                references = &((wxIFFHandler_php*)native_object)->references;
-                reference_type_found = true;
-            }
-            if((current_object_type == PHP_WXJPEGHANDLER_TYPE) && (!reference_type_found)){
-                references = &((wxJPEGHandler_php*)native_object)->references;
-                reference_type_found = true;
-            }
-            if((current_object_type == PHP_WXPCXHANDLER_TYPE) && (!reference_type_found)){
-                references = &((wxPCXHandler_php*)native_object)->references;
-                reference_type_found = true;
-            }
-            if((current_object_type == PHP_WXPNGHANDLER_TYPE) && (!reference_type_found)){
-                references = &((wxPNGHandler_php*)native_object)->references;
-                reference_type_found = true;
-            }
-            if((current_object_type == PHP_WXPNMHANDLER_TYPE) && (!reference_type_found)){
-                references = &((wxPNMHandler_php*)native_object)->references;
-                reference_type_found = true;
-            }
-            if((current_object_type == PHP_WXTGAHANDLER_TYPE) && (!reference_type_found)){
-                references = &((wxTGAHandler_php*)native_object)->references;
-                reference_type_found = true;
-            }
-            if((current_object_type == PHP_WXTIFFHANDLER_TYPE) && (!reference_type_found)){
-                references = &((wxTIFFHandler_php*)native_object)->references;
-                reference_type_found = true;
-            }
-            if((current_object_type == PHP_WXXPMHANDLER_TYPE) && (!reference_type_found)){
-                references = &((wxXPMHandler_php*)native_object)->references;
-                reference_type_found = true;
-            }
         }
     }
     #ifdef USE_WXPHP_DEBUG
@@ -26808,43 +26375,7 @@ PHP_METHOD(php_wxImageHandler, GetName)
                 #endif
 
                 wxString value_to_return0;
-                if(current_object_type == PHP_WXGIFHANDLER_TYPE)
-                {
-                    value_to_return0 = ((wxGIFHandler_php*)native_object)->GetName();
-                }
-                else if(current_object_type == PHP_WXIFFHANDLER_TYPE)
-                {
-                    value_to_return0 = ((wxIFFHandler_php*)native_object)->GetName();
-                }
-                else if(current_object_type == PHP_WXJPEGHANDLER_TYPE)
-                {
-                    value_to_return0 = ((wxJPEGHandler_php*)native_object)->GetName();
-                }
-                else if(current_object_type == PHP_WXPCXHANDLER_TYPE)
-                {
-                    value_to_return0 = ((wxPCXHandler_php*)native_object)->GetName();
-                }
-                else if(current_object_type == PHP_WXPNGHANDLER_TYPE)
-                {
-                    value_to_return0 = ((wxPNGHandler_php*)native_object)->GetName();
-                }
-                else if(current_object_type == PHP_WXPNMHANDLER_TYPE)
-                {
-                    value_to_return0 = ((wxPNMHandler_php*)native_object)->GetName();
-                }
-                else if(current_object_type == PHP_WXTGAHANDLER_TYPE)
-                {
-                    value_to_return0 = ((wxTGAHandler_php*)native_object)->GetName();
-                }
-                else if(current_object_type == PHP_WXTIFFHANDLER_TYPE)
-                {
-                    value_to_return0 = ((wxTIFFHandler_php*)native_object)->GetName();
-                }
-                else if(current_object_type == PHP_WXXPMHANDLER_TYPE)
-                {
-                    value_to_return0 = ((wxXPMHandler_php*)native_object)->GetName();
-                }
-                else if(current_object_type == PHP_WXIMAGEHANDLER_TYPE)
+                if(current_object_type == PHP_WXIMAGEHANDLER_TYPE)
                 {
                     value_to_return0 = ((wxImageHandler_php*)native_object)->GetName();
                 }
@@ -26918,42 +26449,6 @@ PHP_METHOD(php_wxImageHandler, GetType)
                 references = &((wxImageHandler_php*)native_object)->references;
                 reference_type_found = true;
             }
-            if((current_object_type == PHP_WXGIFHANDLER_TYPE) && (!reference_type_found)){
-                references = &((wxGIFHandler_php*)native_object)->references;
-                reference_type_found = true;
-            }
-            if((current_object_type == PHP_WXIFFHANDLER_TYPE) && (!reference_type_found)){
-                references = &((wxIFFHandler_php*)native_object)->references;
-                reference_type_found = true;
-            }
-            if((current_object_type == PHP_WXJPEGHANDLER_TYPE) && (!reference_type_found)){
-                references = &((wxJPEGHandler_php*)native_object)->references;
-                reference_type_found = true;
-            }
-            if((current_object_type == PHP_WXPCXHANDLER_TYPE) && (!reference_type_found)){
-                references = &((wxPCXHandler_php*)native_object)->references;
-                reference_type_found = true;
-            }
-            if((current_object_type == PHP_WXPNGHANDLER_TYPE) && (!reference_type_found)){
-                references = &((wxPNGHandler_php*)native_object)->references;
-                reference_type_found = true;
-            }
-            if((current_object_type == PHP_WXPNMHANDLER_TYPE) && (!reference_type_found)){
-                references = &((wxPNMHandler_php*)native_object)->references;
-                reference_type_found = true;
-            }
-            if((current_object_type == PHP_WXTGAHANDLER_TYPE) && (!reference_type_found)){
-                references = &((wxTGAHandler_php*)native_object)->references;
-                reference_type_found = true;
-            }
-            if((current_object_type == PHP_WXTIFFHANDLER_TYPE) && (!reference_type_found)){
-                references = &((wxTIFFHandler_php*)native_object)->references;
-                reference_type_found = true;
-            }
-            if((current_object_type == PHP_WXXPMHANDLER_TYPE) && (!reference_type_found)){
-                references = &((wxXPMHandler_php*)native_object)->references;
-                reference_type_found = true;
-            }
         }
     }
     #ifdef USE_WXPHP_DEBUG
@@ -26991,43 +26486,7 @@ PHP_METHOD(php_wxImageHandler, GetType)
                 php_printf("Executing RETURN_LONG(wxImageHandler::GetType())\n\n");
                 #endif
 
-                if(current_object_type == PHP_WXGIFHANDLER_TYPE)
-                {
-                    RETVAL_LONG(((wxGIFHandler_php*)native_object)->GetType());
-                }
-                else if(current_object_type == PHP_WXIFFHANDLER_TYPE)
-                {
-                    RETVAL_LONG(((wxIFFHandler_php*)native_object)->GetType());
-                }
-                else if(current_object_type == PHP_WXJPEGHANDLER_TYPE)
-                {
-                    RETVAL_LONG(((wxJPEGHandler_php*)native_object)->GetType());
-                }
-                else if(current_object_type == PHP_WXPCXHANDLER_TYPE)
-                {
-                    RETVAL_LONG(((wxPCXHandler_php*)native_object)->GetType());
-                }
-                else if(current_object_type == PHP_WXPNGHANDLER_TYPE)
-                {
-                    RETVAL_LONG(((wxPNGHandler_php*)native_object)->GetType());
-                }
-                else if(current_object_type == PHP_WXPNMHANDLER_TYPE)
-                {
-                    RETVAL_LONG(((wxPNMHandler_php*)native_object)->GetType());
-                }
-                else if(current_object_type == PHP_WXTGAHANDLER_TYPE)
-                {
-                    RETVAL_LONG(((wxTGAHandler_php*)native_object)->GetType());
-                }
-                else if(current_object_type == PHP_WXTIFFHANDLER_TYPE)
-                {
-                    RETVAL_LONG(((wxTIFFHandler_php*)native_object)->GetType());
-                }
-                else if(current_object_type == PHP_WXXPMHANDLER_TYPE)
-                {
-                    RETVAL_LONG(((wxXPMHandler_php*)native_object)->GetType());
-                }
-                else if(current_object_type == PHP_WXIMAGEHANDLER_TYPE)
+                if(current_object_type == PHP_WXIMAGEHANDLER_TYPE)
                 {
                     RETVAL_LONG(((wxImageHandler_php*)native_object)->GetType());
                 }
@@ -27098,42 +26557,6 @@ PHP_METHOD(php_wxImageHandler, LoadFile)
 
             if(current_object_type == PHP_WXIMAGEHANDLER_TYPE){
                 references = &((wxImageHandler_php*)native_object)->references;
-                reference_type_found = true;
-            }
-            if((current_object_type == PHP_WXGIFHANDLER_TYPE) && (!reference_type_found)){
-                references = &((wxGIFHandler_php*)native_object)->references;
-                reference_type_found = true;
-            }
-            if((current_object_type == PHP_WXIFFHANDLER_TYPE) && (!reference_type_found)){
-                references = &((wxIFFHandler_php*)native_object)->references;
-                reference_type_found = true;
-            }
-            if((current_object_type == PHP_WXJPEGHANDLER_TYPE) && (!reference_type_found)){
-                references = &((wxJPEGHandler_php*)native_object)->references;
-                reference_type_found = true;
-            }
-            if((current_object_type == PHP_WXPCXHANDLER_TYPE) && (!reference_type_found)){
-                references = &((wxPCXHandler_php*)native_object)->references;
-                reference_type_found = true;
-            }
-            if((current_object_type == PHP_WXPNGHANDLER_TYPE) && (!reference_type_found)){
-                references = &((wxPNGHandler_php*)native_object)->references;
-                reference_type_found = true;
-            }
-            if((current_object_type == PHP_WXPNMHANDLER_TYPE) && (!reference_type_found)){
-                references = &((wxPNMHandler_php*)native_object)->references;
-                reference_type_found = true;
-            }
-            if((current_object_type == PHP_WXTGAHANDLER_TYPE) && (!reference_type_found)){
-                references = &((wxTGAHandler_php*)native_object)->references;
-                reference_type_found = true;
-            }
-            if((current_object_type == PHP_WXTIFFHANDLER_TYPE) && (!reference_type_found)){
-                references = &((wxTIFFHandler_php*)native_object)->references;
-                reference_type_found = true;
-            }
-            if((current_object_type == PHP_WXXPMHANDLER_TYPE) && (!reference_type_found)){
-                references = &((wxXPMHandler_php*)native_object)->references;
                 reference_type_found = true;
             }
         }
@@ -27326,42 +26749,6 @@ PHP_METHOD(php_wxImageHandler, SaveFile)
                 references = &((wxImageHandler_php*)native_object)->references;
                 reference_type_found = true;
             }
-            if((current_object_type == PHP_WXGIFHANDLER_TYPE) && (!reference_type_found)){
-                references = &((wxGIFHandler_php*)native_object)->references;
-                reference_type_found = true;
-            }
-            if((current_object_type == PHP_WXIFFHANDLER_TYPE) && (!reference_type_found)){
-                references = &((wxIFFHandler_php*)native_object)->references;
-                reference_type_found = true;
-            }
-            if((current_object_type == PHP_WXJPEGHANDLER_TYPE) && (!reference_type_found)){
-                references = &((wxJPEGHandler_php*)native_object)->references;
-                reference_type_found = true;
-            }
-            if((current_object_type == PHP_WXPCXHANDLER_TYPE) && (!reference_type_found)){
-                references = &((wxPCXHandler_php*)native_object)->references;
-                reference_type_found = true;
-            }
-            if((current_object_type == PHP_WXPNGHANDLER_TYPE) && (!reference_type_found)){
-                references = &((wxPNGHandler_php*)native_object)->references;
-                reference_type_found = true;
-            }
-            if((current_object_type == PHP_WXPNMHANDLER_TYPE) && (!reference_type_found)){
-                references = &((wxPNMHandler_php*)native_object)->references;
-                reference_type_found = true;
-            }
-            if((current_object_type == PHP_WXTGAHANDLER_TYPE) && (!reference_type_found)){
-                references = &((wxTGAHandler_php*)native_object)->references;
-                reference_type_found = true;
-            }
-            if((current_object_type == PHP_WXTIFFHANDLER_TYPE) && (!reference_type_found)){
-                references = &((wxTIFFHandler_php*)native_object)->references;
-                reference_type_found = true;
-            }
-            if((current_object_type == PHP_WXXPMHANDLER_TYPE) && (!reference_type_found)){
-                references = &((wxXPMHandler_php*)native_object)->references;
-                reference_type_found = true;
-            }
         }
     }
     #ifdef USE_WXPHP_DEBUG
@@ -27415,7 +26802,7 @@ PHP_METHOD(php_wxImageHandler, SaveFile)
                     wxphp_object_type argument_type = Z_wxOutputStream_P(stream0)->object_type;
                     argument_native_object = (void*) Z_wxOutputStream_P(stream0)->native_object;
                     object_pointer0_1 = (wxOutputStream*) argument_native_object;
-                    if (!object_pointer0_1 || (argument_type != PHP_WXOUTPUTSTREAM_TYPE && argument_type != PHP_WXFFILEOUTPUTSTREAM_TYPE && argument_type != PHP_WXFFILESTREAM_TYPE && argument_type != PHP_WXFILEOUTPUTSTREAM_TYPE && argument_type != PHP_WXFILESTREAM_TYPE && argument_type != PHP_WXTEMPFFILEOUTPUTSTREAM_TYPE))
+                    if (!object_pointer0_1 || (argument_type != PHP_WXOUTPUTSTREAM_TYPE && argument_type != PHP_WXFFILEOUTPUTSTREAM_TYPE && argument_type != PHP_WXFFILESTREAM_TYPE && argument_type != PHP_WXFILEOUTPUTSTREAM_TYPE && argument_type != PHP_WXFILESTREAM_TYPE))
                     {
                         zend_error(E_ERROR, "Parameter 'stream' could not be retreived correctly.");
                     }
@@ -27534,42 +26921,6 @@ PHP_METHOD(php_wxImageHandler, SetAltExtensions)
                 references = &((wxImageHandler_php*)native_object)->references;
                 reference_type_found = true;
             }
-            if((current_object_type == PHP_WXGIFHANDLER_TYPE) && (!reference_type_found)){
-                references = &((wxGIFHandler_php*)native_object)->references;
-                reference_type_found = true;
-            }
-            if((current_object_type == PHP_WXIFFHANDLER_TYPE) && (!reference_type_found)){
-                references = &((wxIFFHandler_php*)native_object)->references;
-                reference_type_found = true;
-            }
-            if((current_object_type == PHP_WXJPEGHANDLER_TYPE) && (!reference_type_found)){
-                references = &((wxJPEGHandler_php*)native_object)->references;
-                reference_type_found = true;
-            }
-            if((current_object_type == PHP_WXPCXHANDLER_TYPE) && (!reference_type_found)){
-                references = &((wxPCXHandler_php*)native_object)->references;
-                reference_type_found = true;
-            }
-            if((current_object_type == PHP_WXPNGHANDLER_TYPE) && (!reference_type_found)){
-                references = &((wxPNGHandler_php*)native_object)->references;
-                reference_type_found = true;
-            }
-            if((current_object_type == PHP_WXPNMHANDLER_TYPE) && (!reference_type_found)){
-                references = &((wxPNMHandler_php*)native_object)->references;
-                reference_type_found = true;
-            }
-            if((current_object_type == PHP_WXTGAHANDLER_TYPE) && (!reference_type_found)){
-                references = &((wxTGAHandler_php*)native_object)->references;
-                reference_type_found = true;
-            }
-            if((current_object_type == PHP_WXTIFFHANDLER_TYPE) && (!reference_type_found)){
-                references = &((wxTIFFHandler_php*)native_object)->references;
-                reference_type_found = true;
-            }
-            if((current_object_type == PHP_WXXPMHANDLER_TYPE) && (!reference_type_found)){
-                references = &((wxXPMHandler_php*)native_object)->references;
-                reference_type_found = true;
-            }
         }
     }
     #ifdef USE_WXPHP_DEBUG
@@ -27630,43 +26981,7 @@ PHP_METHOD(php_wxImageHandler, SetAltExtensions)
                 php_printf("Executing wxImageHandler::SetAltExtensions(strings_array0_0)\n\n");
                 #endif
 
-                if(current_object_type == PHP_WXGIFHANDLER_TYPE)
-                {
-                    ((wxGIFHandler_php*)native_object)->SetAltExtensions(strings_array0_0);
-                }
-                else if(current_object_type == PHP_WXIFFHANDLER_TYPE)
-                {
-                    ((wxIFFHandler_php*)native_object)->SetAltExtensions(strings_array0_0);
-                }
-                else if(current_object_type == PHP_WXJPEGHANDLER_TYPE)
-                {
-                    ((wxJPEGHandler_php*)native_object)->SetAltExtensions(strings_array0_0);
-                }
-                else if(current_object_type == PHP_WXPCXHANDLER_TYPE)
-                {
-                    ((wxPCXHandler_php*)native_object)->SetAltExtensions(strings_array0_0);
-                }
-                else if(current_object_type == PHP_WXPNGHANDLER_TYPE)
-                {
-                    ((wxPNGHandler_php*)native_object)->SetAltExtensions(strings_array0_0);
-                }
-                else if(current_object_type == PHP_WXPNMHANDLER_TYPE)
-                {
-                    ((wxPNMHandler_php*)native_object)->SetAltExtensions(strings_array0_0);
-                }
-                else if(current_object_type == PHP_WXTGAHANDLER_TYPE)
-                {
-                    ((wxTGAHandler_php*)native_object)->SetAltExtensions(strings_array0_0);
-                }
-                else if(current_object_type == PHP_WXTIFFHANDLER_TYPE)
-                {
-                    ((wxTIFFHandler_php*)native_object)->SetAltExtensions(strings_array0_0);
-                }
-                else if(current_object_type == PHP_WXXPMHANDLER_TYPE)
-                {
-                    ((wxXPMHandler_php*)native_object)->SetAltExtensions(strings_array0_0);
-                }
-                else if(current_object_type == PHP_WXIMAGEHANDLER_TYPE)
+                if(current_object_type == PHP_WXIMAGEHANDLER_TYPE)
                 {
                     ((wxImageHandler_php*)native_object)->SetAltExtensions(strings_array0_0);
                 }
@@ -27739,42 +27054,6 @@ PHP_METHOD(php_wxImageHandler, SetExtension)
                 references = &((wxImageHandler_php*)native_object)->references;
                 reference_type_found = true;
             }
-            if((current_object_type == PHP_WXGIFHANDLER_TYPE) && (!reference_type_found)){
-                references = &((wxGIFHandler_php*)native_object)->references;
-                reference_type_found = true;
-            }
-            if((current_object_type == PHP_WXIFFHANDLER_TYPE) && (!reference_type_found)){
-                references = &((wxIFFHandler_php*)native_object)->references;
-                reference_type_found = true;
-            }
-            if((current_object_type == PHP_WXJPEGHANDLER_TYPE) && (!reference_type_found)){
-                references = &((wxJPEGHandler_php*)native_object)->references;
-                reference_type_found = true;
-            }
-            if((current_object_type == PHP_WXPCXHANDLER_TYPE) && (!reference_type_found)){
-                references = &((wxPCXHandler_php*)native_object)->references;
-                reference_type_found = true;
-            }
-            if((current_object_type == PHP_WXPNGHANDLER_TYPE) && (!reference_type_found)){
-                references = &((wxPNGHandler_php*)native_object)->references;
-                reference_type_found = true;
-            }
-            if((current_object_type == PHP_WXPNMHANDLER_TYPE) && (!reference_type_found)){
-                references = &((wxPNMHandler_php*)native_object)->references;
-                reference_type_found = true;
-            }
-            if((current_object_type == PHP_WXTGAHANDLER_TYPE) && (!reference_type_found)){
-                references = &((wxTGAHandler_php*)native_object)->references;
-                reference_type_found = true;
-            }
-            if((current_object_type == PHP_WXTIFFHANDLER_TYPE) && (!reference_type_found)){
-                references = &((wxTIFFHandler_php*)native_object)->references;
-                reference_type_found = true;
-            }
-            if((current_object_type == PHP_WXXPMHANDLER_TYPE) && (!reference_type_found)){
-                references = &((wxXPMHandler_php*)native_object)->references;
-                reference_type_found = true;
-            }
         }
     }
     #ifdef USE_WXPHP_DEBUG
@@ -27818,43 +27097,7 @@ PHP_METHOD(php_wxImageHandler, SetExtension)
                 php_printf("Executing wxImageHandler::SetExtension(wxString(extension0, wxConvUTF8))\n\n");
                 #endif
 
-                if(current_object_type == PHP_WXGIFHANDLER_TYPE)
-                {
-                    ((wxGIFHandler_php*)native_object)->SetExtension(wxString(extension0, wxConvUTF8));
-                }
-                else if(current_object_type == PHP_WXIFFHANDLER_TYPE)
-                {
-                    ((wxIFFHandler_php*)native_object)->SetExtension(wxString(extension0, wxConvUTF8));
-                }
-                else if(current_object_type == PHP_WXJPEGHANDLER_TYPE)
-                {
-                    ((wxJPEGHandler_php*)native_object)->SetExtension(wxString(extension0, wxConvUTF8));
-                }
-                else if(current_object_type == PHP_WXPCXHANDLER_TYPE)
-                {
-                    ((wxPCXHandler_php*)native_object)->SetExtension(wxString(extension0, wxConvUTF8));
-                }
-                else if(current_object_type == PHP_WXPNGHANDLER_TYPE)
-                {
-                    ((wxPNGHandler_php*)native_object)->SetExtension(wxString(extension0, wxConvUTF8));
-                }
-                else if(current_object_type == PHP_WXPNMHANDLER_TYPE)
-                {
-                    ((wxPNMHandler_php*)native_object)->SetExtension(wxString(extension0, wxConvUTF8));
-                }
-                else if(current_object_type == PHP_WXTGAHANDLER_TYPE)
-                {
-                    ((wxTGAHandler_php*)native_object)->SetExtension(wxString(extension0, wxConvUTF8));
-                }
-                else if(current_object_type == PHP_WXTIFFHANDLER_TYPE)
-                {
-                    ((wxTIFFHandler_php*)native_object)->SetExtension(wxString(extension0, wxConvUTF8));
-                }
-                else if(current_object_type == PHP_WXXPMHANDLER_TYPE)
-                {
-                    ((wxXPMHandler_php*)native_object)->SetExtension(wxString(extension0, wxConvUTF8));
-                }
-                else if(current_object_type == PHP_WXIMAGEHANDLER_TYPE)
+                if(current_object_type == PHP_WXIMAGEHANDLER_TYPE)
                 {
                     ((wxImageHandler_php*)native_object)->SetExtension(wxString(extension0, wxConvUTF8));
                 }
@@ -27927,42 +27170,6 @@ PHP_METHOD(php_wxImageHandler, SetMimeType)
                 references = &((wxImageHandler_php*)native_object)->references;
                 reference_type_found = true;
             }
-            if((current_object_type == PHP_WXGIFHANDLER_TYPE) && (!reference_type_found)){
-                references = &((wxGIFHandler_php*)native_object)->references;
-                reference_type_found = true;
-            }
-            if((current_object_type == PHP_WXIFFHANDLER_TYPE) && (!reference_type_found)){
-                references = &((wxIFFHandler_php*)native_object)->references;
-                reference_type_found = true;
-            }
-            if((current_object_type == PHP_WXJPEGHANDLER_TYPE) && (!reference_type_found)){
-                references = &((wxJPEGHandler_php*)native_object)->references;
-                reference_type_found = true;
-            }
-            if((current_object_type == PHP_WXPCXHANDLER_TYPE) && (!reference_type_found)){
-                references = &((wxPCXHandler_php*)native_object)->references;
-                reference_type_found = true;
-            }
-            if((current_object_type == PHP_WXPNGHANDLER_TYPE) && (!reference_type_found)){
-                references = &((wxPNGHandler_php*)native_object)->references;
-                reference_type_found = true;
-            }
-            if((current_object_type == PHP_WXPNMHANDLER_TYPE) && (!reference_type_found)){
-                references = &((wxPNMHandler_php*)native_object)->references;
-                reference_type_found = true;
-            }
-            if((current_object_type == PHP_WXTGAHANDLER_TYPE) && (!reference_type_found)){
-                references = &((wxTGAHandler_php*)native_object)->references;
-                reference_type_found = true;
-            }
-            if((current_object_type == PHP_WXTIFFHANDLER_TYPE) && (!reference_type_found)){
-                references = &((wxTIFFHandler_php*)native_object)->references;
-                reference_type_found = true;
-            }
-            if((current_object_type == PHP_WXXPMHANDLER_TYPE) && (!reference_type_found)){
-                references = &((wxXPMHandler_php*)native_object)->references;
-                reference_type_found = true;
-            }
         }
     }
     #ifdef USE_WXPHP_DEBUG
@@ -28006,43 +27213,7 @@ PHP_METHOD(php_wxImageHandler, SetMimeType)
                 php_printf("Executing wxImageHandler::SetMimeType(wxString(mimetype0, wxConvUTF8))\n\n");
                 #endif
 
-                if(current_object_type == PHP_WXGIFHANDLER_TYPE)
-                {
-                    ((wxGIFHandler_php*)native_object)->SetMimeType(wxString(mimetype0, wxConvUTF8));
-                }
-                else if(current_object_type == PHP_WXIFFHANDLER_TYPE)
-                {
-                    ((wxIFFHandler_php*)native_object)->SetMimeType(wxString(mimetype0, wxConvUTF8));
-                }
-                else if(current_object_type == PHP_WXJPEGHANDLER_TYPE)
-                {
-                    ((wxJPEGHandler_php*)native_object)->SetMimeType(wxString(mimetype0, wxConvUTF8));
-                }
-                else if(current_object_type == PHP_WXPCXHANDLER_TYPE)
-                {
-                    ((wxPCXHandler_php*)native_object)->SetMimeType(wxString(mimetype0, wxConvUTF8));
-                }
-                else if(current_object_type == PHP_WXPNGHANDLER_TYPE)
-                {
-                    ((wxPNGHandler_php*)native_object)->SetMimeType(wxString(mimetype0, wxConvUTF8));
-                }
-                else if(current_object_type == PHP_WXPNMHANDLER_TYPE)
-                {
-                    ((wxPNMHandler_php*)native_object)->SetMimeType(wxString(mimetype0, wxConvUTF8));
-                }
-                else if(current_object_type == PHP_WXTGAHANDLER_TYPE)
-                {
-                    ((wxTGAHandler_php*)native_object)->SetMimeType(wxString(mimetype0, wxConvUTF8));
-                }
-                else if(current_object_type == PHP_WXTIFFHANDLER_TYPE)
-                {
-                    ((wxTIFFHandler_php*)native_object)->SetMimeType(wxString(mimetype0, wxConvUTF8));
-                }
-                else if(current_object_type == PHP_WXXPMHANDLER_TYPE)
-                {
-                    ((wxXPMHandler_php*)native_object)->SetMimeType(wxString(mimetype0, wxConvUTF8));
-                }
-                else if(current_object_type == PHP_WXIMAGEHANDLER_TYPE)
+                if(current_object_type == PHP_WXIMAGEHANDLER_TYPE)
                 {
                     ((wxImageHandler_php*)native_object)->SetMimeType(wxString(mimetype0, wxConvUTF8));
                 }
@@ -28115,42 +27286,6 @@ PHP_METHOD(php_wxImageHandler, SetName)
                 references = &((wxImageHandler_php*)native_object)->references;
                 reference_type_found = true;
             }
-            if((current_object_type == PHP_WXGIFHANDLER_TYPE) && (!reference_type_found)){
-                references = &((wxGIFHandler_php*)native_object)->references;
-                reference_type_found = true;
-            }
-            if((current_object_type == PHP_WXIFFHANDLER_TYPE) && (!reference_type_found)){
-                references = &((wxIFFHandler_php*)native_object)->references;
-                reference_type_found = true;
-            }
-            if((current_object_type == PHP_WXJPEGHANDLER_TYPE) && (!reference_type_found)){
-                references = &((wxJPEGHandler_php*)native_object)->references;
-                reference_type_found = true;
-            }
-            if((current_object_type == PHP_WXPCXHANDLER_TYPE) && (!reference_type_found)){
-                references = &((wxPCXHandler_php*)native_object)->references;
-                reference_type_found = true;
-            }
-            if((current_object_type == PHP_WXPNGHANDLER_TYPE) && (!reference_type_found)){
-                references = &((wxPNGHandler_php*)native_object)->references;
-                reference_type_found = true;
-            }
-            if((current_object_type == PHP_WXPNMHANDLER_TYPE) && (!reference_type_found)){
-                references = &((wxPNMHandler_php*)native_object)->references;
-                reference_type_found = true;
-            }
-            if((current_object_type == PHP_WXTGAHANDLER_TYPE) && (!reference_type_found)){
-                references = &((wxTGAHandler_php*)native_object)->references;
-                reference_type_found = true;
-            }
-            if((current_object_type == PHP_WXTIFFHANDLER_TYPE) && (!reference_type_found)){
-                references = &((wxTIFFHandler_php*)native_object)->references;
-                reference_type_found = true;
-            }
-            if((current_object_type == PHP_WXXPMHANDLER_TYPE) && (!reference_type_found)){
-                references = &((wxXPMHandler_php*)native_object)->references;
-                reference_type_found = true;
-            }
         }
     }
     #ifdef USE_WXPHP_DEBUG
@@ -28194,43 +27329,7 @@ PHP_METHOD(php_wxImageHandler, SetName)
                 php_printf("Executing wxImageHandler::SetName(wxString(name0, wxConvUTF8))\n\n");
                 #endif
 
-                if(current_object_type == PHP_WXGIFHANDLER_TYPE)
-                {
-                    ((wxGIFHandler_php*)native_object)->SetName(wxString(name0, wxConvUTF8));
-                }
-                else if(current_object_type == PHP_WXIFFHANDLER_TYPE)
-                {
-                    ((wxIFFHandler_php*)native_object)->SetName(wxString(name0, wxConvUTF8));
-                }
-                else if(current_object_type == PHP_WXJPEGHANDLER_TYPE)
-                {
-                    ((wxJPEGHandler_php*)native_object)->SetName(wxString(name0, wxConvUTF8));
-                }
-                else if(current_object_type == PHP_WXPCXHANDLER_TYPE)
-                {
-                    ((wxPCXHandler_php*)native_object)->SetName(wxString(name0, wxConvUTF8));
-                }
-                else if(current_object_type == PHP_WXPNGHANDLER_TYPE)
-                {
-                    ((wxPNGHandler_php*)native_object)->SetName(wxString(name0, wxConvUTF8));
-                }
-                else if(current_object_type == PHP_WXPNMHANDLER_TYPE)
-                {
-                    ((wxPNMHandler_php*)native_object)->SetName(wxString(name0, wxConvUTF8));
-                }
-                else if(current_object_type == PHP_WXTGAHANDLER_TYPE)
-                {
-                    ((wxTGAHandler_php*)native_object)->SetName(wxString(name0, wxConvUTF8));
-                }
-                else if(current_object_type == PHP_WXTIFFHANDLER_TYPE)
-                {
-                    ((wxTIFFHandler_php*)native_object)->SetName(wxString(name0, wxConvUTF8));
-                }
-                else if(current_object_type == PHP_WXXPMHANDLER_TYPE)
-                {
-                    ((wxXPMHandler_php*)native_object)->SetName(wxString(name0, wxConvUTF8));
-                }
-                else if(current_object_type == PHP_WXIMAGEHANDLER_TYPE)
+                if(current_object_type == PHP_WXIMAGEHANDLER_TYPE)
                 {
                     ((wxImageHandler_php*)native_object)->SetName(wxString(name0, wxConvUTF8));
                 }
@@ -30676,7 +29775,7 @@ PHP_METHOD(php_wxImage, SaveFile)
                     wxphp_object_type argument_type = Z_wxOutputStream_P(stream0)->object_type;
                     argument_native_object = (void*) Z_wxOutputStream_P(stream0)->native_object;
                     object_pointer0_0 = (wxOutputStream*) argument_native_object;
-                    if (!object_pointer0_0 || (argument_type != PHP_WXOUTPUTSTREAM_TYPE && argument_type != PHP_WXFFILEOUTPUTSTREAM_TYPE && argument_type != PHP_WXFFILESTREAM_TYPE && argument_type != PHP_WXFILEOUTPUTSTREAM_TYPE && argument_type != PHP_WXFILESTREAM_TYPE && argument_type != PHP_WXTEMPFFILEOUTPUTSTREAM_TYPE))
+                    if (!object_pointer0_0 || (argument_type != PHP_WXOUTPUTSTREAM_TYPE && argument_type != PHP_WXFFILEOUTPUTSTREAM_TYPE && argument_type != PHP_WXFFILESTREAM_TYPE && argument_type != PHP_WXFILEOUTPUTSTREAM_TYPE && argument_type != PHP_WXFILESTREAM_TYPE))
                     {
                         goto overload1;
                     }
@@ -30744,7 +29843,7 @@ PHP_METHOD(php_wxImage, SaveFile)
                     wxphp_object_type argument_type = Z_wxOutputStream_P(stream3)->object_type;
                     argument_native_object = (void*) Z_wxOutputStream_P(stream3)->native_object;
                     object_pointer3_0 = (wxOutputStream*) argument_native_object;
-                    if (!object_pointer3_0 || (argument_type != PHP_WXOUTPUTSTREAM_TYPE && argument_type != PHP_WXFFILEOUTPUTSTREAM_TYPE && argument_type != PHP_WXFFILESTREAM_TYPE && argument_type != PHP_WXFILEOUTPUTSTREAM_TYPE && argument_type != PHP_WXFILESTREAM_TYPE && argument_type != PHP_WXTEMPFFILEOUTPUTSTREAM_TYPE))
+                    if (!object_pointer3_0 || (argument_type != PHP_WXOUTPUTSTREAM_TYPE && argument_type != PHP_WXFFILEOUTPUTSTREAM_TYPE && argument_type != PHP_WXFFILESTREAM_TYPE && argument_type != PHP_WXFILEOUTPUTSTREAM_TYPE && argument_type != PHP_WXFILESTREAM_TYPE))
                     {
                         goto overload4;
                     }
@@ -33075,7 +32174,7 @@ PHP_METHOD(php_wxImage, InsertHandler)
                     wxphp_object_type argument_type = Z_wxImageHandler_P(handler0)->object_type;
                     argument_native_object = (void*) Z_wxImageHandler_P(handler0)->native_object;
                     object_pointer0_0 = (wxImageHandler*) argument_native_object;
-                    if (!object_pointer0_0 || (argument_type != PHP_WXIMAGEHANDLER_TYPE && argument_type != PHP_WXGIFHANDLER_TYPE && argument_type != PHP_WXIFFHANDLER_TYPE && argument_type != PHP_WXJPEGHANDLER_TYPE && argument_type != PHP_WXPCXHANDLER_TYPE && argument_type != PHP_WXPNGHANDLER_TYPE && argument_type != PHP_WXPNMHANDLER_TYPE && argument_type != PHP_WXTGAHANDLER_TYPE && argument_type != PHP_WXTIFFHANDLER_TYPE && argument_type != PHP_WXXPMHANDLER_TYPE))
+                    if (!object_pointer0_0 || (argument_type != PHP_WXIMAGEHANDLER_TYPE))
                     {
                         zend_error(E_ERROR, "Parameter 'handler' could not be retreived correctly.");
                     }
@@ -37959,137 +37058,6 @@ PHP_METHOD(php_wxImage, ConvertAlphaToMask)
 }
 /* }}} */
 
-/* {{{ proto int wxImage::ComputeHistogram(wxImageHistogram &histogram)
-   Computes the histogram of the image. */
-PHP_METHOD(php_wxImage, ComputeHistogram)
-{
-    #ifdef USE_WXPHP_DEBUG
-    php_printf("Invoking wxImage::ComputeHistogram\n");
-    php_printf("===========================================\n");
-    #endif
-
-    zo_wxImage* current_object;
-    wxphp_object_type current_object_type;
-    wxImage_php* native_object;
-    void* argument_native_object = NULL;
-
-    //Other variables used thru the code
-    zval dummy;
-    ZVAL_NULL(&dummy);
-    bool already_called = false;
-    wxPHPObjectReferences* references;
-    int arguments_received = ZEND_NUM_ARGS();
-    bool return_is_user_initialized = false;
-
-    //Get native object of the php object that called the method
-    if(getThis() != NULL)
-    {
-        current_object = Z_wxImage_P(getThis());
-
-        if(current_object->native_object == NULL)
-        {
-            zend_error(
-                E_ERROR,
-                "Failed to get the native object for "
-                "wxImage::ComputeHistogram call\n"
-            );
-
-            return;
-        }
-        else
-        {
-            native_object = current_object->native_object;
-            current_object_type = current_object->object_type;
-
-            bool reference_type_found = false;
-
-            if(current_object_type == PHP_WXIMAGE_TYPE){
-                references = &((wxImage_php*)native_object)->references;
-                reference_type_found = true;
-            }
-        }
-    }
-    #ifdef USE_WXPHP_DEBUG
-    else
-    {
-        php_printf("Processing the method call as static\n");
-    }
-    #endif
-
-    //Parameters for overload 0
-    zval* histogram0;
-    wxImageHistogram* object_pointer0_0 = 0;
-    bool overload0_called = false;
-
-    
-    //Overload 0
-    overload0:
-    if(!already_called && arguments_received == 1)
-    {
-        #ifdef USE_WXPHP_DEBUG
-        php_printf("Parameters received %d\n", arguments_received);
-        php_printf("Parsing parameters with 'O' (&histogram0, php_wxImageHistogram_entry)\n");
-        #endif
-
-        char parse_parameters_string[] = "O";
-        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &histogram0, php_wxImageHistogram_entry ) == SUCCESS)
-        {
-            if(arguments_received >= 1){
-                if(Z_TYPE_P(histogram0) == IS_OBJECT)
-                {
-                    wxphp_object_type argument_type = Z_wxImageHistogram_P(histogram0)->object_type;
-                    argument_native_object = (void*) Z_wxImageHistogram_P(histogram0)->native_object;
-                    object_pointer0_0 = (wxImageHistogram*) argument_native_object;
-                    if (!object_pointer0_0 )
-                    {
-                        zend_error(E_ERROR, "Parameter 'histogram' could not be retreived correctly.");
-                    }
-                }
-                else if(Z_TYPE_P(histogram0) != IS_NULL)
-                {
-                    zend_error(E_ERROR, "Parameter 'histogram' not null, could not be retreived correctly.");
-                }
-            }
-
-            overload0_called = true;
-            already_called = true;
-        }
-    }
-
-    
-    if(overload0_called)
-    {
-        switch(arguments_received)
-        {
-            case 1:
-            {
-                #ifdef USE_WXPHP_DEBUG
-                php_printf("Executing RETURN_LONG(wxImage::ComputeHistogram(*(wxImageHistogram*) object_pointer0_0))\n\n");
-                #endif
-
-                RETVAL_LONG(((wxImage_php*)native_object)->ComputeHistogram(*(wxImageHistogram*) object_pointer0_0));
-
-                references->AddReference(histogram0, "wxImage::ComputeHistogram at call 3 with 1 argument(s)");
-
-                return;
-                break;
-            }
-        }
-    }
-
-    
-    //In case wrong type/count of parameters was passed
-    if(!already_called)
-    {
-        zend_error(
-            E_ERROR,
-            "Wrong type or count of parameters passed to: "
-            "wxImage::ComputeHistogram\n"
-        );
-    }
-}
-/* }}} */
-
 /* {{{ proto  wxImage::ClearAlpha()
    Removes the alpha channel from the image. */
 PHP_METHOD(php_wxImage, ClearAlpha)
@@ -39043,7 +38011,7 @@ PHP_METHOD(php_wxImage, AddHandler)
                     wxphp_object_type argument_type = Z_wxImageHandler_P(handler0)->object_type;
                     argument_native_object = (void*) Z_wxImageHandler_P(handler0)->native_object;
                     object_pointer0_0 = (wxImageHandler*) argument_native_object;
-                    if (!object_pointer0_0 || (argument_type != PHP_WXIMAGEHANDLER_TYPE && argument_type != PHP_WXGIFHANDLER_TYPE && argument_type != PHP_WXIFFHANDLER_TYPE && argument_type != PHP_WXJPEGHANDLER_TYPE && argument_type != PHP_WXPCXHANDLER_TYPE && argument_type != PHP_WXPNGHANDLER_TYPE && argument_type != PHP_WXPNMHANDLER_TYPE && argument_type != PHP_WXTGAHANDLER_TYPE && argument_type != PHP_WXTIFFHANDLER_TYPE && argument_type != PHP_WXXPMHANDLER_TYPE))
+                    if (!object_pointer0_0 || (argument_type != PHP_WXIMAGEHANDLER_TYPE))
                     {
                         zend_error(E_ERROR, "Parameter 'handler' could not be retreived correctly.");
                     }
