@@ -6164,6 +6164,9 @@ PHP_METHOD(php_wxScrolled, CalcUnscrolledPosition);
 PHP_METHOD(php_wxScrolled, CalcScrolledPosition);
 PHP_METHOD(php_wxScrolled, AdjustScrollbars);
 PHP_METHOD(php_wxScrolled, __construct);
+PHP_METHOD(php_wxTimerEvent, __construct);
+PHP_METHOD(php_wxTimerEvent, GetInterval);
+PHP_METHOD(php_wxTimerEvent, GetTimer);
 // <--- entries
 
 
