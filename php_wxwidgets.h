@@ -6167,6 +6167,15 @@ PHP_METHOD(php_wxScrolled, __construct);
 PHP_METHOD(php_wxTimerEvent, __construct);
 PHP_METHOD(php_wxTimerEvent, GetInterval);
 PHP_METHOD(php_wxTimerEvent, GetTimer);
+PHP_METHOD(php_wxBusyInfoFlags, __construct);
+PHP_METHOD(php_wxBusyInfoFlags, Parent);
+PHP_METHOD(php_wxBusyInfoFlags, Icon);
+PHP_METHOD(php_wxBusyInfoFlags, Title);
+PHP_METHOD(php_wxBusyInfoFlags, Text);
+PHP_METHOD(php_wxBusyInfoFlags, Label);
+PHP_METHOD(php_wxBusyInfoFlags, Foreground);
+PHP_METHOD(php_wxBusyInfoFlags, Background);
+PHP_METHOD(php_wxBusyInfoFlags, Transparency);
 // <--- entries
 
 

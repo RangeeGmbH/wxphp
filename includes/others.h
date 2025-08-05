@@ -5363,4 +5363,82 @@ static inline zo_wxTextCompleterSimple * php_wxTextCompleterSimple_fetch_object(
 
 #define Z_wxTextCompleterSimple_P(zv) \
     php_wxTextCompleterSimple_fetch_object(Z_OBJ_P(zv))
+extern zend_class_entry* php_wxBusyInfoFlags_entry;
+extern zend_object_handlers wxphp_wxBusyInfoFlags_object_handlers;
+void php_wxBusyInfoFlags_destruction_handler(zend_resource*);
+
+class wxBusyInfoFlags_php: public wxBusyInfoFlags{
+    public:
+
+    wxBusyInfoFlags_php():wxBusyInfoFlags(){}
+    
+    
+
+    zval phpObj;
+    wxPHPObjectReferences references;
+};
+
+BEGIN_EXTERN_C()
+typedef struct _zo_wxBusyInfoFlags{
+    wxBusyInfoFlags_php* native_object;
+    wxphp_object_type object_type;
+    int is_user_initialized;
+    zend_object zo;
+} zo_wxBusyInfoFlags;
+
+void php_wxBusyInfoFlags_free(void *object);
+zend_object* php_wxBusyInfoFlags_new(zend_class_entry *class_type);
+END_EXTERN_C()
+
+#ifdef WXPHP_INCLUDE_METHOD_TABLES
+ZEND_BEGIN_ARG_INFO_EX(php_wxBusyInfoFlags___construct_arg_infos, 0, 0, 0)
+ZEND_END_ARG_INFO()
+ZEND_BEGIN_ARG_INFO_EX(php_wxBusyInfoFlags_Parent_arg_infos, 0, 0, 0)
+    ZEND_ARG_INFO(0, parent)
+ZEND_END_ARG_INFO()
+ZEND_BEGIN_ARG_INFO_EX(php_wxBusyInfoFlags_Icon_arg_infos, 0, 0, 0)
+    ZEND_ARG_INFO(0, icon)
+ZEND_END_ARG_INFO()
+ZEND_BEGIN_ARG_INFO_EX(php_wxBusyInfoFlags_Title_arg_infos, 0, 0, 0)
+    ZEND_ARG_INFO(0, title)
+ZEND_END_ARG_INFO()
+ZEND_BEGIN_ARG_INFO_EX(php_wxBusyInfoFlags_Text_arg_infos, 0, 0, 0)
+    ZEND_ARG_INFO(0, text)
+ZEND_END_ARG_INFO()
+ZEND_BEGIN_ARG_INFO_EX(php_wxBusyInfoFlags_Label_arg_infos, 0, 0, 0)
+    ZEND_ARG_INFO(0, label)
+ZEND_END_ARG_INFO()
+ZEND_BEGIN_ARG_INFO_EX(php_wxBusyInfoFlags_Foreground_arg_infos, 0, 0, 0)
+    ZEND_ARG_INFO(0, foreground)
+ZEND_END_ARG_INFO()
+ZEND_BEGIN_ARG_INFO_EX(php_wxBusyInfoFlags_Background_arg_infos, 0, 0, 0)
+    ZEND_ARG_INFO(0, background)
+ZEND_END_ARG_INFO()
+ZEND_BEGIN_ARG_INFO_EX(php_wxBusyInfoFlags_Transparency_arg_infos, 0, 0, 0)
+    ZEND_ARG_INFO(0, alpha)
+ZEND_END_ARG_INFO()
+
+static zend_function_entry php_wxBusyInfoFlags_functions[] = {
+    PHP_ME(php_wxBusyInfoFlags, __construct, php_wxBusyInfoFlags___construct_arg_infos, ZEND_ACC_PUBLIC|ZEND_ACC_CTOR)
+    PHP_ME(php_wxBusyInfoFlags, Parent, php_wxBusyInfoFlags_Parent_arg_infos, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxBusyInfoFlags, Icon, php_wxBusyInfoFlags_Icon_arg_infos, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxBusyInfoFlags, Title, php_wxBusyInfoFlags_Title_arg_infos, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxBusyInfoFlags, Text, php_wxBusyInfoFlags_Text_arg_infos, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxBusyInfoFlags, Label, php_wxBusyInfoFlags_Label_arg_infos, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxBusyInfoFlags, Foreground, php_wxBusyInfoFlags_Foreground_arg_infos, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxBusyInfoFlags, Background, php_wxBusyInfoFlags_Background_arg_infos, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxBusyInfoFlags, Transparency, php_wxBusyInfoFlags_Transparency_arg_infos, ZEND_ACC_PUBLIC)
+    PHP_FE_END
+};
+#endif
+
+
+static inline zo_wxBusyInfoFlags * php_wxBusyInfoFlags_fetch_object(zend_object *obj) {
+    return (zo_wxBusyInfoFlags *)(
+        (char *)(obj) - XtOffsetOf(zo_wxBusyInfoFlags, zo)
+    );
+}
+
+#define Z_wxBusyInfoFlags_P(zv) \
+    php_wxBusyInfoFlags_fetch_object(Z_OBJ_P(zv))
 #endif //WXPHP_OTHERS_H_GUARD

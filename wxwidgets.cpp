@@ -1020,6 +1020,8 @@ zend_class_entry* php_wxScrolled_entry;
 zend_object_handlers wxphp_wxScrolled_object_handlers;
 zend_class_entry* php_wxTimerEvent_entry;
 zend_object_handlers wxphp_wxTimerEvent_object_handlers;
+zend_class_entry* php_wxBusyInfoFlags_entry;
+zend_object_handlers wxphp_wxBusyInfoFlags_object_handlers;
 
 
 /**
@@ -3083,6 +3085,12 @@ PHP_MINIT_FUNCTION(php_wxWidgets)
     php_wxURI_entry = zend_register_internal_class(&ce);
     php_wxURI_entry->create_object = php_wxURI_new;
     wxPHP_PREPARE_OBJECT_HANDLERS(wxURI)
+
+    char PHP_wxBusyInfoFlags_name[] = "wxBusyInfoFlags";
+    INIT_CLASS_ENTRY(ce, PHP_wxBusyInfoFlags_name, php_wxBusyInfoFlags_functions);
+    php_wxBusyInfoFlags_entry = zend_register_internal_class(&ce);
+    php_wxBusyInfoFlags_entry->create_object = php_wxBusyInfoFlags_new;
+    wxPHP_PREPARE_OBJECT_HANDLERS(wxBusyInfoFlags)
 
     char PHP_wxEvtHandler_name[] = "wxEvtHandler";
     INIT_CLASS_ENTRY(ce, PHP_wxEvtHandler_name, php_wxEvtHandler_functions);
