@@ -6274,6 +6274,13 @@ PHP_METHOD(php_wxDateTime, Now);
 PHP_METHOD(php_wxDateTime, SetCountry);
 PHP_METHOD(php_wxDateTime, Today);
 PHP_METHOD(php_wxDateTime, UNow);
+PHP_METHOD(php_wxURL, __construct);
+PHP_METHOD(php_wxURL, GetError);
+PHP_METHOD(php_wxURL, GetInputStream);
+PHP_METHOD(php_wxURL, IsOk);
+PHP_METHOD(php_wxURL, SetProxy);
+PHP_METHOD(php_wxURL, SetURL);
+PHP_METHOD(php_wxURL, SetDefaultProxy);
 // <--- entries
 
 

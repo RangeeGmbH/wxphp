@@ -191526,5 +191526,192 @@
         "parameters_default_value": []
       }
     ]
+  },
+  "wxURL": {
+    "_implements": [
+      "wxURI"
+    ],
+    "wxURL": [
+      {
+        "return_type": "",
+        "brief_description": "",
+        "constant": false,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [
+          "const wxString&"
+        ],
+        "parameters_is_array": [
+          false
+        ],
+        "parameters_extra": [
+          false
+        ],
+        "parameters_name": [
+          "url"
+        ],
+        "parameters_required": [],
+        "parameters_default_value": [
+          "wxEmptyString"
+        ]
+      }
+    ],
+    "GetError": [
+      {
+        "return_type": "wxURLError",
+        "brief_description": "",
+        "constant": true,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [],
+        "parameters_is_array": [],
+        "parameters_extra": [],
+        "parameters_name": [],
+        "parameters_required": [],
+        "parameters_default_value": []
+      }
+    ],
+    "GetInputStream": [
+      {
+        "return_type": "wxInputStream*",
+        "brief_description": "",
+        "constant": false,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [],
+        "parameters_is_array": [],
+        "parameters_extra": [],
+        "parameters_name": [],
+        "parameters_required": [],
+        "parameters_default_value": []
+      }
+    ],
+    "GetProtocol": [
+      {
+        "return_type": "wxProtocol&",
+        "brief_description": "",
+        "constant": false,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [],
+        "parameters_is_array": [],
+        "parameters_extra": [],
+        "parameters_name": [],
+        "parameters_required": [],
+        "parameters_default_value": []
+      }
+    ],
+    "IsOk": [
+      {
+        "return_type": "bool",
+        "brief_description": "",
+        "constant": true,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [],
+        "parameters_is_array": [],
+        "parameters_extra": [],
+        "parameters_name": [],
+        "parameters_required": [],
+        "parameters_default_value": []
+      }
+    ],
+    "SetProxy": [
+      {
+        "return_type": "void",
+        "brief_description": "",
+        "constant": false,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [
+          "const wxString&"
+        ],
+        "parameters_is_array": [
+          false
+        ],
+        "parameters_extra": [
+          false
+        ],
+        "parameters_name": [
+          "url_proxy"
+        ],
+        "parameters_required": [
+          true
+        ],
+        "parameters_default_value": [
+          null
+        ]
+      }
+    ],
+    "SetURL": [
+      {
+        "return_type": "wxURLError",
+        "brief_description": "",
+        "constant": false,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [
+          "const wxString&"
+        ],
+        "parameters_is_array": [
+          false
+        ],
+        "parameters_extra": [
+          false
+        ],
+        "parameters_name": [
+          "url"
+        ],
+        "parameters_required": [
+          true
+        ],
+        "parameters_default_value": [
+          null
+        ]
+      }
+    ],
+    "SetDefaultProxy": [
+      {
+        "return_type": "void",
+        "brief_description": "",
+        "constant": false,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": true,
+        "protected": false,
+        "parameters_type": [
+          "const wxString&"
+        ],
+        "parameters_is_array": [
+          false
+        ],
+        "parameters_extra": [
+          false
+        ],
+        "parameters_name": [
+          "url_proxy"
+        ],
+        "parameters_required": [
+          true
+        ],
+        "parameters_default_value": [
+          null
+        ]
+      }
+    ]
   }
 }

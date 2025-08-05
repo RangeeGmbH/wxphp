@@ -142,4 +142,122 @@ static inline zo_wxURI * php_wxURI_fetch_object(zend_object *obj) {
 
 #define Z_wxURI_P(zv) \
     php_wxURI_fetch_object(Z_OBJ_P(zv))
+extern zend_class_entry* php_wxURL_entry;
+extern zend_object_handlers wxphp_wxURL_object_handlers;
+void php_wxURL_destruction_handler(zend_resource*);
+
+class wxURL_php: public wxURL{
+    public:
+
+    wxURL_php(const wxString& url=wxEmptyString):wxURL(url){}
+    
+    
+
+    zval phpObj;
+    wxPHPObjectReferences references;
+};
+
+BEGIN_EXTERN_C()
+typedef struct _zo_wxURL{
+    wxURL_php* native_object;
+    wxphp_object_type object_type;
+    int is_user_initialized;
+    zend_object zo;
+} zo_wxURL;
+
+void php_wxURL_free(void *object);
+zend_object* php_wxURL_new(zend_class_entry *class_type);
+END_EXTERN_C()
+
+#ifdef WXPHP_INCLUDE_METHOD_TABLES
+ZEND_BEGIN_ARG_INFO_EX(php_wxURL___construct_arg_infos, 0, 0, 0)
+    ZEND_ARG_INFO(0, url)
+ZEND_END_ARG_INFO()
+ZEND_BEGIN_ARG_INFO_EX(php_wxURL_GetError_arg_infos, 0, 0, 0)
+ZEND_END_ARG_INFO()
+ZEND_BEGIN_ARG_INFO_EX(php_wxURL_GetInputStream_arg_infos, 0, 0, 0)
+ZEND_END_ARG_INFO()
+ZEND_BEGIN_ARG_INFO_EX(php_wxURL_IsOk_arg_infos, 0, 0, 0)
+ZEND_END_ARG_INFO()
+ZEND_BEGIN_ARG_INFO_EX(php_wxURL_SetProxy_arg_infos, 0, 0, 0)
+    ZEND_ARG_INFO(0, url_proxy)
+ZEND_END_ARG_INFO()
+ZEND_BEGIN_ARG_INFO_EX(php_wxURL_SetURL_arg_infos, 0, 0, 0)
+    ZEND_ARG_INFO(0, url)
+ZEND_END_ARG_INFO()
+ZEND_BEGIN_ARG_INFO_EX(php_wxURL_SetDefaultProxy_arg_infos, 0, 0, 0)
+    ZEND_ARG_INFO(0, url_proxy)
+ZEND_END_ARG_INFO()
+ZEND_BEGIN_ARG_INFO_EX(php_wxURL_BuildURI_arg_infos, 0, 0, 0)
+ZEND_END_ARG_INFO()
+ZEND_BEGIN_ARG_INFO_EX(php_wxURL_BuildUnescapedURI_arg_infos, 0, 0, 0)
+ZEND_END_ARG_INFO()
+ZEND_BEGIN_ARG_INFO_EX(php_wxURL_Create_arg_infos, 0, 0, 0)
+    ZEND_ARG_INFO(0, uri)
+ZEND_END_ARG_INFO()
+ZEND_BEGIN_ARG_INFO_EX(php_wxURL_GetFragment_arg_infos, 0, 0, 0)
+ZEND_END_ARG_INFO()
+ZEND_BEGIN_ARG_INFO_EX(php_wxURL_GetHostType_arg_infos, 0, 0, 0)
+ZEND_END_ARG_INFO()
+ZEND_BEGIN_ARG_INFO_EX(php_wxURL_GetPassword_arg_infos, 0, 0, 0)
+ZEND_END_ARG_INFO()
+ZEND_BEGIN_ARG_INFO_EX(php_wxURL_GetPath_arg_infos, 0, 0, 0)
+ZEND_END_ARG_INFO()
+ZEND_BEGIN_ARG_INFO_EX(php_wxURL_GetPort_arg_infos, 0, 0, 0)
+ZEND_END_ARG_INFO()
+ZEND_BEGIN_ARG_INFO_EX(php_wxURL_Unescape_arg_infos, 0, 0, 0)
+    ZEND_ARG_INFO(0, uri)
+ZEND_END_ARG_INFO()
+ZEND_BEGIN_ARG_INFO_EX(php_wxURL_Resolve_arg_infos, 0, 0, 0)
+    ZEND_ARG_INFO(0, base)
+    ZEND_ARG_INFO(0, flags)
+ZEND_END_ARG_INFO()
+ZEND_BEGIN_ARG_INFO_EX(php_wxURL_IsReference_arg_infos, 0, 0, 0)
+ZEND_END_ARG_INFO()
+ZEND_BEGIN_ARG_INFO_EX(php_wxURL_HasUserInfo_arg_infos, 0, 0, 0)
+ZEND_END_ARG_INFO()
+ZEND_BEGIN_ARG_INFO_EX(php_wxURL_HasServer_arg_infos, 0, 0, 0)
+ZEND_END_ARG_INFO()
+ZEND_BEGIN_ARG_INFO_EX(php_wxURL_HasScheme_arg_infos, 0, 0, 0)
+ZEND_END_ARG_INFO()
+ZEND_BEGIN_ARG_INFO_EX(php_wxURL_HasQuery_arg_infos, 0, 0, 0)
+ZEND_END_ARG_INFO()
+ZEND_BEGIN_ARG_INFO_EX(php_wxURL_HasPort_arg_infos, 0, 0, 0)
+ZEND_END_ARG_INFO()
+ZEND_BEGIN_ARG_INFO_EX(php_wxURL_HasPath_arg_infos, 0, 0, 0)
+ZEND_END_ARG_INFO()
+ZEND_BEGIN_ARG_INFO_EX(php_wxURL_HasFragment_arg_infos, 0, 0, 0)
+ZEND_END_ARG_INFO()
+ZEND_BEGIN_ARG_INFO_EX(php_wxURL_GetUserInfo_arg_infos, 0, 0, 0)
+ZEND_END_ARG_INFO()
+ZEND_BEGIN_ARG_INFO_EX(php_wxURL_GetUser_arg_infos, 0, 0, 0)
+ZEND_END_ARG_INFO()
+ZEND_BEGIN_ARG_INFO_EX(php_wxURL_GetServer_arg_infos, 0, 0, 0)
+ZEND_END_ARG_INFO()
+ZEND_BEGIN_ARG_INFO_EX(php_wxURL_GetScheme_arg_infos, 0, 0, 0)
+ZEND_END_ARG_INFO()
+ZEND_BEGIN_ARG_INFO_EX(php_wxURL_GetQuery_arg_infos, 0, 0, 0)
+ZEND_END_ARG_INFO()
+
+static zend_function_entry php_wxURL_functions[] = {
+    PHP_ME(php_wxURL, __construct, php_wxURL___construct_arg_infos, ZEND_ACC_PUBLIC|ZEND_ACC_CTOR)
+    PHP_ME(php_wxURL, GetError, php_wxURL_GetError_arg_infos, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxURL, GetInputStream, php_wxURL_GetInputStream_arg_infos, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxURL, IsOk, php_wxURL_IsOk_arg_infos, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxURL, SetProxy, php_wxURL_SetProxy_arg_infos, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxURL, SetURL, php_wxURL_SetURL_arg_infos, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxURL, SetDefaultProxy, php_wxURL_SetDefaultProxy_arg_infos, ZEND_ACC_STATIC|ZEND_ACC_PUBLIC)
+    PHP_FE_END
+};
+#endif
+
+
+static inline zo_wxURL * php_wxURL_fetch_object(zend_object *obj) {
+    return (zo_wxURL *)(
+        (char *)(obj) - XtOffsetOf(zo_wxURL, zo)
+    );
+}
+
+#define Z_wxURL_P(zv) \
+    php_wxURL_fetch_object(Z_OBJ_P(zv))
 #endif //WXPHP_NET_H_GUARD

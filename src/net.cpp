@@ -180,6 +180,10 @@ PHP_METHOD(php_wxURI, BuildURI)
                 references = &((wxURI_php*)native_object)->references;
                 reference_type_found = true;
             }
+            if((current_object_type == PHP_WXURL_TYPE) && (!reference_type_found)){
+                references = &((wxURL_php*)native_object)->references;
+                reference_type_found = true;
+            }
         }
     }
     #ifdef USE_WXPHP_DEBUG
@@ -289,6 +293,10 @@ PHP_METHOD(php_wxURI, BuildUnescapedURI)
                 references = &((wxURI_php*)native_object)->references;
                 reference_type_found = true;
             }
+            if((current_object_type == PHP_WXURL_TYPE) && (!reference_type_found)){
+                references = &((wxURL_php*)native_object)->references;
+                reference_type_found = true;
+            }
         }
     }
     #ifdef USE_WXPHP_DEBUG
@@ -396,6 +404,10 @@ PHP_METHOD(php_wxURI, Create)
 
             if(current_object_type == PHP_WXURI_TYPE){
                 references = &((wxURI_php*)native_object)->references;
+                reference_type_found = true;
+            }
+            if((current_object_type == PHP_WXURL_TYPE) && (!reference_type_found)){
+                references = &((wxURL_php*)native_object)->references;
                 reference_type_found = true;
             }
         }
@@ -511,6 +523,10 @@ PHP_METHOD(php_wxURI, GetFragment)
                 references = &((wxURI_php*)native_object)->references;
                 reference_type_found = true;
             }
+            if((current_object_type == PHP_WXURL_TYPE) && (!reference_type_found)){
+                references = &((wxURL_php*)native_object)->references;
+                reference_type_found = true;
+            }
         }
     }
     #ifdef USE_WXPHP_DEBUG
@@ -620,6 +636,10 @@ PHP_METHOD(php_wxURI, GetHostType)
                 references = &((wxURI_php*)native_object)->references;
                 reference_type_found = true;
             }
+            if((current_object_type == PHP_WXURL_TYPE) && (!reference_type_found)){
+                references = &((wxURL_php*)native_object)->references;
+                reference_type_found = true;
+            }
         }
     }
     #ifdef USE_WXPHP_DEBUG
@@ -725,6 +745,10 @@ PHP_METHOD(php_wxURI, GetPassword)
 
             if(current_object_type == PHP_WXURI_TYPE){
                 references = &((wxURI_php*)native_object)->references;
+                reference_type_found = true;
+            }
+            if((current_object_type == PHP_WXURL_TYPE) && (!reference_type_found)){
+                references = &((wxURL_php*)native_object)->references;
                 reference_type_found = true;
             }
         }
@@ -836,6 +860,10 @@ PHP_METHOD(php_wxURI, GetPath)
                 references = &((wxURI_php*)native_object)->references;
                 reference_type_found = true;
             }
+            if((current_object_type == PHP_WXURL_TYPE) && (!reference_type_found)){
+                references = &((wxURL_php*)native_object)->references;
+                reference_type_found = true;
+            }
         }
     }
     #ifdef USE_WXPHP_DEBUG
@@ -943,6 +971,10 @@ PHP_METHOD(php_wxURI, GetPort)
 
             if(current_object_type == PHP_WXURI_TYPE){
                 references = &((wxURI_php*)native_object)->references;
+                reference_type_found = true;
+            }
+            if((current_object_type == PHP_WXURL_TYPE) && (!reference_type_found)){
+                references = &((wxURL_php*)native_object)->references;
                 reference_type_found = true;
             }
         }
@@ -1076,11 +1108,11 @@ PHP_METHOD(php_wxURI, __construct)
     {
         #ifdef USE_WXPHP_DEBUG
         php_printf("Parameters received %d\n", arguments_received);
-        php_printf("Parsing parameters with 'O' (&uri2, php_wxURI_entry)\n");
+        php_printf("Parsing parameters with 'o' (&uri2)\n");
         #endif
 
-        char parse_parameters_string[] = "O";
-        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &uri2, php_wxURI_entry ) == SUCCESS)
+        char parse_parameters_string[] = "o";
+        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &uri2 ) == SUCCESS)
         {
             if(arguments_received >= 1){
                 if(Z_TYPE_P(uri2) == IS_OBJECT)
@@ -1088,7 +1120,7 @@ PHP_METHOD(php_wxURI, __construct)
                     wxphp_object_type argument_type = Z_wxURI_P(uri2)->object_type;
                     argument_native_object = (void*) Z_wxURI_P(uri2)->native_object;
                     object_pointer2_0 = (wxURI*) argument_native_object;
-                    if (!object_pointer2_0 )
+                    if (!object_pointer2_0 || (argument_type != PHP_WXURI_TYPE && argument_type != PHP_WXURL_TYPE))
                     {
                         zend_error(E_ERROR, "Parameter 'uri' could not be retreived correctly.");
                     }
@@ -1235,6 +1267,10 @@ PHP_METHOD(php_wxURI, Unescape)
                 references = &((wxURI_php*)native_object)->references;
                 reference_type_found = true;
             }
+            if((current_object_type == PHP_WXURL_TYPE) && (!reference_type_found)){
+                references = &((wxURL_php*)native_object)->references;
+                reference_type_found = true;
+            }
         }
     }
     #ifdef USE_WXPHP_DEBUG
@@ -1351,6 +1387,10 @@ PHP_METHOD(php_wxURI, Resolve)
                 references = &((wxURI_php*)native_object)->references;
                 reference_type_found = true;
             }
+            if((current_object_type == PHP_WXURL_TYPE) && (!reference_type_found)){
+                references = &((wxURL_php*)native_object)->references;
+                reference_type_found = true;
+            }
         }
     }
     #ifdef USE_WXPHP_DEBUG
@@ -1373,11 +1413,11 @@ PHP_METHOD(php_wxURI, Resolve)
     {
         #ifdef USE_WXPHP_DEBUG
         php_printf("Parameters received %d\n", arguments_received);
-        php_printf("Parsing parameters with 'O|l' (&base0, php_wxURI_entry, &flags0)\n");
+        php_printf("Parsing parameters with 'o|l' (&base0, &flags0)\n");
         #endif
 
-        char parse_parameters_string[] = "O|l";
-        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &base0, php_wxURI_entry, &flags0 ) == SUCCESS)
+        char parse_parameters_string[] = "o|l";
+        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &base0, &flags0 ) == SUCCESS)
         {
             if(arguments_received >= 1){
                 if(Z_TYPE_P(base0) == IS_OBJECT)
@@ -1385,7 +1425,7 @@ PHP_METHOD(php_wxURI, Resolve)
                     wxphp_object_type argument_type = Z_wxURI_P(base0)->object_type;
                     argument_native_object = (void*) Z_wxURI_P(base0)->native_object;
                     object_pointer0_0 = (wxURI*) argument_native_object;
-                    if (!object_pointer0_0 )
+                    if (!object_pointer0_0 || (argument_type != PHP_WXURI_TYPE && argument_type != PHP_WXURL_TYPE))
                     {
                         zend_error(E_ERROR, "Parameter 'base' could not be retreived correctly.");
                     }
@@ -1496,6 +1536,10 @@ PHP_METHOD(php_wxURI, IsReference)
                 references = &((wxURI_php*)native_object)->references;
                 reference_type_found = true;
             }
+            if((current_object_type == PHP_WXURL_TYPE) && (!reference_type_found)){
+                references = &((wxURL_php*)native_object)->references;
+                reference_type_found = true;
+            }
         }
     }
     #ifdef USE_WXPHP_DEBUG
@@ -1601,6 +1645,10 @@ PHP_METHOD(php_wxURI, HasUserInfo)
 
             if(current_object_type == PHP_WXURI_TYPE){
                 references = &((wxURI_php*)native_object)->references;
+                reference_type_found = true;
+            }
+            if((current_object_type == PHP_WXURL_TYPE) && (!reference_type_found)){
+                references = &((wxURL_php*)native_object)->references;
                 reference_type_found = true;
             }
         }
@@ -1710,6 +1758,10 @@ PHP_METHOD(php_wxURI, HasServer)
                 references = &((wxURI_php*)native_object)->references;
                 reference_type_found = true;
             }
+            if((current_object_type == PHP_WXURL_TYPE) && (!reference_type_found)){
+                references = &((wxURL_php*)native_object)->references;
+                reference_type_found = true;
+            }
         }
     }
     #ifdef USE_WXPHP_DEBUG
@@ -1815,6 +1867,10 @@ PHP_METHOD(php_wxURI, HasScheme)
 
             if(current_object_type == PHP_WXURI_TYPE){
                 references = &((wxURI_php*)native_object)->references;
+                reference_type_found = true;
+            }
+            if((current_object_type == PHP_WXURL_TYPE) && (!reference_type_found)){
+                references = &((wxURL_php*)native_object)->references;
                 reference_type_found = true;
             }
         }
@@ -1924,6 +1980,10 @@ PHP_METHOD(php_wxURI, HasQuery)
                 references = &((wxURI_php*)native_object)->references;
                 reference_type_found = true;
             }
+            if((current_object_type == PHP_WXURL_TYPE) && (!reference_type_found)){
+                references = &((wxURL_php*)native_object)->references;
+                reference_type_found = true;
+            }
         }
     }
     #ifdef USE_WXPHP_DEBUG
@@ -2029,6 +2089,10 @@ PHP_METHOD(php_wxURI, HasPort)
 
             if(current_object_type == PHP_WXURI_TYPE){
                 references = &((wxURI_php*)native_object)->references;
+                reference_type_found = true;
+            }
+            if((current_object_type == PHP_WXURL_TYPE) && (!reference_type_found)){
+                references = &((wxURL_php*)native_object)->references;
                 reference_type_found = true;
             }
         }
@@ -2138,6 +2202,10 @@ PHP_METHOD(php_wxURI, HasPath)
                 references = &((wxURI_php*)native_object)->references;
                 reference_type_found = true;
             }
+            if((current_object_type == PHP_WXURL_TYPE) && (!reference_type_found)){
+                references = &((wxURL_php*)native_object)->references;
+                reference_type_found = true;
+            }
         }
     }
     #ifdef USE_WXPHP_DEBUG
@@ -2245,6 +2313,10 @@ PHP_METHOD(php_wxURI, HasFragment)
                 references = &((wxURI_php*)native_object)->references;
                 reference_type_found = true;
             }
+            if((current_object_type == PHP_WXURL_TYPE) && (!reference_type_found)){
+                references = &((wxURL_php*)native_object)->references;
+                reference_type_found = true;
+            }
         }
     }
     #ifdef USE_WXPHP_DEBUG
@@ -2350,6 +2422,10 @@ PHP_METHOD(php_wxURI, GetUserInfo)
 
             if(current_object_type == PHP_WXURI_TYPE){
                 references = &((wxURI_php*)native_object)->references;
+                reference_type_found = true;
+            }
+            if((current_object_type == PHP_WXURL_TYPE) && (!reference_type_found)){
+                references = &((wxURL_php*)native_object)->references;
                 reference_type_found = true;
             }
         }
@@ -2461,6 +2537,10 @@ PHP_METHOD(php_wxURI, GetUser)
                 references = &((wxURI_php*)native_object)->references;
                 reference_type_found = true;
             }
+            if((current_object_type == PHP_WXURL_TYPE) && (!reference_type_found)){
+                references = &((wxURL_php*)native_object)->references;
+                reference_type_found = true;
+            }
         }
     }
     #ifdef USE_WXPHP_DEBUG
@@ -2568,6 +2648,10 @@ PHP_METHOD(php_wxURI, GetServer)
 
             if(current_object_type == PHP_WXURI_TYPE){
                 references = &((wxURI_php*)native_object)->references;
+                reference_type_found = true;
+            }
+            if((current_object_type == PHP_WXURL_TYPE) && (!reference_type_found)){
+                references = &((wxURL_php*)native_object)->references;
                 reference_type_found = true;
             }
         }
@@ -2679,6 +2763,10 @@ PHP_METHOD(php_wxURI, GetScheme)
                 references = &((wxURI_php*)native_object)->references;
                 reference_type_found = true;
             }
+            if((current_object_type == PHP_WXURL_TYPE) && (!reference_type_found)){
+                references = &((wxURL_php*)native_object)->references;
+                reference_type_found = true;
+            }
         }
     }
     #ifdef USE_WXPHP_DEBUG
@@ -2788,6 +2876,10 @@ PHP_METHOD(php_wxURI, GetQuery)
                 references = &((wxURI_php*)native_object)->references;
                 reference_type_found = true;
             }
+            if((current_object_type == PHP_WXURL_TYPE) && (!reference_type_found)){
+                references = &((wxURL_php*)native_object)->references;
+                reference_type_found = true;
+            }
         }
     }
     #ifdef USE_WXPHP_DEBUG
@@ -2844,6 +2936,862 @@ PHP_METHOD(php_wxURI, GetQuery)
             E_ERROR,
             "Wrong type or count of parameters passed to: "
             "wxURI::GetQuery\n"
+        );
+    }
+}
+/* }}} */
+
+BEGIN_EXTERN_C()
+void php_wxURL_free(void *object)
+{
+    zo_wxURL* custom_object = (zo_wxURL*) object;
+
+    #ifdef USE_WXPHP_DEBUG
+    php_printf(
+        "Calling php_wxURL_free on %s at line %i\n",
+        zend_get_executed_filename(),
+        zend_get_executed_lineno()
+    );
+    php_printf("===========================================\n");
+    #endif
+
+    if(custom_object->native_object != NULL)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Pointer not null\n");
+        php_printf("Pointer address %x\n", (unsigned int)(size_t)custom_object->native_object);
+        #endif
+
+        if(custom_object->is_user_initialized)
+        {
+            #ifdef USE_WXPHP_DEBUG
+            php_printf("Deleting pointer with delete\n");
+            #endif
+
+            delete custom_object->native_object;
+            custom_object->native_object = NULL;
+        }
+
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Deletion of wxURL done\n");
+        php_printf("===========================================\n\n");
+        #endif
+    }
+    else
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Not user space initialized\n");
+        #endif
+    }
+
+    zend_object_std_dtor(&custom_object->zo);
+    efree(custom_object);
+}
+
+zend_object* php_wxURL_new(zend_class_entry *class_type)
+{
+    #ifdef USE_WXPHP_DEBUG
+    php_printf(
+        "Calling php_wxURL_new on %s at line %i\n",
+        zend_get_executed_filename(),
+        zend_get_executed_lineno()
+    );
+    php_printf("===========================================\n");
+    #endif
+
+    zo_wxURL* custom_object;
+
+    custom_object = (zo_wxURL*) ecalloc(
+        1,
+        sizeof(zo_wxURL)
+        + zend_object_properties_size(class_type)
+    );
+
+    zend_object_std_init(&custom_object->zo, class_type);
+    object_properties_init(&custom_object->zo, class_type);
+
+    custom_object->zo.handlers = &wxphp_wxURL_object_handlers;
+
+    custom_object->native_object = NULL;
+    custom_object->object_type = PHP_WXURL_TYPE;
+    custom_object->is_user_initialized = 0;
+
+    return &custom_object->zo;
+}
+END_EXTERN_C()
+
+/* {{{ proto  wxURL::wxURL(string url) */
+PHP_METHOD(php_wxURL, __construct)
+{
+    #ifdef USE_WXPHP_DEBUG
+    php_printf("Invoking wxURL::__construct\n");
+    php_printf("===========================================\n");
+    #endif
+
+    zo_wxURL* current_object;
+    wxURL_php* native_object;
+    void* argument_native_object = NULL;
+
+    //Other variables used thru the code
+    zval dummy;
+    ZVAL_NULL(&dummy);
+    bool already_called = false;
+    int arguments_received = ZEND_NUM_ARGS();
+
+
+    //Parameters for overload 0
+    char* url0;
+    size_t url_len0;
+    bool overload0_called = false;
+
+    
+    //Overload 0
+    overload0:
+    if(!already_called && arguments_received >= 0  && arguments_received <= 1)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Parameters received %d\n", arguments_received);
+        php_printf("Parsing parameters with '|s' (&url0, &url_len0)\n");
+        #endif
+
+        char parse_parameters_string[] = "|s";
+        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &url0, &url_len0 ) == SUCCESS)
+        {
+            overload0_called = true;
+            already_called = true;
+        }
+    }
+
+    
+    if(overload0_called)
+    {
+        switch(arguments_received)
+        {
+            case 0:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing __construct()\n");
+                #endif
+
+                native_object = new wxURL_php();
+
+                native_object->references.Initialize();
+                break;
+            }
+            case 1:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing __construct(wxString(url0, wxConvUTF8))\n");
+                #endif
+
+                native_object = new wxURL_php(wxString(url0, wxConvUTF8));
+
+                native_object->references.Initialize();
+                break;
+            }
+        }
+    }
+
+    
+    if(already_called)
+    {
+        native_object->phpObj = *getThis();
+
+
+        current_object = Z_wxURL_P(getThis());
+
+        current_object->native_object = native_object;
+
+        current_object->is_user_initialized = 1;
+    }
+    else
+    {
+        zend_error(
+            E_ERROR,
+            "Abstract class or wrong type/count of parameters "
+            "passed to: wxURL::__construct\n"
+        );
+    }
+
+    #ifdef USE_WXPHP_DEBUG
+        php_printf("===========================================\n\n");
+    #endif
+}
+/* }}} */
+
+/* {{{ proto wxURLError wxURL::GetError() */
+PHP_METHOD(php_wxURL, GetError)
+{
+    #ifdef USE_WXPHP_DEBUG
+    php_printf("Invoking wxURL::GetError\n");
+    php_printf("===========================================\n");
+    #endif
+
+    zo_wxURL* current_object;
+    wxphp_object_type current_object_type;
+    wxURL_php* native_object;
+    void* argument_native_object = NULL;
+
+    //Other variables used thru the code
+    zval dummy;
+    ZVAL_NULL(&dummy);
+    bool already_called = false;
+    wxPHPObjectReferences* references;
+    int arguments_received = ZEND_NUM_ARGS();
+    bool return_is_user_initialized = false;
+
+    //Get native object of the php object that called the method
+    if(getThis() != NULL)
+    {
+        current_object = Z_wxURL_P(getThis());
+
+        if(current_object->native_object == NULL)
+        {
+            zend_error(
+                E_ERROR,
+                "Failed to get the native object for "
+                "wxURL::GetError call\n"
+            );
+
+            return;
+        }
+        else
+        {
+            native_object = current_object->native_object;
+            current_object_type = current_object->object_type;
+
+            bool reference_type_found = false;
+
+            if(current_object_type == PHP_WXURL_TYPE){
+                references = &((wxURL_php*)native_object)->references;
+                reference_type_found = true;
+            }
+        }
+    }
+    #ifdef USE_WXPHP_DEBUG
+    else
+    {
+        php_printf("Processing the method call as static\n");
+    }
+    #endif
+
+    //Parameters for overload 0
+    bool overload0_called = false;
+
+    
+    //Overload 0
+    overload0:
+    if(!already_called && arguments_received == 0)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Parameters received %d\n", arguments_received);
+        php_printf("Parsing parameters with '' ()\n");
+        #endif
+
+        overload0_called = true;
+        already_called = true;
+    }
+
+    
+    if(overload0_called)
+    {
+        switch(arguments_received)
+        {
+            case 0:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing RETURN_LONG(wxURL::GetError())\n\n");
+                #endif
+
+                RETVAL_LONG(((wxURL_php*)native_object)->GetError());
+
+
+                return;
+                break;
+            }
+        }
+    }
+
+    
+    //In case wrong type/count of parameters was passed
+    if(!already_called)
+    {
+        zend_error(
+            E_ERROR,
+            "Wrong type or count of parameters passed to: "
+            "wxURL::GetError\n"
+        );
+    }
+}
+/* }}} */
+
+/* {{{ proto wxInputStream wxURL::GetInputStream() */
+PHP_METHOD(php_wxURL, GetInputStream)
+{
+    #ifdef USE_WXPHP_DEBUG
+    php_printf("Invoking wxURL::GetInputStream\n");
+    php_printf("===========================================\n");
+    #endif
+
+    zo_wxURL* current_object;
+    wxphp_object_type current_object_type;
+    wxURL_php* native_object;
+    void* argument_native_object = NULL;
+
+    //Other variables used thru the code
+    zval dummy;
+    ZVAL_NULL(&dummy);
+    bool already_called = false;
+    wxPHPObjectReferences* references;
+    int arguments_received = ZEND_NUM_ARGS();
+    bool return_is_user_initialized = false;
+
+    //Get native object of the php object that called the method
+    if(getThis() != NULL)
+    {
+        current_object = Z_wxURL_P(getThis());
+
+        if(current_object->native_object == NULL)
+        {
+            zend_error(
+                E_ERROR,
+                "Failed to get the native object for "
+                "wxURL::GetInputStream call\n"
+            );
+
+            return;
+        }
+        else
+        {
+            native_object = current_object->native_object;
+            current_object_type = current_object->object_type;
+
+            bool reference_type_found = false;
+
+            if(current_object_type == PHP_WXURL_TYPE){
+                references = &((wxURL_php*)native_object)->references;
+                reference_type_found = true;
+            }
+        }
+    }
+    #ifdef USE_WXPHP_DEBUG
+    else
+    {
+        php_printf("Processing the method call as static\n");
+    }
+    #endif
+
+    //Parameters for overload 0
+    bool overload0_called = false;
+
+    
+    //Overload 0
+    overload0:
+    if(!already_called && arguments_received == 0)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Parameters received %d\n", arguments_received);
+        php_printf("Parsing parameters with '' ()\n");
+        #endif
+
+        overload0_called = true;
+        already_called = true;
+    }
+
+    
+    if(overload0_called)
+    {
+        switch(arguments_received)
+        {
+            case 0:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing wxURL::GetInputStream() to return object pointer\n\n");
+                #endif
+
+                wxInputStream_php* value_to_return0;
+                value_to_return0 = (wxInputStream_php*) ((wxURL_php*)native_object)->GetInputStream();
+
+                if(value_to_return0 == NULL){
+                    RETVAL_NULL();
+                }
+                else if(value_to_return0->references.IsUserInitialized()){
+                    if(!Z_ISNULL(value_to_return0->phpObj)){
+                        ZVAL_COPY_VALUE(return_value, &value_to_return0->phpObj);
+                        zval_add_ref(&value_to_return0->phpObj);
+                        return_is_user_initialized = true;
+                    }
+                    else{
+                        zend_error(E_ERROR, "Could not retreive original zval.");
+                    }
+                }
+                else{
+                    object_init_ex(return_value, php_wxInputStream_entry);
+                    Z_wxInputStream_P(return_value)->native_object = (wxInputStream_php*) value_to_return0;
+                }
+
+                if(Z_TYPE_P(return_value) != IS_NULL && (void*)value_to_return0 != (void*)native_object && return_is_user_initialized){
+                    references->AddReference(return_value, "wxURL::GetInputStream at call 5 with 0 argument(s)");
+                }
+
+
+                return;
+                break;
+            }
+        }
+    }
+
+    
+    //In case wrong type/count of parameters was passed
+    if(!already_called)
+    {
+        zend_error(
+            E_ERROR,
+            "Wrong type or count of parameters passed to: "
+            "wxURL::GetInputStream\n"
+        );
+    }
+}
+/* }}} */
+
+/* {{{ proto bool wxURL::IsOk() */
+PHP_METHOD(php_wxURL, IsOk)
+{
+    #ifdef USE_WXPHP_DEBUG
+    php_printf("Invoking wxURL::IsOk\n");
+    php_printf("===========================================\n");
+    #endif
+
+    zo_wxURL* current_object;
+    wxphp_object_type current_object_type;
+    wxURL_php* native_object;
+    void* argument_native_object = NULL;
+
+    //Other variables used thru the code
+    zval dummy;
+    ZVAL_NULL(&dummy);
+    bool already_called = false;
+    wxPHPObjectReferences* references;
+    int arguments_received = ZEND_NUM_ARGS();
+    bool return_is_user_initialized = false;
+
+    //Get native object of the php object that called the method
+    if(getThis() != NULL)
+    {
+        current_object = Z_wxURL_P(getThis());
+
+        if(current_object->native_object == NULL)
+        {
+            zend_error(
+                E_ERROR,
+                "Failed to get the native object for "
+                "wxURL::IsOk call\n"
+            );
+
+            return;
+        }
+        else
+        {
+            native_object = current_object->native_object;
+            current_object_type = current_object->object_type;
+
+            bool reference_type_found = false;
+
+            if(current_object_type == PHP_WXURL_TYPE){
+                references = &((wxURL_php*)native_object)->references;
+                reference_type_found = true;
+            }
+        }
+    }
+    #ifdef USE_WXPHP_DEBUG
+    else
+    {
+        php_printf("Processing the method call as static\n");
+    }
+    #endif
+
+    //Parameters for overload 0
+    bool overload0_called = false;
+
+    
+    //Overload 0
+    overload0:
+    if(!already_called && arguments_received == 0)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Parameters received %d\n", arguments_received);
+        php_printf("Parsing parameters with '' ()\n");
+        #endif
+
+        overload0_called = true;
+        already_called = true;
+    }
+
+    
+    if(overload0_called)
+    {
+        switch(arguments_received)
+        {
+            case 0:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing RETURN_BOOL(wxURL::IsOk())\n\n");
+                #endif
+
+                RETVAL_BOOL(((wxURL_php*)native_object)->IsOk());
+
+
+                return;
+                break;
+            }
+        }
+    }
+
+    
+    //In case wrong type/count of parameters was passed
+    if(!already_called)
+    {
+        zend_error(
+            E_ERROR,
+            "Wrong type or count of parameters passed to: "
+            "wxURL::IsOk\n"
+        );
+    }
+}
+/* }}} */
+
+/* {{{ proto  wxURL::SetProxy(string url_proxy) */
+PHP_METHOD(php_wxURL, SetProxy)
+{
+    #ifdef USE_WXPHP_DEBUG
+    php_printf("Invoking wxURL::SetProxy\n");
+    php_printf("===========================================\n");
+    #endif
+
+    zo_wxURL* current_object;
+    wxphp_object_type current_object_type;
+    wxURL_php* native_object;
+    void* argument_native_object = NULL;
+
+    //Other variables used thru the code
+    zval dummy;
+    ZVAL_NULL(&dummy);
+    bool already_called = false;
+    wxPHPObjectReferences* references;
+    int arguments_received = ZEND_NUM_ARGS();
+    bool return_is_user_initialized = false;
+
+    //Get native object of the php object that called the method
+    if(getThis() != NULL)
+    {
+        current_object = Z_wxURL_P(getThis());
+
+        if(current_object->native_object == NULL)
+        {
+            zend_error(
+                E_ERROR,
+                "Failed to get the native object for "
+                "wxURL::SetProxy call\n"
+            );
+
+            return;
+        }
+        else
+        {
+            native_object = current_object->native_object;
+            current_object_type = current_object->object_type;
+
+            bool reference_type_found = false;
+
+            if(current_object_type == PHP_WXURL_TYPE){
+                references = &((wxURL_php*)native_object)->references;
+                reference_type_found = true;
+            }
+        }
+    }
+    #ifdef USE_WXPHP_DEBUG
+    else
+    {
+        php_printf("Processing the method call as static\n");
+    }
+    #endif
+
+    //Parameters for overload 0
+    char* url_proxy0;
+    size_t url_proxy_len0;
+    bool overload0_called = false;
+
+    
+    //Overload 0
+    overload0:
+    if(!already_called && arguments_received == 1)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Parameters received %d\n", arguments_received);
+        php_printf("Parsing parameters with 's' (&url_proxy0, &url_proxy_len0)\n");
+        #endif
+
+        char parse_parameters_string[] = "s";
+        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &url_proxy0, &url_proxy_len0 ) == SUCCESS)
+        {
+            overload0_called = true;
+            already_called = true;
+        }
+    }
+
+    
+    if(overload0_called)
+    {
+        switch(arguments_received)
+        {
+            case 1:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing wxURL::SetProxy(wxString(url_proxy0, wxConvUTF8))\n\n");
+                #endif
+
+                ((wxURL_php*)native_object)->SetProxy(wxString(url_proxy0, wxConvUTF8));
+
+
+                return;
+                break;
+            }
+        }
+    }
+
+    
+    //In case wrong type/count of parameters was passed
+    if(!already_called)
+    {
+        zend_error(
+            E_ERROR,
+            "Wrong type or count of parameters passed to: "
+            "wxURL::SetProxy\n"
+        );
+    }
+}
+/* }}} */
+
+/* {{{ proto wxURLError wxURL::SetURL(string url) */
+PHP_METHOD(php_wxURL, SetURL)
+{
+    #ifdef USE_WXPHP_DEBUG
+    php_printf("Invoking wxURL::SetURL\n");
+    php_printf("===========================================\n");
+    #endif
+
+    zo_wxURL* current_object;
+    wxphp_object_type current_object_type;
+    wxURL_php* native_object;
+    void* argument_native_object = NULL;
+
+    //Other variables used thru the code
+    zval dummy;
+    ZVAL_NULL(&dummy);
+    bool already_called = false;
+    wxPHPObjectReferences* references;
+    int arguments_received = ZEND_NUM_ARGS();
+    bool return_is_user_initialized = false;
+
+    //Get native object of the php object that called the method
+    if(getThis() != NULL)
+    {
+        current_object = Z_wxURL_P(getThis());
+
+        if(current_object->native_object == NULL)
+        {
+            zend_error(
+                E_ERROR,
+                "Failed to get the native object for "
+                "wxURL::SetURL call\n"
+            );
+
+            return;
+        }
+        else
+        {
+            native_object = current_object->native_object;
+            current_object_type = current_object->object_type;
+
+            bool reference_type_found = false;
+
+            if(current_object_type == PHP_WXURL_TYPE){
+                references = &((wxURL_php*)native_object)->references;
+                reference_type_found = true;
+            }
+        }
+    }
+    #ifdef USE_WXPHP_DEBUG
+    else
+    {
+        php_printf("Processing the method call as static\n");
+    }
+    #endif
+
+    //Parameters for overload 0
+    char* url0;
+    size_t url_len0;
+    bool overload0_called = false;
+
+    
+    //Overload 0
+    overload0:
+    if(!already_called && arguments_received == 1)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Parameters received %d\n", arguments_received);
+        php_printf("Parsing parameters with 's' (&url0, &url_len0)\n");
+        #endif
+
+        char parse_parameters_string[] = "s";
+        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &url0, &url_len0 ) == SUCCESS)
+        {
+            overload0_called = true;
+            already_called = true;
+        }
+    }
+
+    
+    if(overload0_called)
+    {
+        switch(arguments_received)
+        {
+            case 1:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing RETURN_LONG(wxURL::SetURL(wxString(url0, wxConvUTF8)))\n\n");
+                #endif
+
+                RETVAL_LONG(((wxURL_php*)native_object)->SetURL(wxString(url0, wxConvUTF8)));
+
+
+                return;
+                break;
+            }
+        }
+    }
+
+    
+    //In case wrong type/count of parameters was passed
+    if(!already_called)
+    {
+        zend_error(
+            E_ERROR,
+            "Wrong type or count of parameters passed to: "
+            "wxURL::SetURL\n"
+        );
+    }
+}
+/* }}} */
+
+/* {{{ proto  wxURL::SetDefaultProxy(string url_proxy) */
+PHP_METHOD(php_wxURL, SetDefaultProxy)
+{
+    #ifdef USE_WXPHP_DEBUG
+    php_printf("Invoking wxURL::SetDefaultProxy\n");
+    php_printf("===========================================\n");
+    #endif
+
+    zo_wxURL* current_object;
+    wxphp_object_type current_object_type;
+    wxURL_php* native_object;
+    void* argument_native_object = NULL;
+
+    //Other variables used thru the code
+    zval dummy;
+    ZVAL_NULL(&dummy);
+    bool already_called = false;
+    wxPHPObjectReferences* references;
+    int arguments_received = ZEND_NUM_ARGS();
+    bool return_is_user_initialized = false;
+
+    //Get native object of the php object that called the method
+    if(getThis() != NULL)
+    {
+        current_object = Z_wxURL_P(getThis());
+
+        if(current_object->native_object == NULL)
+        {
+            zend_error(
+                E_ERROR,
+                "Failed to get the native object for "
+                "wxURL::SetDefaultProxy call\n"
+            );
+
+            return;
+        }
+        else
+        {
+            native_object = current_object->native_object;
+            current_object_type = current_object->object_type;
+
+            bool reference_type_found = false;
+
+            if(current_object_type == PHP_WXURL_TYPE){
+                references = &((wxURL_php*)native_object)->references;
+                reference_type_found = true;
+            }
+        }
+    }
+    #ifdef USE_WXPHP_DEBUG
+    else
+    {
+        php_printf("Processing the method call as static\n");
+    }
+    #endif
+
+    //Parameters for overload 0
+    char* url_proxy0;
+    size_t url_proxy_len0;
+    bool overload0_called = false;
+
+    
+    //Overload 0
+    overload0:
+    if(!already_called && arguments_received == 1)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Parameters received %d\n", arguments_received);
+        php_printf("Parsing parameters with 's' (&url_proxy0, &url_proxy_len0)\n");
+        #endif
+
+        char parse_parameters_string[] = "s";
+        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &url_proxy0, &url_proxy_len0 ) == SUCCESS)
+        {
+            overload0_called = true;
+            already_called = true;
+        }
+    }
+
+    
+    if(overload0_called)
+    {
+        switch(arguments_received)
+        {
+            case 1:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Static ");
+                php_printf("Executing wxURL::SetDefaultProxy(wxString(url_proxy0, wxConvUTF8))\n\n");
+                #endif
+
+                wxURL::SetDefaultProxy(wxString(url_proxy0, wxConvUTF8));
+
+
+                return;
+                break;
+            }
+        }
+    }
+
+    
+    //In case wrong type/count of parameters was passed
+    if(!already_called)
+    {
+        zend_error(
+            E_ERROR,
+            "Wrong type or count of parameters passed to: "
+            "wxURL::SetDefaultProxy\n"
         );
     }
 }

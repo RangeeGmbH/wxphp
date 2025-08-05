@@ -201,11 +201,11 @@ PHP_METHOD(php_wxMediaCtrl, Load)
     {
         #ifdef USE_WXPHP_DEBUG
         php_printf("Parameters received %d\n", arguments_received);
-        php_printf("Parsing parameters with 'O' (&uri1, php_wxURI_entry)\n");
+        php_printf("Parsing parameters with 'o' (&uri1)\n");
         #endif
 
-        char parse_parameters_string[] = "O";
-        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &uri1, php_wxURI_entry ) == SUCCESS)
+        char parse_parameters_string[] = "o";
+        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &uri1 ) == SUCCESS)
         {
             if(arguments_received >= 1){
                 if(Z_TYPE_P(uri1) == IS_OBJECT)
@@ -213,7 +213,7 @@ PHP_METHOD(php_wxMediaCtrl, Load)
                     wxphp_object_type argument_type = Z_wxURI_P(uri1)->object_type;
                     argument_native_object = (void*) Z_wxURI_P(uri1)->native_object;
                     object_pointer1_0 = (wxURI*) argument_native_object;
-                    if (!object_pointer1_0 )
+                    if (!object_pointer1_0 || (argument_type != PHP_WXURI_TYPE && argument_type != PHP_WXURL_TYPE))
                     {
                         goto overload2;
                     }
@@ -235,11 +235,11 @@ PHP_METHOD(php_wxMediaCtrl, Load)
     {
         #ifdef USE_WXPHP_DEBUG
         php_printf("Parameters received %d\n", arguments_received);
-        php_printf("Parsing parameters with 'OO' (&uri2, php_wxURI_entry, &proxy2, php_wxURI_entry)\n");
+        php_printf("Parsing parameters with 'oo' (&uri2, &proxy2)\n");
         #endif
 
-        char parse_parameters_string[] = "OO";
-        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &uri2, php_wxURI_entry, &proxy2, php_wxURI_entry ) == SUCCESS)
+        char parse_parameters_string[] = "oo";
+        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &uri2, &proxy2 ) == SUCCESS)
         {
             if(arguments_received >= 1){
                 if(Z_TYPE_P(uri2) == IS_OBJECT)
@@ -247,7 +247,7 @@ PHP_METHOD(php_wxMediaCtrl, Load)
                     wxphp_object_type argument_type = Z_wxURI_P(uri2)->object_type;
                     argument_native_object = (void*) Z_wxURI_P(uri2)->native_object;
                     object_pointer2_0 = (wxURI*) argument_native_object;
-                    if (!object_pointer2_0 )
+                    if (!object_pointer2_0 || (argument_type != PHP_WXURI_TYPE && argument_type != PHP_WXURL_TYPE))
                     {
                         zend_error(E_ERROR, "Parameter 'uri' could not be retreived correctly.");
                     }
@@ -264,7 +264,7 @@ PHP_METHOD(php_wxMediaCtrl, Load)
                     wxphp_object_type argument_type = Z_wxURI_P(proxy2)->object_type;
                     argument_native_object = (void*) Z_wxURI_P(proxy2)->native_object;
                     object_pointer2_1 = (wxURI*) argument_native_object;
-                    if (!object_pointer2_1 )
+                    if (!object_pointer2_1 || (argument_type != PHP_WXURI_TYPE && argument_type != PHP_WXURL_TYPE))
                     {
                         zend_error(E_ERROR, "Parameter 'proxy' could not be retreived correctly.");
                     }

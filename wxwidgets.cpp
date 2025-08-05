@@ -1026,6 +1026,8 @@ zend_class_entry* php_wxDateSpan_entry;
 zend_object_handlers wxphp_wxDateSpan_object_handlers;
 zend_class_entry* php_wxDateTime_entry;
 zend_object_handlers wxphp_wxDateTime_object_handlers;
+zend_class_entry* php_wxURL_entry;
+zend_object_handlers wxphp_wxURL_object_handlers;
 
 
 /**
@@ -2478,6 +2480,12 @@ PHP_MINIT_FUNCTION(php_wxWidgets)
     php_wxWebViewHandler_entry->create_object = php_wxWebViewHandler_new;
     wxPHP_PREPARE_OBJECT_HANDLERS(wxWebViewHandler)
 
+    char PHP_wxURI_name[] = "wxURI";
+    INIT_CLASS_ENTRY(ce, PHP_wxURI_name, php_wxURI_functions);
+    php_wxURI_entry = zend_register_internal_class(&ce);
+    php_wxURI_entry->create_object = php_wxURI_new;
+    wxPHP_PREPARE_OBJECT_HANDLERS(wxURI)
+
     char PHP_wxScrolled_name[] = "wxScrolled";
     INIT_CLASS_ENTRY(ce, PHP_wxScrolled_name, php_wxScrolled_functions);
     php_wxScrolled_entry = zend_register_internal_class(&ce);
@@ -3083,12 +3091,6 @@ PHP_MINIT_FUNCTION(php_wxWidgets)
     php_wxWebViewHistoryItem_entry = zend_register_internal_class(&ce);
     php_wxWebViewHistoryItem_entry->create_object = php_wxWebViewHistoryItem_new;
     wxPHP_PREPARE_OBJECT_HANDLERS(wxWebViewHistoryItem)
-
-    char PHP_wxURI_name[] = "wxURI";
-    INIT_CLASS_ENTRY(ce, PHP_wxURI_name, php_wxURI_functions);
-    php_wxURI_entry = zend_register_internal_class(&ce);
-    php_wxURI_entry->create_object = php_wxURI_new;
-    wxPHP_PREPARE_OBJECT_HANDLERS(wxURI)
 
     char PHP_wxBusyInfoFlags_name[] = "wxBusyInfoFlags";
     INIT_CLASS_ENTRY(ce, PHP_wxBusyInfoFlags_name, php_wxBusyInfoFlags_functions);
@@ -5249,6 +5251,12 @@ PHP_MINIT_FUNCTION(php_wxWidgets)
     php_wxTimerEvent_entry = zend_register_internal_class_ex(&ce, php_wxEvent_entry);
     php_wxTimerEvent_entry->create_object = php_wxTimerEvent_new;
     wxPHP_PREPARE_OBJECT_HANDLERS(wxTimerEvent)
+
+    char PHP_wxURL_name[] = "wxURL";
+    INIT_CLASS_ENTRY(ce, PHP_wxURL_name, php_wxURL_functions);
+    php_wxURL_entry = zend_register_internal_class_ex(&ce, php_wxURI_entry);
+    php_wxURL_entry->create_object = php_wxURL_new;
+    wxPHP_PREPARE_OBJECT_HANDLERS(wxURL)
 
 
     //Variables found on consts.json
