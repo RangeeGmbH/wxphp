@@ -186609,5 +186609,4922 @@
         ]
       }
     ]
+  },
+  "wxDateSpan": {
+    "wxDateSpan": [
+      {
+        "return_type": "",
+        "brief_description": "",
+        "constant": false,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [
+          "int",
+          "int",
+          "int",
+          "int"
+        ],
+        "parameters_is_array": [
+          false,
+          false,
+          false,
+          false
+        ],
+        "parameters_extra": [
+          false,
+          false,
+          false,
+          false
+        ],
+        "parameters_name": [
+          "years",
+          "months",
+          "weeks",
+          "days"
+        ],
+        "parameters_required": [],
+        "parameters_default_value": [
+          "0",
+          "0",
+          "0",
+          "0"
+        ]
+      }
+    ],
+    "Add": [
+      {
+        "return_type": "wxDateSpan",
+        "brief_description": "",
+        "constant": true,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [
+          "const wxDateSpan&"
+        ],
+        "parameters_is_array": [
+          false
+        ],
+        "parameters_extra": [
+          false
+        ],
+        "parameters_name": [
+          "other"
+        ],
+        "parameters_required": [
+          true
+        ],
+        "parameters_default_value": [
+          null
+        ]
+      },
+      {
+        "return_type": "wxDateSpan&",
+        "brief_description": "",
+        "constant": false,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [
+          "const wxDateSpan&"
+        ],
+        "parameters_is_array": [
+          false
+        ],
+        "parameters_extra": [
+          false
+        ],
+        "parameters_name": [
+          "other"
+        ],
+        "parameters_required": [
+          true
+        ],
+        "parameters_default_value": [
+          null
+        ]
+      }
+    ],
+    "GetDays": [
+      {
+        "return_type": "int",
+        "brief_description": "",
+        "constant": true,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [],
+        "parameters_is_array": [],
+        "parameters_extra": [],
+        "parameters_name": [],
+        "parameters_required": [],
+        "parameters_default_value": []
+      }
+    ],
+    "GetMonths": [
+      {
+        "return_type": "int",
+        "brief_description": "",
+        "constant": true,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [],
+        "parameters_is_array": [],
+        "parameters_extra": [],
+        "parameters_name": [],
+        "parameters_required": [],
+        "parameters_default_value": []
+      }
+    ],
+    "GetTotalMonths": [
+      {
+        "return_type": "int",
+        "brief_description": "",
+        "constant": true,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [],
+        "parameters_is_array": [],
+        "parameters_extra": [],
+        "parameters_name": [],
+        "parameters_required": [],
+        "parameters_default_value": []
+      }
+    ],
+    "GetTotalDays": [
+      {
+        "return_type": "int",
+        "brief_description": "",
+        "constant": true,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [],
+        "parameters_is_array": [],
+        "parameters_extra": [],
+        "parameters_name": [],
+        "parameters_required": [],
+        "parameters_default_value": []
+      }
+    ],
+    "GetWeeks": [
+      {
+        "return_type": "int",
+        "brief_description": "",
+        "constant": true,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [],
+        "parameters_is_array": [],
+        "parameters_extra": [],
+        "parameters_name": [],
+        "parameters_required": [],
+        "parameters_default_value": []
+      }
+    ],
+    "GetYears": [
+      {
+        "return_type": "int",
+        "brief_description": "",
+        "constant": true,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [],
+        "parameters_is_array": [],
+        "parameters_extra": [],
+        "parameters_name": [],
+        "parameters_required": [],
+        "parameters_default_value": []
+      }
+    ],
+    "Multiply": [
+      {
+        "return_type": "wxDateSpan",
+        "brief_description": "",
+        "constant": true,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [
+          "int"
+        ],
+        "parameters_is_array": [
+          false
+        ],
+        "parameters_extra": [
+          false
+        ],
+        "parameters_name": [
+          "factor"
+        ],
+        "parameters_required": [
+          true
+        ],
+        "parameters_default_value": [
+          null
+        ]
+      },
+      {
+        "return_type": "wxDateSpan&",
+        "brief_description": "",
+        "constant": false,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [
+          "int"
+        ],
+        "parameters_is_array": [
+          false
+        ],
+        "parameters_extra": [
+          false
+        ],
+        "parameters_name": [
+          "factor"
+        ],
+        "parameters_required": [
+          true
+        ],
+        "parameters_default_value": [
+          null
+        ]
+      }
+    ],
+    "Neg": [
+      {
+        "return_type": "wxDateSpan&",
+        "brief_description": "",
+        "constant": false,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [],
+        "parameters_is_array": [],
+        "parameters_extra": [],
+        "parameters_name": [],
+        "parameters_required": [],
+        "parameters_default_value": []
+      }
+    ],
+    "Negate": [
+      {
+        "return_type": "wxDateSpan",
+        "brief_description": "",
+        "constant": true,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [],
+        "parameters_is_array": [],
+        "parameters_extra": [],
+        "parameters_name": [],
+        "parameters_required": [],
+        "parameters_default_value": []
+      }
+    ],
+    "SetDays": [
+      {
+        "return_type": "wxDateSpan&",
+        "brief_description": "",
+        "constant": false,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [
+          "int"
+        ],
+        "parameters_is_array": [
+          false
+        ],
+        "parameters_extra": [
+          false
+        ],
+        "parameters_name": [
+          "n"
+        ],
+        "parameters_required": [
+          true
+        ],
+        "parameters_default_value": [
+          null
+        ]
+      }
+    ],
+    "SetMonths": [
+      {
+        "return_type": "wxDateSpan&",
+        "brief_description": "",
+        "constant": false,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [
+          "int"
+        ],
+        "parameters_is_array": [
+          false
+        ],
+        "parameters_extra": [
+          false
+        ],
+        "parameters_name": [
+          "n"
+        ],
+        "parameters_required": [
+          true
+        ],
+        "parameters_default_value": [
+          null
+        ]
+      }
+    ],
+    "SetWeeks": [
+      {
+        "return_type": "wxDateSpan&",
+        "brief_description": "",
+        "constant": false,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [
+          "int"
+        ],
+        "parameters_is_array": [
+          false
+        ],
+        "parameters_extra": [
+          false
+        ],
+        "parameters_name": [
+          "n"
+        ],
+        "parameters_required": [
+          true
+        ],
+        "parameters_default_value": [
+          null
+        ]
+      }
+    ],
+    "SetYears": [
+      {
+        "return_type": "wxDateSpan&",
+        "brief_description": "",
+        "constant": false,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [
+          "int"
+        ],
+        "parameters_is_array": [
+          false
+        ],
+        "parameters_extra": [
+          false
+        ],
+        "parameters_name": [
+          "n"
+        ],
+        "parameters_required": [
+          true
+        ],
+        "parameters_default_value": [
+          null
+        ]
+      }
+    ],
+    "Subtract": [
+      {
+        "return_type": "wxDateSpan",
+        "brief_description": "",
+        "constant": true,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [
+          "const wxDateSpan&"
+        ],
+        "parameters_is_array": [
+          false
+        ],
+        "parameters_extra": [
+          false
+        ],
+        "parameters_name": [
+          "other"
+        ],
+        "parameters_required": [
+          true
+        ],
+        "parameters_default_value": [
+          null
+        ]
+      },
+      {
+        "return_type": "wxDateSpan&",
+        "brief_description": "",
+        "constant": false,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [
+          "const wxDateSpan&"
+        ],
+        "parameters_is_array": [
+          false
+        ],
+        "parameters_extra": [
+          false
+        ],
+        "parameters_name": [
+          "other"
+        ],
+        "parameters_required": [
+          true
+        ],
+        "parameters_default_value": [
+          null
+        ]
+      }
+    ],
+    "operator+=": [
+      {
+        "return_type": "wxDateSpan&",
+        "brief_description": "",
+        "constant": false,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [
+          "const wxDateSpan&"
+        ],
+        "parameters_is_array": [
+          false
+        ],
+        "parameters_extra": [
+          false
+        ],
+        "parameters_name": [
+          "other"
+        ],
+        "parameters_required": [
+          true
+        ],
+        "parameters_default_value": [
+          null
+        ]
+      }
+    ],
+    "operator-=": [
+      {
+        "return_type": "wxDateSpan&",
+        "brief_description": "",
+        "constant": false,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [
+          "const wxDateSpan&"
+        ],
+        "parameters_is_array": [
+          false
+        ],
+        "parameters_extra": [
+          false
+        ],
+        "parameters_name": [
+          "other"
+        ],
+        "parameters_required": [
+          true
+        ],
+        "parameters_default_value": [
+          null
+        ]
+      }
+    ],
+    "operator-": [
+      {
+        "return_type": "wxDateSpan&",
+        "brief_description": "",
+        "constant": false,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [],
+        "parameters_is_array": [],
+        "parameters_extra": [],
+        "parameters_name": [],
+        "parameters_required": [],
+        "parameters_default_value": []
+      }
+    ],
+    "operator*=": [
+      {
+        "return_type": "wxDateSpan&",
+        "brief_description": "",
+        "constant": false,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [
+          "int"
+        ],
+        "parameters_is_array": [
+          false
+        ],
+        "parameters_extra": [
+          false
+        ],
+        "parameters_name": [
+          "factor"
+        ],
+        "parameters_required": [
+          true
+        ],
+        "parameters_default_value": [
+          null
+        ]
+      }
+    ],
+    "operator!=": [
+      {
+        "return_type": "bool",
+        "brief_description": "",
+        "constant": true,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [
+          "const wxDateSpan&"
+        ],
+        "parameters_is_array": [
+          false
+        ],
+        "parameters_extra": [
+          false
+        ],
+        "parameters_name": [
+          "other"
+        ],
+        "parameters_required": [
+          true
+        ],
+        "parameters_default_value": [
+          null
+        ]
+      }
+    ],
+    "operator==": [
+      {
+        "return_type": "bool",
+        "brief_description": "",
+        "constant": true,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [
+          "const wxDateSpan&"
+        ],
+        "parameters_is_array": [
+          false
+        ],
+        "parameters_extra": [
+          false
+        ],
+        "parameters_name": [
+          "other"
+        ],
+        "parameters_required": [
+          true
+        ],
+        "parameters_default_value": [
+          null
+        ]
+      }
+    ],
+    "Day": [
+      {
+        "return_type": "wxDateSpan",
+        "brief_description": "",
+        "constant": false,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": true,
+        "protected": false,
+        "parameters_type": [],
+        "parameters_is_array": [],
+        "parameters_extra": [],
+        "parameters_name": [],
+        "parameters_required": [],
+        "parameters_default_value": []
+      }
+    ],
+    "Days": [
+      {
+        "return_type": "wxDateSpan",
+        "brief_description": "",
+        "constant": false,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": true,
+        "protected": false,
+        "parameters_type": [
+          "int"
+        ],
+        "parameters_is_array": [
+          false
+        ],
+        "parameters_extra": [
+          false
+        ],
+        "parameters_name": [
+          "days"
+        ],
+        "parameters_required": [
+          true
+        ],
+        "parameters_default_value": [
+          null
+        ]
+      }
+    ],
+    "Month": [
+      {
+        "return_type": "wxDateSpan",
+        "brief_description": "",
+        "constant": false,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": true,
+        "protected": false,
+        "parameters_type": [],
+        "parameters_is_array": [],
+        "parameters_extra": [],
+        "parameters_name": [],
+        "parameters_required": [],
+        "parameters_default_value": []
+      }
+    ],
+    "Months": [
+      {
+        "return_type": "wxDateSpan",
+        "brief_description": "",
+        "constant": false,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": true,
+        "protected": false,
+        "parameters_type": [
+          "int"
+        ],
+        "parameters_is_array": [
+          false
+        ],
+        "parameters_extra": [
+          false
+        ],
+        "parameters_name": [
+          "mon"
+        ],
+        "parameters_required": [
+          true
+        ],
+        "parameters_default_value": [
+          null
+        ]
+      }
+    ],
+    "Week": [
+      {
+        "return_type": "wxDateSpan",
+        "brief_description": "",
+        "constant": false,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": true,
+        "protected": false,
+        "parameters_type": [],
+        "parameters_is_array": [],
+        "parameters_extra": [],
+        "parameters_name": [],
+        "parameters_required": [],
+        "parameters_default_value": []
+      }
+    ],
+    "Weeks": [
+      {
+        "return_type": "wxDateSpan",
+        "brief_description": "",
+        "constant": false,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": true,
+        "protected": false,
+        "parameters_type": [
+          "int"
+        ],
+        "parameters_is_array": [
+          false
+        ],
+        "parameters_extra": [
+          false
+        ],
+        "parameters_name": [
+          "weeks"
+        ],
+        "parameters_required": [
+          true
+        ],
+        "parameters_default_value": [
+          null
+        ]
+      }
+    ],
+    "Year": [
+      {
+        "return_type": "wxDateSpan",
+        "brief_description": "",
+        "constant": false,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": true,
+        "protected": false,
+        "parameters_type": [],
+        "parameters_is_array": [],
+        "parameters_extra": [],
+        "parameters_name": [],
+        "parameters_required": [],
+        "parameters_default_value": []
+      }
+    ],
+    "Years": [
+      {
+        "return_type": "wxDateSpan",
+        "brief_description": "",
+        "constant": false,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": true,
+        "protected": false,
+        "parameters_type": [
+          "int"
+        ],
+        "parameters_is_array": [
+          false
+        ],
+        "parameters_extra": [
+          false
+        ],
+        "parameters_name": [
+          "years"
+        ],
+        "parameters_required": [
+          true
+        ],
+        "parameters_default_value": [
+          null
+        ]
+      }
+    ]
+  },
+  "wxDateTime": {
+    "wxDateTime": [
+      {
+        "return_type": "",
+        "brief_description": "",
+        "constant": false,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [],
+        "parameters_is_array": [],
+        "parameters_extra": [],
+        "parameters_name": [],
+        "parameters_required": [],
+        "parameters_default_value": []
+      },
+      {
+        "return_type": "",
+        "brief_description": "",
+        "constant": false,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [
+          "const wxDateTime&"
+        ],
+        "parameters_is_array": [
+          false
+        ],
+        "parameters_extra": [
+          false
+        ],
+        "parameters_name": [
+          "date"
+        ],
+        "parameters_required": [
+          true
+        ],
+        "parameters_default_value": [
+          null
+        ]
+      },
+      {
+        "return_type": "",
+        "brief_description": "",
+        "constant": false,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [
+          "time_t"
+        ],
+        "parameters_is_array": [
+          false
+        ],
+        "parameters_extra": [
+          false
+        ],
+        "parameters_name": [
+          "timet"
+        ],
+        "parameters_required": [
+          true
+        ],
+        "parameters_default_value": [
+          null
+        ]
+      },
+      {
+        "return_type": "",
+        "brief_description": "",
+        "constant": false,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [
+          "const struct tm&"
+        ],
+        "parameters_is_array": [
+          false
+        ],
+        "parameters_extra": [
+          false
+        ],
+        "parameters_name": [
+          "tm"
+        ],
+        "parameters_required": [
+          true
+        ],
+        "parameters_default_value": [
+          null
+        ]
+      },
+      {
+        "return_type": "",
+        "brief_description": "",
+        "constant": false,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [
+          "double"
+        ],
+        "parameters_is_array": [
+          false
+        ],
+        "parameters_extra": [
+          false
+        ],
+        "parameters_name": [
+          "jdn"
+        ],
+        "parameters_required": [
+          true
+        ],
+        "parameters_default_value": [
+          null
+        ]
+      },
+      {
+        "return_type": "",
+        "brief_description": "",
+        "constant": false,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [
+          "wxDateTime_t",
+          "wxDateTime_t",
+          "wxDateTime_t",
+          "wxDateTime_t"
+        ],
+        "parameters_is_array": [
+          false,
+          false,
+          false,
+          false
+        ],
+        "parameters_extra": [
+          false,
+          false,
+          false,
+          false
+        ],
+        "parameters_name": [
+          "hour",
+          "minute",
+          "second",
+          "millisec"
+        ],
+        "parameters_required": [
+          true
+        ],
+        "parameters_default_value": [
+          null,
+          "0",
+          "0",
+          "0"
+        ]
+      },
+      {
+        "return_type": "",
+        "brief_description": "",
+        "constant": false,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [
+          "wxDateTime_t",
+          "Month",
+          "int",
+          "wxDateTime_t",
+          "wxDateTime_t",
+          "wxDateTime_t",
+          "wxDateTime_t"
+        ],
+        "parameters_is_array": [
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false
+        ],
+        "parameters_extra": [
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false
+        ],
+        "parameters_name": [
+          "day",
+          "month",
+          "year",
+          "hour",
+          "minute",
+          "second",
+          "millisec"
+        ],
+        "parameters_required": [
+          true,
+          true
+        ],
+        "parameters_default_value": [
+          null,
+          null,
+          "Inv_Year",
+          "0",
+          "0",
+          "0",
+          "0"
+        ]
+      },
+      {
+        "return_type": "",
+        "brief_description": "",
+        "constant": false,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [
+          "const struct _SYSTEMTIME&"
+        ],
+        "parameters_is_array": [
+          false
+        ],
+        "parameters_extra": [
+          false
+        ],
+        "parameters_name": [
+          "st"
+        ],
+        "parameters_required": [
+          true
+        ],
+        "parameters_default_value": [
+          null
+        ]
+      }
+    ],
+    "ResetTime": [
+      {
+        "return_type": "wxDateTime&",
+        "brief_description": "",
+        "constant": false,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [],
+        "parameters_is_array": [],
+        "parameters_extra": [],
+        "parameters_name": [],
+        "parameters_required": [],
+        "parameters_default_value": []
+      }
+    ],
+    "Set": [
+      {
+        "return_type": "wxDateTime&",
+        "brief_description": "",
+        "constant": false,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [
+          "time_t"
+        ],
+        "parameters_is_array": [
+          false
+        ],
+        "parameters_extra": [
+          false
+        ],
+        "parameters_name": [
+          "timet"
+        ],
+        "parameters_required": [
+          true
+        ],
+        "parameters_default_value": [
+          null
+        ]
+      },
+      {
+        "return_type": "wxDateTime&",
+        "brief_description": "",
+        "constant": false,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [
+          "const struct tm&"
+        ],
+        "parameters_is_array": [
+          false
+        ],
+        "parameters_extra": [
+          false
+        ],
+        "parameters_name": [
+          "tm"
+        ],
+        "parameters_required": [
+          true
+        ],
+        "parameters_default_value": [
+          null
+        ]
+      },
+      {
+        "return_type": "wxDateTime&",
+        "brief_description": "",
+        "constant": false,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [
+          "const Tm&"
+        ],
+        "parameters_is_array": [
+          false
+        ],
+        "parameters_extra": [
+          false
+        ],
+        "parameters_name": [
+          "tm"
+        ],
+        "parameters_required": [
+          true
+        ],
+        "parameters_default_value": [
+          null
+        ]
+      },
+      {
+        "return_type": "wxDateTime&",
+        "brief_description": "",
+        "constant": false,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [
+          "double"
+        ],
+        "parameters_is_array": [
+          false
+        ],
+        "parameters_extra": [
+          false
+        ],
+        "parameters_name": [
+          "jdn"
+        ],
+        "parameters_required": [
+          true
+        ],
+        "parameters_default_value": [
+          null
+        ]
+      },
+      {
+        "return_type": "wxDateTime&",
+        "brief_description": "",
+        "constant": false,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [
+          "wxDateTime_t",
+          "wxDateTime_t",
+          "wxDateTime_t",
+          "wxDateTime_t"
+        ],
+        "parameters_is_array": [
+          false,
+          false,
+          false,
+          false
+        ],
+        "parameters_extra": [
+          false,
+          false,
+          false,
+          false
+        ],
+        "parameters_name": [
+          "hour",
+          "minute",
+          "second",
+          "millisec"
+        ],
+        "parameters_required": [
+          true
+        ],
+        "parameters_default_value": [
+          null,
+          "0",
+          "0",
+          "0"
+        ]
+      },
+      {
+        "return_type": "wxDateTime&",
+        "brief_description": "",
+        "constant": false,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [
+          "wxDateTime_t",
+          "Month",
+          "int",
+          "wxDateTime_t",
+          "wxDateTime_t",
+          "wxDateTime_t",
+          "wxDateTime_t"
+        ],
+        "parameters_is_array": [
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false
+        ],
+        "parameters_extra": [
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false
+        ],
+        "parameters_name": [
+          "day",
+          "month",
+          "year",
+          "hour",
+          "minute",
+          "second",
+          "millisec"
+        ],
+        "parameters_required": [
+          true,
+          true
+        ],
+        "parameters_default_value": [
+          null,
+          null,
+          "Inv_Year",
+          "0",
+          "0",
+          "0",
+          "0"
+        ]
+      }
+    ],
+    "SetDay": [
+      {
+        "return_type": "wxDateTime&",
+        "brief_description": "",
+        "constant": false,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [
+          "unsigned short"
+        ],
+        "parameters_is_array": [
+          false
+        ],
+        "parameters_extra": [
+          false
+        ],
+        "parameters_name": [
+          "day"
+        ],
+        "parameters_required": [
+          true
+        ],
+        "parameters_default_value": [
+          null
+        ]
+      }
+    ],
+    "SetFromDOS": [
+      {
+        "return_type": "wxDateTime&",
+        "brief_description": "",
+        "constant": false,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [
+          "unsigned long"
+        ],
+        "parameters_is_array": [
+          false
+        ],
+        "parameters_extra": [
+          false
+        ],
+        "parameters_name": [
+          "ddt"
+        ],
+        "parameters_required": [
+          true
+        ],
+        "parameters_default_value": [
+          null
+        ]
+      }
+    ],
+    "SetHour": [
+      {
+        "return_type": "wxDateTime&",
+        "brief_description": "",
+        "constant": false,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [
+          "unsigned short"
+        ],
+        "parameters_is_array": [
+          false
+        ],
+        "parameters_extra": [
+          false
+        ],
+        "parameters_name": [
+          "hour"
+        ],
+        "parameters_required": [
+          true
+        ],
+        "parameters_default_value": [
+          null
+        ]
+      }
+    ],
+    "SetMillisecond": [
+      {
+        "return_type": "wxDateTime&",
+        "brief_description": "",
+        "constant": false,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [
+          "unsigned short"
+        ],
+        "parameters_is_array": [
+          false
+        ],
+        "parameters_extra": [
+          false
+        ],
+        "parameters_name": [
+          "millisecond"
+        ],
+        "parameters_required": [
+          true
+        ],
+        "parameters_default_value": [
+          null
+        ]
+      }
+    ],
+    "SetMinute": [
+      {
+        "return_type": "wxDateTime&",
+        "brief_description": "",
+        "constant": false,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [
+          "unsigned short"
+        ],
+        "parameters_is_array": [
+          false
+        ],
+        "parameters_extra": [
+          false
+        ],
+        "parameters_name": [
+          "minute"
+        ],
+        "parameters_required": [
+          true
+        ],
+        "parameters_default_value": [
+          null
+        ]
+      }
+    ],
+    "SetMonth": [
+      {
+        "return_type": "wxDateTime&",
+        "brief_description": "",
+        "constant": false,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [
+          "Month"
+        ],
+        "parameters_is_array": [
+          false
+        ],
+        "parameters_extra": [
+          false
+        ],
+        "parameters_name": [
+          "month"
+        ],
+        "parameters_required": [
+          true
+        ],
+        "parameters_default_value": [
+          null
+        ]
+      }
+    ],
+    "SetSecond": [
+      {
+        "return_type": "wxDateTime&",
+        "brief_description": "",
+        "constant": false,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [
+          "unsigned short"
+        ],
+        "parameters_is_array": [
+          false
+        ],
+        "parameters_extra": [
+          false
+        ],
+        "parameters_name": [
+          "second"
+        ],
+        "parameters_required": [
+          true
+        ],
+        "parameters_default_value": [
+          null
+        ]
+      }
+    ],
+    "SetToCurrent": [
+      {
+        "return_type": "wxDateTime&",
+        "brief_description": "",
+        "constant": false,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [],
+        "parameters_is_array": [],
+        "parameters_extra": [],
+        "parameters_name": [],
+        "parameters_required": [],
+        "parameters_default_value": []
+      }
+    ],
+    "SetYear": [
+      {
+        "return_type": "wxDateTime&",
+        "brief_description": "",
+        "constant": false,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [
+          "int"
+        ],
+        "parameters_is_array": [
+          false
+        ],
+        "parameters_extra": [
+          false
+        ],
+        "parameters_name": [
+          "year"
+        ],
+        "parameters_required": [
+          true
+        ],
+        "parameters_default_value": [
+          null
+        ]
+      }
+    ],
+    "operator=": [
+      {
+        "return_type": "wxDateTime&",
+        "brief_description": "",
+        "constant": false,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [
+          "time_t"
+        ],
+        "parameters_is_array": [
+          false
+        ],
+        "parameters_extra": [
+          false
+        ],
+        "parameters_name": [
+          "timet"
+        ],
+        "parameters_required": [
+          true
+        ],
+        "parameters_default_value": [
+          null
+        ]
+      },
+      {
+        "return_type": "wxDateTime&",
+        "brief_description": "",
+        "constant": false,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [
+          "const struct tm&"
+        ],
+        "parameters_is_array": [
+          false
+        ],
+        "parameters_extra": [
+          false
+        ],
+        "parameters_name": [
+          "tm"
+        ],
+        "parameters_required": [
+          true
+        ],
+        "parameters_default_value": [
+          null
+        ]
+      }
+    ],
+    "GetAsDOS": [
+      {
+        "return_type": "unsigned long",
+        "brief_description": "",
+        "constant": true,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [],
+        "parameters_is_array": [],
+        "parameters_extra": [],
+        "parameters_name": [],
+        "parameters_required": [],
+        "parameters_default_value": []
+      }
+    ],
+    "SetFromMSWSysTime": [
+      {
+        "return_type": "wxDateTime&",
+        "brief_description": "",
+        "constant": false,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [
+          "const struct _SYSTEMTIME&"
+        ],
+        "parameters_is_array": [
+          false
+        ],
+        "parameters_extra": [
+          false
+        ],
+        "parameters_name": [
+          "st"
+        ],
+        "parameters_required": [
+          true
+        ],
+        "parameters_default_value": [
+          null
+        ]
+      }
+    ],
+    "GetAsMSWSysTime": [
+      {
+        "return_type": "void",
+        "brief_description": "",
+        "constant": true,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [
+          "struct _SYSTEMTIME*"
+        ],
+        "parameters_is_array": [
+          false
+        ],
+        "parameters_extra": [
+          false
+        ],
+        "parameters_name": [
+          "st"
+        ],
+        "parameters_required": [
+          true
+        ],
+        "parameters_default_value": [
+          null
+        ]
+      }
+    ],
+    "GetCentury": [
+      {
+        "return_type": "int",
+        "brief_description": "",
+        "constant": true,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [
+          "const TimeZone&"
+        ],
+        "parameters_is_array": [
+          false
+        ],
+        "parameters_extra": [
+          false
+        ],
+        "parameters_name": [
+          "tz"
+        ],
+        "parameters_required": [],
+        "parameters_default_value": [
+          "Local"
+        ]
+      },
+      {
+        "return_type": "int",
+        "brief_description": "",
+        "constant": false,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": true,
+        "protected": false,
+        "parameters_type": [
+          "int"
+        ],
+        "parameters_is_array": [
+          false
+        ],
+        "parameters_extra": [
+          false
+        ],
+        "parameters_name": [
+          "year"
+        ],
+        "parameters_required": [
+          true
+        ],
+        "parameters_default_value": [
+          null
+        ]
+      }
+    ],
+    "GetDateOnly": [
+      {
+        "return_type": "wxDateTime",
+        "brief_description": "",
+        "constant": true,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [],
+        "parameters_is_array": [],
+        "parameters_extra": [],
+        "parameters_name": [],
+        "parameters_required": [],
+        "parameters_default_value": []
+      }
+    ],
+    "GetDay": [
+      {
+        "return_type": "unsigned short",
+        "brief_description": "",
+        "constant": true,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [
+          "const TimeZone&"
+        ],
+        "parameters_is_array": [
+          false
+        ],
+        "parameters_extra": [
+          false
+        ],
+        "parameters_name": [
+          "tz"
+        ],
+        "parameters_required": [],
+        "parameters_default_value": [
+          "Local"
+        ]
+      }
+    ],
+    "GetDayOfYear": [
+      {
+        "return_type": "unsigned short",
+        "brief_description": "",
+        "constant": true,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [
+          "const TimeZone&"
+        ],
+        "parameters_is_array": [
+          false
+        ],
+        "parameters_extra": [
+          false
+        ],
+        "parameters_name": [
+          "tz"
+        ],
+        "parameters_required": [],
+        "parameters_default_value": [
+          "Local"
+        ]
+      }
+    ],
+    "GetHour": [
+      {
+        "return_type": "unsigned short",
+        "brief_description": "",
+        "constant": true,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [
+          "const TimeZone&"
+        ],
+        "parameters_is_array": [
+          false
+        ],
+        "parameters_extra": [
+          false
+        ],
+        "parameters_name": [
+          "tz"
+        ],
+        "parameters_required": [],
+        "parameters_default_value": [
+          "Local"
+        ]
+      }
+    ],
+    "GetMillisecond": [
+      {
+        "return_type": "unsigned short",
+        "brief_description": "",
+        "constant": true,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [
+          "const TimeZone&"
+        ],
+        "parameters_is_array": [
+          false
+        ],
+        "parameters_extra": [
+          false
+        ],
+        "parameters_name": [
+          "tz"
+        ],
+        "parameters_required": [],
+        "parameters_default_value": [
+          "Local"
+        ]
+      }
+    ],
+    "GetMinute": [
+      {
+        "return_type": "unsigned short",
+        "brief_description": "",
+        "constant": true,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [
+          "const TimeZone&"
+        ],
+        "parameters_is_array": [
+          false
+        ],
+        "parameters_extra": [
+          false
+        ],
+        "parameters_name": [
+          "tz"
+        ],
+        "parameters_required": [],
+        "parameters_default_value": [
+          "Local"
+        ]
+      }
+    ],
+    "GetMonth": [
+      {
+        "return_type": "Month",
+        "brief_description": "",
+        "constant": true,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [
+          "const TimeZone&"
+        ],
+        "parameters_is_array": [
+          false
+        ],
+        "parameters_extra": [
+          false
+        ],
+        "parameters_name": [
+          "tz"
+        ],
+        "parameters_required": [],
+        "parameters_default_value": [
+          "Local"
+        ]
+      }
+    ],
+    "GetSecond": [
+      {
+        "return_type": "unsigned short",
+        "brief_description": "",
+        "constant": true,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [
+          "const TimeZone&"
+        ],
+        "parameters_is_array": [
+          false
+        ],
+        "parameters_extra": [
+          false
+        ],
+        "parameters_name": [
+          "tz"
+        ],
+        "parameters_required": [],
+        "parameters_default_value": [
+          "Local"
+        ]
+      }
+    ],
+    "GetTicks": [
+      {
+        "return_type": "time_t",
+        "brief_description": "",
+        "constant": true,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [],
+        "parameters_is_array": [],
+        "parameters_extra": [],
+        "parameters_name": [],
+        "parameters_required": [],
+        "parameters_default_value": []
+      }
+    ],
+    "GetValue": [
+      {
+        "return_type": "wxLongLong",
+        "brief_description": "",
+        "constant": true,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [],
+        "parameters_is_array": [],
+        "parameters_extra": [],
+        "parameters_name": [],
+        "parameters_required": [],
+        "parameters_default_value": []
+      }
+    ],
+    "GetTm": [
+      {
+        "return_type": "Tm",
+        "brief_description": "",
+        "constant": true,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [
+          "const TimeZone&"
+        ],
+        "parameters_is_array": [
+          false
+        ],
+        "parameters_extra": [
+          false
+        ],
+        "parameters_name": [
+          "tz"
+        ],
+        "parameters_required": [],
+        "parameters_default_value": [
+          "Local"
+        ]
+      }
+    ],
+    "GetWeekDay": [
+      {
+        "return_type": "WeekDay",
+        "brief_description": "",
+        "constant": true,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [
+          "const TimeZone&"
+        ],
+        "parameters_is_array": [
+          false
+        ],
+        "parameters_extra": [
+          false
+        ],
+        "parameters_name": [
+          "tz"
+        ],
+        "parameters_required": [],
+        "parameters_default_value": [
+          "Local"
+        ]
+      },
+      {
+        "return_type": "wxDateTime",
+        "brief_description": "",
+        "constant": true,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [
+          "WeekDay",
+          "int",
+          "Month",
+          "int"
+        ],
+        "parameters_is_array": [
+          false,
+          false,
+          false,
+          false
+        ],
+        "parameters_extra": [
+          false,
+          false,
+          false,
+          false
+        ],
+        "parameters_name": [
+          "weekday",
+          "n",
+          "month",
+          "year"
+        ],
+        "parameters_required": [
+          true
+        ],
+        "parameters_default_value": [
+          null,
+          "1",
+          "Inv_Month",
+          "Inv_Year"
+        ]
+      }
+    ],
+    "GetWeekBasedYear": [
+      {
+        "return_type": "int",
+        "brief_description": "",
+        "constant": true,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [
+          "const TimeZone&"
+        ],
+        "parameters_is_array": [
+          false
+        ],
+        "parameters_extra": [
+          false
+        ],
+        "parameters_name": [
+          "tz"
+        ],
+        "parameters_required": [
+          true
+        ],
+        "parameters_default_value": [
+          null
+        ]
+      }
+    ],
+    "GetWeekOfMonth": [
+      {
+        "return_type": "wxDateTime_t",
+        "brief_description": "",
+        "constant": true,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [
+          "WeekFlags",
+          "const TimeZone&"
+        ],
+        "parameters_is_array": [
+          false,
+          false
+        ],
+        "parameters_extra": [
+          false,
+          false
+        ],
+        "parameters_name": [
+          "flags",
+          "tz"
+        ],
+        "parameters_required": [],
+        "parameters_default_value": [
+          "Monday_First",
+          "Local"
+        ]
+      }
+    ],
+    "GetWeekOfYear": [
+      {
+        "return_type": "wxDateTime_t",
+        "brief_description": "",
+        "constant": true,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [
+          "WeekFlags",
+          "const TimeZone&"
+        ],
+        "parameters_is_array": [
+          false,
+          false
+        ],
+        "parameters_extra": [
+          false,
+          false
+        ],
+        "parameters_name": [
+          "flags",
+          "tz"
+        ],
+        "parameters_required": [],
+        "parameters_default_value": [
+          "Monday_First",
+          "Local"
+        ]
+      }
+    ],
+    "GetYear": [
+      {
+        "return_type": "int",
+        "brief_description": "",
+        "constant": true,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [
+          "const TimeZone&"
+        ],
+        "parameters_is_array": [
+          false
+        ],
+        "parameters_extra": [
+          false
+        ],
+        "parameters_name": [
+          "tz"
+        ],
+        "parameters_required": [],
+        "parameters_default_value": [
+          "Local"
+        ]
+      }
+    ],
+    "IsValid": [
+      {
+        "return_type": "bool",
+        "brief_description": "",
+        "constant": true,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [],
+        "parameters_is_array": [],
+        "parameters_extra": [],
+        "parameters_name": [],
+        "parameters_required": [],
+        "parameters_default_value": []
+      }
+    ],
+    "IsWorkDay": [
+      {
+        "return_type": "bool",
+        "brief_description": "",
+        "constant": true,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [
+          "Country"
+        ],
+        "parameters_is_array": [
+          false
+        ],
+        "parameters_extra": [
+          false
+        ],
+        "parameters_name": [
+          "country"
+        ],
+        "parameters_required": [],
+        "parameters_default_value": [
+          "Country_Default"
+        ]
+      }
+    ],
+    "IsEarlierThan": [
+      {
+        "return_type": "bool",
+        "brief_description": "",
+        "constant": true,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [
+          "const wxDateTime&"
+        ],
+        "parameters_is_array": [
+          false
+        ],
+        "parameters_extra": [
+          false
+        ],
+        "parameters_name": [
+          "datetime"
+        ],
+        "parameters_required": [
+          true
+        ],
+        "parameters_default_value": [
+          null
+        ]
+      }
+    ],
+    "IsEqualTo": [
+      {
+        "return_type": "bool",
+        "brief_description": "",
+        "constant": true,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [
+          "const wxDateTime&"
+        ],
+        "parameters_is_array": [
+          false
+        ],
+        "parameters_extra": [
+          false
+        ],
+        "parameters_name": [
+          "datetime"
+        ],
+        "parameters_required": [
+          true
+        ],
+        "parameters_default_value": [
+          null
+        ]
+      }
+    ],
+    "IsEqualUpTo": [
+      {
+        "return_type": "bool",
+        "brief_description": "",
+        "constant": true,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [
+          "const wxDateTime&",
+          "const wxTimeSpan&"
+        ],
+        "parameters_is_array": [
+          false,
+          false
+        ],
+        "parameters_extra": [
+          false,
+          false
+        ],
+        "parameters_name": [
+          "dt",
+          "ts"
+        ],
+        "parameters_required": [
+          true,
+          true
+        ],
+        "parameters_default_value": [
+          null,
+          null
+        ]
+      }
+    ],
+    "IsLaterThan": [
+      {
+        "return_type": "bool",
+        "brief_description": "",
+        "constant": true,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [
+          "const wxDateTime&"
+        ],
+        "parameters_is_array": [
+          false
+        ],
+        "parameters_extra": [
+          false
+        ],
+        "parameters_name": [
+          "datetime"
+        ],
+        "parameters_required": [
+          true
+        ],
+        "parameters_default_value": [
+          null
+        ]
+      }
+    ],
+    "IsSameDate": [
+      {
+        "return_type": "bool",
+        "brief_description": "",
+        "constant": true,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [
+          "const wxDateTime&"
+        ],
+        "parameters_is_array": [
+          false
+        ],
+        "parameters_extra": [
+          false
+        ],
+        "parameters_name": [
+          "dt"
+        ],
+        "parameters_required": [
+          true
+        ],
+        "parameters_default_value": [
+          null
+        ]
+      }
+    ],
+    "IsSameTime": [
+      {
+        "return_type": "bool",
+        "brief_description": "",
+        "constant": true,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [
+          "const wxDateTime&"
+        ],
+        "parameters_is_array": [
+          false
+        ],
+        "parameters_extra": [
+          false
+        ],
+        "parameters_name": [
+          "dt"
+        ],
+        "parameters_required": [
+          true
+        ],
+        "parameters_default_value": [
+          null
+        ]
+      }
+    ],
+    "IsStrictlyBetween": [
+      {
+        "return_type": "bool",
+        "brief_description": "",
+        "constant": true,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [
+          "const wxDateTime&",
+          "const wxDateTime&"
+        ],
+        "parameters_is_array": [
+          false,
+          false
+        ],
+        "parameters_extra": [
+          false,
+          false
+        ],
+        "parameters_name": [
+          "t1",
+          "t2"
+        ],
+        "parameters_required": [
+          true,
+          true
+        ],
+        "parameters_default_value": [
+          null,
+          null
+        ]
+      }
+    ],
+    "IsBetween": [
+      {
+        "return_type": "bool",
+        "brief_description": "",
+        "constant": true,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [
+          "const wxDateTime&",
+          "const wxDateTime&"
+        ],
+        "parameters_is_array": [
+          false,
+          false
+        ],
+        "parameters_extra": [
+          false,
+          false
+        ],
+        "parameters_name": [
+          "t1",
+          "t2"
+        ],
+        "parameters_required": [
+          true,
+          true
+        ],
+        "parameters_default_value": [
+          null,
+          null
+        ]
+      }
+    ],
+    "Add": [
+      {
+        "return_type": "wxDateTime",
+        "brief_description": "",
+        "constant": true,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [
+          "const wxDateSpan&"
+        ],
+        "parameters_is_array": [
+          false
+        ],
+        "parameters_extra": [
+          false
+        ],
+        "parameters_name": [
+          "diff"
+        ],
+        "parameters_required": [
+          true
+        ],
+        "parameters_default_value": [
+          null
+        ]
+      },
+      {
+        "return_type": "wxDateTime&",
+        "brief_description": "",
+        "constant": false,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [
+          "const wxDateSpan&"
+        ],
+        "parameters_is_array": [
+          false
+        ],
+        "parameters_extra": [
+          false
+        ],
+        "parameters_name": [
+          "diff"
+        ],
+        "parameters_required": [
+          true
+        ],
+        "parameters_default_value": [
+          null
+        ]
+      },
+      {
+        "return_type": "wxDateTime",
+        "brief_description": "",
+        "constant": true,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [
+          "const wxTimeSpan&"
+        ],
+        "parameters_is_array": [
+          false
+        ],
+        "parameters_extra": [
+          false
+        ],
+        "parameters_name": [
+          "diff"
+        ],
+        "parameters_required": [
+          true
+        ],
+        "parameters_default_value": [
+          null
+        ]
+      },
+      {
+        "return_type": "wxDateTime&",
+        "brief_description": "",
+        "constant": false,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [
+          "const wxTimeSpan&"
+        ],
+        "parameters_is_array": [
+          false
+        ],
+        "parameters_extra": [
+          false
+        ],
+        "parameters_name": [
+          "diff"
+        ],
+        "parameters_required": [
+          true
+        ],
+        "parameters_default_value": [
+          null
+        ]
+      }
+    ],
+    "Subtract": [
+      {
+        "return_type": "wxDateTime",
+        "brief_description": "",
+        "constant": true,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [
+          "const wxTimeSpan&"
+        ],
+        "parameters_is_array": [
+          false
+        ],
+        "parameters_extra": [
+          false
+        ],
+        "parameters_name": [
+          "diff"
+        ],
+        "parameters_required": [
+          true
+        ],
+        "parameters_default_value": [
+          null
+        ]
+      },
+      {
+        "return_type": "wxDateTime&",
+        "brief_description": "",
+        "constant": false,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [
+          "const wxTimeSpan&"
+        ],
+        "parameters_is_array": [
+          false
+        ],
+        "parameters_extra": [
+          false
+        ],
+        "parameters_name": [
+          "diff"
+        ],
+        "parameters_required": [
+          true
+        ],
+        "parameters_default_value": [
+          null
+        ]
+      },
+      {
+        "return_type": "wxDateTime",
+        "brief_description": "",
+        "constant": true,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [
+          "const wxDateSpan&"
+        ],
+        "parameters_is_array": [
+          false
+        ],
+        "parameters_extra": [
+          false
+        ],
+        "parameters_name": [
+          "diff"
+        ],
+        "parameters_required": [
+          true
+        ],
+        "parameters_default_value": [
+          null
+        ]
+      },
+      {
+        "return_type": "wxDateTime&",
+        "brief_description": "",
+        "constant": false,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [
+          "const wxDateSpan&"
+        ],
+        "parameters_is_array": [
+          false
+        ],
+        "parameters_extra": [
+          false
+        ],
+        "parameters_name": [
+          "diff"
+        ],
+        "parameters_required": [
+          true
+        ],
+        "parameters_default_value": [
+          null
+        ]
+      },
+      {
+        "return_type": "wxTimeSpan",
+        "brief_description": "",
+        "constant": true,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [
+          "const wxDateTime&"
+        ],
+        "parameters_is_array": [
+          false
+        ],
+        "parameters_extra": [
+          false
+        ],
+        "parameters_name": [
+          "dt"
+        ],
+        "parameters_required": [
+          true
+        ],
+        "parameters_default_value": [
+          null
+        ]
+      }
+    ],
+    "DiffAsDateSpan": [
+      {
+        "return_type": "wxDateSpan",
+        "brief_description": "",
+        "constant": true,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [
+          "const wxDateTime&"
+        ],
+        "parameters_is_array": [
+          false
+        ],
+        "parameters_extra": [
+          false
+        ],
+        "parameters_name": [
+          "dt"
+        ],
+        "parameters_required": [
+          true
+        ],
+        "parameters_default_value": [
+          null
+        ]
+      }
+    ],
+    "operator+=": [
+      {
+        "return_type": "wxDateTime&",
+        "brief_description": "",
+        "constant": false,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [
+          "const wxDateSpan&"
+        ],
+        "parameters_is_array": [
+          false
+        ],
+        "parameters_extra": [
+          false
+        ],
+        "parameters_name": [
+          "diff"
+        ],
+        "parameters_required": [
+          true
+        ],
+        "parameters_default_value": [
+          null
+        ]
+      },
+      {
+        "return_type": "wxDateTime&",
+        "brief_description": "",
+        "constant": false,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [
+          "const wxTimeSpan&"
+        ],
+        "parameters_is_array": [
+          false
+        ],
+        "parameters_extra": [
+          false
+        ],
+        "parameters_name": [
+          "diff"
+        ],
+        "parameters_required": [
+          true
+        ],
+        "parameters_default_value": [
+          null
+        ]
+      }
+    ],
+    "operator+": [
+      {
+        "return_type": "wxDateTime",
+        "brief_description": "",
+        "constant": true,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [
+          "const wxDateSpan&"
+        ],
+        "parameters_is_array": [
+          false
+        ],
+        "parameters_extra": [
+          false
+        ],
+        "parameters_name": [
+          "ds"
+        ],
+        "parameters_required": [
+          true
+        ],
+        "parameters_default_value": [
+          null
+        ]
+      },
+      {
+        "return_type": "wxDateTime",
+        "brief_description": "",
+        "constant": true,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [
+          "const wxTimeSpan&"
+        ],
+        "parameters_is_array": [
+          false
+        ],
+        "parameters_extra": [
+          false
+        ],
+        "parameters_name": [
+          "ts"
+        ],
+        "parameters_required": [
+          true
+        ],
+        "parameters_default_value": [
+          null
+        ]
+      }
+    ],
+    "operator-=": [
+      {
+        "return_type": "wxDateTime&",
+        "brief_description": "",
+        "constant": false,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [
+          "const wxDateSpan&"
+        ],
+        "parameters_is_array": [
+          false
+        ],
+        "parameters_extra": [
+          false
+        ],
+        "parameters_name": [
+          "diff"
+        ],
+        "parameters_required": [
+          true
+        ],
+        "parameters_default_value": [
+          null
+        ]
+      },
+      {
+        "return_type": "wxDateTime&",
+        "brief_description": "",
+        "constant": false,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [
+          "const wxTimeSpan&"
+        ],
+        "parameters_is_array": [
+          false
+        ],
+        "parameters_extra": [
+          false
+        ],
+        "parameters_name": [
+          "diff"
+        ],
+        "parameters_required": [
+          true
+        ],
+        "parameters_default_value": [
+          null
+        ]
+      }
+    ],
+    "operator-": [
+      {
+        "return_type": "wxDateTime",
+        "brief_description": "",
+        "constant": true,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [
+          "const wxDateSpan&"
+        ],
+        "parameters_is_array": [
+          false
+        ],
+        "parameters_extra": [
+          false
+        ],
+        "parameters_name": [
+          "ds"
+        ],
+        "parameters_required": [
+          true
+        ],
+        "parameters_default_value": [
+          null
+        ]
+      },
+      {
+        "return_type": "wxDateTime",
+        "brief_description": "",
+        "constant": true,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [
+          "const wxTimeSpan&"
+        ],
+        "parameters_is_array": [
+          false
+        ],
+        "parameters_extra": [
+          false
+        ],
+        "parameters_name": [
+          "ts"
+        ],
+        "parameters_required": [
+          true
+        ],
+        "parameters_default_value": [
+          null
+        ]
+      },
+      {
+        "return_type": "wxTimeSpan",
+        "brief_description": "",
+        "constant": true,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [
+          "const wxDateTime&"
+        ],
+        "parameters_is_array": [
+          false
+        ],
+        "parameters_extra": [
+          false
+        ],
+        "parameters_name": [
+          "dt2"
+        ],
+        "parameters_required": [
+          true
+        ],
+        "parameters_default_value": [
+          null
+        ]
+      }
+    ],
+    "Format": [
+      {
+        "return_type": "wxString",
+        "brief_description": "",
+        "constant": true,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [
+          "const wxString&",
+          "const TimeZone&"
+        ],
+        "parameters_is_array": [
+          false,
+          false
+        ],
+        "parameters_extra": [
+          false,
+          false
+        ],
+        "parameters_name": [
+          "format",
+          "tz"
+        ],
+        "parameters_required": [],
+        "parameters_default_value": [
+          "wxDefaultDateTimeFormat",
+          "Local"
+        ]
+      }
+    ],
+    "FormatDate": [
+      {
+        "return_type": "wxString",
+        "brief_description": "",
+        "constant": true,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [],
+        "parameters_is_array": [],
+        "parameters_extra": [],
+        "parameters_name": [],
+        "parameters_required": [],
+        "parameters_default_value": []
+      }
+    ],
+    "FormatISOCombined": [
+      {
+        "return_type": "wxString",
+        "brief_description": "",
+        "constant": true,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [
+          "char"
+        ],
+        "parameters_is_array": [
+          false
+        ],
+        "parameters_extra": [
+          false
+        ],
+        "parameters_name": [
+          "sep"
+        ],
+        "parameters_required": [],
+        "parameters_default_value": [
+          "'T'"
+        ]
+      }
+    ],
+    "FormatISODate": [
+      {
+        "return_type": "wxString",
+        "brief_description": "",
+        "constant": true,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [],
+        "parameters_is_array": [],
+        "parameters_extra": [],
+        "parameters_name": [],
+        "parameters_required": [],
+        "parameters_default_value": []
+      }
+    ],
+    "FormatISOTime": [
+      {
+        "return_type": "wxString",
+        "brief_description": "",
+        "constant": true,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [],
+        "parameters_is_array": [],
+        "parameters_extra": [],
+        "parameters_name": [],
+        "parameters_required": [],
+        "parameters_default_value": []
+      }
+    ],
+    "FormatTime": [
+      {
+        "return_type": "wxString",
+        "brief_description": "",
+        "constant": true,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [],
+        "parameters_is_array": [],
+        "parameters_extra": [],
+        "parameters_name": [],
+        "parameters_required": [],
+        "parameters_default_value": []
+      }
+    ],
+    "ParseDate": [
+      {
+        "return_type": "bool",
+        "brief_description": "",
+        "constant": false,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [
+          "const wxString&",
+          "wxString::const_iterator*"
+        ],
+        "parameters_is_array": [
+          false,
+          false
+        ],
+        "parameters_extra": [
+          false,
+          false
+        ],
+        "parameters_name": [
+          "date",
+          "end"
+        ],
+        "parameters_required": [
+          true,
+          true
+        ],
+        "parameters_default_value": [
+          null,
+          null
+        ]
+      }
+    ],
+    "ParseDateTime": [
+      {
+        "return_type": "bool",
+        "brief_description": "",
+        "constant": false,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [
+          "const wxString&",
+          "wxString::const_iterator*"
+        ],
+        "parameters_is_array": [
+          false,
+          false
+        ],
+        "parameters_extra": [
+          false,
+          false
+        ],
+        "parameters_name": [
+          "datetime",
+          "end"
+        ],
+        "parameters_required": [
+          true,
+          true
+        ],
+        "parameters_default_value": [
+          null,
+          null
+        ]
+      }
+    ],
+    "ParseFormat": [
+      {
+        "return_type": "bool",
+        "brief_description": "",
+        "constant": false,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [
+          "const wxString&",
+          "const wxString&",
+          "const wxDateTime&",
+          "wxString::const_iterator*"
+        ],
+        "parameters_is_array": [
+          false,
+          false,
+          false,
+          false
+        ],
+        "parameters_extra": [
+          false,
+          false,
+          false,
+          false
+        ],
+        "parameters_name": [
+          "date",
+          "format",
+          "dateDef",
+          "end"
+        ],
+        "parameters_required": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "parameters_default_value": [
+          null,
+          null,
+          null,
+          null
+        ]
+      },
+      {
+        "return_type": "bool",
+        "brief_description": "",
+        "constant": false,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [
+          "const wxString&",
+          "const wxString&",
+          "wxString::const_iterator*"
+        ],
+        "parameters_is_array": [
+          false,
+          false,
+          false
+        ],
+        "parameters_extra": [
+          false,
+          false,
+          false
+        ],
+        "parameters_name": [
+          "date",
+          "format",
+          "end"
+        ],
+        "parameters_required": [
+          true,
+          true,
+          true
+        ],
+        "parameters_default_value": [
+          null,
+          null,
+          null
+        ]
+      },
+      {
+        "return_type": "bool",
+        "brief_description": "",
+        "constant": false,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [
+          "const wxString&",
+          "wxString::const_iterator*"
+        ],
+        "parameters_is_array": [
+          false,
+          false
+        ],
+        "parameters_extra": [
+          false,
+          false
+        ],
+        "parameters_name": [
+          "date",
+          "end"
+        ],
+        "parameters_required": [
+          true,
+          true
+        ],
+        "parameters_default_value": [
+          null,
+          null
+        ]
+      }
+    ],
+    "ParseISOCombined": [
+      {
+        "return_type": "bool",
+        "brief_description": "",
+        "constant": false,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [
+          "const wxString&",
+          "char"
+        ],
+        "parameters_is_array": [
+          false,
+          false
+        ],
+        "parameters_extra": [
+          false,
+          false
+        ],
+        "parameters_name": [
+          "date",
+          "sep"
+        ],
+        "parameters_required": [
+          true
+        ],
+        "parameters_default_value": [
+          null,
+          "'T'"
+        ]
+      }
+    ],
+    "ParseISODate": [
+      {
+        "return_type": "bool",
+        "brief_description": "",
+        "constant": false,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [
+          "const wxString&"
+        ],
+        "parameters_is_array": [
+          false
+        ],
+        "parameters_extra": [
+          false
+        ],
+        "parameters_name": [
+          "date"
+        ],
+        "parameters_required": [
+          true
+        ],
+        "parameters_default_value": [
+          null
+        ]
+      }
+    ],
+    "ParseISOTime": [
+      {
+        "return_type": "bool",
+        "brief_description": "",
+        "constant": false,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [
+          "const wxString&"
+        ],
+        "parameters_is_array": [
+          false
+        ],
+        "parameters_extra": [
+          false
+        ],
+        "parameters_name": [
+          "date"
+        ],
+        "parameters_required": [
+          true
+        ],
+        "parameters_default_value": [
+          null
+        ]
+      }
+    ],
+    "ParseRfc822Date": [
+      {
+        "return_type": "bool",
+        "brief_description": "",
+        "constant": false,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [
+          "const wxString&",
+          "wxString::const_iterator*"
+        ],
+        "parameters_is_array": [
+          false,
+          false
+        ],
+        "parameters_extra": [
+          false,
+          false
+        ],
+        "parameters_name": [
+          "date",
+          "end"
+        ],
+        "parameters_required": [
+          true,
+          true
+        ],
+        "parameters_default_value": [
+          null,
+          null
+        ]
+      }
+    ],
+    "ParseTime": [
+      {
+        "return_type": "bool",
+        "brief_description": "",
+        "constant": false,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [
+          "const wxString&",
+          "wxString::const_iterator*"
+        ],
+        "parameters_is_array": [
+          false,
+          false
+        ],
+        "parameters_extra": [
+          false,
+          false
+        ],
+        "parameters_name": [
+          "time",
+          "end"
+        ],
+        "parameters_required": [
+          true,
+          true
+        ],
+        "parameters_default_value": [
+          null,
+          null
+        ]
+      }
+    ],
+    "GetLastMonthDay": [
+      {
+        "return_type": "wxDateTime",
+        "brief_description": "",
+        "constant": true,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [
+          "Month",
+          "int"
+        ],
+        "parameters_is_array": [
+          false,
+          false
+        ],
+        "parameters_extra": [
+          false,
+          false
+        ],
+        "parameters_name": [
+          "month",
+          "year"
+        ],
+        "parameters_required": [],
+        "parameters_default_value": [
+          "Inv_Month",
+          "Inv_Year"
+        ]
+      }
+    ],
+    "GetLastWeekDay": [
+      {
+        "return_type": "wxDateTime",
+        "brief_description": "",
+        "constant": false,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [
+          "WeekDay",
+          "Month",
+          "int"
+        ],
+        "parameters_is_array": [
+          false,
+          false,
+          false
+        ],
+        "parameters_extra": [
+          false,
+          false,
+          false
+        ],
+        "parameters_name": [
+          "weekday",
+          "month",
+          "year"
+        ],
+        "parameters_required": [
+          true
+        ],
+        "parameters_default_value": [
+          null,
+          "Inv_Month",
+          "Inv_Year"
+        ]
+      }
+    ],
+    "GetNextWeekDay": [
+      {
+        "return_type": "wxDateTime",
+        "brief_description": "",
+        "constant": true,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [
+          "WeekDay"
+        ],
+        "parameters_is_array": [
+          false
+        ],
+        "parameters_extra": [
+          false
+        ],
+        "parameters_name": [
+          "weekday"
+        ],
+        "parameters_required": [
+          true
+        ],
+        "parameters_default_value": [
+          null
+        ]
+      }
+    ],
+    "GetPrevWeekDay": [
+      {
+        "return_type": "wxDateTime",
+        "brief_description": "",
+        "constant": true,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [
+          "WeekDay"
+        ],
+        "parameters_is_array": [
+          false
+        ],
+        "parameters_extra": [
+          false
+        ],
+        "parameters_name": [
+          "weekday"
+        ],
+        "parameters_required": [
+          true
+        ],
+        "parameters_default_value": [
+          null
+        ]
+      }
+    ],
+    "GetWeekDayInSameWeek": [
+      {
+        "return_type": "wxDateTime",
+        "brief_description": "",
+        "constant": true,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [
+          "WeekDay",
+          "WeekFlags"
+        ],
+        "parameters_is_array": [
+          false,
+          false
+        ],
+        "parameters_extra": [
+          false,
+          false
+        ],
+        "parameters_name": [
+          "weekday",
+          "flags"
+        ],
+        "parameters_required": [
+          true
+        ],
+        "parameters_default_value": [
+          null,
+          "Monday_First"
+        ]
+      }
+    ],
+    "GetYearDay": [
+      {
+        "return_type": "wxDateTime",
+        "brief_description": "",
+        "constant": true,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [
+          "wxDateTime_t"
+        ],
+        "parameters_is_array": [
+          false
+        ],
+        "parameters_extra": [
+          false
+        ],
+        "parameters_name": [
+          "yday"
+        ],
+        "parameters_required": [
+          true
+        ],
+        "parameters_default_value": [
+          null
+        ]
+      }
+    ],
+    "SetToLastMonthDay": [
+      {
+        "return_type": "wxDateTime&",
+        "brief_description": "",
+        "constant": false,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [
+          "Month",
+          "int"
+        ],
+        "parameters_is_array": [
+          false,
+          false
+        ],
+        "parameters_extra": [
+          false,
+          false
+        ],
+        "parameters_name": [
+          "month",
+          "year"
+        ],
+        "parameters_required": [],
+        "parameters_default_value": [
+          "Inv_Month",
+          "Inv_Year"
+        ]
+      }
+    ],
+    "SetToLastWeekDay": [
+      {
+        "return_type": "bool",
+        "brief_description": "",
+        "constant": false,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [
+          "WeekDay",
+          "Month",
+          "int"
+        ],
+        "parameters_is_array": [
+          false,
+          false,
+          false
+        ],
+        "parameters_extra": [
+          false,
+          false,
+          false
+        ],
+        "parameters_name": [
+          "weekday",
+          "month",
+          "year"
+        ],
+        "parameters_required": [
+          true
+        ],
+        "parameters_default_value": [
+          null,
+          "Inv_Month",
+          "Inv_Year"
+        ]
+      }
+    ],
+    "SetToNextWeekDay": [
+      {
+        "return_type": "wxDateTime&",
+        "brief_description": "",
+        "constant": false,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [
+          "WeekDay"
+        ],
+        "parameters_is_array": [
+          false
+        ],
+        "parameters_extra": [
+          false
+        ],
+        "parameters_name": [
+          "weekday"
+        ],
+        "parameters_required": [
+          true
+        ],
+        "parameters_default_value": [
+          null
+        ]
+      }
+    ],
+    "SetToPrevWeekDay": [
+      {
+        "return_type": "wxDateTime&",
+        "brief_description": "",
+        "constant": false,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [
+          "WeekDay"
+        ],
+        "parameters_is_array": [
+          false
+        ],
+        "parameters_extra": [
+          false
+        ],
+        "parameters_name": [
+          "weekday"
+        ],
+        "parameters_required": [
+          true
+        ],
+        "parameters_default_value": [
+          null
+        ]
+      }
+    ],
+    "SetToWeekDay": [
+      {
+        "return_type": "bool",
+        "brief_description": "",
+        "constant": false,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [
+          "WeekDay",
+          "int",
+          "Month",
+          "int"
+        ],
+        "parameters_is_array": [
+          false,
+          false,
+          false,
+          false
+        ],
+        "parameters_extra": [
+          false,
+          false,
+          false,
+          false
+        ],
+        "parameters_name": [
+          "weekday",
+          "n",
+          "month",
+          "year"
+        ],
+        "parameters_required": [
+          true
+        ],
+        "parameters_default_value": [
+          null,
+          "1",
+          "Inv_Month",
+          "Inv_Year"
+        ]
+      }
+    ],
+    "SetToWeekDayInSameWeek": [
+      {
+        "return_type": "wxDateTime&",
+        "brief_description": "",
+        "constant": false,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [
+          "WeekDay",
+          "WeekFlags"
+        ],
+        "parameters_is_array": [
+          false,
+          false
+        ],
+        "parameters_extra": [
+          false,
+          false
+        ],
+        "parameters_name": [
+          "weekday",
+          "flags"
+        ],
+        "parameters_required": [
+          true
+        ],
+        "parameters_default_value": [
+          null,
+          "Monday_First"
+        ]
+      }
+    ],
+    "SetToYearDay": [
+      {
+        "return_type": "wxDateTime&",
+        "brief_description": "",
+        "constant": false,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [
+          "wxDateTime_t"
+        ],
+        "parameters_is_array": [
+          false
+        ],
+        "parameters_extra": [
+          false
+        ],
+        "parameters_name": [
+          "yday"
+        ],
+        "parameters_required": [
+          true
+        ],
+        "parameters_default_value": [
+          null
+        ]
+      }
+    ],
+    "GetJDN": [
+      {
+        "return_type": "double",
+        "brief_description": "",
+        "constant": true,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [],
+        "parameters_is_array": [],
+        "parameters_extra": [],
+        "parameters_name": [],
+        "parameters_required": [],
+        "parameters_default_value": []
+      }
+    ],
+    "GetJulianDayNumber": [
+      {
+        "return_type": "double",
+        "brief_description": "",
+        "constant": true,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [],
+        "parameters_is_array": [],
+        "parameters_extra": [],
+        "parameters_name": [],
+        "parameters_required": [],
+        "parameters_default_value": []
+      }
+    ],
+    "GetMJD": [
+      {
+        "return_type": "double",
+        "brief_description": "",
+        "constant": true,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [],
+        "parameters_is_array": [],
+        "parameters_extra": [],
+        "parameters_name": [],
+        "parameters_required": [],
+        "parameters_default_value": []
+      }
+    ],
+    "GetModifiedJulianDayNumber": [
+      {
+        "return_type": "double",
+        "brief_description": "",
+        "constant": true,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [],
+        "parameters_is_array": [],
+        "parameters_extra": [],
+        "parameters_name": [],
+        "parameters_required": [],
+        "parameters_default_value": []
+      }
+    ],
+    "GetRataDie": [
+      {
+        "return_type": "double",
+        "brief_description": "",
+        "constant": true,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [],
+        "parameters_is_array": [],
+        "parameters_extra": [],
+        "parameters_name": [],
+        "parameters_required": [],
+        "parameters_default_value": []
+      }
+    ],
+    "FromTimezone": [
+      {
+        "return_type": "wxDateTime",
+        "brief_description": "",
+        "constant": true,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [
+          "const TimeZone&",
+          "bool"
+        ],
+        "parameters_is_array": [
+          false,
+          false
+        ],
+        "parameters_extra": [
+          false,
+          false
+        ],
+        "parameters_name": [
+          "tz",
+          "noDST"
+        ],
+        "parameters_required": [
+          true
+        ],
+        "parameters_default_value": [
+          null,
+          "false"
+        ]
+      }
+    ],
+    "IsDST": [
+      {
+        "return_type": "int",
+        "brief_description": "",
+        "constant": true,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [
+          "Country"
+        ],
+        "parameters_is_array": [
+          false
+        ],
+        "parameters_extra": [
+          false
+        ],
+        "parameters_name": [
+          "country"
+        ],
+        "parameters_required": [],
+        "parameters_default_value": [
+          "Country_Default"
+        ]
+      }
+    ],
+    "MakeFromTimezone": [
+      {
+        "return_type": "wxDateTime&",
+        "brief_description": "",
+        "constant": false,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [
+          "const TimeZone&",
+          "bool"
+        ],
+        "parameters_is_array": [
+          false,
+          false
+        ],
+        "parameters_extra": [
+          false,
+          false
+        ],
+        "parameters_name": [
+          "tz",
+          "noDST"
+        ],
+        "parameters_required": [
+          true
+        ],
+        "parameters_default_value": [
+          null,
+          "false"
+        ]
+      }
+    ],
+    "MakeTimezone": [
+      {
+        "return_type": "wxDateTime&",
+        "brief_description": "",
+        "constant": false,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [
+          "const TimeZone&",
+          "bool"
+        ],
+        "parameters_is_array": [
+          false,
+          false
+        ],
+        "parameters_extra": [
+          false,
+          false
+        ],
+        "parameters_name": [
+          "tz",
+          "noDST"
+        ],
+        "parameters_required": [
+          true
+        ],
+        "parameters_default_value": [
+          null,
+          "false"
+        ]
+      }
+    ],
+    "MakeUTC": [
+      {
+        "return_type": "wxDateTime&",
+        "brief_description": "",
+        "constant": false,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [
+          "bool"
+        ],
+        "parameters_is_array": [
+          false
+        ],
+        "parameters_extra": [
+          false
+        ],
+        "parameters_name": [
+          "noDST"
+        ],
+        "parameters_required": [],
+        "parameters_default_value": [
+          "false"
+        ]
+      }
+    ],
+    "ToTimezone": [
+      {
+        "return_type": "wxDateTime",
+        "brief_description": "",
+        "constant": true,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [
+          "const TimeZone&",
+          "bool"
+        ],
+        "parameters_is_array": [
+          false,
+          false
+        ],
+        "parameters_extra": [
+          false,
+          false
+        ],
+        "parameters_name": [
+          "tz",
+          "noDST"
+        ],
+        "parameters_required": [
+          true
+        ],
+        "parameters_default_value": [
+          null,
+          "false"
+        ]
+      }
+    ],
+    "ToUTC": [
+      {
+        "return_type": "wxDateTime",
+        "brief_description": "",
+        "constant": true,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": false,
+        "protected": false,
+        "parameters_type": [
+          "bool"
+        ],
+        "parameters_is_array": [
+          false
+        ],
+        "parameters_extra": [
+          false
+        ],
+        "parameters_name": [
+          "noDST"
+        ],
+        "parameters_required": [],
+        "parameters_default_value": [
+          "false"
+        ]
+      }
+    ],
+    "ConvertYearToBC": [
+      {
+        "return_type": "int",
+        "brief_description": "",
+        "constant": false,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": true,
+        "protected": false,
+        "parameters_type": [
+          "int"
+        ],
+        "parameters_is_array": [
+          false
+        ],
+        "parameters_extra": [
+          false
+        ],
+        "parameters_name": [
+          "year"
+        ],
+        "parameters_required": [
+          true
+        ],
+        "parameters_default_value": [
+          null
+        ]
+      }
+    ],
+    "GetAmPmStrings": [
+      {
+        "return_type": "void",
+        "brief_description": "",
+        "constant": false,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": true,
+        "protected": false,
+        "parameters_type": [
+          "wxString*",
+          "wxString*"
+        ],
+        "parameters_is_array": [
+          false,
+          false
+        ],
+        "parameters_extra": [
+          false,
+          false
+        ],
+        "parameters_name": [
+          "am",
+          "pm"
+        ],
+        "parameters_required": [
+          true,
+          true
+        ],
+        "parameters_default_value": [
+          null,
+          null
+        ]
+      }
+    ],
+    "GetBeginDST": [
+      {
+        "return_type": "wxDateTime",
+        "brief_description": "",
+        "constant": false,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": true,
+        "protected": false,
+        "parameters_type": [
+          "int",
+          "Country"
+        ],
+        "parameters_is_array": [
+          false,
+          false
+        ],
+        "parameters_extra": [
+          false,
+          false
+        ],
+        "parameters_name": [
+          "year",
+          "country"
+        ],
+        "parameters_required": [],
+        "parameters_default_value": [
+          "Inv_Year",
+          "Country_Default"
+        ]
+      }
+    ],
+    "GetEndDST": [
+      {
+        "return_type": "wxDateTime",
+        "brief_description": "",
+        "constant": false,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": true,
+        "protected": false,
+        "parameters_type": [
+          "int",
+          "Country"
+        ],
+        "parameters_is_array": [
+          false,
+          false
+        ],
+        "parameters_extra": [
+          false,
+          false
+        ],
+        "parameters_name": [
+          "year",
+          "country"
+        ],
+        "parameters_required": [],
+        "parameters_default_value": [
+          "Inv_Year",
+          "Country_Default"
+        ]
+      }
+    ],
+    "GetCountry": [
+      {
+        "return_type": "Country",
+        "brief_description": "",
+        "constant": false,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": true,
+        "protected": false,
+        "parameters_type": [],
+        "parameters_is_array": [],
+        "parameters_extra": [],
+        "parameters_name": [],
+        "parameters_required": [],
+        "parameters_default_value": []
+      }
+    ],
+    "GetCurrentMonth": [
+      {
+        "return_type": "Month",
+        "brief_description": "",
+        "constant": false,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": true,
+        "protected": false,
+        "parameters_type": [
+          "Calendar"
+        ],
+        "parameters_is_array": [
+          false
+        ],
+        "parameters_extra": [
+          false
+        ],
+        "parameters_name": [
+          "cal"
+        ],
+        "parameters_required": [],
+        "parameters_default_value": [
+          "Gregorian"
+        ]
+      }
+    ],
+    "GetCurrentYear": [
+      {
+        "return_type": "int",
+        "brief_description": "",
+        "constant": false,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": true,
+        "protected": false,
+        "parameters_type": [
+          "Calendar"
+        ],
+        "parameters_is_array": [
+          false
+        ],
+        "parameters_extra": [
+          false
+        ],
+        "parameters_name": [
+          "cal"
+        ],
+        "parameters_required": [],
+        "parameters_default_value": [
+          "Gregorian"
+        ]
+      }
+    ],
+    "GetEnglishMonthName": [
+      {
+        "return_type": "wxString",
+        "brief_description": "",
+        "constant": false,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": true,
+        "protected": false,
+        "parameters_type": [
+          "Month",
+          "NameFlags"
+        ],
+        "parameters_is_array": [
+          false,
+          false
+        ],
+        "parameters_extra": [
+          false,
+          false
+        ],
+        "parameters_name": [
+          "month",
+          "flags"
+        ],
+        "parameters_required": [
+          true
+        ],
+        "parameters_default_value": [
+          null,
+          "Name_Full"
+        ]
+      }
+    ],
+    "GetEnglishWeekDayName": [
+      {
+        "return_type": "wxString",
+        "brief_description": "",
+        "constant": false,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": true,
+        "protected": false,
+        "parameters_type": [
+          "WeekDay",
+          "NameFlags"
+        ],
+        "parameters_is_array": [
+          false,
+          false
+        ],
+        "parameters_extra": [
+          false,
+          false
+        ],
+        "parameters_name": [
+          "weekday",
+          "flags"
+        ],
+        "parameters_required": [
+          true
+        ],
+        "parameters_default_value": [
+          null,
+          "Name_Full"
+        ]
+      }
+    ],
+    "GetMonthName": [
+      {
+        "return_type": "wxString",
+        "brief_description": "",
+        "constant": false,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": true,
+        "protected": false,
+        "parameters_type": [
+          "Month",
+          "NameFlags"
+        ],
+        "parameters_is_array": [
+          false,
+          false
+        ],
+        "parameters_extra": [
+          false,
+          false
+        ],
+        "parameters_name": [
+          "month",
+          "flags"
+        ],
+        "parameters_required": [
+          true
+        ],
+        "parameters_default_value": [
+          null,
+          "Name_Full"
+        ]
+      }
+    ],
+    "GetNumberOfDays": [
+      {
+        "return_type": "wxDateTime_t",
+        "brief_description": "",
+        "constant": false,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": true,
+        "protected": false,
+        "parameters_type": [
+          "int",
+          "Calendar"
+        ],
+        "parameters_is_array": [
+          false,
+          false
+        ],
+        "parameters_extra": [
+          false,
+          false
+        ],
+        "parameters_name": [
+          "year",
+          "cal"
+        ],
+        "parameters_required": [
+          true
+        ],
+        "parameters_default_value": [
+          null,
+          "Gregorian"
+        ]
+      },
+      {
+        "return_type": "wxDateTime_t",
+        "brief_description": "",
+        "constant": false,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": true,
+        "protected": false,
+        "parameters_type": [
+          "Month",
+          "int",
+          "Calendar"
+        ],
+        "parameters_is_array": [
+          false,
+          false,
+          false
+        ],
+        "parameters_extra": [
+          false,
+          false,
+          false
+        ],
+        "parameters_name": [
+          "month",
+          "year",
+          "cal"
+        ],
+        "parameters_required": [
+          true
+        ],
+        "parameters_default_value": [
+          null,
+          "Inv_Year",
+          "Gregorian"
+        ]
+      }
+    ],
+    "GetTimeNow": [
+      {
+        "return_type": "time_t",
+        "brief_description": "",
+        "constant": false,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": true,
+        "protected": false,
+        "parameters_type": [],
+        "parameters_is_array": [],
+        "parameters_extra": [],
+        "parameters_name": [],
+        "parameters_required": [],
+        "parameters_default_value": []
+      }
+    ],
+    "GetTmNow": [
+      {
+        "return_type": "tm*",
+        "brief_description": "",
+        "constant": false,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": true,
+        "protected": false,
+        "parameters_type": [
+          "struct tm*"
+        ],
+        "parameters_is_array": [
+          false
+        ],
+        "parameters_extra": [
+          false
+        ],
+        "parameters_name": [
+          "tm"
+        ],
+        "parameters_required": [
+          true
+        ],
+        "parameters_default_value": [
+          null
+        ]
+      },
+      {
+        "return_type": "tm*",
+        "brief_description": "",
+        "constant": false,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": true,
+        "protected": false,
+        "parameters_type": [],
+        "parameters_is_array": [],
+        "parameters_extra": [],
+        "parameters_name": [],
+        "parameters_required": [],
+        "parameters_default_value": []
+      }
+    ],
+    "GetWeekDayName": [
+      {
+        "return_type": "wxString",
+        "brief_description": "",
+        "constant": false,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": true,
+        "protected": false,
+        "parameters_type": [
+          "WeekDay",
+          "NameFlags"
+        ],
+        "parameters_is_array": [
+          false,
+          false
+        ],
+        "parameters_extra": [
+          false,
+          false
+        ],
+        "parameters_name": [
+          "weekday",
+          "flags"
+        ],
+        "parameters_required": [
+          true
+        ],
+        "parameters_default_value": [
+          null,
+          "Name_Full"
+        ]
+      }
+    ],
+    "IsDSTApplicable": [
+      {
+        "return_type": "bool",
+        "brief_description": "",
+        "constant": false,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": true,
+        "protected": false,
+        "parameters_type": [
+          "int",
+          "Country"
+        ],
+        "parameters_is_array": [
+          false,
+          false
+        ],
+        "parameters_extra": [
+          false,
+          false
+        ],
+        "parameters_name": [
+          "year",
+          "country"
+        ],
+        "parameters_required": [],
+        "parameters_default_value": [
+          "Inv_Year",
+          "Country_Default"
+        ]
+      }
+    ],
+    "GetFirstWeekDay": [
+      {
+        "return_type": "bool",
+        "brief_description": "",
+        "constant": false,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": true,
+        "protected": false,
+        "parameters_type": [
+          "WeekDay*"
+        ],
+        "parameters_is_array": [
+          false
+        ],
+        "parameters_extra": [
+          false
+        ],
+        "parameters_name": [
+          "firstDay"
+        ],
+        "parameters_required": [
+          true
+        ],
+        "parameters_default_value": [
+          null
+        ]
+      }
+    ],
+    "IsLeapYear": [
+      {
+        "return_type": "bool",
+        "brief_description": "",
+        "constant": false,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": true,
+        "protected": false,
+        "parameters_type": [
+          "int",
+          "Calendar"
+        ],
+        "parameters_is_array": [
+          false,
+          false
+        ],
+        "parameters_extra": [
+          false,
+          false
+        ],
+        "parameters_name": [
+          "year",
+          "cal"
+        ],
+        "parameters_required": [],
+        "parameters_default_value": [
+          "Inv_Year",
+          "Gregorian"
+        ]
+      }
+    ],
+    "IsWestEuropeanCountry": [
+      {
+        "return_type": "bool",
+        "brief_description": "",
+        "constant": false,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": true,
+        "protected": false,
+        "parameters_type": [
+          "Country"
+        ],
+        "parameters_is_array": [
+          false
+        ],
+        "parameters_extra": [
+          false
+        ],
+        "parameters_name": [
+          "country"
+        ],
+        "parameters_required": [],
+        "parameters_default_value": [
+          "Country_Default"
+        ]
+      }
+    ],
+    "Now": [
+      {
+        "return_type": "wxDateTime",
+        "brief_description": "",
+        "constant": false,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": true,
+        "protected": false,
+        "parameters_type": [],
+        "parameters_is_array": [],
+        "parameters_extra": [],
+        "parameters_name": [],
+        "parameters_required": [],
+        "parameters_default_value": []
+      }
+    ],
+    "SetCountry": [
+      {
+        "return_type": "void",
+        "brief_description": "",
+        "constant": false,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": true,
+        "protected": false,
+        "parameters_type": [
+          "Country"
+        ],
+        "parameters_is_array": [
+          false
+        ],
+        "parameters_extra": [
+          false
+        ],
+        "parameters_name": [
+          "country"
+        ],
+        "parameters_required": [
+          true
+        ],
+        "parameters_default_value": [
+          null
+        ]
+      }
+    ],
+    "SetToWeekOfYear": [
+      {
+        "return_type": "wxDateTime",
+        "brief_description": "",
+        "constant": false,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": true,
+        "protected": false,
+        "parameters_type": [
+          "int",
+          "wxDateTime_t",
+          "WeekDay"
+        ],
+        "parameters_is_array": [
+          false,
+          false,
+          false
+        ],
+        "parameters_extra": [
+          false,
+          false,
+          false
+        ],
+        "parameters_name": [
+          "year",
+          "numWeek",
+          "weekday"
+        ],
+        "parameters_required": [
+          true,
+          true
+        ],
+        "parameters_default_value": [
+          null,
+          null,
+          "Mon"
+        ]
+      }
+    ],
+    "Today": [
+      {
+        "return_type": "wxDateTime",
+        "brief_description": "",
+        "constant": false,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": true,
+        "protected": false,
+        "parameters_type": [],
+        "parameters_is_array": [],
+        "parameters_extra": [],
+        "parameters_name": [],
+        "parameters_required": [],
+        "parameters_default_value": []
+      }
+    ],
+    "UNow": [
+      {
+        "return_type": "wxDateTime",
+        "brief_description": "",
+        "constant": false,
+        "virtual": false,
+        "pure_virtual": false,
+        "static": true,
+        "protected": false,
+        "parameters_type": [],
+        "parameters_is_array": [],
+        "parameters_extra": [],
+        "parameters_name": [],
+        "parameters_required": [],
+        "parameters_default_value": []
+      }
+    ]
   }
 }

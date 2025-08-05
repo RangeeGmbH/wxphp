@@ -10414,6 +10414,12232 @@ PHP_METHOD(php_wxPrintData, __construct)
 /* }}} */
 
 BEGIN_EXTERN_C()
+void php_wxDateTime_free(void *object)
+{
+    zo_wxDateTime* custom_object = (zo_wxDateTime*) object;
+
+    #ifdef USE_WXPHP_DEBUG
+    php_printf(
+        "Calling php_wxDateTime_free on %s at line %i\n",
+        zend_get_executed_filename(),
+        zend_get_executed_lineno()
+    );
+    php_printf("===========================================\n");
+    #endif
+
+    if(custom_object->native_object != NULL)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Pointer not null\n");
+        php_printf("Pointer address %x\n", (unsigned int)(size_t)custom_object->native_object);
+        #endif
+
+        if(custom_object->is_user_initialized)
+        {
+            #ifdef USE_WXPHP_DEBUG
+            php_printf("Deleting pointer with delete\n");
+            #endif
+
+            delete custom_object->native_object;
+            custom_object->native_object = NULL;
+        }
+
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Deletion of wxDateTime done\n");
+        php_printf("===========================================\n\n");
+        #endif
+    }
+    else
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Not user space initialized\n");
+        #endif
+    }
+
+    zend_object_std_dtor(&custom_object->zo);
+    efree(custom_object);
+}
+
+zend_object* php_wxDateTime_new(zend_class_entry *class_type)
+{
+    #ifdef USE_WXPHP_DEBUG
+    php_printf(
+        "Calling php_wxDateTime_new on %s at line %i\n",
+        zend_get_executed_filename(),
+        zend_get_executed_lineno()
+    );
+    php_printf("===========================================\n");
+    #endif
+
+    zo_wxDateTime* custom_object;
+
+    custom_object = (zo_wxDateTime*) ecalloc(
+        1,
+        sizeof(zo_wxDateTime)
+        + zend_object_properties_size(class_type)
+    );
+
+    zend_object_std_init(&custom_object->zo, class_type);
+    object_properties_init(&custom_object->zo, class_type);
+
+    custom_object->zo.handlers = &wxphp_wxDateTime_object_handlers;
+
+    custom_object->native_object = NULL;
+    custom_object->object_type = PHP_WXDATETIME_TYPE;
+    custom_object->is_user_initialized = 0;
+
+    return &custom_object->zo;
+}
+END_EXTERN_C()
+
+/* {{{ proto  wxDateTime::wxDateTime() */
+PHP_METHOD(php_wxDateTime, __construct)
+{
+    #ifdef USE_WXPHP_DEBUG
+    php_printf("Invoking wxDateTime::__construct\n");
+    php_printf("===========================================\n");
+    #endif
+
+    zo_wxDateTime* current_object;
+    wxDateTime_php* native_object;
+    void* argument_native_object = NULL;
+
+    //Other variables used thru the code
+    zval dummy;
+    ZVAL_NULL(&dummy);
+    bool already_called = false;
+    int arguments_received = ZEND_NUM_ARGS();
+
+
+    //Parameters for overload 0
+    bool overload0_called = false;
+
+    //Parameters for overload 1
+    time_t date1;
+    bool overload1_called = false;
+
+    //Parameters for overload 2
+    double jdn2;
+    bool overload2_called = false;
+
+    
+    //Overload 0
+    overload0:
+    if(!already_called && arguments_received == 0)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Parameters received %d\n", arguments_received);
+        php_printf("Parsing parameters with '' ()\n");
+        #endif
+
+        overload0_called = true;
+        already_called = true;
+    }
+
+    //Overload 1
+    overload1:
+    if(!already_called && arguments_received == 1)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Parameters received %d\n", arguments_received);
+        php_printf("Parsing parameters with 'l' (&date1)\n");
+        #endif
+
+        char parse_parameters_string[] = "l";
+        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &date1 ) == SUCCESS)
+        {
+            overload1_called = true;
+            already_called = true;
+        }
+    }
+
+    //Overload 2
+    overload2:
+    if(!already_called && arguments_received == 1)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Parameters received %d\n", arguments_received);
+        php_printf("Parsing parameters with 'd' (&jdn2)\n");
+        #endif
+
+        char parse_parameters_string[] = "d";
+        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &jdn2 ) == SUCCESS)
+        {
+            overload2_called = true;
+            already_called = true;
+        }
+    }
+
+    
+    if(overload0_called)
+    {
+        switch(arguments_received)
+        {
+            case 0:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing __construct()\n");
+                #endif
+
+                native_object = new wxDateTime_php();
+
+                native_object->references.Initialize();
+                break;
+            }
+        }
+    }
+
+    if(overload1_called)
+    {
+        switch(arguments_received)
+        {
+            case 1:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing __construct(wxDateTime(date1))\n");
+                #endif
+
+                native_object = new wxDateTime_php(wxDateTime(date1));
+
+                native_object->references.Initialize();
+                break;
+            }
+        }
+    }
+
+    if(overload2_called)
+    {
+        switch(arguments_received)
+        {
+            case 1:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing __construct(jdn2)\n");
+                #endif
+
+                native_object = new wxDateTime_php(jdn2);
+
+                native_object->references.Initialize();
+                break;
+            }
+        }
+    }
+
+    
+    if(already_called)
+    {
+        native_object->phpObj = *getThis();
+
+
+        current_object = Z_wxDateTime_P(getThis());
+
+        current_object->native_object = native_object;
+
+        current_object->is_user_initialized = 1;
+    }
+    else
+    {
+        zend_error(
+            E_ERROR,
+            "Abstract class or wrong type/count of parameters "
+            "passed to: wxDateTime::__construct\n"
+        );
+    }
+
+    #ifdef USE_WXPHP_DEBUG
+        php_printf("===========================================\n\n");
+    #endif
+}
+/* }}} */
+
+/* {{{ proto timestamp wxDateTime::ResetTime() */
+PHP_METHOD(php_wxDateTime, ResetTime)
+{
+    #ifdef USE_WXPHP_DEBUG
+    php_printf("Invoking wxDateTime::ResetTime\n");
+    php_printf("===========================================\n");
+    #endif
+
+    zo_wxDateTime* current_object;
+    wxphp_object_type current_object_type;
+    wxDateTime_php* native_object;
+    void* argument_native_object = NULL;
+
+    //Other variables used thru the code
+    zval dummy;
+    ZVAL_NULL(&dummy);
+    bool already_called = false;
+    wxPHPObjectReferences* references;
+    int arguments_received = ZEND_NUM_ARGS();
+    bool return_is_user_initialized = false;
+
+    //Get native object of the php object that called the method
+    if(getThis() != NULL)
+    {
+        current_object = Z_wxDateTime_P(getThis());
+
+        if(current_object->native_object == NULL)
+        {
+            zend_error(
+                E_ERROR,
+                "Failed to get the native object for "
+                "wxDateTime::ResetTime call\n"
+            );
+
+            return;
+        }
+        else
+        {
+            native_object = current_object->native_object;
+            current_object_type = current_object->object_type;
+
+            bool reference_type_found = false;
+
+            if(current_object_type == PHP_WXDATETIME_TYPE){
+                references = &((wxDateTime_php*)native_object)->references;
+                reference_type_found = true;
+            }
+        }
+    }
+    #ifdef USE_WXPHP_DEBUG
+    else
+    {
+        php_printf("Processing the method call as static\n");
+    }
+    #endif
+
+    //Parameters for overload 0
+    bool overload0_called = false;
+
+    
+    //Overload 0
+    overload0:
+    if(!already_called && arguments_received == 0)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Parameters received %d\n", arguments_received);
+        php_printf("Parsing parameters with '' ()\n");
+        #endif
+
+        overload0_called = true;
+        already_called = true;
+    }
+
+    
+    if(overload0_called)
+    {
+        switch(arguments_received)
+        {
+            case 0:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing wxDateTime::ResetTime() to return timestamp\n\n");
+                #endif
+
+                time_t value_to_return0;
+                value_to_return0 = ((wxDateTime_php*)native_object)->ResetTime().GetTicks();
+                RETVAL_LONG(value_to_return0);
+
+
+                return;
+                break;
+            }
+        }
+    }
+
+    
+    //In case wrong type/count of parameters was passed
+    if(!already_called)
+    {
+        zend_error(
+            E_ERROR,
+            "Wrong type or count of parameters passed to: "
+            "wxDateTime::ResetTime\n"
+        );
+    }
+}
+/* }}} */
+
+/* {{{ proto timestamp wxDateTime::Set(float jdn) */
+PHP_METHOD(php_wxDateTime, Set)
+{
+    #ifdef USE_WXPHP_DEBUG
+    php_printf("Invoking wxDateTime::Set\n");
+    php_printf("===========================================\n");
+    #endif
+
+    zo_wxDateTime* current_object;
+    wxphp_object_type current_object_type;
+    wxDateTime_php* native_object;
+    void* argument_native_object = NULL;
+
+    //Other variables used thru the code
+    zval dummy;
+    ZVAL_NULL(&dummy);
+    bool already_called = false;
+    wxPHPObjectReferences* references;
+    int arguments_received = ZEND_NUM_ARGS();
+    bool return_is_user_initialized = false;
+
+    //Get native object of the php object that called the method
+    if(getThis() != NULL)
+    {
+        current_object = Z_wxDateTime_P(getThis());
+
+        if(current_object->native_object == NULL)
+        {
+            zend_error(
+                E_ERROR,
+                "Failed to get the native object for "
+                "wxDateTime::Set call\n"
+            );
+
+            return;
+        }
+        else
+        {
+            native_object = current_object->native_object;
+            current_object_type = current_object->object_type;
+
+            bool reference_type_found = false;
+
+            if(current_object_type == PHP_WXDATETIME_TYPE){
+                references = &((wxDateTime_php*)native_object)->references;
+                reference_type_found = true;
+            }
+        }
+    }
+    #ifdef USE_WXPHP_DEBUG
+    else
+    {
+        php_printf("Processing the method call as static\n");
+    }
+    #endif
+
+    //Parameters for overload 0
+    double jdn0;
+    bool overload0_called = false;
+
+    
+    //Overload 0
+    overload0:
+    if(!already_called && arguments_received == 1)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Parameters received %d\n", arguments_received);
+        php_printf("Parsing parameters with 'd' (&jdn0)\n");
+        #endif
+
+        char parse_parameters_string[] = "d";
+        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &jdn0 ) == SUCCESS)
+        {
+            overload0_called = true;
+            already_called = true;
+        }
+    }
+
+    
+    if(overload0_called)
+    {
+        switch(arguments_received)
+        {
+            case 1:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing wxDateTime::Set(jdn0) to return timestamp\n\n");
+                #endif
+
+                time_t value_to_return1;
+                value_to_return1 = ((wxDateTime_php*)native_object)->Set(jdn0).GetTicks();
+                RETVAL_LONG(value_to_return1);
+
+
+                return;
+                break;
+            }
+        }
+    }
+
+    
+    //In case wrong type/count of parameters was passed
+    if(!already_called)
+    {
+        zend_error(
+            E_ERROR,
+            "Wrong type or count of parameters passed to: "
+            "wxDateTime::Set\n"
+        );
+    }
+}
+/* }}} */
+
+/* {{{ proto timestamp wxDateTime::SetDay(int day) */
+PHP_METHOD(php_wxDateTime, SetDay)
+{
+    #ifdef USE_WXPHP_DEBUG
+    php_printf("Invoking wxDateTime::SetDay\n");
+    php_printf("===========================================\n");
+    #endif
+
+    zo_wxDateTime* current_object;
+    wxphp_object_type current_object_type;
+    wxDateTime_php* native_object;
+    void* argument_native_object = NULL;
+
+    //Other variables used thru the code
+    zval dummy;
+    ZVAL_NULL(&dummy);
+    bool already_called = false;
+    wxPHPObjectReferences* references;
+    int arguments_received = ZEND_NUM_ARGS();
+    bool return_is_user_initialized = false;
+
+    //Get native object of the php object that called the method
+    if(getThis() != NULL)
+    {
+        current_object = Z_wxDateTime_P(getThis());
+
+        if(current_object->native_object == NULL)
+        {
+            zend_error(
+                E_ERROR,
+                "Failed to get the native object for "
+                "wxDateTime::SetDay call\n"
+            );
+
+            return;
+        }
+        else
+        {
+            native_object = current_object->native_object;
+            current_object_type = current_object->object_type;
+
+            bool reference_type_found = false;
+
+            if(current_object_type == PHP_WXDATETIME_TYPE){
+                references = &((wxDateTime_php*)native_object)->references;
+                reference_type_found = true;
+            }
+        }
+    }
+    #ifdef USE_WXPHP_DEBUG
+    else
+    {
+        php_printf("Processing the method call as static\n");
+    }
+    #endif
+
+    //Parameters for overload 0
+    long day0;
+    bool overload0_called = false;
+
+    
+    //Overload 0
+    overload0:
+    if(!already_called && arguments_received == 1)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Parameters received %d\n", arguments_received);
+        php_printf("Parsing parameters with 'l' (&day0)\n");
+        #endif
+
+        char parse_parameters_string[] = "l";
+        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &day0 ) == SUCCESS)
+        {
+            overload0_called = true;
+            already_called = true;
+        }
+    }
+
+    
+    if(overload0_called)
+    {
+        switch(arguments_received)
+        {
+            case 1:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing wxDateTime::SetDay((unsigned short) day0) to return timestamp\n\n");
+                #endif
+
+                time_t value_to_return1;
+                value_to_return1 = ((wxDateTime_php*)native_object)->SetDay((unsigned short) day0).GetTicks();
+                RETVAL_LONG(value_to_return1);
+
+
+                return;
+                break;
+            }
+        }
+    }
+
+    
+    //In case wrong type/count of parameters was passed
+    if(!already_called)
+    {
+        zend_error(
+            E_ERROR,
+            "Wrong type or count of parameters passed to: "
+            "wxDateTime::SetDay\n"
+        );
+    }
+}
+/* }}} */
+
+/* {{{ proto timestamp wxDateTime::SetFromDOS(int ddt) */
+PHP_METHOD(php_wxDateTime, SetFromDOS)
+{
+    #ifdef USE_WXPHP_DEBUG
+    php_printf("Invoking wxDateTime::SetFromDOS\n");
+    php_printf("===========================================\n");
+    #endif
+
+    zo_wxDateTime* current_object;
+    wxphp_object_type current_object_type;
+    wxDateTime_php* native_object;
+    void* argument_native_object = NULL;
+
+    //Other variables used thru the code
+    zval dummy;
+    ZVAL_NULL(&dummy);
+    bool already_called = false;
+    wxPHPObjectReferences* references;
+    int arguments_received = ZEND_NUM_ARGS();
+    bool return_is_user_initialized = false;
+
+    //Get native object of the php object that called the method
+    if(getThis() != NULL)
+    {
+        current_object = Z_wxDateTime_P(getThis());
+
+        if(current_object->native_object == NULL)
+        {
+            zend_error(
+                E_ERROR,
+                "Failed to get the native object for "
+                "wxDateTime::SetFromDOS call\n"
+            );
+
+            return;
+        }
+        else
+        {
+            native_object = current_object->native_object;
+            current_object_type = current_object->object_type;
+
+            bool reference_type_found = false;
+
+            if(current_object_type == PHP_WXDATETIME_TYPE){
+                references = &((wxDateTime_php*)native_object)->references;
+                reference_type_found = true;
+            }
+        }
+    }
+    #ifdef USE_WXPHP_DEBUG
+    else
+    {
+        php_printf("Processing the method call as static\n");
+    }
+    #endif
+
+    //Parameters for overload 0
+    long ddt0;
+    bool overload0_called = false;
+
+    
+    //Overload 0
+    overload0:
+    if(!already_called && arguments_received == 1)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Parameters received %d\n", arguments_received);
+        php_printf("Parsing parameters with 'l' (&ddt0)\n");
+        #endif
+
+        char parse_parameters_string[] = "l";
+        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &ddt0 ) == SUCCESS)
+        {
+            overload0_called = true;
+            already_called = true;
+        }
+    }
+
+    
+    if(overload0_called)
+    {
+        switch(arguments_received)
+        {
+            case 1:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing wxDateTime::SetFromDOS((unsigned long) ddt0) to return timestamp\n\n");
+                #endif
+
+                time_t value_to_return1;
+                value_to_return1 = ((wxDateTime_php*)native_object)->SetFromDOS((unsigned long) ddt0).GetTicks();
+                RETVAL_LONG(value_to_return1);
+
+
+                return;
+                break;
+            }
+        }
+    }
+
+    
+    //In case wrong type/count of parameters was passed
+    if(!already_called)
+    {
+        zend_error(
+            E_ERROR,
+            "Wrong type or count of parameters passed to: "
+            "wxDateTime::SetFromDOS\n"
+        );
+    }
+}
+/* }}} */
+
+/* {{{ proto timestamp wxDateTime::SetHour(int hour) */
+PHP_METHOD(php_wxDateTime, SetHour)
+{
+    #ifdef USE_WXPHP_DEBUG
+    php_printf("Invoking wxDateTime::SetHour\n");
+    php_printf("===========================================\n");
+    #endif
+
+    zo_wxDateTime* current_object;
+    wxphp_object_type current_object_type;
+    wxDateTime_php* native_object;
+    void* argument_native_object = NULL;
+
+    //Other variables used thru the code
+    zval dummy;
+    ZVAL_NULL(&dummy);
+    bool already_called = false;
+    wxPHPObjectReferences* references;
+    int arguments_received = ZEND_NUM_ARGS();
+    bool return_is_user_initialized = false;
+
+    //Get native object of the php object that called the method
+    if(getThis() != NULL)
+    {
+        current_object = Z_wxDateTime_P(getThis());
+
+        if(current_object->native_object == NULL)
+        {
+            zend_error(
+                E_ERROR,
+                "Failed to get the native object for "
+                "wxDateTime::SetHour call\n"
+            );
+
+            return;
+        }
+        else
+        {
+            native_object = current_object->native_object;
+            current_object_type = current_object->object_type;
+
+            bool reference_type_found = false;
+
+            if(current_object_type == PHP_WXDATETIME_TYPE){
+                references = &((wxDateTime_php*)native_object)->references;
+                reference_type_found = true;
+            }
+        }
+    }
+    #ifdef USE_WXPHP_DEBUG
+    else
+    {
+        php_printf("Processing the method call as static\n");
+    }
+    #endif
+
+    //Parameters for overload 0
+    long hour0;
+    bool overload0_called = false;
+
+    
+    //Overload 0
+    overload0:
+    if(!already_called && arguments_received == 1)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Parameters received %d\n", arguments_received);
+        php_printf("Parsing parameters with 'l' (&hour0)\n");
+        #endif
+
+        char parse_parameters_string[] = "l";
+        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &hour0 ) == SUCCESS)
+        {
+            overload0_called = true;
+            already_called = true;
+        }
+    }
+
+    
+    if(overload0_called)
+    {
+        switch(arguments_received)
+        {
+            case 1:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing wxDateTime::SetHour((unsigned short) hour0) to return timestamp\n\n");
+                #endif
+
+                time_t value_to_return1;
+                value_to_return1 = ((wxDateTime_php*)native_object)->SetHour((unsigned short) hour0).GetTicks();
+                RETVAL_LONG(value_to_return1);
+
+
+                return;
+                break;
+            }
+        }
+    }
+
+    
+    //In case wrong type/count of parameters was passed
+    if(!already_called)
+    {
+        zend_error(
+            E_ERROR,
+            "Wrong type or count of parameters passed to: "
+            "wxDateTime::SetHour\n"
+        );
+    }
+}
+/* }}} */
+
+/* {{{ proto timestamp wxDateTime::SetMillisecond(int millisecond) */
+PHP_METHOD(php_wxDateTime, SetMillisecond)
+{
+    #ifdef USE_WXPHP_DEBUG
+    php_printf("Invoking wxDateTime::SetMillisecond\n");
+    php_printf("===========================================\n");
+    #endif
+
+    zo_wxDateTime* current_object;
+    wxphp_object_type current_object_type;
+    wxDateTime_php* native_object;
+    void* argument_native_object = NULL;
+
+    //Other variables used thru the code
+    zval dummy;
+    ZVAL_NULL(&dummy);
+    bool already_called = false;
+    wxPHPObjectReferences* references;
+    int arguments_received = ZEND_NUM_ARGS();
+    bool return_is_user_initialized = false;
+
+    //Get native object of the php object that called the method
+    if(getThis() != NULL)
+    {
+        current_object = Z_wxDateTime_P(getThis());
+
+        if(current_object->native_object == NULL)
+        {
+            zend_error(
+                E_ERROR,
+                "Failed to get the native object for "
+                "wxDateTime::SetMillisecond call\n"
+            );
+
+            return;
+        }
+        else
+        {
+            native_object = current_object->native_object;
+            current_object_type = current_object->object_type;
+
+            bool reference_type_found = false;
+
+            if(current_object_type == PHP_WXDATETIME_TYPE){
+                references = &((wxDateTime_php*)native_object)->references;
+                reference_type_found = true;
+            }
+        }
+    }
+    #ifdef USE_WXPHP_DEBUG
+    else
+    {
+        php_printf("Processing the method call as static\n");
+    }
+    #endif
+
+    //Parameters for overload 0
+    long millisecond0;
+    bool overload0_called = false;
+
+    
+    //Overload 0
+    overload0:
+    if(!already_called && arguments_received == 1)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Parameters received %d\n", arguments_received);
+        php_printf("Parsing parameters with 'l' (&millisecond0)\n");
+        #endif
+
+        char parse_parameters_string[] = "l";
+        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &millisecond0 ) == SUCCESS)
+        {
+            overload0_called = true;
+            already_called = true;
+        }
+    }
+
+    
+    if(overload0_called)
+    {
+        switch(arguments_received)
+        {
+            case 1:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing wxDateTime::SetMillisecond((unsigned short) millisecond0) to return timestamp\n\n");
+                #endif
+
+                time_t value_to_return1;
+                value_to_return1 = ((wxDateTime_php*)native_object)->SetMillisecond((unsigned short) millisecond0).GetTicks();
+                RETVAL_LONG(value_to_return1);
+
+
+                return;
+                break;
+            }
+        }
+    }
+
+    
+    //In case wrong type/count of parameters was passed
+    if(!already_called)
+    {
+        zend_error(
+            E_ERROR,
+            "Wrong type or count of parameters passed to: "
+            "wxDateTime::SetMillisecond\n"
+        );
+    }
+}
+/* }}} */
+
+/* {{{ proto timestamp wxDateTime::SetMinute(int minute) */
+PHP_METHOD(php_wxDateTime, SetMinute)
+{
+    #ifdef USE_WXPHP_DEBUG
+    php_printf("Invoking wxDateTime::SetMinute\n");
+    php_printf("===========================================\n");
+    #endif
+
+    zo_wxDateTime* current_object;
+    wxphp_object_type current_object_type;
+    wxDateTime_php* native_object;
+    void* argument_native_object = NULL;
+
+    //Other variables used thru the code
+    zval dummy;
+    ZVAL_NULL(&dummy);
+    bool already_called = false;
+    wxPHPObjectReferences* references;
+    int arguments_received = ZEND_NUM_ARGS();
+    bool return_is_user_initialized = false;
+
+    //Get native object of the php object that called the method
+    if(getThis() != NULL)
+    {
+        current_object = Z_wxDateTime_P(getThis());
+
+        if(current_object->native_object == NULL)
+        {
+            zend_error(
+                E_ERROR,
+                "Failed to get the native object for "
+                "wxDateTime::SetMinute call\n"
+            );
+
+            return;
+        }
+        else
+        {
+            native_object = current_object->native_object;
+            current_object_type = current_object->object_type;
+
+            bool reference_type_found = false;
+
+            if(current_object_type == PHP_WXDATETIME_TYPE){
+                references = &((wxDateTime_php*)native_object)->references;
+                reference_type_found = true;
+            }
+        }
+    }
+    #ifdef USE_WXPHP_DEBUG
+    else
+    {
+        php_printf("Processing the method call as static\n");
+    }
+    #endif
+
+    //Parameters for overload 0
+    long minute0;
+    bool overload0_called = false;
+
+    
+    //Overload 0
+    overload0:
+    if(!already_called && arguments_received == 1)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Parameters received %d\n", arguments_received);
+        php_printf("Parsing parameters with 'l' (&minute0)\n");
+        #endif
+
+        char parse_parameters_string[] = "l";
+        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &minute0 ) == SUCCESS)
+        {
+            overload0_called = true;
+            already_called = true;
+        }
+    }
+
+    
+    if(overload0_called)
+    {
+        switch(arguments_received)
+        {
+            case 1:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing wxDateTime::SetMinute((unsigned short) minute0) to return timestamp\n\n");
+                #endif
+
+                time_t value_to_return1;
+                value_to_return1 = ((wxDateTime_php*)native_object)->SetMinute((unsigned short) minute0).GetTicks();
+                RETVAL_LONG(value_to_return1);
+
+
+                return;
+                break;
+            }
+        }
+    }
+
+    
+    //In case wrong type/count of parameters was passed
+    if(!already_called)
+    {
+        zend_error(
+            E_ERROR,
+            "Wrong type or count of parameters passed to: "
+            "wxDateTime::SetMinute\n"
+        );
+    }
+}
+/* }}} */
+
+/* {{{ proto timestamp wxDateTime::SetMonth(Month month) */
+PHP_METHOD(php_wxDateTime, SetMonth)
+{
+    #ifdef USE_WXPHP_DEBUG
+    php_printf("Invoking wxDateTime::SetMonth\n");
+    php_printf("===========================================\n");
+    #endif
+
+    zo_wxDateTime* current_object;
+    wxphp_object_type current_object_type;
+    wxDateTime_php* native_object;
+    void* argument_native_object = NULL;
+
+    //Other variables used thru the code
+    zval dummy;
+    ZVAL_NULL(&dummy);
+    bool already_called = false;
+    wxPHPObjectReferences* references;
+    int arguments_received = ZEND_NUM_ARGS();
+    bool return_is_user_initialized = false;
+
+    //Get native object of the php object that called the method
+    if(getThis() != NULL)
+    {
+        current_object = Z_wxDateTime_P(getThis());
+
+        if(current_object->native_object == NULL)
+        {
+            zend_error(
+                E_ERROR,
+                "Failed to get the native object for "
+                "wxDateTime::SetMonth call\n"
+            );
+
+            return;
+        }
+        else
+        {
+            native_object = current_object->native_object;
+            current_object_type = current_object->object_type;
+
+            bool reference_type_found = false;
+
+            if(current_object_type == PHP_WXDATETIME_TYPE){
+                references = &((wxDateTime_php*)native_object)->references;
+                reference_type_found = true;
+            }
+        }
+    }
+    #ifdef USE_WXPHP_DEBUG
+    else
+    {
+        php_printf("Processing the method call as static\n");
+    }
+    #endif
+
+    //Parameters for overload 0
+    long month0;
+    bool overload0_called = false;
+
+    
+    //Overload 0
+    overload0:
+    if(!already_called && arguments_received == 1)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Parameters received %d\n", arguments_received);
+        php_printf("Parsing parameters with 'l' (&month0)\n");
+        #endif
+
+        char parse_parameters_string[] = "l";
+        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &month0 ) == SUCCESS)
+        {
+            overload0_called = true;
+            already_called = true;
+        }
+    }
+
+    
+    if(overload0_called)
+    {
+        switch(arguments_received)
+        {
+            case 1:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing wxDateTime::SetMonth((wxDateTime::Month) month0) to return timestamp\n\n");
+                #endif
+
+                time_t value_to_return1;
+                value_to_return1 = ((wxDateTime_php*)native_object)->SetMonth((wxDateTime::Month) month0).GetTicks();
+                RETVAL_LONG(value_to_return1);
+
+
+                return;
+                break;
+            }
+        }
+    }
+
+    
+    //In case wrong type/count of parameters was passed
+    if(!already_called)
+    {
+        zend_error(
+            E_ERROR,
+            "Wrong type or count of parameters passed to: "
+            "wxDateTime::SetMonth\n"
+        );
+    }
+}
+/* }}} */
+
+/* {{{ proto timestamp wxDateTime::SetSecond(int second) */
+PHP_METHOD(php_wxDateTime, SetSecond)
+{
+    #ifdef USE_WXPHP_DEBUG
+    php_printf("Invoking wxDateTime::SetSecond\n");
+    php_printf("===========================================\n");
+    #endif
+
+    zo_wxDateTime* current_object;
+    wxphp_object_type current_object_type;
+    wxDateTime_php* native_object;
+    void* argument_native_object = NULL;
+
+    //Other variables used thru the code
+    zval dummy;
+    ZVAL_NULL(&dummy);
+    bool already_called = false;
+    wxPHPObjectReferences* references;
+    int arguments_received = ZEND_NUM_ARGS();
+    bool return_is_user_initialized = false;
+
+    //Get native object of the php object that called the method
+    if(getThis() != NULL)
+    {
+        current_object = Z_wxDateTime_P(getThis());
+
+        if(current_object->native_object == NULL)
+        {
+            zend_error(
+                E_ERROR,
+                "Failed to get the native object for "
+                "wxDateTime::SetSecond call\n"
+            );
+
+            return;
+        }
+        else
+        {
+            native_object = current_object->native_object;
+            current_object_type = current_object->object_type;
+
+            bool reference_type_found = false;
+
+            if(current_object_type == PHP_WXDATETIME_TYPE){
+                references = &((wxDateTime_php*)native_object)->references;
+                reference_type_found = true;
+            }
+        }
+    }
+    #ifdef USE_WXPHP_DEBUG
+    else
+    {
+        php_printf("Processing the method call as static\n");
+    }
+    #endif
+
+    //Parameters for overload 0
+    long second0;
+    bool overload0_called = false;
+
+    
+    //Overload 0
+    overload0:
+    if(!already_called && arguments_received == 1)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Parameters received %d\n", arguments_received);
+        php_printf("Parsing parameters with 'l' (&second0)\n");
+        #endif
+
+        char parse_parameters_string[] = "l";
+        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &second0 ) == SUCCESS)
+        {
+            overload0_called = true;
+            already_called = true;
+        }
+    }
+
+    
+    if(overload0_called)
+    {
+        switch(arguments_received)
+        {
+            case 1:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing wxDateTime::SetSecond((unsigned short) second0) to return timestamp\n\n");
+                #endif
+
+                time_t value_to_return1;
+                value_to_return1 = ((wxDateTime_php*)native_object)->SetSecond((unsigned short) second0).GetTicks();
+                RETVAL_LONG(value_to_return1);
+
+
+                return;
+                break;
+            }
+        }
+    }
+
+    
+    //In case wrong type/count of parameters was passed
+    if(!already_called)
+    {
+        zend_error(
+            E_ERROR,
+            "Wrong type or count of parameters passed to: "
+            "wxDateTime::SetSecond\n"
+        );
+    }
+}
+/* }}} */
+
+/* {{{ proto timestamp wxDateTime::SetToCurrent() */
+PHP_METHOD(php_wxDateTime, SetToCurrent)
+{
+    #ifdef USE_WXPHP_DEBUG
+    php_printf("Invoking wxDateTime::SetToCurrent\n");
+    php_printf("===========================================\n");
+    #endif
+
+    zo_wxDateTime* current_object;
+    wxphp_object_type current_object_type;
+    wxDateTime_php* native_object;
+    void* argument_native_object = NULL;
+
+    //Other variables used thru the code
+    zval dummy;
+    ZVAL_NULL(&dummy);
+    bool already_called = false;
+    wxPHPObjectReferences* references;
+    int arguments_received = ZEND_NUM_ARGS();
+    bool return_is_user_initialized = false;
+
+    //Get native object of the php object that called the method
+    if(getThis() != NULL)
+    {
+        current_object = Z_wxDateTime_P(getThis());
+
+        if(current_object->native_object == NULL)
+        {
+            zend_error(
+                E_ERROR,
+                "Failed to get the native object for "
+                "wxDateTime::SetToCurrent call\n"
+            );
+
+            return;
+        }
+        else
+        {
+            native_object = current_object->native_object;
+            current_object_type = current_object->object_type;
+
+            bool reference_type_found = false;
+
+            if(current_object_type == PHP_WXDATETIME_TYPE){
+                references = &((wxDateTime_php*)native_object)->references;
+                reference_type_found = true;
+            }
+        }
+    }
+    #ifdef USE_WXPHP_DEBUG
+    else
+    {
+        php_printf("Processing the method call as static\n");
+    }
+    #endif
+
+    //Parameters for overload 0
+    bool overload0_called = false;
+
+    
+    //Overload 0
+    overload0:
+    if(!already_called && arguments_received == 0)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Parameters received %d\n", arguments_received);
+        php_printf("Parsing parameters with '' ()\n");
+        #endif
+
+        overload0_called = true;
+        already_called = true;
+    }
+
+    
+    if(overload0_called)
+    {
+        switch(arguments_received)
+        {
+            case 0:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing wxDateTime::SetToCurrent() to return timestamp\n\n");
+                #endif
+
+                time_t value_to_return0;
+                value_to_return0 = ((wxDateTime_php*)native_object)->SetToCurrent().GetTicks();
+                RETVAL_LONG(value_to_return0);
+
+
+                return;
+                break;
+            }
+        }
+    }
+
+    
+    //In case wrong type/count of parameters was passed
+    if(!already_called)
+    {
+        zend_error(
+            E_ERROR,
+            "Wrong type or count of parameters passed to: "
+            "wxDateTime::SetToCurrent\n"
+        );
+    }
+}
+/* }}} */
+
+/* {{{ proto timestamp wxDateTime::SetYear(int year) */
+PHP_METHOD(php_wxDateTime, SetYear)
+{
+    #ifdef USE_WXPHP_DEBUG
+    php_printf("Invoking wxDateTime::SetYear\n");
+    php_printf("===========================================\n");
+    #endif
+
+    zo_wxDateTime* current_object;
+    wxphp_object_type current_object_type;
+    wxDateTime_php* native_object;
+    void* argument_native_object = NULL;
+
+    //Other variables used thru the code
+    zval dummy;
+    ZVAL_NULL(&dummy);
+    bool already_called = false;
+    wxPHPObjectReferences* references;
+    int arguments_received = ZEND_NUM_ARGS();
+    bool return_is_user_initialized = false;
+
+    //Get native object of the php object that called the method
+    if(getThis() != NULL)
+    {
+        current_object = Z_wxDateTime_P(getThis());
+
+        if(current_object->native_object == NULL)
+        {
+            zend_error(
+                E_ERROR,
+                "Failed to get the native object for "
+                "wxDateTime::SetYear call\n"
+            );
+
+            return;
+        }
+        else
+        {
+            native_object = current_object->native_object;
+            current_object_type = current_object->object_type;
+
+            bool reference_type_found = false;
+
+            if(current_object_type == PHP_WXDATETIME_TYPE){
+                references = &((wxDateTime_php*)native_object)->references;
+                reference_type_found = true;
+            }
+        }
+    }
+    #ifdef USE_WXPHP_DEBUG
+    else
+    {
+        php_printf("Processing the method call as static\n");
+    }
+    #endif
+
+    //Parameters for overload 0
+    long year0;
+    bool overload0_called = false;
+
+    
+    //Overload 0
+    overload0:
+    if(!already_called && arguments_received == 1)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Parameters received %d\n", arguments_received);
+        php_printf("Parsing parameters with 'l' (&year0)\n");
+        #endif
+
+        char parse_parameters_string[] = "l";
+        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &year0 ) == SUCCESS)
+        {
+            overload0_called = true;
+            already_called = true;
+        }
+    }
+
+    
+    if(overload0_called)
+    {
+        switch(arguments_received)
+        {
+            case 1:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing wxDateTime::SetYear((int) year0) to return timestamp\n\n");
+                #endif
+
+                time_t value_to_return1;
+                value_to_return1 = ((wxDateTime_php*)native_object)->SetYear((int) year0).GetTicks();
+                RETVAL_LONG(value_to_return1);
+
+
+                return;
+                break;
+            }
+        }
+    }
+
+    
+    //In case wrong type/count of parameters was passed
+    if(!already_called)
+    {
+        zend_error(
+            E_ERROR,
+            "Wrong type or count of parameters passed to: "
+            "wxDateTime::SetYear\n"
+        );
+    }
+}
+/* }}} */
+
+/* {{{ proto int wxDateTime::GetAsDOS() */
+PHP_METHOD(php_wxDateTime, GetAsDOS)
+{
+    #ifdef USE_WXPHP_DEBUG
+    php_printf("Invoking wxDateTime::GetAsDOS\n");
+    php_printf("===========================================\n");
+    #endif
+
+    zo_wxDateTime* current_object;
+    wxphp_object_type current_object_type;
+    wxDateTime_php* native_object;
+    void* argument_native_object = NULL;
+
+    //Other variables used thru the code
+    zval dummy;
+    ZVAL_NULL(&dummy);
+    bool already_called = false;
+    wxPHPObjectReferences* references;
+    int arguments_received = ZEND_NUM_ARGS();
+    bool return_is_user_initialized = false;
+
+    //Get native object of the php object that called the method
+    if(getThis() != NULL)
+    {
+        current_object = Z_wxDateTime_P(getThis());
+
+        if(current_object->native_object == NULL)
+        {
+            zend_error(
+                E_ERROR,
+                "Failed to get the native object for "
+                "wxDateTime::GetAsDOS call\n"
+            );
+
+            return;
+        }
+        else
+        {
+            native_object = current_object->native_object;
+            current_object_type = current_object->object_type;
+
+            bool reference_type_found = false;
+
+            if(current_object_type == PHP_WXDATETIME_TYPE){
+                references = &((wxDateTime_php*)native_object)->references;
+                reference_type_found = true;
+            }
+        }
+    }
+    #ifdef USE_WXPHP_DEBUG
+    else
+    {
+        php_printf("Processing the method call as static\n");
+    }
+    #endif
+
+    //Parameters for overload 0
+    bool overload0_called = false;
+
+    
+    //Overload 0
+    overload0:
+    if(!already_called && arguments_received == 0)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Parameters received %d\n", arguments_received);
+        php_printf("Parsing parameters with '' ()\n");
+        #endif
+
+        overload0_called = true;
+        already_called = true;
+    }
+
+    
+    if(overload0_called)
+    {
+        switch(arguments_received)
+        {
+            case 0:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing RETURN_LONG(wxDateTime::GetAsDOS())\n\n");
+                #endif
+
+                RETVAL_LONG(((wxDateTime_php*)native_object)->GetAsDOS());
+
+
+                return;
+                break;
+            }
+        }
+    }
+
+    
+    //In case wrong type/count of parameters was passed
+    if(!already_called)
+    {
+        zend_error(
+            E_ERROR,
+            "Wrong type or count of parameters passed to: "
+            "wxDateTime::GetAsDOS\n"
+        );
+    }
+}
+/* }}} */
+
+/* {{{ proto int wxDateTime::GetCentury(int year) */
+PHP_METHOD(php_wxDateTime, GetCentury)
+{
+    #ifdef USE_WXPHP_DEBUG
+    php_printf("Invoking wxDateTime::GetCentury\n");
+    php_printf("===========================================\n");
+    #endif
+
+    zo_wxDateTime* current_object;
+    wxphp_object_type current_object_type;
+    wxDateTime_php* native_object;
+    void* argument_native_object = NULL;
+
+    //Other variables used thru the code
+    zval dummy;
+    ZVAL_NULL(&dummy);
+    bool already_called = false;
+    wxPHPObjectReferences* references;
+    int arguments_received = ZEND_NUM_ARGS();
+    bool return_is_user_initialized = false;
+
+    //Get native object of the php object that called the method
+    if(getThis() != NULL)
+    {
+        current_object = Z_wxDateTime_P(getThis());
+
+        if(current_object->native_object == NULL)
+        {
+            zend_error(
+                E_ERROR,
+                "Failed to get the native object for "
+                "wxDateTime::GetCentury call\n"
+            );
+
+            return;
+        }
+        else
+        {
+            native_object = current_object->native_object;
+            current_object_type = current_object->object_type;
+
+            bool reference_type_found = false;
+
+            if(current_object_type == PHP_WXDATETIME_TYPE){
+                references = &((wxDateTime_php*)native_object)->references;
+                reference_type_found = true;
+            }
+        }
+    }
+    #ifdef USE_WXPHP_DEBUG
+    else
+    {
+        php_printf("Processing the method call as static\n");
+    }
+    #endif
+
+    //Parameters for overload 0
+    long year0;
+    bool overload0_called = false;
+
+    
+    //Overload 0
+    overload0:
+    if(!already_called && arguments_received == 1)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Parameters received %d\n", arguments_received);
+        php_printf("Parsing parameters with 'l' (&year0)\n");
+        #endif
+
+        char parse_parameters_string[] = "l";
+        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &year0 ) == SUCCESS)
+        {
+            overload0_called = true;
+            already_called = true;
+        }
+    }
+
+    
+    if(overload0_called)
+    {
+        switch(arguments_received)
+        {
+            case 1:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Static ");
+                php_printf("Executing RETURN_LONG(wxDateTime::GetCentury((int) year0))\n\n");
+                #endif
+
+                RETVAL_LONG(wxDateTime::GetCentury((int) year0));
+
+
+                return;
+                break;
+            }
+        }
+    }
+
+    
+    //In case wrong type/count of parameters was passed
+    if(!already_called)
+    {
+        zend_error(
+            E_ERROR,
+            "Wrong type or count of parameters passed to: "
+            "wxDateTime::GetCentury\n"
+        );
+    }
+}
+/* }}} */
+
+/* {{{ proto timestamp wxDateTime::GetDateOnly() */
+PHP_METHOD(php_wxDateTime, GetDateOnly)
+{
+    #ifdef USE_WXPHP_DEBUG
+    php_printf("Invoking wxDateTime::GetDateOnly\n");
+    php_printf("===========================================\n");
+    #endif
+
+    zo_wxDateTime* current_object;
+    wxphp_object_type current_object_type;
+    wxDateTime_php* native_object;
+    void* argument_native_object = NULL;
+
+    //Other variables used thru the code
+    zval dummy;
+    ZVAL_NULL(&dummy);
+    bool already_called = false;
+    wxPHPObjectReferences* references;
+    int arguments_received = ZEND_NUM_ARGS();
+    bool return_is_user_initialized = false;
+
+    //Get native object of the php object that called the method
+    if(getThis() != NULL)
+    {
+        current_object = Z_wxDateTime_P(getThis());
+
+        if(current_object->native_object == NULL)
+        {
+            zend_error(
+                E_ERROR,
+                "Failed to get the native object for "
+                "wxDateTime::GetDateOnly call\n"
+            );
+
+            return;
+        }
+        else
+        {
+            native_object = current_object->native_object;
+            current_object_type = current_object->object_type;
+
+            bool reference_type_found = false;
+
+            if(current_object_type == PHP_WXDATETIME_TYPE){
+                references = &((wxDateTime_php*)native_object)->references;
+                reference_type_found = true;
+            }
+        }
+    }
+    #ifdef USE_WXPHP_DEBUG
+    else
+    {
+        php_printf("Processing the method call as static\n");
+    }
+    #endif
+
+    //Parameters for overload 0
+    bool overload0_called = false;
+
+    
+    //Overload 0
+    overload0:
+    if(!already_called && arguments_received == 0)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Parameters received %d\n", arguments_received);
+        php_printf("Parsing parameters with '' ()\n");
+        #endif
+
+        overload0_called = true;
+        already_called = true;
+    }
+
+    
+    if(overload0_called)
+    {
+        switch(arguments_received)
+        {
+            case 0:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing wxDateTime::GetDateOnly() to return timestamp\n\n");
+                #endif
+
+                time_t value_to_return0;
+                value_to_return0 = ((wxDateTime_php*)native_object)->GetDateOnly().GetTicks();
+                RETVAL_LONG(value_to_return0);
+
+
+                return;
+                break;
+            }
+        }
+    }
+
+    
+    //In case wrong type/count of parameters was passed
+    if(!already_called)
+    {
+        zend_error(
+            E_ERROR,
+            "Wrong type or count of parameters passed to: "
+            "wxDateTime::GetDateOnly\n"
+        );
+    }
+}
+/* }}} */
+
+/* {{{ proto timestamp wxDateTime::GetWeekDay(WeekDay weekday, int n, Month month, int year) */
+PHP_METHOD(php_wxDateTime, GetWeekDay)
+{
+    #ifdef USE_WXPHP_DEBUG
+    php_printf("Invoking wxDateTime::GetWeekDay\n");
+    php_printf("===========================================\n");
+    #endif
+
+    zo_wxDateTime* current_object;
+    wxphp_object_type current_object_type;
+    wxDateTime_php* native_object;
+    void* argument_native_object = NULL;
+
+    //Other variables used thru the code
+    zval dummy;
+    ZVAL_NULL(&dummy);
+    bool already_called = false;
+    wxPHPObjectReferences* references;
+    int arguments_received = ZEND_NUM_ARGS();
+    bool return_is_user_initialized = false;
+
+    //Get native object of the php object that called the method
+    if(getThis() != NULL)
+    {
+        current_object = Z_wxDateTime_P(getThis());
+
+        if(current_object->native_object == NULL)
+        {
+            zend_error(
+                E_ERROR,
+                "Failed to get the native object for "
+                "wxDateTime::GetWeekDay call\n"
+            );
+
+            return;
+        }
+        else
+        {
+            native_object = current_object->native_object;
+            current_object_type = current_object->object_type;
+
+            bool reference_type_found = false;
+
+            if(current_object_type == PHP_WXDATETIME_TYPE){
+                references = &((wxDateTime_php*)native_object)->references;
+                reference_type_found = true;
+            }
+        }
+    }
+    #ifdef USE_WXPHP_DEBUG
+    else
+    {
+        php_printf("Processing the method call as static\n");
+    }
+    #endif
+
+    //Parameters for overload 0
+    long weekday0;
+    long n0;
+    long month0;
+    long year0;
+    bool overload0_called = false;
+
+    
+    //Overload 0
+    overload0:
+    if(!already_called && arguments_received >= 1  && arguments_received <= 4)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Parameters received %d\n", arguments_received);
+        php_printf("Parsing parameters with 'l|lll' (&weekday0, &n0, &month0, &year0)\n");
+        #endif
+
+        char parse_parameters_string[] = "l|lll";
+        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &weekday0, &n0, &month0, &year0 ) == SUCCESS)
+        {
+            overload0_called = true;
+            already_called = true;
+        }
+    }
+
+    
+    if(overload0_called)
+    {
+        switch(arguments_received)
+        {
+            case 1:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing wxDateTime::GetWeekDay((wxDateTime::WeekDay) weekday0) to return timestamp\n\n");
+                #endif
+
+                time_t value_to_return1;
+                value_to_return1 = ((wxDateTime_php*)native_object)->GetWeekDay((wxDateTime::WeekDay) weekday0).GetTicks();
+                RETVAL_LONG(value_to_return1);
+
+
+                return;
+                break;
+            }
+            case 2:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing wxDateTime::GetWeekDay((wxDateTime::WeekDay) weekday0, (int) n0) to return timestamp\n\n");
+                #endif
+
+                time_t value_to_return2;
+                value_to_return2 = ((wxDateTime_php*)native_object)->GetWeekDay((wxDateTime::WeekDay) weekday0, (int) n0).GetTicks();
+                RETVAL_LONG(value_to_return2);
+
+
+                return;
+                break;
+            }
+            case 3:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing wxDateTime::GetWeekDay((wxDateTime::WeekDay) weekday0, (int) n0, (wxDateTime::Month) month0) to return timestamp\n\n");
+                #endif
+
+                time_t value_to_return3;
+                value_to_return3 = ((wxDateTime_php*)native_object)->GetWeekDay((wxDateTime::WeekDay) weekday0, (int) n0, (wxDateTime::Month) month0).GetTicks();
+                RETVAL_LONG(value_to_return3);
+
+
+                return;
+                break;
+            }
+            case 4:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing wxDateTime::GetWeekDay((wxDateTime::WeekDay) weekday0, (int) n0, (wxDateTime::Month) month0, (int) year0) to return timestamp\n\n");
+                #endif
+
+                time_t value_to_return4;
+                value_to_return4 = ((wxDateTime_php*)native_object)->GetWeekDay((wxDateTime::WeekDay) weekday0, (int) n0, (wxDateTime::Month) month0, (int) year0).GetTicks();
+                RETVAL_LONG(value_to_return4);
+
+
+                return;
+                break;
+            }
+        }
+    }
+
+    
+    //In case wrong type/count of parameters was passed
+    if(!already_called)
+    {
+        zend_error(
+            E_ERROR,
+            "Wrong type or count of parameters passed to: "
+            "wxDateTime::GetWeekDay\n"
+        );
+    }
+}
+/* }}} */
+
+/* {{{ proto bool wxDateTime::IsValid() */
+PHP_METHOD(php_wxDateTime, IsValid)
+{
+    #ifdef USE_WXPHP_DEBUG
+    php_printf("Invoking wxDateTime::IsValid\n");
+    php_printf("===========================================\n");
+    #endif
+
+    zo_wxDateTime* current_object;
+    wxphp_object_type current_object_type;
+    wxDateTime_php* native_object;
+    void* argument_native_object = NULL;
+
+    //Other variables used thru the code
+    zval dummy;
+    ZVAL_NULL(&dummy);
+    bool already_called = false;
+    wxPHPObjectReferences* references;
+    int arguments_received = ZEND_NUM_ARGS();
+    bool return_is_user_initialized = false;
+
+    //Get native object of the php object that called the method
+    if(getThis() != NULL)
+    {
+        current_object = Z_wxDateTime_P(getThis());
+
+        if(current_object->native_object == NULL)
+        {
+            zend_error(
+                E_ERROR,
+                "Failed to get the native object for "
+                "wxDateTime::IsValid call\n"
+            );
+
+            return;
+        }
+        else
+        {
+            native_object = current_object->native_object;
+            current_object_type = current_object->object_type;
+
+            bool reference_type_found = false;
+
+            if(current_object_type == PHP_WXDATETIME_TYPE){
+                references = &((wxDateTime_php*)native_object)->references;
+                reference_type_found = true;
+            }
+        }
+    }
+    #ifdef USE_WXPHP_DEBUG
+    else
+    {
+        php_printf("Processing the method call as static\n");
+    }
+    #endif
+
+    //Parameters for overload 0
+    bool overload0_called = false;
+
+    
+    //Overload 0
+    overload0:
+    if(!already_called && arguments_received == 0)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Parameters received %d\n", arguments_received);
+        php_printf("Parsing parameters with '' ()\n");
+        #endif
+
+        overload0_called = true;
+        already_called = true;
+    }
+
+    
+    if(overload0_called)
+    {
+        switch(arguments_received)
+        {
+            case 0:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing RETURN_BOOL(wxDateTime::IsValid())\n\n");
+                #endif
+
+                RETVAL_BOOL(((wxDateTime_php*)native_object)->IsValid());
+
+
+                return;
+                break;
+            }
+        }
+    }
+
+    
+    //In case wrong type/count of parameters was passed
+    if(!already_called)
+    {
+        zend_error(
+            E_ERROR,
+            "Wrong type or count of parameters passed to: "
+            "wxDateTime::IsValid\n"
+        );
+    }
+}
+/* }}} */
+
+/* {{{ proto bool wxDateTime::IsWorkDay(Country country) */
+PHP_METHOD(php_wxDateTime, IsWorkDay)
+{
+    #ifdef USE_WXPHP_DEBUG
+    php_printf("Invoking wxDateTime::IsWorkDay\n");
+    php_printf("===========================================\n");
+    #endif
+
+    zo_wxDateTime* current_object;
+    wxphp_object_type current_object_type;
+    wxDateTime_php* native_object;
+    void* argument_native_object = NULL;
+
+    //Other variables used thru the code
+    zval dummy;
+    ZVAL_NULL(&dummy);
+    bool already_called = false;
+    wxPHPObjectReferences* references;
+    int arguments_received = ZEND_NUM_ARGS();
+    bool return_is_user_initialized = false;
+
+    //Get native object of the php object that called the method
+    if(getThis() != NULL)
+    {
+        current_object = Z_wxDateTime_P(getThis());
+
+        if(current_object->native_object == NULL)
+        {
+            zend_error(
+                E_ERROR,
+                "Failed to get the native object for "
+                "wxDateTime::IsWorkDay call\n"
+            );
+
+            return;
+        }
+        else
+        {
+            native_object = current_object->native_object;
+            current_object_type = current_object->object_type;
+
+            bool reference_type_found = false;
+
+            if(current_object_type == PHP_WXDATETIME_TYPE){
+                references = &((wxDateTime_php*)native_object)->references;
+                reference_type_found = true;
+            }
+        }
+    }
+    #ifdef USE_WXPHP_DEBUG
+    else
+    {
+        php_printf("Processing the method call as static\n");
+    }
+    #endif
+
+    //Parameters for overload 0
+    long country0;
+    bool overload0_called = false;
+
+    
+    //Overload 0
+    overload0:
+    if(!already_called && arguments_received >= 0  && arguments_received <= 1)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Parameters received %d\n", arguments_received);
+        php_printf("Parsing parameters with '|l' (&country0)\n");
+        #endif
+
+        char parse_parameters_string[] = "|l";
+        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &country0 ) == SUCCESS)
+        {
+            overload0_called = true;
+            already_called = true;
+        }
+    }
+
+    
+    if(overload0_called)
+    {
+        switch(arguments_received)
+        {
+            case 0:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing RETURN_BOOL(wxDateTime::IsWorkDay())\n\n");
+                #endif
+
+                RETVAL_BOOL(((wxDateTime_php*)native_object)->IsWorkDay());
+
+
+                return;
+                break;
+            }
+            case 1:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing RETURN_BOOL(wxDateTime::IsWorkDay((wxDateTime::Country) country0))\n\n");
+                #endif
+
+                RETVAL_BOOL(((wxDateTime_php*)native_object)->IsWorkDay((wxDateTime::Country) country0));
+
+
+                return;
+                break;
+            }
+        }
+    }
+
+    
+    //In case wrong type/count of parameters was passed
+    if(!already_called)
+    {
+        zend_error(
+            E_ERROR,
+            "Wrong type or count of parameters passed to: "
+            "wxDateTime::IsWorkDay\n"
+        );
+    }
+}
+/* }}} */
+
+/* {{{ proto bool wxDateTime::IsEarlierThan(timestamp datetime) */
+PHP_METHOD(php_wxDateTime, IsEarlierThan)
+{
+    #ifdef USE_WXPHP_DEBUG
+    php_printf("Invoking wxDateTime::IsEarlierThan\n");
+    php_printf("===========================================\n");
+    #endif
+
+    zo_wxDateTime* current_object;
+    wxphp_object_type current_object_type;
+    wxDateTime_php* native_object;
+    void* argument_native_object = NULL;
+
+    //Other variables used thru the code
+    zval dummy;
+    ZVAL_NULL(&dummy);
+    bool already_called = false;
+    wxPHPObjectReferences* references;
+    int arguments_received = ZEND_NUM_ARGS();
+    bool return_is_user_initialized = false;
+
+    //Get native object of the php object that called the method
+    if(getThis() != NULL)
+    {
+        current_object = Z_wxDateTime_P(getThis());
+
+        if(current_object->native_object == NULL)
+        {
+            zend_error(
+                E_ERROR,
+                "Failed to get the native object for "
+                "wxDateTime::IsEarlierThan call\n"
+            );
+
+            return;
+        }
+        else
+        {
+            native_object = current_object->native_object;
+            current_object_type = current_object->object_type;
+
+            bool reference_type_found = false;
+
+            if(current_object_type == PHP_WXDATETIME_TYPE){
+                references = &((wxDateTime_php*)native_object)->references;
+                reference_type_found = true;
+            }
+        }
+    }
+    #ifdef USE_WXPHP_DEBUG
+    else
+    {
+        php_printf("Processing the method call as static\n");
+    }
+    #endif
+
+    //Parameters for overload 0
+    time_t datetime0;
+    bool overload0_called = false;
+
+    
+    //Overload 0
+    overload0:
+    if(!already_called && arguments_received == 1)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Parameters received %d\n", arguments_received);
+        php_printf("Parsing parameters with 'l' (&datetime0)\n");
+        #endif
+
+        char parse_parameters_string[] = "l";
+        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &datetime0 ) == SUCCESS)
+        {
+            overload0_called = true;
+            already_called = true;
+        }
+    }
+
+    
+    if(overload0_called)
+    {
+        switch(arguments_received)
+        {
+            case 1:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing RETURN_BOOL(wxDateTime::IsEarlierThan(wxDateTime(datetime0)))\n\n");
+                #endif
+
+                RETVAL_BOOL(((wxDateTime_php*)native_object)->IsEarlierThan(wxDateTime(datetime0)));
+
+
+                return;
+                break;
+            }
+        }
+    }
+
+    
+    //In case wrong type/count of parameters was passed
+    if(!already_called)
+    {
+        zend_error(
+            E_ERROR,
+            "Wrong type or count of parameters passed to: "
+            "wxDateTime::IsEarlierThan\n"
+        );
+    }
+}
+/* }}} */
+
+/* {{{ proto bool wxDateTime::IsEqualTo(timestamp datetime) */
+PHP_METHOD(php_wxDateTime, IsEqualTo)
+{
+    #ifdef USE_WXPHP_DEBUG
+    php_printf("Invoking wxDateTime::IsEqualTo\n");
+    php_printf("===========================================\n");
+    #endif
+
+    zo_wxDateTime* current_object;
+    wxphp_object_type current_object_type;
+    wxDateTime_php* native_object;
+    void* argument_native_object = NULL;
+
+    //Other variables used thru the code
+    zval dummy;
+    ZVAL_NULL(&dummy);
+    bool already_called = false;
+    wxPHPObjectReferences* references;
+    int arguments_received = ZEND_NUM_ARGS();
+    bool return_is_user_initialized = false;
+
+    //Get native object of the php object that called the method
+    if(getThis() != NULL)
+    {
+        current_object = Z_wxDateTime_P(getThis());
+
+        if(current_object->native_object == NULL)
+        {
+            zend_error(
+                E_ERROR,
+                "Failed to get the native object for "
+                "wxDateTime::IsEqualTo call\n"
+            );
+
+            return;
+        }
+        else
+        {
+            native_object = current_object->native_object;
+            current_object_type = current_object->object_type;
+
+            bool reference_type_found = false;
+
+            if(current_object_type == PHP_WXDATETIME_TYPE){
+                references = &((wxDateTime_php*)native_object)->references;
+                reference_type_found = true;
+            }
+        }
+    }
+    #ifdef USE_WXPHP_DEBUG
+    else
+    {
+        php_printf("Processing the method call as static\n");
+    }
+    #endif
+
+    //Parameters for overload 0
+    time_t datetime0;
+    bool overload0_called = false;
+
+    
+    //Overload 0
+    overload0:
+    if(!already_called && arguments_received == 1)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Parameters received %d\n", arguments_received);
+        php_printf("Parsing parameters with 'l' (&datetime0)\n");
+        #endif
+
+        char parse_parameters_string[] = "l";
+        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &datetime0 ) == SUCCESS)
+        {
+            overload0_called = true;
+            already_called = true;
+        }
+    }
+
+    
+    if(overload0_called)
+    {
+        switch(arguments_received)
+        {
+            case 1:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing RETURN_BOOL(wxDateTime::IsEqualTo(wxDateTime(datetime0)))\n\n");
+                #endif
+
+                RETVAL_BOOL(((wxDateTime_php*)native_object)->IsEqualTo(wxDateTime(datetime0)));
+
+
+                return;
+                break;
+            }
+        }
+    }
+
+    
+    //In case wrong type/count of parameters was passed
+    if(!already_called)
+    {
+        zend_error(
+            E_ERROR,
+            "Wrong type or count of parameters passed to: "
+            "wxDateTime::IsEqualTo\n"
+        );
+    }
+}
+/* }}} */
+
+/* {{{ proto bool wxDateTime::IsLaterThan(timestamp datetime) */
+PHP_METHOD(php_wxDateTime, IsLaterThan)
+{
+    #ifdef USE_WXPHP_DEBUG
+    php_printf("Invoking wxDateTime::IsLaterThan\n");
+    php_printf("===========================================\n");
+    #endif
+
+    zo_wxDateTime* current_object;
+    wxphp_object_type current_object_type;
+    wxDateTime_php* native_object;
+    void* argument_native_object = NULL;
+
+    //Other variables used thru the code
+    zval dummy;
+    ZVAL_NULL(&dummy);
+    bool already_called = false;
+    wxPHPObjectReferences* references;
+    int arguments_received = ZEND_NUM_ARGS();
+    bool return_is_user_initialized = false;
+
+    //Get native object of the php object that called the method
+    if(getThis() != NULL)
+    {
+        current_object = Z_wxDateTime_P(getThis());
+
+        if(current_object->native_object == NULL)
+        {
+            zend_error(
+                E_ERROR,
+                "Failed to get the native object for "
+                "wxDateTime::IsLaterThan call\n"
+            );
+
+            return;
+        }
+        else
+        {
+            native_object = current_object->native_object;
+            current_object_type = current_object->object_type;
+
+            bool reference_type_found = false;
+
+            if(current_object_type == PHP_WXDATETIME_TYPE){
+                references = &((wxDateTime_php*)native_object)->references;
+                reference_type_found = true;
+            }
+        }
+    }
+    #ifdef USE_WXPHP_DEBUG
+    else
+    {
+        php_printf("Processing the method call as static\n");
+    }
+    #endif
+
+    //Parameters for overload 0
+    time_t datetime0;
+    bool overload0_called = false;
+
+    
+    //Overload 0
+    overload0:
+    if(!already_called && arguments_received == 1)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Parameters received %d\n", arguments_received);
+        php_printf("Parsing parameters with 'l' (&datetime0)\n");
+        #endif
+
+        char parse_parameters_string[] = "l";
+        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &datetime0 ) == SUCCESS)
+        {
+            overload0_called = true;
+            already_called = true;
+        }
+    }
+
+    
+    if(overload0_called)
+    {
+        switch(arguments_received)
+        {
+            case 1:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing RETURN_BOOL(wxDateTime::IsLaterThan(wxDateTime(datetime0)))\n\n");
+                #endif
+
+                RETVAL_BOOL(((wxDateTime_php*)native_object)->IsLaterThan(wxDateTime(datetime0)));
+
+
+                return;
+                break;
+            }
+        }
+    }
+
+    
+    //In case wrong type/count of parameters was passed
+    if(!already_called)
+    {
+        zend_error(
+            E_ERROR,
+            "Wrong type or count of parameters passed to: "
+            "wxDateTime::IsLaterThan\n"
+        );
+    }
+}
+/* }}} */
+
+/* {{{ proto bool wxDateTime::IsSameDate(timestamp dt) */
+PHP_METHOD(php_wxDateTime, IsSameDate)
+{
+    #ifdef USE_WXPHP_DEBUG
+    php_printf("Invoking wxDateTime::IsSameDate\n");
+    php_printf("===========================================\n");
+    #endif
+
+    zo_wxDateTime* current_object;
+    wxphp_object_type current_object_type;
+    wxDateTime_php* native_object;
+    void* argument_native_object = NULL;
+
+    //Other variables used thru the code
+    zval dummy;
+    ZVAL_NULL(&dummy);
+    bool already_called = false;
+    wxPHPObjectReferences* references;
+    int arguments_received = ZEND_NUM_ARGS();
+    bool return_is_user_initialized = false;
+
+    //Get native object of the php object that called the method
+    if(getThis() != NULL)
+    {
+        current_object = Z_wxDateTime_P(getThis());
+
+        if(current_object->native_object == NULL)
+        {
+            zend_error(
+                E_ERROR,
+                "Failed to get the native object for "
+                "wxDateTime::IsSameDate call\n"
+            );
+
+            return;
+        }
+        else
+        {
+            native_object = current_object->native_object;
+            current_object_type = current_object->object_type;
+
+            bool reference_type_found = false;
+
+            if(current_object_type == PHP_WXDATETIME_TYPE){
+                references = &((wxDateTime_php*)native_object)->references;
+                reference_type_found = true;
+            }
+        }
+    }
+    #ifdef USE_WXPHP_DEBUG
+    else
+    {
+        php_printf("Processing the method call as static\n");
+    }
+    #endif
+
+    //Parameters for overload 0
+    time_t dt0;
+    bool overload0_called = false;
+
+    
+    //Overload 0
+    overload0:
+    if(!already_called && arguments_received == 1)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Parameters received %d\n", arguments_received);
+        php_printf("Parsing parameters with 'l' (&dt0)\n");
+        #endif
+
+        char parse_parameters_string[] = "l";
+        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &dt0 ) == SUCCESS)
+        {
+            overload0_called = true;
+            already_called = true;
+        }
+    }
+
+    
+    if(overload0_called)
+    {
+        switch(arguments_received)
+        {
+            case 1:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing RETURN_BOOL(wxDateTime::IsSameDate(wxDateTime(dt0)))\n\n");
+                #endif
+
+                RETVAL_BOOL(((wxDateTime_php*)native_object)->IsSameDate(wxDateTime(dt0)));
+
+
+                return;
+                break;
+            }
+        }
+    }
+
+    
+    //In case wrong type/count of parameters was passed
+    if(!already_called)
+    {
+        zend_error(
+            E_ERROR,
+            "Wrong type or count of parameters passed to: "
+            "wxDateTime::IsSameDate\n"
+        );
+    }
+}
+/* }}} */
+
+/* {{{ proto bool wxDateTime::IsSameTime(timestamp dt) */
+PHP_METHOD(php_wxDateTime, IsSameTime)
+{
+    #ifdef USE_WXPHP_DEBUG
+    php_printf("Invoking wxDateTime::IsSameTime\n");
+    php_printf("===========================================\n");
+    #endif
+
+    zo_wxDateTime* current_object;
+    wxphp_object_type current_object_type;
+    wxDateTime_php* native_object;
+    void* argument_native_object = NULL;
+
+    //Other variables used thru the code
+    zval dummy;
+    ZVAL_NULL(&dummy);
+    bool already_called = false;
+    wxPHPObjectReferences* references;
+    int arguments_received = ZEND_NUM_ARGS();
+    bool return_is_user_initialized = false;
+
+    //Get native object of the php object that called the method
+    if(getThis() != NULL)
+    {
+        current_object = Z_wxDateTime_P(getThis());
+
+        if(current_object->native_object == NULL)
+        {
+            zend_error(
+                E_ERROR,
+                "Failed to get the native object for "
+                "wxDateTime::IsSameTime call\n"
+            );
+
+            return;
+        }
+        else
+        {
+            native_object = current_object->native_object;
+            current_object_type = current_object->object_type;
+
+            bool reference_type_found = false;
+
+            if(current_object_type == PHP_WXDATETIME_TYPE){
+                references = &((wxDateTime_php*)native_object)->references;
+                reference_type_found = true;
+            }
+        }
+    }
+    #ifdef USE_WXPHP_DEBUG
+    else
+    {
+        php_printf("Processing the method call as static\n");
+    }
+    #endif
+
+    //Parameters for overload 0
+    time_t dt0;
+    bool overload0_called = false;
+
+    
+    //Overload 0
+    overload0:
+    if(!already_called && arguments_received == 1)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Parameters received %d\n", arguments_received);
+        php_printf("Parsing parameters with 'l' (&dt0)\n");
+        #endif
+
+        char parse_parameters_string[] = "l";
+        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &dt0 ) == SUCCESS)
+        {
+            overload0_called = true;
+            already_called = true;
+        }
+    }
+
+    
+    if(overload0_called)
+    {
+        switch(arguments_received)
+        {
+            case 1:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing RETURN_BOOL(wxDateTime::IsSameTime(wxDateTime(dt0)))\n\n");
+                #endif
+
+                RETVAL_BOOL(((wxDateTime_php*)native_object)->IsSameTime(wxDateTime(dt0)));
+
+
+                return;
+                break;
+            }
+        }
+    }
+
+    
+    //In case wrong type/count of parameters was passed
+    if(!already_called)
+    {
+        zend_error(
+            E_ERROR,
+            "Wrong type or count of parameters passed to: "
+            "wxDateTime::IsSameTime\n"
+        );
+    }
+}
+/* }}} */
+
+/* {{{ proto bool wxDateTime::IsStrictlyBetween(timestamp t1, timestamp t2) */
+PHP_METHOD(php_wxDateTime, IsStrictlyBetween)
+{
+    #ifdef USE_WXPHP_DEBUG
+    php_printf("Invoking wxDateTime::IsStrictlyBetween\n");
+    php_printf("===========================================\n");
+    #endif
+
+    zo_wxDateTime* current_object;
+    wxphp_object_type current_object_type;
+    wxDateTime_php* native_object;
+    void* argument_native_object = NULL;
+
+    //Other variables used thru the code
+    zval dummy;
+    ZVAL_NULL(&dummy);
+    bool already_called = false;
+    wxPHPObjectReferences* references;
+    int arguments_received = ZEND_NUM_ARGS();
+    bool return_is_user_initialized = false;
+
+    //Get native object of the php object that called the method
+    if(getThis() != NULL)
+    {
+        current_object = Z_wxDateTime_P(getThis());
+
+        if(current_object->native_object == NULL)
+        {
+            zend_error(
+                E_ERROR,
+                "Failed to get the native object for "
+                "wxDateTime::IsStrictlyBetween call\n"
+            );
+
+            return;
+        }
+        else
+        {
+            native_object = current_object->native_object;
+            current_object_type = current_object->object_type;
+
+            bool reference_type_found = false;
+
+            if(current_object_type == PHP_WXDATETIME_TYPE){
+                references = &((wxDateTime_php*)native_object)->references;
+                reference_type_found = true;
+            }
+        }
+    }
+    #ifdef USE_WXPHP_DEBUG
+    else
+    {
+        php_printf("Processing the method call as static\n");
+    }
+    #endif
+
+    //Parameters for overload 0
+    time_t t10;
+    time_t t20;
+    bool overload0_called = false;
+
+    
+    //Overload 0
+    overload0:
+    if(!already_called && arguments_received == 2)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Parameters received %d\n", arguments_received);
+        php_printf("Parsing parameters with 'll' (&t10, &t20)\n");
+        #endif
+
+        char parse_parameters_string[] = "ll";
+        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &t10, &t20 ) == SUCCESS)
+        {
+            overload0_called = true;
+            already_called = true;
+        }
+    }
+
+    
+    if(overload0_called)
+    {
+        switch(arguments_received)
+        {
+            case 2:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing RETURN_BOOL(wxDateTime::IsStrictlyBetween(wxDateTime(t10), wxDateTime(t20)))\n\n");
+                #endif
+
+                RETVAL_BOOL(((wxDateTime_php*)native_object)->IsStrictlyBetween(wxDateTime(t10), wxDateTime(t20)));
+
+
+                return;
+                break;
+            }
+        }
+    }
+
+    
+    //In case wrong type/count of parameters was passed
+    if(!already_called)
+    {
+        zend_error(
+            E_ERROR,
+            "Wrong type or count of parameters passed to: "
+            "wxDateTime::IsStrictlyBetween\n"
+        );
+    }
+}
+/* }}} */
+
+/* {{{ proto bool wxDateTime::IsBetween(timestamp t1, timestamp t2) */
+PHP_METHOD(php_wxDateTime, IsBetween)
+{
+    #ifdef USE_WXPHP_DEBUG
+    php_printf("Invoking wxDateTime::IsBetween\n");
+    php_printf("===========================================\n");
+    #endif
+
+    zo_wxDateTime* current_object;
+    wxphp_object_type current_object_type;
+    wxDateTime_php* native_object;
+    void* argument_native_object = NULL;
+
+    //Other variables used thru the code
+    zval dummy;
+    ZVAL_NULL(&dummy);
+    bool already_called = false;
+    wxPHPObjectReferences* references;
+    int arguments_received = ZEND_NUM_ARGS();
+    bool return_is_user_initialized = false;
+
+    //Get native object of the php object that called the method
+    if(getThis() != NULL)
+    {
+        current_object = Z_wxDateTime_P(getThis());
+
+        if(current_object->native_object == NULL)
+        {
+            zend_error(
+                E_ERROR,
+                "Failed to get the native object for "
+                "wxDateTime::IsBetween call\n"
+            );
+
+            return;
+        }
+        else
+        {
+            native_object = current_object->native_object;
+            current_object_type = current_object->object_type;
+
+            bool reference_type_found = false;
+
+            if(current_object_type == PHP_WXDATETIME_TYPE){
+                references = &((wxDateTime_php*)native_object)->references;
+                reference_type_found = true;
+            }
+        }
+    }
+    #ifdef USE_WXPHP_DEBUG
+    else
+    {
+        php_printf("Processing the method call as static\n");
+    }
+    #endif
+
+    //Parameters for overload 0
+    time_t t10;
+    time_t t20;
+    bool overload0_called = false;
+
+    
+    //Overload 0
+    overload0:
+    if(!already_called && arguments_received == 2)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Parameters received %d\n", arguments_received);
+        php_printf("Parsing parameters with 'll' (&t10, &t20)\n");
+        #endif
+
+        char parse_parameters_string[] = "ll";
+        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &t10, &t20 ) == SUCCESS)
+        {
+            overload0_called = true;
+            already_called = true;
+        }
+    }
+
+    
+    if(overload0_called)
+    {
+        switch(arguments_received)
+        {
+            case 2:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing RETURN_BOOL(wxDateTime::IsBetween(wxDateTime(t10), wxDateTime(t20)))\n\n");
+                #endif
+
+                RETVAL_BOOL(((wxDateTime_php*)native_object)->IsBetween(wxDateTime(t10), wxDateTime(t20)));
+
+
+                return;
+                break;
+            }
+        }
+    }
+
+    
+    //In case wrong type/count of parameters was passed
+    if(!already_called)
+    {
+        zend_error(
+            E_ERROR,
+            "Wrong type or count of parameters passed to: "
+            "wxDateTime::IsBetween\n"
+        );
+    }
+}
+/* }}} */
+
+/* {{{ proto timestamp wxDateTime::Add(wxDateSpan diff) */
+PHP_METHOD(php_wxDateTime, Add)
+{
+    #ifdef USE_WXPHP_DEBUG
+    php_printf("Invoking wxDateTime::Add\n");
+    php_printf("===========================================\n");
+    #endif
+
+    zo_wxDateTime* current_object;
+    wxphp_object_type current_object_type;
+    wxDateTime_php* native_object;
+    void* argument_native_object = NULL;
+
+    //Other variables used thru the code
+    zval dummy;
+    ZVAL_NULL(&dummy);
+    bool already_called = false;
+    wxPHPObjectReferences* references;
+    int arguments_received = ZEND_NUM_ARGS();
+    bool return_is_user_initialized = false;
+
+    //Get native object of the php object that called the method
+    if(getThis() != NULL)
+    {
+        current_object = Z_wxDateTime_P(getThis());
+
+        if(current_object->native_object == NULL)
+        {
+            zend_error(
+                E_ERROR,
+                "Failed to get the native object for "
+                "wxDateTime::Add call\n"
+            );
+
+            return;
+        }
+        else
+        {
+            native_object = current_object->native_object;
+            current_object_type = current_object->object_type;
+
+            bool reference_type_found = false;
+
+            if(current_object_type == PHP_WXDATETIME_TYPE){
+                references = &((wxDateTime_php*)native_object)->references;
+                reference_type_found = true;
+            }
+        }
+    }
+    #ifdef USE_WXPHP_DEBUG
+    else
+    {
+        php_printf("Processing the method call as static\n");
+    }
+    #endif
+
+    //Parameters for overload 0
+    zval* diff0;
+    wxDateSpan* object_pointer0_0 = 0;
+    bool overload0_called = false;
+
+    //Parameters for overload 1
+    zval* diff1;
+    wxDateSpan* object_pointer1_0 = 0;
+    bool overload1_called = false;
+
+    
+    //Overload 0
+    overload0:
+    if(!already_called && arguments_received == 1)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Parameters received %d\n", arguments_received);
+        php_printf("Parsing parameters with 'O' (&diff0, php_wxDateSpan_entry)\n");
+        #endif
+
+        char parse_parameters_string[] = "O";
+        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &diff0, php_wxDateSpan_entry ) == SUCCESS)
+        {
+            if(arguments_received >= 1){
+                if(Z_TYPE_P(diff0) == IS_OBJECT)
+                {
+                    wxphp_object_type argument_type = Z_wxDateSpan_P(diff0)->object_type;
+                    argument_native_object = (void*) Z_wxDateSpan_P(diff0)->native_object;
+                    object_pointer0_0 = (wxDateSpan*) argument_native_object;
+                    if (!object_pointer0_0 )
+                    {
+                        goto overload1;
+                    }
+                }
+                else if(Z_TYPE_P(diff0) != IS_NULL)
+                {
+                    goto overload1;
+                }
+            }
+
+            overload0_called = true;
+            already_called = true;
+        }
+    }
+
+    //Overload 1
+    overload1:
+    if(!already_called && arguments_received == 1)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Parameters received %d\n", arguments_received);
+        php_printf("Parsing parameters with 'O' (&diff1, php_wxDateSpan_entry)\n");
+        #endif
+
+        char parse_parameters_string[] = "O";
+        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &diff1, php_wxDateSpan_entry ) == SUCCESS)
+        {
+            if(arguments_received >= 1){
+                if(Z_TYPE_P(diff1) == IS_OBJECT)
+                {
+                    wxphp_object_type argument_type = Z_wxDateSpan_P(diff1)->object_type;
+                    argument_native_object = (void*) Z_wxDateSpan_P(diff1)->native_object;
+                    object_pointer1_0 = (wxDateSpan*) argument_native_object;
+                    if (!object_pointer1_0 )
+                    {
+                        zend_error(E_ERROR, "Parameter 'diff' could not be retreived correctly.");
+                    }
+                }
+                else if(Z_TYPE_P(diff1) != IS_NULL)
+                {
+                    zend_error(E_ERROR, "Parameter 'diff' not null, could not be retreived correctly.");
+                }
+            }
+
+            overload1_called = true;
+            already_called = true;
+        }
+    }
+
+    
+    if(overload0_called)
+    {
+        switch(arguments_received)
+        {
+            case 1:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing wxDateTime::Add(*(wxDateSpan*) object_pointer0_0) to return timestamp\n\n");
+                #endif
+
+                time_t value_to_return1;
+                value_to_return1 = ((wxDateTime_php*)native_object)->Add(*(wxDateSpan*) object_pointer0_0).GetTicks();
+                RETVAL_LONG(value_to_return1);
+
+                references->AddReference(diff0, "wxDateTime::Add at call 3 with 1 argument(s)");
+
+                return;
+                break;
+            }
+        }
+    }
+
+    if(overload1_called)
+    {
+        switch(arguments_received)
+        {
+            case 1:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing wxDateTime::Add(*(wxDateSpan*) object_pointer1_0) to return timestamp\n\n");
+                #endif
+
+                time_t value_to_return1;
+                value_to_return1 = ((wxDateTime_php*)native_object)->Add(*(wxDateSpan*) object_pointer1_0).GetTicks();
+                RETVAL_LONG(value_to_return1);
+
+                references->AddReference(diff1, "wxDateTime::Add at call 3 with 1 argument(s)");
+
+                return;
+                break;
+            }
+        }
+    }
+
+    
+    //In case wrong type/count of parameters was passed
+    if(!already_called)
+    {
+        zend_error(
+            E_ERROR,
+            "Wrong type or count of parameters passed to: "
+            "wxDateTime::Add\n"
+        );
+    }
+}
+/* }}} */
+
+/* {{{ proto timestamp wxDateTime::Subtract(wxDateSpan diff) */
+PHP_METHOD(php_wxDateTime, Subtract)
+{
+    #ifdef USE_WXPHP_DEBUG
+    php_printf("Invoking wxDateTime::Subtract\n");
+    php_printf("===========================================\n");
+    #endif
+
+    zo_wxDateTime* current_object;
+    wxphp_object_type current_object_type;
+    wxDateTime_php* native_object;
+    void* argument_native_object = NULL;
+
+    //Other variables used thru the code
+    zval dummy;
+    ZVAL_NULL(&dummy);
+    bool already_called = false;
+    wxPHPObjectReferences* references;
+    int arguments_received = ZEND_NUM_ARGS();
+    bool return_is_user_initialized = false;
+
+    //Get native object of the php object that called the method
+    if(getThis() != NULL)
+    {
+        current_object = Z_wxDateTime_P(getThis());
+
+        if(current_object->native_object == NULL)
+        {
+            zend_error(
+                E_ERROR,
+                "Failed to get the native object for "
+                "wxDateTime::Subtract call\n"
+            );
+
+            return;
+        }
+        else
+        {
+            native_object = current_object->native_object;
+            current_object_type = current_object->object_type;
+
+            bool reference_type_found = false;
+
+            if(current_object_type == PHP_WXDATETIME_TYPE){
+                references = &((wxDateTime_php*)native_object)->references;
+                reference_type_found = true;
+            }
+        }
+    }
+    #ifdef USE_WXPHP_DEBUG
+    else
+    {
+        php_printf("Processing the method call as static\n");
+    }
+    #endif
+
+    //Parameters for overload 0
+    zval* diff0;
+    wxDateSpan* object_pointer0_0 = 0;
+    bool overload0_called = false;
+
+    //Parameters for overload 1
+    zval* diff1;
+    wxDateSpan* object_pointer1_0 = 0;
+    bool overload1_called = false;
+
+    
+    //Overload 0
+    overload0:
+    if(!already_called && arguments_received == 1)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Parameters received %d\n", arguments_received);
+        php_printf("Parsing parameters with 'O' (&diff0, php_wxDateSpan_entry)\n");
+        #endif
+
+        char parse_parameters_string[] = "O";
+        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &diff0, php_wxDateSpan_entry ) == SUCCESS)
+        {
+            if(arguments_received >= 1){
+                if(Z_TYPE_P(diff0) == IS_OBJECT)
+                {
+                    wxphp_object_type argument_type = Z_wxDateSpan_P(diff0)->object_type;
+                    argument_native_object = (void*) Z_wxDateSpan_P(diff0)->native_object;
+                    object_pointer0_0 = (wxDateSpan*) argument_native_object;
+                    if (!object_pointer0_0 )
+                    {
+                        goto overload1;
+                    }
+                }
+                else if(Z_TYPE_P(diff0) != IS_NULL)
+                {
+                    goto overload1;
+                }
+            }
+
+            overload0_called = true;
+            already_called = true;
+        }
+    }
+
+    //Overload 1
+    overload1:
+    if(!already_called && arguments_received == 1)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Parameters received %d\n", arguments_received);
+        php_printf("Parsing parameters with 'O' (&diff1, php_wxDateSpan_entry)\n");
+        #endif
+
+        char parse_parameters_string[] = "O";
+        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &diff1, php_wxDateSpan_entry ) == SUCCESS)
+        {
+            if(arguments_received >= 1){
+                if(Z_TYPE_P(diff1) == IS_OBJECT)
+                {
+                    wxphp_object_type argument_type = Z_wxDateSpan_P(diff1)->object_type;
+                    argument_native_object = (void*) Z_wxDateSpan_P(diff1)->native_object;
+                    object_pointer1_0 = (wxDateSpan*) argument_native_object;
+                    if (!object_pointer1_0 )
+                    {
+                        zend_error(E_ERROR, "Parameter 'diff' could not be retreived correctly.");
+                    }
+                }
+                else if(Z_TYPE_P(diff1) != IS_NULL)
+                {
+                    zend_error(E_ERROR, "Parameter 'diff' not null, could not be retreived correctly.");
+                }
+            }
+
+            overload1_called = true;
+            already_called = true;
+        }
+    }
+
+    
+    if(overload0_called)
+    {
+        switch(arguments_received)
+        {
+            case 1:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing wxDateTime::Subtract(*(wxDateSpan*) object_pointer0_0) to return timestamp\n\n");
+                #endif
+
+                time_t value_to_return1;
+                value_to_return1 = ((wxDateTime_php*)native_object)->Subtract(*(wxDateSpan*) object_pointer0_0).GetTicks();
+                RETVAL_LONG(value_to_return1);
+
+                references->AddReference(diff0, "wxDateTime::Subtract at call 3 with 1 argument(s)");
+
+                return;
+                break;
+            }
+        }
+    }
+
+    if(overload1_called)
+    {
+        switch(arguments_received)
+        {
+            case 1:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing wxDateTime::Subtract(*(wxDateSpan*) object_pointer1_0) to return timestamp\n\n");
+                #endif
+
+                time_t value_to_return1;
+                value_to_return1 = ((wxDateTime_php*)native_object)->Subtract(*(wxDateSpan*) object_pointer1_0).GetTicks();
+                RETVAL_LONG(value_to_return1);
+
+                references->AddReference(diff1, "wxDateTime::Subtract at call 3 with 1 argument(s)");
+
+                return;
+                break;
+            }
+        }
+    }
+
+    
+    //In case wrong type/count of parameters was passed
+    if(!already_called)
+    {
+        zend_error(
+            E_ERROR,
+            "Wrong type or count of parameters passed to: "
+            "wxDateTime::Subtract\n"
+        );
+    }
+}
+/* }}} */
+
+/* {{{ proto wxDateSpan wxDateTime::DiffAsDateSpan(timestamp dt) */
+PHP_METHOD(php_wxDateTime, DiffAsDateSpan)
+{
+    #ifdef USE_WXPHP_DEBUG
+    php_printf("Invoking wxDateTime::DiffAsDateSpan\n");
+    php_printf("===========================================\n");
+    #endif
+
+    zo_wxDateTime* current_object;
+    wxphp_object_type current_object_type;
+    wxDateTime_php* native_object;
+    void* argument_native_object = NULL;
+
+    //Other variables used thru the code
+    zval dummy;
+    ZVAL_NULL(&dummy);
+    bool already_called = false;
+    wxPHPObjectReferences* references;
+    int arguments_received = ZEND_NUM_ARGS();
+    bool return_is_user_initialized = false;
+
+    //Get native object of the php object that called the method
+    if(getThis() != NULL)
+    {
+        current_object = Z_wxDateTime_P(getThis());
+
+        if(current_object->native_object == NULL)
+        {
+            zend_error(
+                E_ERROR,
+                "Failed to get the native object for "
+                "wxDateTime::DiffAsDateSpan call\n"
+            );
+
+            return;
+        }
+        else
+        {
+            native_object = current_object->native_object;
+            current_object_type = current_object->object_type;
+
+            bool reference_type_found = false;
+
+            if(current_object_type == PHP_WXDATETIME_TYPE){
+                references = &((wxDateTime_php*)native_object)->references;
+                reference_type_found = true;
+            }
+        }
+    }
+    #ifdef USE_WXPHP_DEBUG
+    else
+    {
+        php_printf("Processing the method call as static\n");
+    }
+    #endif
+
+    //Parameters for overload 0
+    time_t dt0;
+    bool overload0_called = false;
+
+    
+    //Overload 0
+    overload0:
+    if(!already_called && arguments_received == 1)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Parameters received %d\n", arguments_received);
+        php_printf("Parsing parameters with 'l' (&dt0)\n");
+        #endif
+
+        char parse_parameters_string[] = "l";
+        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &dt0 ) == SUCCESS)
+        {
+            overload0_called = true;
+            already_called = true;
+        }
+    }
+
+    
+    if(overload0_called)
+    {
+        switch(arguments_received)
+        {
+            case 1:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing wxDateTime::DiffAsDateSpan(wxDateTime(dt0)) to return new object\n\n");
+                #endif
+
+                wxDateSpan value_to_return1;
+                value_to_return1 = ((wxDateTime_php*)native_object)->DiffAsDateSpan(wxDateTime(dt0));
+                void* ptr = safe_emalloc(1, sizeof(wxDateSpan_php), 0);
+                memcpy(ptr, (void*) &value_to_return1, sizeof(wxDateSpan));
+                object_init_ex(return_value, php_wxDateSpan_entry);
+                ((wxDateSpan_php*)ptr)->phpObj = *return_value;
+                zo_wxDateSpan* zo1 = Z_wxDateSpan_P(return_value);
+                zo1->native_object = (wxDateSpan_php*) ptr;
+
+
+                return;
+                break;
+            }
+        }
+    }
+
+    
+    //In case wrong type/count of parameters was passed
+    if(!already_called)
+    {
+        zend_error(
+            E_ERROR,
+            "Wrong type or count of parameters passed to: "
+            "wxDateTime::DiffAsDateSpan\n"
+        );
+    }
+}
+/* }}} */
+
+/* {{{ proto string wxDateTime::FormatDate() */
+PHP_METHOD(php_wxDateTime, FormatDate)
+{
+    #ifdef USE_WXPHP_DEBUG
+    php_printf("Invoking wxDateTime::FormatDate\n");
+    php_printf("===========================================\n");
+    #endif
+
+    zo_wxDateTime* current_object;
+    wxphp_object_type current_object_type;
+    wxDateTime_php* native_object;
+    void* argument_native_object = NULL;
+
+    //Other variables used thru the code
+    zval dummy;
+    ZVAL_NULL(&dummy);
+    bool already_called = false;
+    wxPHPObjectReferences* references;
+    int arguments_received = ZEND_NUM_ARGS();
+    bool return_is_user_initialized = false;
+
+    //Get native object of the php object that called the method
+    if(getThis() != NULL)
+    {
+        current_object = Z_wxDateTime_P(getThis());
+
+        if(current_object->native_object == NULL)
+        {
+            zend_error(
+                E_ERROR,
+                "Failed to get the native object for "
+                "wxDateTime::FormatDate call\n"
+            );
+
+            return;
+        }
+        else
+        {
+            native_object = current_object->native_object;
+            current_object_type = current_object->object_type;
+
+            bool reference_type_found = false;
+
+            if(current_object_type == PHP_WXDATETIME_TYPE){
+                references = &((wxDateTime_php*)native_object)->references;
+                reference_type_found = true;
+            }
+        }
+    }
+    #ifdef USE_WXPHP_DEBUG
+    else
+    {
+        php_printf("Processing the method call as static\n");
+    }
+    #endif
+
+    //Parameters for overload 0
+    bool overload0_called = false;
+
+    
+    //Overload 0
+    overload0:
+    if(!already_called && arguments_received == 0)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Parameters received %d\n", arguments_received);
+        php_printf("Parsing parameters with '' ()\n");
+        #endif
+
+        overload0_called = true;
+        already_called = true;
+    }
+
+    
+    if(overload0_called)
+    {
+        switch(arguments_received)
+        {
+            case 0:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing RETURN_STRING(wxDateTime::FormatDate().fn_str(), 1)\n\n");
+                #endif
+
+                wxString value_to_return0;
+                value_to_return0 = ((wxDateTime_php*)native_object)->FormatDate();
+                RETVAL_STRING(value_to_return0.ToUTF8().data());
+
+
+                return;
+                break;
+            }
+        }
+    }
+
+    
+    //In case wrong type/count of parameters was passed
+    if(!already_called)
+    {
+        zend_error(
+            E_ERROR,
+            "Wrong type or count of parameters passed to: "
+            "wxDateTime::FormatDate\n"
+        );
+    }
+}
+/* }}} */
+
+/* {{{ proto string wxDateTime::FormatISOCombined(string sep) */
+PHP_METHOD(php_wxDateTime, FormatISOCombined)
+{
+    #ifdef USE_WXPHP_DEBUG
+    php_printf("Invoking wxDateTime::FormatISOCombined\n");
+    php_printf("===========================================\n");
+    #endif
+
+    zo_wxDateTime* current_object;
+    wxphp_object_type current_object_type;
+    wxDateTime_php* native_object;
+    void* argument_native_object = NULL;
+
+    //Other variables used thru the code
+    zval dummy;
+    ZVAL_NULL(&dummy);
+    bool already_called = false;
+    wxPHPObjectReferences* references;
+    int arguments_received = ZEND_NUM_ARGS();
+    bool return_is_user_initialized = false;
+
+    //Get native object of the php object that called the method
+    if(getThis() != NULL)
+    {
+        current_object = Z_wxDateTime_P(getThis());
+
+        if(current_object->native_object == NULL)
+        {
+            zend_error(
+                E_ERROR,
+                "Failed to get the native object for "
+                "wxDateTime::FormatISOCombined call\n"
+            );
+
+            return;
+        }
+        else
+        {
+            native_object = current_object->native_object;
+            current_object_type = current_object->object_type;
+
+            bool reference_type_found = false;
+
+            if(current_object_type == PHP_WXDATETIME_TYPE){
+                references = &((wxDateTime_php*)native_object)->references;
+                reference_type_found = true;
+            }
+        }
+    }
+    #ifdef USE_WXPHP_DEBUG
+    else
+    {
+        php_printf("Processing the method call as static\n");
+    }
+    #endif
+
+    //Parameters for overload 0
+    long sep0;
+    bool overload0_called = false;
+
+    
+    //Overload 0
+    overload0:
+    if(!already_called && arguments_received >= 0  && arguments_received <= 1)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Parameters received %d\n", arguments_received);
+        php_printf("Parsing parameters with '|l' (&sep0)\n");
+        #endif
+
+        char parse_parameters_string[] = "|l";
+        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &sep0 ) == SUCCESS)
+        {
+            overload0_called = true;
+            already_called = true;
+        }
+    }
+
+    
+    if(overload0_called)
+    {
+        switch(arguments_received)
+        {
+            case 0:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing RETURN_STRING(wxDateTime::FormatISOCombined().fn_str(), 1)\n\n");
+                #endif
+
+                wxString value_to_return0;
+                value_to_return0 = ((wxDateTime_php*)native_object)->FormatISOCombined();
+                RETVAL_STRING(value_to_return0.ToUTF8().data());
+
+
+                return;
+                break;
+            }
+            case 1:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing RETURN_STRING(wxDateTime::FormatISOCombined((char) sep0).fn_str(), 1)\n\n");
+                #endif
+
+                wxString value_to_return1;
+                value_to_return1 = ((wxDateTime_php*)native_object)->FormatISOCombined((char) sep0);
+                RETVAL_STRING(value_to_return1.ToUTF8().data());
+
+
+                return;
+                break;
+            }
+        }
+    }
+
+    
+    //In case wrong type/count of parameters was passed
+    if(!already_called)
+    {
+        zend_error(
+            E_ERROR,
+            "Wrong type or count of parameters passed to: "
+            "wxDateTime::FormatISOCombined\n"
+        );
+    }
+}
+/* }}} */
+
+/* {{{ proto string wxDateTime::FormatISODate() */
+PHP_METHOD(php_wxDateTime, FormatISODate)
+{
+    #ifdef USE_WXPHP_DEBUG
+    php_printf("Invoking wxDateTime::FormatISODate\n");
+    php_printf("===========================================\n");
+    #endif
+
+    zo_wxDateTime* current_object;
+    wxphp_object_type current_object_type;
+    wxDateTime_php* native_object;
+    void* argument_native_object = NULL;
+
+    //Other variables used thru the code
+    zval dummy;
+    ZVAL_NULL(&dummy);
+    bool already_called = false;
+    wxPHPObjectReferences* references;
+    int arguments_received = ZEND_NUM_ARGS();
+    bool return_is_user_initialized = false;
+
+    //Get native object of the php object that called the method
+    if(getThis() != NULL)
+    {
+        current_object = Z_wxDateTime_P(getThis());
+
+        if(current_object->native_object == NULL)
+        {
+            zend_error(
+                E_ERROR,
+                "Failed to get the native object for "
+                "wxDateTime::FormatISODate call\n"
+            );
+
+            return;
+        }
+        else
+        {
+            native_object = current_object->native_object;
+            current_object_type = current_object->object_type;
+
+            bool reference_type_found = false;
+
+            if(current_object_type == PHP_WXDATETIME_TYPE){
+                references = &((wxDateTime_php*)native_object)->references;
+                reference_type_found = true;
+            }
+        }
+    }
+    #ifdef USE_WXPHP_DEBUG
+    else
+    {
+        php_printf("Processing the method call as static\n");
+    }
+    #endif
+
+    //Parameters for overload 0
+    bool overload0_called = false;
+
+    
+    //Overload 0
+    overload0:
+    if(!already_called && arguments_received == 0)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Parameters received %d\n", arguments_received);
+        php_printf("Parsing parameters with '' ()\n");
+        #endif
+
+        overload0_called = true;
+        already_called = true;
+    }
+
+    
+    if(overload0_called)
+    {
+        switch(arguments_received)
+        {
+            case 0:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing RETURN_STRING(wxDateTime::FormatISODate().fn_str(), 1)\n\n");
+                #endif
+
+                wxString value_to_return0;
+                value_to_return0 = ((wxDateTime_php*)native_object)->FormatISODate();
+                RETVAL_STRING(value_to_return0.ToUTF8().data());
+
+
+                return;
+                break;
+            }
+        }
+    }
+
+    
+    //In case wrong type/count of parameters was passed
+    if(!already_called)
+    {
+        zend_error(
+            E_ERROR,
+            "Wrong type or count of parameters passed to: "
+            "wxDateTime::FormatISODate\n"
+        );
+    }
+}
+/* }}} */
+
+/* {{{ proto string wxDateTime::FormatISOTime() */
+PHP_METHOD(php_wxDateTime, FormatISOTime)
+{
+    #ifdef USE_WXPHP_DEBUG
+    php_printf("Invoking wxDateTime::FormatISOTime\n");
+    php_printf("===========================================\n");
+    #endif
+
+    zo_wxDateTime* current_object;
+    wxphp_object_type current_object_type;
+    wxDateTime_php* native_object;
+    void* argument_native_object = NULL;
+
+    //Other variables used thru the code
+    zval dummy;
+    ZVAL_NULL(&dummy);
+    bool already_called = false;
+    wxPHPObjectReferences* references;
+    int arguments_received = ZEND_NUM_ARGS();
+    bool return_is_user_initialized = false;
+
+    //Get native object of the php object that called the method
+    if(getThis() != NULL)
+    {
+        current_object = Z_wxDateTime_P(getThis());
+
+        if(current_object->native_object == NULL)
+        {
+            zend_error(
+                E_ERROR,
+                "Failed to get the native object for "
+                "wxDateTime::FormatISOTime call\n"
+            );
+
+            return;
+        }
+        else
+        {
+            native_object = current_object->native_object;
+            current_object_type = current_object->object_type;
+
+            bool reference_type_found = false;
+
+            if(current_object_type == PHP_WXDATETIME_TYPE){
+                references = &((wxDateTime_php*)native_object)->references;
+                reference_type_found = true;
+            }
+        }
+    }
+    #ifdef USE_WXPHP_DEBUG
+    else
+    {
+        php_printf("Processing the method call as static\n");
+    }
+    #endif
+
+    //Parameters for overload 0
+    bool overload0_called = false;
+
+    
+    //Overload 0
+    overload0:
+    if(!already_called && arguments_received == 0)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Parameters received %d\n", arguments_received);
+        php_printf("Parsing parameters with '' ()\n");
+        #endif
+
+        overload0_called = true;
+        already_called = true;
+    }
+
+    
+    if(overload0_called)
+    {
+        switch(arguments_received)
+        {
+            case 0:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing RETURN_STRING(wxDateTime::FormatISOTime().fn_str(), 1)\n\n");
+                #endif
+
+                wxString value_to_return0;
+                value_to_return0 = ((wxDateTime_php*)native_object)->FormatISOTime();
+                RETVAL_STRING(value_to_return0.ToUTF8().data());
+
+
+                return;
+                break;
+            }
+        }
+    }
+
+    
+    //In case wrong type/count of parameters was passed
+    if(!already_called)
+    {
+        zend_error(
+            E_ERROR,
+            "Wrong type or count of parameters passed to: "
+            "wxDateTime::FormatISOTime\n"
+        );
+    }
+}
+/* }}} */
+
+/* {{{ proto string wxDateTime::FormatTime() */
+PHP_METHOD(php_wxDateTime, FormatTime)
+{
+    #ifdef USE_WXPHP_DEBUG
+    php_printf("Invoking wxDateTime::FormatTime\n");
+    php_printf("===========================================\n");
+    #endif
+
+    zo_wxDateTime* current_object;
+    wxphp_object_type current_object_type;
+    wxDateTime_php* native_object;
+    void* argument_native_object = NULL;
+
+    //Other variables used thru the code
+    zval dummy;
+    ZVAL_NULL(&dummy);
+    bool already_called = false;
+    wxPHPObjectReferences* references;
+    int arguments_received = ZEND_NUM_ARGS();
+    bool return_is_user_initialized = false;
+
+    //Get native object of the php object that called the method
+    if(getThis() != NULL)
+    {
+        current_object = Z_wxDateTime_P(getThis());
+
+        if(current_object->native_object == NULL)
+        {
+            zend_error(
+                E_ERROR,
+                "Failed to get the native object for "
+                "wxDateTime::FormatTime call\n"
+            );
+
+            return;
+        }
+        else
+        {
+            native_object = current_object->native_object;
+            current_object_type = current_object->object_type;
+
+            bool reference_type_found = false;
+
+            if(current_object_type == PHP_WXDATETIME_TYPE){
+                references = &((wxDateTime_php*)native_object)->references;
+                reference_type_found = true;
+            }
+        }
+    }
+    #ifdef USE_WXPHP_DEBUG
+    else
+    {
+        php_printf("Processing the method call as static\n");
+    }
+    #endif
+
+    //Parameters for overload 0
+    bool overload0_called = false;
+
+    
+    //Overload 0
+    overload0:
+    if(!already_called && arguments_received == 0)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Parameters received %d\n", arguments_received);
+        php_printf("Parsing parameters with '' ()\n");
+        #endif
+
+        overload0_called = true;
+        already_called = true;
+    }
+
+    
+    if(overload0_called)
+    {
+        switch(arguments_received)
+        {
+            case 0:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing RETURN_STRING(wxDateTime::FormatTime().fn_str(), 1)\n\n");
+                #endif
+
+                wxString value_to_return0;
+                value_to_return0 = ((wxDateTime_php*)native_object)->FormatTime();
+                RETVAL_STRING(value_to_return0.ToUTF8().data());
+
+
+                return;
+                break;
+            }
+        }
+    }
+
+    
+    //In case wrong type/count of parameters was passed
+    if(!already_called)
+    {
+        zend_error(
+            E_ERROR,
+            "Wrong type or count of parameters passed to: "
+            "wxDateTime::FormatTime\n"
+        );
+    }
+}
+/* }}} */
+
+/* {{{ proto bool wxDateTime::ParseISOCombined(string date, string sep) */
+PHP_METHOD(php_wxDateTime, ParseISOCombined)
+{
+    #ifdef USE_WXPHP_DEBUG
+    php_printf("Invoking wxDateTime::ParseISOCombined\n");
+    php_printf("===========================================\n");
+    #endif
+
+    zo_wxDateTime* current_object;
+    wxphp_object_type current_object_type;
+    wxDateTime_php* native_object;
+    void* argument_native_object = NULL;
+
+    //Other variables used thru the code
+    zval dummy;
+    ZVAL_NULL(&dummy);
+    bool already_called = false;
+    wxPHPObjectReferences* references;
+    int arguments_received = ZEND_NUM_ARGS();
+    bool return_is_user_initialized = false;
+
+    //Get native object of the php object that called the method
+    if(getThis() != NULL)
+    {
+        current_object = Z_wxDateTime_P(getThis());
+
+        if(current_object->native_object == NULL)
+        {
+            zend_error(
+                E_ERROR,
+                "Failed to get the native object for "
+                "wxDateTime::ParseISOCombined call\n"
+            );
+
+            return;
+        }
+        else
+        {
+            native_object = current_object->native_object;
+            current_object_type = current_object->object_type;
+
+            bool reference_type_found = false;
+
+            if(current_object_type == PHP_WXDATETIME_TYPE){
+                references = &((wxDateTime_php*)native_object)->references;
+                reference_type_found = true;
+            }
+        }
+    }
+    #ifdef USE_WXPHP_DEBUG
+    else
+    {
+        php_printf("Processing the method call as static\n");
+    }
+    #endif
+
+    //Parameters for overload 0
+    char* date0;
+    size_t date_len0;
+    long sep0;
+    bool overload0_called = false;
+
+    
+    //Overload 0
+    overload0:
+    if(!already_called && arguments_received >= 1  && arguments_received <= 2)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Parameters received %d\n", arguments_received);
+        php_printf("Parsing parameters with 's|l' (&date0, &date_len0, &sep0)\n");
+        #endif
+
+        char parse_parameters_string[] = "s|l";
+        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &date0, &date_len0, &sep0 ) == SUCCESS)
+        {
+            overload0_called = true;
+            already_called = true;
+        }
+    }
+
+    
+    if(overload0_called)
+    {
+        switch(arguments_received)
+        {
+            case 1:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing RETURN_BOOL(wxDateTime::ParseISOCombined(wxString(date0, wxConvUTF8)))\n\n");
+                #endif
+
+                RETVAL_BOOL(((wxDateTime_php*)native_object)->ParseISOCombined(wxString(date0, wxConvUTF8)));
+
+
+                return;
+                break;
+            }
+            case 2:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing RETURN_BOOL(wxDateTime::ParseISOCombined(wxString(date0, wxConvUTF8), (char) sep0))\n\n");
+                #endif
+
+                RETVAL_BOOL(((wxDateTime_php*)native_object)->ParseISOCombined(wxString(date0, wxConvUTF8), (char) sep0));
+
+
+                return;
+                break;
+            }
+        }
+    }
+
+    
+    //In case wrong type/count of parameters was passed
+    if(!already_called)
+    {
+        zend_error(
+            E_ERROR,
+            "Wrong type or count of parameters passed to: "
+            "wxDateTime::ParseISOCombined\n"
+        );
+    }
+}
+/* }}} */
+
+/* {{{ proto bool wxDateTime::ParseISODate(string date) */
+PHP_METHOD(php_wxDateTime, ParseISODate)
+{
+    #ifdef USE_WXPHP_DEBUG
+    php_printf("Invoking wxDateTime::ParseISODate\n");
+    php_printf("===========================================\n");
+    #endif
+
+    zo_wxDateTime* current_object;
+    wxphp_object_type current_object_type;
+    wxDateTime_php* native_object;
+    void* argument_native_object = NULL;
+
+    //Other variables used thru the code
+    zval dummy;
+    ZVAL_NULL(&dummy);
+    bool already_called = false;
+    wxPHPObjectReferences* references;
+    int arguments_received = ZEND_NUM_ARGS();
+    bool return_is_user_initialized = false;
+
+    //Get native object of the php object that called the method
+    if(getThis() != NULL)
+    {
+        current_object = Z_wxDateTime_P(getThis());
+
+        if(current_object->native_object == NULL)
+        {
+            zend_error(
+                E_ERROR,
+                "Failed to get the native object for "
+                "wxDateTime::ParseISODate call\n"
+            );
+
+            return;
+        }
+        else
+        {
+            native_object = current_object->native_object;
+            current_object_type = current_object->object_type;
+
+            bool reference_type_found = false;
+
+            if(current_object_type == PHP_WXDATETIME_TYPE){
+                references = &((wxDateTime_php*)native_object)->references;
+                reference_type_found = true;
+            }
+        }
+    }
+    #ifdef USE_WXPHP_DEBUG
+    else
+    {
+        php_printf("Processing the method call as static\n");
+    }
+    #endif
+
+    //Parameters for overload 0
+    char* date0;
+    size_t date_len0;
+    bool overload0_called = false;
+
+    
+    //Overload 0
+    overload0:
+    if(!already_called && arguments_received == 1)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Parameters received %d\n", arguments_received);
+        php_printf("Parsing parameters with 's' (&date0, &date_len0)\n");
+        #endif
+
+        char parse_parameters_string[] = "s";
+        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &date0, &date_len0 ) == SUCCESS)
+        {
+            overload0_called = true;
+            already_called = true;
+        }
+    }
+
+    
+    if(overload0_called)
+    {
+        switch(arguments_received)
+        {
+            case 1:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing RETURN_BOOL(wxDateTime::ParseISODate(wxString(date0, wxConvUTF8)))\n\n");
+                #endif
+
+                RETVAL_BOOL(((wxDateTime_php*)native_object)->ParseISODate(wxString(date0, wxConvUTF8)));
+
+
+                return;
+                break;
+            }
+        }
+    }
+
+    
+    //In case wrong type/count of parameters was passed
+    if(!already_called)
+    {
+        zend_error(
+            E_ERROR,
+            "Wrong type or count of parameters passed to: "
+            "wxDateTime::ParseISODate\n"
+        );
+    }
+}
+/* }}} */
+
+/* {{{ proto bool wxDateTime::ParseISOTime(string date) */
+PHP_METHOD(php_wxDateTime, ParseISOTime)
+{
+    #ifdef USE_WXPHP_DEBUG
+    php_printf("Invoking wxDateTime::ParseISOTime\n");
+    php_printf("===========================================\n");
+    #endif
+
+    zo_wxDateTime* current_object;
+    wxphp_object_type current_object_type;
+    wxDateTime_php* native_object;
+    void* argument_native_object = NULL;
+
+    //Other variables used thru the code
+    zval dummy;
+    ZVAL_NULL(&dummy);
+    bool already_called = false;
+    wxPHPObjectReferences* references;
+    int arguments_received = ZEND_NUM_ARGS();
+    bool return_is_user_initialized = false;
+
+    //Get native object of the php object that called the method
+    if(getThis() != NULL)
+    {
+        current_object = Z_wxDateTime_P(getThis());
+
+        if(current_object->native_object == NULL)
+        {
+            zend_error(
+                E_ERROR,
+                "Failed to get the native object for "
+                "wxDateTime::ParseISOTime call\n"
+            );
+
+            return;
+        }
+        else
+        {
+            native_object = current_object->native_object;
+            current_object_type = current_object->object_type;
+
+            bool reference_type_found = false;
+
+            if(current_object_type == PHP_WXDATETIME_TYPE){
+                references = &((wxDateTime_php*)native_object)->references;
+                reference_type_found = true;
+            }
+        }
+    }
+    #ifdef USE_WXPHP_DEBUG
+    else
+    {
+        php_printf("Processing the method call as static\n");
+    }
+    #endif
+
+    //Parameters for overload 0
+    char* date0;
+    size_t date_len0;
+    bool overload0_called = false;
+
+    
+    //Overload 0
+    overload0:
+    if(!already_called && arguments_received == 1)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Parameters received %d\n", arguments_received);
+        php_printf("Parsing parameters with 's' (&date0, &date_len0)\n");
+        #endif
+
+        char parse_parameters_string[] = "s";
+        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &date0, &date_len0 ) == SUCCESS)
+        {
+            overload0_called = true;
+            already_called = true;
+        }
+    }
+
+    
+    if(overload0_called)
+    {
+        switch(arguments_received)
+        {
+            case 1:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing RETURN_BOOL(wxDateTime::ParseISOTime(wxString(date0, wxConvUTF8)))\n\n");
+                #endif
+
+                RETVAL_BOOL(((wxDateTime_php*)native_object)->ParseISOTime(wxString(date0, wxConvUTF8)));
+
+
+                return;
+                break;
+            }
+        }
+    }
+
+    
+    //In case wrong type/count of parameters was passed
+    if(!already_called)
+    {
+        zend_error(
+            E_ERROR,
+            "Wrong type or count of parameters passed to: "
+            "wxDateTime::ParseISOTime\n"
+        );
+    }
+}
+/* }}} */
+
+/* {{{ proto timestamp wxDateTime::GetLastMonthDay(Month month, int year) */
+PHP_METHOD(php_wxDateTime, GetLastMonthDay)
+{
+    #ifdef USE_WXPHP_DEBUG
+    php_printf("Invoking wxDateTime::GetLastMonthDay\n");
+    php_printf("===========================================\n");
+    #endif
+
+    zo_wxDateTime* current_object;
+    wxphp_object_type current_object_type;
+    wxDateTime_php* native_object;
+    void* argument_native_object = NULL;
+
+    //Other variables used thru the code
+    zval dummy;
+    ZVAL_NULL(&dummy);
+    bool already_called = false;
+    wxPHPObjectReferences* references;
+    int arguments_received = ZEND_NUM_ARGS();
+    bool return_is_user_initialized = false;
+
+    //Get native object of the php object that called the method
+    if(getThis() != NULL)
+    {
+        current_object = Z_wxDateTime_P(getThis());
+
+        if(current_object->native_object == NULL)
+        {
+            zend_error(
+                E_ERROR,
+                "Failed to get the native object for "
+                "wxDateTime::GetLastMonthDay call\n"
+            );
+
+            return;
+        }
+        else
+        {
+            native_object = current_object->native_object;
+            current_object_type = current_object->object_type;
+
+            bool reference_type_found = false;
+
+            if(current_object_type == PHP_WXDATETIME_TYPE){
+                references = &((wxDateTime_php*)native_object)->references;
+                reference_type_found = true;
+            }
+        }
+    }
+    #ifdef USE_WXPHP_DEBUG
+    else
+    {
+        php_printf("Processing the method call as static\n");
+    }
+    #endif
+
+    //Parameters for overload 0
+    long month0;
+    long year0;
+    bool overload0_called = false;
+
+    
+    //Overload 0
+    overload0:
+    if(!already_called && arguments_received >= 0  && arguments_received <= 2)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Parameters received %d\n", arguments_received);
+        php_printf("Parsing parameters with '|ll' (&month0, &year0)\n");
+        #endif
+
+        char parse_parameters_string[] = "|ll";
+        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &month0, &year0 ) == SUCCESS)
+        {
+            overload0_called = true;
+            already_called = true;
+        }
+    }
+
+    
+    if(overload0_called)
+    {
+        switch(arguments_received)
+        {
+            case 0:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing wxDateTime::GetLastMonthDay() to return timestamp\n\n");
+                #endif
+
+                time_t value_to_return0;
+                value_to_return0 = ((wxDateTime_php*)native_object)->GetLastMonthDay().GetTicks();
+                RETVAL_LONG(value_to_return0);
+
+
+                return;
+                break;
+            }
+            case 1:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing wxDateTime::GetLastMonthDay((wxDateTime::Month) month0) to return timestamp\n\n");
+                #endif
+
+                time_t value_to_return1;
+                value_to_return1 = ((wxDateTime_php*)native_object)->GetLastMonthDay((wxDateTime::Month) month0).GetTicks();
+                RETVAL_LONG(value_to_return1);
+
+
+                return;
+                break;
+            }
+            case 2:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing wxDateTime::GetLastMonthDay((wxDateTime::Month) month0, (int) year0) to return timestamp\n\n");
+                #endif
+
+                time_t value_to_return2;
+                value_to_return2 = ((wxDateTime_php*)native_object)->GetLastMonthDay((wxDateTime::Month) month0, (int) year0).GetTicks();
+                RETVAL_LONG(value_to_return2);
+
+
+                return;
+                break;
+            }
+        }
+    }
+
+    
+    //In case wrong type/count of parameters was passed
+    if(!already_called)
+    {
+        zend_error(
+            E_ERROR,
+            "Wrong type or count of parameters passed to: "
+            "wxDateTime::GetLastMonthDay\n"
+        );
+    }
+}
+/* }}} */
+
+/* {{{ proto timestamp wxDateTime::GetLastWeekDay(WeekDay weekday, Month month, int year) */
+PHP_METHOD(php_wxDateTime, GetLastWeekDay)
+{
+    #ifdef USE_WXPHP_DEBUG
+    php_printf("Invoking wxDateTime::GetLastWeekDay\n");
+    php_printf("===========================================\n");
+    #endif
+
+    zo_wxDateTime* current_object;
+    wxphp_object_type current_object_type;
+    wxDateTime_php* native_object;
+    void* argument_native_object = NULL;
+
+    //Other variables used thru the code
+    zval dummy;
+    ZVAL_NULL(&dummy);
+    bool already_called = false;
+    wxPHPObjectReferences* references;
+    int arguments_received = ZEND_NUM_ARGS();
+    bool return_is_user_initialized = false;
+
+    //Get native object of the php object that called the method
+    if(getThis() != NULL)
+    {
+        current_object = Z_wxDateTime_P(getThis());
+
+        if(current_object->native_object == NULL)
+        {
+            zend_error(
+                E_ERROR,
+                "Failed to get the native object for "
+                "wxDateTime::GetLastWeekDay call\n"
+            );
+
+            return;
+        }
+        else
+        {
+            native_object = current_object->native_object;
+            current_object_type = current_object->object_type;
+
+            bool reference_type_found = false;
+
+            if(current_object_type == PHP_WXDATETIME_TYPE){
+                references = &((wxDateTime_php*)native_object)->references;
+                reference_type_found = true;
+            }
+        }
+    }
+    #ifdef USE_WXPHP_DEBUG
+    else
+    {
+        php_printf("Processing the method call as static\n");
+    }
+    #endif
+
+    //Parameters for overload 0
+    long weekday0;
+    long month0;
+    long year0;
+    bool overload0_called = false;
+
+    
+    //Overload 0
+    overload0:
+    if(!already_called && arguments_received >= 1  && arguments_received <= 3)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Parameters received %d\n", arguments_received);
+        php_printf("Parsing parameters with 'l|ll' (&weekday0, &month0, &year0)\n");
+        #endif
+
+        char parse_parameters_string[] = "l|ll";
+        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &weekday0, &month0, &year0 ) == SUCCESS)
+        {
+            overload0_called = true;
+            already_called = true;
+        }
+    }
+
+    
+    if(overload0_called)
+    {
+        switch(arguments_received)
+        {
+            case 1:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing wxDateTime::GetLastWeekDay((wxDateTime::WeekDay) weekday0) to return timestamp\n\n");
+                #endif
+
+                time_t value_to_return1;
+                value_to_return1 = ((wxDateTime_php*)native_object)->GetLastWeekDay((wxDateTime::WeekDay) weekday0).GetTicks();
+                RETVAL_LONG(value_to_return1);
+
+
+                return;
+                break;
+            }
+            case 2:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing wxDateTime::GetLastWeekDay((wxDateTime::WeekDay) weekday0, (wxDateTime::Month) month0) to return timestamp\n\n");
+                #endif
+
+                time_t value_to_return2;
+                value_to_return2 = ((wxDateTime_php*)native_object)->GetLastWeekDay((wxDateTime::WeekDay) weekday0, (wxDateTime::Month) month0).GetTicks();
+                RETVAL_LONG(value_to_return2);
+
+
+                return;
+                break;
+            }
+            case 3:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing wxDateTime::GetLastWeekDay((wxDateTime::WeekDay) weekday0, (wxDateTime::Month) month0, (int) year0) to return timestamp\n\n");
+                #endif
+
+                time_t value_to_return3;
+                value_to_return3 = ((wxDateTime_php*)native_object)->GetLastWeekDay((wxDateTime::WeekDay) weekday0, (wxDateTime::Month) month0, (int) year0).GetTicks();
+                RETVAL_LONG(value_to_return3);
+
+
+                return;
+                break;
+            }
+        }
+    }
+
+    
+    //In case wrong type/count of parameters was passed
+    if(!already_called)
+    {
+        zend_error(
+            E_ERROR,
+            "Wrong type or count of parameters passed to: "
+            "wxDateTime::GetLastWeekDay\n"
+        );
+    }
+}
+/* }}} */
+
+/* {{{ proto timestamp wxDateTime::GetNextWeekDay(WeekDay weekday) */
+PHP_METHOD(php_wxDateTime, GetNextWeekDay)
+{
+    #ifdef USE_WXPHP_DEBUG
+    php_printf("Invoking wxDateTime::GetNextWeekDay\n");
+    php_printf("===========================================\n");
+    #endif
+
+    zo_wxDateTime* current_object;
+    wxphp_object_type current_object_type;
+    wxDateTime_php* native_object;
+    void* argument_native_object = NULL;
+
+    //Other variables used thru the code
+    zval dummy;
+    ZVAL_NULL(&dummy);
+    bool already_called = false;
+    wxPHPObjectReferences* references;
+    int arguments_received = ZEND_NUM_ARGS();
+    bool return_is_user_initialized = false;
+
+    //Get native object of the php object that called the method
+    if(getThis() != NULL)
+    {
+        current_object = Z_wxDateTime_P(getThis());
+
+        if(current_object->native_object == NULL)
+        {
+            zend_error(
+                E_ERROR,
+                "Failed to get the native object for "
+                "wxDateTime::GetNextWeekDay call\n"
+            );
+
+            return;
+        }
+        else
+        {
+            native_object = current_object->native_object;
+            current_object_type = current_object->object_type;
+
+            bool reference_type_found = false;
+
+            if(current_object_type == PHP_WXDATETIME_TYPE){
+                references = &((wxDateTime_php*)native_object)->references;
+                reference_type_found = true;
+            }
+        }
+    }
+    #ifdef USE_WXPHP_DEBUG
+    else
+    {
+        php_printf("Processing the method call as static\n");
+    }
+    #endif
+
+    //Parameters for overload 0
+    long weekday0;
+    bool overload0_called = false;
+
+    
+    //Overload 0
+    overload0:
+    if(!already_called && arguments_received == 1)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Parameters received %d\n", arguments_received);
+        php_printf("Parsing parameters with 'l' (&weekday0)\n");
+        #endif
+
+        char parse_parameters_string[] = "l";
+        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &weekday0 ) == SUCCESS)
+        {
+            overload0_called = true;
+            already_called = true;
+        }
+    }
+
+    
+    if(overload0_called)
+    {
+        switch(arguments_received)
+        {
+            case 1:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing wxDateTime::GetNextWeekDay((wxDateTime::WeekDay) weekday0) to return timestamp\n\n");
+                #endif
+
+                time_t value_to_return1;
+                value_to_return1 = ((wxDateTime_php*)native_object)->GetNextWeekDay((wxDateTime::WeekDay) weekday0).GetTicks();
+                RETVAL_LONG(value_to_return1);
+
+
+                return;
+                break;
+            }
+        }
+    }
+
+    
+    //In case wrong type/count of parameters was passed
+    if(!already_called)
+    {
+        zend_error(
+            E_ERROR,
+            "Wrong type or count of parameters passed to: "
+            "wxDateTime::GetNextWeekDay\n"
+        );
+    }
+}
+/* }}} */
+
+/* {{{ proto timestamp wxDateTime::GetPrevWeekDay(WeekDay weekday) */
+PHP_METHOD(php_wxDateTime, GetPrevWeekDay)
+{
+    #ifdef USE_WXPHP_DEBUG
+    php_printf("Invoking wxDateTime::GetPrevWeekDay\n");
+    php_printf("===========================================\n");
+    #endif
+
+    zo_wxDateTime* current_object;
+    wxphp_object_type current_object_type;
+    wxDateTime_php* native_object;
+    void* argument_native_object = NULL;
+
+    //Other variables used thru the code
+    zval dummy;
+    ZVAL_NULL(&dummy);
+    bool already_called = false;
+    wxPHPObjectReferences* references;
+    int arguments_received = ZEND_NUM_ARGS();
+    bool return_is_user_initialized = false;
+
+    //Get native object of the php object that called the method
+    if(getThis() != NULL)
+    {
+        current_object = Z_wxDateTime_P(getThis());
+
+        if(current_object->native_object == NULL)
+        {
+            zend_error(
+                E_ERROR,
+                "Failed to get the native object for "
+                "wxDateTime::GetPrevWeekDay call\n"
+            );
+
+            return;
+        }
+        else
+        {
+            native_object = current_object->native_object;
+            current_object_type = current_object->object_type;
+
+            bool reference_type_found = false;
+
+            if(current_object_type == PHP_WXDATETIME_TYPE){
+                references = &((wxDateTime_php*)native_object)->references;
+                reference_type_found = true;
+            }
+        }
+    }
+    #ifdef USE_WXPHP_DEBUG
+    else
+    {
+        php_printf("Processing the method call as static\n");
+    }
+    #endif
+
+    //Parameters for overload 0
+    long weekday0;
+    bool overload0_called = false;
+
+    
+    //Overload 0
+    overload0:
+    if(!already_called && arguments_received == 1)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Parameters received %d\n", arguments_received);
+        php_printf("Parsing parameters with 'l' (&weekday0)\n");
+        #endif
+
+        char parse_parameters_string[] = "l";
+        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &weekday0 ) == SUCCESS)
+        {
+            overload0_called = true;
+            already_called = true;
+        }
+    }
+
+    
+    if(overload0_called)
+    {
+        switch(arguments_received)
+        {
+            case 1:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing wxDateTime::GetPrevWeekDay((wxDateTime::WeekDay) weekday0) to return timestamp\n\n");
+                #endif
+
+                time_t value_to_return1;
+                value_to_return1 = ((wxDateTime_php*)native_object)->GetPrevWeekDay((wxDateTime::WeekDay) weekday0).GetTicks();
+                RETVAL_LONG(value_to_return1);
+
+
+                return;
+                break;
+            }
+        }
+    }
+
+    
+    //In case wrong type/count of parameters was passed
+    if(!already_called)
+    {
+        zend_error(
+            E_ERROR,
+            "Wrong type or count of parameters passed to: "
+            "wxDateTime::GetPrevWeekDay\n"
+        );
+    }
+}
+/* }}} */
+
+/* {{{ proto timestamp wxDateTime::GetWeekDayInSameWeek(WeekDay weekday, WeekFlags flags) */
+PHP_METHOD(php_wxDateTime, GetWeekDayInSameWeek)
+{
+    #ifdef USE_WXPHP_DEBUG
+    php_printf("Invoking wxDateTime::GetWeekDayInSameWeek\n");
+    php_printf("===========================================\n");
+    #endif
+
+    zo_wxDateTime* current_object;
+    wxphp_object_type current_object_type;
+    wxDateTime_php* native_object;
+    void* argument_native_object = NULL;
+
+    //Other variables used thru the code
+    zval dummy;
+    ZVAL_NULL(&dummy);
+    bool already_called = false;
+    wxPHPObjectReferences* references;
+    int arguments_received = ZEND_NUM_ARGS();
+    bool return_is_user_initialized = false;
+
+    //Get native object of the php object that called the method
+    if(getThis() != NULL)
+    {
+        current_object = Z_wxDateTime_P(getThis());
+
+        if(current_object->native_object == NULL)
+        {
+            zend_error(
+                E_ERROR,
+                "Failed to get the native object for "
+                "wxDateTime::GetWeekDayInSameWeek call\n"
+            );
+
+            return;
+        }
+        else
+        {
+            native_object = current_object->native_object;
+            current_object_type = current_object->object_type;
+
+            bool reference_type_found = false;
+
+            if(current_object_type == PHP_WXDATETIME_TYPE){
+                references = &((wxDateTime_php*)native_object)->references;
+                reference_type_found = true;
+            }
+        }
+    }
+    #ifdef USE_WXPHP_DEBUG
+    else
+    {
+        php_printf("Processing the method call as static\n");
+    }
+    #endif
+
+    //Parameters for overload 0
+    long weekday0;
+    long flags0;
+    bool overload0_called = false;
+
+    
+    //Overload 0
+    overload0:
+    if(!already_called && arguments_received >= 1  && arguments_received <= 2)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Parameters received %d\n", arguments_received);
+        php_printf("Parsing parameters with 'l|l' (&weekday0, &flags0)\n");
+        #endif
+
+        char parse_parameters_string[] = "l|l";
+        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &weekday0, &flags0 ) == SUCCESS)
+        {
+            overload0_called = true;
+            already_called = true;
+        }
+    }
+
+    
+    if(overload0_called)
+    {
+        switch(arguments_received)
+        {
+            case 1:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing wxDateTime::GetWeekDayInSameWeek((wxDateTime::WeekDay) weekday0) to return timestamp\n\n");
+                #endif
+
+                time_t value_to_return1;
+                value_to_return1 = ((wxDateTime_php*)native_object)->GetWeekDayInSameWeek((wxDateTime::WeekDay) weekday0).GetTicks();
+                RETVAL_LONG(value_to_return1);
+
+
+                return;
+                break;
+            }
+            case 2:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing wxDateTime::GetWeekDayInSameWeek((wxDateTime::WeekDay) weekday0, (wxDateTime::WeekFlags) flags0) to return timestamp\n\n");
+                #endif
+
+                time_t value_to_return2;
+                value_to_return2 = ((wxDateTime_php*)native_object)->GetWeekDayInSameWeek((wxDateTime::WeekDay) weekday0, (wxDateTime::WeekFlags) flags0).GetTicks();
+                RETVAL_LONG(value_to_return2);
+
+
+                return;
+                break;
+            }
+        }
+    }
+
+    
+    //In case wrong type/count of parameters was passed
+    if(!already_called)
+    {
+        zend_error(
+            E_ERROR,
+            "Wrong type or count of parameters passed to: "
+            "wxDateTime::GetWeekDayInSameWeek\n"
+        );
+    }
+}
+/* }}} */
+
+/* {{{ proto timestamp wxDateTime::SetToLastMonthDay(Month month, int year) */
+PHP_METHOD(php_wxDateTime, SetToLastMonthDay)
+{
+    #ifdef USE_WXPHP_DEBUG
+    php_printf("Invoking wxDateTime::SetToLastMonthDay\n");
+    php_printf("===========================================\n");
+    #endif
+
+    zo_wxDateTime* current_object;
+    wxphp_object_type current_object_type;
+    wxDateTime_php* native_object;
+    void* argument_native_object = NULL;
+
+    //Other variables used thru the code
+    zval dummy;
+    ZVAL_NULL(&dummy);
+    bool already_called = false;
+    wxPHPObjectReferences* references;
+    int arguments_received = ZEND_NUM_ARGS();
+    bool return_is_user_initialized = false;
+
+    //Get native object of the php object that called the method
+    if(getThis() != NULL)
+    {
+        current_object = Z_wxDateTime_P(getThis());
+
+        if(current_object->native_object == NULL)
+        {
+            zend_error(
+                E_ERROR,
+                "Failed to get the native object for "
+                "wxDateTime::SetToLastMonthDay call\n"
+            );
+
+            return;
+        }
+        else
+        {
+            native_object = current_object->native_object;
+            current_object_type = current_object->object_type;
+
+            bool reference_type_found = false;
+
+            if(current_object_type == PHP_WXDATETIME_TYPE){
+                references = &((wxDateTime_php*)native_object)->references;
+                reference_type_found = true;
+            }
+        }
+    }
+    #ifdef USE_WXPHP_DEBUG
+    else
+    {
+        php_printf("Processing the method call as static\n");
+    }
+    #endif
+
+    //Parameters for overload 0
+    long month0;
+    long year0;
+    bool overload0_called = false;
+
+    
+    //Overload 0
+    overload0:
+    if(!already_called && arguments_received >= 0  && arguments_received <= 2)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Parameters received %d\n", arguments_received);
+        php_printf("Parsing parameters with '|ll' (&month0, &year0)\n");
+        #endif
+
+        char parse_parameters_string[] = "|ll";
+        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &month0, &year0 ) == SUCCESS)
+        {
+            overload0_called = true;
+            already_called = true;
+        }
+    }
+
+    
+    if(overload0_called)
+    {
+        switch(arguments_received)
+        {
+            case 0:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing wxDateTime::SetToLastMonthDay() to return timestamp\n\n");
+                #endif
+
+                time_t value_to_return0;
+                value_to_return0 = ((wxDateTime_php*)native_object)->SetToLastMonthDay().GetTicks();
+                RETVAL_LONG(value_to_return0);
+
+
+                return;
+                break;
+            }
+            case 1:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing wxDateTime::SetToLastMonthDay((wxDateTime::Month) month0) to return timestamp\n\n");
+                #endif
+
+                time_t value_to_return1;
+                value_to_return1 = ((wxDateTime_php*)native_object)->SetToLastMonthDay((wxDateTime::Month) month0).GetTicks();
+                RETVAL_LONG(value_to_return1);
+
+
+                return;
+                break;
+            }
+            case 2:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing wxDateTime::SetToLastMonthDay((wxDateTime::Month) month0, (int) year0) to return timestamp\n\n");
+                #endif
+
+                time_t value_to_return2;
+                value_to_return2 = ((wxDateTime_php*)native_object)->SetToLastMonthDay((wxDateTime::Month) month0, (int) year0).GetTicks();
+                RETVAL_LONG(value_to_return2);
+
+
+                return;
+                break;
+            }
+        }
+    }
+
+    
+    //In case wrong type/count of parameters was passed
+    if(!already_called)
+    {
+        zend_error(
+            E_ERROR,
+            "Wrong type or count of parameters passed to: "
+            "wxDateTime::SetToLastMonthDay\n"
+        );
+    }
+}
+/* }}} */
+
+/* {{{ proto bool wxDateTime::SetToLastWeekDay(WeekDay weekday, Month month, int year) */
+PHP_METHOD(php_wxDateTime, SetToLastWeekDay)
+{
+    #ifdef USE_WXPHP_DEBUG
+    php_printf("Invoking wxDateTime::SetToLastWeekDay\n");
+    php_printf("===========================================\n");
+    #endif
+
+    zo_wxDateTime* current_object;
+    wxphp_object_type current_object_type;
+    wxDateTime_php* native_object;
+    void* argument_native_object = NULL;
+
+    //Other variables used thru the code
+    zval dummy;
+    ZVAL_NULL(&dummy);
+    bool already_called = false;
+    wxPHPObjectReferences* references;
+    int arguments_received = ZEND_NUM_ARGS();
+    bool return_is_user_initialized = false;
+
+    //Get native object of the php object that called the method
+    if(getThis() != NULL)
+    {
+        current_object = Z_wxDateTime_P(getThis());
+
+        if(current_object->native_object == NULL)
+        {
+            zend_error(
+                E_ERROR,
+                "Failed to get the native object for "
+                "wxDateTime::SetToLastWeekDay call\n"
+            );
+
+            return;
+        }
+        else
+        {
+            native_object = current_object->native_object;
+            current_object_type = current_object->object_type;
+
+            bool reference_type_found = false;
+
+            if(current_object_type == PHP_WXDATETIME_TYPE){
+                references = &((wxDateTime_php*)native_object)->references;
+                reference_type_found = true;
+            }
+        }
+    }
+    #ifdef USE_WXPHP_DEBUG
+    else
+    {
+        php_printf("Processing the method call as static\n");
+    }
+    #endif
+
+    //Parameters for overload 0
+    long weekday0;
+    long month0;
+    long year0;
+    bool overload0_called = false;
+
+    
+    //Overload 0
+    overload0:
+    if(!already_called && arguments_received >= 1  && arguments_received <= 3)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Parameters received %d\n", arguments_received);
+        php_printf("Parsing parameters with 'l|ll' (&weekday0, &month0, &year0)\n");
+        #endif
+
+        char parse_parameters_string[] = "l|ll";
+        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &weekday0, &month0, &year0 ) == SUCCESS)
+        {
+            overload0_called = true;
+            already_called = true;
+        }
+    }
+
+    
+    if(overload0_called)
+    {
+        switch(arguments_received)
+        {
+            case 1:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing RETURN_BOOL(wxDateTime::SetToLastWeekDay((wxDateTime::WeekDay) weekday0))\n\n");
+                #endif
+
+                RETVAL_BOOL(((wxDateTime_php*)native_object)->SetToLastWeekDay((wxDateTime::WeekDay) weekday0));
+
+
+                return;
+                break;
+            }
+            case 2:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing RETURN_BOOL(wxDateTime::SetToLastWeekDay((wxDateTime::WeekDay) weekday0, (wxDateTime::Month) month0))\n\n");
+                #endif
+
+                RETVAL_BOOL(((wxDateTime_php*)native_object)->SetToLastWeekDay((wxDateTime::WeekDay) weekday0, (wxDateTime::Month) month0));
+
+
+                return;
+                break;
+            }
+            case 3:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing RETURN_BOOL(wxDateTime::SetToLastWeekDay((wxDateTime::WeekDay) weekday0, (wxDateTime::Month) month0, (int) year0))\n\n");
+                #endif
+
+                RETVAL_BOOL(((wxDateTime_php*)native_object)->SetToLastWeekDay((wxDateTime::WeekDay) weekday0, (wxDateTime::Month) month0, (int) year0));
+
+
+                return;
+                break;
+            }
+        }
+    }
+
+    
+    //In case wrong type/count of parameters was passed
+    if(!already_called)
+    {
+        zend_error(
+            E_ERROR,
+            "Wrong type or count of parameters passed to: "
+            "wxDateTime::SetToLastWeekDay\n"
+        );
+    }
+}
+/* }}} */
+
+/* {{{ proto timestamp wxDateTime::SetToNextWeekDay(WeekDay weekday) */
+PHP_METHOD(php_wxDateTime, SetToNextWeekDay)
+{
+    #ifdef USE_WXPHP_DEBUG
+    php_printf("Invoking wxDateTime::SetToNextWeekDay\n");
+    php_printf("===========================================\n");
+    #endif
+
+    zo_wxDateTime* current_object;
+    wxphp_object_type current_object_type;
+    wxDateTime_php* native_object;
+    void* argument_native_object = NULL;
+
+    //Other variables used thru the code
+    zval dummy;
+    ZVAL_NULL(&dummy);
+    bool already_called = false;
+    wxPHPObjectReferences* references;
+    int arguments_received = ZEND_NUM_ARGS();
+    bool return_is_user_initialized = false;
+
+    //Get native object of the php object that called the method
+    if(getThis() != NULL)
+    {
+        current_object = Z_wxDateTime_P(getThis());
+
+        if(current_object->native_object == NULL)
+        {
+            zend_error(
+                E_ERROR,
+                "Failed to get the native object for "
+                "wxDateTime::SetToNextWeekDay call\n"
+            );
+
+            return;
+        }
+        else
+        {
+            native_object = current_object->native_object;
+            current_object_type = current_object->object_type;
+
+            bool reference_type_found = false;
+
+            if(current_object_type == PHP_WXDATETIME_TYPE){
+                references = &((wxDateTime_php*)native_object)->references;
+                reference_type_found = true;
+            }
+        }
+    }
+    #ifdef USE_WXPHP_DEBUG
+    else
+    {
+        php_printf("Processing the method call as static\n");
+    }
+    #endif
+
+    //Parameters for overload 0
+    long weekday0;
+    bool overload0_called = false;
+
+    
+    //Overload 0
+    overload0:
+    if(!already_called && arguments_received == 1)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Parameters received %d\n", arguments_received);
+        php_printf("Parsing parameters with 'l' (&weekday0)\n");
+        #endif
+
+        char parse_parameters_string[] = "l";
+        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &weekday0 ) == SUCCESS)
+        {
+            overload0_called = true;
+            already_called = true;
+        }
+    }
+
+    
+    if(overload0_called)
+    {
+        switch(arguments_received)
+        {
+            case 1:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing wxDateTime::SetToNextWeekDay((wxDateTime::WeekDay) weekday0) to return timestamp\n\n");
+                #endif
+
+                time_t value_to_return1;
+                value_to_return1 = ((wxDateTime_php*)native_object)->SetToNextWeekDay((wxDateTime::WeekDay) weekday0).GetTicks();
+                RETVAL_LONG(value_to_return1);
+
+
+                return;
+                break;
+            }
+        }
+    }
+
+    
+    //In case wrong type/count of parameters was passed
+    if(!already_called)
+    {
+        zend_error(
+            E_ERROR,
+            "Wrong type or count of parameters passed to: "
+            "wxDateTime::SetToNextWeekDay\n"
+        );
+    }
+}
+/* }}} */
+
+/* {{{ proto timestamp wxDateTime::SetToPrevWeekDay(WeekDay weekday) */
+PHP_METHOD(php_wxDateTime, SetToPrevWeekDay)
+{
+    #ifdef USE_WXPHP_DEBUG
+    php_printf("Invoking wxDateTime::SetToPrevWeekDay\n");
+    php_printf("===========================================\n");
+    #endif
+
+    zo_wxDateTime* current_object;
+    wxphp_object_type current_object_type;
+    wxDateTime_php* native_object;
+    void* argument_native_object = NULL;
+
+    //Other variables used thru the code
+    zval dummy;
+    ZVAL_NULL(&dummy);
+    bool already_called = false;
+    wxPHPObjectReferences* references;
+    int arguments_received = ZEND_NUM_ARGS();
+    bool return_is_user_initialized = false;
+
+    //Get native object of the php object that called the method
+    if(getThis() != NULL)
+    {
+        current_object = Z_wxDateTime_P(getThis());
+
+        if(current_object->native_object == NULL)
+        {
+            zend_error(
+                E_ERROR,
+                "Failed to get the native object for "
+                "wxDateTime::SetToPrevWeekDay call\n"
+            );
+
+            return;
+        }
+        else
+        {
+            native_object = current_object->native_object;
+            current_object_type = current_object->object_type;
+
+            bool reference_type_found = false;
+
+            if(current_object_type == PHP_WXDATETIME_TYPE){
+                references = &((wxDateTime_php*)native_object)->references;
+                reference_type_found = true;
+            }
+        }
+    }
+    #ifdef USE_WXPHP_DEBUG
+    else
+    {
+        php_printf("Processing the method call as static\n");
+    }
+    #endif
+
+    //Parameters for overload 0
+    long weekday0;
+    bool overload0_called = false;
+
+    
+    //Overload 0
+    overload0:
+    if(!already_called && arguments_received == 1)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Parameters received %d\n", arguments_received);
+        php_printf("Parsing parameters with 'l' (&weekday0)\n");
+        #endif
+
+        char parse_parameters_string[] = "l";
+        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &weekday0 ) == SUCCESS)
+        {
+            overload0_called = true;
+            already_called = true;
+        }
+    }
+
+    
+    if(overload0_called)
+    {
+        switch(arguments_received)
+        {
+            case 1:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing wxDateTime::SetToPrevWeekDay((wxDateTime::WeekDay) weekday0) to return timestamp\n\n");
+                #endif
+
+                time_t value_to_return1;
+                value_to_return1 = ((wxDateTime_php*)native_object)->SetToPrevWeekDay((wxDateTime::WeekDay) weekday0).GetTicks();
+                RETVAL_LONG(value_to_return1);
+
+
+                return;
+                break;
+            }
+        }
+    }
+
+    
+    //In case wrong type/count of parameters was passed
+    if(!already_called)
+    {
+        zend_error(
+            E_ERROR,
+            "Wrong type or count of parameters passed to: "
+            "wxDateTime::SetToPrevWeekDay\n"
+        );
+    }
+}
+/* }}} */
+
+/* {{{ proto bool wxDateTime::SetToWeekDay(WeekDay weekday, int n, Month month, int year) */
+PHP_METHOD(php_wxDateTime, SetToWeekDay)
+{
+    #ifdef USE_WXPHP_DEBUG
+    php_printf("Invoking wxDateTime::SetToWeekDay\n");
+    php_printf("===========================================\n");
+    #endif
+
+    zo_wxDateTime* current_object;
+    wxphp_object_type current_object_type;
+    wxDateTime_php* native_object;
+    void* argument_native_object = NULL;
+
+    //Other variables used thru the code
+    zval dummy;
+    ZVAL_NULL(&dummy);
+    bool already_called = false;
+    wxPHPObjectReferences* references;
+    int arguments_received = ZEND_NUM_ARGS();
+    bool return_is_user_initialized = false;
+
+    //Get native object of the php object that called the method
+    if(getThis() != NULL)
+    {
+        current_object = Z_wxDateTime_P(getThis());
+
+        if(current_object->native_object == NULL)
+        {
+            zend_error(
+                E_ERROR,
+                "Failed to get the native object for "
+                "wxDateTime::SetToWeekDay call\n"
+            );
+
+            return;
+        }
+        else
+        {
+            native_object = current_object->native_object;
+            current_object_type = current_object->object_type;
+
+            bool reference_type_found = false;
+
+            if(current_object_type == PHP_WXDATETIME_TYPE){
+                references = &((wxDateTime_php*)native_object)->references;
+                reference_type_found = true;
+            }
+        }
+    }
+    #ifdef USE_WXPHP_DEBUG
+    else
+    {
+        php_printf("Processing the method call as static\n");
+    }
+    #endif
+
+    //Parameters for overload 0
+    long weekday0;
+    long n0;
+    long month0;
+    long year0;
+    bool overload0_called = false;
+
+    
+    //Overload 0
+    overload0:
+    if(!already_called && arguments_received >= 1  && arguments_received <= 4)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Parameters received %d\n", arguments_received);
+        php_printf("Parsing parameters with 'l|lll' (&weekday0, &n0, &month0, &year0)\n");
+        #endif
+
+        char parse_parameters_string[] = "l|lll";
+        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &weekday0, &n0, &month0, &year0 ) == SUCCESS)
+        {
+            overload0_called = true;
+            already_called = true;
+        }
+    }
+
+    
+    if(overload0_called)
+    {
+        switch(arguments_received)
+        {
+            case 1:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing RETURN_BOOL(wxDateTime::SetToWeekDay((wxDateTime::WeekDay) weekday0))\n\n");
+                #endif
+
+                RETVAL_BOOL(((wxDateTime_php*)native_object)->SetToWeekDay((wxDateTime::WeekDay) weekday0));
+
+
+                return;
+                break;
+            }
+            case 2:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing RETURN_BOOL(wxDateTime::SetToWeekDay((wxDateTime::WeekDay) weekday0, (int) n0))\n\n");
+                #endif
+
+                RETVAL_BOOL(((wxDateTime_php*)native_object)->SetToWeekDay((wxDateTime::WeekDay) weekday0, (int) n0));
+
+
+                return;
+                break;
+            }
+            case 3:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing RETURN_BOOL(wxDateTime::SetToWeekDay((wxDateTime::WeekDay) weekday0, (int) n0, (wxDateTime::Month) month0))\n\n");
+                #endif
+
+                RETVAL_BOOL(((wxDateTime_php*)native_object)->SetToWeekDay((wxDateTime::WeekDay) weekday0, (int) n0, (wxDateTime::Month) month0));
+
+
+                return;
+                break;
+            }
+            case 4:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing RETURN_BOOL(wxDateTime::SetToWeekDay((wxDateTime::WeekDay) weekday0, (int) n0, (wxDateTime::Month) month0, (int) year0))\n\n");
+                #endif
+
+                RETVAL_BOOL(((wxDateTime_php*)native_object)->SetToWeekDay((wxDateTime::WeekDay) weekday0, (int) n0, (wxDateTime::Month) month0, (int) year0));
+
+
+                return;
+                break;
+            }
+        }
+    }
+
+    
+    //In case wrong type/count of parameters was passed
+    if(!already_called)
+    {
+        zend_error(
+            E_ERROR,
+            "Wrong type or count of parameters passed to: "
+            "wxDateTime::SetToWeekDay\n"
+        );
+    }
+}
+/* }}} */
+
+/* {{{ proto timestamp wxDateTime::SetToWeekDayInSameWeek(WeekDay weekday, WeekFlags flags) */
+PHP_METHOD(php_wxDateTime, SetToWeekDayInSameWeek)
+{
+    #ifdef USE_WXPHP_DEBUG
+    php_printf("Invoking wxDateTime::SetToWeekDayInSameWeek\n");
+    php_printf("===========================================\n");
+    #endif
+
+    zo_wxDateTime* current_object;
+    wxphp_object_type current_object_type;
+    wxDateTime_php* native_object;
+    void* argument_native_object = NULL;
+
+    //Other variables used thru the code
+    zval dummy;
+    ZVAL_NULL(&dummy);
+    bool already_called = false;
+    wxPHPObjectReferences* references;
+    int arguments_received = ZEND_NUM_ARGS();
+    bool return_is_user_initialized = false;
+
+    //Get native object of the php object that called the method
+    if(getThis() != NULL)
+    {
+        current_object = Z_wxDateTime_P(getThis());
+
+        if(current_object->native_object == NULL)
+        {
+            zend_error(
+                E_ERROR,
+                "Failed to get the native object for "
+                "wxDateTime::SetToWeekDayInSameWeek call\n"
+            );
+
+            return;
+        }
+        else
+        {
+            native_object = current_object->native_object;
+            current_object_type = current_object->object_type;
+
+            bool reference_type_found = false;
+
+            if(current_object_type == PHP_WXDATETIME_TYPE){
+                references = &((wxDateTime_php*)native_object)->references;
+                reference_type_found = true;
+            }
+        }
+    }
+    #ifdef USE_WXPHP_DEBUG
+    else
+    {
+        php_printf("Processing the method call as static\n");
+    }
+    #endif
+
+    //Parameters for overload 0
+    long weekday0;
+    long flags0;
+    bool overload0_called = false;
+
+    
+    //Overload 0
+    overload0:
+    if(!already_called && arguments_received >= 1  && arguments_received <= 2)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Parameters received %d\n", arguments_received);
+        php_printf("Parsing parameters with 'l|l' (&weekday0, &flags0)\n");
+        #endif
+
+        char parse_parameters_string[] = "l|l";
+        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &weekday0, &flags0 ) == SUCCESS)
+        {
+            overload0_called = true;
+            already_called = true;
+        }
+    }
+
+    
+    if(overload0_called)
+    {
+        switch(arguments_received)
+        {
+            case 1:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing wxDateTime::SetToWeekDayInSameWeek((wxDateTime::WeekDay) weekday0) to return timestamp\n\n");
+                #endif
+
+                time_t value_to_return1;
+                value_to_return1 = ((wxDateTime_php*)native_object)->SetToWeekDayInSameWeek((wxDateTime::WeekDay) weekday0).GetTicks();
+                RETVAL_LONG(value_to_return1);
+
+
+                return;
+                break;
+            }
+            case 2:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing wxDateTime::SetToWeekDayInSameWeek((wxDateTime::WeekDay) weekday0, (wxDateTime::WeekFlags) flags0) to return timestamp\n\n");
+                #endif
+
+                time_t value_to_return2;
+                value_to_return2 = ((wxDateTime_php*)native_object)->SetToWeekDayInSameWeek((wxDateTime::WeekDay) weekday0, (wxDateTime::WeekFlags) flags0).GetTicks();
+                RETVAL_LONG(value_to_return2);
+
+
+                return;
+                break;
+            }
+        }
+    }
+
+    
+    //In case wrong type/count of parameters was passed
+    if(!already_called)
+    {
+        zend_error(
+            E_ERROR,
+            "Wrong type or count of parameters passed to: "
+            "wxDateTime::SetToWeekDayInSameWeek\n"
+        );
+    }
+}
+/* }}} */
+
+/* {{{ proto float wxDateTime::GetJDN() */
+PHP_METHOD(php_wxDateTime, GetJDN)
+{
+    #ifdef USE_WXPHP_DEBUG
+    php_printf("Invoking wxDateTime::GetJDN\n");
+    php_printf("===========================================\n");
+    #endif
+
+    zo_wxDateTime* current_object;
+    wxphp_object_type current_object_type;
+    wxDateTime_php* native_object;
+    void* argument_native_object = NULL;
+
+    //Other variables used thru the code
+    zval dummy;
+    ZVAL_NULL(&dummy);
+    bool already_called = false;
+    wxPHPObjectReferences* references;
+    int arguments_received = ZEND_NUM_ARGS();
+    bool return_is_user_initialized = false;
+
+    //Get native object of the php object that called the method
+    if(getThis() != NULL)
+    {
+        current_object = Z_wxDateTime_P(getThis());
+
+        if(current_object->native_object == NULL)
+        {
+            zend_error(
+                E_ERROR,
+                "Failed to get the native object for "
+                "wxDateTime::GetJDN call\n"
+            );
+
+            return;
+        }
+        else
+        {
+            native_object = current_object->native_object;
+            current_object_type = current_object->object_type;
+
+            bool reference_type_found = false;
+
+            if(current_object_type == PHP_WXDATETIME_TYPE){
+                references = &((wxDateTime_php*)native_object)->references;
+                reference_type_found = true;
+            }
+        }
+    }
+    #ifdef USE_WXPHP_DEBUG
+    else
+    {
+        php_printf("Processing the method call as static\n");
+    }
+    #endif
+
+    //Parameters for overload 0
+    bool overload0_called = false;
+
+    
+    //Overload 0
+    overload0:
+    if(!already_called && arguments_received == 0)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Parameters received %d\n", arguments_received);
+        php_printf("Parsing parameters with '' ()\n");
+        #endif
+
+        overload0_called = true;
+        already_called = true;
+    }
+
+    
+    if(overload0_called)
+    {
+        switch(arguments_received)
+        {
+            case 0:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing RETURN_LONG(wxDateTime::GetJDN())\n\n");
+                #endif
+
+                RETVAL_DOUBLE(((wxDateTime_php*)native_object)->GetJDN());
+
+
+                return;
+                break;
+            }
+        }
+    }
+
+    
+    //In case wrong type/count of parameters was passed
+    if(!already_called)
+    {
+        zend_error(
+            E_ERROR,
+            "Wrong type or count of parameters passed to: "
+            "wxDateTime::GetJDN\n"
+        );
+    }
+}
+/* }}} */
+
+/* {{{ proto float wxDateTime::GetJulianDayNumber() */
+PHP_METHOD(php_wxDateTime, GetJulianDayNumber)
+{
+    #ifdef USE_WXPHP_DEBUG
+    php_printf("Invoking wxDateTime::GetJulianDayNumber\n");
+    php_printf("===========================================\n");
+    #endif
+
+    zo_wxDateTime* current_object;
+    wxphp_object_type current_object_type;
+    wxDateTime_php* native_object;
+    void* argument_native_object = NULL;
+
+    //Other variables used thru the code
+    zval dummy;
+    ZVAL_NULL(&dummy);
+    bool already_called = false;
+    wxPHPObjectReferences* references;
+    int arguments_received = ZEND_NUM_ARGS();
+    bool return_is_user_initialized = false;
+
+    //Get native object of the php object that called the method
+    if(getThis() != NULL)
+    {
+        current_object = Z_wxDateTime_P(getThis());
+
+        if(current_object->native_object == NULL)
+        {
+            zend_error(
+                E_ERROR,
+                "Failed to get the native object for "
+                "wxDateTime::GetJulianDayNumber call\n"
+            );
+
+            return;
+        }
+        else
+        {
+            native_object = current_object->native_object;
+            current_object_type = current_object->object_type;
+
+            bool reference_type_found = false;
+
+            if(current_object_type == PHP_WXDATETIME_TYPE){
+                references = &((wxDateTime_php*)native_object)->references;
+                reference_type_found = true;
+            }
+        }
+    }
+    #ifdef USE_WXPHP_DEBUG
+    else
+    {
+        php_printf("Processing the method call as static\n");
+    }
+    #endif
+
+    //Parameters for overload 0
+    bool overload0_called = false;
+
+    
+    //Overload 0
+    overload0:
+    if(!already_called && arguments_received == 0)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Parameters received %d\n", arguments_received);
+        php_printf("Parsing parameters with '' ()\n");
+        #endif
+
+        overload0_called = true;
+        already_called = true;
+    }
+
+    
+    if(overload0_called)
+    {
+        switch(arguments_received)
+        {
+            case 0:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing RETURN_LONG(wxDateTime::GetJulianDayNumber())\n\n");
+                #endif
+
+                RETVAL_DOUBLE(((wxDateTime_php*)native_object)->GetJulianDayNumber());
+
+
+                return;
+                break;
+            }
+        }
+    }
+
+    
+    //In case wrong type/count of parameters was passed
+    if(!already_called)
+    {
+        zend_error(
+            E_ERROR,
+            "Wrong type or count of parameters passed to: "
+            "wxDateTime::GetJulianDayNumber\n"
+        );
+    }
+}
+/* }}} */
+
+/* {{{ proto float wxDateTime::GetMJD() */
+PHP_METHOD(php_wxDateTime, GetMJD)
+{
+    #ifdef USE_WXPHP_DEBUG
+    php_printf("Invoking wxDateTime::GetMJD\n");
+    php_printf("===========================================\n");
+    #endif
+
+    zo_wxDateTime* current_object;
+    wxphp_object_type current_object_type;
+    wxDateTime_php* native_object;
+    void* argument_native_object = NULL;
+
+    //Other variables used thru the code
+    zval dummy;
+    ZVAL_NULL(&dummy);
+    bool already_called = false;
+    wxPHPObjectReferences* references;
+    int arguments_received = ZEND_NUM_ARGS();
+    bool return_is_user_initialized = false;
+
+    //Get native object of the php object that called the method
+    if(getThis() != NULL)
+    {
+        current_object = Z_wxDateTime_P(getThis());
+
+        if(current_object->native_object == NULL)
+        {
+            zend_error(
+                E_ERROR,
+                "Failed to get the native object for "
+                "wxDateTime::GetMJD call\n"
+            );
+
+            return;
+        }
+        else
+        {
+            native_object = current_object->native_object;
+            current_object_type = current_object->object_type;
+
+            bool reference_type_found = false;
+
+            if(current_object_type == PHP_WXDATETIME_TYPE){
+                references = &((wxDateTime_php*)native_object)->references;
+                reference_type_found = true;
+            }
+        }
+    }
+    #ifdef USE_WXPHP_DEBUG
+    else
+    {
+        php_printf("Processing the method call as static\n");
+    }
+    #endif
+
+    //Parameters for overload 0
+    bool overload0_called = false;
+
+    
+    //Overload 0
+    overload0:
+    if(!already_called && arguments_received == 0)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Parameters received %d\n", arguments_received);
+        php_printf("Parsing parameters with '' ()\n");
+        #endif
+
+        overload0_called = true;
+        already_called = true;
+    }
+
+    
+    if(overload0_called)
+    {
+        switch(arguments_received)
+        {
+            case 0:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing RETURN_LONG(wxDateTime::GetMJD())\n\n");
+                #endif
+
+                RETVAL_DOUBLE(((wxDateTime_php*)native_object)->GetMJD());
+
+
+                return;
+                break;
+            }
+        }
+    }
+
+    
+    //In case wrong type/count of parameters was passed
+    if(!already_called)
+    {
+        zend_error(
+            E_ERROR,
+            "Wrong type or count of parameters passed to: "
+            "wxDateTime::GetMJD\n"
+        );
+    }
+}
+/* }}} */
+
+/* {{{ proto float wxDateTime::GetModifiedJulianDayNumber() */
+PHP_METHOD(php_wxDateTime, GetModifiedJulianDayNumber)
+{
+    #ifdef USE_WXPHP_DEBUG
+    php_printf("Invoking wxDateTime::GetModifiedJulianDayNumber\n");
+    php_printf("===========================================\n");
+    #endif
+
+    zo_wxDateTime* current_object;
+    wxphp_object_type current_object_type;
+    wxDateTime_php* native_object;
+    void* argument_native_object = NULL;
+
+    //Other variables used thru the code
+    zval dummy;
+    ZVAL_NULL(&dummy);
+    bool already_called = false;
+    wxPHPObjectReferences* references;
+    int arguments_received = ZEND_NUM_ARGS();
+    bool return_is_user_initialized = false;
+
+    //Get native object of the php object that called the method
+    if(getThis() != NULL)
+    {
+        current_object = Z_wxDateTime_P(getThis());
+
+        if(current_object->native_object == NULL)
+        {
+            zend_error(
+                E_ERROR,
+                "Failed to get the native object for "
+                "wxDateTime::GetModifiedJulianDayNumber call\n"
+            );
+
+            return;
+        }
+        else
+        {
+            native_object = current_object->native_object;
+            current_object_type = current_object->object_type;
+
+            bool reference_type_found = false;
+
+            if(current_object_type == PHP_WXDATETIME_TYPE){
+                references = &((wxDateTime_php*)native_object)->references;
+                reference_type_found = true;
+            }
+        }
+    }
+    #ifdef USE_WXPHP_DEBUG
+    else
+    {
+        php_printf("Processing the method call as static\n");
+    }
+    #endif
+
+    //Parameters for overload 0
+    bool overload0_called = false;
+
+    
+    //Overload 0
+    overload0:
+    if(!already_called && arguments_received == 0)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Parameters received %d\n", arguments_received);
+        php_printf("Parsing parameters with '' ()\n");
+        #endif
+
+        overload0_called = true;
+        already_called = true;
+    }
+
+    
+    if(overload0_called)
+    {
+        switch(arguments_received)
+        {
+            case 0:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing RETURN_LONG(wxDateTime::GetModifiedJulianDayNumber())\n\n");
+                #endif
+
+                RETVAL_DOUBLE(((wxDateTime_php*)native_object)->GetModifiedJulianDayNumber());
+
+
+                return;
+                break;
+            }
+        }
+    }
+
+    
+    //In case wrong type/count of parameters was passed
+    if(!already_called)
+    {
+        zend_error(
+            E_ERROR,
+            "Wrong type or count of parameters passed to: "
+            "wxDateTime::GetModifiedJulianDayNumber\n"
+        );
+    }
+}
+/* }}} */
+
+/* {{{ proto float wxDateTime::GetRataDie() */
+PHP_METHOD(php_wxDateTime, GetRataDie)
+{
+    #ifdef USE_WXPHP_DEBUG
+    php_printf("Invoking wxDateTime::GetRataDie\n");
+    php_printf("===========================================\n");
+    #endif
+
+    zo_wxDateTime* current_object;
+    wxphp_object_type current_object_type;
+    wxDateTime_php* native_object;
+    void* argument_native_object = NULL;
+
+    //Other variables used thru the code
+    zval dummy;
+    ZVAL_NULL(&dummy);
+    bool already_called = false;
+    wxPHPObjectReferences* references;
+    int arguments_received = ZEND_NUM_ARGS();
+    bool return_is_user_initialized = false;
+
+    //Get native object of the php object that called the method
+    if(getThis() != NULL)
+    {
+        current_object = Z_wxDateTime_P(getThis());
+
+        if(current_object->native_object == NULL)
+        {
+            zend_error(
+                E_ERROR,
+                "Failed to get the native object for "
+                "wxDateTime::GetRataDie call\n"
+            );
+
+            return;
+        }
+        else
+        {
+            native_object = current_object->native_object;
+            current_object_type = current_object->object_type;
+
+            bool reference_type_found = false;
+
+            if(current_object_type == PHP_WXDATETIME_TYPE){
+                references = &((wxDateTime_php*)native_object)->references;
+                reference_type_found = true;
+            }
+        }
+    }
+    #ifdef USE_WXPHP_DEBUG
+    else
+    {
+        php_printf("Processing the method call as static\n");
+    }
+    #endif
+
+    //Parameters for overload 0
+    bool overload0_called = false;
+
+    
+    //Overload 0
+    overload0:
+    if(!already_called && arguments_received == 0)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Parameters received %d\n", arguments_received);
+        php_printf("Parsing parameters with '' ()\n");
+        #endif
+
+        overload0_called = true;
+        already_called = true;
+    }
+
+    
+    if(overload0_called)
+    {
+        switch(arguments_received)
+        {
+            case 0:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing RETURN_LONG(wxDateTime::GetRataDie())\n\n");
+                #endif
+
+                RETVAL_DOUBLE(((wxDateTime_php*)native_object)->GetRataDie());
+
+
+                return;
+                break;
+            }
+        }
+    }
+
+    
+    //In case wrong type/count of parameters was passed
+    if(!already_called)
+    {
+        zend_error(
+            E_ERROR,
+            "Wrong type or count of parameters passed to: "
+            "wxDateTime::GetRataDie\n"
+        );
+    }
+}
+/* }}} */
+
+/* {{{ proto int wxDateTime::IsDST(Country country) */
+PHP_METHOD(php_wxDateTime, IsDST)
+{
+    #ifdef USE_WXPHP_DEBUG
+    php_printf("Invoking wxDateTime::IsDST\n");
+    php_printf("===========================================\n");
+    #endif
+
+    zo_wxDateTime* current_object;
+    wxphp_object_type current_object_type;
+    wxDateTime_php* native_object;
+    void* argument_native_object = NULL;
+
+    //Other variables used thru the code
+    zval dummy;
+    ZVAL_NULL(&dummy);
+    bool already_called = false;
+    wxPHPObjectReferences* references;
+    int arguments_received = ZEND_NUM_ARGS();
+    bool return_is_user_initialized = false;
+
+    //Get native object of the php object that called the method
+    if(getThis() != NULL)
+    {
+        current_object = Z_wxDateTime_P(getThis());
+
+        if(current_object->native_object == NULL)
+        {
+            zend_error(
+                E_ERROR,
+                "Failed to get the native object for "
+                "wxDateTime::IsDST call\n"
+            );
+
+            return;
+        }
+        else
+        {
+            native_object = current_object->native_object;
+            current_object_type = current_object->object_type;
+
+            bool reference_type_found = false;
+
+            if(current_object_type == PHP_WXDATETIME_TYPE){
+                references = &((wxDateTime_php*)native_object)->references;
+                reference_type_found = true;
+            }
+        }
+    }
+    #ifdef USE_WXPHP_DEBUG
+    else
+    {
+        php_printf("Processing the method call as static\n");
+    }
+    #endif
+
+    //Parameters for overload 0
+    long country0;
+    bool overload0_called = false;
+
+    
+    //Overload 0
+    overload0:
+    if(!already_called && arguments_received >= 0  && arguments_received <= 1)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Parameters received %d\n", arguments_received);
+        php_printf("Parsing parameters with '|l' (&country0)\n");
+        #endif
+
+        char parse_parameters_string[] = "|l";
+        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &country0 ) == SUCCESS)
+        {
+            overload0_called = true;
+            already_called = true;
+        }
+    }
+
+    
+    if(overload0_called)
+    {
+        switch(arguments_received)
+        {
+            case 0:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing RETURN_LONG(wxDateTime::IsDST())\n\n");
+                #endif
+
+                RETVAL_LONG(((wxDateTime_php*)native_object)->IsDST());
+
+
+                return;
+                break;
+            }
+            case 1:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing RETURN_LONG(wxDateTime::IsDST((wxDateTime::Country) country0))\n\n");
+                #endif
+
+                RETVAL_LONG(((wxDateTime_php*)native_object)->IsDST((wxDateTime::Country) country0));
+
+
+                return;
+                break;
+            }
+        }
+    }
+
+    
+    //In case wrong type/count of parameters was passed
+    if(!already_called)
+    {
+        zend_error(
+            E_ERROR,
+            "Wrong type or count of parameters passed to: "
+            "wxDateTime::IsDST\n"
+        );
+    }
+}
+/* }}} */
+
+/* {{{ proto timestamp wxDateTime::MakeUTC(bool noDST) */
+PHP_METHOD(php_wxDateTime, MakeUTC)
+{
+    #ifdef USE_WXPHP_DEBUG
+    php_printf("Invoking wxDateTime::MakeUTC\n");
+    php_printf("===========================================\n");
+    #endif
+
+    zo_wxDateTime* current_object;
+    wxphp_object_type current_object_type;
+    wxDateTime_php* native_object;
+    void* argument_native_object = NULL;
+
+    //Other variables used thru the code
+    zval dummy;
+    ZVAL_NULL(&dummy);
+    bool already_called = false;
+    wxPHPObjectReferences* references;
+    int arguments_received = ZEND_NUM_ARGS();
+    bool return_is_user_initialized = false;
+
+    //Get native object of the php object that called the method
+    if(getThis() != NULL)
+    {
+        current_object = Z_wxDateTime_P(getThis());
+
+        if(current_object->native_object == NULL)
+        {
+            zend_error(
+                E_ERROR,
+                "Failed to get the native object for "
+                "wxDateTime::MakeUTC call\n"
+            );
+
+            return;
+        }
+        else
+        {
+            native_object = current_object->native_object;
+            current_object_type = current_object->object_type;
+
+            bool reference_type_found = false;
+
+            if(current_object_type == PHP_WXDATETIME_TYPE){
+                references = &((wxDateTime_php*)native_object)->references;
+                reference_type_found = true;
+            }
+        }
+    }
+    #ifdef USE_WXPHP_DEBUG
+    else
+    {
+        php_printf("Processing the method call as static\n");
+    }
+    #endif
+
+    //Parameters for overload 0
+    bool noDST0;
+    bool overload0_called = false;
+
+    
+    //Overload 0
+    overload0:
+    if(!already_called && arguments_received >= 0  && arguments_received <= 1)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Parameters received %d\n", arguments_received);
+        php_printf("Parsing parameters with '|b' (&noDST0)\n");
+        #endif
+
+        char parse_parameters_string[] = "|b";
+        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &noDST0 ) == SUCCESS)
+        {
+            overload0_called = true;
+            already_called = true;
+        }
+    }
+
+    
+    if(overload0_called)
+    {
+        switch(arguments_received)
+        {
+            case 0:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing wxDateTime::MakeUTC() to return timestamp\n\n");
+                #endif
+
+                time_t value_to_return0;
+                value_to_return0 = ((wxDateTime_php*)native_object)->MakeUTC().GetTicks();
+                RETVAL_LONG(value_to_return0);
+
+
+                return;
+                break;
+            }
+            case 1:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing wxDateTime::MakeUTC(noDST0) to return timestamp\n\n");
+                #endif
+
+                time_t value_to_return1;
+                value_to_return1 = ((wxDateTime_php*)native_object)->MakeUTC(noDST0).GetTicks();
+                RETVAL_LONG(value_to_return1);
+
+
+                return;
+                break;
+            }
+        }
+    }
+
+    
+    //In case wrong type/count of parameters was passed
+    if(!already_called)
+    {
+        zend_error(
+            E_ERROR,
+            "Wrong type or count of parameters passed to: "
+            "wxDateTime::MakeUTC\n"
+        );
+    }
+}
+/* }}} */
+
+/* {{{ proto timestamp wxDateTime::ToUTC(bool noDST) */
+PHP_METHOD(php_wxDateTime, ToUTC)
+{
+    #ifdef USE_WXPHP_DEBUG
+    php_printf("Invoking wxDateTime::ToUTC\n");
+    php_printf("===========================================\n");
+    #endif
+
+    zo_wxDateTime* current_object;
+    wxphp_object_type current_object_type;
+    wxDateTime_php* native_object;
+    void* argument_native_object = NULL;
+
+    //Other variables used thru the code
+    zval dummy;
+    ZVAL_NULL(&dummy);
+    bool already_called = false;
+    wxPHPObjectReferences* references;
+    int arguments_received = ZEND_NUM_ARGS();
+    bool return_is_user_initialized = false;
+
+    //Get native object of the php object that called the method
+    if(getThis() != NULL)
+    {
+        current_object = Z_wxDateTime_P(getThis());
+
+        if(current_object->native_object == NULL)
+        {
+            zend_error(
+                E_ERROR,
+                "Failed to get the native object for "
+                "wxDateTime::ToUTC call\n"
+            );
+
+            return;
+        }
+        else
+        {
+            native_object = current_object->native_object;
+            current_object_type = current_object->object_type;
+
+            bool reference_type_found = false;
+
+            if(current_object_type == PHP_WXDATETIME_TYPE){
+                references = &((wxDateTime_php*)native_object)->references;
+                reference_type_found = true;
+            }
+        }
+    }
+    #ifdef USE_WXPHP_DEBUG
+    else
+    {
+        php_printf("Processing the method call as static\n");
+    }
+    #endif
+
+    //Parameters for overload 0
+    bool noDST0;
+    bool overload0_called = false;
+
+    
+    //Overload 0
+    overload0:
+    if(!already_called && arguments_received >= 0  && arguments_received <= 1)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Parameters received %d\n", arguments_received);
+        php_printf("Parsing parameters with '|b' (&noDST0)\n");
+        #endif
+
+        char parse_parameters_string[] = "|b";
+        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &noDST0 ) == SUCCESS)
+        {
+            overload0_called = true;
+            already_called = true;
+        }
+    }
+
+    
+    if(overload0_called)
+    {
+        switch(arguments_received)
+        {
+            case 0:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing wxDateTime::ToUTC() to return timestamp\n\n");
+                #endif
+
+                time_t value_to_return0;
+                value_to_return0 = ((wxDateTime_php*)native_object)->ToUTC().GetTicks();
+                RETVAL_LONG(value_to_return0);
+
+
+                return;
+                break;
+            }
+            case 1:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing wxDateTime::ToUTC(noDST0) to return timestamp\n\n");
+                #endif
+
+                time_t value_to_return1;
+                value_to_return1 = ((wxDateTime_php*)native_object)->ToUTC(noDST0).GetTicks();
+                RETVAL_LONG(value_to_return1);
+
+
+                return;
+                break;
+            }
+        }
+    }
+
+    
+    //In case wrong type/count of parameters was passed
+    if(!already_called)
+    {
+        zend_error(
+            E_ERROR,
+            "Wrong type or count of parameters passed to: "
+            "wxDateTime::ToUTC\n"
+        );
+    }
+}
+/* }}} */
+
+/* {{{ proto int wxDateTime::ConvertYearToBC(int year) */
+PHP_METHOD(php_wxDateTime, ConvertYearToBC)
+{
+    #ifdef USE_WXPHP_DEBUG
+    php_printf("Invoking wxDateTime::ConvertYearToBC\n");
+    php_printf("===========================================\n");
+    #endif
+
+    zo_wxDateTime* current_object;
+    wxphp_object_type current_object_type;
+    wxDateTime_php* native_object;
+    void* argument_native_object = NULL;
+
+    //Other variables used thru the code
+    zval dummy;
+    ZVAL_NULL(&dummy);
+    bool already_called = false;
+    wxPHPObjectReferences* references;
+    int arguments_received = ZEND_NUM_ARGS();
+    bool return_is_user_initialized = false;
+
+    //Get native object of the php object that called the method
+    if(getThis() != NULL)
+    {
+        current_object = Z_wxDateTime_P(getThis());
+
+        if(current_object->native_object == NULL)
+        {
+            zend_error(
+                E_ERROR,
+                "Failed to get the native object for "
+                "wxDateTime::ConvertYearToBC call\n"
+            );
+
+            return;
+        }
+        else
+        {
+            native_object = current_object->native_object;
+            current_object_type = current_object->object_type;
+
+            bool reference_type_found = false;
+
+            if(current_object_type == PHP_WXDATETIME_TYPE){
+                references = &((wxDateTime_php*)native_object)->references;
+                reference_type_found = true;
+            }
+        }
+    }
+    #ifdef USE_WXPHP_DEBUG
+    else
+    {
+        php_printf("Processing the method call as static\n");
+    }
+    #endif
+
+    //Parameters for overload 0
+    long year0;
+    bool overload0_called = false;
+
+    
+    //Overload 0
+    overload0:
+    if(!already_called && arguments_received == 1)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Parameters received %d\n", arguments_received);
+        php_printf("Parsing parameters with 'l' (&year0)\n");
+        #endif
+
+        char parse_parameters_string[] = "l";
+        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &year0 ) == SUCCESS)
+        {
+            overload0_called = true;
+            already_called = true;
+        }
+    }
+
+    
+    if(overload0_called)
+    {
+        switch(arguments_received)
+        {
+            case 1:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Static ");
+                php_printf("Executing RETURN_LONG(wxDateTime::ConvertYearToBC((int) year0))\n\n");
+                #endif
+
+                RETVAL_LONG(wxDateTime::ConvertYearToBC((int) year0));
+
+
+                return;
+                break;
+            }
+        }
+    }
+
+    
+    //In case wrong type/count of parameters was passed
+    if(!already_called)
+    {
+        zend_error(
+            E_ERROR,
+            "Wrong type or count of parameters passed to: "
+            "wxDateTime::ConvertYearToBC\n"
+        );
+    }
+}
+/* }}} */
+
+/* {{{ proto  wxDateTime::GetAmPmStrings(string &am, string &pm) */
+PHP_METHOD(php_wxDateTime, GetAmPmStrings)
+{
+    #ifdef USE_WXPHP_DEBUG
+    php_printf("Invoking wxDateTime::GetAmPmStrings\n");
+    php_printf("===========================================\n");
+    #endif
+
+    zo_wxDateTime* current_object;
+    wxphp_object_type current_object_type;
+    wxDateTime_php* native_object;
+    void* argument_native_object = NULL;
+
+    //Other variables used thru the code
+    zval dummy;
+    ZVAL_NULL(&dummy);
+    bool already_called = false;
+    wxPHPObjectReferences* references;
+    int arguments_received = ZEND_NUM_ARGS();
+    bool return_is_user_initialized = false;
+
+    //Get native object of the php object that called the method
+    if(getThis() != NULL)
+    {
+        current_object = Z_wxDateTime_P(getThis());
+
+        if(current_object->native_object == NULL)
+        {
+            zend_error(
+                E_ERROR,
+                "Failed to get the native object for "
+                "wxDateTime::GetAmPmStrings call\n"
+            );
+
+            return;
+        }
+        else
+        {
+            native_object = current_object->native_object;
+            current_object_type = current_object->object_type;
+
+            bool reference_type_found = false;
+
+            if(current_object_type == PHP_WXDATETIME_TYPE){
+                references = &((wxDateTime_php*)native_object)->references;
+                reference_type_found = true;
+            }
+        }
+    }
+    #ifdef USE_WXPHP_DEBUG
+    else
+    {
+        php_printf("Processing the method call as static\n");
+    }
+    #endif
+
+    //Parameters for overload 0
+    char* am0;
+    size_t am_len0;
+    zval am0_ref;
+    char* pm0;
+    size_t pm_len0;
+    zval pm0_ref;
+    bool overload0_called = false;
+
+    
+    //Overload 0
+    overload0:
+    if(!already_called && arguments_received == 2)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Parameters received %d\n", arguments_received);
+        php_printf("Parsing parameters with 'ss' (&am0, &am_len0, &pm0, &pm_len0)\n");
+        #endif
+
+        char parse_parameters_string[] = "ss";
+        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &am0, &am_len0, &pm0, &pm_len0 ) == SUCCESS)
+        {
+            overload0_called = true;
+            already_called = true;
+
+            char parse_references_string[] = "zz";
+            zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_references_string, am0_ref, pm0_ref );
+        }
+    }
+
+    
+    if(overload0_called)
+    {
+        switch(arguments_received)
+        {
+            case 2:
+            {
+                wxString string_arg0_0 = wxString(am0, wxConvUTF8);
+                wxString string_arg0_1 = wxString(pm0, wxConvUTF8);
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Static ");
+                php_printf("Executing wxDateTime::GetAmPmStrings(&string_arg0_0, &string_arg0_1)\n\n");
+                #endif
+
+                wxDateTime::GetAmPmStrings(&string_arg0_0, &string_arg0_1);
+
+                ZVAL_STRING(&am0_ref, string_arg0_0.ToUTF8().data());
+                ZVAL_STRING(&pm0_ref, string_arg0_1.ToUTF8().data());
+
+                return;
+                break;
+            }
+        }
+    }
+
+    
+    //In case wrong type/count of parameters was passed
+    if(!already_called)
+    {
+        zend_error(
+            E_ERROR,
+            "Wrong type or count of parameters passed to: "
+            "wxDateTime::GetAmPmStrings\n"
+        );
+    }
+}
+/* }}} */
+
+/* {{{ proto timestamp wxDateTime::GetBeginDST(int year, Country country) */
+PHP_METHOD(php_wxDateTime, GetBeginDST)
+{
+    #ifdef USE_WXPHP_DEBUG
+    php_printf("Invoking wxDateTime::GetBeginDST\n");
+    php_printf("===========================================\n");
+    #endif
+
+    zo_wxDateTime* current_object;
+    wxphp_object_type current_object_type;
+    wxDateTime_php* native_object;
+    void* argument_native_object = NULL;
+
+    //Other variables used thru the code
+    zval dummy;
+    ZVAL_NULL(&dummy);
+    bool already_called = false;
+    wxPHPObjectReferences* references;
+    int arguments_received = ZEND_NUM_ARGS();
+    bool return_is_user_initialized = false;
+
+    //Get native object of the php object that called the method
+    if(getThis() != NULL)
+    {
+        current_object = Z_wxDateTime_P(getThis());
+
+        if(current_object->native_object == NULL)
+        {
+            zend_error(
+                E_ERROR,
+                "Failed to get the native object for "
+                "wxDateTime::GetBeginDST call\n"
+            );
+
+            return;
+        }
+        else
+        {
+            native_object = current_object->native_object;
+            current_object_type = current_object->object_type;
+
+            bool reference_type_found = false;
+
+            if(current_object_type == PHP_WXDATETIME_TYPE){
+                references = &((wxDateTime_php*)native_object)->references;
+                reference_type_found = true;
+            }
+        }
+    }
+    #ifdef USE_WXPHP_DEBUG
+    else
+    {
+        php_printf("Processing the method call as static\n");
+    }
+    #endif
+
+    //Parameters for overload 0
+    long year0;
+    long country0;
+    bool overload0_called = false;
+
+    
+    //Overload 0
+    overload0:
+    if(!already_called && arguments_received >= 0  && arguments_received <= 2)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Parameters received %d\n", arguments_received);
+        php_printf("Parsing parameters with '|ll' (&year0, &country0)\n");
+        #endif
+
+        char parse_parameters_string[] = "|ll";
+        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &year0, &country0 ) == SUCCESS)
+        {
+            overload0_called = true;
+            already_called = true;
+        }
+    }
+
+    
+    if(overload0_called)
+    {
+        switch(arguments_received)
+        {
+            case 0:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Static ");
+                php_printf("Executing wxDateTime::GetBeginDST() to return timestamp\n\n");
+                #endif
+
+                time_t value_to_return0;
+                value_to_return0 = wxDateTime::GetBeginDST().GetTicks();
+                RETVAL_LONG(value_to_return0);
+
+
+                return;
+                break;
+            }
+            case 1:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Static ");
+                php_printf("Executing wxDateTime::GetBeginDST((int) year0) to return timestamp\n\n");
+                #endif
+
+                time_t value_to_return1;
+                value_to_return1 = wxDateTime::GetBeginDST((int) year0).GetTicks();
+                RETVAL_LONG(value_to_return1);
+
+
+                return;
+                break;
+            }
+            case 2:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Static ");
+                php_printf("Executing wxDateTime::GetBeginDST((int) year0, (wxDateTime::Country) country0) to return timestamp\n\n");
+                #endif
+
+                time_t value_to_return2;
+                value_to_return2 = wxDateTime::GetBeginDST((int) year0, (wxDateTime::Country) country0).GetTicks();
+                RETVAL_LONG(value_to_return2);
+
+
+                return;
+                break;
+            }
+        }
+    }
+
+    
+    //In case wrong type/count of parameters was passed
+    if(!already_called)
+    {
+        zend_error(
+            E_ERROR,
+            "Wrong type or count of parameters passed to: "
+            "wxDateTime::GetBeginDST\n"
+        );
+    }
+}
+/* }}} */
+
+/* {{{ proto timestamp wxDateTime::GetEndDST(int year, Country country) */
+PHP_METHOD(php_wxDateTime, GetEndDST)
+{
+    #ifdef USE_WXPHP_DEBUG
+    php_printf("Invoking wxDateTime::GetEndDST\n");
+    php_printf("===========================================\n");
+    #endif
+
+    zo_wxDateTime* current_object;
+    wxphp_object_type current_object_type;
+    wxDateTime_php* native_object;
+    void* argument_native_object = NULL;
+
+    //Other variables used thru the code
+    zval dummy;
+    ZVAL_NULL(&dummy);
+    bool already_called = false;
+    wxPHPObjectReferences* references;
+    int arguments_received = ZEND_NUM_ARGS();
+    bool return_is_user_initialized = false;
+
+    //Get native object of the php object that called the method
+    if(getThis() != NULL)
+    {
+        current_object = Z_wxDateTime_P(getThis());
+
+        if(current_object->native_object == NULL)
+        {
+            zend_error(
+                E_ERROR,
+                "Failed to get the native object for "
+                "wxDateTime::GetEndDST call\n"
+            );
+
+            return;
+        }
+        else
+        {
+            native_object = current_object->native_object;
+            current_object_type = current_object->object_type;
+
+            bool reference_type_found = false;
+
+            if(current_object_type == PHP_WXDATETIME_TYPE){
+                references = &((wxDateTime_php*)native_object)->references;
+                reference_type_found = true;
+            }
+        }
+    }
+    #ifdef USE_WXPHP_DEBUG
+    else
+    {
+        php_printf("Processing the method call as static\n");
+    }
+    #endif
+
+    //Parameters for overload 0
+    long year0;
+    long country0;
+    bool overload0_called = false;
+
+    
+    //Overload 0
+    overload0:
+    if(!already_called && arguments_received >= 0  && arguments_received <= 2)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Parameters received %d\n", arguments_received);
+        php_printf("Parsing parameters with '|ll' (&year0, &country0)\n");
+        #endif
+
+        char parse_parameters_string[] = "|ll";
+        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &year0, &country0 ) == SUCCESS)
+        {
+            overload0_called = true;
+            already_called = true;
+        }
+    }
+
+    
+    if(overload0_called)
+    {
+        switch(arguments_received)
+        {
+            case 0:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Static ");
+                php_printf("Executing wxDateTime::GetEndDST() to return timestamp\n\n");
+                #endif
+
+                time_t value_to_return0;
+                value_to_return0 = wxDateTime::GetEndDST().GetTicks();
+                RETVAL_LONG(value_to_return0);
+
+
+                return;
+                break;
+            }
+            case 1:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Static ");
+                php_printf("Executing wxDateTime::GetEndDST((int) year0) to return timestamp\n\n");
+                #endif
+
+                time_t value_to_return1;
+                value_to_return1 = wxDateTime::GetEndDST((int) year0).GetTicks();
+                RETVAL_LONG(value_to_return1);
+
+
+                return;
+                break;
+            }
+            case 2:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Static ");
+                php_printf("Executing wxDateTime::GetEndDST((int) year0, (wxDateTime::Country) country0) to return timestamp\n\n");
+                #endif
+
+                time_t value_to_return2;
+                value_to_return2 = wxDateTime::GetEndDST((int) year0, (wxDateTime::Country) country0).GetTicks();
+                RETVAL_LONG(value_to_return2);
+
+
+                return;
+                break;
+            }
+        }
+    }
+
+    
+    //In case wrong type/count of parameters was passed
+    if(!already_called)
+    {
+        zend_error(
+            E_ERROR,
+            "Wrong type or count of parameters passed to: "
+            "wxDateTime::GetEndDST\n"
+        );
+    }
+}
+/* }}} */
+
+/* {{{ proto Country wxDateTime::GetCountry() */
+PHP_METHOD(php_wxDateTime, GetCountry)
+{
+    #ifdef USE_WXPHP_DEBUG
+    php_printf("Invoking wxDateTime::GetCountry\n");
+    php_printf("===========================================\n");
+    #endif
+
+    zo_wxDateTime* current_object;
+    wxphp_object_type current_object_type;
+    wxDateTime_php* native_object;
+    void* argument_native_object = NULL;
+
+    //Other variables used thru the code
+    zval dummy;
+    ZVAL_NULL(&dummy);
+    bool already_called = false;
+    wxPHPObjectReferences* references;
+    int arguments_received = ZEND_NUM_ARGS();
+    bool return_is_user_initialized = false;
+
+    //Get native object of the php object that called the method
+    if(getThis() != NULL)
+    {
+        current_object = Z_wxDateTime_P(getThis());
+
+        if(current_object->native_object == NULL)
+        {
+            zend_error(
+                E_ERROR,
+                "Failed to get the native object for "
+                "wxDateTime::GetCountry call\n"
+            );
+
+            return;
+        }
+        else
+        {
+            native_object = current_object->native_object;
+            current_object_type = current_object->object_type;
+
+            bool reference_type_found = false;
+
+            if(current_object_type == PHP_WXDATETIME_TYPE){
+                references = &((wxDateTime_php*)native_object)->references;
+                reference_type_found = true;
+            }
+        }
+    }
+    #ifdef USE_WXPHP_DEBUG
+    else
+    {
+        php_printf("Processing the method call as static\n");
+    }
+    #endif
+
+    //Parameters for overload 0
+    bool overload0_called = false;
+
+    
+    //Overload 0
+    overload0:
+    if(!already_called && arguments_received == 0)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Parameters received %d\n", arguments_received);
+        php_printf("Parsing parameters with '' ()\n");
+        #endif
+
+        overload0_called = true;
+        already_called = true;
+    }
+
+    
+    if(overload0_called)
+    {
+        switch(arguments_received)
+        {
+            case 0:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Static ");
+                php_printf("Executing RETURN_LONG(wxDateTime::GetCountry())\n\n");
+                #endif
+
+                RETVAL_LONG(wxDateTime::GetCountry());
+
+
+                return;
+                break;
+            }
+        }
+    }
+
+    
+    //In case wrong type/count of parameters was passed
+    if(!already_called)
+    {
+        zend_error(
+            E_ERROR,
+            "Wrong type or count of parameters passed to: "
+            "wxDateTime::GetCountry\n"
+        );
+    }
+}
+/* }}} */
+
+/* {{{ proto Month wxDateTime::GetCurrentMonth(Calendar cal) */
+PHP_METHOD(php_wxDateTime, GetCurrentMonth)
+{
+    #ifdef USE_WXPHP_DEBUG
+    php_printf("Invoking wxDateTime::GetCurrentMonth\n");
+    php_printf("===========================================\n");
+    #endif
+
+    zo_wxDateTime* current_object;
+    wxphp_object_type current_object_type;
+    wxDateTime_php* native_object;
+    void* argument_native_object = NULL;
+
+    //Other variables used thru the code
+    zval dummy;
+    ZVAL_NULL(&dummy);
+    bool already_called = false;
+    wxPHPObjectReferences* references;
+    int arguments_received = ZEND_NUM_ARGS();
+    bool return_is_user_initialized = false;
+
+    //Get native object of the php object that called the method
+    if(getThis() != NULL)
+    {
+        current_object = Z_wxDateTime_P(getThis());
+
+        if(current_object->native_object == NULL)
+        {
+            zend_error(
+                E_ERROR,
+                "Failed to get the native object for "
+                "wxDateTime::GetCurrentMonth call\n"
+            );
+
+            return;
+        }
+        else
+        {
+            native_object = current_object->native_object;
+            current_object_type = current_object->object_type;
+
+            bool reference_type_found = false;
+
+            if(current_object_type == PHP_WXDATETIME_TYPE){
+                references = &((wxDateTime_php*)native_object)->references;
+                reference_type_found = true;
+            }
+        }
+    }
+    #ifdef USE_WXPHP_DEBUG
+    else
+    {
+        php_printf("Processing the method call as static\n");
+    }
+    #endif
+
+    //Parameters for overload 0
+    long cal0;
+    bool overload0_called = false;
+
+    
+    //Overload 0
+    overload0:
+    if(!already_called && arguments_received >= 0  && arguments_received <= 1)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Parameters received %d\n", arguments_received);
+        php_printf("Parsing parameters with '|l' (&cal0)\n");
+        #endif
+
+        char parse_parameters_string[] = "|l";
+        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &cal0 ) == SUCCESS)
+        {
+            overload0_called = true;
+            already_called = true;
+        }
+    }
+
+    
+    if(overload0_called)
+    {
+        switch(arguments_received)
+        {
+            case 0:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Static ");
+                php_printf("Executing RETURN_LONG(wxDateTime::GetCurrentMonth())\n\n");
+                #endif
+
+                RETVAL_LONG(wxDateTime::GetCurrentMonth());
+
+
+                return;
+                break;
+            }
+            case 1:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Static ");
+                php_printf("Executing RETURN_LONG(wxDateTime::GetCurrentMonth((wxDateTime::Calendar) cal0))\n\n");
+                #endif
+
+                RETVAL_LONG(wxDateTime::GetCurrentMonth((wxDateTime::Calendar) cal0));
+
+
+                return;
+                break;
+            }
+        }
+    }
+
+    
+    //In case wrong type/count of parameters was passed
+    if(!already_called)
+    {
+        zend_error(
+            E_ERROR,
+            "Wrong type or count of parameters passed to: "
+            "wxDateTime::GetCurrentMonth\n"
+        );
+    }
+}
+/* }}} */
+
+/* {{{ proto int wxDateTime::GetCurrentYear(Calendar cal) */
+PHP_METHOD(php_wxDateTime, GetCurrentYear)
+{
+    #ifdef USE_WXPHP_DEBUG
+    php_printf("Invoking wxDateTime::GetCurrentYear\n");
+    php_printf("===========================================\n");
+    #endif
+
+    zo_wxDateTime* current_object;
+    wxphp_object_type current_object_type;
+    wxDateTime_php* native_object;
+    void* argument_native_object = NULL;
+
+    //Other variables used thru the code
+    zval dummy;
+    ZVAL_NULL(&dummy);
+    bool already_called = false;
+    wxPHPObjectReferences* references;
+    int arguments_received = ZEND_NUM_ARGS();
+    bool return_is_user_initialized = false;
+
+    //Get native object of the php object that called the method
+    if(getThis() != NULL)
+    {
+        current_object = Z_wxDateTime_P(getThis());
+
+        if(current_object->native_object == NULL)
+        {
+            zend_error(
+                E_ERROR,
+                "Failed to get the native object for "
+                "wxDateTime::GetCurrentYear call\n"
+            );
+
+            return;
+        }
+        else
+        {
+            native_object = current_object->native_object;
+            current_object_type = current_object->object_type;
+
+            bool reference_type_found = false;
+
+            if(current_object_type == PHP_WXDATETIME_TYPE){
+                references = &((wxDateTime_php*)native_object)->references;
+                reference_type_found = true;
+            }
+        }
+    }
+    #ifdef USE_WXPHP_DEBUG
+    else
+    {
+        php_printf("Processing the method call as static\n");
+    }
+    #endif
+
+    //Parameters for overload 0
+    long cal0;
+    bool overload0_called = false;
+
+    
+    //Overload 0
+    overload0:
+    if(!already_called && arguments_received >= 0  && arguments_received <= 1)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Parameters received %d\n", arguments_received);
+        php_printf("Parsing parameters with '|l' (&cal0)\n");
+        #endif
+
+        char parse_parameters_string[] = "|l";
+        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &cal0 ) == SUCCESS)
+        {
+            overload0_called = true;
+            already_called = true;
+        }
+    }
+
+    
+    if(overload0_called)
+    {
+        switch(arguments_received)
+        {
+            case 0:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Static ");
+                php_printf("Executing RETURN_LONG(wxDateTime::GetCurrentYear())\n\n");
+                #endif
+
+                RETVAL_LONG(wxDateTime::GetCurrentYear());
+
+
+                return;
+                break;
+            }
+            case 1:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Static ");
+                php_printf("Executing RETURN_LONG(wxDateTime::GetCurrentYear((wxDateTime::Calendar) cal0))\n\n");
+                #endif
+
+                RETVAL_LONG(wxDateTime::GetCurrentYear((wxDateTime::Calendar) cal0));
+
+
+                return;
+                break;
+            }
+        }
+    }
+
+    
+    //In case wrong type/count of parameters was passed
+    if(!already_called)
+    {
+        zend_error(
+            E_ERROR,
+            "Wrong type or count of parameters passed to: "
+            "wxDateTime::GetCurrentYear\n"
+        );
+    }
+}
+/* }}} */
+
+/* {{{ proto string wxDateTime::GetEnglishMonthName(Month month, NameFlags flags) */
+PHP_METHOD(php_wxDateTime, GetEnglishMonthName)
+{
+    #ifdef USE_WXPHP_DEBUG
+    php_printf("Invoking wxDateTime::GetEnglishMonthName\n");
+    php_printf("===========================================\n");
+    #endif
+
+    zo_wxDateTime* current_object;
+    wxphp_object_type current_object_type;
+    wxDateTime_php* native_object;
+    void* argument_native_object = NULL;
+
+    //Other variables used thru the code
+    zval dummy;
+    ZVAL_NULL(&dummy);
+    bool already_called = false;
+    wxPHPObjectReferences* references;
+    int arguments_received = ZEND_NUM_ARGS();
+    bool return_is_user_initialized = false;
+
+    //Get native object of the php object that called the method
+    if(getThis() != NULL)
+    {
+        current_object = Z_wxDateTime_P(getThis());
+
+        if(current_object->native_object == NULL)
+        {
+            zend_error(
+                E_ERROR,
+                "Failed to get the native object for "
+                "wxDateTime::GetEnglishMonthName call\n"
+            );
+
+            return;
+        }
+        else
+        {
+            native_object = current_object->native_object;
+            current_object_type = current_object->object_type;
+
+            bool reference_type_found = false;
+
+            if(current_object_type == PHP_WXDATETIME_TYPE){
+                references = &((wxDateTime_php*)native_object)->references;
+                reference_type_found = true;
+            }
+        }
+    }
+    #ifdef USE_WXPHP_DEBUG
+    else
+    {
+        php_printf("Processing the method call as static\n");
+    }
+    #endif
+
+    //Parameters for overload 0
+    long month0;
+    long flags0;
+    bool overload0_called = false;
+
+    
+    //Overload 0
+    overload0:
+    if(!already_called && arguments_received >= 1  && arguments_received <= 2)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Parameters received %d\n", arguments_received);
+        php_printf("Parsing parameters with 'l|l' (&month0, &flags0)\n");
+        #endif
+
+        char parse_parameters_string[] = "l|l";
+        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &month0, &flags0 ) == SUCCESS)
+        {
+            overload0_called = true;
+            already_called = true;
+        }
+    }
+
+    
+    if(overload0_called)
+    {
+        switch(arguments_received)
+        {
+            case 1:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Static ");
+                php_printf("Executing RETURN_STRING(wxDateTime::GetEnglishMonthName((wxDateTime::Month) month0).fn_str(), 1)\n\n");
+                #endif
+
+                wxString value_to_return1;
+                value_to_return1 = wxDateTime::GetEnglishMonthName((wxDateTime::Month) month0);
+                RETVAL_STRING(value_to_return1.ToUTF8().data());
+
+
+                return;
+                break;
+            }
+            case 2:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Static ");
+                php_printf("Executing RETURN_STRING(wxDateTime::GetEnglishMonthName((wxDateTime::Month) month0, (wxDateTime::NameFlags) flags0).fn_str(), 1)\n\n");
+                #endif
+
+                wxString value_to_return2;
+                value_to_return2 = wxDateTime::GetEnglishMonthName((wxDateTime::Month) month0, (wxDateTime::NameFlags) flags0);
+                RETVAL_STRING(value_to_return2.ToUTF8().data());
+
+
+                return;
+                break;
+            }
+        }
+    }
+
+    
+    //In case wrong type/count of parameters was passed
+    if(!already_called)
+    {
+        zend_error(
+            E_ERROR,
+            "Wrong type or count of parameters passed to: "
+            "wxDateTime::GetEnglishMonthName\n"
+        );
+    }
+}
+/* }}} */
+
+/* {{{ proto string wxDateTime::GetEnglishWeekDayName(WeekDay weekday, NameFlags flags) */
+PHP_METHOD(php_wxDateTime, GetEnglishWeekDayName)
+{
+    #ifdef USE_WXPHP_DEBUG
+    php_printf("Invoking wxDateTime::GetEnglishWeekDayName\n");
+    php_printf("===========================================\n");
+    #endif
+
+    zo_wxDateTime* current_object;
+    wxphp_object_type current_object_type;
+    wxDateTime_php* native_object;
+    void* argument_native_object = NULL;
+
+    //Other variables used thru the code
+    zval dummy;
+    ZVAL_NULL(&dummy);
+    bool already_called = false;
+    wxPHPObjectReferences* references;
+    int arguments_received = ZEND_NUM_ARGS();
+    bool return_is_user_initialized = false;
+
+    //Get native object of the php object that called the method
+    if(getThis() != NULL)
+    {
+        current_object = Z_wxDateTime_P(getThis());
+
+        if(current_object->native_object == NULL)
+        {
+            zend_error(
+                E_ERROR,
+                "Failed to get the native object for "
+                "wxDateTime::GetEnglishWeekDayName call\n"
+            );
+
+            return;
+        }
+        else
+        {
+            native_object = current_object->native_object;
+            current_object_type = current_object->object_type;
+
+            bool reference_type_found = false;
+
+            if(current_object_type == PHP_WXDATETIME_TYPE){
+                references = &((wxDateTime_php*)native_object)->references;
+                reference_type_found = true;
+            }
+        }
+    }
+    #ifdef USE_WXPHP_DEBUG
+    else
+    {
+        php_printf("Processing the method call as static\n");
+    }
+    #endif
+
+    //Parameters for overload 0
+    long weekday0;
+    long flags0;
+    bool overload0_called = false;
+
+    
+    //Overload 0
+    overload0:
+    if(!already_called && arguments_received >= 1  && arguments_received <= 2)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Parameters received %d\n", arguments_received);
+        php_printf("Parsing parameters with 'l|l' (&weekday0, &flags0)\n");
+        #endif
+
+        char parse_parameters_string[] = "l|l";
+        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &weekday0, &flags0 ) == SUCCESS)
+        {
+            overload0_called = true;
+            already_called = true;
+        }
+    }
+
+    
+    if(overload0_called)
+    {
+        switch(arguments_received)
+        {
+            case 1:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Static ");
+                php_printf("Executing RETURN_STRING(wxDateTime::GetEnglishWeekDayName((wxDateTime::WeekDay) weekday0).fn_str(), 1)\n\n");
+                #endif
+
+                wxString value_to_return1;
+                value_to_return1 = wxDateTime::GetEnglishWeekDayName((wxDateTime::WeekDay) weekday0);
+                RETVAL_STRING(value_to_return1.ToUTF8().data());
+
+
+                return;
+                break;
+            }
+            case 2:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Static ");
+                php_printf("Executing RETURN_STRING(wxDateTime::GetEnglishWeekDayName((wxDateTime::WeekDay) weekday0, (wxDateTime::NameFlags) flags0).fn_str(), 1)\n\n");
+                #endif
+
+                wxString value_to_return2;
+                value_to_return2 = wxDateTime::GetEnglishWeekDayName((wxDateTime::WeekDay) weekday0, (wxDateTime::NameFlags) flags0);
+                RETVAL_STRING(value_to_return2.ToUTF8().data());
+
+
+                return;
+                break;
+            }
+        }
+    }
+
+    
+    //In case wrong type/count of parameters was passed
+    if(!already_called)
+    {
+        zend_error(
+            E_ERROR,
+            "Wrong type or count of parameters passed to: "
+            "wxDateTime::GetEnglishWeekDayName\n"
+        );
+    }
+}
+/* }}} */
+
+/* {{{ proto string wxDateTime::GetMonthName(Month month, NameFlags flags) */
+PHP_METHOD(php_wxDateTime, GetMonthName)
+{
+    #ifdef USE_WXPHP_DEBUG
+    php_printf("Invoking wxDateTime::GetMonthName\n");
+    php_printf("===========================================\n");
+    #endif
+
+    zo_wxDateTime* current_object;
+    wxphp_object_type current_object_type;
+    wxDateTime_php* native_object;
+    void* argument_native_object = NULL;
+
+    //Other variables used thru the code
+    zval dummy;
+    ZVAL_NULL(&dummy);
+    bool already_called = false;
+    wxPHPObjectReferences* references;
+    int arguments_received = ZEND_NUM_ARGS();
+    bool return_is_user_initialized = false;
+
+    //Get native object of the php object that called the method
+    if(getThis() != NULL)
+    {
+        current_object = Z_wxDateTime_P(getThis());
+
+        if(current_object->native_object == NULL)
+        {
+            zend_error(
+                E_ERROR,
+                "Failed to get the native object for "
+                "wxDateTime::GetMonthName call\n"
+            );
+
+            return;
+        }
+        else
+        {
+            native_object = current_object->native_object;
+            current_object_type = current_object->object_type;
+
+            bool reference_type_found = false;
+
+            if(current_object_type == PHP_WXDATETIME_TYPE){
+                references = &((wxDateTime_php*)native_object)->references;
+                reference_type_found = true;
+            }
+        }
+    }
+    #ifdef USE_WXPHP_DEBUG
+    else
+    {
+        php_printf("Processing the method call as static\n");
+    }
+    #endif
+
+    //Parameters for overload 0
+    long month0;
+    long flags0;
+    bool overload0_called = false;
+
+    
+    //Overload 0
+    overload0:
+    if(!already_called && arguments_received >= 1  && arguments_received <= 2)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Parameters received %d\n", arguments_received);
+        php_printf("Parsing parameters with 'l|l' (&month0, &flags0)\n");
+        #endif
+
+        char parse_parameters_string[] = "l|l";
+        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &month0, &flags0 ) == SUCCESS)
+        {
+            overload0_called = true;
+            already_called = true;
+        }
+    }
+
+    
+    if(overload0_called)
+    {
+        switch(arguments_received)
+        {
+            case 1:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Static ");
+                php_printf("Executing RETURN_STRING(wxDateTime::GetMonthName((wxDateTime::Month) month0).fn_str(), 1)\n\n");
+                #endif
+
+                wxString value_to_return1;
+                value_to_return1 = wxDateTime::GetMonthName((wxDateTime::Month) month0);
+                RETVAL_STRING(value_to_return1.ToUTF8().data());
+
+
+                return;
+                break;
+            }
+            case 2:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Static ");
+                php_printf("Executing RETURN_STRING(wxDateTime::GetMonthName((wxDateTime::Month) month0, (wxDateTime::NameFlags) flags0).fn_str(), 1)\n\n");
+                #endif
+
+                wxString value_to_return2;
+                value_to_return2 = wxDateTime::GetMonthName((wxDateTime::Month) month0, (wxDateTime::NameFlags) flags0);
+                RETVAL_STRING(value_to_return2.ToUTF8().data());
+
+
+                return;
+                break;
+            }
+        }
+    }
+
+    
+    //In case wrong type/count of parameters was passed
+    if(!already_called)
+    {
+        zend_error(
+            E_ERROR,
+            "Wrong type or count of parameters passed to: "
+            "wxDateTime::GetMonthName\n"
+        );
+    }
+}
+/* }}} */
+
+/* {{{ proto string wxDateTime::GetWeekDayName(WeekDay weekday, NameFlags flags) */
+PHP_METHOD(php_wxDateTime, GetWeekDayName)
+{
+    #ifdef USE_WXPHP_DEBUG
+    php_printf("Invoking wxDateTime::GetWeekDayName\n");
+    php_printf("===========================================\n");
+    #endif
+
+    zo_wxDateTime* current_object;
+    wxphp_object_type current_object_type;
+    wxDateTime_php* native_object;
+    void* argument_native_object = NULL;
+
+    //Other variables used thru the code
+    zval dummy;
+    ZVAL_NULL(&dummy);
+    bool already_called = false;
+    wxPHPObjectReferences* references;
+    int arguments_received = ZEND_NUM_ARGS();
+    bool return_is_user_initialized = false;
+
+    //Get native object of the php object that called the method
+    if(getThis() != NULL)
+    {
+        current_object = Z_wxDateTime_P(getThis());
+
+        if(current_object->native_object == NULL)
+        {
+            zend_error(
+                E_ERROR,
+                "Failed to get the native object for "
+                "wxDateTime::GetWeekDayName call\n"
+            );
+
+            return;
+        }
+        else
+        {
+            native_object = current_object->native_object;
+            current_object_type = current_object->object_type;
+
+            bool reference_type_found = false;
+
+            if(current_object_type == PHP_WXDATETIME_TYPE){
+                references = &((wxDateTime_php*)native_object)->references;
+                reference_type_found = true;
+            }
+        }
+    }
+    #ifdef USE_WXPHP_DEBUG
+    else
+    {
+        php_printf("Processing the method call as static\n");
+    }
+    #endif
+
+    //Parameters for overload 0
+    long weekday0;
+    long flags0;
+    bool overload0_called = false;
+
+    
+    //Overload 0
+    overload0:
+    if(!already_called && arguments_received >= 1  && arguments_received <= 2)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Parameters received %d\n", arguments_received);
+        php_printf("Parsing parameters with 'l|l' (&weekday0, &flags0)\n");
+        #endif
+
+        char parse_parameters_string[] = "l|l";
+        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &weekday0, &flags0 ) == SUCCESS)
+        {
+            overload0_called = true;
+            already_called = true;
+        }
+    }
+
+    
+    if(overload0_called)
+    {
+        switch(arguments_received)
+        {
+            case 1:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Static ");
+                php_printf("Executing RETURN_STRING(wxDateTime::GetWeekDayName((wxDateTime::WeekDay) weekday0).fn_str(), 1)\n\n");
+                #endif
+
+                wxString value_to_return1;
+                value_to_return1 = wxDateTime::GetWeekDayName((wxDateTime::WeekDay) weekday0);
+                RETVAL_STRING(value_to_return1.ToUTF8().data());
+
+
+                return;
+                break;
+            }
+            case 2:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Static ");
+                php_printf("Executing RETURN_STRING(wxDateTime::GetWeekDayName((wxDateTime::WeekDay) weekday0, (wxDateTime::NameFlags) flags0).fn_str(), 1)\n\n");
+                #endif
+
+                wxString value_to_return2;
+                value_to_return2 = wxDateTime::GetWeekDayName((wxDateTime::WeekDay) weekday0, (wxDateTime::NameFlags) flags0);
+                RETVAL_STRING(value_to_return2.ToUTF8().data());
+
+
+                return;
+                break;
+            }
+        }
+    }
+
+    
+    //In case wrong type/count of parameters was passed
+    if(!already_called)
+    {
+        zend_error(
+            E_ERROR,
+            "Wrong type or count of parameters passed to: "
+            "wxDateTime::GetWeekDayName\n"
+        );
+    }
+}
+/* }}} */
+
+/* {{{ proto bool wxDateTime::IsDSTApplicable(int year, Country country) */
+PHP_METHOD(php_wxDateTime, IsDSTApplicable)
+{
+    #ifdef USE_WXPHP_DEBUG
+    php_printf("Invoking wxDateTime::IsDSTApplicable\n");
+    php_printf("===========================================\n");
+    #endif
+
+    zo_wxDateTime* current_object;
+    wxphp_object_type current_object_type;
+    wxDateTime_php* native_object;
+    void* argument_native_object = NULL;
+
+    //Other variables used thru the code
+    zval dummy;
+    ZVAL_NULL(&dummy);
+    bool already_called = false;
+    wxPHPObjectReferences* references;
+    int arguments_received = ZEND_NUM_ARGS();
+    bool return_is_user_initialized = false;
+
+    //Get native object of the php object that called the method
+    if(getThis() != NULL)
+    {
+        current_object = Z_wxDateTime_P(getThis());
+
+        if(current_object->native_object == NULL)
+        {
+            zend_error(
+                E_ERROR,
+                "Failed to get the native object for "
+                "wxDateTime::IsDSTApplicable call\n"
+            );
+
+            return;
+        }
+        else
+        {
+            native_object = current_object->native_object;
+            current_object_type = current_object->object_type;
+
+            bool reference_type_found = false;
+
+            if(current_object_type == PHP_WXDATETIME_TYPE){
+                references = &((wxDateTime_php*)native_object)->references;
+                reference_type_found = true;
+            }
+        }
+    }
+    #ifdef USE_WXPHP_DEBUG
+    else
+    {
+        php_printf("Processing the method call as static\n");
+    }
+    #endif
+
+    //Parameters for overload 0
+    long year0;
+    long country0;
+    bool overload0_called = false;
+
+    
+    //Overload 0
+    overload0:
+    if(!already_called && arguments_received >= 0  && arguments_received <= 2)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Parameters received %d\n", arguments_received);
+        php_printf("Parsing parameters with '|ll' (&year0, &country0)\n");
+        #endif
+
+        char parse_parameters_string[] = "|ll";
+        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &year0, &country0 ) == SUCCESS)
+        {
+            overload0_called = true;
+            already_called = true;
+        }
+    }
+
+    
+    if(overload0_called)
+    {
+        switch(arguments_received)
+        {
+            case 0:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Static ");
+                php_printf("Executing RETURN_BOOL(wxDateTime::IsDSTApplicable())\n\n");
+                #endif
+
+                RETVAL_BOOL(wxDateTime::IsDSTApplicable());
+
+
+                return;
+                break;
+            }
+            case 1:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Static ");
+                php_printf("Executing RETURN_BOOL(wxDateTime::IsDSTApplicable((int) year0))\n\n");
+                #endif
+
+                RETVAL_BOOL(wxDateTime::IsDSTApplicable((int) year0));
+
+
+                return;
+                break;
+            }
+            case 2:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Static ");
+                php_printf("Executing RETURN_BOOL(wxDateTime::IsDSTApplicable((int) year0, (wxDateTime::Country) country0))\n\n");
+                #endif
+
+                RETVAL_BOOL(wxDateTime::IsDSTApplicable((int) year0, (wxDateTime::Country) country0));
+
+
+                return;
+                break;
+            }
+        }
+    }
+
+    
+    //In case wrong type/count of parameters was passed
+    if(!already_called)
+    {
+        zend_error(
+            E_ERROR,
+            "Wrong type or count of parameters passed to: "
+            "wxDateTime::IsDSTApplicable\n"
+        );
+    }
+}
+/* }}} */
+
+/* {{{ proto bool wxDateTime::GetFirstWeekDay(WeekDay &firstDay) */
+PHP_METHOD(php_wxDateTime, GetFirstWeekDay)
+{
+    #ifdef USE_WXPHP_DEBUG
+    php_printf("Invoking wxDateTime::GetFirstWeekDay\n");
+    php_printf("===========================================\n");
+    #endif
+
+    zo_wxDateTime* current_object;
+    wxphp_object_type current_object_type;
+    wxDateTime_php* native_object;
+    void* argument_native_object = NULL;
+
+    //Other variables used thru the code
+    zval dummy;
+    ZVAL_NULL(&dummy);
+    bool already_called = false;
+    wxPHPObjectReferences* references;
+    int arguments_received = ZEND_NUM_ARGS();
+    bool return_is_user_initialized = false;
+
+    //Get native object of the php object that called the method
+    if(getThis() != NULL)
+    {
+        current_object = Z_wxDateTime_P(getThis());
+
+        if(current_object->native_object == NULL)
+        {
+            zend_error(
+                E_ERROR,
+                "Failed to get the native object for "
+                "wxDateTime::GetFirstWeekDay call\n"
+            );
+
+            return;
+        }
+        else
+        {
+            native_object = current_object->native_object;
+            current_object_type = current_object->object_type;
+
+            bool reference_type_found = false;
+
+            if(current_object_type == PHP_WXDATETIME_TYPE){
+                references = &((wxDateTime_php*)native_object)->references;
+                reference_type_found = true;
+            }
+        }
+    }
+    #ifdef USE_WXPHP_DEBUG
+    else
+    {
+        php_printf("Processing the method call as static\n");
+    }
+    #endif
+
+    //Parameters for overload 0
+    long* firstDay0;
+    zval firstDay0_ref;
+    bool overload0_called = false;
+
+    
+    //Overload 0
+    overload0:
+    if(!already_called && arguments_received == 1)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Parameters received %d\n", arguments_received);
+        php_printf("Parsing parameters with 'l' (firstDay0)\n");
+        #endif
+
+        char parse_parameters_string[] = "l";
+        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, firstDay0 ) == SUCCESS)
+        {
+            overload0_called = true;
+            already_called = true;
+
+            char parse_references_string[] = "z";
+            zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_references_string, firstDay0_ref );
+        }
+    }
+
+    
+    if(overload0_called)
+    {
+        switch(arguments_received)
+        {
+            case 1:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Static ");
+                php_printf("Executing RETURN_BOOL(wxDateTime::GetFirstWeekDay((wxDateTime::WeekDay*) firstDay0))\n\n");
+                #endif
+
+                RETVAL_BOOL(wxDateTime::GetFirstWeekDay((wxDateTime::WeekDay*) firstDay0));
+
+                size_t elements_returned0_0 = sizeof(firstDay0)/sizeof(*firstDay0);
+                array_init(&firstDay0_ref);
+                for(size_t i=0; i<elements_returned0_0; i++)
+                {
+                    add_next_index_long(&firstDay0_ref, firstDay0[i]);
+                }
+
+                return;
+                break;
+            }
+        }
+    }
+
+    
+    //In case wrong type/count of parameters was passed
+    if(!already_called)
+    {
+        zend_error(
+            E_ERROR,
+            "Wrong type or count of parameters passed to: "
+            "wxDateTime::GetFirstWeekDay\n"
+        );
+    }
+}
+/* }}} */
+
+/* {{{ proto bool wxDateTime::IsLeapYear(int year, Calendar cal) */
+PHP_METHOD(php_wxDateTime, IsLeapYear)
+{
+    #ifdef USE_WXPHP_DEBUG
+    php_printf("Invoking wxDateTime::IsLeapYear\n");
+    php_printf("===========================================\n");
+    #endif
+
+    zo_wxDateTime* current_object;
+    wxphp_object_type current_object_type;
+    wxDateTime_php* native_object;
+    void* argument_native_object = NULL;
+
+    //Other variables used thru the code
+    zval dummy;
+    ZVAL_NULL(&dummy);
+    bool already_called = false;
+    wxPHPObjectReferences* references;
+    int arguments_received = ZEND_NUM_ARGS();
+    bool return_is_user_initialized = false;
+
+    //Get native object of the php object that called the method
+    if(getThis() != NULL)
+    {
+        current_object = Z_wxDateTime_P(getThis());
+
+        if(current_object->native_object == NULL)
+        {
+            zend_error(
+                E_ERROR,
+                "Failed to get the native object for "
+                "wxDateTime::IsLeapYear call\n"
+            );
+
+            return;
+        }
+        else
+        {
+            native_object = current_object->native_object;
+            current_object_type = current_object->object_type;
+
+            bool reference_type_found = false;
+
+            if(current_object_type == PHP_WXDATETIME_TYPE){
+                references = &((wxDateTime_php*)native_object)->references;
+                reference_type_found = true;
+            }
+        }
+    }
+    #ifdef USE_WXPHP_DEBUG
+    else
+    {
+        php_printf("Processing the method call as static\n");
+    }
+    #endif
+
+    //Parameters for overload 0
+    long year0;
+    long cal0;
+    bool overload0_called = false;
+
+    
+    //Overload 0
+    overload0:
+    if(!already_called && arguments_received >= 0  && arguments_received <= 2)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Parameters received %d\n", arguments_received);
+        php_printf("Parsing parameters with '|ll' (&year0, &cal0)\n");
+        #endif
+
+        char parse_parameters_string[] = "|ll";
+        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &year0, &cal0 ) == SUCCESS)
+        {
+            overload0_called = true;
+            already_called = true;
+        }
+    }
+
+    
+    if(overload0_called)
+    {
+        switch(arguments_received)
+        {
+            case 0:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Static ");
+                php_printf("Executing RETURN_BOOL(wxDateTime::IsLeapYear())\n\n");
+                #endif
+
+                RETVAL_BOOL(wxDateTime::IsLeapYear());
+
+
+                return;
+                break;
+            }
+            case 1:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Static ");
+                php_printf("Executing RETURN_BOOL(wxDateTime::IsLeapYear((int) year0))\n\n");
+                #endif
+
+                RETVAL_BOOL(wxDateTime::IsLeapYear((int) year0));
+
+
+                return;
+                break;
+            }
+            case 2:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Static ");
+                php_printf("Executing RETURN_BOOL(wxDateTime::IsLeapYear((int) year0, (wxDateTime::Calendar) cal0))\n\n");
+                #endif
+
+                RETVAL_BOOL(wxDateTime::IsLeapYear((int) year0, (wxDateTime::Calendar) cal0));
+
+
+                return;
+                break;
+            }
+        }
+    }
+
+    
+    //In case wrong type/count of parameters was passed
+    if(!already_called)
+    {
+        zend_error(
+            E_ERROR,
+            "Wrong type or count of parameters passed to: "
+            "wxDateTime::IsLeapYear\n"
+        );
+    }
+}
+/* }}} */
+
+/* {{{ proto bool wxDateTime::IsWestEuropeanCountry(Country country) */
+PHP_METHOD(php_wxDateTime, IsWestEuropeanCountry)
+{
+    #ifdef USE_WXPHP_DEBUG
+    php_printf("Invoking wxDateTime::IsWestEuropeanCountry\n");
+    php_printf("===========================================\n");
+    #endif
+
+    zo_wxDateTime* current_object;
+    wxphp_object_type current_object_type;
+    wxDateTime_php* native_object;
+    void* argument_native_object = NULL;
+
+    //Other variables used thru the code
+    zval dummy;
+    ZVAL_NULL(&dummy);
+    bool already_called = false;
+    wxPHPObjectReferences* references;
+    int arguments_received = ZEND_NUM_ARGS();
+    bool return_is_user_initialized = false;
+
+    //Get native object of the php object that called the method
+    if(getThis() != NULL)
+    {
+        current_object = Z_wxDateTime_P(getThis());
+
+        if(current_object->native_object == NULL)
+        {
+            zend_error(
+                E_ERROR,
+                "Failed to get the native object for "
+                "wxDateTime::IsWestEuropeanCountry call\n"
+            );
+
+            return;
+        }
+        else
+        {
+            native_object = current_object->native_object;
+            current_object_type = current_object->object_type;
+
+            bool reference_type_found = false;
+
+            if(current_object_type == PHP_WXDATETIME_TYPE){
+                references = &((wxDateTime_php*)native_object)->references;
+                reference_type_found = true;
+            }
+        }
+    }
+    #ifdef USE_WXPHP_DEBUG
+    else
+    {
+        php_printf("Processing the method call as static\n");
+    }
+    #endif
+
+    //Parameters for overload 0
+    long country0;
+    bool overload0_called = false;
+
+    
+    //Overload 0
+    overload0:
+    if(!already_called && arguments_received >= 0  && arguments_received <= 1)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Parameters received %d\n", arguments_received);
+        php_printf("Parsing parameters with '|l' (&country0)\n");
+        #endif
+
+        char parse_parameters_string[] = "|l";
+        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &country0 ) == SUCCESS)
+        {
+            overload0_called = true;
+            already_called = true;
+        }
+    }
+
+    
+    if(overload0_called)
+    {
+        switch(arguments_received)
+        {
+            case 0:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Static ");
+                php_printf("Executing RETURN_BOOL(wxDateTime::IsWestEuropeanCountry())\n\n");
+                #endif
+
+                RETVAL_BOOL(wxDateTime::IsWestEuropeanCountry());
+
+
+                return;
+                break;
+            }
+            case 1:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Static ");
+                php_printf("Executing RETURN_BOOL(wxDateTime::IsWestEuropeanCountry((wxDateTime::Country) country0))\n\n");
+                #endif
+
+                RETVAL_BOOL(wxDateTime::IsWestEuropeanCountry((wxDateTime::Country) country0));
+
+
+                return;
+                break;
+            }
+        }
+    }
+
+    
+    //In case wrong type/count of parameters was passed
+    if(!already_called)
+    {
+        zend_error(
+            E_ERROR,
+            "Wrong type or count of parameters passed to: "
+            "wxDateTime::IsWestEuropeanCountry\n"
+        );
+    }
+}
+/* }}} */
+
+/* {{{ proto timestamp wxDateTime::Now() */
+PHP_METHOD(php_wxDateTime, Now)
+{
+    #ifdef USE_WXPHP_DEBUG
+    php_printf("Invoking wxDateTime::Now\n");
+    php_printf("===========================================\n");
+    #endif
+
+    zo_wxDateTime* current_object;
+    wxphp_object_type current_object_type;
+    wxDateTime_php* native_object;
+    void* argument_native_object = NULL;
+
+    //Other variables used thru the code
+    zval dummy;
+    ZVAL_NULL(&dummy);
+    bool already_called = false;
+    wxPHPObjectReferences* references;
+    int arguments_received = ZEND_NUM_ARGS();
+    bool return_is_user_initialized = false;
+
+    //Get native object of the php object that called the method
+    if(getThis() != NULL)
+    {
+        current_object = Z_wxDateTime_P(getThis());
+
+        if(current_object->native_object == NULL)
+        {
+            zend_error(
+                E_ERROR,
+                "Failed to get the native object for "
+                "wxDateTime::Now call\n"
+            );
+
+            return;
+        }
+        else
+        {
+            native_object = current_object->native_object;
+            current_object_type = current_object->object_type;
+
+            bool reference_type_found = false;
+
+            if(current_object_type == PHP_WXDATETIME_TYPE){
+                references = &((wxDateTime_php*)native_object)->references;
+                reference_type_found = true;
+            }
+        }
+    }
+    #ifdef USE_WXPHP_DEBUG
+    else
+    {
+        php_printf("Processing the method call as static\n");
+    }
+    #endif
+
+    //Parameters for overload 0
+    bool overload0_called = false;
+
+    
+    //Overload 0
+    overload0:
+    if(!already_called && arguments_received == 0)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Parameters received %d\n", arguments_received);
+        php_printf("Parsing parameters with '' ()\n");
+        #endif
+
+        overload0_called = true;
+        already_called = true;
+    }
+
+    
+    if(overload0_called)
+    {
+        switch(arguments_received)
+        {
+            case 0:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Static ");
+                php_printf("Executing wxDateTime::Now() to return timestamp\n\n");
+                #endif
+
+                time_t value_to_return0;
+                value_to_return0 = wxDateTime::Now().GetTicks();
+                RETVAL_LONG(value_to_return0);
+
+
+                return;
+                break;
+            }
+        }
+    }
+
+    
+    //In case wrong type/count of parameters was passed
+    if(!already_called)
+    {
+        zend_error(
+            E_ERROR,
+            "Wrong type or count of parameters passed to: "
+            "wxDateTime::Now\n"
+        );
+    }
+}
+/* }}} */
+
+/* {{{ proto  wxDateTime::SetCountry(Country country) */
+PHP_METHOD(php_wxDateTime, SetCountry)
+{
+    #ifdef USE_WXPHP_DEBUG
+    php_printf("Invoking wxDateTime::SetCountry\n");
+    php_printf("===========================================\n");
+    #endif
+
+    zo_wxDateTime* current_object;
+    wxphp_object_type current_object_type;
+    wxDateTime_php* native_object;
+    void* argument_native_object = NULL;
+
+    //Other variables used thru the code
+    zval dummy;
+    ZVAL_NULL(&dummy);
+    bool already_called = false;
+    wxPHPObjectReferences* references;
+    int arguments_received = ZEND_NUM_ARGS();
+    bool return_is_user_initialized = false;
+
+    //Get native object of the php object that called the method
+    if(getThis() != NULL)
+    {
+        current_object = Z_wxDateTime_P(getThis());
+
+        if(current_object->native_object == NULL)
+        {
+            zend_error(
+                E_ERROR,
+                "Failed to get the native object for "
+                "wxDateTime::SetCountry call\n"
+            );
+
+            return;
+        }
+        else
+        {
+            native_object = current_object->native_object;
+            current_object_type = current_object->object_type;
+
+            bool reference_type_found = false;
+
+            if(current_object_type == PHP_WXDATETIME_TYPE){
+                references = &((wxDateTime_php*)native_object)->references;
+                reference_type_found = true;
+            }
+        }
+    }
+    #ifdef USE_WXPHP_DEBUG
+    else
+    {
+        php_printf("Processing the method call as static\n");
+    }
+    #endif
+
+    //Parameters for overload 0
+    long country0;
+    bool overload0_called = false;
+
+    
+    //Overload 0
+    overload0:
+    if(!already_called && arguments_received == 1)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Parameters received %d\n", arguments_received);
+        php_printf("Parsing parameters with 'l' (&country0)\n");
+        #endif
+
+        char parse_parameters_string[] = "l";
+        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &country0 ) == SUCCESS)
+        {
+            overload0_called = true;
+            already_called = true;
+        }
+    }
+
+    
+    if(overload0_called)
+    {
+        switch(arguments_received)
+        {
+            case 1:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Static ");
+                php_printf("Executing wxDateTime::SetCountry((wxDateTime::Country) country0)\n\n");
+                #endif
+
+                wxDateTime::SetCountry((wxDateTime::Country) country0);
+
+
+                return;
+                break;
+            }
+        }
+    }
+
+    
+    //In case wrong type/count of parameters was passed
+    if(!already_called)
+    {
+        zend_error(
+            E_ERROR,
+            "Wrong type or count of parameters passed to: "
+            "wxDateTime::SetCountry\n"
+        );
+    }
+}
+/* }}} */
+
+/* {{{ proto timestamp wxDateTime::Today() */
+PHP_METHOD(php_wxDateTime, Today)
+{
+    #ifdef USE_WXPHP_DEBUG
+    php_printf("Invoking wxDateTime::Today\n");
+    php_printf("===========================================\n");
+    #endif
+
+    zo_wxDateTime* current_object;
+    wxphp_object_type current_object_type;
+    wxDateTime_php* native_object;
+    void* argument_native_object = NULL;
+
+    //Other variables used thru the code
+    zval dummy;
+    ZVAL_NULL(&dummy);
+    bool already_called = false;
+    wxPHPObjectReferences* references;
+    int arguments_received = ZEND_NUM_ARGS();
+    bool return_is_user_initialized = false;
+
+    //Get native object of the php object that called the method
+    if(getThis() != NULL)
+    {
+        current_object = Z_wxDateTime_P(getThis());
+
+        if(current_object->native_object == NULL)
+        {
+            zend_error(
+                E_ERROR,
+                "Failed to get the native object for "
+                "wxDateTime::Today call\n"
+            );
+
+            return;
+        }
+        else
+        {
+            native_object = current_object->native_object;
+            current_object_type = current_object->object_type;
+
+            bool reference_type_found = false;
+
+            if(current_object_type == PHP_WXDATETIME_TYPE){
+                references = &((wxDateTime_php*)native_object)->references;
+                reference_type_found = true;
+            }
+        }
+    }
+    #ifdef USE_WXPHP_DEBUG
+    else
+    {
+        php_printf("Processing the method call as static\n");
+    }
+    #endif
+
+    //Parameters for overload 0
+    bool overload0_called = false;
+
+    
+    //Overload 0
+    overload0:
+    if(!already_called && arguments_received == 0)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Parameters received %d\n", arguments_received);
+        php_printf("Parsing parameters with '' ()\n");
+        #endif
+
+        overload0_called = true;
+        already_called = true;
+    }
+
+    
+    if(overload0_called)
+    {
+        switch(arguments_received)
+        {
+            case 0:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Static ");
+                php_printf("Executing wxDateTime::Today() to return timestamp\n\n");
+                #endif
+
+                time_t value_to_return0;
+                value_to_return0 = wxDateTime::Today().GetTicks();
+                RETVAL_LONG(value_to_return0);
+
+
+                return;
+                break;
+            }
+        }
+    }
+
+    
+    //In case wrong type/count of parameters was passed
+    if(!already_called)
+    {
+        zend_error(
+            E_ERROR,
+            "Wrong type or count of parameters passed to: "
+            "wxDateTime::Today\n"
+        );
+    }
+}
+/* }}} */
+
+/* {{{ proto timestamp wxDateTime::UNow() */
+PHP_METHOD(php_wxDateTime, UNow)
+{
+    #ifdef USE_WXPHP_DEBUG
+    php_printf("Invoking wxDateTime::UNow\n");
+    php_printf("===========================================\n");
+    #endif
+
+    zo_wxDateTime* current_object;
+    wxphp_object_type current_object_type;
+    wxDateTime_php* native_object;
+    void* argument_native_object = NULL;
+
+    //Other variables used thru the code
+    zval dummy;
+    ZVAL_NULL(&dummy);
+    bool already_called = false;
+    wxPHPObjectReferences* references;
+    int arguments_received = ZEND_NUM_ARGS();
+    bool return_is_user_initialized = false;
+
+    //Get native object of the php object that called the method
+    if(getThis() != NULL)
+    {
+        current_object = Z_wxDateTime_P(getThis());
+
+        if(current_object->native_object == NULL)
+        {
+            zend_error(
+                E_ERROR,
+                "Failed to get the native object for "
+                "wxDateTime::UNow call\n"
+            );
+
+            return;
+        }
+        else
+        {
+            native_object = current_object->native_object;
+            current_object_type = current_object->object_type;
+
+            bool reference_type_found = false;
+
+            if(current_object_type == PHP_WXDATETIME_TYPE){
+                references = &((wxDateTime_php*)native_object)->references;
+                reference_type_found = true;
+            }
+        }
+    }
+    #ifdef USE_WXPHP_DEBUG
+    else
+    {
+        php_printf("Processing the method call as static\n");
+    }
+    #endif
+
+    //Parameters for overload 0
+    bool overload0_called = false;
+
+    
+    //Overload 0
+    overload0:
+    if(!already_called && arguments_received == 0)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Parameters received %d\n", arguments_received);
+        php_printf("Parsing parameters with '' ()\n");
+        #endif
+
+        overload0_called = true;
+        already_called = true;
+    }
+
+    
+    if(overload0_called)
+    {
+        switch(arguments_received)
+        {
+            case 0:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Static ");
+                php_printf("Executing wxDateTime::UNow() to return timestamp\n\n");
+                #endif
+
+                time_t value_to_return0;
+                value_to_return0 = wxDateTime::UNow().GetTicks();
+                RETVAL_LONG(value_to_return0);
+
+
+                return;
+                break;
+            }
+        }
+    }
+
+    
+    //In case wrong type/count of parameters was passed
+    if(!already_called)
+    {
+        zend_error(
+            E_ERROR,
+            "Wrong type or count of parameters passed to: "
+            "wxDateTime::UNow\n"
+        );
+    }
+}
+/* }}} */
+
+BEGIN_EXTERN_C()
+void php_wxDateSpan_free(void *object)
+{
+    zo_wxDateSpan* custom_object = (zo_wxDateSpan*) object;
+
+    #ifdef USE_WXPHP_DEBUG
+    php_printf(
+        "Calling php_wxDateSpan_free on %s at line %i\n",
+        zend_get_executed_filename(),
+        zend_get_executed_lineno()
+    );
+    php_printf("===========================================\n");
+    #endif
+
+    if(custom_object->native_object != NULL)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Pointer not null\n");
+        php_printf("Pointer address %x\n", (unsigned int)(size_t)custom_object->native_object);
+        #endif
+
+        if(custom_object->is_user_initialized)
+        {
+            #ifdef USE_WXPHP_DEBUG
+            php_printf("Deleting pointer with delete\n");
+            #endif
+
+            delete custom_object->native_object;
+            custom_object->native_object = NULL;
+        }
+
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Deletion of wxDateSpan done\n");
+        php_printf("===========================================\n\n");
+        #endif
+    }
+    else
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Not user space initialized\n");
+        #endif
+    }
+
+    zend_object_std_dtor(&custom_object->zo);
+    efree(custom_object);
+}
+
+zend_object* php_wxDateSpan_new(zend_class_entry *class_type)
+{
+    #ifdef USE_WXPHP_DEBUG
+    php_printf(
+        "Calling php_wxDateSpan_new on %s at line %i\n",
+        zend_get_executed_filename(),
+        zend_get_executed_lineno()
+    );
+    php_printf("===========================================\n");
+    #endif
+
+    zo_wxDateSpan* custom_object;
+
+    custom_object = (zo_wxDateSpan*) ecalloc(
+        1,
+        sizeof(zo_wxDateSpan)
+        + zend_object_properties_size(class_type)
+    );
+
+    zend_object_std_init(&custom_object->zo, class_type);
+    object_properties_init(&custom_object->zo, class_type);
+
+    custom_object->zo.handlers = &wxphp_wxDateSpan_object_handlers;
+
+    custom_object->native_object = NULL;
+    custom_object->object_type = PHP_WXDATESPAN_TYPE;
+    custom_object->is_user_initialized = 0;
+
+    return &custom_object->zo;
+}
+END_EXTERN_C()
+
+/* {{{ proto  wxDateSpan::wxDateSpan(int years, int months, int weeks, int days) */
+PHP_METHOD(php_wxDateSpan, __construct)
+{
+    #ifdef USE_WXPHP_DEBUG
+    php_printf("Invoking wxDateSpan::__construct\n");
+    php_printf("===========================================\n");
+    #endif
+
+    zo_wxDateSpan* current_object;
+    wxDateSpan_php* native_object;
+    void* argument_native_object = NULL;
+
+    //Other variables used thru the code
+    zval dummy;
+    ZVAL_NULL(&dummy);
+    bool already_called = false;
+    int arguments_received = ZEND_NUM_ARGS();
+
+
+    //Parameters for overload 0
+    long years0;
+    long months0;
+    long weeks0;
+    long days0;
+    bool overload0_called = false;
+
+    
+    //Overload 0
+    overload0:
+    if(!already_called && arguments_received >= 0  && arguments_received <= 4)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Parameters received %d\n", arguments_received);
+        php_printf("Parsing parameters with '|llll' (&years0, &months0, &weeks0, &days0)\n");
+        #endif
+
+        char parse_parameters_string[] = "|llll";
+        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &years0, &months0, &weeks0, &days0 ) == SUCCESS)
+        {
+            overload0_called = true;
+            already_called = true;
+        }
+    }
+
+    
+    if(overload0_called)
+    {
+        switch(arguments_received)
+        {
+            case 0:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing __construct()\n");
+                #endif
+
+                native_object = new wxDateSpan_php();
+
+                native_object->references.Initialize();
+                break;
+            }
+            case 1:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing __construct((int) years0)\n");
+                #endif
+
+                native_object = new wxDateSpan_php((int) years0);
+
+                native_object->references.Initialize();
+                break;
+            }
+            case 2:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing __construct((int) years0, (int) months0)\n");
+                #endif
+
+                native_object = new wxDateSpan_php((int) years0, (int) months0);
+
+                native_object->references.Initialize();
+                break;
+            }
+            case 3:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing __construct((int) years0, (int) months0, (int) weeks0)\n");
+                #endif
+
+                native_object = new wxDateSpan_php((int) years0, (int) months0, (int) weeks0);
+
+                native_object->references.Initialize();
+                break;
+            }
+            case 4:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing __construct((int) years0, (int) months0, (int) weeks0, (int) days0)\n");
+                #endif
+
+                native_object = new wxDateSpan_php((int) years0, (int) months0, (int) weeks0, (int) days0);
+
+                native_object->references.Initialize();
+                break;
+            }
+        }
+    }
+
+    
+    if(already_called)
+    {
+        native_object->phpObj = *getThis();
+
+
+        current_object = Z_wxDateSpan_P(getThis());
+
+        current_object->native_object = native_object;
+
+        current_object->is_user_initialized = 1;
+    }
+    else
+    {
+        zend_error(
+            E_ERROR,
+            "Abstract class or wrong type/count of parameters "
+            "passed to: wxDateSpan::__construct\n"
+        );
+    }
+
+    #ifdef USE_WXPHP_DEBUG
+        php_printf("===========================================\n\n");
+    #endif
+}
+/* }}} */
+
+/* {{{ proto wxDateSpan wxDateSpan::Add(wxDateSpan other) */
+PHP_METHOD(php_wxDateSpan, Add)
+{
+    #ifdef USE_WXPHP_DEBUG
+    php_printf("Invoking wxDateSpan::Add\n");
+    php_printf("===========================================\n");
+    #endif
+
+    zo_wxDateSpan* current_object;
+    wxphp_object_type current_object_type;
+    wxDateSpan_php* native_object;
+    void* argument_native_object = NULL;
+
+    //Other variables used thru the code
+    zval dummy;
+    ZVAL_NULL(&dummy);
+    bool already_called = false;
+    wxPHPObjectReferences* references;
+    int arguments_received = ZEND_NUM_ARGS();
+    bool return_is_user_initialized = false;
+
+    //Get native object of the php object that called the method
+    if(getThis() != NULL)
+    {
+        current_object = Z_wxDateSpan_P(getThis());
+
+        if(current_object->native_object == NULL)
+        {
+            zend_error(
+                E_ERROR,
+                "Failed to get the native object for "
+                "wxDateSpan::Add call\n"
+            );
+
+            return;
+        }
+        else
+        {
+            native_object = current_object->native_object;
+            current_object_type = current_object->object_type;
+
+            bool reference_type_found = false;
+
+            if(current_object_type == PHP_WXDATESPAN_TYPE){
+                references = &((wxDateSpan_php*)native_object)->references;
+                reference_type_found = true;
+            }
+        }
+    }
+    #ifdef USE_WXPHP_DEBUG
+    else
+    {
+        php_printf("Processing the method call as static\n");
+    }
+    #endif
+
+    //Parameters for overload 0
+    zval* other0;
+    wxDateSpan* object_pointer0_0 = 0;
+    bool overload0_called = false;
+
+    //Parameters for overload 1
+    zval* other1;
+    wxDateSpan* object_pointer1_0 = 0;
+    bool overload1_called = false;
+
+    
+    //Overload 0
+    overload0:
+    if(!already_called && arguments_received == 1)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Parameters received %d\n", arguments_received);
+        php_printf("Parsing parameters with 'O' (&other0, php_wxDateSpan_entry)\n");
+        #endif
+
+        char parse_parameters_string[] = "O";
+        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &other0, php_wxDateSpan_entry ) == SUCCESS)
+        {
+            if(arguments_received >= 1){
+                if(Z_TYPE_P(other0) == IS_OBJECT)
+                {
+                    wxphp_object_type argument_type = Z_wxDateSpan_P(other0)->object_type;
+                    argument_native_object = (void*) Z_wxDateSpan_P(other0)->native_object;
+                    object_pointer0_0 = (wxDateSpan*) argument_native_object;
+                    if (!object_pointer0_0 )
+                    {
+                        goto overload1;
+                    }
+                }
+                else if(Z_TYPE_P(other0) != IS_NULL)
+                {
+                    goto overload1;
+                }
+            }
+
+            overload0_called = true;
+            already_called = true;
+        }
+    }
+
+    //Overload 1
+    overload1:
+    if(!already_called && arguments_received == 1)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Parameters received %d\n", arguments_received);
+        php_printf("Parsing parameters with 'O' (&other1, php_wxDateSpan_entry)\n");
+        #endif
+
+        char parse_parameters_string[] = "O";
+        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &other1, php_wxDateSpan_entry ) == SUCCESS)
+        {
+            if(arguments_received >= 1){
+                if(Z_TYPE_P(other1) == IS_OBJECT)
+                {
+                    wxphp_object_type argument_type = Z_wxDateSpan_P(other1)->object_type;
+                    argument_native_object = (void*) Z_wxDateSpan_P(other1)->native_object;
+                    object_pointer1_0 = (wxDateSpan*) argument_native_object;
+                    if (!object_pointer1_0 )
+                    {
+                        zend_error(E_ERROR, "Parameter 'other' could not be retreived correctly.");
+                    }
+                }
+                else if(Z_TYPE_P(other1) != IS_NULL)
+                {
+                    zend_error(E_ERROR, "Parameter 'other' not null, could not be retreived correctly.");
+                }
+            }
+
+            overload1_called = true;
+            already_called = true;
+        }
+    }
+
+    
+    if(overload0_called)
+    {
+        switch(arguments_received)
+        {
+            case 1:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing wxDateSpan::Add(*(wxDateSpan*) object_pointer0_0) to return new object\n\n");
+                #endif
+
+                wxDateSpan value_to_return1;
+                value_to_return1 = ((wxDateSpan_php*)native_object)->Add(*(wxDateSpan*) object_pointer0_0);
+                void* ptr = safe_emalloc(1, sizeof(wxDateSpan_php), 0);
+                memcpy(ptr, (void*) &value_to_return1, sizeof(wxDateSpan));
+                object_init_ex(return_value, php_wxDateSpan_entry);
+                ((wxDateSpan_php*)ptr)->phpObj = *return_value;
+                zo_wxDateSpan* zo1 = Z_wxDateSpan_P(return_value);
+                zo1->native_object = (wxDateSpan_php*) ptr;
+
+                references->AddReference(other0, "wxDateSpan::Add at call 3 with 1 argument(s)");
+
+                return;
+                break;
+            }
+        }
+    }
+
+    if(overload1_called)
+    {
+        switch(arguments_received)
+        {
+            case 1:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing wxDateSpan::Add(*(wxDateSpan*) object_pointer1_0) to return object reference\n\n");
+                #endif
+
+                wxDateSpan_php* value_to_return1;
+                value_to_return1 = (wxDateSpan_php*) &((wxDateSpan_php*)native_object)->Add(*(wxDateSpan*) object_pointer1_0);
+
+                if(value_to_return1->references.IsUserInitialized()){
+                    if(!Z_ISNULL(value_to_return1->phpObj)){
+                        ZVAL_COPY_VALUE(return_value, &value_to_return1->phpObj);
+                        zval_add_ref(&value_to_return1->phpObj);
+                        return_is_user_initialized = true;
+                    }
+                    else{
+                        zend_error(E_ERROR, "Could not retreive original zval.");
+                    }
+                }
+                else{
+                    object_init_ex(return_value,php_wxDateSpan_entry);
+                    Z_wxDateSpan_P(return_value)->native_object = (wxDateSpan_php*) value_to_return1;
+                }
+
+                if((void*)value_to_return1 != (void*)native_object && return_is_user_initialized){ //Prevent adding references to it self
+                    references->AddReference(return_value, "wxDateSpan::Add at call 6 with 1 argument(s)");
+                }
+
+                references->AddReference(other1, "wxDateSpan::Add at call 3 with 1 argument(s)");
+
+                return;
+                break;
+            }
+        }
+    }
+
+    
+    //In case wrong type/count of parameters was passed
+    if(!already_called)
+    {
+        zend_error(
+            E_ERROR,
+            "Wrong type or count of parameters passed to: "
+            "wxDateSpan::Add\n"
+        );
+    }
+}
+/* }}} */
+
+/* {{{ proto int wxDateSpan::GetDays() */
+PHP_METHOD(php_wxDateSpan, GetDays)
+{
+    #ifdef USE_WXPHP_DEBUG
+    php_printf("Invoking wxDateSpan::GetDays\n");
+    php_printf("===========================================\n");
+    #endif
+
+    zo_wxDateSpan* current_object;
+    wxphp_object_type current_object_type;
+    wxDateSpan_php* native_object;
+    void* argument_native_object = NULL;
+
+    //Other variables used thru the code
+    zval dummy;
+    ZVAL_NULL(&dummy);
+    bool already_called = false;
+    wxPHPObjectReferences* references;
+    int arguments_received = ZEND_NUM_ARGS();
+    bool return_is_user_initialized = false;
+
+    //Get native object of the php object that called the method
+    if(getThis() != NULL)
+    {
+        current_object = Z_wxDateSpan_P(getThis());
+
+        if(current_object->native_object == NULL)
+        {
+            zend_error(
+                E_ERROR,
+                "Failed to get the native object for "
+                "wxDateSpan::GetDays call\n"
+            );
+
+            return;
+        }
+        else
+        {
+            native_object = current_object->native_object;
+            current_object_type = current_object->object_type;
+
+            bool reference_type_found = false;
+
+            if(current_object_type == PHP_WXDATESPAN_TYPE){
+                references = &((wxDateSpan_php*)native_object)->references;
+                reference_type_found = true;
+            }
+        }
+    }
+    #ifdef USE_WXPHP_DEBUG
+    else
+    {
+        php_printf("Processing the method call as static\n");
+    }
+    #endif
+
+    //Parameters for overload 0
+    bool overload0_called = false;
+
+    
+    //Overload 0
+    overload0:
+    if(!already_called && arguments_received == 0)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Parameters received %d\n", arguments_received);
+        php_printf("Parsing parameters with '' ()\n");
+        #endif
+
+        overload0_called = true;
+        already_called = true;
+    }
+
+    
+    if(overload0_called)
+    {
+        switch(arguments_received)
+        {
+            case 0:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing RETURN_LONG(wxDateSpan::GetDays())\n\n");
+                #endif
+
+                RETVAL_LONG(((wxDateSpan_php*)native_object)->GetDays());
+
+
+                return;
+                break;
+            }
+        }
+    }
+
+    
+    //In case wrong type/count of parameters was passed
+    if(!already_called)
+    {
+        zend_error(
+            E_ERROR,
+            "Wrong type or count of parameters passed to: "
+            "wxDateSpan::GetDays\n"
+        );
+    }
+}
+/* }}} */
+
+/* {{{ proto int wxDateSpan::GetMonths() */
+PHP_METHOD(php_wxDateSpan, GetMonths)
+{
+    #ifdef USE_WXPHP_DEBUG
+    php_printf("Invoking wxDateSpan::GetMonths\n");
+    php_printf("===========================================\n");
+    #endif
+
+    zo_wxDateSpan* current_object;
+    wxphp_object_type current_object_type;
+    wxDateSpan_php* native_object;
+    void* argument_native_object = NULL;
+
+    //Other variables used thru the code
+    zval dummy;
+    ZVAL_NULL(&dummy);
+    bool already_called = false;
+    wxPHPObjectReferences* references;
+    int arguments_received = ZEND_NUM_ARGS();
+    bool return_is_user_initialized = false;
+
+    //Get native object of the php object that called the method
+    if(getThis() != NULL)
+    {
+        current_object = Z_wxDateSpan_P(getThis());
+
+        if(current_object->native_object == NULL)
+        {
+            zend_error(
+                E_ERROR,
+                "Failed to get the native object for "
+                "wxDateSpan::GetMonths call\n"
+            );
+
+            return;
+        }
+        else
+        {
+            native_object = current_object->native_object;
+            current_object_type = current_object->object_type;
+
+            bool reference_type_found = false;
+
+            if(current_object_type == PHP_WXDATESPAN_TYPE){
+                references = &((wxDateSpan_php*)native_object)->references;
+                reference_type_found = true;
+            }
+        }
+    }
+    #ifdef USE_WXPHP_DEBUG
+    else
+    {
+        php_printf("Processing the method call as static\n");
+    }
+    #endif
+
+    //Parameters for overload 0
+    bool overload0_called = false;
+
+    
+    //Overload 0
+    overload0:
+    if(!already_called && arguments_received == 0)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Parameters received %d\n", arguments_received);
+        php_printf("Parsing parameters with '' ()\n");
+        #endif
+
+        overload0_called = true;
+        already_called = true;
+    }
+
+    
+    if(overload0_called)
+    {
+        switch(arguments_received)
+        {
+            case 0:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing RETURN_LONG(wxDateSpan::GetMonths())\n\n");
+                #endif
+
+                RETVAL_LONG(((wxDateSpan_php*)native_object)->GetMonths());
+
+
+                return;
+                break;
+            }
+        }
+    }
+
+    
+    //In case wrong type/count of parameters was passed
+    if(!already_called)
+    {
+        zend_error(
+            E_ERROR,
+            "Wrong type or count of parameters passed to: "
+            "wxDateSpan::GetMonths\n"
+        );
+    }
+}
+/* }}} */
+
+/* {{{ proto int wxDateSpan::GetTotalMonths() */
+PHP_METHOD(php_wxDateSpan, GetTotalMonths)
+{
+    #ifdef USE_WXPHP_DEBUG
+    php_printf("Invoking wxDateSpan::GetTotalMonths\n");
+    php_printf("===========================================\n");
+    #endif
+
+    zo_wxDateSpan* current_object;
+    wxphp_object_type current_object_type;
+    wxDateSpan_php* native_object;
+    void* argument_native_object = NULL;
+
+    //Other variables used thru the code
+    zval dummy;
+    ZVAL_NULL(&dummy);
+    bool already_called = false;
+    wxPHPObjectReferences* references;
+    int arguments_received = ZEND_NUM_ARGS();
+    bool return_is_user_initialized = false;
+
+    //Get native object of the php object that called the method
+    if(getThis() != NULL)
+    {
+        current_object = Z_wxDateSpan_P(getThis());
+
+        if(current_object->native_object == NULL)
+        {
+            zend_error(
+                E_ERROR,
+                "Failed to get the native object for "
+                "wxDateSpan::GetTotalMonths call\n"
+            );
+
+            return;
+        }
+        else
+        {
+            native_object = current_object->native_object;
+            current_object_type = current_object->object_type;
+
+            bool reference_type_found = false;
+
+            if(current_object_type == PHP_WXDATESPAN_TYPE){
+                references = &((wxDateSpan_php*)native_object)->references;
+                reference_type_found = true;
+            }
+        }
+    }
+    #ifdef USE_WXPHP_DEBUG
+    else
+    {
+        php_printf("Processing the method call as static\n");
+    }
+    #endif
+
+    //Parameters for overload 0
+    bool overload0_called = false;
+
+    
+    //Overload 0
+    overload0:
+    if(!already_called && arguments_received == 0)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Parameters received %d\n", arguments_received);
+        php_printf("Parsing parameters with '' ()\n");
+        #endif
+
+        overload0_called = true;
+        already_called = true;
+    }
+
+    
+    if(overload0_called)
+    {
+        switch(arguments_received)
+        {
+            case 0:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing RETURN_LONG(wxDateSpan::GetTotalMonths())\n\n");
+                #endif
+
+                RETVAL_LONG(((wxDateSpan_php*)native_object)->GetTotalMonths());
+
+
+                return;
+                break;
+            }
+        }
+    }
+
+    
+    //In case wrong type/count of parameters was passed
+    if(!already_called)
+    {
+        zend_error(
+            E_ERROR,
+            "Wrong type or count of parameters passed to: "
+            "wxDateSpan::GetTotalMonths\n"
+        );
+    }
+}
+/* }}} */
+
+/* {{{ proto int wxDateSpan::GetTotalDays() */
+PHP_METHOD(php_wxDateSpan, GetTotalDays)
+{
+    #ifdef USE_WXPHP_DEBUG
+    php_printf("Invoking wxDateSpan::GetTotalDays\n");
+    php_printf("===========================================\n");
+    #endif
+
+    zo_wxDateSpan* current_object;
+    wxphp_object_type current_object_type;
+    wxDateSpan_php* native_object;
+    void* argument_native_object = NULL;
+
+    //Other variables used thru the code
+    zval dummy;
+    ZVAL_NULL(&dummy);
+    bool already_called = false;
+    wxPHPObjectReferences* references;
+    int arguments_received = ZEND_NUM_ARGS();
+    bool return_is_user_initialized = false;
+
+    //Get native object of the php object that called the method
+    if(getThis() != NULL)
+    {
+        current_object = Z_wxDateSpan_P(getThis());
+
+        if(current_object->native_object == NULL)
+        {
+            zend_error(
+                E_ERROR,
+                "Failed to get the native object for "
+                "wxDateSpan::GetTotalDays call\n"
+            );
+
+            return;
+        }
+        else
+        {
+            native_object = current_object->native_object;
+            current_object_type = current_object->object_type;
+
+            bool reference_type_found = false;
+
+            if(current_object_type == PHP_WXDATESPAN_TYPE){
+                references = &((wxDateSpan_php*)native_object)->references;
+                reference_type_found = true;
+            }
+        }
+    }
+    #ifdef USE_WXPHP_DEBUG
+    else
+    {
+        php_printf("Processing the method call as static\n");
+    }
+    #endif
+
+    //Parameters for overload 0
+    bool overload0_called = false;
+
+    
+    //Overload 0
+    overload0:
+    if(!already_called && arguments_received == 0)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Parameters received %d\n", arguments_received);
+        php_printf("Parsing parameters with '' ()\n");
+        #endif
+
+        overload0_called = true;
+        already_called = true;
+    }
+
+    
+    if(overload0_called)
+    {
+        switch(arguments_received)
+        {
+            case 0:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing RETURN_LONG(wxDateSpan::GetTotalDays())\n\n");
+                #endif
+
+                RETVAL_LONG(((wxDateSpan_php*)native_object)->GetTotalDays());
+
+
+                return;
+                break;
+            }
+        }
+    }
+
+    
+    //In case wrong type/count of parameters was passed
+    if(!already_called)
+    {
+        zend_error(
+            E_ERROR,
+            "Wrong type or count of parameters passed to: "
+            "wxDateSpan::GetTotalDays\n"
+        );
+    }
+}
+/* }}} */
+
+/* {{{ proto int wxDateSpan::GetWeeks() */
+PHP_METHOD(php_wxDateSpan, GetWeeks)
+{
+    #ifdef USE_WXPHP_DEBUG
+    php_printf("Invoking wxDateSpan::GetWeeks\n");
+    php_printf("===========================================\n");
+    #endif
+
+    zo_wxDateSpan* current_object;
+    wxphp_object_type current_object_type;
+    wxDateSpan_php* native_object;
+    void* argument_native_object = NULL;
+
+    //Other variables used thru the code
+    zval dummy;
+    ZVAL_NULL(&dummy);
+    bool already_called = false;
+    wxPHPObjectReferences* references;
+    int arguments_received = ZEND_NUM_ARGS();
+    bool return_is_user_initialized = false;
+
+    //Get native object of the php object that called the method
+    if(getThis() != NULL)
+    {
+        current_object = Z_wxDateSpan_P(getThis());
+
+        if(current_object->native_object == NULL)
+        {
+            zend_error(
+                E_ERROR,
+                "Failed to get the native object for "
+                "wxDateSpan::GetWeeks call\n"
+            );
+
+            return;
+        }
+        else
+        {
+            native_object = current_object->native_object;
+            current_object_type = current_object->object_type;
+
+            bool reference_type_found = false;
+
+            if(current_object_type == PHP_WXDATESPAN_TYPE){
+                references = &((wxDateSpan_php*)native_object)->references;
+                reference_type_found = true;
+            }
+        }
+    }
+    #ifdef USE_WXPHP_DEBUG
+    else
+    {
+        php_printf("Processing the method call as static\n");
+    }
+    #endif
+
+    //Parameters for overload 0
+    bool overload0_called = false;
+
+    
+    //Overload 0
+    overload0:
+    if(!already_called && arguments_received == 0)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Parameters received %d\n", arguments_received);
+        php_printf("Parsing parameters with '' ()\n");
+        #endif
+
+        overload0_called = true;
+        already_called = true;
+    }
+
+    
+    if(overload0_called)
+    {
+        switch(arguments_received)
+        {
+            case 0:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing RETURN_LONG(wxDateSpan::GetWeeks())\n\n");
+                #endif
+
+                RETVAL_LONG(((wxDateSpan_php*)native_object)->GetWeeks());
+
+
+                return;
+                break;
+            }
+        }
+    }
+
+    
+    //In case wrong type/count of parameters was passed
+    if(!already_called)
+    {
+        zend_error(
+            E_ERROR,
+            "Wrong type or count of parameters passed to: "
+            "wxDateSpan::GetWeeks\n"
+        );
+    }
+}
+/* }}} */
+
+/* {{{ proto int wxDateSpan::GetYears() */
+PHP_METHOD(php_wxDateSpan, GetYears)
+{
+    #ifdef USE_WXPHP_DEBUG
+    php_printf("Invoking wxDateSpan::GetYears\n");
+    php_printf("===========================================\n");
+    #endif
+
+    zo_wxDateSpan* current_object;
+    wxphp_object_type current_object_type;
+    wxDateSpan_php* native_object;
+    void* argument_native_object = NULL;
+
+    //Other variables used thru the code
+    zval dummy;
+    ZVAL_NULL(&dummy);
+    bool already_called = false;
+    wxPHPObjectReferences* references;
+    int arguments_received = ZEND_NUM_ARGS();
+    bool return_is_user_initialized = false;
+
+    //Get native object of the php object that called the method
+    if(getThis() != NULL)
+    {
+        current_object = Z_wxDateSpan_P(getThis());
+
+        if(current_object->native_object == NULL)
+        {
+            zend_error(
+                E_ERROR,
+                "Failed to get the native object for "
+                "wxDateSpan::GetYears call\n"
+            );
+
+            return;
+        }
+        else
+        {
+            native_object = current_object->native_object;
+            current_object_type = current_object->object_type;
+
+            bool reference_type_found = false;
+
+            if(current_object_type == PHP_WXDATESPAN_TYPE){
+                references = &((wxDateSpan_php*)native_object)->references;
+                reference_type_found = true;
+            }
+        }
+    }
+    #ifdef USE_WXPHP_DEBUG
+    else
+    {
+        php_printf("Processing the method call as static\n");
+    }
+    #endif
+
+    //Parameters for overload 0
+    bool overload0_called = false;
+
+    
+    //Overload 0
+    overload0:
+    if(!already_called && arguments_received == 0)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Parameters received %d\n", arguments_received);
+        php_printf("Parsing parameters with '' ()\n");
+        #endif
+
+        overload0_called = true;
+        already_called = true;
+    }
+
+    
+    if(overload0_called)
+    {
+        switch(arguments_received)
+        {
+            case 0:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing RETURN_LONG(wxDateSpan::GetYears())\n\n");
+                #endif
+
+                RETVAL_LONG(((wxDateSpan_php*)native_object)->GetYears());
+
+
+                return;
+                break;
+            }
+        }
+    }
+
+    
+    //In case wrong type/count of parameters was passed
+    if(!already_called)
+    {
+        zend_error(
+            E_ERROR,
+            "Wrong type or count of parameters passed to: "
+            "wxDateSpan::GetYears\n"
+        );
+    }
+}
+/* }}} */
+
+/* {{{ proto wxDateSpan wxDateSpan::Multiply(int factor) */
+PHP_METHOD(php_wxDateSpan, Multiply)
+{
+    #ifdef USE_WXPHP_DEBUG
+    php_printf("Invoking wxDateSpan::Multiply\n");
+    php_printf("===========================================\n");
+    #endif
+
+    zo_wxDateSpan* current_object;
+    wxphp_object_type current_object_type;
+    wxDateSpan_php* native_object;
+    void* argument_native_object = NULL;
+
+    //Other variables used thru the code
+    zval dummy;
+    ZVAL_NULL(&dummy);
+    bool already_called = false;
+    wxPHPObjectReferences* references;
+    int arguments_received = ZEND_NUM_ARGS();
+    bool return_is_user_initialized = false;
+
+    //Get native object of the php object that called the method
+    if(getThis() != NULL)
+    {
+        current_object = Z_wxDateSpan_P(getThis());
+
+        if(current_object->native_object == NULL)
+        {
+            zend_error(
+                E_ERROR,
+                "Failed to get the native object for "
+                "wxDateSpan::Multiply call\n"
+            );
+
+            return;
+        }
+        else
+        {
+            native_object = current_object->native_object;
+            current_object_type = current_object->object_type;
+
+            bool reference_type_found = false;
+
+            if(current_object_type == PHP_WXDATESPAN_TYPE){
+                references = &((wxDateSpan_php*)native_object)->references;
+                reference_type_found = true;
+            }
+        }
+    }
+    #ifdef USE_WXPHP_DEBUG
+    else
+    {
+        php_printf("Processing the method call as static\n");
+    }
+    #endif
+
+    //Parameters for overload 0
+    long factor0;
+    bool overload0_called = false;
+
+    //Parameters for overload 1
+    long factor1;
+    bool overload1_called = false;
+
+    
+    //Overload 0
+    overload0:
+    if(!already_called && arguments_received == 1)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Parameters received %d\n", arguments_received);
+        php_printf("Parsing parameters with 'l' (&factor0)\n");
+        #endif
+
+        char parse_parameters_string[] = "l";
+        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &factor0 ) == SUCCESS)
+        {
+            overload0_called = true;
+            already_called = true;
+        }
+    }
+
+    //Overload 1
+    overload1:
+    if(!already_called && arguments_received == 1)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Parameters received %d\n", arguments_received);
+        php_printf("Parsing parameters with 'l' (&factor1)\n");
+        #endif
+
+        char parse_parameters_string[] = "l";
+        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &factor1 ) == SUCCESS)
+        {
+            overload1_called = true;
+            already_called = true;
+        }
+    }
+
+    
+    if(overload0_called)
+    {
+        switch(arguments_received)
+        {
+            case 1:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing wxDateSpan::Multiply((int) factor0) to return new object\n\n");
+                #endif
+
+                wxDateSpan value_to_return1;
+                value_to_return1 = ((wxDateSpan_php*)native_object)->Multiply((int) factor0);
+                void* ptr = safe_emalloc(1, sizeof(wxDateSpan_php), 0);
+                memcpy(ptr, (void*) &value_to_return1, sizeof(wxDateSpan));
+                object_init_ex(return_value, php_wxDateSpan_entry);
+                ((wxDateSpan_php*)ptr)->phpObj = *return_value;
+                zo_wxDateSpan* zo1 = Z_wxDateSpan_P(return_value);
+                zo1->native_object = (wxDateSpan_php*) ptr;
+
+
+                return;
+                break;
+            }
+        }
+    }
+
+    if(overload1_called)
+    {
+        switch(arguments_received)
+        {
+            case 1:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing wxDateSpan::Multiply((int) factor1) to return object reference\n\n");
+                #endif
+
+                wxDateSpan_php* value_to_return1;
+                value_to_return1 = (wxDateSpan_php*) &((wxDateSpan_php*)native_object)->Multiply((int) factor1);
+
+                if(value_to_return1->references.IsUserInitialized()){
+                    if(!Z_ISNULL(value_to_return1->phpObj)){
+                        ZVAL_COPY_VALUE(return_value, &value_to_return1->phpObj);
+                        zval_add_ref(&value_to_return1->phpObj);
+                        return_is_user_initialized = true;
+                    }
+                    else{
+                        zend_error(E_ERROR, "Could not retreive original zval.");
+                    }
+                }
+                else{
+                    object_init_ex(return_value,php_wxDateSpan_entry);
+                    Z_wxDateSpan_P(return_value)->native_object = (wxDateSpan_php*) value_to_return1;
+                }
+
+                if((void*)value_to_return1 != (void*)native_object && return_is_user_initialized){ //Prevent adding references to it self
+                    references->AddReference(return_value, "wxDateSpan::Multiply at call 6 with 1 argument(s)");
+                }
+
+
+                return;
+                break;
+            }
+        }
+    }
+
+    
+    //In case wrong type/count of parameters was passed
+    if(!already_called)
+    {
+        zend_error(
+            E_ERROR,
+            "Wrong type or count of parameters passed to: "
+            "wxDateSpan::Multiply\n"
+        );
+    }
+}
+/* }}} */
+
+/* {{{ proto wxDateSpan wxDateSpan::Neg() */
+PHP_METHOD(php_wxDateSpan, Neg)
+{
+    #ifdef USE_WXPHP_DEBUG
+    php_printf("Invoking wxDateSpan::Neg\n");
+    php_printf("===========================================\n");
+    #endif
+
+    zo_wxDateSpan* current_object;
+    wxphp_object_type current_object_type;
+    wxDateSpan_php* native_object;
+    void* argument_native_object = NULL;
+
+    //Other variables used thru the code
+    zval dummy;
+    ZVAL_NULL(&dummy);
+    bool already_called = false;
+    wxPHPObjectReferences* references;
+    int arguments_received = ZEND_NUM_ARGS();
+    bool return_is_user_initialized = false;
+
+    //Get native object of the php object that called the method
+    if(getThis() != NULL)
+    {
+        current_object = Z_wxDateSpan_P(getThis());
+
+        if(current_object->native_object == NULL)
+        {
+            zend_error(
+                E_ERROR,
+                "Failed to get the native object for "
+                "wxDateSpan::Neg call\n"
+            );
+
+            return;
+        }
+        else
+        {
+            native_object = current_object->native_object;
+            current_object_type = current_object->object_type;
+
+            bool reference_type_found = false;
+
+            if(current_object_type == PHP_WXDATESPAN_TYPE){
+                references = &((wxDateSpan_php*)native_object)->references;
+                reference_type_found = true;
+            }
+        }
+    }
+    #ifdef USE_WXPHP_DEBUG
+    else
+    {
+        php_printf("Processing the method call as static\n");
+    }
+    #endif
+
+    //Parameters for overload 0
+    bool overload0_called = false;
+
+    
+    //Overload 0
+    overload0:
+    if(!already_called && arguments_received == 0)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Parameters received %d\n", arguments_received);
+        php_printf("Parsing parameters with '' ()\n");
+        #endif
+
+        overload0_called = true;
+        already_called = true;
+    }
+
+    
+    if(overload0_called)
+    {
+        switch(arguments_received)
+        {
+            case 0:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing wxDateSpan::Neg() to return object reference\n\n");
+                #endif
+
+                wxDateSpan_php* value_to_return0;
+                value_to_return0 = (wxDateSpan_php*) &((wxDateSpan_php*)native_object)->Neg();
+
+                if(value_to_return0->references.IsUserInitialized()){
+                    if(!Z_ISNULL(value_to_return0->phpObj)){
+                        ZVAL_COPY_VALUE(return_value, &value_to_return0->phpObj);
+                        zval_add_ref(&value_to_return0->phpObj);
+                        return_is_user_initialized = true;
+                    }
+                    else{
+                        zend_error(E_ERROR, "Could not retreive original zval.");
+                    }
+                }
+                else{
+                    object_init_ex(return_value,php_wxDateSpan_entry);
+                    Z_wxDateSpan_P(return_value)->native_object = (wxDateSpan_php*) value_to_return0;
+                }
+
+                if((void*)value_to_return0 != (void*)native_object && return_is_user_initialized){ //Prevent adding references to it self
+                    references->AddReference(return_value, "wxDateSpan::Neg at call 6 with 0 argument(s)");
+                }
+
+
+                return;
+                break;
+            }
+        }
+    }
+
+    
+    //In case wrong type/count of parameters was passed
+    if(!already_called)
+    {
+        zend_error(
+            E_ERROR,
+            "Wrong type or count of parameters passed to: "
+            "wxDateSpan::Neg\n"
+        );
+    }
+}
+/* }}} */
+
+/* {{{ proto wxDateSpan wxDateSpan::Negate() */
+PHP_METHOD(php_wxDateSpan, Negate)
+{
+    #ifdef USE_WXPHP_DEBUG
+    php_printf("Invoking wxDateSpan::Negate\n");
+    php_printf("===========================================\n");
+    #endif
+
+    zo_wxDateSpan* current_object;
+    wxphp_object_type current_object_type;
+    wxDateSpan_php* native_object;
+    void* argument_native_object = NULL;
+
+    //Other variables used thru the code
+    zval dummy;
+    ZVAL_NULL(&dummy);
+    bool already_called = false;
+    wxPHPObjectReferences* references;
+    int arguments_received = ZEND_NUM_ARGS();
+    bool return_is_user_initialized = false;
+
+    //Get native object of the php object that called the method
+    if(getThis() != NULL)
+    {
+        current_object = Z_wxDateSpan_P(getThis());
+
+        if(current_object->native_object == NULL)
+        {
+            zend_error(
+                E_ERROR,
+                "Failed to get the native object for "
+                "wxDateSpan::Negate call\n"
+            );
+
+            return;
+        }
+        else
+        {
+            native_object = current_object->native_object;
+            current_object_type = current_object->object_type;
+
+            bool reference_type_found = false;
+
+            if(current_object_type == PHP_WXDATESPAN_TYPE){
+                references = &((wxDateSpan_php*)native_object)->references;
+                reference_type_found = true;
+            }
+        }
+    }
+    #ifdef USE_WXPHP_DEBUG
+    else
+    {
+        php_printf("Processing the method call as static\n");
+    }
+    #endif
+
+    //Parameters for overload 0
+    bool overload0_called = false;
+
+    
+    //Overload 0
+    overload0:
+    if(!already_called && arguments_received == 0)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Parameters received %d\n", arguments_received);
+        php_printf("Parsing parameters with '' ()\n");
+        #endif
+
+        overload0_called = true;
+        already_called = true;
+    }
+
+    
+    if(overload0_called)
+    {
+        switch(arguments_received)
+        {
+            case 0:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing wxDateSpan::Negate() to return new object\n\n");
+                #endif
+
+                wxDateSpan value_to_return0;
+                value_to_return0 = ((wxDateSpan_php*)native_object)->Negate();
+                void* ptr = safe_emalloc(1, sizeof(wxDateSpan_php), 0);
+                memcpy(ptr, (void*) &value_to_return0, sizeof(wxDateSpan));
+                object_init_ex(return_value, php_wxDateSpan_entry);
+                ((wxDateSpan_php*)ptr)->phpObj = *return_value;
+                zo_wxDateSpan* zo0 = Z_wxDateSpan_P(return_value);
+                zo0->native_object = (wxDateSpan_php*) ptr;
+
+
+                return;
+                break;
+            }
+        }
+    }
+
+    
+    //In case wrong type/count of parameters was passed
+    if(!already_called)
+    {
+        zend_error(
+            E_ERROR,
+            "Wrong type or count of parameters passed to: "
+            "wxDateSpan::Negate\n"
+        );
+    }
+}
+/* }}} */
+
+/* {{{ proto wxDateSpan wxDateSpan::SetDays(int n) */
+PHP_METHOD(php_wxDateSpan, SetDays)
+{
+    #ifdef USE_WXPHP_DEBUG
+    php_printf("Invoking wxDateSpan::SetDays\n");
+    php_printf("===========================================\n");
+    #endif
+
+    zo_wxDateSpan* current_object;
+    wxphp_object_type current_object_type;
+    wxDateSpan_php* native_object;
+    void* argument_native_object = NULL;
+
+    //Other variables used thru the code
+    zval dummy;
+    ZVAL_NULL(&dummy);
+    bool already_called = false;
+    wxPHPObjectReferences* references;
+    int arguments_received = ZEND_NUM_ARGS();
+    bool return_is_user_initialized = false;
+
+    //Get native object of the php object that called the method
+    if(getThis() != NULL)
+    {
+        current_object = Z_wxDateSpan_P(getThis());
+
+        if(current_object->native_object == NULL)
+        {
+            zend_error(
+                E_ERROR,
+                "Failed to get the native object for "
+                "wxDateSpan::SetDays call\n"
+            );
+
+            return;
+        }
+        else
+        {
+            native_object = current_object->native_object;
+            current_object_type = current_object->object_type;
+
+            bool reference_type_found = false;
+
+            if(current_object_type == PHP_WXDATESPAN_TYPE){
+                references = &((wxDateSpan_php*)native_object)->references;
+                reference_type_found = true;
+            }
+        }
+    }
+    #ifdef USE_WXPHP_DEBUG
+    else
+    {
+        php_printf("Processing the method call as static\n");
+    }
+    #endif
+
+    //Parameters for overload 0
+    long n0;
+    bool overload0_called = false;
+
+    
+    //Overload 0
+    overload0:
+    if(!already_called && arguments_received == 1)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Parameters received %d\n", arguments_received);
+        php_printf("Parsing parameters with 'l' (&n0)\n");
+        #endif
+
+        char parse_parameters_string[] = "l";
+        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &n0 ) == SUCCESS)
+        {
+            overload0_called = true;
+            already_called = true;
+        }
+    }
+
+    
+    if(overload0_called)
+    {
+        switch(arguments_received)
+        {
+            case 1:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing wxDateSpan::SetDays((int) n0) to return object reference\n\n");
+                #endif
+
+                wxDateSpan_php* value_to_return1;
+                value_to_return1 = (wxDateSpan_php*) &((wxDateSpan_php*)native_object)->SetDays((int) n0);
+
+                if(value_to_return1->references.IsUserInitialized()){
+                    if(!Z_ISNULL(value_to_return1->phpObj)){
+                        ZVAL_COPY_VALUE(return_value, &value_to_return1->phpObj);
+                        zval_add_ref(&value_to_return1->phpObj);
+                        return_is_user_initialized = true;
+                    }
+                    else{
+                        zend_error(E_ERROR, "Could not retreive original zval.");
+                    }
+                }
+                else{
+                    object_init_ex(return_value,php_wxDateSpan_entry);
+                    Z_wxDateSpan_P(return_value)->native_object = (wxDateSpan_php*) value_to_return1;
+                }
+
+                if((void*)value_to_return1 != (void*)native_object && return_is_user_initialized){ //Prevent adding references to it self
+                    references->AddReference(return_value, "wxDateSpan::SetDays at call 6 with 1 argument(s)");
+                }
+
+
+                return;
+                break;
+            }
+        }
+    }
+
+    
+    //In case wrong type/count of parameters was passed
+    if(!already_called)
+    {
+        zend_error(
+            E_ERROR,
+            "Wrong type or count of parameters passed to: "
+            "wxDateSpan::SetDays\n"
+        );
+    }
+}
+/* }}} */
+
+/* {{{ proto wxDateSpan wxDateSpan::SetMonths(int n) */
+PHP_METHOD(php_wxDateSpan, SetMonths)
+{
+    #ifdef USE_WXPHP_DEBUG
+    php_printf("Invoking wxDateSpan::SetMonths\n");
+    php_printf("===========================================\n");
+    #endif
+
+    zo_wxDateSpan* current_object;
+    wxphp_object_type current_object_type;
+    wxDateSpan_php* native_object;
+    void* argument_native_object = NULL;
+
+    //Other variables used thru the code
+    zval dummy;
+    ZVAL_NULL(&dummy);
+    bool already_called = false;
+    wxPHPObjectReferences* references;
+    int arguments_received = ZEND_NUM_ARGS();
+    bool return_is_user_initialized = false;
+
+    //Get native object of the php object that called the method
+    if(getThis() != NULL)
+    {
+        current_object = Z_wxDateSpan_P(getThis());
+
+        if(current_object->native_object == NULL)
+        {
+            zend_error(
+                E_ERROR,
+                "Failed to get the native object for "
+                "wxDateSpan::SetMonths call\n"
+            );
+
+            return;
+        }
+        else
+        {
+            native_object = current_object->native_object;
+            current_object_type = current_object->object_type;
+
+            bool reference_type_found = false;
+
+            if(current_object_type == PHP_WXDATESPAN_TYPE){
+                references = &((wxDateSpan_php*)native_object)->references;
+                reference_type_found = true;
+            }
+        }
+    }
+    #ifdef USE_WXPHP_DEBUG
+    else
+    {
+        php_printf("Processing the method call as static\n");
+    }
+    #endif
+
+    //Parameters for overload 0
+    long n0;
+    bool overload0_called = false;
+
+    
+    //Overload 0
+    overload0:
+    if(!already_called && arguments_received == 1)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Parameters received %d\n", arguments_received);
+        php_printf("Parsing parameters with 'l' (&n0)\n");
+        #endif
+
+        char parse_parameters_string[] = "l";
+        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &n0 ) == SUCCESS)
+        {
+            overload0_called = true;
+            already_called = true;
+        }
+    }
+
+    
+    if(overload0_called)
+    {
+        switch(arguments_received)
+        {
+            case 1:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing wxDateSpan::SetMonths((int) n0) to return object reference\n\n");
+                #endif
+
+                wxDateSpan_php* value_to_return1;
+                value_to_return1 = (wxDateSpan_php*) &((wxDateSpan_php*)native_object)->SetMonths((int) n0);
+
+                if(value_to_return1->references.IsUserInitialized()){
+                    if(!Z_ISNULL(value_to_return1->phpObj)){
+                        ZVAL_COPY_VALUE(return_value, &value_to_return1->phpObj);
+                        zval_add_ref(&value_to_return1->phpObj);
+                        return_is_user_initialized = true;
+                    }
+                    else{
+                        zend_error(E_ERROR, "Could not retreive original zval.");
+                    }
+                }
+                else{
+                    object_init_ex(return_value,php_wxDateSpan_entry);
+                    Z_wxDateSpan_P(return_value)->native_object = (wxDateSpan_php*) value_to_return1;
+                }
+
+                if((void*)value_to_return1 != (void*)native_object && return_is_user_initialized){ //Prevent adding references to it self
+                    references->AddReference(return_value, "wxDateSpan::SetMonths at call 6 with 1 argument(s)");
+                }
+
+
+                return;
+                break;
+            }
+        }
+    }
+
+    
+    //In case wrong type/count of parameters was passed
+    if(!already_called)
+    {
+        zend_error(
+            E_ERROR,
+            "Wrong type or count of parameters passed to: "
+            "wxDateSpan::SetMonths\n"
+        );
+    }
+}
+/* }}} */
+
+/* {{{ proto wxDateSpan wxDateSpan::SetWeeks(int n) */
+PHP_METHOD(php_wxDateSpan, SetWeeks)
+{
+    #ifdef USE_WXPHP_DEBUG
+    php_printf("Invoking wxDateSpan::SetWeeks\n");
+    php_printf("===========================================\n");
+    #endif
+
+    zo_wxDateSpan* current_object;
+    wxphp_object_type current_object_type;
+    wxDateSpan_php* native_object;
+    void* argument_native_object = NULL;
+
+    //Other variables used thru the code
+    zval dummy;
+    ZVAL_NULL(&dummy);
+    bool already_called = false;
+    wxPHPObjectReferences* references;
+    int arguments_received = ZEND_NUM_ARGS();
+    bool return_is_user_initialized = false;
+
+    //Get native object of the php object that called the method
+    if(getThis() != NULL)
+    {
+        current_object = Z_wxDateSpan_P(getThis());
+
+        if(current_object->native_object == NULL)
+        {
+            zend_error(
+                E_ERROR,
+                "Failed to get the native object for "
+                "wxDateSpan::SetWeeks call\n"
+            );
+
+            return;
+        }
+        else
+        {
+            native_object = current_object->native_object;
+            current_object_type = current_object->object_type;
+
+            bool reference_type_found = false;
+
+            if(current_object_type == PHP_WXDATESPAN_TYPE){
+                references = &((wxDateSpan_php*)native_object)->references;
+                reference_type_found = true;
+            }
+        }
+    }
+    #ifdef USE_WXPHP_DEBUG
+    else
+    {
+        php_printf("Processing the method call as static\n");
+    }
+    #endif
+
+    //Parameters for overload 0
+    long n0;
+    bool overload0_called = false;
+
+    
+    //Overload 0
+    overload0:
+    if(!already_called && arguments_received == 1)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Parameters received %d\n", arguments_received);
+        php_printf("Parsing parameters with 'l' (&n0)\n");
+        #endif
+
+        char parse_parameters_string[] = "l";
+        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &n0 ) == SUCCESS)
+        {
+            overload0_called = true;
+            already_called = true;
+        }
+    }
+
+    
+    if(overload0_called)
+    {
+        switch(arguments_received)
+        {
+            case 1:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing wxDateSpan::SetWeeks((int) n0) to return object reference\n\n");
+                #endif
+
+                wxDateSpan_php* value_to_return1;
+                value_to_return1 = (wxDateSpan_php*) &((wxDateSpan_php*)native_object)->SetWeeks((int) n0);
+
+                if(value_to_return1->references.IsUserInitialized()){
+                    if(!Z_ISNULL(value_to_return1->phpObj)){
+                        ZVAL_COPY_VALUE(return_value, &value_to_return1->phpObj);
+                        zval_add_ref(&value_to_return1->phpObj);
+                        return_is_user_initialized = true;
+                    }
+                    else{
+                        zend_error(E_ERROR, "Could not retreive original zval.");
+                    }
+                }
+                else{
+                    object_init_ex(return_value,php_wxDateSpan_entry);
+                    Z_wxDateSpan_P(return_value)->native_object = (wxDateSpan_php*) value_to_return1;
+                }
+
+                if((void*)value_to_return1 != (void*)native_object && return_is_user_initialized){ //Prevent adding references to it self
+                    references->AddReference(return_value, "wxDateSpan::SetWeeks at call 6 with 1 argument(s)");
+                }
+
+
+                return;
+                break;
+            }
+        }
+    }
+
+    
+    //In case wrong type/count of parameters was passed
+    if(!already_called)
+    {
+        zend_error(
+            E_ERROR,
+            "Wrong type or count of parameters passed to: "
+            "wxDateSpan::SetWeeks\n"
+        );
+    }
+}
+/* }}} */
+
+/* {{{ proto wxDateSpan wxDateSpan::SetYears(int n) */
+PHP_METHOD(php_wxDateSpan, SetYears)
+{
+    #ifdef USE_WXPHP_DEBUG
+    php_printf("Invoking wxDateSpan::SetYears\n");
+    php_printf("===========================================\n");
+    #endif
+
+    zo_wxDateSpan* current_object;
+    wxphp_object_type current_object_type;
+    wxDateSpan_php* native_object;
+    void* argument_native_object = NULL;
+
+    //Other variables used thru the code
+    zval dummy;
+    ZVAL_NULL(&dummy);
+    bool already_called = false;
+    wxPHPObjectReferences* references;
+    int arguments_received = ZEND_NUM_ARGS();
+    bool return_is_user_initialized = false;
+
+    //Get native object of the php object that called the method
+    if(getThis() != NULL)
+    {
+        current_object = Z_wxDateSpan_P(getThis());
+
+        if(current_object->native_object == NULL)
+        {
+            zend_error(
+                E_ERROR,
+                "Failed to get the native object for "
+                "wxDateSpan::SetYears call\n"
+            );
+
+            return;
+        }
+        else
+        {
+            native_object = current_object->native_object;
+            current_object_type = current_object->object_type;
+
+            bool reference_type_found = false;
+
+            if(current_object_type == PHP_WXDATESPAN_TYPE){
+                references = &((wxDateSpan_php*)native_object)->references;
+                reference_type_found = true;
+            }
+        }
+    }
+    #ifdef USE_WXPHP_DEBUG
+    else
+    {
+        php_printf("Processing the method call as static\n");
+    }
+    #endif
+
+    //Parameters for overload 0
+    long n0;
+    bool overload0_called = false;
+
+    
+    //Overload 0
+    overload0:
+    if(!already_called && arguments_received == 1)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Parameters received %d\n", arguments_received);
+        php_printf("Parsing parameters with 'l' (&n0)\n");
+        #endif
+
+        char parse_parameters_string[] = "l";
+        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &n0 ) == SUCCESS)
+        {
+            overload0_called = true;
+            already_called = true;
+        }
+    }
+
+    
+    if(overload0_called)
+    {
+        switch(arguments_received)
+        {
+            case 1:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing wxDateSpan::SetYears((int) n0) to return object reference\n\n");
+                #endif
+
+                wxDateSpan_php* value_to_return1;
+                value_to_return1 = (wxDateSpan_php*) &((wxDateSpan_php*)native_object)->SetYears((int) n0);
+
+                if(value_to_return1->references.IsUserInitialized()){
+                    if(!Z_ISNULL(value_to_return1->phpObj)){
+                        ZVAL_COPY_VALUE(return_value, &value_to_return1->phpObj);
+                        zval_add_ref(&value_to_return1->phpObj);
+                        return_is_user_initialized = true;
+                    }
+                    else{
+                        zend_error(E_ERROR, "Could not retreive original zval.");
+                    }
+                }
+                else{
+                    object_init_ex(return_value,php_wxDateSpan_entry);
+                    Z_wxDateSpan_P(return_value)->native_object = (wxDateSpan_php*) value_to_return1;
+                }
+
+                if((void*)value_to_return1 != (void*)native_object && return_is_user_initialized){ //Prevent adding references to it self
+                    references->AddReference(return_value, "wxDateSpan::SetYears at call 6 with 1 argument(s)");
+                }
+
+
+                return;
+                break;
+            }
+        }
+    }
+
+    
+    //In case wrong type/count of parameters was passed
+    if(!already_called)
+    {
+        zend_error(
+            E_ERROR,
+            "Wrong type or count of parameters passed to: "
+            "wxDateSpan::SetYears\n"
+        );
+    }
+}
+/* }}} */
+
+/* {{{ proto wxDateSpan wxDateSpan::Subtract(wxDateSpan other) */
+PHP_METHOD(php_wxDateSpan, Subtract)
+{
+    #ifdef USE_WXPHP_DEBUG
+    php_printf("Invoking wxDateSpan::Subtract\n");
+    php_printf("===========================================\n");
+    #endif
+
+    zo_wxDateSpan* current_object;
+    wxphp_object_type current_object_type;
+    wxDateSpan_php* native_object;
+    void* argument_native_object = NULL;
+
+    //Other variables used thru the code
+    zval dummy;
+    ZVAL_NULL(&dummy);
+    bool already_called = false;
+    wxPHPObjectReferences* references;
+    int arguments_received = ZEND_NUM_ARGS();
+    bool return_is_user_initialized = false;
+
+    //Get native object of the php object that called the method
+    if(getThis() != NULL)
+    {
+        current_object = Z_wxDateSpan_P(getThis());
+
+        if(current_object->native_object == NULL)
+        {
+            zend_error(
+                E_ERROR,
+                "Failed to get the native object for "
+                "wxDateSpan::Subtract call\n"
+            );
+
+            return;
+        }
+        else
+        {
+            native_object = current_object->native_object;
+            current_object_type = current_object->object_type;
+
+            bool reference_type_found = false;
+
+            if(current_object_type == PHP_WXDATESPAN_TYPE){
+                references = &((wxDateSpan_php*)native_object)->references;
+                reference_type_found = true;
+            }
+        }
+    }
+    #ifdef USE_WXPHP_DEBUG
+    else
+    {
+        php_printf("Processing the method call as static\n");
+    }
+    #endif
+
+    //Parameters for overload 0
+    zval* other0;
+    wxDateSpan* object_pointer0_0 = 0;
+    bool overload0_called = false;
+
+    //Parameters for overload 1
+    zval* other1;
+    wxDateSpan* object_pointer1_0 = 0;
+    bool overload1_called = false;
+
+    
+    //Overload 0
+    overload0:
+    if(!already_called && arguments_received == 1)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Parameters received %d\n", arguments_received);
+        php_printf("Parsing parameters with 'O' (&other0, php_wxDateSpan_entry)\n");
+        #endif
+
+        char parse_parameters_string[] = "O";
+        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &other0, php_wxDateSpan_entry ) == SUCCESS)
+        {
+            if(arguments_received >= 1){
+                if(Z_TYPE_P(other0) == IS_OBJECT)
+                {
+                    wxphp_object_type argument_type = Z_wxDateSpan_P(other0)->object_type;
+                    argument_native_object = (void*) Z_wxDateSpan_P(other0)->native_object;
+                    object_pointer0_0 = (wxDateSpan*) argument_native_object;
+                    if (!object_pointer0_0 )
+                    {
+                        goto overload1;
+                    }
+                }
+                else if(Z_TYPE_P(other0) != IS_NULL)
+                {
+                    goto overload1;
+                }
+            }
+
+            overload0_called = true;
+            already_called = true;
+        }
+    }
+
+    //Overload 1
+    overload1:
+    if(!already_called && arguments_received == 1)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Parameters received %d\n", arguments_received);
+        php_printf("Parsing parameters with 'O' (&other1, php_wxDateSpan_entry)\n");
+        #endif
+
+        char parse_parameters_string[] = "O";
+        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &other1, php_wxDateSpan_entry ) == SUCCESS)
+        {
+            if(arguments_received >= 1){
+                if(Z_TYPE_P(other1) == IS_OBJECT)
+                {
+                    wxphp_object_type argument_type = Z_wxDateSpan_P(other1)->object_type;
+                    argument_native_object = (void*) Z_wxDateSpan_P(other1)->native_object;
+                    object_pointer1_0 = (wxDateSpan*) argument_native_object;
+                    if (!object_pointer1_0 )
+                    {
+                        zend_error(E_ERROR, "Parameter 'other' could not be retreived correctly.");
+                    }
+                }
+                else if(Z_TYPE_P(other1) != IS_NULL)
+                {
+                    zend_error(E_ERROR, "Parameter 'other' not null, could not be retreived correctly.");
+                }
+            }
+
+            overload1_called = true;
+            already_called = true;
+        }
+    }
+
+    
+    if(overload0_called)
+    {
+        switch(arguments_received)
+        {
+            case 1:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing wxDateSpan::Subtract(*(wxDateSpan*) object_pointer0_0) to return new object\n\n");
+                #endif
+
+                wxDateSpan value_to_return1;
+                value_to_return1 = ((wxDateSpan_php*)native_object)->Subtract(*(wxDateSpan*) object_pointer0_0);
+                void* ptr = safe_emalloc(1, sizeof(wxDateSpan_php), 0);
+                memcpy(ptr, (void*) &value_to_return1, sizeof(wxDateSpan));
+                object_init_ex(return_value, php_wxDateSpan_entry);
+                ((wxDateSpan_php*)ptr)->phpObj = *return_value;
+                zo_wxDateSpan* zo1 = Z_wxDateSpan_P(return_value);
+                zo1->native_object = (wxDateSpan_php*) ptr;
+
+                references->AddReference(other0, "wxDateSpan::Subtract at call 3 with 1 argument(s)");
+
+                return;
+                break;
+            }
+        }
+    }
+
+    if(overload1_called)
+    {
+        switch(arguments_received)
+        {
+            case 1:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing wxDateSpan::Subtract(*(wxDateSpan*) object_pointer1_0) to return object reference\n\n");
+                #endif
+
+                wxDateSpan_php* value_to_return1;
+                value_to_return1 = (wxDateSpan_php*) &((wxDateSpan_php*)native_object)->Subtract(*(wxDateSpan*) object_pointer1_0);
+
+                if(value_to_return1->references.IsUserInitialized()){
+                    if(!Z_ISNULL(value_to_return1->phpObj)){
+                        ZVAL_COPY_VALUE(return_value, &value_to_return1->phpObj);
+                        zval_add_ref(&value_to_return1->phpObj);
+                        return_is_user_initialized = true;
+                    }
+                    else{
+                        zend_error(E_ERROR, "Could not retreive original zval.");
+                    }
+                }
+                else{
+                    object_init_ex(return_value,php_wxDateSpan_entry);
+                    Z_wxDateSpan_P(return_value)->native_object = (wxDateSpan_php*) value_to_return1;
+                }
+
+                if((void*)value_to_return1 != (void*)native_object && return_is_user_initialized){ //Prevent adding references to it self
+                    references->AddReference(return_value, "wxDateSpan::Subtract at call 6 with 1 argument(s)");
+                }
+
+                references->AddReference(other1, "wxDateSpan::Subtract at call 3 with 1 argument(s)");
+
+                return;
+                break;
+            }
+        }
+    }
+
+    
+    //In case wrong type/count of parameters was passed
+    if(!already_called)
+    {
+        zend_error(
+            E_ERROR,
+            "Wrong type or count of parameters passed to: "
+            "wxDateSpan::Subtract\n"
+        );
+    }
+}
+/* }}} */
+
+/* {{{ proto wxDateSpan wxDateSpan::Day() */
+PHP_METHOD(php_wxDateSpan, Day)
+{
+    #ifdef USE_WXPHP_DEBUG
+    php_printf("Invoking wxDateSpan::Day\n");
+    php_printf("===========================================\n");
+    #endif
+
+    zo_wxDateSpan* current_object;
+    wxphp_object_type current_object_type;
+    wxDateSpan_php* native_object;
+    void* argument_native_object = NULL;
+
+    //Other variables used thru the code
+    zval dummy;
+    ZVAL_NULL(&dummy);
+    bool already_called = false;
+    wxPHPObjectReferences* references;
+    int arguments_received = ZEND_NUM_ARGS();
+    bool return_is_user_initialized = false;
+
+    //Get native object of the php object that called the method
+    if(getThis() != NULL)
+    {
+        current_object = Z_wxDateSpan_P(getThis());
+
+        if(current_object->native_object == NULL)
+        {
+            zend_error(
+                E_ERROR,
+                "Failed to get the native object for "
+                "wxDateSpan::Day call\n"
+            );
+
+            return;
+        }
+        else
+        {
+            native_object = current_object->native_object;
+            current_object_type = current_object->object_type;
+
+            bool reference_type_found = false;
+
+            if(current_object_type == PHP_WXDATESPAN_TYPE){
+                references = &((wxDateSpan_php*)native_object)->references;
+                reference_type_found = true;
+            }
+        }
+    }
+    #ifdef USE_WXPHP_DEBUG
+    else
+    {
+        php_printf("Processing the method call as static\n");
+    }
+    #endif
+
+    //Parameters for overload 0
+    bool overload0_called = false;
+
+    
+    //Overload 0
+    overload0:
+    if(!already_called && arguments_received == 0)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Parameters received %d\n", arguments_received);
+        php_printf("Parsing parameters with '' ()\n");
+        #endif
+
+        overload0_called = true;
+        already_called = true;
+    }
+
+    
+    if(overload0_called)
+    {
+        switch(arguments_received)
+        {
+            case 0:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Static ");
+                php_printf("Executing wxDateSpan::Day() to return new object\n\n");
+                #endif
+
+                wxDateSpan value_to_return0;
+                value_to_return0 = wxDateSpan::Day();
+                void* ptr = safe_emalloc(1, sizeof(wxDateSpan_php), 0);
+                memcpy(ptr, (void*) &value_to_return0, sizeof(wxDateSpan));
+                object_init_ex(return_value, php_wxDateSpan_entry);
+                ((wxDateSpan_php*)ptr)->phpObj = *return_value;
+                zo_wxDateSpan* zo0 = Z_wxDateSpan_P(return_value);
+                zo0->native_object = (wxDateSpan_php*) ptr;
+
+
+                return;
+                break;
+            }
+        }
+    }
+
+    
+    //In case wrong type/count of parameters was passed
+    if(!already_called)
+    {
+        zend_error(
+            E_ERROR,
+            "Wrong type or count of parameters passed to: "
+            "wxDateSpan::Day\n"
+        );
+    }
+}
+/* }}} */
+
+/* {{{ proto wxDateSpan wxDateSpan::Days(int days) */
+PHP_METHOD(php_wxDateSpan, Days)
+{
+    #ifdef USE_WXPHP_DEBUG
+    php_printf("Invoking wxDateSpan::Days\n");
+    php_printf("===========================================\n");
+    #endif
+
+    zo_wxDateSpan* current_object;
+    wxphp_object_type current_object_type;
+    wxDateSpan_php* native_object;
+    void* argument_native_object = NULL;
+
+    //Other variables used thru the code
+    zval dummy;
+    ZVAL_NULL(&dummy);
+    bool already_called = false;
+    wxPHPObjectReferences* references;
+    int arguments_received = ZEND_NUM_ARGS();
+    bool return_is_user_initialized = false;
+
+    //Get native object of the php object that called the method
+    if(getThis() != NULL)
+    {
+        current_object = Z_wxDateSpan_P(getThis());
+
+        if(current_object->native_object == NULL)
+        {
+            zend_error(
+                E_ERROR,
+                "Failed to get the native object for "
+                "wxDateSpan::Days call\n"
+            );
+
+            return;
+        }
+        else
+        {
+            native_object = current_object->native_object;
+            current_object_type = current_object->object_type;
+
+            bool reference_type_found = false;
+
+            if(current_object_type == PHP_WXDATESPAN_TYPE){
+                references = &((wxDateSpan_php*)native_object)->references;
+                reference_type_found = true;
+            }
+        }
+    }
+    #ifdef USE_WXPHP_DEBUG
+    else
+    {
+        php_printf("Processing the method call as static\n");
+    }
+    #endif
+
+    //Parameters for overload 0
+    long days0;
+    bool overload0_called = false;
+
+    
+    //Overload 0
+    overload0:
+    if(!already_called && arguments_received == 1)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Parameters received %d\n", arguments_received);
+        php_printf("Parsing parameters with 'l' (&days0)\n");
+        #endif
+
+        char parse_parameters_string[] = "l";
+        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &days0 ) == SUCCESS)
+        {
+            overload0_called = true;
+            already_called = true;
+        }
+    }
+
+    
+    if(overload0_called)
+    {
+        switch(arguments_received)
+        {
+            case 1:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Static ");
+                php_printf("Executing wxDateSpan::Days((int) days0) to return new object\n\n");
+                #endif
+
+                wxDateSpan value_to_return1;
+                value_to_return1 = wxDateSpan::Days((int) days0);
+                void* ptr = safe_emalloc(1, sizeof(wxDateSpan_php), 0);
+                memcpy(ptr, (void*) &value_to_return1, sizeof(wxDateSpan));
+                object_init_ex(return_value, php_wxDateSpan_entry);
+                ((wxDateSpan_php*)ptr)->phpObj = *return_value;
+                zo_wxDateSpan* zo1 = Z_wxDateSpan_P(return_value);
+                zo1->native_object = (wxDateSpan_php*) ptr;
+
+
+                return;
+                break;
+            }
+        }
+    }
+
+    
+    //In case wrong type/count of parameters was passed
+    if(!already_called)
+    {
+        zend_error(
+            E_ERROR,
+            "Wrong type or count of parameters passed to: "
+            "wxDateSpan::Days\n"
+        );
+    }
+}
+/* }}} */
+
+/* {{{ proto wxDateSpan wxDateSpan::Month() */
+PHP_METHOD(php_wxDateSpan, Month)
+{
+    #ifdef USE_WXPHP_DEBUG
+    php_printf("Invoking wxDateSpan::Month\n");
+    php_printf("===========================================\n");
+    #endif
+
+    zo_wxDateSpan* current_object;
+    wxphp_object_type current_object_type;
+    wxDateSpan_php* native_object;
+    void* argument_native_object = NULL;
+
+    //Other variables used thru the code
+    zval dummy;
+    ZVAL_NULL(&dummy);
+    bool already_called = false;
+    wxPHPObjectReferences* references;
+    int arguments_received = ZEND_NUM_ARGS();
+    bool return_is_user_initialized = false;
+
+    //Get native object of the php object that called the method
+    if(getThis() != NULL)
+    {
+        current_object = Z_wxDateSpan_P(getThis());
+
+        if(current_object->native_object == NULL)
+        {
+            zend_error(
+                E_ERROR,
+                "Failed to get the native object for "
+                "wxDateSpan::Month call\n"
+            );
+
+            return;
+        }
+        else
+        {
+            native_object = current_object->native_object;
+            current_object_type = current_object->object_type;
+
+            bool reference_type_found = false;
+
+            if(current_object_type == PHP_WXDATESPAN_TYPE){
+                references = &((wxDateSpan_php*)native_object)->references;
+                reference_type_found = true;
+            }
+        }
+    }
+    #ifdef USE_WXPHP_DEBUG
+    else
+    {
+        php_printf("Processing the method call as static\n");
+    }
+    #endif
+
+    //Parameters for overload 0
+    bool overload0_called = false;
+
+    
+    //Overload 0
+    overload0:
+    if(!already_called && arguments_received == 0)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Parameters received %d\n", arguments_received);
+        php_printf("Parsing parameters with '' ()\n");
+        #endif
+
+        overload0_called = true;
+        already_called = true;
+    }
+
+    
+    if(overload0_called)
+    {
+        switch(arguments_received)
+        {
+            case 0:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Static ");
+                php_printf("Executing wxDateSpan::Month() to return new object\n\n");
+                #endif
+
+                wxDateSpan value_to_return0;
+                value_to_return0 = wxDateSpan::Month();
+                void* ptr = safe_emalloc(1, sizeof(wxDateSpan_php), 0);
+                memcpy(ptr, (void*) &value_to_return0, sizeof(wxDateSpan));
+                object_init_ex(return_value, php_wxDateSpan_entry);
+                ((wxDateSpan_php*)ptr)->phpObj = *return_value;
+                zo_wxDateSpan* zo0 = Z_wxDateSpan_P(return_value);
+                zo0->native_object = (wxDateSpan_php*) ptr;
+
+
+                return;
+                break;
+            }
+        }
+    }
+
+    
+    //In case wrong type/count of parameters was passed
+    if(!already_called)
+    {
+        zend_error(
+            E_ERROR,
+            "Wrong type or count of parameters passed to: "
+            "wxDateSpan::Month\n"
+        );
+    }
+}
+/* }}} */
+
+/* {{{ proto wxDateSpan wxDateSpan::Months(int mon) */
+PHP_METHOD(php_wxDateSpan, Months)
+{
+    #ifdef USE_WXPHP_DEBUG
+    php_printf("Invoking wxDateSpan::Months\n");
+    php_printf("===========================================\n");
+    #endif
+
+    zo_wxDateSpan* current_object;
+    wxphp_object_type current_object_type;
+    wxDateSpan_php* native_object;
+    void* argument_native_object = NULL;
+
+    //Other variables used thru the code
+    zval dummy;
+    ZVAL_NULL(&dummy);
+    bool already_called = false;
+    wxPHPObjectReferences* references;
+    int arguments_received = ZEND_NUM_ARGS();
+    bool return_is_user_initialized = false;
+
+    //Get native object of the php object that called the method
+    if(getThis() != NULL)
+    {
+        current_object = Z_wxDateSpan_P(getThis());
+
+        if(current_object->native_object == NULL)
+        {
+            zend_error(
+                E_ERROR,
+                "Failed to get the native object for "
+                "wxDateSpan::Months call\n"
+            );
+
+            return;
+        }
+        else
+        {
+            native_object = current_object->native_object;
+            current_object_type = current_object->object_type;
+
+            bool reference_type_found = false;
+
+            if(current_object_type == PHP_WXDATESPAN_TYPE){
+                references = &((wxDateSpan_php*)native_object)->references;
+                reference_type_found = true;
+            }
+        }
+    }
+    #ifdef USE_WXPHP_DEBUG
+    else
+    {
+        php_printf("Processing the method call as static\n");
+    }
+    #endif
+
+    //Parameters for overload 0
+    long mon0;
+    bool overload0_called = false;
+
+    
+    //Overload 0
+    overload0:
+    if(!already_called && arguments_received == 1)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Parameters received %d\n", arguments_received);
+        php_printf("Parsing parameters with 'l' (&mon0)\n");
+        #endif
+
+        char parse_parameters_string[] = "l";
+        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &mon0 ) == SUCCESS)
+        {
+            overload0_called = true;
+            already_called = true;
+        }
+    }
+
+    
+    if(overload0_called)
+    {
+        switch(arguments_received)
+        {
+            case 1:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Static ");
+                php_printf("Executing wxDateSpan::Months((int) mon0) to return new object\n\n");
+                #endif
+
+                wxDateSpan value_to_return1;
+                value_to_return1 = wxDateSpan::Months((int) mon0);
+                void* ptr = safe_emalloc(1, sizeof(wxDateSpan_php), 0);
+                memcpy(ptr, (void*) &value_to_return1, sizeof(wxDateSpan));
+                object_init_ex(return_value, php_wxDateSpan_entry);
+                ((wxDateSpan_php*)ptr)->phpObj = *return_value;
+                zo_wxDateSpan* zo1 = Z_wxDateSpan_P(return_value);
+                zo1->native_object = (wxDateSpan_php*) ptr;
+
+
+                return;
+                break;
+            }
+        }
+    }
+
+    
+    //In case wrong type/count of parameters was passed
+    if(!already_called)
+    {
+        zend_error(
+            E_ERROR,
+            "Wrong type or count of parameters passed to: "
+            "wxDateSpan::Months\n"
+        );
+    }
+}
+/* }}} */
+
+/* {{{ proto wxDateSpan wxDateSpan::Week() */
+PHP_METHOD(php_wxDateSpan, Week)
+{
+    #ifdef USE_WXPHP_DEBUG
+    php_printf("Invoking wxDateSpan::Week\n");
+    php_printf("===========================================\n");
+    #endif
+
+    zo_wxDateSpan* current_object;
+    wxphp_object_type current_object_type;
+    wxDateSpan_php* native_object;
+    void* argument_native_object = NULL;
+
+    //Other variables used thru the code
+    zval dummy;
+    ZVAL_NULL(&dummy);
+    bool already_called = false;
+    wxPHPObjectReferences* references;
+    int arguments_received = ZEND_NUM_ARGS();
+    bool return_is_user_initialized = false;
+
+    //Get native object of the php object that called the method
+    if(getThis() != NULL)
+    {
+        current_object = Z_wxDateSpan_P(getThis());
+
+        if(current_object->native_object == NULL)
+        {
+            zend_error(
+                E_ERROR,
+                "Failed to get the native object for "
+                "wxDateSpan::Week call\n"
+            );
+
+            return;
+        }
+        else
+        {
+            native_object = current_object->native_object;
+            current_object_type = current_object->object_type;
+
+            bool reference_type_found = false;
+
+            if(current_object_type == PHP_WXDATESPAN_TYPE){
+                references = &((wxDateSpan_php*)native_object)->references;
+                reference_type_found = true;
+            }
+        }
+    }
+    #ifdef USE_WXPHP_DEBUG
+    else
+    {
+        php_printf("Processing the method call as static\n");
+    }
+    #endif
+
+    //Parameters for overload 0
+    bool overload0_called = false;
+
+    
+    //Overload 0
+    overload0:
+    if(!already_called && arguments_received == 0)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Parameters received %d\n", arguments_received);
+        php_printf("Parsing parameters with '' ()\n");
+        #endif
+
+        overload0_called = true;
+        already_called = true;
+    }
+
+    
+    if(overload0_called)
+    {
+        switch(arguments_received)
+        {
+            case 0:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Static ");
+                php_printf("Executing wxDateSpan::Week() to return new object\n\n");
+                #endif
+
+                wxDateSpan value_to_return0;
+                value_to_return0 = wxDateSpan::Week();
+                void* ptr = safe_emalloc(1, sizeof(wxDateSpan_php), 0);
+                memcpy(ptr, (void*) &value_to_return0, sizeof(wxDateSpan));
+                object_init_ex(return_value, php_wxDateSpan_entry);
+                ((wxDateSpan_php*)ptr)->phpObj = *return_value;
+                zo_wxDateSpan* zo0 = Z_wxDateSpan_P(return_value);
+                zo0->native_object = (wxDateSpan_php*) ptr;
+
+
+                return;
+                break;
+            }
+        }
+    }
+
+    
+    //In case wrong type/count of parameters was passed
+    if(!already_called)
+    {
+        zend_error(
+            E_ERROR,
+            "Wrong type or count of parameters passed to: "
+            "wxDateSpan::Week\n"
+        );
+    }
+}
+/* }}} */
+
+/* {{{ proto wxDateSpan wxDateSpan::Weeks(int weeks) */
+PHP_METHOD(php_wxDateSpan, Weeks)
+{
+    #ifdef USE_WXPHP_DEBUG
+    php_printf("Invoking wxDateSpan::Weeks\n");
+    php_printf("===========================================\n");
+    #endif
+
+    zo_wxDateSpan* current_object;
+    wxphp_object_type current_object_type;
+    wxDateSpan_php* native_object;
+    void* argument_native_object = NULL;
+
+    //Other variables used thru the code
+    zval dummy;
+    ZVAL_NULL(&dummy);
+    bool already_called = false;
+    wxPHPObjectReferences* references;
+    int arguments_received = ZEND_NUM_ARGS();
+    bool return_is_user_initialized = false;
+
+    //Get native object of the php object that called the method
+    if(getThis() != NULL)
+    {
+        current_object = Z_wxDateSpan_P(getThis());
+
+        if(current_object->native_object == NULL)
+        {
+            zend_error(
+                E_ERROR,
+                "Failed to get the native object for "
+                "wxDateSpan::Weeks call\n"
+            );
+
+            return;
+        }
+        else
+        {
+            native_object = current_object->native_object;
+            current_object_type = current_object->object_type;
+
+            bool reference_type_found = false;
+
+            if(current_object_type == PHP_WXDATESPAN_TYPE){
+                references = &((wxDateSpan_php*)native_object)->references;
+                reference_type_found = true;
+            }
+        }
+    }
+    #ifdef USE_WXPHP_DEBUG
+    else
+    {
+        php_printf("Processing the method call as static\n");
+    }
+    #endif
+
+    //Parameters for overload 0
+    long weeks0;
+    bool overload0_called = false;
+
+    
+    //Overload 0
+    overload0:
+    if(!already_called && arguments_received == 1)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Parameters received %d\n", arguments_received);
+        php_printf("Parsing parameters with 'l' (&weeks0)\n");
+        #endif
+
+        char parse_parameters_string[] = "l";
+        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &weeks0 ) == SUCCESS)
+        {
+            overload0_called = true;
+            already_called = true;
+        }
+    }
+
+    
+    if(overload0_called)
+    {
+        switch(arguments_received)
+        {
+            case 1:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Static ");
+                php_printf("Executing wxDateSpan::Weeks((int) weeks0) to return new object\n\n");
+                #endif
+
+                wxDateSpan value_to_return1;
+                value_to_return1 = wxDateSpan::Weeks((int) weeks0);
+                void* ptr = safe_emalloc(1, sizeof(wxDateSpan_php), 0);
+                memcpy(ptr, (void*) &value_to_return1, sizeof(wxDateSpan));
+                object_init_ex(return_value, php_wxDateSpan_entry);
+                ((wxDateSpan_php*)ptr)->phpObj = *return_value;
+                zo_wxDateSpan* zo1 = Z_wxDateSpan_P(return_value);
+                zo1->native_object = (wxDateSpan_php*) ptr;
+
+
+                return;
+                break;
+            }
+        }
+    }
+
+    
+    //In case wrong type/count of parameters was passed
+    if(!already_called)
+    {
+        zend_error(
+            E_ERROR,
+            "Wrong type or count of parameters passed to: "
+            "wxDateSpan::Weeks\n"
+        );
+    }
+}
+/* }}} */
+
+/* {{{ proto wxDateSpan wxDateSpan::Year() */
+PHP_METHOD(php_wxDateSpan, Year)
+{
+    #ifdef USE_WXPHP_DEBUG
+    php_printf("Invoking wxDateSpan::Year\n");
+    php_printf("===========================================\n");
+    #endif
+
+    zo_wxDateSpan* current_object;
+    wxphp_object_type current_object_type;
+    wxDateSpan_php* native_object;
+    void* argument_native_object = NULL;
+
+    //Other variables used thru the code
+    zval dummy;
+    ZVAL_NULL(&dummy);
+    bool already_called = false;
+    wxPHPObjectReferences* references;
+    int arguments_received = ZEND_NUM_ARGS();
+    bool return_is_user_initialized = false;
+
+    //Get native object of the php object that called the method
+    if(getThis() != NULL)
+    {
+        current_object = Z_wxDateSpan_P(getThis());
+
+        if(current_object->native_object == NULL)
+        {
+            zend_error(
+                E_ERROR,
+                "Failed to get the native object for "
+                "wxDateSpan::Year call\n"
+            );
+
+            return;
+        }
+        else
+        {
+            native_object = current_object->native_object;
+            current_object_type = current_object->object_type;
+
+            bool reference_type_found = false;
+
+            if(current_object_type == PHP_WXDATESPAN_TYPE){
+                references = &((wxDateSpan_php*)native_object)->references;
+                reference_type_found = true;
+            }
+        }
+    }
+    #ifdef USE_WXPHP_DEBUG
+    else
+    {
+        php_printf("Processing the method call as static\n");
+    }
+    #endif
+
+    //Parameters for overload 0
+    bool overload0_called = false;
+
+    
+    //Overload 0
+    overload0:
+    if(!already_called && arguments_received == 0)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Parameters received %d\n", arguments_received);
+        php_printf("Parsing parameters with '' ()\n");
+        #endif
+
+        overload0_called = true;
+        already_called = true;
+    }
+
+    
+    if(overload0_called)
+    {
+        switch(arguments_received)
+        {
+            case 0:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Static ");
+                php_printf("Executing wxDateSpan::Year() to return new object\n\n");
+                #endif
+
+                wxDateSpan value_to_return0;
+                value_to_return0 = wxDateSpan::Year();
+                void* ptr = safe_emalloc(1, sizeof(wxDateSpan_php), 0);
+                memcpy(ptr, (void*) &value_to_return0, sizeof(wxDateSpan));
+                object_init_ex(return_value, php_wxDateSpan_entry);
+                ((wxDateSpan_php*)ptr)->phpObj = *return_value;
+                zo_wxDateSpan* zo0 = Z_wxDateSpan_P(return_value);
+                zo0->native_object = (wxDateSpan_php*) ptr;
+
+
+                return;
+                break;
+            }
+        }
+    }
+
+    
+    //In case wrong type/count of parameters was passed
+    if(!already_called)
+    {
+        zend_error(
+            E_ERROR,
+            "Wrong type or count of parameters passed to: "
+            "wxDateSpan::Year\n"
+        );
+    }
+}
+/* }}} */
+
+/* {{{ proto wxDateSpan wxDateSpan::Years(int years) */
+PHP_METHOD(php_wxDateSpan, Years)
+{
+    #ifdef USE_WXPHP_DEBUG
+    php_printf("Invoking wxDateSpan::Years\n");
+    php_printf("===========================================\n");
+    #endif
+
+    zo_wxDateSpan* current_object;
+    wxphp_object_type current_object_type;
+    wxDateSpan_php* native_object;
+    void* argument_native_object = NULL;
+
+    //Other variables used thru the code
+    zval dummy;
+    ZVAL_NULL(&dummy);
+    bool already_called = false;
+    wxPHPObjectReferences* references;
+    int arguments_received = ZEND_NUM_ARGS();
+    bool return_is_user_initialized = false;
+
+    //Get native object of the php object that called the method
+    if(getThis() != NULL)
+    {
+        current_object = Z_wxDateSpan_P(getThis());
+
+        if(current_object->native_object == NULL)
+        {
+            zend_error(
+                E_ERROR,
+                "Failed to get the native object for "
+                "wxDateSpan::Years call\n"
+            );
+
+            return;
+        }
+        else
+        {
+            native_object = current_object->native_object;
+            current_object_type = current_object->object_type;
+
+            bool reference_type_found = false;
+
+            if(current_object_type == PHP_WXDATESPAN_TYPE){
+                references = &((wxDateSpan_php*)native_object)->references;
+                reference_type_found = true;
+            }
+        }
+    }
+    #ifdef USE_WXPHP_DEBUG
+    else
+    {
+        php_printf("Processing the method call as static\n");
+    }
+    #endif
+
+    //Parameters for overload 0
+    long years0;
+    bool overload0_called = false;
+
+    
+    //Overload 0
+    overload0:
+    if(!already_called && arguments_received == 1)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Parameters received %d\n", arguments_received);
+        php_printf("Parsing parameters with 'l' (&years0)\n");
+        #endif
+
+        char parse_parameters_string[] = "l";
+        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &years0 ) == SUCCESS)
+        {
+            overload0_called = true;
+            already_called = true;
+        }
+    }
+
+    
+    if(overload0_called)
+    {
+        switch(arguments_received)
+        {
+            case 1:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Static ");
+                php_printf("Executing wxDateSpan::Years((int) years0) to return new object\n\n");
+                #endif
+
+                wxDateSpan value_to_return1;
+                value_to_return1 = wxDateSpan::Years((int) years0);
+                void* ptr = safe_emalloc(1, sizeof(wxDateSpan_php), 0);
+                memcpy(ptr, (void*) &value_to_return1, sizeof(wxDateSpan));
+                object_init_ex(return_value, php_wxDateSpan_entry);
+                ((wxDateSpan_php*)ptr)->phpObj = *return_value;
+                zo_wxDateSpan* zo1 = Z_wxDateSpan_P(return_value);
+                zo1->native_object = (wxDateSpan_php*) ptr;
+
+
+                return;
+                break;
+            }
+        }
+    }
+
+    
+    //In case wrong type/count of parameters was passed
+    if(!already_called)
+    {
+        zend_error(
+            E_ERROR,
+            "Wrong type or count of parameters passed to: "
+            "wxDateSpan::Years\n"
+        );
+    }
+}
+/* }}} */
+
+BEGIN_EXTERN_C()
 void php_wxRealPoint_free(void *object)
 {
     zo_wxRealPoint* custom_object = (zo_wxRealPoint*) object;
